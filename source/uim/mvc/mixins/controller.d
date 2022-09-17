@@ -26,7 +26,4 @@ template mvcControllerCalls(string name, bool withEntity = false, bool withEntit
   const char[] mvcControllerCalls = mvcControllerCalls(name, withEntity, withEntities);
 }
 
-void testController(DmvcController controller) {
-	assert(controller);	
-			
-}
+
