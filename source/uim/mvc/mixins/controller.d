@@ -1,27 +1,14 @@
 module uim.mvc.mixins.controller;
 
-string appControllerThis(string name, bool withEntity = false, bool withEntities = false) {
+string mvcControllerThis(string name) {
   return `
 this() { super(); this.name("`~name~`"); }
 this(DAPPApplication myApplication) { this().app(myApplication); }
-`~
-(withEntity ? `
-this(DOOPEntity myEntity) { this().entity(myEntity); }
-this(DAPPApplication myApplication, DOOPEntity myEntity) { this(myApplication).entity(myEntity); }
-this(string myName, DOOPEntity myEntity) { this(myName).entity(myEntity); }
-this(DAPPApplication myApplication, string myName, DOOPEntity myEntity) { this(myApplication, myName).entity(myEntity); }
-` : ``)
-~
-(withEntities ? `
-this(DOOPEntity[] myEntities) { this().entities(myEntities); }
-this(DAPPApplication myApplication, DOOPEntity[] myEntities) { this(myApplication).entities(myEntities); }
-this(string myName, DOOPEntity[] myEntities) { this(myName).entities(myEntities); }
-this(DAPPApplication myApplication, string myName, DOOPEntity[] myEntities) { this(myApplication, myName).entities(myEntities); }
-` : ``);
+`);
 }
 
-template APPControllerThis(string name, bool withEntity = false, bool withEntities = false) {
-  const char[] APPControllerThis = appControllerThis(name, withEntity, withEntities);
+template APPControllerThis(string name) {
+  const char[] APPControllerThis = mvcControllerThis(name);
 }
 
 string appControllerCalls(string name, bool withEntity = false, bool withEntities = false) {
