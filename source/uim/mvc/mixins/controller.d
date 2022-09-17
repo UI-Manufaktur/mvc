@@ -2,17 +2,17 @@ module uim.mvc.mixins.controller;
 
 string mvcControllerThis(string name) {
   return `
-this() { super(); this.name("`~name~`"); }
-this(DAPPApplication myApplication) { this().app(myApplication); }
-this(string myName) { this().name(myName); }
-this(STRINGAA myOptions) { this().options(myOptions); }
+    this() { super(); this.name("`~name~`"); }
+    this(DAPPApplication myApplication) { this().app(myApplication); }
+    this(string myName) { this().name(myName); }
+    this(STRINGAA myOptions) { this().options(myOptions); }
 
-this(DAPPApplication myApplication, string myName) { this(myApplication).name(myName); }
-this(DAPPApplication myApplication, STRINGAA myOptions) { this(myApplication).options(myOptions); }
+    this(DAPPApplication myApplication, string myName) { this(myApplication).name(myName); }
+    this(DAPPApplication myApplication, STRINGAA myOptions) { this(myApplication).options(myOptions); }
 
-this(string myName, STRINGAA myOptions) { this(name).options(myOptions); }
-this(DAPPApplication myApplication, string myName, STRINGAA myOptions) { this(myApplication, name).options(myOptions); }
-`);
+    this(string myName, STRINGAA myOptions) { this(name).options(myOptions); }
+    this(DAPPApplication myApplication, string myName, STRINGAA myOptions) { this(myApplication, name).options(myOptions); }
+  `);
 }
 
 template mvcControllerThis(string name) {
