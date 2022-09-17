@@ -24,7 +24,12 @@ string mvcControllerCalls(string shortName, string className) {
 auto `~shortName~`() { return new `~className~`; }
 auto `~shortName~`(DAPPApplication myApplication) { return new `~className~`(myApplication); }
 auto `~shortName~`(string myName) { return new `~className~`(myName); }
+auto `~shortName~`(STRINGAA myOptions) { return new `~className~`(myOptions); }
+
+auto `~shortName~`(string myName, STRINGAA myOptions) { return new `~className~`(myName, myOptions); }
+
 auto `~shortName~`(DAPPApplication myApplication, string myName) { return new `~className~`(myApplication, myName); }
+auto `~shortName~`(DAPPApplication myApplication, STRINGAA myOptions) { return new `~className~`(myApplication, myOptions); }
 `);
 }
 
