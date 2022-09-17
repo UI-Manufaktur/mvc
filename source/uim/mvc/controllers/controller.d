@@ -1,1 +1,4 @@
-module uim.mvc.controllers;
+module uim.mvc.controllers.controller;
+
+@safe:
+import uim.mvc;
