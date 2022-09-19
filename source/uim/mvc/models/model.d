@@ -1,23 +1,21 @@
-module uim.mvc.models;
+module uim.mvc.models.model;
 
 @safe:
 import uim.mvc;
 
-class DMVCModel : IMVCModel { 
+class DMVCModel : DMVCBase, IMVCModel { 
   this() { initialize; } 
   this(DMVCApplication myApplication) { this().application(myApplication); } 
   this(string myName) { this().name(myName); } 
-  this(STRINGAA myOptions) { this().options(myOption); } 
+  this(string[string] myParameters) { this().parameters(myParameters); } 
 
   this(DMVCApplication myApplication, string myName) { this(myApplication).name(myName); } 
-  this(DMVCApplication myApplication, STRINGAA myOptions) { this(myApplication).options(myOption); } 
-  this(DMVCApplication myApplication, string myName, STRINGAA myOptions) { this(myApplication, myName).options(myOption); } 
+  this(DMVCApplication myApplication, string[string] myParameters) { this(myApplication).parameters(myParameters); } 
+  this(DMVCApplication myApplication, string myName, string[string] myParameters) { this(myApplication, myName).parameters(myParameters); } 
 
-  this(string myName, STRINGAA myOptions) { this(myName).options(myOption); } 
+  this(string myName, string[string] myParameters) { this(myName).parameters(myParameters); } 
 
-  mixin(OProperty!("STRINGAA", "parameters"));
-
-  void initialize() {}
+  override void initialize() {}
 }
 mixin(MVCModelCalls!("MVCModel", "DMVCModel"));
 

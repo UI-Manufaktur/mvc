@@ -1,8 +1,8 @@
-module uim.mvc.controllers.components.components;
+module uim.mvc.controllers.components.component;
 
 @safe:
 import uim.mvc;
 
 class DMVCControllerComponent {
-  
+
 }

@@ -3,16 +3,16 @@ module uim.mvc.controllers.controller;
 @safe:
 import uim.mvc;
 
-class DAPPController : DBaseController {
-  mixin(APPControllerThis!("APPController"));
+class DMVCController : DMVCBase, IMVCController  {
+  mixin(MVCControllerThis!("MVCController"));
 
   // Initialization (= hook method)
   override void initialize() {
-    debugMethodCall(moduleName!DAPPController~"::DAPPController("~this.name~"):initialize");   
+    debugMethodCall(moduleName!DMVCController~"::DMVCController("~this.name~"):initialize");   
     super.initialize;
 
     this
-      .name("APPController"); 
+      .name("MVCController"); 
   }
   
   mixin(APPParameter!("mimetype")); 
@@ -21,10 +21,6 @@ class DAPPController : DBaseController {
   mixin(APPParameter!("entitiesName")); 
 	mixin(APPParameter!("language"));
   mixin(APPParameter!("responseResult"));
-
-  /// Owning controller
-  mixin(OProperty!("DAPPApplication", "app"));
-  mixin(OProperty!("DAPPController", "controller"));
 
   mixin(OProperty!("DAPPCheck[]", "checks"));
   O addChecks(this O)(DAPPCheck[] newChecks) {
@@ -45,44 +41,12 @@ class DAPPController : DBaseController {
   /// Configuration of controller
   mixin(OProperty!("Json", "config"));
 
-  // #region database
-    DETBBase _database; 
-    O database(this O)(DETBBase aDatabase) { 
-      _database = aDatabase; 
-      return cast(O)this; }
-
-    DETBBase database() {
-      if (_database) { return _database; } // has his own database
-      if (this.controller && this.controller.database) { return this.controller.database; } // owner has database
-      if (auto myApp = cast(DAPPApplication)app) { return myApp.database; } // Leading app has database
-      return null; // no database found
-    }
-  // #endregion database
-
-version(test_uim_apps) { unittest {
-    writeln("--- Test in ", __MODULE__, "/", __LINE__);
-
-      /// TODO 
-    }}
-
-
-version(test_uim_apps) { unittest {
-    writeln("--- Test in ", __MODULE__, "/", __LINE__);
-
-      /// TODO 
-    }}
-
-  Json message(STRINGAA options) {
+  Json message(string[string] options) {
     auto json = message(Json.emptyObject, options);
     return json;
   }
-  version(test_uim_apps) { unittest {
-      writeln("--- Test in ", __MODULE__, "/", __LINE__);
 
-      /// TODO 
-    }}
-
-  Json message(Json json, STRINGAA options) {    
+  Json message(Json json, string[string] options) {    
     if ("errors" !in json) json["errors"] = Json.emptyArray;
     if ("warnings" !in json) json["warnings"] = Json.emptyArray;
     if ("infos" !in json) json["infos"] = Json.emptyArray;
@@ -90,15 +54,9 @@ version(test_uim_apps) { unittest {
 
     return json;
   }
-version(test_uim_apps) { unittest {
-      writeln("--- Test in ", __MODULE__, "/", __LINE__);
 
-    /// TODO 
-  }}
-
-
-  auto requestParameters(STRINGAA defaultValues = null) {
-    STRINGAA result = defaultValues.dup; 
+  auto requestParameters(string[string] defaultValues = null) {
+    string[string] result = defaultValues.dup; 
     result["httpMode"] = (this.request.fullURL.toString.indexOf("https") == 0 ? "https" : "http");
     result["request"] = this.request.toString;
     result["method"] = to!string(this.request.method);
@@ -126,79 +84,34 @@ version(test_uim_apps) { unittest {
     return result;
   }
 
-  void beforeResponse(STRINGAA options = null) {
-    debugMethodCall(moduleName!DAPPController~":DAPPController("~this.name~")::beforeResponse");
-    this.clearError; // delete existing error message
-
-    if ("appSessionId" !in options) {      
-      options["appSessionId"] = this.request && this.request.session  ? this.request.session.id : null;
-    }
-    debug writeln(moduleName!DAPPController~":DAPPController::appSessionId -> ", options["appSessionId"]);
-
-    foreach(check; checks) {
-      if (!check.controller(this).execute(options)) {
-        this.error(check.error);
-        options["redirect"] = check.redirectUrl;
-      }
-    }
+  void beforeResponse(string[string] options = null) {
+    debugMethodCall(moduleName!DMVCController~":DMVCController("~this.name~")::beforeResponse");
   }    
 
-  void afterResponse(STRINGAA options = null) {
-    debugMethodCall(moduleName!DAPPController~":DAPPController::afterResponse");
+  void afterResponse(string[string] options = null) {
+    debugMethodCall(moduleName!DMVCController~":DMVCController::afterResponse");
+  }
 
-    if (auto appSession = getAppSession(options)) {
-      if (appSession.session) { 
-        appSession.session.save;
-      }
-    }
-  }  
-
-  string stringResponse(STRINGAA options = null) {
-    debugMethodCall(moduleName!DAPPController~":DAPPController::stringResponse");
+  string stringResponse(string[string] options = null) {
+    debugMethodCall(moduleName!DMVCController~":DMVCController::stringResponse");
     return "";
   }
 
-  void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse, STRINGAA options = null) {
-		debugMethodCall(moduleName!DAPPController~":DAPPController("~this.name~")::request(req, res, reqParameters)");
+  void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse, string[string] options = null) {
+		debugMethodCall(moduleName!DMVCController~":DMVCController("~this.name~")::request(req, res, reqParameters)");
 
 		this.request = newRequest; this.response = newResponse;
     options = requestParameters(options);
 		beforeResponse(options);
-
-    if (hasError) {
-      debug writeln("Found error -> ", this.error);
-      if ("redirect" in options) {
-        auto redirect = options["redirect"]; 
-        options.remove("redirect");
-        newResponse.redirect(redirect);
-      } 
-    }
-
-		if ("redirect" in options) {
-      debug writeln("Found redirect to ", options["redirect"]);
-      auto redirect = options["redirect"]; 
-      options.remove("redirect");
-      newResponse.redirect(redirect);
-    } 
-
-    auto result = stringResponse(options);
-
-    afterResponse(options);
-    
-		this.response.writeBody(result, this.mimetype); }
-  version(test_uim_apps) { unittest {
-      writeln("--- Test in ", __MODULE__, "/", __LINE__);
-      
-			/// TODO
-	}}
+  }
 }
-mixin(APPControllerCalls!("APPController"));
+mixin(MVCControllerCalls!("MVCController", "DMVCController"));
 
 version(test_uim_apps) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
-    testController(new DAPPController);
+    testController(new DMVCController);
 
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
-    testController(APPController);
+    testController(MVCController);
 }}
 

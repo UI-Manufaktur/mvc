@@ -1,38 +1,38 @@
-public import uim.mvc.mixins.model;
+module uim.mvc.mixins.model;
 
-string MVCModelThis(string name) {
+string mvcModelThis(string name) {
   return `
     this() { super(); this.name("`~name~`"); }
-    this(DMVCApplication myApplication) { this().app(myApplication); }
+    this(DMVCApplication myApplication) { this().application(myApplication); }
     this(string myName) { this().name(myName); }
-    this(STRINGAA myOptions) { this().options(myOptions); }
+    this(string[string] myParameters) { this().parameters(myParameters); }
 
     this(DMVCApplication myApplication, string myName) { this(myApplication).name(myName); }
-    this(DMVCApplication myApplication, STRINGAA myOptions) { this(myApplication).options(myOptions); }
+    this(DMVCApplication myApplication, string[string] myParameters) { this(myApplication).parameters(myParameters); }
 
-    this(string myName, STRINGAA myOptions) { this(name).options(myOptions); }
-    this(DMVCApplication myApplication, string myName, STRINGAA myOptions) { this(myApplication, name).options(myOptions); }
+    this(string myName, string[string] myParameters) { this(name).parameters(myParameters); }
+    this(DMVCApplication myApplication, string myName, string[string] myParameters) { this(myApplication, name).parameters(myParameters); }
   `;
 }
 
 template MVCModelThis(string name) {
-  const char[] MVCModelThis = MVCModelThis(name);
+  const char[] MVCModelThis = mvcModelThis(name);
 }
 
-string MVCModelCalls(string shortName, string className) {
+string mvcModelCalls(string shortName, string className) {
   return `
     auto `~shortName~`() { return new `~className~`; }
     auto `~shortName~`(DMVCApplication myApplication) { return new `~className~`(myApplication); }
     auto `~shortName~`(string myName) { return new `~className~`(myName); }
-    auto `~shortName~`(STRINGAA myOptions) { return new `~className~`(myOptions); }
+    auto `~shortName~`(string[string] myParameters) { return new `~className~`(myParameters); }
 
-    auto `~shortName~`(string myName, STRINGAA myOptions) { return new `~className~`(myName, myOptions); }
+    auto `~shortName~`(string myName, string[string] myParameters) { return new `~className~`(myName, myParameters); }
 
     auto `~shortName~`(DMVCApplication myApplication, string myName) { return new `~className~`(myApplication, myName); }
-    auto `~shortName~`(DMVCApplication myApplication, STRINGAA myOptions) { return new `~className~`(myApplication, myOptions); }
+    auto `~shortName~`(DMVCApplication myApplication, string[string] myParameters) { return new `~className~`(myApplication, myParameters); }
   `;
 }
 
-template MVCModelCalls(string name, bool withEntity = false, bool withEntities = false) {
-  const char[] MVCModelCalls = MVCModelCalls(name, withEntity, withEntities);
+template MVCModelCalls(string shortName, string className) {
+  const char[] MVCModelCalls = mvcModelCalls(shortName, className);
 }

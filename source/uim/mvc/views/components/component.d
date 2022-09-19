@@ -1,4 +1,4 @@
-module uim.mvc.views.components.components;
+module uim.mvc.views.components.component;
 
 @safe:
 import uim.mvc;
