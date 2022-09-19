@@ -21,6 +21,6 @@ class DMVCView : IMVCView {
 }
 mixin(MVCViewCalls!("MVCView", "DMVCView"));
 
-version(test_uim_mvc) { unitest { 
+version(test_uim_mvc) { unittest { 
   assert(MVCView);
 }} 

@@ -201,5 +201,4 @@ version(test_uim_apps) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
     testController(APPController);
 }}
-Footer
-© 2022 GitHub, In
+

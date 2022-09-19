@@ -21,6 +21,6 @@ class DMVCModel : IMVCModel {
 }
 mixin(MVCModelCalls!("MVCModel", "DMVCModel"));
 
-version(test_uim_mvc) { unitest { 
+version(test_uim_mvc) { unittest { 
   assert(MVCModel);
 }} 

@@ -12,7 +12,7 @@ string mvcControllerThis(string name) {
 
     this(string myName, STRINGAA myOptions) { this(name).options(myOptions); }
     this(DMVCApplication myApplication, string myName, STRINGAA myOptions) { this(myApplication, name).options(myOptions); }
-  `);
+  `;
 }
 
 template MVCControllerThis(string name) {
@@ -21,16 +21,16 @@ template MVCControllerThis(string name) {
 
 string mvcControllerCalls(string shortName, string className) {
   return `
-auto `~shortName~`() { return new `~className~`; }
-auto `~shortName~`(DMVCApplication myApplication) { return new `~className~`(myApplication); }
-auto `~shortName~`(string myName) { return new `~className~`(myName); }
-auto `~shortName~`(STRINGAA myOptions) { return new `~className~`(myOptions); }
+    auto `~shortName~`() { return new `~className~`; }
+    auto `~shortName~`(DMVCApplication myApplication) { return new `~className~`(myApplication); }
+    auto `~shortName~`(string myName) { return new `~className~`(myName); }
+    auto `~shortName~`(STRINGAA myOptions) { return new `~className~`(myOptions); }
 
-auto `~shortName~`(string myName, STRINGAA myOptions) { return new `~className~`(myName, myOptions); }
+    auto `~shortName~`(string myName, STRINGAA myOptions) { return new `~className~`(myName, myOptions); }
 
-auto `~shortName~`(DMVCApplication myApplication, string myName) { return new `~className~`(myApplication, myName); }
-auto `~shortName~`(DMVCApplication myApplication, STRINGAA myOptions) { return new `~className~`(myApplication, myOptions); }
-`);
+    auto `~shortName~`(DMVCApplication myApplication, string myName) { return new `~className~`(myApplication, myName); }
+    auto `~shortName~`(DMVCApplication myApplication, STRINGAA myOptions) { return new `~className~`(myApplication, myOptions); }
+  `;
 }
 
 template MVCControllerCalls(string name, bool withEntity = false, bool withEntities = false) {
