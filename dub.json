@@ -10,9 +10,22 @@
 			"targetType": "library"
 		},
 		{
-			"name": "test",
+			"name": "testLib",
 			"targetType": "library",
 			"versions": [
+				"test_uim_mvc"
+			]
+		},
+		{
+			"name": "testAll",
+			"targetType": "library",
+			"versions": [
+				"test_uim_core",
+				"test_uim_oop",
+				"test_uim_css",
+				"test_uim_javascript",
+				"test_uim_json",
+				"test_uim_bootstrap",
 				"test_uim_mvc"
 			]
 		}

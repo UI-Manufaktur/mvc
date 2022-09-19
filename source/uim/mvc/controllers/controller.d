@@ -108,10 +108,6 @@ class DMVCController : DMVCBase, IMVCController  {
 mixin(MVCControllerCalls!("MVCController", "DMVCController"));
 
 version(test_uim_apps) { unittest {
-    writeln("--- Test in ", __MODULE__, "/", __LINE__);
-    testController(new DMVCController);
-
-    writeln("--- Test in ", __MODULE__, "/", __LINE__);
-    testController(MVCController);
+  testMVCController(MVCController, "MVCController");
 }}
 

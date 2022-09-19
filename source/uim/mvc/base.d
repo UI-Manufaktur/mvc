@@ -3,11 +3,24 @@ module uim.mvc.base;
 @safe:
 import uim.mvc;
 
-class DMVCBase {
-  this() {}
+interface IMVCBase {
+  string name();
+  O name(this O)(string newName);
+}
+
+class DMVCBase : IMVCBase {
+  // Constructors for the main properties
+  this() { initialize; }
+  this(DMVCApplication newApplication) { this().application(newApplication); }
+  this(string newName) { this().name(newName); }
+  this(string[string] newParameters) { this().parameters(newParameters); }
+  this(DMVCApplication newApplication, string newName) { this(newApplication).name(newName); }
+  this(DMVCApplication newApplication, string[string] newParameters) { this(newApplication).parameters(newParameters); }
+  this(string newName, string[string] newParameters) { this(newName).parameters(newParameters); }
+  this(DMVCApplication newApplication, string newName, string[string] newParameters) { this(newApplication, newName).parameters(newParameters); }
 
   void initialize() {
-    // Code for initialization of new objects
+    // Code for object initialization
   }
 
   mixin(OProperty!("DMVCApplication", "application"));
