@@ -1,0 +1,21 @@
+module uim.mvc.routes.route;
+
+@safe:
+import uim.mvc;
+
+class DMVCRoute : DMVCBase, IMVCRoute {
+  this() { super(); }
+  this(string aPath, HTTPMethod aMethod, DMVCController aController) {
+    this().path(aPath).method(aMethod).controller(aController);
+  }
+
+  override void initialize() {
+    super.initialize;
+  }
+
+  mixin(OProperty!("string", "path"));
+  mixin(OProperty!("HTTPMethod", "method"));
+  mixin(OProperty!("DMVCController", "controller"));
+}
+auto MVCRoute() { return new DMVCRoute; }
+auto MVCRoute(string aPath, HTTPMethod aMethod, DMVCController aController) { return new DMVCRoute(aPath, aMethod, aController); }

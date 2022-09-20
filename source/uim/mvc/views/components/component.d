@@ -6,7 +6,9 @@ import uim.mvc;
 class DMVCViewComponent : DMVCBase, IMVCViewComponent {
   mixin(MVCViewComponentThis!("MVCViewComponent"));
 
-  override void initialize() {}
+  override void initialize() {
+    super.initialize;
+  }
 
   mixin(OProperty!("DMVCView", "view"));
 }

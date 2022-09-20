@@ -63,9 +63,10 @@ public import uim.oop;
 public import uim.apps;
 public import uim.servers;
 
-public import uim.mvc.application;
 public import uim.mvc.base;
 
+public import uim.mvc.applications;
+public import uim.mvc.routes;
 public import uim.mvc.models;
 public import uim.mvc.views;
 public import uim.mvc.controllers;

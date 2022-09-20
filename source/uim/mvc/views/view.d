@@ -4,20 +4,13 @@ module uim.mvc.views.view;
 import uim.mvc;
 
 class DMVCView : DMVCBase, IMVCView { 
-  this() { super(); initialize; } 
-  this(DMVCApplication myApplication) { this().application(myApplication); } 
-  this(string myName) { this().name(myName); } 
-  this(string[string] myParameters) { this().parameters(myParameters); } 
+  mixin(MVCViewThis!("MVCView"));
 
-  this(DMVCApplication myApplication, string myName) { this(myApplication).name(myName); } 
-  this(DMVCApplication myApplication, string[string] myParameters) { this(myApplication).parameters(myParameters); } 
-  this(DMVCApplication myApplication, string myName, string[string] myParameters) { this(myApplication, myName).parameters(myParameters); } 
-
-  this(string myName, string[string] myParameters) { this(myName).parameters(myParameters); } 
-
-  mixin(OProperty!("DMVCController", "controller"));  
-  override void initialize() {}
+  override void initialize() {
+    super.initialize;
+  }
   
+  mixin(OProperty!("DMVCController", "controller"));  
 }
 mixin(MVCViewCalls!("MVCView", "DMVCView"));
 

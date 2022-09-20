@@ -8,7 +8,9 @@ class DMVCControllerComponent : DMVCBase, IMVCControllerComponent {
 
   mixin(OProperty!("DMVCController", "controller"));  
 
-  override void initialize() {}
+  override void initialize() {
+    super.initialize;
+  }
 }
 mixin(MVCControllerComponentCalls!("MVCControllerComponent", "DMVCControllerComponent"));
 
