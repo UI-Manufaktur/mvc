@@ -32,11 +32,14 @@ class DMVCApplication : DMVCBase, IMVCApplication {
   }
 
   O register(this O)(URLRouter router) {
-    router.any(rootPath, &request);
+    router.any(rootPath~"*", &this.request);
     return cast(O)this;
   }
 
-  void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse, string[string] options = null) {
+  void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse) {
+    request(newRequest, newResponse, null);
+  }
+  void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse, string[string] options) {
 		debugMethodCall(moduleName!DMVCController~":DMVCController("~this.name~")::request(req, res, reqParameters)");
 
     writeln("fullURL = ", newRequest.fullURL);
@@ -48,7 +51,9 @@ auto MVCApplication() { return new DMVCApplication; }
 version(test_uim_mvc) unittest {
   assert(
     MVCApplication
-      .addRoute(MVCRoute("ecm/documents", HTTPMethod.GET, MVCController))
-      .addRoute(MVCRoute("ecm/folders", HTTPMethod.GET, MVCController))
+      .addRoute(MVCRoute("ecm/index", HTTPMethod.GET, MVCPageController))
+      .addRoute(MVCRoute("ecm/documents", HTTPMethod.GET, MVCPageController))
+      .addRoute(MVCRoute("ecm/folders", HTTPMethod.GET, MVCPageController))
+      .addRoute(MVCRoute("ecm/workspaces", HTTPMethod.GET, MVCPageController))
   );
 }

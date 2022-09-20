@@ -6,7 +6,7 @@ import uim.mvc;
 class DMVCControllerComponent : DMVCBase, IMVCControllerComponent {
   mixin(MVCControllerComponentThis!("MVCControllerComponent"));
 
-  mixin(OProperty!("DMVCController", "controller"));  
+  mixin(OProperty!("IMVCController", "controller"));  
 
   override void initialize() {
     super.initialize;

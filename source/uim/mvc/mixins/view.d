@@ -4,6 +4,7 @@ string mvcViewThis(string name) {
   return `
     this() { super(); this.name("`~name~`"); }
     this(DMVCApplication myApplication) { this().application(myApplication); }
+    this(IMVCController myController) { this().controller(myController); }
     this(string myName) { this().name(myName); }
     this(string[string] myParameters) { this().parameters(myParameters); }
 
@@ -23,6 +24,7 @@ string mvcViewCalls(string shortName, string className) {
   return `
     auto `~shortName~`() { return new `~className~`; }
     auto `~shortName~`(DMVCApplication myApplication) { return new `~className~`(myApplication); }
+    auto `~shortName~`(IMVCController myController) { return new `~className~`(myController); }
     auto `~shortName~`(string myName) { return new `~className~`(myName); }
     auto `~shortName~`(string[string] myParameters) { return new `~className~`(myParameters); }
 

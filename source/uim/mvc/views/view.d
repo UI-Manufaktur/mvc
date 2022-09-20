@@ -10,7 +10,12 @@ class DMVCView : DMVCBase, IMVCView {
     super.initialize;
   }
   
-  mixin(OProperty!("DMVCController", "controller"));  
+  mixin(OProperty!("IMVCController", "controller"));  
+
+  DH5Obj[] toH5(STRINGAA options = null) {
+    debugMethodCall(moduleName!DMVCView~":DMVCView("~this.name~")::toH5");
+    return null;
+  }
 }
 mixin(MVCViewCalls!("MVCView", "DMVCView"));
 

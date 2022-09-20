@@ -4,6 +4,6 @@ module uim.mvc.controllers.components.interface_;
 import uim.mvc;
 
 interface IMVCControllerComponent : IMVCBase {
-  DMVCController controller();
-  O controller(this O)(DMVCController newController);
+  IMVCController controller();
+  O controller(this O)(IMVCController newController);
 }

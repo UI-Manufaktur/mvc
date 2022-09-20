@@ -15,12 +15,29 @@ class DMVCController : DMVCBase, IMVCController  {
       .name("MVCController"); 
   }
   
-  mixin(APPParameter!("mimetype")); 
-  mixin(APPParameter!("rootPath")); 
-  mixin(APPParameter!("collectionName"));
-  mixin(APPParameter!("entitiesName")); 
-	mixin(APPParameter!("language"));
-  mixin(APPParameter!("responseResult"));
+  mixin(MVCParameter!("mimetype")); 
+  mixin(MVCParameter!("rootPath")); 
+  mixin(MVCParameter!("collectionName"));
+  mixin(MVCParameter!("entitiesName")); 
+	mixin(MVCParameter!("language"));
+  mixin(MVCParameter!("responseResult"));
+
+  mixin(MVCParameter!("httpMode"));
+  mixin(MVCParameter!("requestCall"));
+  mixin(MVCParameter!("method"));
+  mixin(MVCParameter!("form"));
+  mixin(MVCParameter!("peer"));
+  mixin(MVCParameter!("host"));
+  mixin(MVCParameter!("path"));
+  mixin(MVCParameter!("queryString"));
+  mixin(MVCParameter!("fullURL"));
+  mixin(MVCParameter!("json"));
+  mixin(MVCParameter!("username"));
+  mixin(MVCParameter!("password"));
+  mixin(MVCParameter!("contentType"));
+  mixin(MVCParameter!("contentTypeParameters"));
+  mixin(MVCParameter!("timeCreated"));
+  mixin(MVCParameter!("persistent"));
 
   mixin(OProperty!("DAPPCheck[]", "checks"));
   O addChecks(this O)(DAPPCheck[] newChecks) {
