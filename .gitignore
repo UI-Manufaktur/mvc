@@ -24,3 +24,4 @@ docs/
 *.lst
 dub.selections.json
 uim-mvc-test-offline
+uim-mvc-test-testLib
