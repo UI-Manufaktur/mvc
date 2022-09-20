@@ -3,6 +3,12 @@ module uim.mvc.application;
 @safe:
 import uim.mvc;
 
-class DMVCApplication {
+interface IMVCApplication : IMVCBase {
+  
+}
+
+class DMVCApplication : DMVCBase, IMVCApplication { 
+  this() { initialize; }
+
   
 }
