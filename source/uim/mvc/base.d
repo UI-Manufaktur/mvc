@@ -49,6 +49,23 @@ class DMVCBase : IMVCBase {
   }
 // End Parameters ----
 
+// #region error handling
+    string _error;
+    string error() { return _error; }
+    O error(this O)(string newError) {
+      debug writeln("New Error:", newError);
+      _error = newError;
+      return cast(O)this;
+    }
+
+    bool hasError() { return (this.error.length > 0); } 
+    O clearError(this O)() {
+      _error = null;
+      return cast(O)this;
+    }
+  // #endregion error
+
+
   O create(this O)() {
     return new O;
   }

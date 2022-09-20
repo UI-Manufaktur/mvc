@@ -117,9 +117,29 @@ class DMVCController : DMVCBase, IMVCController  {
   void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse, string[string] options = null) {
 		debugMethodCall(moduleName!DMVCController~":DMVCController("~this.name~")::request(req, res, reqParameters)");
 
+void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse, STRINGAA options = null) {
+		debugMethodCall(moduleName!DAPPController~":DAPPController("~this.name~")::request(req, res, reqParameters)");
+
 		this.request = newRequest; this.response = newResponse;
     options = requestParameters(options);
 		beforeResponse(options);
+
+    if (hasError) {
+      debug writeln("Found error -> ", this.error);
+      options["redirect"] = "/error";
+    }
+
+		if ("redirect" in options) {
+      debug writeln("Found redirect to ", options["redirect"]);
+      auto redirect = options["redirect"]; 
+      options.remove("redirect");
+      newResponse.redirect(redirect);
+    } 
+
+    auto result = stringResponse(options);
+    afterResponse(options);
+    
+		this.response.writeBody(result, this.mimetype); }
   }
 }
 mixin(MVCControllerCalls!("MVCController", "DMVCController"));
