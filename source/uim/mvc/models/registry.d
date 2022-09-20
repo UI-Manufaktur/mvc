@@ -16,7 +16,7 @@ auto MVCModelRegistry() {
   DMVCModelRegistry.registry;
 }
 
-unittest {
-  writeln(MVCModelRegistry.register("mvc/model", MVCModel).paths);
-  writeln(MVCModelRegistry.register("mvc/model2", MVCModel).paths);
-}
+version(test_uim_mvc) { unittest {
+  assert(MVCModelRegistry.register("mvc/model",  MVCModel).paths == ["mvc/model"]);
+  assert(MVCModelRegistry.register("mvc/model2", MVCModel).paths.length == 2);
+}}

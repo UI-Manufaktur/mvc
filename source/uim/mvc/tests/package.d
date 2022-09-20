@@ -3,7 +3,10 @@ module uim.mvc.tests;
 @safe:
 import uim.mvc;
 
-void testController(DMVCController controller) {
-	assert(controller);	
-			
-}
+public import uim.mvc.tests.controller;
+public import uim.mvc.tests.controllercomponent;
+
+public import uim.mvc.tests.model;
+
+public import uim.mvc.tests.view;
+public import uim.mvc.tests.viewcomponent;

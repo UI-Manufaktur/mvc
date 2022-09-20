@@ -16,7 +16,7 @@ auto MVCViewRegistry() {
   DMVCViewRegistry.registry;
 }
 
-unittest {
-  writeln(MVCViewRegistry.register("mvc/view", MVCView).paths);
-  writeln(MVCViewRegistry.register("mvc/view2", MVCView).paths);
-}
+version(test_uim_mvc) { unittest {
+  assert(MVCViewRegistry.register("mvc/view",  MVCView).paths == ["mvc/view"]);
+  assert(MVCViewRegistry.register("mvc/view2", MVCView).paths.length == 2);
+}}

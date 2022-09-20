@@ -70,4 +70,6 @@ public import uim.mvc.models;
 public import uim.mvc.views;
 public import uim.mvc.controllers;
 
+// helper
 public import uim.mvc.mixins;
+public import uim.mvc.tests;

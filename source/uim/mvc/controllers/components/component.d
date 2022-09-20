@@ -6,12 +6,12 @@ import uim.mvc;
 class DMVCControllerComponent : DMVCBase, IMVCControllerComponent {
   mixin(MVCControllerComponentThis!("MVCControllerComponent"));
 
+  mixin(OProperty!("DMVCController", "controller"));  
+
   override void initialize() {}
 }
 mixin(MVCControllerComponentCalls!("MVCControllerComponent", "DMVCControllerComponent"));
 
 version(test_uim_mvc) unittest {
-  assert(MVCControllerComponent.name == "MVCControllerComponent");
-  assert(cast(DMVCControllerComponent)MVCControllerComponent);
-  assert(cast(IMVCControllerComponent)MVCControllerComponent);
+  testMVCControllerComponent(MVCControllerComponent, "MVCControllerComponent");
 }

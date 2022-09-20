@@ -13,10 +13,10 @@ auto MVCControllerRegistry() {
     DMVCControllerRegistry.registry = new DMVCControllerRegistry; 
   }
   return 
-  DMVCControllerRegistry.registry;
+    DMVCControllerRegistry.registry;
 }
 
-unittest {
-  writeln(MVCControllerRegistry.register("mvc/controller", MVCController).paths);
-  writeln(MVCControllerRegistry.register("mvc/controller2", MVCController).paths);
-}
+version(test_uim_mvc) { unittest {
+  assert(MVCControllerRegistry.register("mvc/controllercomponent",  MVCController).paths == ["mvc/controllercomponent"]);
+  assert(MVCControllerRegistry.register("mvc/controllercomponent2", MVCController).paths.length == 2);
+}}

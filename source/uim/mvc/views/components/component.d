@@ -13,7 +13,5 @@ class DMVCViewComponent : DMVCBase, IMVCViewComponent {
 mixin(MVCViewComponentCalls!("MVCViewComponent", "DMVCViewComponent"));
 
 version(test_uim_mvc) unittest {
-  assert(MVCViewComponent.name == "MVCViewComponent");
-  assert(cast(DMVCViewComponent)MVCViewComponent);
-  assert(cast(IMVCViewComponent)MVCViewComponent);
+  testMVCViewComponent(MVCViewComponent, "MVCViewComponent");
 }

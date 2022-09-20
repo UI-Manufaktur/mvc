@@ -15,6 +15,7 @@ class DMVCView : DMVCBase, IMVCView {
 
   this(string myName, string[string] myParameters) { this(myName).parameters(myParameters); } 
 
+  mixin(OProperty!("DMVCController", "controller"));  
   override void initialize() {}
   
 }
