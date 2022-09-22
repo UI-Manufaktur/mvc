@@ -1,5 +1,8 @@
 module uim.mvc.mixins.model;
 
+@safe:
+import uim.mvc;
+
 string mvcModelThis(string name) {
   return `
     this() { super(); this.name("`~name~`"); }

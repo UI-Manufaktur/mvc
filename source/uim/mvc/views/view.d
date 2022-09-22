@@ -21,4 +21,9 @@ mixin(MVCViewCalls!("MVCView", "DMVCView"));
 
 version(test_uim_mvc) { unittest { 
   testMVCView(MVCView, "MVCView");
+
+  assert(MVCView.name == "MVCView");
+  assert(MVCView.create.name == "MVCView");
+  assert(MVCView.clone.name == "MVCView");
+  writeln((cast(DMVCBase)MVCView).create.name);
 }} 

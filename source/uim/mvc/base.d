@@ -6,6 +6,9 @@ import uim.mvc;
 interface IMVCBase {
   string name();
   O name(this O)(string newName);
+
+  O fromJson(this O)(Json values);
+  Json toJson();
 }
 
 class DMVCBase : IMVCBase {
@@ -21,10 +24,12 @@ class DMVCBase : IMVCBase {
 
   void initialize() {
     // Code for object initialization
+    this
+      .name("MVCBase");
   }
 
   mixin(OProperty!("DMVCApplication", "application"));
-  mixin(OProperty!("string", "name"));
+  mixin(MVCParameter!("name"));
 
 // Start Parameters ----
   mixin(OProperty!("string[string]", "parameters")); 
@@ -65,13 +70,58 @@ class DMVCBase : IMVCBase {
     }
   // #endregion error
 
-
-  O create(this O)() {
-    return new O;
+  DMVCBase create() {
+    return MVCBase;
   }
 
-  O clone(this O)() {
-    O obj = create;
-    return obj;
+  DMVCBase clone() {
+    DMVCBase result = create;
+    result.application(this.application);
+    return result.fromJson(this.toJson);
   }
+
+  O fromJson(this O)(Json values) {
+    if (values != Json(null)) {
+    
+      foreach (keyvalue; values.byKeyValue) {
+        this.parameter(
+          keyvalue.key,
+          keyvalue.value.get!string
+        );
+      }
+    }
+      
+    return cast(O)this;
+  }
+
+  Json toJson() {
+    Json result = Json.emptyObject;
+
+    foreach(k, v; this.parameters) {
+      result[k] = v;
+    }
+
+    return result;
+  }
+
+  override string toString() {
+    return toJson.toString;
+  }
+}
+auto MVCBase() { return new DMVCBase; }
+
+version(test_uim_mvc) unittest {
+  assert(MVCBase);
+  assert(MVCBase.name("testName").name == "testName");
+
+  assert(MVCBase.parameter("test", "value").hasParameter("test"));
+  assert(MVCBase.parameter("test", "value").parameter("test") == "value");
+
+  auto json = Json.emptyObject;
+  json["test"] = "value";
+  assert(MVCBase.fromJson(json).hasParameter("test"));
+  assert(MVCBase.fromJson(json).parameter("test") == "value");
+  
+  assert(MVCBase.create.name == "MVCBase");
+  assert(MVCBase.clone.name == "MVCBase");
 }

@@ -1,5 +1,8 @@
 module uim.mvc.mixins.controllercomponent;
 
+@safe:
+import uim.mvc;
+
 string mvcControllerComponentThis(string name) {
   return `
     this() { super(); this.name("`~name~`"); }
