@@ -16,7 +16,7 @@ string mvcBaseThis(string name) {
     this(string myName, string[string] myParameters) { this(name).parameters(myParameters); }
     this(DMVCApplication myApplication, string myName, string[string] myParameters) { this(myApplication, name).parameters(myParameters); }
 
-    override DMVCBase craete() {
+    override DMVCBase create() {
       return `~name~`;
     }
   `;

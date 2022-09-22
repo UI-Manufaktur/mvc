@@ -23,12 +23,13 @@ class DMVCController : DMVCBase, IMVCController  {
   mixin(MVCParameter!("responseResult"));
 
   mixin(MVCParameter!("httpMode"));
-  mixin(MVCParameter!("requestCall"));
+  mixin(MVCParameter!("stringRequest"));
   mixin(MVCParameter!("method"));
   mixin(MVCParameter!("form"));
   mixin(MVCParameter!("peer"));
   mixin(MVCParameter!("host"));
   mixin(MVCParameter!("path"));
+  mixin(MVCParameter!("rootDir"));
   mixin(MVCParameter!("queryString"));
   mixin(MVCParameter!("fullURL"));
   mixin(MVCParameter!("json"));
@@ -74,23 +75,24 @@ class DMVCController : DMVCBase, IMVCController  {
 
   auto requestParameters(string[string] defaultValues = null) {
     string[string] result = defaultValues.dup; 
-    result["httpMode"] = (this.request.fullURL.toString.indexOf("https") == 0 ? "https" : "http");
-    result["request"] = this.request.toString;
-    result["method"] = to!string(this.request.method);
-    result["form"] = this.request.form.toString;
-    result["peer"] = this.request.peer;
-    result["host"] = this.request.host;
-    result["path"] = this.request.path;
-    result["rootDir"] = this.request.rootDir;
-    result["queryString"] = this.request.queryString;
-    result["fullURL"] = this.request.fullURL.toString;
-    result["json"] = this.request.json.toString;
-    result["username"] = this.request.username;
-    result["password"] = this.request.password;
-    result["contentType"] = this.request.contentType;
-    result["contentTypeParameters"] = this.request.contentTypeParameters;
-    result["timeCreated"] = to!string(toTimestamp(this.request.timeCreated));
-    result["persistent"] = to!string(this.request.persistent);
+    this
+      .httpMode((this.request.fullURL.toString.indexOf("https") == 0 ? "https" : "http"))
+      .stringRequest(this.request.toString)
+      .method(to!string(this.request.method))
+      .form(this.request.form.toString)
+      .peer(this.request.peer)
+      .host(this.request.host)
+      .path(this.request.path)
+      .rootDir(this.request.rootDir)
+      .queryString(this.request.queryString)
+      .fullURL(this.request.fullURL.toString)
+      .json(this.request.json.toString)
+      .username(this.request.username)
+      .password(this.request.password)
+      .contentType(this.request.contentType)
+      .contentTypeParameters(this.request.contentTypeParameters)
+      .timeCreated(to!string(toTimestamp(this.request.timeCreated)))
+      .persistent(to!string(this.request.persistent));
     
     foreach(key; this.request.params.byKey) result[key] = this.request.params.getAll(key).map!(k => to!string(k)).join(",");
     foreach(key; this.request.headers.byKey) result[key] = this.request.headers.getAll(key).map!(k => to!string(k)).join(",");
@@ -117,7 +119,7 @@ class DMVCController : DMVCBase, IMVCController  {
   void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse, string[string] options = null) {
 		debugMethodCall(moduleName!DMVCController~":DMVCController("~this.name~")::request(req, res, reqParameters)");
 
-void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse, STRINGAA options = null) {
+  void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse, STRINGAA options = null) {
 		debugMethodCall(moduleName!DAPPController~":DAPPController("~this.name~")::request(req, res, reqParameters)");
 
 		this.request = newRequest; this.response = newResponse;
@@ -144,7 +146,12 @@ void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse, STRIN
 }
 mixin(MVCControllerCalls!("MVCController", "DMVCController"));
 
-version(test_uim_apps) { unittest {
+version(test_uim_mvc) { unittest {
   testMVCController(MVCController, "MVCController");
-}}
+
+  assert(MVCController.name == "MVCController");
+  assert(MVCController.create.name == "MVCController");
+  assert(MVCController.clone.name == "MVCController");
+}} 
+
 

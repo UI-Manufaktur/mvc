@@ -14,6 +14,10 @@ class DMVCControllerComponent : DMVCBase, IMVCControllerComponent {
 }
 mixin(MVCControllerComponentCalls!("MVCControllerComponent", "DMVCControllerComponent"));
 
-version(test_uim_mvc) unittest {
+version(test_uim_mvc) { unittest {
   testMVCControllerComponent(MVCControllerComponent, "MVCControllerComponent");
-}
+
+  assert(MVCControllerComponent.name == "MVCControllerComponent");
+  assert(MVCControllerComponent.create.name == "MVCControllerComponent");
+  assert(MVCControllerComponent.clone.name == "MVCControllerComponent");
+}} 

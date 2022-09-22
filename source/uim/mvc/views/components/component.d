@@ -10,10 +10,14 @@ class DMVCViewComponent : DMVCBase, IMVCViewComponent {
     super.initialize;
   }
 
-  mixin(OProperty!("DMVCView", "view"));
+  mixin(OProperty!("IMVCView", "view"));
 }
 mixin(MVCViewComponentCalls!("MVCViewComponent", "DMVCViewComponent"));
 
-version(test_uim_mvc) unittest {
+version(test_uim_mvc) { unittest {
   testMVCViewComponent(MVCViewComponent, "MVCViewComponent");
-}
+
+  assert(MVCViewComponent.name == "MVCViewComponent");
+  assert(MVCViewComponent.create.name == "MVCViewComponent");
+  assert(MVCViewComponent.clone.name == "MVCViewComponent");
+}} 
