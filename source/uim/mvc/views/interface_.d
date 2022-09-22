@@ -8,4 +8,5 @@ interface IMVCView : IMVCBase {
   O controller(this O)(IMVCController newController);
 
   DH5Obj[] toH5(STRINGAA options = null);
+  string render(STRINGAA options = null);
 }

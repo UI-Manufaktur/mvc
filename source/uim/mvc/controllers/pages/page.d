@@ -19,6 +19,13 @@ class DMVCPageController : DMVCController {
     super.beforeResponse(options);
   }    
 
+  override string stringResponse(string[string] options = null) {
+    debugMethodCall(moduleName!DMVCController~":DMVCController::stringResponse");
+    super.stringRsponse(options);
+    if (view) return view.render(options);
+    return "";
+  }
+
   override void afterResponse(STRINGAA options = null) {
     debugMethodCall(moduleName!DMVCPageController~":DMVCPageController::afterResponse");
     super.afterResponse(options);
