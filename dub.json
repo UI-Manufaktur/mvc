@@ -35,7 +35,7 @@
 		"colored": "~>0.0.29",
 		"vibe-d": "~>0.9.5"
 	},
-	"description": "A minimal D application.",
+	"description": "D library for MVC projects.",
 	"targetType": "library",
 	"importPaths": [
 		"../uim-core",
@@ -48,9 +48,7 @@
 		"../uim-entities",
 		"../uim-jsonbase",
 		"../uim-entitybase",
-		"../uim-apps",
 		"../uim-controls",
-		"../uim-servers",
 		"../../LAYOUTS/layout-tabler/source/layouts",
 		"./"
 	],
@@ -67,9 +65,7 @@
 		"../uim-entities",
 		"../uim-jsonbase",
 		"../uim-entitybase",
-		"../uim-apps",
 		"../uim-controls",
-		"../uim-servers",
 		"../../LAYOUTS/layout-tabler/source/layouts",
 		"./"
 	]

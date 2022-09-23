@@ -11,13 +11,20 @@ class DMVCApplication : DMVCBase, IMVCApplication {
   }
 
   mixin(OProperty!("string", "rootPath"));
+  mixin(OProperty!("DMVCLayout", "layout"));
   mixin(OProperty!("DMVCRoute[HTTPMethod][string]", "routes"));
 
+  auto routesPaths() {
+    return _routes.keys; 
+  }
+
   auto routes(string path) {
+    debug writeln("Get routes at '%s'".format(path));
     return _routes.get(path, null); 
   }
 
   auto route(string path, HTTPMethod method) {
+    debug writeln("Get route at '%s' and '%s'".format(path, method));
     if (auto routesAtPath = _routes.get(path, null)) {
       return routesAtPath.get(method, null);
     } 
@@ -25,13 +32,16 @@ class DMVCApplication : DMVCBase, IMVCApplication {
   }
 
   O addRoute(this O)(DMVCRoute newRoute) {
-    if (auto routesAtPath = _routes.get(newRoute.path, null)) {
-      routesAtPath[newRoute.method] = newRoute;
-    }
+    debug writeln("Adding route at '%s'".format(newRoute.path));
+    DMVCRoute[HTTPMethod] routesAtPath = _routes.get(newRoute.path, null);
+    routesAtPath[newRoute.method] = newRoute;
+
+    _routes[newRoute.path] = routesAtPath;
     return cast(O)this;
   }
 
   O register(this O)(URLRouter router) {
+    debug writeln("Link Path '%s'".format(rootPath~"*"));
     router.any(rootPath~"*", &this.request);
     return cast(O)this;
   }
@@ -42,14 +52,20 @@ class DMVCApplication : DMVCBase, IMVCApplication {
   void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse, string[string] options) {
 		debugMethodCall(moduleName!MVCApplication~":MVCApplication("~this.name~")::request(req, res, reqParameters)");
 
-    writeln("fullURL = ", newRequest.fullURL);
-    writeln("rootDir = ", newRequest.rootDir);
-    writeln("path    = ", newRequest.path);
+    writeln("rootPath = '%s'".format(this.rootPath));
+    writeln("newRequest.fullURL = '%s'".format(newRequest.fullURL));
+    writeln("newRequest.rootDir = '%s'".format(newRequest.rootDir));
+    writeln("newRequest.path    = '%s'".format(newRequest.path));
 
-    if (auto myRoute = route(newRequest.path, newRequest.method)) {
-      debug writeln("Found route");
+    writeln(routesPaths);
+    if (newRequest.path.length >= rootPath.length) {
+      auto myPath = newRequest.path[rootPath.length..$];
+      writeln("myPath = '%s'".format(myPath));
+      if (auto myRoute = route(myPath, newRequest.method)) {
+        debug writeln("Found route");
 
-      myRoute.controller.request(newRequest, newResponse, options);
+        myRoute.controller.request(newRequest, newResponse, options);
+      }
     }
   }
 }

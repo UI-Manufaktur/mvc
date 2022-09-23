@@ -116,10 +116,11 @@ class DMVCController : DMVCBase, IMVCController  {
     return "";
   }
 
-  void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse, string[string] options = null) {
-		debugMethodCall(moduleName!DMVCController~":DMVCController("~this.name~")::request(req, res, reqParameters)");
+  void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse) {
+		debugMethodCall(moduleName!DMVCController~":DMVCController("~this.name~")::request(req, res)");
+  }
 
-  void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse, STRINGAA options = null) {
+  void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse, STRINGAA options) {
 		debugMethodCall(moduleName!DAPPController~":DAPPController("~this.name~")::request(req, res, reqParameters)");
 
 		this.request = newRequest; this.response = newResponse;
@@ -141,7 +142,7 @@ class DMVCController : DMVCBase, IMVCController  {
     auto result = stringResponse(options);
     afterResponse(options);
     
-		this.response.writeBody(result, this.mimetype); }
+		this.response.writeBody(result, this.mimetype); 
   }
 }
 mixin(MVCControllerCalls!("MVCController", "DMVCController"));

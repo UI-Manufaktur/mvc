@@ -39,7 +39,7 @@ auto MVCLinkContainer() { return new DMVCLinkContainer; }
 version(test_uim_MVCs) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
     
-/*     assert(new DMVCLinkContainer);
+assert(new DMVCLinkContainer);
     assert(MVCLinkContainer);
     assert(cast(DMVCLinkContainer)MVCLinkContainer);
     assert(!MVCLinkContainer.entries);
@@ -55,6 +55,6 @@ version(test_uim_MVCs) { unittest {
 
     assert(MVCLinkContainer.entries.add(["abc", "xyz"]).entries.length == 2);
     assert(MVCLinkContainer.entries.add([["src":"abc"], ["src":"xyz"]]).entries.length == 2);
-    assert(MVCLinkContainer.entries.add([H5Link, H5Link]).entries.length == 2); */
+    assert(MVCLinkContainer.entries.add([H5Link, H5Link]).entries.length == 2); 
   }
 }

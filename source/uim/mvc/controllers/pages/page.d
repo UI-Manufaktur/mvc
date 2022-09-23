@@ -39,8 +39,14 @@ class DMVCPageController : DMVCController {
   override string stringResponse(string[string] options = null) {
     debugMethodCall(moduleName!DMVCController~":DMVCController::stringResponse");
     super.stringResponse(options);
-    if (view) return view.render(options);
-    return "";
+
+    string result;
+    if (view) result = view.render(options);
+    if (this.application && this.application.layout) {
+      
+    }
+
+    return result;
   }
 
   override void afterResponse(STRINGAA options = null) {
