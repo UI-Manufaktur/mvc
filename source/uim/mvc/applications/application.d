@@ -40,10 +40,17 @@ class DMVCApplication : DMVCBase, IMVCApplication {
     request(newRequest, newResponse, null);
   }
   void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse, string[string] options) {
-		debugMethodCall(moduleName!DMVCController~":DMVCController("~this.name~")::request(req, res, reqParameters)");
+		debugMethodCall(moduleName!MVCApplication~":MVCApplication("~this.name~")::request(req, res, reqParameters)");
 
     writeln("fullURL = ", newRequest.fullURL);
     writeln("rootDir = ", newRequest.rootDir);
+    writeln("path    = ", newRequest.path);
+
+    if (auto myRoute = route(newRequest.path, newRequest.method)) {
+      debug writeln("Found route");
+
+      myRoute.controller.request(newRequest, newResponse, options);
+    }
   }
 }
 auto MVCApplication() { return new DMVCApplication; }

@@ -6,13 +6,30 @@ import uim.mvc;
 class DMVCPageController : DMVCController {
   mixin(MVCControllerThis!("MVCPageController"));
 
+  override void initialize() {
+    super.initialize;
+
+    this
+      .language("en") 
+      .mimetype("text/html");
+    
+/*     requestReader = MVCRequestReader(this);
+    sessionReader = MVCSessionReader(this);  
+ */
+    this
+      .links(MVCLinkContainer)
+      .metas(MVCMetaContainer) 
+      .scripts(MVCScriptContainer) 
+      .styles(MVCStyleContainer); 
+  }
+
   mixin(OProperty!("DMVCView", "view"));
 
   // Containers
-  mixin(OProperty!("DAPPLinkContainer", "links"));
-  mixin(OProperty!("DAPPMetaContainer", "metas"));
-  mixin(OProperty!("DAPPScriptContainer", "scripts"));
-  mixin(OProperty!("DAPPStyleContainer", "styles"));
+  mixin(OProperty!("DMVCLinkContainer", "links"));
+  mixin(OProperty!("DMVCMetaContainer", "metas"));
+  mixin(OProperty!("DMVCScriptContainer", "scripts"));
+  mixin(OProperty!("DMVCStyleContainer", "styles"));
   
   override void beforeResponse(STRINGAA options = null) {
     debugMethodCall(moduleName!DMVCPageController~":DMVCPageController("~this.name~")::beforeResponse");

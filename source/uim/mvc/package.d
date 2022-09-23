@@ -71,6 +71,7 @@ public import uim.mvc.layouts;
 public import uim.mvc.models;
 public import uim.mvc.views;
 public import uim.mvc.controllers;
+public import uim.mvc.containers;
 
 // helper
 public import uim.mvc.mixins;
