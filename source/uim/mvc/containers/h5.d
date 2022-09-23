@@ -3,6 +3,7 @@ module uim.mvc.containers.h5;
 @safe:
 import uim.mvc;
 
+// Container for H5 data
 class DMVCH5Container {
   mixin(OProperty!("DH5Obj[]", "entries"));
   DH5Obj[] toH5() { return _entries; }
