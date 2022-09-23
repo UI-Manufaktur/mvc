@@ -67,6 +67,7 @@ public import uim.mvc.base;
 
 public import uim.mvc.applications;
 public import uim.mvc.routes;
+public import uim.mvc.layouts;
 public import uim.mvc.models;
 public import uim.mvc.views;
 public import uim.mvc.controllers;
