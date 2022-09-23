@@ -3,11 +3,11 @@ module uim.mvc.views.components.pages.headers.entities.read;
 @safe:
 import uim.mvc;
 
-class DViewPageHeader : DPageHeader {
-  mixin(MVCViewComponentThis!("ViewPageHeader", Yes.WithEntity));
+class DMVCReadPageHeaderViewComponent : DMVCPageHeaderViewComponent {
+  mixin(MVCViewComponentThis!("MVCReadPageHeaderViewComponent"));
   
   override DH5Obj[] toH5(STRINGAA options) {
-    // debug writeln(StyledString("DViewPageHeader/toH5").setForeground(AnsiColor.green).setBackground(AnsiColor.lightBlue));
+    // debug writeln(StyledString("DMVCReadPageHeaderViewComponent/toH5").setForeground(AnsiColor.green).setBackground(AnsiColor.lightBlue));
 
     auto id = entity ? entity.id.toString : UUID().toString;
     return
@@ -30,4 +30,4 @@ class DViewPageHeader : DPageHeader {
       )];
   }
 }
-mixin(MVCViewComponentCalls!("ViewPageHeader", Yes.WithEntity));
+mixin(MVCViewComponentCalls!("MVCReadPageHeaderViewComponent", "DMVCReadPageHeaderViewComponent"));

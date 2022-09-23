@@ -7,8 +7,8 @@ class DMVCPageViewComponent
  : DMVCViewComponent {
   mixin(MVCViewComponentThis!("MVCPageViewComponent"));
   
-  mixin(OProperty!("DMVCViewComponent", "header"));
+  mixin(OProperty!("DMVCPageHeaderViewComponent", "header"));
   mixin(OProperty!("DMVCViewComponent", "content"));
-  mixin(OProperty!("DMVCViewComponent", "footer"));
+  mixin(OProperty!("DMVCPageFooterViewComponent", "footer"));
 }
-mixin(MVCViewComponentCalls!("MVCPageViewComponent"));
+mixin(MVCViewComponentCalls!("MVCPageViewComponent", "DMVCPageViewComponent"));

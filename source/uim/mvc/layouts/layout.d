@@ -82,8 +82,8 @@ class DMVCLayout : DMVCBase, IMVCLayout{
   mixin(MVCParameter!("title"));
   mixin(MVCParameter!("language"));
 
-  mixin(OProperty!("DAPPNavigation", "navigation"));
-  mixin(OProperty!("DPageFooter", "footer"));
+  mixin(OProperty!("DMVCNavigation", "navigation"));
+  mixin(OProperty!("DMVCPageFooterViewComponent", "footer"));
   mixin(OProperty!("STRINGAA", "headAttributes"));
   mixin(OProperty!("string[]", "headClasses"));
   mixin(OProperty!("STRINGAA", "bodyAttributes"));

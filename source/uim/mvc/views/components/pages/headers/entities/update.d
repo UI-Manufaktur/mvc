@@ -3,11 +3,11 @@ module uim.mvc.views.components.pages.headers.entities.update;
 @safe:
 import uim.mvc;
 
-class DMVCEditPageHeader : DPageHeader {
-  mixin(MVCViewComponentThis!("MVCEditPageHeader", Yes.WithEntity));
+class DMVCEditPageHeaderViewComponent : DMVCPageHeaderViewComponent {
+  mixin(MVCViewComponentThis!("MVCEditPageHeaderViewComponent", Yes.WithEntity));
   
   override DH5Obj[] toH5(STRINGAA options) {
-    // debug writeln("DMVCEditPageHeader/toH5");
+    // debug writeln("DMVCEditPageHeaderViewComponent/toH5");
 
     auto id = entity ? entity.id.toString : UUID().toString;
     return
@@ -31,4 +31,4 @@ class DMVCEditPageHeader : DPageHeader {
 
   }
 }
-mixin(MVCViewComponentCalls!("MVCEditPageHeader", Yes.WithEntity));
+mixin(MVCViewComponentCalls!("MVCEditPageHeaderViewComponent", "DMVCEditPageHeaderViewComponent"));

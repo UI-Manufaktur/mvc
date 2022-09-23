@@ -8,8 +8,8 @@ module uim.mvc.views.components.pages.titles.title;
 @safe:
 import uim.mvc;
 
-class DMVCPageTitle : DMVCViewComponent { 
-  mixin(MVCViewComponentThis!("MVCPageTitle"));
+class DMVCPageTitleViewComponent : DMVCViewComponent { 
+  mixin(MVCViewComponentThis!("MVCPageTitleViewComponent"));
 
   override DH5Obj[] toH5(STRINGAA options = null) { 
     return
@@ -30,4 +30,4 @@ class DMVCPageTitle : DMVCViewComponent {
       )].toH5;  
   }
 }
-mixin(MVCViewComponentCalls!("MVCPageTitle"));
+mixin(MVCViewComponentCalls!("MVCPageTitleViewComponent", "DMVCPageTitleViewComponent"));

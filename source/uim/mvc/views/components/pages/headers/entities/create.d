@@ -3,8 +3,8 @@ module uim.mvc.views.components.pages.headers.entities.create;
 @safe:
 import uim.mvc;
 
-class DMVCCreatePageHeader : DPageHeader {
-  mixin(MVCViewComponentThis!("MVCCreatePageHeader", Yes.WithEntity));
+class DMVCCreatePageHeaderViewComponent : DMVCPageHeaderViewComponent {
+  mixin(MVCViewComponentThis!("MVCCreatePageHeaderViewComponent", Yes.WithEntity));
   
   override void initialize() {
     super.initialize;
@@ -14,7 +14,7 @@ class DMVCCreatePageHeader : DPageHeader {
   }
 
   override DH5Obj[] toH5(STRINGAA options = null) {
-    // debug writeln("DMVCCreatePageHeader/toH5");
+    // debug writeln("DMVCCreatePageHeaderViewComponent/toH5");
     DH5Obj[] buttons = actionButtons(options);
 
 /*     string bcrumbs;
@@ -36,4 +36,4 @@ class DMVCCreatePageHeader : DPageHeader {
         )].toH5;
   }
 }
-mixin(MVCViewComponentCalls!("MVCCreatePageHeader", "DMVCCreatePageHeader"));
+mixin(MVCViewComponentCalls!("MVCCreatePageHeaderViewComponent", "DMVCCreatePageHeaderViewComponent"));

@@ -3,8 +3,8 @@ module uim.mvc.views.components.pages.headers.entities.delete_;
 @safe:
 import uim.mvc;
 
-class DMVCDeletePageHeader : DPageHeader {
-  mixin(MVCViewComponentThis!("MVCDeletePageHeader", Yes.WithEntity));
+class DMVCDeletePageHeaderViewComponent : DMVCPageHeaderViewComponent {
+  mixin(MVCViewComponentThis!("MVCDeletePageHeaderViewComponent"));
   
   override void initialize() {
     super.initialize;
@@ -12,7 +12,7 @@ class DMVCDeletePageHeader : DPageHeader {
   }
   
   override DH5Obj[] toH5(STRINGAA options) {
-    // debug writeln("DMVCDeletePageHeader/toH5");
+    // debug writeln("DMVCDeletePageHeaderViewComponent/toH5");
 
     auto id = entity ? entity.id.toString : UUID().toString;
     return [
@@ -35,4 +35,4 @@ class DMVCDeletePageHeader : DPageHeader {
       )];
   }
 }
-mixin(MVCViewComponentCalls!("MVCDeletePageHeader", Yes.WithEntity));
+mixin(MVCViewComponentCalls!("MVCDeletePageHeaderViewComponent", "MVCDeletePageHeaderViewComponent"));
