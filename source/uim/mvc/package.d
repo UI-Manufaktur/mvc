@@ -60,6 +60,7 @@ public import uim.bootstrap;
 public import uim.javascript;
 public import uim.html;
 public import uim.oop;
+public import uim.controls;
 
 public import uim.mvc.base;
 

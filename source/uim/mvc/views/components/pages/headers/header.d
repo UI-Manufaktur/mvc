@@ -3,7 +3,7 @@ module uim.mvc.views.components.pages.headers.header;
 @safe:
 import uim.mvc;
 
-class DMVCPageHeaderViewComponent : DEntityViewComponent {
+class DMVCPageHeaderViewComponent : DMVCViewComponent {
   mixin(MVCViewComponentThis!("MVCPageHeaderViewComponent"));
 
   override void initialize() {
@@ -87,4 +87,4 @@ class DMVCPageHeaderViewComponent : DEntityViewComponent {
       ].toH5;
   }
 }
-mixin(MVCViewComponentCalls!("MVCPageHeaderViewComponent"));
+mixin(MVCViewComponentCalls!("MVCPageHeaderViewComponent", "DMVCPageHeaderViewComponent"));

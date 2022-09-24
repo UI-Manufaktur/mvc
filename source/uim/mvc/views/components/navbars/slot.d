@@ -1,10 +1,10 @@
-module uim.apps.views.components.navbars.slot;
+module uim.mvc.views.components.navbars.slot;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
-class DAPPNavbarSlot : DViewComponent {
-    mixin(ViewComponentThis!("APPNavbarSlot"));
+class DMVCNavbarSlotViewComponent : DMVCViewComponent {
+    mixin(MVCViewComponentThis!("MVCNavbarSlotViewComponent"));
     this(string newId) {
       this.id(newId);
     }
@@ -36,4 +36,4 @@ class DAPPNavbarSlot : DViewComponent {
       )].toH5;
     }
 }
-mixin(ViewComponentCalls!("APPNavbarSlot"));
+mixin(MVCViewComponentCalls!("MVCNavbarSlotViewComponent", "DMVCNavbarSlotViewComponent"));

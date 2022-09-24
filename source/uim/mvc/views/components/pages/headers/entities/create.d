@@ -4,7 +4,7 @@ module uim.mvc.views.components.pages.headers.entities.create;
 import uim.mvc;
 
 class DMVCCreatePageHeaderViewComponent : DMVCPageHeaderViewComponent {
-  mixin(MVCViewComponentThis!("MVCCreatePageHeaderViewComponent", Yes.WithEntity));
+  mixin(MVCViewComponentThis!("MVCCreatePageHeaderViewComponent"));
   
   override void initialize() {
     super.initialize;

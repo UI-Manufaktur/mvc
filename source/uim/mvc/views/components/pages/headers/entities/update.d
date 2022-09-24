@@ -4,7 +4,7 @@ module uim.mvc.views.components.pages.headers.entities.update;
 import uim.mvc;
 
 class DMVCEditPageHeaderViewComponent : DMVCPageHeaderViewComponent {
-  mixin(MVCViewComponentThis!("MVCEditPageHeaderViewComponent", Yes.WithEntity));
+  mixin(MVCViewComponentThis!("MVCEditPageHeaderViewComponent"));
   
   override DH5Obj[] toH5(STRINGAA options) {
     // debug writeln("DMVCEditPageHeaderViewComponent/toH5");
@@ -28,7 +28,6 @@ class DMVCEditPageHeaderViewComponent : DMVCPageHeaderViewComponent {
             )
           )
         )];
-
   }
 }
 mixin(MVCViewComponentCalls!("MVCEditPageHeaderViewComponent", "DMVCEditPageHeaderViewComponent"));

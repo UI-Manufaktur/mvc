@@ -3,8 +3,8 @@ module uim.mvc.views.components.pages.footers.footer;
 @safe:
 import uim.mvc;
 
-class DMVCPageFooter : DMVCViewComponent {
-  mixin(MVCViewComponentThis!("MVCPageFooter"));
+class DMVCPageFooterViewComponent : DMVCViewComponent {
+  mixin(MVCViewComponentThis!("MVCPageFooterViewComponent"));
 
   override void initialize() {
     super.initialize; 
@@ -13,9 +13,9 @@ class DMVCPageFooter : DMVCViewComponent {
       .inner = `Version 1.0.1 - Copyright 2017-2021 UI-Manufaktur UG (haftungsbeschränkt) - License MVC`;
   }
     
-  mixin(OProperty!("string", "backgroundColor"));
-  mixin(OProperty!("string", "backgroundImage"));
-  mixin(OProperty!("string", "inner"));
+  mixin(MVCParameter!("backgroundColor"));
+  mixin(MVCParameter!("backgroundImage"));
+  mixin(MVCParameter!("inner"));
   mixin(OProperty!("DOOPEntity",   "entity"));
   mixin(OProperty!("DOOPEntity[]", "entities"));
 
@@ -37,4 +37,4 @@ class DMVCPageFooter : DMVCViewComponent {
         ))].toH5;
   }
 }
-mixin(MVCViewComponentCalls!("MVCPageFooter", "DMVCPageFooter"));
+mixin(MVCViewComponentCalls!("MVCPageFooterViewComponent", "DMVCPageFooterViewComponent"));

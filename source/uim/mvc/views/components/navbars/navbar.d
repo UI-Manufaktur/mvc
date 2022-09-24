@@ -1,9 +1,9 @@
-module uim.apps.views.components.navbars.navbar;
+module uim.mvc.views.components.navbars.navbar;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
-/* class DAPPFirstNavbar : DViewComponent {
+/* class DMVCFirstNavbar : DMVCViewComponent {
     this() { super(); }
 
     override DH5Obj[] toH5(STRINGAA options = null) {   
@@ -53,12 +53,12 @@ import uim.apps;
             );
     }
 }
-auto APPFirstNavbar() { return new DAPPFirstNavbar; }
+auto MVCFirstNavbar() { return new DMVCFirstNavbar; }
 
-class DAPPSecondNavbar : DViewComponent {
+class DMVCSecondNavbar : DMVCViewComponent {
   this() { super(); }
 
-  mixin(OProperty!("DAPPNavbarSlot[]", "slots"));
+  mixin(OProperty!("DMVCNavbarSlotViewComponent[]", "slots"));
   mixin(OProperty!("string[string]", "brand"));
 
   override DH5Obj[] toH5(STRINGAA options = null) {
@@ -81,15 +81,15 @@ class DAPPSecondNavbar : DViewComponent {
       ); 
   }
 }
-auto APPSecondNavbar() { return new DAPPSecondNavbar; }
-auto APPSecondNavbar(DAPPNavbarSlot[] slots) { return APPSecondNavbar.slots(slots); }
+auto MVCSecondNavbar() { return new DMVCSecondNavbar; }
+auto MVCSecondNavbar(DMVCNavbarSlotViewComponent[] slots) { return MVCSecondNavbar.slots(slots); }
  */
 
-class DAPPFirstNavbar : DViewComponent {
-  mixin(ViewComponentThis!("APPFirstNavbar"));
+class DMVCFirstNavbar : DMVCViewComponent {
+  mixin(MVCViewComponentThis!("MVCFirstNavbar"));
 
-  mixin(APPParameter!("appLogo"));
-  mixin(APPParameter!("appTitle"));
+  mixin(MVCParameter!("appLogo"));
+  mixin(MVCParameter!("appTitle"));
   mixin(OProperty!("bool", "requiresLogin"));
 
   override DH5Obj[] toH5(STRINGAA options = null) { // hook
@@ -124,7 +124,7 @@ class DAPPFirstNavbar : DViewComponent {
       ].toH5;
   }
 }
-mixin(ViewComponentCalls!("APPFirstNavbar"));
+mixin(MVCViewComponentCalls!("MVCFirstNavbar", "DMVCFirstNavbar"));
 
 
 auto messagesNavitem(STRINGAA options = null) {
@@ -146,7 +146,7 @@ auto userNavitem(STRINGAA options = null) {
       H5A(["nav-link d-flex lh-1 text-reset p-0"], ["href":"#", "data-bs-toggle":"dropdown", "aria-label":"Benutzermenü"], 
         BS5Avatar(["avatar-sm"], ["style":"background-image: url(/lib/tabler/tabler-1.0.0-alpha.7/static/avatars/000m.jpg)"]),
         H5Div(["d-none d-xl-block ps-2"], 
-          H5Div("Mr. APP"),
+          H5Div("Mr. MVC"),
           H5Div(["mt-1 small text-muted"], "UI Designer")
         )
       ),
@@ -161,13 +161,13 @@ auto userNavitem(STRINGAA options = null) {
     );
 }
 
-class DAPPSecondNavbar : DViewComponent {
-  mixin(ViewComponentThis!("APPSecondNavbar"));
+class DMVCSecondNavbar : DMVCViewComponent {
+  mixin(MVCViewComponentThis!("MVCSecondNavbar"));
 
-  mixin(OProperty!("DAPPNavbarSlot[]", "leftSlots"));
-  mixin(OProperty!("DAPPNavbarSlot[]", "rightSlots"));
-  mixin(OProperty!("DAPPNavbarSlot[]", "leftSlotsWithLogin"));
-  mixin(OProperty!("DAPPNavbarSlot[]", "rightSlotsWithLogin"));
+  mixin(OProperty!("DMVCNavbarSlotViewComponent[]", "leftSlots"));
+  mixin(OProperty!("DMVCNavbarSlotViewComponent[]", "rightSlots"));
+  mixin(OProperty!("DMVCNavbarSlotViewComponent[]", "leftSlotsWithLogin"));
+  mixin(OProperty!("DMVCNavbarSlotViewComponent[]", "rightSlotsWithLogin"));
   mixin(OProperty!("string[string]", "brand"));
   mixin(OProperty!("string[string]", "brandWithLogin"));
 
@@ -241,7 +241,7 @@ class DAPPSecondNavbar : DViewComponent {
       )].toH5;
   }
 }
-mixin(ViewComponentCalls!("APPSecondNavbar"));
+mixin(MVCViewComponentCalls!("MVCSecondNavbar", "DMVCSecondNavbar"));
 
 /*
 BS5NavItem(["active"], 

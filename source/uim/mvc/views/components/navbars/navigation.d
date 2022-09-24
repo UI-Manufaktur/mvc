@@ -1,13 +1,13 @@
-module uim.apps.views.components.navbars.navigation;
+module uim.mvc.views.components.navbars.navigation;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DMVCNavigationViewComponent : DMVCViewComponent {
   mixin(MVCViewComponentThis!("MVCNavigationViewComponent"));
 
   override void initialize() {
-    debugMethodCall(moduleName!DMVCNavigation~"::DMVCNavigation("~this.name~"):initialize");   
+    debugMethodCall(moduleName!DMVCNavigationViewComponent~"::DMVCNavigationViewComponent("~this.name~"):initialize");   
     super.initialize;
 
     debug writeln("Add First Nav");
@@ -19,8 +19,8 @@ class DMVCNavigationViewComponent : DMVCViewComponent {
       .secondNavbar(APPSecondNavbar);
   }
 
-  mixin(OProperty!("DViewComponent", "firstNavbar"));
-  mixin(OProperty!("DViewComponent", "secondNavbar"));
+  mixin(OProperty!("DMVCViewComponent", "firstNavbar"));
+  mixin(OProperty!("DMVCViewComponent", "secondNavbar"));
   mixin(OProperty!("bool", "fixedTop"));
   
   override DH5Obj[] toH5(STRINGAA options = null) {
@@ -47,4 +47,4 @@ class DMVCNavigationViewComponent : DMVCViewComponent {
     return firstNavbarH5~secondNavbarH5;
   }
 }
-mixin(MVCViewComponentCalls!("MVCNavigationViewComponent", "DMVCNavigationViewComponent""));
+mixin(MVCViewComponentCalls!("MVCNavigationViewComponent", "DMVCNavigationViewComponent"));
