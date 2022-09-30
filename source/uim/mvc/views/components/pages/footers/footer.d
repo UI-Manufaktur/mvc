@@ -20,7 +20,7 @@ class DMVCPageFooterViewComponent : DMVCViewComponent {
   mixin(OProperty!("DOOPEntity[]", "entities"));
 
   override DH5Obj[] toH5(STRINGAA options = null) { // hook
-    debugMethodCall(moduleName!DPageFooter~":DPageFooter("~this.name~")::toH5");
+    debugMethodCall(moduleName!DMVCPageFooterViewComponent~":DMVCPageFooterViewComponent("~this.name~")::toH5");
     super.toH5(options);
     if (hasError || "redirect" in options) { return null; }    
     
@@ -38,3 +38,4 @@ class DMVCPageFooterViewComponent : DMVCViewComponent {
   }
 }
 mixin(MVCViewComponentCalls!("MVCPageFooterViewComponent", "DMVCPageFooterViewComponent"));
+mixin(MVCViewComponentCalls!("MVCPageFooter", "DMVCPageFooterViewComponent"));

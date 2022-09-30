@@ -54,14 +54,14 @@ class DMVCLayout : DMVCBase, IMVCLayout{
     this.styles.addLinks(
       "/lib/kothing/last/kothing-editor.min.css",
       "/lib/katex/last/katex.min.css",
-      "/css/apps/app.css",
+      "/css/apps/application.css",
       "/css/apps/cms/main.css");
 
     debug writeln("Add scripts"); 
     this.scripts.addLinks(
       "/lib/kothing/last/kothing-editor.min.js",
       "/lib/katex/last/katex.min.js",
-      "/js/apps/app.js");
+      "/js/apps/application.js");
 
     _bodyAttributes["style"] = "background-color: #ffffff;";
     _bodyClasses = ["d-flex", "flex-column", "h-100"];
@@ -69,12 +69,12 @@ class DMVCLayout : DMVCBase, IMVCLayout{
     debug writeln("Add navigation"); 
     this
       .navigation(
-        APPNavigation.fixedTop(true));
+        MVCNavigation.fixedTop(true));
 
     debug writeln("Add footer"); 
     this    
       .footer(
-        PageFooter);
+        MVCPageFooter);
   }
 
   // Parameters
@@ -137,22 +137,22 @@ class DMVCLayout : DMVCBase, IMVCLayout{
 		foreach(k,v; parameters) if (k !in options) options[k] = v;
 		// 3. app parameters to options
 		
-		if (app) {
-			options["rootPath"] = app.rootPath;      
-			foreach(k,v; app.parameters) if (k !in options) options[k] = v; }
+		if (application) {
+			options["rootPath"] = application.rootPath;      
+			foreach(k,v; application.parameters) if (k !in options) options[k] = v; }
 
     DH5Obj[] actualMetas;
     DH5Obj[] actualLinks;
     DH5Obj[] actualStyles;
 		DH5Obj[] actualScripts;
 
-		if (app) {
+		if (application) {
       debug writeln("Found app");
 
-      actualMetas ~= app.metas.toH5;
-			actualLinks ~= app.links.toH5;
-			actualStyles ~= app.styles.toH5;
-			actualScripts ~= app.scripts.toH5;
+      actualMetas ~= application.metas.toH5;
+			actualLinks ~= application.links.toH5;
+			actualStyles ~= application.styles.toH5;
+			actualScripts ~= application.scripts.toH5;
 		} else { debug writeln("No app :-("); }
 
     actualMetas ~= this.metas.toH5;
@@ -230,7 +230,7 @@ version(test_uim_apps) { unittest {
     // debug writeln("foot -> ", foot);
 
     // debug writeln("return layout");
-    auto pg = cast(DAPPPage)page;
+    auto pg = cast(DMVCPage)page;
     auto pHeader = pg ? pg.pageHeader : null;
 
  */    /*         BS5Container.fluid()(
@@ -241,8 +241,8 @@ version(test_uim_apps) { unittest {
               .col(["col-auto ms-auto d-print-none"], 
                 H5Div(["btn-list"], 
                   H5Span(["d-none d-sm-inline"], 
-                    BS5Button(["btn-white"], "New view")),
-                    BS5ButtonLink(["btn-primary d-none d-sm-inline-block"], ["data-bs-target":"#modal-report", "data-bs-toggle":"modal", 
+                    UIMButton(["btn-white"], "New view")),
+                    UIMButtonLink(["btn-primary d-none d-sm-inline-block"], ["data-bs-target":"#modal-report", "data-bs-toggle":"modal", 
                       "href":"#", "style":"background-color:#35A6FF"], tablerIcon("add")~"Create new report"))))).toString~
  */        
 
@@ -273,7 +273,7 @@ version(test_uim_apps) { unittest {
         "UIM!Central");    
     }
 
-    mixin(OProperty!("DAPPNavbarSlot[]", "slots"));
+    mixin(OProperty!("DMVCNavbarSlot[]", "slots"));
 
     override DH5Obj navbar() {
       return BS5NavbarNav(this.navSlots);
@@ -283,8 +283,8 @@ version(test_uim_apps) { unittest {
       foreach(k,v; parameters) if (k !in reqParameters) reqParameters[k] = v;
       foreach(k,v; page.parameters) if (k !in reqParameters) reqParameters[k] = v;
       if (auto app = page.app) {
-        foreach(k, v; app.parameters) if (k !in reqParameters) reqParameters[k] = v;
-        reqParameters["rootPath"] = app.rootPath;   }
+        foreach(k, v; application.parameters) if (k !in reqParameters) reqParameters[k] = v;
+        reqParameters["rootPath"] = application.rootPath;   }
 
       return super.toString(page,    
         H5Div(["page mt-md-5"], ["style":"background-color:#ffffff;"], 
@@ -323,7 +323,7 @@ H5Header(["navbar navbar-expand-md navbar-light d-print-none fixed-top"],
             tablerIcon("messages")~`<span class="badge bg-red"></span>`
           ), 
           BS5DropdownMenu(["  -menu-end dropdown-menu-card"], 
-            BS5Card
+            UIMCard
               .body_("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad amet consectetur exercitationem fugiat in ipsa ipsum, natus odio quidem quod repudiandae sapiente. Amet debitis et magni maxime necessitatibus ullam.")
           )).toString~
         H5Div(["nav-item dropdown"], 

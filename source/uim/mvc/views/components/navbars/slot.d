@@ -5,9 +5,6 @@ import uim.mvc;
 
 class DMVCNavbarSlotViewComponent : DMVCViewComponent {
     mixin(MVCViewComponentThis!("MVCNavbarSlotViewComponent"));
-    this(string newId) {
-      this.id(newId);
-    }
 
     mixin(OProperty!("bool", "active"));
     mixin(OProperty!("string", "title"));
@@ -29,9 +26,10 @@ class DMVCNavbarSlotViewComponent : DMVCViewComponent {
         super.toH5(options);
 
     return [
-      BS5NavItem(["dropdown"], 
-        BS5NavLink(["dropdown-toggle"], ["href":"#navbar-slot", "data-bs-toggle":"dropdown", "role":"button", "aria-expanded":"false"], 
-            BS5NavLinkTitle(title)),
+      UIMDropdownNavItem( 
+        UIMNavLink(["dropdown-toggle"], ["data-bs-toggle":"dropdown", "role":"button", "aria-expanded":"false"])
+          .link("#navbar-slot")
+          .title(title),
         menu
       )].toH5;
     }

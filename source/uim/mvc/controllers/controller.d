@@ -40,11 +40,11 @@ class DMVCController : DMVCBase, IMVCController  {
   mixin(MVCParameter!("timeCreated"));
   mixin(MVCParameter!("persistent"));
 
-  mixin(OProperty!("DAPPCheck[]", "checks"));
-  O addChecks(this O)(DAPPCheck[] newChecks) {
+  /* mixin(OProperty!("DMVCCheck[]", "checks"));
+  O addChecks(this O)(DMVCCheck[] newChecks) {
     this.checks(this.checks~newChecks);
     return cast(O)this;
-  }
+  } */
 
   HTTPServerRequest _request;
   HTTPServerRequest request() { return _request; }
@@ -121,7 +121,7 @@ class DMVCController : DMVCBase, IMVCController  {
   }
 
   void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse, STRINGAA options) {
-		debugMethodCall(moduleName!DAPPController~":DAPPController("~this.name~")::request(req, res, reqParameters)");
+		debugMethodCall(moduleName!DMVCController~":DMVCController("~this.name~")::request(req, res, reqParameters)");
 
 		this.request = newRequest; this.response = newResponse;
     options = requestParameters(options);

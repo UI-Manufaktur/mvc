@@ -12,11 +12,11 @@ class DMVCNavigationViewComponent : DMVCViewComponent {
 
     debug writeln("Add First Nav");
     this
-      .firstNavbar(APPFirstNavbar);
+      .firstNavbar(MVCFirstNavbar);
 
     debug writeln("Add Second Nav");
     this
-      .secondNavbar(APPSecondNavbar);
+      .secondNavbar(MVCSecondNavbar);
   }
 
   mixin(OProperty!("DMVCViewComponent", "firstNavbar"));
@@ -27,15 +27,15 @@ class DMVCNavigationViewComponent : DMVCViewComponent {
     super.toH5(options);
     if (hasError) { return null; }
 
-    debug writeln(moduleName!DMVCNavigation~":DMVCNavigation::toH5");
+    debug writeln(moduleName!DMVCNavigationViewComponent~":DMVCNavigationViewComponent::toH5");
     auto rootPath = options.get("rootPath", "/");
-    debug writeln(moduleName!DMVCNavigation~":DMVCNavigation::toH5 -> appSessionId = ", options.get("appSessionId", ""));
+    debug writeln(moduleName!DMVCNavigationViewComponent~":DMVCNavigationViewComponent::toH5 -> appSessionId = ", options.get("appSessionId", ""));
 
     auto firstNavbarH5 = this.firstNavbar   ? this.firstNavbar.toH5(options) 
                                             : null;
     debug writeln(firstNavbar ? "Has firstNavbar" : "Missing firstNavbar");
     debug writeln("firstNavbar -> ", firstNavbarH5);
-    auto secNavbar = cast(DAPPSecondNavbar)this.secondNavbar;
+    auto secNavbar = cast(DMVCSecondNavbar)this.secondNavbar;
     debug writeln(secondNavbar ? "Has secondNavbar" : "Missing secondNavbar");
     auto secondNavbarH5 = secNavbar ? secNavbar.brand(["link":rootPath, "title":options.get("appTitle", "")]).toH5(options) 
                                           : null;
@@ -48,3 +48,4 @@ class DMVCNavigationViewComponent : DMVCViewComponent {
   }
 }
 mixin(MVCViewComponentCalls!("MVCNavigationViewComponent", "DMVCNavigationViewComponent"));
+mixin(MVCViewComponentCalls!("MVCNavigation", "DMVCNavigationViewComponent"));

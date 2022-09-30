@@ -17,7 +17,7 @@ import uim.mvc;
             tablerIcon("home")~`<span class="badge bg-red"></span>`
           ), 
           BS5DropdownMenu(["dropdown-menu-end dropdown-menu-card"], 
-            BS5Card
+            UIMCard
               .body_("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad amet consectetur exercitationem fugiat in ipsa ipsum, natus odio quidem quod repudiandae sapiente. Amet debitis et magni maxime necessitatibus ullam.")
           )).toString~
         H5Div(["nav-item dropdown"], 
@@ -96,7 +96,7 @@ class DMVCFirstNavbar : DMVCViewComponent {
     super.toH5(options);
     if (hasError) { return null; }
 
-    auto isLogin = false;
+    /* auto isLogin = false;
     if (auto appSession = getAppSession(options)) {
       if (appSession.session) {
         isLogin = true;
@@ -107,7 +107,7 @@ class DMVCFirstNavbar : DMVCViewComponent {
       ? H5Div(["navbar-nav flex-row order-md-last"], 
           messagesNavitem(options), userNavitem(options))
       : H5Div(["nav-item d-none d-md-flex me-3"])( 
-          H5A(["btn btn-outline-info text-blue"], ["href":"/login"], tablerIcon("login")~"Login")); 
+          H5A(["btn btn-outline-info text-blue"], ["href":"/login"], tablerIcon("login")~"Login"));  */
 
     return [  
       H5Header("topnavbar", ["navbar navbar-expand-md navbar-light d-print-none"], 
@@ -118,7 +118,7 @@ class DMVCFirstNavbar : DMVCViewComponent {
             H5A(["p-3 ps-5"], 
               ["href":"/", "style":"background-repeat: no-repeat; background-position: left center;background-size: 60px auto; background-image:url(/img/logo.png)"], 
               this.appTitle)),
-            userButton
+            // userButton
           )               
         )
       ].toH5;
@@ -132,9 +132,10 @@ auto messagesNavitem(STRINGAA options = null) {
     H5A(["nav-link px-0"], ["href":"#", "data-bs-toggle":"dropdown", "tabindex":"-1", "aria-label":"Benachrichtigungen"], 
       H5String(tablerIcon("bell")), H5Span(["badge bg-red"])),
     H5Div(["dropdown-menu dropdown-menu-end dropdown-menu-card"], 
-      BS5Card
-      .body_(
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad amet consectetur exercitationem fugiat in ipsa ipsum, natus odio quidem quod repudiandae sapiente. Amet debitis et magni maxime necessitatibus ullam."
+      UIMCard(
+        UIMCardBody(
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad amet consectetur exercitationem fugiat in ipsa ipsum, natus odio quidem quod repudiandae sapiente. Amet debitis et magni maxime necessitatibus ullam."
+        )
       )
     )
   );
@@ -175,18 +176,18 @@ class DMVCSecondNavbar : DMVCViewComponent {
     super.toH5(options);
     if (hasError) { return null; }
 
-    auto isLogin = false;
+/*     auto isLogin = false;
     if (auto appSession = getAppSession(options)) {
       if (appSession.session) {
         isLogin = true;
       }
-    }
+    } */
 
     string navLeftSlots;
     string navRightSlots;
     auto selNavitem = options.get("selNavitem", "");
     
-    if (isLogin) {
+    /* if (isLogin) {
       // debug writeln("has sessionId -> ", reqParameters.get("sessionId", ""));
 
       foreach(slot; this.leftSlotsWithLogin) {
@@ -221,7 +222,7 @@ class DMVCSecondNavbar : DMVCViewComponent {
         slot.active(active);
         navRightSlots ~= slot.toH5(options).toString;
       }
-    }
+    } */
     // debug writeln("return content...");
     
     return [

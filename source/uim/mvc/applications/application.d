@@ -14,6 +14,12 @@ class DMVCApplication : DMVCBase, IMVCApplication {
   mixin(OProperty!("DMVCLayout", "layout"));
   mixin(OProperty!("DMVCRoute[HTTPMethod][string]", "routes"));
 
+  // Containers
+  mixin(OProperty!("DMVCLinkContainer", "links"));
+  mixin(OProperty!("DMVCMetaContainer", "metas"));
+  mixin(OProperty!("DMVCScriptContainer", "scripts"));
+  mixin(OProperty!("DMVCStyleContainer", "styles"));
+  
   auto routesPaths() {
     return _routes.keys; 
   }

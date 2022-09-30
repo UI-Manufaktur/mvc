@@ -18,14 +18,19 @@ class DMVCPageHeaderViewComponent : DMVCViewComponent {
   mixin(OProperty!("string[][]", "actions"));
   mixin(MVCParameter!("mainTitle"));
   mixin(MVCParameter!("subTitle"));
+  mixin(MVCParameter!("rootPath"));
   mixin(OProperty!("DUIMBreadcrumbControl", "breadcrumbs"));
   mixin(MVCParameter!("breadcrumbsStyle"));
 
+
+  mixin(OProperty!("DOOPEntity", "entity"));
+
+
   DH5Obj actionButton(string action, STRINGAA options = null) {
-    auto id = this.entity ? this.entity.id.toString : UUID().toString;      
+    auto id = this.entity ? this.entity["id"] : UUID().toString;      
   
     switch(action) {
-      case "refresh": return buttonLinkRefresh(rootPath); 
+/*       case "refresh": return buttonLinkRefresh(rootPath); 
       case "create": return buttonLinkCreate(rootPath); 
       case "list": return buttonLinkList(rootPath);  
       case "read": 
@@ -39,7 +44,7 @@ class DMVCPageHeaderViewComponent : DMVCViewComponent {
       case "unlock":return null; 
       case "print":return null; 
       case "export":return null; 
-      case "import":return null; 
+      case "import":return null;  */
       default: return null;
     }
   } 
@@ -74,6 +79,7 @@ class DMVCPageHeaderViewComponent : DMVCViewComponent {
   override DH5Obj[] toH5(STRINGAA options = null) {
     super.toH5(options);
      
+    auto id = this.entity ? this.entity["id"] : UUID().toString;   
     return
       [
         H5Div(id, ["page-header d-print-none mb-3"], 
