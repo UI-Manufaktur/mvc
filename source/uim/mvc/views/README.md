@@ -6,4 +6,4 @@ This package contains views and view components. Views are the V in MVC. Views a
 
 # Module uim.mvc.views.view
 
-This module contains the class (D)MVCView
+This module contains the class (D)MVCView.
