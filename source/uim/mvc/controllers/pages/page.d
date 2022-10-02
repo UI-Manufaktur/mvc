@@ -30,6 +30,9 @@ class DMVCPageController : DMVCController {
   mixin(OProperty!("DMVCMetaContainer", "metas"));
   mixin(OProperty!("DMVCScriptContainer", "scripts"));
   mixin(OProperty!("DMVCStyleContainer", "styles"));
+
+  mixin(OProperty!("DMVCLayout", "layout"));
+
   
   override void beforeResponse(STRINGAA options = null) {
     debugMethodCall(moduleName!DMVCPageController~":DMVCPageController("~this.name~")::beforeResponse");
@@ -42,8 +45,11 @@ class DMVCPageController : DMVCController {
 
     string result;
     if (view) result = view.render(options);
-    if (this.application && this.application.layout) {
-      
+    if (auto myLayout = this.layout) {
+      result = myLayout.render(this, result);  
+    }
+    else {
+      result = this.application && this.application.myLayout ? this.application.myLayout.render(this, result);  
     }
 
     return result;
