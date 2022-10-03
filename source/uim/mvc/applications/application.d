@@ -39,10 +39,15 @@ class DMVCApplication : DMVCBase, IMVCApplication {
 
   O addRoute(this O)(DMVCRoute newRoute) {
     debug writeln("Adding route at '%s'".format(newRoute.path));
-    DMVCRoute[HTTPMethod] routesAtPath = _routes.get(newRoute.path, null);
-    routesAtPath[newRoute.method] = newRoute;
+    if (newRoute) {
+      newRoute.application(this);
+      DMVCRoute[HTTPMethod] routesAtPath = _routes.get(newRoute.path, null);
+      routesAtPath[newRoute.method] = newRoute;
 
-    _routes[newRoute.path] = routesAtPath;
+      _routes[newRoute.path] = routesAtPath;
+
+      if (auto controller = newRoute.controller) controller.application(this);
+    }
     return cast(O)this;
   }
 

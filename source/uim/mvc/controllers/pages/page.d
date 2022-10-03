@@ -49,7 +49,7 @@ class DMVCPageController : DMVCController {
       result = myLayout.render(this, result);  
     }
     else {
-      result = this.application && this.application.myLayout ? this.application.myLayout.render(this, result);  
+      result = this.application && this.application.layout ? this.application.layout.render(this, result) : result;  
     }
 
     return result;

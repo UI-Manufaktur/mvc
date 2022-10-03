@@ -4,6 +4,9 @@ module uim.mvc.base;
 import uim.mvc;
 
 interface IMVCBase {
+  DMVCApplication application();
+  O application(this O)(DMVCApplication newApplication);
+
   string name();
   O name(this O)(string newName);
 
