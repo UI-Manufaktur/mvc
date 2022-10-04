@@ -11,12 +11,12 @@ class DMVCLayout : DMVCBase, IMVCLayout{
 
   override void initialize() {
     debug writeln("Initialize 'MVCLayout'"); 
+    super.initialize;
  
     // Default settings
     this
       .name("MVCLayout")
-      .title("UI Manufaktur")
-      .bodyAttributes(["style": "background-color: #ffffff;"])
+      .title("MVCLayout")
       .layoutStyle("tabler")
       .links(MVCLinkContainer) 
       .metas(MVCMetaContainer) 
@@ -63,8 +63,8 @@ class DMVCLayout : DMVCBase, IMVCLayout{
       "/lib/katex/last/katex.min.js",
       "/js/apps/application.js");
 
-    _bodyAttributes["style"] = "background-color: #ffffff;";
-    _bodyClasses = ["d-flex", "flex-column", "h-100"];
+/*     _bodyAttributes["style"] = "background-color: #ffffff;";
+    _bodyClasses = ["d-flex", "flex-column", "h-100"]; */
 
     debug writeln("Add navigation"); 
     this
@@ -98,8 +98,31 @@ class DMVCLayout : DMVCBase, IMVCLayout{
   mixin(OProperty!("DMVCStyleContainer", "styles"));
 
 // #region render
-	void beforeRender(STRINGAA options = null) {
+  protected DH5Obj[] myMetas;
+  protected DH5Obj[] myLinks;
+  protected DH5Obj[] myStyles;
+  protected DH5Obj[] myScripts;
+  void beforeRender(STRINGAA options = null) {
 		debugMethodCall(moduleName!DMVCLayout~":DMVCLayout("~this.name~")::beforeRender");
+
+    myMetas = null;
+    myLinks = null;
+    myStyles = null;
+    myScripts = null;
+
+    if (application) {
+      debug writeln("Found app");
+
+      if (application.metas) myMetas     ~= application.metas.toH5;
+			if (application.links) myLinks     ~= application.links.toH5;
+			if (application.styles) myStyles   ~= application.styles.toH5;
+			if (application.scripts) myScripts ~= application.scripts.toH5;
+		} else { debug writeln("No app :-("); }
+
+    if (this.metas)   myMetas   ~= this.metas.toH5;
+    if (this.links)   myLinks   ~= this.links.toH5;
+    if (this.styles)  myStyles  ~= this.styles.toH5;
+    if (this.scripts) myScripts ~= this.scripts.toH5;
 	}
 
 	string render(DMVCPageController controller, DMVCView view, STRINGAA options = null) { 
@@ -122,9 +145,15 @@ class DMVCLayout : DMVCBase, IMVCLayout{
     return render(controller, "", options);
 	}
 
+
 	string render(DMVCPageController controller, string content, STRINGAA options = null) { 
 		debugMethodCall(moduleName!DMVCLayout~":DMVCLayout("~this.name~")::render(DMVCPageController controller, string content, STRINGAA options = null)");
 		beforeRender(options);
+
+    debug writeln("myMetas = ", myMetas);
+    debug writeln("myLinks = ", myLinks);
+    debug writeln("myStyles = ", myStyles);
+    debug writeln("myScripts = ", myScripts);
 
 		// 1. page parameters to options
     if (controller) {
@@ -141,32 +170,14 @@ class DMVCLayout : DMVCBase, IMVCLayout{
 			options["rootPath"] = application.rootPath;      
 			foreach(k,v; application.parameters) if (k !in options) options[k] = v; }
 
-    DH5Obj[] actualMetas;
-    DH5Obj[] actualLinks;
-    DH5Obj[] actualStyles;
-		DH5Obj[] actualScripts;
-
-		if (application) {
-      debug writeln("Found app");
-
-      actualMetas ~= application.metas.toH5;
-			actualLinks ~= application.links.toH5;
-			actualStyles ~= application.styles.toH5;
-			actualScripts ~= application.scripts.toH5;
-		} else { debug writeln("No app :-("); }
-
-    actualMetas ~= this.metas.toH5;
-    actualLinks ~= this.links.toH5;
-    actualStyles ~= this.styles.toH5;
-    actualScripts ~= this.scripts.toH5;
 
 		if (auto pageController = cast(DMVCPageController)controller) {
       debug writeln("Found pageController");
 
-      actualMetas ~= pageController.metas.toH5;
-			actualLinks ~= pageController.links.toH5;
-			actualStyles ~= pageController.styles.toH5;
-			actualScripts ~= pageController.scripts.toH5;
+      if (pageController.metas) myMetas ~= pageController.metas.toH5;
+			if (pageController.metas) myLinks ~= pageController.links.toH5;
+			if (pageController.metas) myStyles ~= pageController.styles.toH5;
+			if (pageController.metas) myScripts ~= pageController.scripts.toH5;
 		} else { debug writeln("No pageController :-("); }
 
 		// creating HTML page
@@ -176,17 +187,17 @@ class DMVCLayout : DMVCBase, IMVCLayout{
     // Head part of HTML
     auto headContent = 
       (options.get("title", null) ? "<title>" ~ options.get("title", null) ~ "</title>":null)~
-		  (actualMetas.asString~options.get("metas", null))~
-		  (actualLinks.asString~options.get("links", null))~
+		  (myMetas.asString~options.get("metas", null))~
+		  (myLinks.asString~options.get("links", null))~
 		  ("link" in options ? options["link"] : null)~
-		  (actualStyles.asString~options.get("styles", null))~
+		  (myStyles.asString~options.get("styles", null))~
 		  ("style" in options ? H5Style(options["style"]).toString : null);
 		renderHead(_html, this.headClasses, this.headAttributes, headContent, options);
 
 		// Body part of HTML
 		auto bodyContent = 
     (this.layout ?  this.layout.render(controller, content, options) : content)~
-		(actualScripts.asString~options.get("script", null));
+		(myScripts.asString~options.get("script", null));
 
 		renderBody(_html, this.bodyClasses, this.bodyAttributes, bodyContent, options);
 

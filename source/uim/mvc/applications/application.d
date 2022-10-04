@@ -15,10 +15,10 @@ class DMVCApplication : DMVCBase, IMVCApplication {
   mixin(OProperty!("DMVCRoute[HTTPMethod][string]", "routes"));
 
   // Containers
-  mixin(OProperty!("DMVCLinkContainer", "links"));
-  mixin(OProperty!("DMVCMetaContainer", "metas"));
+  mixin(OProperty!("DMVCLinkContainer",   "links"));
+  mixin(OProperty!("DMVCMetaContainer",   "metas"));
   mixin(OProperty!("DMVCScriptContainer", "scripts"));
-  mixin(OProperty!("DMVCStyleContainer", "styles"));
+  mixin(OProperty!("DMVCStyleContainer",  "styles"));
   
   auto routesPaths() {
     return _routes.keys; 
@@ -67,6 +67,8 @@ class DMVCApplication : DMVCBase, IMVCApplication {
     writeln("newRequest.fullURL = '%s'".format(newRequest.fullURL));
     writeln("newRequest.rootDir = '%s'".format(newRequest.rootDir));
     writeln("newRequest.path    = '%s'".format(newRequest.path));
+
+    if (this.layout) this.layout.application(this);
 
     writeln(routesPaths);
     if (newRequest.path.length >= rootPath.length) {
