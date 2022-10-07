@@ -11,6 +11,7 @@ class DMVCViewComponent : DMVCBase, IMVCViewComponent {
   }
 
   mixin(OProperty!("IMVCView", "view"));
+  mixin(OProperty!("string", "id"));
 
   void beforeH5(STRINGAA options = null) {
     // 

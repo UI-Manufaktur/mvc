@@ -79,17 +79,31 @@ class DMVCPageHeaderViewComponent : DMVCViewComponent {
   override DH5Obj[] toH5(STRINGAA options = null) {
     super.toH5(options);
      
-    auto id = this.entity ? this.entity["id"] : UUID().toString;   
+    // auto id = this.entity ? this.entity["id"] : UUID().toString;   
     return
       [
-        H5Div(id, ["page-header d-print-none mb-3"], 
-        BS5Row(["align-items-center"])
-        .col(["col"], 
-          H5Div(["text-small mb-1"], breadcrumbs),
-          H5H2(["page-title"], title))
-        .col(["col-auto ms-auto d-print-none"], 
-          H5Div(["btn-list"], actionButtons(options))
-        ))
+        UIMPageHeader(
+          UIMRow(["align-items-center mw-100"],
+            UIMCol(
+              UIMDiv(["mb-1"],
+                this.breadcrumbs
+              ),
+              UIMPageTitle(
+                H5Span(["text-truncate"], title)
+              )
+            ),
+            UIMCol.sizes(["auto"])(
+              UIMButtonList(
+                UIMButton(["d-none d-md-inline-flex"]).link("#")(
+                  tablerIcon("edit")~" Edit"
+                ),
+                UIMButton(["btn-primary"]).link("#")(
+                  "Publish"
+                )
+              )
+            )
+          )
+        )
       ].toH5;
   }
 }
