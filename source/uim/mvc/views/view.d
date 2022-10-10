@@ -11,6 +11,8 @@ class DMVCView : DMVCBase, IMVCView {
   }
   
   mixin(OProperty!("IMVCController", "controller"));  
+  mixin(OProperty!("DOOPEntity", "entity"));
+  mixin(OProperty!("DOOPEntity[]", "entities"));
 
   void beforeH5(STRINGAA options = null) {
     // 

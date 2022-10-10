@@ -10,55 +10,20 @@ class DMVCPageHeaderViewComponent : DMVCViewComponent {
     super.initialize;
 
     this
-      .breadcrumbs(UIMBreadcrumb);  
+      .breadcrumbs(UIMBreadcrumb)
+      .headerToolbar(UIMToolbar)
+      .printable(true);
   }
 
   mixin(MVCParameter!("preTitle"));
   mixin(MVCParameter!("title"));
   mixin(OProperty!("string[][]", "actions"));
+  mixin(OProperty!("bool", "printable"));
   mixin(MVCParameter!("mainTitle"));
   mixin(MVCParameter!("subTitle"));
   mixin(MVCParameter!("rootPath"));
   mixin(OProperty!("DUIMBreadcrumbControl", "breadcrumbs"));
-  mixin(MVCParameter!("breadcrumbsStyle"));
-
-
-  mixin(OProperty!("DOOPEntity", "entity"));
-
-
-  DH5Obj actionButton(string action, STRINGAA options = null) {
-    auto id = this.entity ? this.entity["id"] : UUID().toString;      
-  
-    switch(action) {
-/*       case "refresh": return buttonLinkRefresh(rootPath); 
-      case "create": return buttonLinkCreate(rootPath); 
-      case "list": return buttonLinkList(rootPath);  
-      case "read": 
-      case "view": return buttonLinkView(rootPath, id); 
-      case "edit": 
-      case "update": return buttonLinkEdit(rootPath, id); 
-      case "delete": 
-      case "remove": return buttonLinkDelete(rootPath, id); 
-      case "version":return null; // Working on it 
-      case "lock":return null;  
-      case "unlock":return null; 
-      case "print":return null; 
-      case "export":return null; 
-      case "import":return null;  */
-      default: return null;
-    }
-  } 
-
-  auto actionButtons(STRINGAA options = null) {
-    return actions.join
-      .map!(action => actionButton(action, options)).array;
-  } 
-
-  override string render(STRINGAA options = null) {
-    // debug writeln("DMVCCreatePageHeader/toString");
-    auto h5 = toH5(options);
-    return h5 ? h5.map!(a => a.toString).join : "";
-  }
+  mixin(OProperty!("DUIMToolbarControl", "headerToolbar"));
 
   // #region h5
   override void beforeH5(STRINGAA options = null) {
@@ -74,15 +39,19 @@ class DMVCPageHeaderViewComponent : DMVCViewComponent {
 /*     mixin(OProperty!("DH5Obj", "breadcrumbs"));
     mixin(OProperty!("DOOPEntity", "entity"));
  */  
+
+    this
+      .headerToolbar
+        .buttons(
+          pageheaderToolbarButtons(actions, rootPath, entity ? entity["id"] : null));
   }
 
   override DH5Obj[] toH5(STRINGAA options = null) {
     super.toH5(options);
      
-    // auto id = this.entity ? this.entity["id"] : UUID().toString;   
     return
       [
-        UIMPageHeader(
+        UIMPageHeader.printable(printable)(
           UIMRow(["align-items-center mw-100"],
             UIMCol(
               UIMDiv(["mb-1"],
@@ -93,14 +62,7 @@ class DMVCPageHeaderViewComponent : DMVCViewComponent {
               )
             ),
             UIMCol.sizes(["auto"])(
-              UIMButtonList(
-                UIMButton(["d-none d-md-inline-flex"]).link("#")(
-                  tablerIcon("edit")~" Edit"
-                ),
-                UIMButton(["btn-primary"]).link("#")(
-                  "Publish"
-                )
-              )
+              headerToolbar
             )
           )
         )
@@ -108,3 +70,4 @@ class DMVCPageHeaderViewComponent : DMVCViewComponent {
   }
 }
 mixin(MVCViewComponentCalls!("MVCPageHeaderViewComponent", "DMVCPageHeaderViewComponent"));
+mixin(MVCViewComponentCalls!("MVCPageHeader", "DMVCPageHeaderViewComponent"));

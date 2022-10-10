@@ -10,11 +10,18 @@ class DMVCApplication : DMVCBase, IMVCApplication {
     super.initialize;
   }
 
-  mixin(OProperty!("string", "rootPath"));
+  // Application data 
+  mixin(OProperty!("UUID", "id"));
+  mixin(MVCParameter!("rootPath"));
+  mixin(OProperty!("size_t", "versionNumber"));
+  mixin(OProperty!("Json", "config"));
+
+  // Interfaces
+  mixin(OProperty!("DETBBase", "database"));
   mixin(OProperty!("DMVCLayout", "layout"));
   mixin(OProperty!("DMVCRoute[HTTPMethod][string]", "routes"));
 
-  // Containers
+  // Main Containers - Allways first
   mixin(OProperty!("DMVCLinkContainer",   "links"));
   mixin(OProperty!("DMVCMetaContainer",   "metas"));
   mixin(OProperty!("DMVCScriptContainer", "scripts"));

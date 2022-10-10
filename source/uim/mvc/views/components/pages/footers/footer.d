@@ -16,8 +16,6 @@ class DMVCPageFooterViewComponent : DMVCViewComponent {
   mixin(MVCParameter!("backgroundColor"));
   mixin(MVCParameter!("backgroundImage"));
   mixin(MVCParameter!("inner"));
-  mixin(OProperty!("DOOPEntity",   "entity"));
-  mixin(OProperty!("DOOPEntity[]", "entities"));
 
   override DH5Obj[] toH5(STRINGAA options = null) { // hook
     debugMethodCall(moduleName!DMVCPageFooterViewComponent~":DMVCPageFooterViewComponent("~this.name~")::toH5");

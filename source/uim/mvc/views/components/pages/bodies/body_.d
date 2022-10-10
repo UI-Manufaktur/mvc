@@ -15,9 +15,15 @@ class DMVCPageBodyViewComponent : DMVCViewComponent {
      
     return
       [
-        H5Div(id, ["page-body d-print-none mb-3"], 
+        UIMPageBody(id, ["mb-3"], 
+          UIMCard(
+            UIMCardBody(
+              // add Content
+            )
+          )
         )
       ].toH5;
   }
 }
 mixin(MVCViewComponentCalls!("MVCPageBodyViewComponent", "DMVCPageBodyViewComponent"));
+mixin(MVCViewComponentCalls!("MVCPageBody", "DMVCPageBodyViewComponent"));
