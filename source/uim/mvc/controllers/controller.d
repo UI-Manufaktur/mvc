@@ -39,6 +39,7 @@ class DMVCController : DMVCBase, IMVCController  {
   mixin(MVCParameter!("contentTypeParameters"));
   mixin(MVCParameter!("timeCreated"));
   mixin(MVCParameter!("persistent"));
+  mixin(MVCParameter!("redirect"));
 
   /* mixin(OProperty!("DMVCCheck[]", "checks"));
   O addChecks(this O)(DMVCCheck[] newChecks) {
@@ -59,6 +60,10 @@ class DMVCController : DMVCBase, IMVCController  {
   /// Configuration of controller
   mixin(OProperty!("Json", "config"));
 
+  bool hasRedirect() {
+    return (this.redirect.length > 0);
+  }
+  
   Json message(string[string] options) {
     auto json = message(Json.emptyObject, options);
     return json;
