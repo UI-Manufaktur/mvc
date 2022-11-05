@@ -3,14 +3,14 @@ module uim.baklava.views.view;
 @safe:
 import uim.baklava;
 
-class DBLVView : DBLVBase, IBLVView { 
-  mixin(BLVViewThis!("BLVView"));
+class DBKLView : DBKLBase, IBKLView { 
+  mixin(BKLViewThis!("BKLView"));
 
   override void initialize() {
     super.initialize;
   }
   
-  mixin(OProperty!("IBLVController", "controller"));  
+  mixin(OProperty!("IBKLController", "controller"));  
   mixin(OProperty!("DOOPEntity", "entity"));
   mixin(OProperty!("DOOPEntity[]", "entities"));
   mixin(OProperty!("string", "rootPath"));
@@ -24,7 +24,7 @@ class DBLVView : DBLVBase, IBLVView {
   }
 
   DH5Obj[] toH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DBLVView~":DBLVView("~this.name~")::toH5");
+    debugMethodCall(moduleName!DBKLView~":DBKLView("~this.name~")::toH5");
     beforeH5(options);
     DH5Obj[] result;     
     afterH5(options);  
@@ -46,12 +46,12 @@ class DBLVView : DBLVBase, IBLVView {
     return result;
   }
 }
-mixin(BLVViewCalls!("BLVView", "DBLVView"));
+mixin(BKLViewCalls!("BKLView", "DBKLView"));
 
 version(test_uim_mvc) { unittest { 
-  testBLVView(BLVView, "BLVView");
+  testBKLView(BKLView, "BKLView");
 
-  assert(BLVView.name == "BLVView");
-  assert(BLVView.create.name == "BLVView");
-  assert(BLVView.clone.name == "BLVView");
+  assert(BKLView.name == "BKLView");
+  assert(BKLView.create.name == "BKLView");
+  assert(BKLView.clone.name == "BKLView");
 }} 

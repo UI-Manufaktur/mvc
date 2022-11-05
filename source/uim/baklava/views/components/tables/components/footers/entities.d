@@ -3,8 +3,8 @@ module uim.baklava.views.components.tables.components.footers.entities;
 @safe:
 import uim.baklava;
 
-class DBLVEntitiesTableFooter : DBLVTableFooter {
-  mixin(ViewComponentThis!("BLVEntitiesTableFooter"));
+class DBKLEntitiesTableFooter : DBKLTableFooter {
+  mixin(ViewComponentThis!("BKLEntitiesTableFooter"));
 
   mixin(OProperty!("size_t", "pageNo"));
   mixin(OProperty!("size_t", "visibleEntities"));
@@ -43,4 +43,4 @@ class DBLVEntitiesTableFooter : DBLVTableFooter {
                 "Next"~tablerIcon("chevrons-right"))))].toH5;
     } 
 }
-mixin(ViewComponentCalls!("BLVEntitiesTableFooter"));
+mixin(ViewComponentCalls!("BKLEntitiesTableFooter"));

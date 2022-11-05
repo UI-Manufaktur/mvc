@@ -3,8 +3,8 @@ module uim.baklava.views.components.forms.crud.delete_;
 @safe:
 import uim.baklava;
 
-class DBLVDeleteForm : DEntityForm {
-  mixin(BLVViewComponentThis!("BLVDeleteForm"));
+class DBKLDeleteForm : DBKLEntityForm {
+  mixin(BKLViewComponentThis!("BKLDeleteForm"));
 
   override void initialize() {
     super.initialize;
@@ -13,9 +13,9 @@ class DBLVDeleteForm : DEntityForm {
       .crudMode(CRUDModes.Delete);
   }
 }
-mixin(BLVViewComponentCalls!("BLVDeleteForm"));
+mixin(BKLViewComponentCalls!("BKLDeleteForm"));
 
-/* auto deleteheader(string path, DOOPEntity entity, DBLVPanes panes, STRINGAA reqParameters) {  
+/* auto deleteheader(string path, DOOPEntity entity, DBKLPanes panes, STRINGAA reqParameters) {  
   return 
     BS5CardHeader( 
       H5H4(["card-title me-auto"], "ID: "~entity.id.toString),
@@ -27,14 +27,14 @@ mixin(BLVViewComponentCalls!("BLVDeleteForm"));
     );
 } */
 
-/* class DBLVDeletebody_ : DBLVbody_ {
+/* class DBKLDeletebody_ : DBKLbody_ {
   this() { super();
     _fields = ["name", "display", "description"]; }
 
   mixin(OProperty!("string", "id"));
   mixin(OProperty!("string", "path"));
   mixin(OProperty!("DOOPEntity", "entity"));
-  mixin(OProperty!("DBLVPanes", "panes")); 
+  mixin(OProperty!("DBKLPanes", "panes")); 
   mixin(OProperty!("string[]", "fields")); 
   
   
@@ -75,6 +75,6 @@ mixin(BLVViewComponentCalls!("BLVDeleteForm"));
       );
   } 
 }
-auto BLVDeletebody_() { return new DBLVDeletebody_(); }
+auto BKLDeletebody_() { return new DBKLDeletebody_(); }
 
  */

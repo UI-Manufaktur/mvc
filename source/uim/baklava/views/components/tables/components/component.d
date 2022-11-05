@@ -3,9 +3,9 @@ module uim.baklava.views.components.tables.components.component;
 @safe:
 import uim.baklava;
 
-class DBLVTableComponent : DEntitiesViewComponent {
-  mixin(ViewComponentThis!("BLVTableComponent"));
+class DBKLTableComponent : DEntitiesViewComponent {
+  mixin(ViewComponentThis!("BKLTableComponent"));
 
-  mixin(OProperty!("DBLVTableViewComponent", "table"));
+  mixin(OProperty!("DBKLTableViewComponent", "table"));
 }
-mixin(ViewComponentCalls!("BLVTableComponent"));
+mixin(ViewComponentCalls!("BKLTableComponent"));

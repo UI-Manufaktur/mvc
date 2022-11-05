@@ -3,7 +3,7 @@ module uim.baklava.views.components.navbars.navbar;
 @safe:
 import uim.baklava;
 
-/* class DBLVFirstNavbar : DBLVViewComponent {
+/* class DBKLFirstNavbar : DBKLViewComponent {
     this() { super(); }
 
     override DH5Obj[] toH5(STRINGAA options = null) {   
@@ -53,12 +53,12 @@ import uim.baklava;
             );
     }
 }
-auto BLVFirstNavbar() { return new DBLVFirstNavbar; }
+auto BKLFirstNavbar() { return new DBKLFirstNavbar; }
 
-class DBLVSecondNavbar : DBLVViewComponent {
+class DBKLSecondNavbar : DBKLViewComponent {
   this() { super(); }
 
-  mixin(OProperty!("DBLVNavbarSlotViewComponent[]", "slots"));
+  mixin(OProperty!("DBKLNavbarSlotViewComponent[]", "slots"));
   mixin(OProperty!("string[string]", "brand"));
 
   override DH5Obj[] toH5(STRINGAA options = null) {
@@ -81,15 +81,15 @@ class DBLVSecondNavbar : DBLVViewComponent {
       ); 
   }
 }
-auto BLVSecondNavbar() { return new DBLVSecondNavbar; }
-auto BLVSecondNavbar(DBLVNavbarSlotViewComponent[] slots) { return BLVSecondNavbar.slots(slots); }
+auto BKLSecondNavbar() { return new DBKLSecondNavbar; }
+auto BKLSecondNavbar(DBKLNavbarSlotViewComponent[] slots) { return BKLSecondNavbar.slots(slots); }
  */
 
-class DBLVFirstNavbar : DBLVViewComponent {
-  mixin(BLVViewComponentThis!("BLVFirstNavbar"));
+class DBKLFirstNavbar : DBKLViewComponent {
+  mixin(BKLViewComponentThis!("BKLFirstNavbar"));
 
-  mixin(BLVParameter!("appLogo"));
-  mixin(BLVParameter!("appTitle"));
+  mixin(BKLParameter!("appLogo"));
+  mixin(BKLParameter!("appTitle"));
   mixin(OProperty!("bool", "requiresLogin"));
 
   override DH5Obj[] toH5(STRINGAA options = null) { // hook
@@ -124,7 +124,7 @@ class DBLVFirstNavbar : DBLVViewComponent {
       ].toH5;
   }
 }
-mixin(BLVViewComponentCalls!("BLVFirstNavbar", "DBLVFirstNavbar"));
+mixin(BKLViewComponentCalls!("BKLFirstNavbar", "DBKLFirstNavbar"));
 
 
 auto messagesNavitem(STRINGAA options = null) {
@@ -147,7 +147,7 @@ auto userNavitem(STRINGAA options = null) {
       H5A(["nav-link d-flex lh-1 text-reset p-0"], ["href":"#", "data-bs-toggle":"dropdown", "aria-label":"Benutzermenü"], 
         BS5Avatar(["avatar-sm"], ["style":"background-image: url(/lib/tabler/tabler-1.0.0-alpha.7/static/avatars/000m.jpg)"]),
         H5Div(["d-none d-xl-block ps-2"], 
-          H5Div("Mr. BLV"),
+          H5Div("Mr. BKL"),
           H5Div(["mt-1 small text-muted"], "UI Designer")
         )
       ),
@@ -162,13 +162,13 @@ auto userNavitem(STRINGAA options = null) {
     );
 }
 
-class DBLVSecondNavbar : DBLVViewComponent {
-  mixin(BLVViewComponentThis!("BLVSecondNavbar"));
+class DBKLSecondNavbar : DBKLViewComponent {
+  mixin(BKLViewComponentThis!("BKLSecondNavbar"));
 
-  mixin(OProperty!("DBLVNavbarSlotViewComponent[]", "leftSlots"));
-  mixin(OProperty!("DBLVNavbarSlotViewComponent[]", "rightSlots"));
-  mixin(OProperty!("DBLVNavbarSlotViewComponent[]", "leftSlotsWithLogin"));
-  mixin(OProperty!("DBLVNavbarSlotViewComponent[]", "rightSlotsWithLogin"));
+  mixin(OProperty!("DBKLNavbarSlotViewComponent[]", "leftSlots"));
+  mixin(OProperty!("DBKLNavbarSlotViewComponent[]", "rightSlots"));
+  mixin(OProperty!("DBKLNavbarSlotViewComponent[]", "leftSlotsWithLogin"));
+  mixin(OProperty!("DBKLNavbarSlotViewComponent[]", "rightSlotsWithLogin"));
   mixin(OProperty!("string[string]", "brand"));
   mixin(OProperty!("string[string]", "brandWithLogin"));
 
@@ -242,7 +242,7 @@ class DBLVSecondNavbar : DBLVViewComponent {
       )].toH5;
   }
 }
-mixin(BLVViewComponentCalls!("BLVSecondNavbar", "DBLVSecondNavbar"));
+mixin(BKLViewComponentCalls!("BKLSecondNavbar", "DBKLSecondNavbar"));
 
 /*
 BS5NavItem(["active"], 

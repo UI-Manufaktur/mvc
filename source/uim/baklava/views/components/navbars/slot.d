@@ -3,8 +3,8 @@ module uim.baklava.views.components.navbars.slot;
 @safe:
 import uim.baklava;
 
-class DBLVNavbarSlotViewComponent : DBLVViewComponent {
-    mixin(BLVViewComponentThis!("BLVNavbarSlotViewComponent"));
+class DBKLNavbarSlotViewComponent : DBKLViewComponent {
+    mixin(BKLViewComponentThis!("BKLNavbarSlotViewComponent"));
 
     mixin(OProperty!("bool", "active"));
     mixin(OProperty!("string", "title"));
@@ -34,4 +34,4 @@ class DBLVNavbarSlotViewComponent : DBLVViewComponent {
       )].toH5;
     }
 }
-mixin(BLVViewComponentCalls!("BLVNavbarSlotViewComponent", "DBLVNavbarSlotViewComponent"));
+mixin(BKLViewComponentCalls!("BKLNavbarSlotViewComponent", "DBKLNavbarSlotViewComponent"));

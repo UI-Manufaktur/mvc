@@ -3,7 +3,7 @@ module uim.baklava.views.components.tables.components.bodies.entity;
 @safe:
 import uim.baklava;
 
-class DBLVEntityTableBody : DBLVTableBody {
-  mixin(ViewComponentThis!("BLVEntityTableBody"));
+class DBKLEntityTableBody : DBKLTableBody {
+  mixin(ViewComponentThis!("BKLEntityTableBody"));
 }
-mixin(ViewComponentCalls!("BLVEntityTableBody"));
+mixin(ViewComponentCalls!("BKLEntityTableBody"));

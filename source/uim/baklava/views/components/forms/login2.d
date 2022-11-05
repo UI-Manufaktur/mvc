@@ -3,8 +3,8 @@ module uim.baklava.views.components.forms.login2;
 @safe:
 import uim.baklava;
 
-class DBLVLogin2Form : DForm {
-  mixin(BLVViewComponentThis!("BLVLogin2Form"));
+class DBKLLogin2Form : DForm {
+  mixin(BKLViewComponentThis!("BKLLogin2Form"));
 
   override void initialize() {
     super.initialize;
@@ -40,7 +40,7 @@ class DBLVLogin2Form : DForm {
     return results;
   }
 }
-mixin(BLVViewComponentCalls!("BLVLogin2Form"));
+mixin(BKLViewComponentCalls!("BKLLogin2Form"));
 
 version(test_uim_apps) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);

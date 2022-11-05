@@ -3,8 +3,8 @@ module uim.baklava.views.components.tables.components.headers.entities;
 @safe:
 import uim.baklava;
 
-class DBLVEntitiesTableHeader : DBLVTableHeader {
-  mixin(ViewComponentThis!("BLVEntitiesTableHeader"));
+class DBKLEntitiesTableHeader : DBKLTableHeader {
+  mixin(ViewComponentThis!("BKLEntitiesTableHeader"));
 
   override void initialize() {
     super.initialize;
@@ -18,7 +18,7 @@ class DBLVEntitiesTableHeader : DBLVTableHeader {
   override void beforeH5(STRINGAA options = null) { 
     super.beforeH5(options);
 
-    if (auto entitiesTable = cast(IBLVWithEntities)table) {
+    if (auto entitiesTable = cast(IBKLWithEntities)table) {
       this.entities = entitiesTable.entities;
     }
   }
@@ -40,5 +40,5 @@ class DBLVEntitiesTableHeader : DBLVTableHeader {
           UIMTextInput(["form-control-sm"], ["aria-label":"Search "~mainTitle.toLower]))))].toH5;
   }
 }
-mixin(ViewComponentCalls!("BLVEntitiesTableHeader"));
+mixin(ViewComponentCalls!("BKLEntitiesTableHeader"));
 

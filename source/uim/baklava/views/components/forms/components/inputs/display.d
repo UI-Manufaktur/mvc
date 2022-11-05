@@ -3,8 +3,8 @@ module uim.baklava.views.components.forms.components.inputs.display;
 @safe:
 import uim.baklava;
 
-class DDisplayFormInput : DBLVTextFormInput {
-  mixin(BLVViewComponentThis!("BLVDisplayFormInput"));
+class DDisplayFormInput : DBKLTextFormInput {
+  mixin(BKLViewComponentThis!("BKLDisplayFormInput"));
 
   override void initialize() {
     super.initialize();
@@ -18,7 +18,7 @@ class DDisplayFormInput : DBLVTextFormInput {
     .invalidFeedback("Titel ist nicht korrekt"); 
   }
 }
-mixin(BLVViewComponentCalls!("BLVDisplayFormInput", "DBLVDisplayFormInput"));
+mixin(BKLViewComponentCalls!("BKLDisplayFormInput", "DBKLDisplayFormInput"));
 
 version(test_uim_apps) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);

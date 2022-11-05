@@ -8,8 +8,8 @@ module uim.baklava.views.logout;
 @safe:
 import uim.baklava;
 
-class DBLVLogoutView : DBLVView {
-  mixin(BLVViewThis!("BLVLogoutView"));
+class DBKLLogoutView : DBKLView {
+  mixin(BKLViewThis!("BKLLogoutView"));
 
   override void beforeH5(STRINGAA options = null) {
     super.beforeH5(options);
@@ -59,8 +59,8 @@ class DBLVLogoutView : DBLVView {
     ].toH5;
   }
 }
-mixin(BLVViewCalls!("BLVLogoutView", "DBLVLogoutView"));
+mixin(BKLViewCalls!("BKLLogoutView", "DBKLLogoutView"));
 
 version(test_uim_apps) { unittest {
-  assert(BLVLogoutView);
+  assert(BKLLogoutView);
 }}

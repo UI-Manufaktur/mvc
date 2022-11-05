@@ -3,8 +3,8 @@ module uim.baklava.views.components.forms.components.inputs.date;
 @safe:
 import uim.baklava;
 
-class DBLVDateFormInput : DBLVFormInput {
-  mixin(BLVViewComponentThis!("BLVDateFormInput"));
+class DBKLDateFormInput : DBKLFormInput {
+  mixin(BKLViewComponentThis!("BKLDateFormInput"));
 
   override DH5Obj h5Input(STRINGAA options = null) {
     super.h5Input(options);
@@ -33,7 +33,7 @@ class DBLVDateFormInput : DBLVFormInput {
     if (hasError) { return; }
   }
 }
-mixin(BLVViewComponentCalls!("BLVDateFormInput", "DBLVDateFormInput"));
+mixin(BKLViewComponentCalls!("BKLDateFormInput", "DBKLDateFormInput"));
 
 version(test_uim_apps) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);

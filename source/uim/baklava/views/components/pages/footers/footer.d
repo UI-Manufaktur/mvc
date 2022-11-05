@@ -3,22 +3,22 @@ module uim.baklava.views.components.pages.footers.footer;
 @safe:
 import uim.baklava;
 
-class DBLVPageFooterViewComponent : DBLVViewComponent {
-  mixin(BLVViewComponentThis!("BLVPageFooterViewComponent"));
+class DBKLPageFooterViewComponent : DBKLViewComponent {
+  mixin(BKLViewComponentThis!("BKLPageFooterViewComponent"));
 
   override void initialize() {
     super.initialize; 
     
     this
-      .inner = `Version 1.0.1 - Copyright 2017-2021 UI-Manufaktur UG (haftungsbeschränkt) - License BLV`;
+      .inner = `Version 1.0.1 - Copyright 2017-2021 UI-Manufaktur UG (haftungsbeschränkt) - License BKL`;
   }
     
-  mixin(BLVParameter!("backgroundColor"));
-  mixin(BLVParameter!("backgroundImage"));
-  mixin(BLVParameter!("inner"));
+  mixin(BKLParameter!("backgroundColor"));
+  mixin(BKLParameter!("backgroundImage"));
+  mixin(BKLParameter!("inner"));
 
   override DH5Obj[] toH5(STRINGAA options = null) { // hook
-    debugMethodCall(moduleName!DBLVPageFooterViewComponent~":DBLVPageFooterViewComponent("~this.name~")::toH5");
+    debugMethodCall(moduleName!DBKLPageFooterViewComponent~":DBKLPageFooterViewComponent("~this.name~")::toH5");
     super.toH5(options);
     if (hasError || "redirect" in options) { return null; }    
     
@@ -35,5 +35,5 @@ class DBLVPageFooterViewComponent : DBLVViewComponent {
         ))].toH5;
   }
 }
-mixin(BLVViewComponentCalls!("BLVPageFooterViewComponent", "DBLVPageFooterViewComponent"));
-mixin(BLVViewComponentCalls!("BLVPageFooter", "DBLVPageFooterViewComponent"));
+mixin(BKLViewComponentCalls!("BKLPageFooterViewComponent", "DBKLPageFooterViewComponent"));
+mixin(BKLViewComponentCalls!("BKLPageFooter", "DBKLPageFooterViewComponent"));

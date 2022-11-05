@@ -3,8 +3,8 @@ module uim.baklava.views.components.forms.components.inputs.name;
 @safe:
 import uim.baklava;
 
-class DBLVNameFormInput : DBLVTextFormInput {
-  mixin(BLVViewComponentThis!("BLVNameFormInput"));
+class DBKLNameFormInput : DBKLTextFormInput {
+  mixin(BKLViewComponentThis!("BKLNameFormInput"));
 
   override void initialize() {
     super.initialize;
@@ -18,4 +18,4 @@ class DBLVNameFormInput : DBLVTextFormInput {
       .invalidFeedback("Name ist nicht korrekt");
   }
 }
-mixin(BLVViewComponentCalls!("BLVNameFormInput", "DBLVNameFormInput"));
+mixin(BKLViewComponentCalls!("BKLNameFormInput", "DBKLNameFormInput"));

@@ -3,11 +3,11 @@ module uim.baklava.views.components.forms.components.headers.header;
 @safe:
 import uim.baklava;
 
-class DBLVFormHeader : DBLVFormComponent {
-  mixin(BLVViewComponentThis!("BLVFormHeader"));
+class DBKLFormHeader : DBKLFormComponent {
+  mixin(BKLViewComponentThis!("BKLFormHeader"));
 
   override void initialize() {
-    debugMethodCall(moduleName!DBLVFormHeader~"::DBLVFormHeader("~this.name~"):initialize");   
+    debugMethodCall(moduleName!DBKLFormHeader~"::DBKLFormHeader("~this.name~"):initialize");   
     super.initialize;
     debug writeln("In ", __MODULE__, "/", __LINE__);
 
@@ -17,8 +17,8 @@ class DBLVFormHeader : DBLVFormComponent {
   }
   
   // mixin(OProperty!("DOOPEntity", "entity"));
-  mixin(BLVParameter!("mainTitle"));
-  mixin(BLVParameter!("subTitle"));
+  mixin(BKLParameter!("mainTitle"));
+  mixin(BKLParameter!("subTitle"));
   mixin(OProperty!("string[][]", "actions"));
 /*   O actions(this O)(string[][] newActions...) { 
     this.actions(newActions); 
@@ -26,7 +26,7 @@ class DBLVFormHeader : DBLVFormComponent {
   } */
 
   DH5Obj actionButton(string action, STRINGAA options = null) {
-    debugMethodCall(moduleName!DBLVFormHeader~":DBLVFormHeader::actionButton");
+    debugMethodCall(moduleName!DBKLFormHeader~":DBKLFormHeader::actionButton");
 
     auto entityId = this.entity ? this.entity["id"] : "-missing-";
 
@@ -50,7 +50,7 @@ class DBLVFormHeader : DBLVFormComponent {
   }
 
   DH5Obj[] actionButtons(STRINGAA options = null) {
-    debugMethodCall(moduleName!DBLVFormHeader~":DBLVFormHeader::actionButtons");
+    debugMethodCall(moduleName!DBKLFormHeader~":DBKLFormHeader::actionButtons");
     debug writeln ("Actions: ", this.actions);
 
     DH5Obj[] results;
@@ -65,7 +65,7 @@ class DBLVFormHeader : DBLVFormComponent {
   }
 
   DH5Obj h5CardHeader(STRINGAA options = null) {
-    debugMethodCall(moduleName!DBLVFormHeader~":DBLVFormHeader::h5CardHeader");
+    debugMethodCall(moduleName!DBKLFormHeader~":DBKLFormHeader::h5CardHeader");
 
     return BS5CardHeader(id,
       H5H4(["card-title me-auto"], title),
@@ -74,7 +74,7 @@ class DBLVFormHeader : DBLVFormComponent {
   }
 
   override void beforeH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DBLVFormHeader~":DBLVFormHeader::beforeH5");
+    debugMethodCall(moduleName!DBKLFormHeader~":DBKLFormHeader::beforeH5");
     super.beforeH5(options);
 
     /* if (form) {
@@ -90,7 +90,7 @@ class DBLVFormHeader : DBLVFormComponent {
   } 
 
   override DH5Obj[] toH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DBLVFormHeader~":DBLVFormHeader::toH5");
+    debugMethodCall(moduleName!DBKLFormHeader~":DBKLFormHeader::toH5");
     super.toH5(options);
     if (hasError) { return null; }
     
@@ -104,8 +104,8 @@ class DBLVFormHeader : DBLVFormComponent {
           H5Span(["d-none d-sm-inline"], buttons)))].toH5;    
   } 
 }
-mixin(BLVViewComponentCalls!("BLVFormHeader", "DBLVFormHeader"));
+mixin(BKLViewComponentCalls!("BKLFormHeader", "DBKLFormHeader"));
 
 version(test_uim_apps) { unittest {
-  assert(BLVFormHeader);
+  assert(BKLFormHeader);
 }}

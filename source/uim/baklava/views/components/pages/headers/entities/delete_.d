@@ -3,8 +3,8 @@ module uim.baklava.views.components.pages.headers.entities.delete_;
 @safe:
 import uim.baklava;
 
-class DBLVDeletePageHeaderViewComponent : DBLVPageHeaderViewComponent {
-  mixin(BLVViewComponentThis!("BLVDeletePageHeaderViewComponent"));
+class DBKLDeletePageHeaderViewComponent : DBKLPageHeaderViewComponent {
+  mixin(BKLViewComponentThis!("BKLDeletePageHeaderViewComponent"));
   
   override void initialize() {
     super.initialize;
@@ -13,5 +13,5 @@ class DBLVDeletePageHeaderViewComponent : DBLVPageHeaderViewComponent {
       .actions([["refresh"], ["list"], ["view", "edit"], ["print", "export"]]); 
   }
 }
-mixin(BLVViewComponentCalls!("BLVDeletePageHeaderViewComponent", "DBLVDeletePageHeaderViewComponent"));
-mixin(BLVViewComponentCalls!("BLVDeletePageHeader", "DBLVDeletePageHeaderViewComponent"));
+mixin(BKLViewComponentCalls!("BKLDeletePageHeaderViewComponent", "DBKLDeletePageHeaderViewComponent"));
+mixin(BKLViewComponentCalls!("BKLDeletePageHeader", "DBKLDeletePageHeaderViewComponent"));

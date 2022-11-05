@@ -8,16 +8,16 @@ module uim.baklava.views.login;
 @safe:
 import uim.baklava;
 
-class DBLVLoginView : DBLVView {
-  mixin(BLVViewThis!("BLVLoginView"));
+class DBKLLoginView : DBKLView {
+  mixin(BKLViewThis!("BKLLoginView"));
   
   override void beforeH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DBLVLoginView~":DBLVLoginView::beforeH5");
+    debugMethodCall(moduleName!DBKLLoginView~":DBKLLoginView::beforeH5");
     this.rootPath(options.get("rootPath", "/"));
   }
 
   override DH5Obj[] toH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DBLVLoginView~":DBLVLoginView::toH5");
+    debugMethodCall(moduleName!DBKLLoginView~":DBKLLoginView::toH5");
     super.toH5(options);
 
     auto message = BS5Row; 
@@ -44,15 +44,15 @@ class DBLVLoginView : DBLVView {
         BS5Row("messages", ["mt-2 mb-2"]),
         BS5Row("logo", ["text-center"],  H5A(["href":"https://www.sicherheitsschmiede.de"], 
           H5Img(["src":"/img/logo.png", "height":"80", "alt":"Sicherheitsschmiede - Sicher im Internet"]))),
-        BS5Row("form", BLVLoginForm.toH5(options)),
+        BS5Row("form", BKLLoginForm.toH5(options)),
         BS5Row("additional", H5Div(["text-center mb-4"], H5Div(["text-center text-muted mt-3"], 
           H5String("Noch kein Konto bei uns? "), H5A(["href":"/register", "tabindex":"-1"], "Registrieren"))))
       )
     ].toH5;
   }
 }
-mixin(BLVViewCalls!("BLVLoginView", "DBLVLoginView"));
+mixin(BKLViewCalls!("BKLLoginView", "DBKLLoginView"));
 
 version(test_uim_apps) { unittest {
-  assert(BLVLoginView);
+  assert(BKLLoginView);
 }}

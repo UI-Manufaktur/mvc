@@ -3,11 +3,11 @@ module uim.baklava.views.login2;
 @safe:
 import uim.baklava;
 
-class DBLVLogin2View : DBLVView {
-  mixin(BLVViewThis!("BLVLogin2View"));
+class DBKLLogin2View : DBKLView {
+  mixin(BKLViewThis!("BKLLogin2View"));
 
   override void beforeH5(STRINGAA options = null) { 
-    debugMethodCall(moduleName!DBLVLogin2View~":DBLVLogin2View::beforeH5");
+    debugMethodCall(moduleName!DBKLLogin2View~":DBKLLogin2View::beforeH5");
     super.beforeH5(options);
   }
 
@@ -20,12 +20,12 @@ class DBLVLogin2View : DBLVView {
         BS5Row("logo", ["text-center"],  
           H5A(["href":"https://www.sicherheitsschmiede.de"], 
             H5Img(["src":"/img/logo.png", "height":"80", "alt":"Sicherheitsschmiede - Sicher im Internet"]))),
-        BS5Row("form", BLVLogin2Form.toH5(options)))
+        BS5Row("form", BKLLogin2Form.toH5(options)))
     ].toH5;
   }
 }
-mixin(BLVViewCalls!("BLVLogin2View", "DBLVLogin2View"));
+mixin(BKLViewCalls!("BKLLogin2View", "DBKLLogin2View"));
 
 version(test_uim_apps) { unittest {
-  assert(BLVLogin2View);
+  assert(BKLLogin2View);
 }}

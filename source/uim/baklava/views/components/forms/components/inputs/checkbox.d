@@ -3,8 +3,8 @@ module uim.baklava.views.components.forms.components.inputs.checkbox;
 @safe:
 import uim.baklava;
 
-class DCheckboxFormInput : DBLVFormInput {
-  mixin(BLVViewComponentThis!("CheckboxFormInput"));
+class DCheckboxFormInput : DBKLFormInput {
+  mixin(BKLViewComponentThis!("CheckboxFormInput"));
 
   override void initialize() {
     super.initialize;
@@ -38,12 +38,12 @@ class DCheckboxFormInput : DBLVFormInput {
           h5Input(options), H5Span(["form-check-label"], label))));
   }
 }
-mixin(BLVViewComponentCalls!("BLVCheckboxFormInput", "DBLVCheckboxFormInput"));
+mixin(BKLViewComponentCalls!("BKLCheckboxFormInput", "DBKLCheckboxFormInput"));
 
 version(test_uim_apps) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
     
-    assert(new DBLVCheckboxFormInput);
-    assert(BLVCheckboxFormInput);
+    assert(new DBKLCheckboxFormInput);
+    assert(BKLCheckboxFormInput);
   }
 }

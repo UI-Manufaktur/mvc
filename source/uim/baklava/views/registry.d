@@ -3,20 +3,20 @@ module uim.baklava.views.registry;
 @safe:
 import uim.baklava;
 
-class DBLVViewRegistry : DRegistry!DBLVView{
+class DBKLViewRegistry : DRegistry!DBKLView{
   this() {}
 
-  static DBLVViewRegistry registry; 
+  static DBKLViewRegistry registry; 
 }
-auto BLVViewRegistry() { 
-  if (!DBLVViewRegistry.registry) {
-    DBLVViewRegistry.registry = new DBLVViewRegistry; 
+auto BKLViewRegistry() { 
+  if (!DBKLViewRegistry.registry) {
+    DBKLViewRegistry.registry = new DBKLViewRegistry; 
   }
   return 
-  DBLVViewRegistry.registry;
+  DBKLViewRegistry.registry;
 }
 
 version(test_uim_mvc) { unittest {
-  assert(BLVViewRegistry.register("mvc/view",  BLVView).paths == ["mvc/view"]);
-  assert(BLVViewRegistry.register("mvc/view2", BLVView).paths.length == 2);
+  assert(BKLViewRegistry.register("mvc/view",  BKLView).paths == ["mvc/view"]);
+  assert(BKLViewRegistry.register("mvc/view2", BKLView).paths.length == 2);
 }}

@@ -8,8 +8,8 @@ public import uim.baklava.mixins.viewcomponent;
 public import uim.baklava.mixins.controller;
 public import uim.baklava.mixins.controllercomponent;
 
-template BLVParameter(string name) {
-  const char[] BLVParameter = `
+template BKLParameter(string name) {
+  const char[] BKLParameter = `
     O `~name~`(this O)(string value) {
       this.parameter("`~name~`", value);
       return cast(O)this;

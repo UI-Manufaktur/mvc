@@ -3,29 +3,29 @@ module uim.baklava.views.components.forms.components.contents.entities;
 @safe:
 import uim.baklava;
 
-class DBLVEntitiesFormContent : DBLVFormContent {
-  mixin(BLVViewComponentThis!("BLVEntitiesFormContent"));
+class DBKLEntitiesFormContent : DBKLFormContent {
+  mixin(BKLViewComponentThis!("BKLEntitiesFormContent"));
 
   override void initialize() {
-    debugMethodCall(moduleName!DBLVEntitiesFormContent~"::DBLVEntitiesFormContent("~this.name~"):initialize");   
+    debugMethodCall(moduleName!DBKLEntitiesFormContent~"::DBKLEntitiesFormContent("~this.name~"):initialize");   
     super.initialize;
     debug writeln("In ", __MODULE__, "/", __LINE__);
 
     this // Defaults
-      .tableHeader(BLVEntitiesTableHeader)
-      .tableFilter(BLVEntitiesTableFilter); 
+      .tableHeader(BKLEntitiesTableHeader)
+      .tableFilter(BKLEntitiesTableFilter); 
   }
 
-  mixin(OProperty!("DBLVEntitiesTableHeader", "tableHeader"));
-  mixin(OProperty!("DBLVEntitiesTableFilter", "tableFilter"));
+  mixin(OProperty!("DBKLEntitiesTableHeader", "tableHeader"));
+  mixin(OProperty!("DBKLEntitiesTableFilter", "tableFilter"));
   // mixin(OProperty!("DOOPEntity[]", "entities"));
   
   override void beforeH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DBLVEntitiesFormContent~"DBLVEntitiesFormContent::beforeH5");
+    debugMethodCall(moduleName!DBKLEntitiesFormContent~"DBKLEntitiesFormContent::beforeH5");
     super.beforeH5(options);
     if (hasError || "redirect" in options) { return; }
 
-    debug writeln("in DBLVEntitiesEntitiesForm "~(this.entities ? "Has %s entities".format(this.entities.length) : "No entities"));
+    debug writeln("in DBKLEntitiesEntitiesForm "~(this.entities ? "Has %s entities".format(this.entities.length) : "No entities"));
 
     debug writeln("Before RootPath = ", this.rootPath);
     /* if (owner) { // ???
@@ -35,14 +35,14 @@ class DBLVEntitiesFormContent : DBLVFormContent {
     } */
 
 /*     debug writeln(entities ? "Has entities" : "No entities");
-    if (auto entitiesForm = cast(IBLVWithEntities)this.form) {
+    if (auto entitiesForm = cast(IBKLWithEntities)this.form) {
       debug writeln("Found entitiesForm");
       this.entities(entitiesForm.entities);
     } */
   }
 
   override DH5Obj[] toH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DBLVEntitiesFormContent~"DBLVEntitiesFormContent("~this.name~")::toH5");
+    debugMethodCall(moduleName!DBKLEntitiesFormContent~"DBKLEntitiesFormContent("~this.name~")::toH5");
     super.toH5(options);
 
     debug writeln("RootPath = ", this.rootPath);
@@ -92,7 +92,7 @@ class DBLVEntitiesFormContent : DBLVFormContent {
       .body_(["border-bottom py-3"], 
         H5Div(["d-flex"],
           viewEntities(10)
-          /* BLVSearchInEntities.toH5(form ? ["entitiesName":form.entitiesName] : null) */
+          /* BKLSearchInEntities.toH5(form ? ["entitiesName":form.entitiesName] : null) */
           )
         )
       (table)
@@ -105,13 +105,13 @@ class DBLVEntitiesFormContent : DBLVFormContent {
       ].toH5;
   } 
 }
-mixin(BLVViewComponentCalls!("BLVEntitiesFormContent", "DBLVEntitiesFormContent"));
+mixin(BKLViewComponentCalls!("BKLEntitiesFormContent", "DBKLEntitiesFormContent"));
 
 version(test_uim_apps) { unittest {
   writeln("--- Test in ", __MODULE__, "/", __LINE__);
   
-  assert(new DBLVEntitiesFormContent);
-  assert(BLVEntitiesFormContent);
-  assert(new DBLVEntitiesFormContent(Form));
-  assert(BLVEntitiesFormContent(Form)); 
+  assert(new DBKLEntitiesFormContent);
+  assert(BKLEntitiesFormContent);
+  assert(new DBKLEntitiesFormContent(Form));
+  assert(BKLEntitiesFormContent(Form)); 
 }}

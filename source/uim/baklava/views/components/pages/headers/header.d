@@ -3,8 +3,8 @@ module uim.baklava.views.components.pages.headers.header;
 @safe:
 import uim.baklava;
 
-class DBLVPageHeaderViewComponent : DBLVViewComponent {
-  mixin(BLVViewComponentThis!("BLVPageHeaderViewComponent"));
+class DBKLPageHeaderViewComponent : DBKLViewComponent {
+  mixin(BKLViewComponentThis!("BKLPageHeaderViewComponent"));
 
   override void initialize() {
     super.initialize;
@@ -15,13 +15,13 @@ class DBLVPageHeaderViewComponent : DBLVViewComponent {
       .printable(true);
   }
 
-  mixin(BLVParameter!("preTitle"));
-  mixin(BLVParameter!("title"));
+  mixin(BKLParameter!("preTitle"));
+  mixin(BKLParameter!("title"));
   mixin(OProperty!("string[][]", "actions"));
   mixin(OProperty!("bool", "printable"));
-  mixin(BLVParameter!("mainTitle"));
-  mixin(BLVParameter!("subTitle"));
-  mixin(BLVParameter!("rootPath"));
+  mixin(BKLParameter!("mainTitle"));
+  mixin(BKLParameter!("subTitle"));
+  mixin(BKLParameter!("rootPath"));
   mixin(OProperty!("DUIMBreadcrumbControl", "breadcrumbs"));
   mixin(OProperty!("DUIMToolbarControl", "headerToolbar"));
 
@@ -69,5 +69,5 @@ class DBLVPageHeaderViewComponent : DBLVViewComponent {
       ].toH5;
   }
 }
-mixin(BLVViewComponentCalls!("BLVPageHeaderViewComponent", "DBLVPageHeaderViewComponent"));
-mixin(BLVViewComponentCalls!("BLVPageHeader", "DBLVPageHeaderViewComponent"));
+mixin(BKLViewComponentCalls!("BKLPageHeaderViewComponent", "DBKLPageHeaderViewComponent"));
+mixin(BKLViewComponentCalls!("BKLPageHeader", "DBKLPageHeaderViewComponent"));

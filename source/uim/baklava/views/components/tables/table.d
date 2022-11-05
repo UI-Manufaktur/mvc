@@ -3,13 +3,13 @@ module uim.baklava.views.components.tables.table;
 @safe:
 import uim.baklava;
 
-class DBLVTableViewComponent : DBLVViewComponent {
-  mixin(ViewComponentThis!("BLVTableViewComponent"));
+class DBKLTableViewComponent : DBKLViewComponent {
+  mixin(ViewComponentThis!("BKLTableViewComponent"));
   
   mixin(OProperty!("string", "path"));  
-  mixin(OProperty!("DBLVViewComponent", "header"));
-  mixin(OProperty!("DBLVViewComponent", "content"));
-  mixin(OProperty!("DBLVViewComponent", "footer"));
+  mixin(OProperty!("DBKLViewComponent", "header"));
+  mixin(OProperty!("DBKLViewComponent", "content"));
+  mixin(OProperty!("DBKLViewComponent", "footer"));
 
   override DH5Obj[] toH5(STRINGAA options = null) { // hook
     super.toH5(options);
@@ -25,9 +25,9 @@ class DBLVTableViewComponent : DBLVViewComponent {
       )].toH5;
   }
 }
-mixin(ViewComponentCalls!("BLVTableViewComponent"));
+mixin(ViewComponentCalls!("BKLTableViewComponent"));
 
 version(test_uim_apps) { unittest {
-  assert(BLVTableViewComponent);
+  assert(BKLTableViewComponent);
 }}
 

@@ -3,8 +3,8 @@ module uim.baklava.views.components.forms.crud.create;
 @safe:
 import uim.baklava;
 
-class DBLVCreateForm : DBLVEntityForm {
-  mixin(BLVViewComponentThis!("BLVCreateForm"));
+class DBKLCreateForm : DBKLEntityForm {
+  mixin(BKLViewComponentThis!("BKLCreateForm"));
 
   override void initialize() {
     super.initialize;
@@ -13,7 +13,7 @@ class DBLVCreateForm : DBLVEntityForm {
       .crudMode(CRUDModes.Create);
   }
 }
-mixin(BLVViewComponentCalls!("BLVCreateForm", "DBLVCreateForm"));
+mixin(BKLViewComponentCalls!("BKLCreateForm", "DBKLCreateForm"));
 
 /* 
 auto createPageHeader(string path, string mainTitle, string subTitle) {
@@ -37,7 +37,7 @@ auto createForm(string path, string id, STRINGAA reqParameters) {
   return 
     H5Form("entity_create", ["card"], 
       createheader(path, id, reqParameters),
-      BLVCreatebody_.path(path).id(id).toH5(reqParameters)
+      BKLCreatebody_.path(path).id(id).toH5(reqParameters)
     );
 }
 

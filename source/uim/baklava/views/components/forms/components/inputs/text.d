@@ -3,8 +3,8 @@ module uim.baklava.views.components.forms.components.inputs.text;
 @safe:
 import uim.baklava;
 
-class DBLVTextFormInput : DBLVFormInput {
-  mixin(BLVViewComponentThis!("BLVTextFormInput"));
+class DBKLTextFormInput : DBKLFormInput {
+  mixin(BKLViewComponentThis!("BKLTextFormInput"));
 
   override DH5Obj[] toH5(STRINGAA options = null) { // hook
     super.toH5(options);
@@ -26,7 +26,7 @@ class DBLVTextFormInput : DBLVFormInput {
     ].toH5;
   }
 }
-mixin(BLVViewComponentCalls!("BLVTextFormInput", "DBLVTextFormInput"));
+mixin(BKLViewComponentCalls!("BKLTextFormInput", "DBKLTextFormInput"));
 
 version(test_uim_apps) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);

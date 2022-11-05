@@ -3,8 +3,8 @@ module uim.baklava.views.components.pages.bodies.body_;
 @safe:
 import uim.baklava;
 
-class DBLVPageBodyViewComponent : DBLVViewComponent {
-  mixin(BLVViewComponentThis!("BLVPageBodyViewComponent"));
+class DBKLPageBodyViewComponent : DBKLViewComponent {
+  mixin(BKLViewComponentThis!("BKLPageBodyViewComponent"));
 
   override void initialize() {
     super.initialize;
@@ -25,5 +25,5 @@ class DBLVPageBodyViewComponent : DBLVViewComponent {
       ].toH5;
   }
 }
-mixin(BLVViewComponentCalls!("BLVPageBodyViewComponent", "DBLVPageBodyViewComponent"));
-mixin(BLVViewComponentCalls!("BLVPageBody", "DBLVPageBodyViewComponent"));
+mixin(BKLViewComponentCalls!("BKLPageBodyViewComponent", "DBKLPageBodyViewComponent"));
+mixin(BKLViewComponentCalls!("BKLPageBody", "DBKLPageBodyViewComponent"));

@@ -3,16 +3,16 @@ module uim.baklava.models.model;
 @safe:
 import uim.baklava;
 
-class DBLVModel : DBLVBase, IBLVModel { 
-  mixin(BLVModelThis!("BLVModel"));
+class DBKLModel : DBKLBase, IBKLModel { 
+  mixin(BKLModelThis!("BKLModel"));
 
   override void initialize() {}
 
   mixin(OProperty!("DETBBase", "datasource")); 
 }
-mixin(BLVModelCalls!("BLVModel", "DBLVModel"));
+mixin(BKLModelCalls!("BKLModel", "DBKLModel"));
 
 version(test_uim_mvc) { unittest { 
-  assert(BLVModel);
-  assert(BLVModel.name == "BLVModel");
+  assert(BKLModel);
+  assert(BKLModel.name == "BKLModel");
 }} 

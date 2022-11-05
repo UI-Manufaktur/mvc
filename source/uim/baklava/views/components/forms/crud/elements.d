@@ -3,8 +3,8 @@ module uim.baklava.views.components.forms.crud.elements;
 @safe:
 import uim.baklava;
 
-class DBLVElementsForm : DBLVForm {
-  mixin(BLVViewComponentThis!("BLVElementsForm"));
+class DBKLElementsForm : DBKLForm {
+  mixin(BKLViewComponentThis!("BKLElementsForm"));
 
   mixin(OProperty!("DOOPElement[]", "elements"));
 
@@ -12,4 +12,4 @@ class DBLVElementsForm : DBLVForm {
     super.initialize;
   }
 }
-mixin(BLVViewComponentCalls!("BLVElementsForm", "DBLVElementsForm"));
+mixin(BKLViewComponentCalls!("BKLElementsForm", "DBKLElementsForm"));

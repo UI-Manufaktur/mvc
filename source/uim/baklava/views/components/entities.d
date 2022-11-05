@@ -3,14 +3,14 @@ module uim.baklava.views.components.entities;
 @safe:
 import uim.baklava;
 
-class DBLVEntitiesViewComponent : DBLVViewComponent {
-  mixin(BLVViewComponentThis!("BLVEntitiesViewComponent"));
+class DBKLEntitiesViewComponent : DBKLViewComponent {
+  mixin(BKLViewComponentThis!("BKLEntitiesViewComponent"));
 
   // mixin(OProperty!("DOOPEntity[]", "entities"));
 
   override void beforeH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DBLVEntitiesViewComponent~":DBLVEntitiesViewComponent("~this.name~")::beforeH5");
+    debugMethodCall(moduleName!DBKLEntitiesViewComponent~":DBKLEntitiesViewComponent("~this.name~")::beforeH5");
     super.beforeH5(options);
   }
 }
-mixin(BLVViewComponentCalls!("BLVEntitiesViewComponent", "DBLVEntitiesViewComponent"));
+mixin(BKLViewComponentCalls!("BKLEntitiesViewComponent", "DBKLEntitiesViewComponent"));

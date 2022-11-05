@@ -3,8 +3,8 @@ module uim.baklava.views.components.forms.form;
 @safe:
 import uim.baklava;
 
-class DForm : DBLVViewComponent {
-  mixin(BLVViewComponentThis!("Form"));
+class DForm : DBKLViewComponent {
+  mixin(BKLViewComponentThis!("Form"));
 
   override void initialize() {
     debugMethodCall(moduleName!DForm~"::DForm("~this.name~"):initialize");   
@@ -13,8 +13,8 @@ class DForm : DBLVViewComponent {
  
     this
       .id(name~"_"~to!string(uniform(0, 100_000)))
-      .header(BLVFormHeader)
-      .content(BLVEntityFormContent)
+      .header(BKLFormHeader)
+      .content(BKLEntityFormContent)
       .crudMode(CRUDModes.Read)
       .method("post");
   
@@ -22,23 +22,23 @@ class DForm : DBLVViewComponent {
 
   mixin(OProperty!("string[string]", "defaults"));
   mixin(OProperty!("string[]", "fields"));
-  // mixin(OProperty!("DBLVPanes", "panes"));
-  mixin(BLVParameter!("action"));
+  // mixin(OProperty!("DBKLPanes", "panes"));
+  mixin(BKLParameter!("action"));
 
-  mixin(BLVParameter!("method"));
+  mixin(BKLParameter!("method"));
   mixin(OProperty!("bool", "readonly"));
 
   mixin(OProperty!("CRUDModes", "crudMode"));
 
-  mixin(BLVParameter!("entityName"));
-  mixin(BLVParameter!("entitiesName"));
-  mixin(BLVParameter!("headerTitle"));
-  mixin(BLVParameter!("contentTitle"));
-  mixin(BLVParameter!("footerTitle"));
+  mixin(BKLParameter!("entityName"));
+  mixin(BKLParameter!("entitiesName"));
+  mixin(BKLParameter!("headerTitle"));
+  mixin(BKLParameter!("contentTitle"));
+  mixin(BKLParameter!("footerTitle"));
 
-  mixin(OProperty!("DBLVFormHeader", "header"));
-  mixin(OProperty!("DBLVFormContent", "content"));
-  mixin(OProperty!("DBLVFormFooter", "footer"));
+  mixin(OProperty!("DBKLFormHeader", "header"));
+  mixin(OProperty!("DBKLFormContent", "content"));
+  mixin(OProperty!("DBKLFormFooter", "footer"));
 
 /*   DETBBase _database; 
   O database(this O)(DETBBase aDatabase) { 
@@ -79,14 +79,14 @@ class DForm : DBLVViewComponent {
     return [_col].toH5;
   }  
 }
-mixin(BLVViewComponentCalls!("BLVForm", "DBLVForm"));
+mixin(BKLViewComponentCalls!("BKLForm", "DBKLForm"));
 
 version(test_uim_apps) { unittest {
-  assert(BLVForm);
+  assert(BKLForm);
 
-  assert(BLVForm.entityName("Test").entityName == "Test");
-  assert(BLVForm.entitiesName("Test").entitiesName == "Test");
-  assert(BLVForm.headerTitle("Test").headerTitle == "Test");
-  assert(BLVForm.contentTitle("Test").contentTitle == "Test");
-  assert(BLVForm.footerTitle("Test").footerTitle == "Test");
+  assert(BKLForm.entityName("Test").entityName == "Test");
+  assert(BKLForm.entitiesName("Test").entitiesName == "Test");
+  assert(BKLForm.headerTitle("Test").headerTitle == "Test");
+  assert(BKLForm.contentTitle("Test").contentTitle == "Test");
+  assert(BKLForm.footerTitle("Test").footerTitle == "Test");
 }}
