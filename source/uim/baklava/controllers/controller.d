@@ -3,46 +3,46 @@ module uim.baklava.controllers.controller;
 @safe:
 import uim.baklava;
 
-class DMVCController : DMVCBase, IMVCController  {
-  mixin(MVCControllerThis!("MVCController"));
+class DBLVController : DBLVBase, IBLVController  {
+  mixin(BLVControllerThis!("BLVController"));
 
   // Initialization (= hook method)
   override void initialize() {
-    debugMethodCall(moduleName!DMVCController~"::DMVCController("~this.name~"):initialize");   
+    debugMethodCall(moduleName!DBLVController~"::DBLVController("~this.name~"):initialize");   
     super.initialize;
 
     this
-      .name("MVCController"); 
+      .name("BLVController"); 
   }
   
-  mixin(MVCParameter!("mimetype")); 
-  mixin(MVCParameter!("rootPath")); 
-  mixin(MVCParameter!("collectionName"));
-  mixin(MVCParameter!("entitiesName")); 
-	mixin(MVCParameter!("language"));
-  mixin(MVCParameter!("responseResult"));
+  mixin(BLVParameter!("mimetype")); 
+  mixin(BLVParameter!("rootPath")); 
+  mixin(BLVParameter!("collectionName"));
+  mixin(BLVParameter!("entitiesName")); 
+	mixin(BLVParameter!("language"));
+  mixin(BLVParameter!("responseResult"));
 
-  mixin(MVCParameter!("httpMode"));
-  mixin(MVCParameter!("stringRequest"));
-  mixin(MVCParameter!("method"));
-  mixin(MVCParameter!("form"));
-  mixin(MVCParameter!("peer"));
-  mixin(MVCParameter!("host"));
-  mixin(MVCParameter!("path"));
-  mixin(MVCParameter!("rootDir"));
-  mixin(MVCParameter!("queryString"));
-  mixin(MVCParameter!("fullURL"));
-  mixin(MVCParameter!("json"));
-  mixin(MVCParameter!("username"));
-  mixin(MVCParameter!("password"));
-  mixin(MVCParameter!("contentType"));
-  mixin(MVCParameter!("contentTypeParameters"));
-  mixin(MVCParameter!("timeCreated"));
-  mixin(MVCParameter!("persistent"));
-  mixin(MVCParameter!("redirect"));
+  mixin(BLVParameter!("httpMode"));
+  mixin(BLVParameter!("stringRequest"));
+  mixin(BLVParameter!("method"));
+  mixin(BLVParameter!("form"));
+  mixin(BLVParameter!("peer"));
+  mixin(BLVParameter!("host"));
+  mixin(BLVParameter!("path"));
+  mixin(BLVParameter!("rootDir"));
+  mixin(BLVParameter!("queryString"));
+  mixin(BLVParameter!("fullURL"));
+  mixin(BLVParameter!("json"));
+  mixin(BLVParameter!("username"));
+  mixin(BLVParameter!("password"));
+  mixin(BLVParameter!("contentType"));
+  mixin(BLVParameter!("contentTypeParameters"));
+  mixin(BLVParameter!("timeCreated"));
+  mixin(BLVParameter!("persistent"));
+  mixin(BLVParameter!("redirect"));
 
-  /* mixin(OProperty!("DMVCCheck[]", "checks"));
-  O addChecks(this O)(DMVCCheck[] newChecks) {
+  /* mixin(OProperty!("DBLVCheck[]", "checks"));
+  O addChecks(this O)(DBLVCheck[] newChecks) {
     this.checks(this.checks~newChecks);
     return cast(O)this;
   } */
@@ -109,24 +109,24 @@ class DMVCController : DMVCBase, IMVCController  {
   }
 
   void beforeResponse(string[string] options = null) {
-    debugMethodCall(moduleName!DMVCController~":DMVCController("~this.name~")::beforeResponse");
+    debugMethodCall(moduleName!DBLVController~":DBLVController("~this.name~")::beforeResponse");
   }    
 
   void afterResponse(string[string] options = null) {
-    debugMethodCall(moduleName!DMVCController~":DMVCController::afterResponse");
+    debugMethodCall(moduleName!DBLVController~":DBLVController::afterResponse");
   }
 
   string stringResponse(string[string] options = null) {
-    debugMethodCall(moduleName!DMVCController~":DMVCController::stringResponse");
+    debugMethodCall(moduleName!DBLVController~":DBLVController::stringResponse");
     return "";
   }
 
   void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse) {
-		debugMethodCall(moduleName!DMVCController~":DMVCController("~this.name~")::request(req, res)");
+		debugMethodCall(moduleName!DBLVController~":DBLVController("~this.name~")::request(req, res)");
   }
 
   void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse, STRINGAA options) {
-		debugMethodCall(moduleName!DMVCController~":DMVCController("~this.name~")::request(req, res, reqParameters)");
+		debugMethodCall(moduleName!DBLVController~":DBLVController("~this.name~")::request(req, res, reqParameters)");
 
 		this.request = newRequest; this.response = newResponse;
     options = requestParameters(options);
@@ -150,14 +150,14 @@ class DMVCController : DMVCBase, IMVCController  {
 		this.response.writeBody(result, this.mimetype); 
   }
 }
-mixin(MVCControllerCalls!("MVCController", "DMVCController"));
+mixin(BLVControllerCalls!("BLVController", "DBLVController"));
 
 version(test_uim_mvc) { unittest {
-  testMVCController(MVCController, "MVCController");
+  testBLVController(BLVController, "BLVController");
 
-  assert(MVCController.name == "MVCController");
-  assert(MVCController.create.name == "MVCController");
-  assert(MVCController.clone.name == "MVCController");
+  assert(BLVController.name == "BLVController");
+  assert(BLVController.create.name == "BLVController");
+  assert(BLVController.clone.name == "BLVController");
 }} 
 
 

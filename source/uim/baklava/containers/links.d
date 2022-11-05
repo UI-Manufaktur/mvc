@@ -3,7 +3,7 @@ module uim.baklava.containers.links;
 @safe:
 import uim.baklava;
 
-class DMVCLinkContainer : DMVCH5Container {
+class DBLVLinkContainer : DBLVH5Container {
 	O entries(this O)(STRINGAA[] newEntries) { 
     this.entries(newEntries.map!(a => H5Link(a)).array); 
     return cast(O)this;
@@ -34,27 +34,27 @@ class DMVCLinkContainer : DMVCH5Container {
     return cast(O)this;
   }
 }
-auto MVCLinkContainer() { return new DMVCLinkContainer; }
+auto BLVLinkContainer() { return new DBLVLinkContainer; }
 
-version(test_uim_MVCs) { unittest {
+version(test_uim_BLVs) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
     
-assert(new DMVCLinkContainer);
-    assert(MVCLinkContainer);
-    assert(cast(DMVCLinkContainer)MVCLinkContainer);
-    assert(!MVCLinkContainer.entries);
-    assert(MVCLinkContainer.entries.add("abc").entries);
+assert(new DBLVLinkContainer);
+    assert(BLVLinkContainer);
+    assert(cast(DBLVLinkContainer)BLVLinkContainer);
+    assert(!BLVLinkContainer.entries);
+    assert(BLVLinkContainer.entries.add("abc").entries);
 
-    assert(MVCLinkContainer.entries.add("abc").entries.length == 1);
-    assert(MVCLinkContainer.entries.add(["src":"abc"]).entries.length == 1);
-    assert(MVCLinkContainer.entries.add(H5Link).entries.length == 1);
+    assert(BLVLinkContainer.entries.add("abc").entries.length == 1);
+    assert(BLVLinkContainer.entries.add(["src":"abc"]).entries.length == 1);
+    assert(BLVLinkContainer.entries.add(H5Link).entries.length == 1);
 
-    assert(MVCLinkContainer.entries.add("abc", "xyz").entries.length == 2);
-    assert(MVCLinkContainer.entries.add(["src":"abc"], ["src":"xyz"]).entries.length == 2);
-    assert(MVCLinkContainer.entries.add(H5Link, H5Link).entries.length == 2);
+    assert(BLVLinkContainer.entries.add("abc", "xyz").entries.length == 2);
+    assert(BLVLinkContainer.entries.add(["src":"abc"], ["src":"xyz"]).entries.length == 2);
+    assert(BLVLinkContainer.entries.add(H5Link, H5Link).entries.length == 2);
 
-    assert(MVCLinkContainer.entries.add(["abc", "xyz"]).entries.length == 2);
-    assert(MVCLinkContainer.entries.add([["src":"abc"], ["src":"xyz"]]).entries.length == 2);
-    assert(MVCLinkContainer.entries.add([H5Link, H5Link]).entries.length == 2); 
+    assert(BLVLinkContainer.entries.add(["abc", "xyz"]).entries.length == 2);
+    assert(BLVLinkContainer.entries.add([["src":"abc"], ["src":"xyz"]]).entries.length == 2);
+    assert(BLVLinkContainer.entries.add([H5Link, H5Link]).entries.length == 2); 
   }
 }

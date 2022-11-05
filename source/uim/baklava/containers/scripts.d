@@ -3,7 +3,7 @@ module uim.baklava.containers.scripts;
 @safe:
 import uim.baklava;
 
-class DMVCScriptContainer : DMVCH5Container {
+class DBLVScriptContainer : DBLVH5Container {
 	O entries(this O)(STRINGAA[] newEntries) { 
     this.entries(newEntries.map!(a => H5Script(a)).array); 
     return cast(O)this;
@@ -44,27 +44,27 @@ class DMVCScriptContainer : DMVCH5Container {
     return cast(O)this;
   }
 }
-auto MVCScriptContainer() { return new DMVCScriptContainer; }
+auto BLVScriptContainer() { return new DBLVScriptContainer; }
 
-version(test_uim_MVCs) { unittest {
+version(test_uim_BLVs) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
 
-/*     assert(new DMVCScriptContainer);
-    assert(MVCScriptContainer);
-    assert(cast(DMVCScriptContainer)MVCScriptContainer);
-    assert(!MVCScriptContainer.entries);
-    assert(MVCScriptContainer.entries.add("abc").entries); */
+/*     assert(new DBLVScriptContainer);
+    assert(BLVScriptContainer);
+    assert(cast(DBLVScriptContainer)BLVScriptContainer);
+    assert(!BLVScriptContainer.entries);
+    assert(BLVScriptContainer.entries.add("abc").entries); */
 /* 
-    assert(MVCScriptContainer.entries.add("abc").entries.length == 1);
-    assert(MVCScriptContainer.entries.add(["src":"abc"]).entries.length == 1);
-    assert(MVCScriptContainer.entries.add(H5Style).entries.length == 1);
+    assert(BLVScriptContainer.entries.add("abc").entries.length == 1);
+    assert(BLVScriptContainer.entries.add(["src":"abc"]).entries.length == 1);
+    assert(BLVScriptContainer.entries.add(H5Style).entries.length == 1);
 
-    assert(MVCScriptContainer.entries.add("abc", "xyz").entries.length == 2);
-    assert(MVCScriptContainer.entries.add(["src":"abc"], ["src":"xyz"]).entries.length == 2);
-    assert(MVCScriptContainer.entries.add(H5Style, H5Style).entries.length == 2);
+    assert(BLVScriptContainer.entries.add("abc", "xyz").entries.length == 2);
+    assert(BLVScriptContainer.entries.add(["src":"abc"], ["src":"xyz"]).entries.length == 2);
+    assert(BLVScriptContainer.entries.add(H5Style, H5Style).entries.length == 2);
 
-    assert(MVCScriptContainer.entries.add(["abc", "xyz"]).entries.length == 2);
-    assert(MVCScriptContainer.entries.add([["src":"abc"], ["src":"xyz"]]).entries.length == 2);
-    assert(MVCScriptContainer.entries.add([H5Style, H5Style]).entries.length == 2); */
+    assert(BLVScriptContainer.entries.add(["abc", "xyz"]).entries.length == 2);
+    assert(BLVScriptContainer.entries.add([["src":"abc"], ["src":"xyz"]]).entries.length == 2);
+    assert(BLVScriptContainer.entries.add([H5Style, H5Style]).entries.length == 2); */
   }
 }

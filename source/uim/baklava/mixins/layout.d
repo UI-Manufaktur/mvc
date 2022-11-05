@@ -8,24 +8,24 @@ string mvcLayoutThis(string name) {
     mvcBaseThis(name);
 }
 
-template MVCLayoutThis(string name) {
-  const char[] MVCLayoutThis = mvcLayoutThis(name);
+template BLVLayoutThis(string name) {
+  const char[] BLVLayoutThis = mvcLayoutThis(name);
 }
 
 string mvcLayoutCalls(string shortName, string className) {
   return `
     auto `~shortName~`() { return new `~className~`; }
-    auto `~shortName~`(DMVCApplication myApplication) { return new `~className~`(myApplication); }
+    auto `~shortName~`(DBLVApplication myApplication) { return new `~className~`(myApplication); }
     auto `~shortName~`(string myName) { return new `~className~`(myName); }
     auto `~shortName~`(string[string] myParameters) { return new `~className~`(myParameters); }
 
     auto `~shortName~`(string myName, string[string] myParameters) { return new `~className~`(myName, myParameters); }
 
-    auto `~shortName~`(DMVCApplication myApplication, string myName) { return new `~className~`(myApplication, myName); }
-    auto `~shortName~`(DMVCApplication myApplication, string[string] myParameters) { return new `~className~`(myApplication, myParameters); }
+    auto `~shortName~`(DBLVApplication myApplication, string myName) { return new `~className~`(myApplication, myName); }
+    auto `~shortName~`(DBLVApplication myApplication, string[string] myParameters) { return new `~className~`(myApplication, myParameters); }
   `;
 }
 
-template MVCLayoutCalls(string shortName, string className) {
-  const char[] MVCLayoutCalls = mvcLayoutCalls(shortName, className);
+template BLVLayoutCalls(string shortName, string className) {
+  const char[] BLVLayoutCalls = mvcLayoutCalls(shortName, className);
 }

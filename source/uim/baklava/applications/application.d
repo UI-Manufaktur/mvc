@@ -3,7 +3,7 @@ module uim.baklava.applications.application;
 @safe:
 import uim.baklava;
 
-class DMVCApplication : DMVCBase, IMVCApplication { 
+class DBLVApplication : DBLVBase, IBLVApplication { 
   this() { initialize; }
 
   override void initialize() {
@@ -12,20 +12,20 @@ class DMVCApplication : DMVCBase, IMVCApplication {
 
   // Application data 
   mixin(OProperty!("UUID", "id"));
-  mixin(MVCParameter!("rootPath"));
+  mixin(BLVParameter!("rootPath"));
   mixin(OProperty!("size_t", "versionNumber"));
   mixin(OProperty!("Json", "config"));
 
   // Interfaces
   mixin(OProperty!("DETBBase", "database"));
-  mixin(OProperty!("DMVCLayout", "layout"));
-  mixin(OProperty!("DMVCRoute[HTTPMethod][string]", "routes"));
+  mixin(OProperty!("DBLVLayout", "layout"));
+  mixin(OProperty!("DBLVRoute[HTTPMethod][string]", "routes"));
 
   // Main Containers - Allways first
-  mixin(OProperty!("DMVCLinkContainer",   "links"));
-  mixin(OProperty!("DMVCMetaContainer",   "metas"));
-  mixin(OProperty!("DMVCScriptContainer", "scripts"));
-  mixin(OProperty!("DMVCStyleContainer",  "styles"));
+  mixin(OProperty!("DBLVLinkContainer",   "links"));
+  mixin(OProperty!("DBLVMetaContainer",   "metas"));
+  mixin(OProperty!("DBLVScriptContainer", "scripts"));
+  mixin(OProperty!("DBLVStyleContainer",  "styles"));
   
   auto routesPaths() {
     return _routes.keys; 
@@ -44,11 +44,11 @@ class DMVCApplication : DMVCBase, IMVCApplication {
     return null;
   }
 
-  O addRoute(this O)(DMVCRoute newRoute) {
+  O addRoute(this O)(DBLVRoute newRoute) {
     debug writeln("Adding route at '%s'".format(newRoute.path));
     if (newRoute) {
       newRoute.application(this);
-      DMVCRoute[HTTPMethod] routesAtPath = _routes.get(newRoute.path, null);
+      DBLVRoute[HTTPMethod] routesAtPath = _routes.get(newRoute.path, null);
       routesAtPath[newRoute.method] = newRoute;
 
       _routes[newRoute.path] = routesAtPath;
@@ -68,7 +68,7 @@ class DMVCApplication : DMVCBase, IMVCApplication {
     request(newRequest, newResponse, null);
   }
   void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse, string[string] options) {
-		debugMethodCall(moduleName!MVCApplication~":MVCApplication("~this.name~")::request(req, res, reqParameters)");
+		debugMethodCall(moduleName!BLVApplication~":BLVApplication("~this.name~")::request(req, res, reqParameters)");
 
     writeln("rootPath = '%s'".format(this.rootPath));
     writeln("newRequest.fullURL = '%s'".format(newRequest.fullURL));
@@ -89,14 +89,14 @@ class DMVCApplication : DMVCBase, IMVCApplication {
     }
   }
 }
-auto MVCApplication() { return new DMVCApplication; }
+auto BLVApplication() { return new DBLVApplication; }
 
 version(test_uim_mvc) unittest {
   assert(
-    MVCApplication
-      .addRoute(MVCRoute("ecm/index", HTTPMethod.GET, MVCPageController))
-      .addRoute(MVCRoute("ecm/documents", HTTPMethod.GET, MVCPageController))
-      .addRoute(MVCRoute("ecm/folders", HTTPMethod.GET, MVCPageController))
-      .addRoute(MVCRoute("ecm/workspaces", HTTPMethod.GET, MVCPageController))
+    BLVApplication
+      .addRoute(BLVRoute("ecm/index", HTTPMethod.GET, BLVPageController))
+      .addRoute(BLVRoute("ecm/documents", HTTPMethod.GET, BLVPageController))
+      .addRoute(BLVRoute("ecm/folders", HTTPMethod.GET, BLVPageController))
+      .addRoute(BLVRoute("ecm/workspaces", HTTPMethod.GET, BLVPageController))
   );
 }

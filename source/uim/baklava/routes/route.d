@@ -3,9 +3,9 @@ module uim.baklava.routes.route;
 @safe:
 import uim.baklava;
 
-class DMVCRoute : DMVCBase, IMVCRoute {
+class DBLVRoute : DBLVBase, IBLVRoute {
   this() { super(); }
-  this(string aPath, HTTPMethod aMethod, DMVCController aController) {
+  this(string aPath, HTTPMethod aMethod, DBLVController aController) {
     this().path(aPath).method(aMethod).controller(aController);
   }
 
@@ -15,14 +15,14 @@ class DMVCRoute : DMVCBase, IMVCRoute {
 
   mixin(OProperty!("string", "path"));
   mixin(OProperty!("HTTPMethod", "method"));
-  mixin(OProperty!("DMVCController", "controller"));
+  mixin(OProperty!("DBLVController", "controller"));
 }
-auto MVCRoute() { return new DMVCRoute; }
-auto MVCRoute(string aPath, HTTPMethod aMethod, DMVCController aController) { return new DMVCRoute(aPath, aMethod, aController); }
+auto BLVRoute() { return new DBLVRoute; }
+auto BLVRoute(string aPath, HTTPMethod aMethod, DBLVController aController) { return new DBLVRoute(aPath, aMethod, aController); }
 
 version(test_uim_mvc) { unittest { 
-  assert(MVCRoute);
-  assert(MVCRoute("testPath", HTTPMethod.GET, MVCController));
-  assert(MVCRoute("testPath", HTTPMethod.GET, MVCActionController));
-  assert(MVCRoute("testPath", HTTPMethod.GET, MVCPageController));
+  assert(BLVRoute);
+  assert(BLVRoute("testPath", HTTPMethod.GET, BLVController));
+  assert(BLVRoute("testPath", HTTPMethod.GET, BLVActionController));
+  assert(BLVRoute("testPath", HTTPMethod.GET, BLVPageController));
 }} 

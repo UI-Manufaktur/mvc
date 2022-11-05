@@ -3,8 +3,8 @@ module uim.baklava.controllers.pages.page;
 @safe:
 import uim.baklava;
 
-class DMVCPageController : DMVCController {
-  mixin(MVCControllerThis!("MVCPageController"));
+class DBLVPageController : DBLVController {
+  mixin(BLVControllerThis!("BLVPageController"));
 
   override void initialize() {
     super.initialize;
@@ -13,34 +13,34 @@ class DMVCPageController : DMVCController {
       .language("en") 
       .mimetype("text/html");
     
-/*     requestReader = MVCRequestReader(this);
-    sessionReader = MVCSessionReader(this);  
+/*     requestReader = BLVRequestReader(this);
+    sessionReader = BLVSessionReader(this);  
  */
     this
-      .links(MVCLinkContainer)
-      .metas(MVCMetaContainer) 
-      .scripts(MVCScriptContainer) 
-      .styles(MVCStyleContainer); 
+      .links(BLVLinkContainer)
+      .metas(BLVMetaContainer) 
+      .scripts(BLVScriptContainer) 
+      .styles(BLVStyleContainer); 
   }
 
-  mixin(OProperty!("DMVCView", "view"));
+  mixin(OProperty!("DBLVView", "view"));
 
   // Containers
-  mixin(OProperty!("DMVCLinkContainer", "links"));
-  mixin(OProperty!("DMVCMetaContainer", "metas"));
-  mixin(OProperty!("DMVCScriptContainer", "scripts"));
-  mixin(OProperty!("DMVCStyleContainer", "styles"));
+  mixin(OProperty!("DBLVLinkContainer", "links"));
+  mixin(OProperty!("DBLVMetaContainer", "metas"));
+  mixin(OProperty!("DBLVScriptContainer", "scripts"));
+  mixin(OProperty!("DBLVStyleContainer", "styles"));
 
-  mixin(OProperty!("DMVCLayout", "layout"));
+  mixin(OProperty!("DBLVLayout", "layout"));
 
   
   override void beforeResponse(STRINGAA options = null) {
-    debugMethodCall(moduleName!DMVCPageController~":DMVCPageController("~this.name~")::beforeResponse");
+    debugMethodCall(moduleName!DBLVPageController~":DBLVPageController("~this.name~")::beforeResponse");
     super.beforeResponse(options);
   }    
 
   override string stringResponse(string[string] options = null) {
-    debugMethodCall(moduleName!DMVCController~":DMVCController::stringResponse");
+    debugMethodCall(moduleName!DBLVController~":DBLVController::stringResponse");
     super.stringResponse(options);
 
     string result;
@@ -56,8 +56,8 @@ class DMVCPageController : DMVCController {
   }
 
   override void afterResponse(STRINGAA options = null) {
-    debugMethodCall(moduleName!DMVCPageController~":DMVCPageController::afterResponse");
+    debugMethodCall(moduleName!DBLVPageController~":DBLVPageController::afterResponse");
     super.afterResponse(options);
   }  
 }
-mixin(MVCControllerCalls!("MVCPageController", "DMVCPageController"));
+mixin(BLVControllerCalls!("BLVPageController", "DBLVPageController"));

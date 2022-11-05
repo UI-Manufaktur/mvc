@@ -3,20 +3,20 @@ module uim.baklava.models.registry;
 @safe:
 import uim.baklava;
 
-class DMVCModelRegistry : DRegistry!DMVCModel{
+class DBLVModelRegistry : DRegistry!DBLVModel{
   this() {}
 
-  static DMVCModelRegistry registry; 
+  static DBLVModelRegistry registry; 
 }
-auto MVCModelRegistry() { 
-  if (!DMVCModelRegistry.registry) {
-    DMVCModelRegistry.registry = new DMVCModelRegistry; 
+auto BLVModelRegistry() { 
+  if (!DBLVModelRegistry.registry) {
+    DBLVModelRegistry.registry = new DBLVModelRegistry; 
   }
   return 
-  DMVCModelRegistry.registry;
+  DBLVModelRegistry.registry;
 }
 
 version(test_uim_mvc) { unittest {
-  assert(MVCModelRegistry.register("mvc/model",  MVCModel).paths == ["mvc/model"]);
-  assert(MVCModelRegistry.register("mvc/model2", MVCModel).paths.length == 2);
+  assert(BLVModelRegistry.register("mvc/model",  BLVModel).paths == ["mvc/model"]);
+  assert(BLVModelRegistry.register("mvc/model2", BLVModel).paths.length == 2);
 }}

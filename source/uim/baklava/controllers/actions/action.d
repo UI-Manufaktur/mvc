@@ -3,7 +3,7 @@ module uim.baklava.controllers.actions.action;
 @safe:
 import uim.baklava;
 
-class DMVCActionController : DMVCController {
-  mixin(MVCControllerThis!("MVCActionController"));
+class DBLVActionController : DBLVController {
+  mixin(BLVControllerThis!("BLVActionController"));
 }
-mixin(MVCControllerCalls!("MVCActionController", "DMVCActionController"));
+mixin(BLVControllerCalls!("BLVActionController", "DBLVActionController"));

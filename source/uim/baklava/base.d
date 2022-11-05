@@ -3,9 +3,9 @@ module uim.baklava.base;
 @safe:
 import uim.baklava;
 
-interface IMVCBase {
-  DMVCApplication application();
-  O application(this O)(DMVCApplication newApplication);
+interface IBLVBase {
+  DBLVApplication application();
+  O application(this O)(DBLVApplication newApplication);
 
   string name();
   O name(this O)(string newName);
@@ -14,25 +14,25 @@ interface IMVCBase {
   Json toJson();
 }
 
-class DMVCBase : IMVCBase {
+class DBLVBase : IBLVBase {
   // Constructors for the main properties
   this() { initialize; }
-  this(DMVCApplication newApplication) { this().application(newApplication); }
+  this(DBLVApplication newApplication) { this().application(newApplication); }
   this(string newName) { this().name(newName); }
   this(string[string] newParameters) { this().parameters(newParameters); }
-  this(DMVCApplication newApplication, string newName) { this(newApplication).name(newName); }
-  this(DMVCApplication newApplication, string[string] newParameters) { this(newApplication).parameters(newParameters); }
+  this(DBLVApplication newApplication, string newName) { this(newApplication).name(newName); }
+  this(DBLVApplication newApplication, string[string] newParameters) { this(newApplication).parameters(newParameters); }
   this(string newName, string[string] newParameters) { this(newName).parameters(newParameters); }
-  this(DMVCApplication newApplication, string newName, string[string] newParameters) { this(newApplication, newName).parameters(newParameters); }
+  this(DBLVApplication newApplication, string newName, string[string] newParameters) { this(newApplication, newName).parameters(newParameters); }
 
   void initialize() {
     // Code for object initialization
     this
-      .name("MVCBase");
+      .name("BLVBase");
   }
 
-  mixin(OProperty!("DMVCApplication", "application"));
-  mixin(MVCParameter!("name"));
+  mixin(OProperty!("DBLVApplication", "application"));
+  mixin(BLVParameter!("name"));
 
 // Start Parameters ----
   mixin(OProperty!("string[string]", "parameters")); 
@@ -73,12 +73,12 @@ class DMVCBase : IMVCBase {
     }
   // #endregion error
 
-  DMVCBase create() {
-    return MVCBase;
+  DBLVBase create() {
+    return BLVBase;
   }
 
-  DMVCBase clone() {
-    DMVCBase result = create;
+  DBLVBase clone() {
+    DBLVBase result = create;
     result.application(this.application);
     return result.fromJson(this.toJson);
   }
@@ -111,20 +111,20 @@ class DMVCBase : IMVCBase {
     return toJson.toString;
   }
 }
-auto MVCBase() { return new DMVCBase; }
+auto BLVBase() { return new DBLVBase; }
 
 version(test_uim_mvc) unittest {
-  assert(MVCBase);
-  assert(MVCBase.name("testName").name == "testName");
+  assert(BLVBase);
+  assert(BLVBase.name("testName").name == "testName");
 
-  assert(MVCBase.parameter("test", "value").hasParameter("test"));
-  assert(MVCBase.parameter("test", "value").parameter("test") == "value");
+  assert(BLVBase.parameter("test", "value").hasParameter("test"));
+  assert(BLVBase.parameter("test", "value").parameter("test") == "value");
 
   auto json = Json.emptyObject;
   json["test"] = "value";
-  assert(MVCBase.fromJson(json).hasParameter("test"));
-  assert(MVCBase.fromJson(json).parameter("test") == "value");
+  assert(BLVBase.fromJson(json).hasParameter("test"));
+  assert(BLVBase.fromJson(json).parameter("test") == "value");
   
-  assert(MVCBase.create.name == "MVCBase");
-  assert(MVCBase.clone.name == "MVCBase");
+  assert(BLVBase.create.name == "BLVBase");
+  assert(BLVBase.clone.name == "BLVBase");
 }

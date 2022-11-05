@@ -3,20 +3,20 @@ module uim.baklava.controllers.registry;
 @safe:
 import uim.baklava;
 
-class DMVCControllerRegistry : DRegistry!DMVCController{
+class DBLVControllerRegistry : DRegistry!DBLVController{
   this() {}
 
-  static DMVCControllerRegistry registry; 
+  static DBLVControllerRegistry registry; 
 }
-auto MVCControllerRegistry() { 
-  if (!DMVCControllerRegistry.registry) {
-    DMVCControllerRegistry.registry = new DMVCControllerRegistry; 
+auto BLVControllerRegistry() { 
+  if (!DBLVControllerRegistry.registry) {
+    DBLVControllerRegistry.registry = new DBLVControllerRegistry; 
   }
   return 
-    DMVCControllerRegistry.registry;
+    DBLVControllerRegistry.registry;
 }
 
 version(test_uim_mvc) { unittest {
-  assert(MVCControllerRegistry.register("mvc/controllercomponent",  MVCController).paths == ["mvc/controllercomponent"]);
-  assert(MVCControllerRegistry.register("mvc/controllercomponent2", MVCController).paths.length == 2);
+  assert(BLVControllerRegistry.register("mvc/controllercomponent",  BLVController).paths == ["mvc/controllercomponent"]);
+  assert(BLVControllerRegistry.register("mvc/controllercomponent2", BLVController).paths.length == 2);
 }}
