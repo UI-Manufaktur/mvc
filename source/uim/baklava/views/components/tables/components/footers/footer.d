@@ -4,6 +4,6 @@ module uim.baklava.views.components.tables.components.footers.footer;
 import uim.baklava;
 
 class DBKLTableFooter : DBKLTableComponent {
-  mixin(ViewComponentThis!("BKLTableFooter"));
+  mixin(BKLViewComponentThis!("BKLTableFooter"));
 }
-mixin(ViewComponentCalls!("BKLTableFooter", "DBKLTableFooter"));
+mixin(BKLViewComponentCalls!("BKLTableFooter", "DBKLTableFooter"));

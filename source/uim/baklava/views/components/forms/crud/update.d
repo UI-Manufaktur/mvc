@@ -13,7 +13,7 @@ class DBKLUpdateForm : DBKLEntityForm {
       .crudMode(CRUDModes.Update);
   }
 }
-mixin(BKLViewComponentCalls!("BKLUpdateForm"));
+mixin(BKLViewComponentCalls!("BKLUpdateForm", "DBKLUpdateForm"));
 
 /* 
 auto editheader(T:DOOPEntity)(string path, T entity, DBKLPanes panes, STRINGAA reqParameters) {

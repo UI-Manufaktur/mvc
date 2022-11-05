@@ -4,7 +4,7 @@ module uim.baklava.views.components.tables.table;
 import uim.baklava;
 
 class DBKLTableViewComponent : DBKLViewComponent {
-  mixin(ViewComponentThis!("BKLTableViewComponent"));
+  mixin(BKLViewComponentThis!("BKLTableViewComponent"));
   
   mixin(OProperty!("string", "path"));  
   mixin(OProperty!("DBKLViewComponent", "header"));
@@ -25,7 +25,7 @@ class DBKLTableViewComponent : DBKLViewComponent {
       )].toH5;
   }
 }
-mixin(ViewComponentCalls!("BKLTableViewComponent", "DBKLTableViewComponent"));
+mixin(BKLViewComponentCalls!("BKLTableViewComponent", "DBKLTableViewComponent"));
 
 version(test_baklava) { unittest {
   assert(BKLTableViewComponent);

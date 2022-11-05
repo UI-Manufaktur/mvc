@@ -4,7 +4,7 @@ module uim.baklava.views.components.tables.components.headers.header;
 import uim.baklava;
 
 class DBKLTableHeader : DBKLTableComponent {
-  mixin(ViewComponentThis!("BKLTableHeader"));
+  mixin(BKLViewComponentThis!("BKLTableHeader"));
 
   mixin(OProperty!("STRINGAA[]", "cols"));
 
@@ -27,4 +27,4 @@ class DBKLTableHeader : DBKLTableComponent {
     return [H5Thead.row(ths)].toH5;
   }
 }
-mixin(ViewComponentCalls!("BKLTableHeader"));
+mixin(BKLViewComponentCalls!("BKLTableHeader", "DBKLTableHeader"));

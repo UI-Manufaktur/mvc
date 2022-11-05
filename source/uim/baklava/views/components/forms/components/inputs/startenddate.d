@@ -4,7 +4,7 @@ module uim.baklava.views.components.forms.components.inputs.startenddate;
 import uim.baklava;
 
 class DBKLStartEndDateFormInput : DBKLFormInput {
-  mixin(BKLViewComponentThis!("BKLStartEndDateFormInput", true));
+  mixin(BKLViewComponentThis!("BKLStartEndDateFormInput"));
 
   DH5Obj h5StartInput(STRINGAA options = null) {
     super.h5Input(options);

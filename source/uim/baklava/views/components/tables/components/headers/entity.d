@@ -4,6 +4,6 @@ module uim.baklava.views.components.tables.components.headers.entity;
 import uim.baklava;
 
 class DBKLEntityTableHeader : DBKLTableHeader {
-  mixin(ViewComponentThis!("BKLEntityTableHeader"));
+  mixin(BKLViewComponentThis!("BKLEntityTableHeader"));
 }
-mixin(ViewComponentCalls!("BKLEntityTableHeader"));
+mixin(BKLViewComponentCalls!("BKLEntityTableHeader", "DBKLEntityTableHeader"));

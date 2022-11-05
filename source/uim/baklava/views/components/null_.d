@@ -4,7 +4,7 @@ module uim.baklava.views.components.null_;
 import uim.baklava;
 
 class DBKLNullComponent : DBKLViewComponent {
-  mixin(ViewComponentThis!("BKLNullComponent"));
+  mixin(BKLViewComponentThis!("BKLNullComponent"));
   
   override void initialize() {
     super.initialize(); 
@@ -22,7 +22,7 @@ class DBKLNullComponent : DBKLViewComponent {
     return null; 
   }
 }
-mixin(ViewComponentCalls!("BKLNullComponent"));
+mixin(BKLViewComponentCalls!("BKLNullComponent", "DBKLNullComponent"));
 
 version(test_baklava) { unittest {
   assert(BKLNullComponent);

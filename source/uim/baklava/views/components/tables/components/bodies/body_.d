@@ -4,7 +4,7 @@ module uim.baklava.views.components.tables.components.bodies.body_;
 import uim.baklava;
 
 class DBKLTableBody : DBKLTableComponent {
-  mixin(ViewComponentThis!("BKLTableBody"));
+  mixin(BKLViewComponentThis!("BKLTableBody"));
 }
-mixin(ViewComponentCalls!("BKLTableBody", "DBKLTableBody"));
+mixin(BKLViewComponentCalls!("BKLTableBody", "DBKLTableBody"));
 

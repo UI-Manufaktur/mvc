@@ -4,7 +4,7 @@ module uim.baklava.views.components.forms.components.inputs.switch_;
 import uim.baklava;
 
 class DSwitchFormInput : DBKLFormInput {
-  mixin(BKLViewComponentThis!("SwitchFormInput", true));
+  mixin(BKLViewComponentThis!("SwitchFormInput"));
 
   override void initialize() {
     super.initialize;

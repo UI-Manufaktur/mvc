@@ -4,7 +4,7 @@ module uim.baklava.views.components.tables.components.headers.entities;
 import uim.baklava;
 
 class DBKLEntitiesTableHeader : DBKLTableHeader {
-  mixin(ViewComponentThis!("BKLEntitiesTableHeader"));
+  mixin(BKLViewComponentThis!("BKLEntitiesTableHeader"));
 
   override void initialize() {
     super.initialize;
@@ -40,5 +40,5 @@ class DBKLEntitiesTableHeader : DBKLTableHeader {
           UIMTextInput(["form-control-sm"], ["aria-label":"Search "~mainTitle.toLower]))))].toH5;
   }
 }
-mixin(ViewComponentCalls!("BKLEntitiesTableHeader"));
+mixin(BKLViewComponentCalls!("BKLEntitiesTableHeader", "DBKLEntitiesTableHeader"));
 
