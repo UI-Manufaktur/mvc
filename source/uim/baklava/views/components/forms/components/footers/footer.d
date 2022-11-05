@@ -15,6 +15,6 @@ class DBKLFormFooter : DBKLFormComponent {
 }
 mixin(BKLViewComponentCalls!("BKLFormFooter", "DBKLFormFooter"));
 
-version(test_uim_apps) { unittest {
+version(test_baklava) { unittest {
   assert(BKLFormFooter);
 }}

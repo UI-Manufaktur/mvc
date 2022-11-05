@@ -28,7 +28,7 @@ class DBKLTextFormInput : DBKLFormInput {
 }
 mixin(BKLViewComponentCalls!("BKLTextFormInput", "DBKLTextFormInput"));
 
-version(test_uim_apps) { unittest {
+version(test_baklava) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
 
   }}

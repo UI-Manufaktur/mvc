@@ -26,6 +26,6 @@ class DBKLLogin2View : DBKLView {
 }
 mixin(BKLViewCalls!("BKLLogin2View", "DBKLLogin2View"));
 
-version(test_uim_apps) { unittest {
+version(test_baklava) { unittest {
   assert(BKLLogin2View);
 }}

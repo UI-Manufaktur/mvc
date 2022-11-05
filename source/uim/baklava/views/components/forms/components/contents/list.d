@@ -28,6 +28,6 @@ class DBKLListFormContent : DBKLEntitiesViewComponent {
 }
 mixin(BKLViewComponentCalls!("BKLListFormContent", "DBKLListFormContent"));
 
-version(test_uim_apps) { unittest {
+version(test_baklava) { unittest {
   assert(BKLListFormContent);
 }}

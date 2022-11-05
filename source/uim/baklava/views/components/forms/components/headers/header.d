@@ -106,6 +106,6 @@ class DBKLFormHeader : DBKLFormComponent {
 }
 mixin(BKLViewComponentCalls!("BKLFormHeader", "DBKLFormHeader"));
 
-version(test_uim_apps) { unittest {
+version(test_baklava) { unittest {
   assert(BKLFormHeader);
 }}

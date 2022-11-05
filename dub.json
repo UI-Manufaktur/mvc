@@ -13,7 +13,7 @@
 			"name": "testLib",
 			"targetType": "library",
 			"versions": [
-				"test_uim_mvc"
+				"test_baklava"
 			]
 		},
 		{

@@ -61,6 +61,6 @@ class DBKLLogoutView : DBKLView {
 }
 mixin(BKLViewCalls!("BKLLogoutView", "DBKLLogoutView"));
 
-version(test_uim_apps) { unittest {
+version(test_baklava) { unittest {
   assert(BKLLogoutView);
 }}

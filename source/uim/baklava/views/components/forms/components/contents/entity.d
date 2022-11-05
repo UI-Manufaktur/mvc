@@ -95,6 +95,6 @@ class DBKLEntityFormContent : DBKLFormContent {
 }
 mixin(BKLViewComponentCalls!("BKLEntityFormContent", "DBKLEntityFormContent"));
 
-version(test_uim_apps) { unittest {
+version(test_baklava) { unittest {
   assert(BKLEntityFormContent);
 }}

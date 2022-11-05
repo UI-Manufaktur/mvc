@@ -24,6 +24,6 @@ class DBKLNullComponent : DBKLViewComponent {
 }
 mixin(ViewComponentCalls!("BKLNullComponent"));
 
-version(test_uim_apps) { unittest {
+version(test_baklava) { unittest {
   assert(BKLNullComponent);
 }}

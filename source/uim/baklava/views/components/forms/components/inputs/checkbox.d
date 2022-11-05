@@ -40,7 +40,7 @@ class DCheckboxFormInput : DBKLFormInput {
 }
 mixin(BKLViewComponentCalls!("BKLCheckboxFormInput", "DBKLCheckboxFormInput"));
 
-version(test_uim_apps) { unittest {
+version(test_baklava) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
     
     assert(new DBKLCheckboxFormInput);

@@ -35,7 +35,7 @@ class DBKLDateFormInput : DBKLFormInput {
 }
 mixin(BKLViewComponentCalls!("BKLDateFormInput", "DBKLDateFormInput"));
 
-version(test_uim_apps) { unittest {
+version(test_baklava) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
     // 
 }}

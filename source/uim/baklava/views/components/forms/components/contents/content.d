@@ -15,6 +15,6 @@ class DBKLFormContent : DBKLFormComponent {
 }
 mixin(BKLViewComponentCalls!("BKLFormContent", "DBKLFormContent"));
 
-version(test_uim_apps) { unittest {
+version(test_baklava) { unittest {
   assert(BKLFormContent);
 }}

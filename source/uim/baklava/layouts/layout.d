@@ -203,7 +203,7 @@ class DBKLLayout : DBKLBase, IBKLLayout{
 
 		return _html.toString;
 	}
-version(test_uim_apps) { unittest {
+version(test_baklava) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
 		// writeln(H5BKLLayout);
 		// assert(H5BKLLayout.render == `<!doctype html><html dir="ltr" lang="en"><head></head><body></body></html>`);

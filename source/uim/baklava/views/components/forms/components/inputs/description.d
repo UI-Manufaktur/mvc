@@ -19,6 +19,6 @@ class DBKLDescriptionFormInput : DBKLTextAreaFormInput {
 }
 mixin(BKLViewComponentCalls!("BKLDescriptionFormInput", "DBKLDescriptionFormInput"));
 
-version(test_uim_apps) { unittest {
+version(test_baklava) { unittest {
   assert(BKLDescriptionFormInput);
 }}

@@ -26,39 +26,39 @@ public import uim.baklava.views.components.forms.components.inputs.tests;
 template FormInputThis(string name, bool withEntity = false, bool withEntities = false) {
   const char[] FormInputThis = `
 this() { super(); }
-this(DForm myForm) { this().form(myForm); };
+this(DBKLForm myForm) { this().form(myForm); };
 `~
 (withEntity ? `
 this(DOOPEntity myEntity) { this().entity(myEntity); }
-this(DForm myForm, DOOPEntity myEntity) { this(myForm).entity(myEntity); }
+this(DBKLForm myForm, DOOPEntity myEntity) { this(myForm).entity(myEntity); }
 this(string myName, DOOPEntity myEntity) { this(myName).entity(myEntity); }
-this(DForm myForm, string myName, DOOPEntity myEntity) { this(myForm, myName).entity(myEntity); }
+this(DBKLForm myForm, string myName, DOOPEntity myEntity) { this(myForm, myName).entity(myEntity); }
 ` : ``)
 ~
 (withEntities ? `
 this(DOOPEntity[] myEntities) { this().entities(myEntities); }
-this(DForm myForm, DOOPEntity[] myEntities) { this(myForm).entities(myEntities); }
+this(DBKLForm myForm, DOOPEntity[] myEntities) { this(myForm).entities(myEntities); }
 this(string myName, DOOPEntity[] myEntities) { this(myName).entities(myEntities); }
-this(DForm myForm, string myName, DOOPEntity[] myEntities) { this(myForm, myName).entities(myEntities); }
+this(DBKLForm myForm, string myName, DOOPEntity[] myEntities) { this(myForm, myName).entities(myEntities); }
 ` : ``);
 }
 
 template FormInputCalls(string name, bool withEntity = false, bool withEntities = false) {
   const char[] FormInputCalls = `
 auto `~name~`() { return new D`~name~`; }
-auto `~name~`(DForm myForm) { return new D`~name~`(myForm); };
+auto `~name~`(DBKLForm myForm) { return new D`~name~`(myForm); };
 `~
 (withEntity ? `
 this(DOOPEntity myEntity) { this().entity(myEntity); }
-this(DForm myForm, DOOPEntity myEntity) { this(myForm).entity(myEntity); }
+this(DBKLForm myForm, DOOPEntity myEntity) { this(myForm).entity(myEntity); }
 this(string myName, DOOPEntity myEntity) { this(myName).entity(myEntity); }
-this(DForm myForm, string myName, DOOPEntity myEntity) { this(myForm, myName).entity(myEntity); }
+this(DBKLForm myForm, string myName, DOOPEntity myEntity) { this(myForm, myName).entity(myEntity); }
 ` : ``)
 ~
 (withEntities ? `
 this(DOOPEntity[] myEntities) { this().entities(myEntities); }
-this(DForm myForm, DOOPEntity[] myEntities) { this(myForm).entities(myEntities); }
+this(DBKLForm myForm, DOOPEntity[] myEntities) { this(myForm).entities(myEntities); }
 this(string myName, DOOPEntity[] myEntities) { this(myName).entities(myEntities); }
-this(DForm myForm, string myName, DOOPEntity[] myEntities) { this(myForm, myName).entities(myEntities); }
+this(DBKLForm myForm, string myName, DOOPEntity[] myEntities) { this(myForm, myName).entities(myEntities); }
 ` : ``);
 }

@@ -70,7 +70,7 @@ class DBKLFormInput : DBKLEntityViewComponent {
 }
 mixin(BKLViewComponentCalls!("BKLFormInput", "DBKLFormInput"));
 
-version(test_uim_apps) { unittest {
+version(test_baklava) { unittest {
   assert(new DBKLFormInput);
   assert(BKLFormInput);
 }}

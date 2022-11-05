@@ -69,7 +69,7 @@ class DBKLStartEndDateFormInput : DBKLFormInput {
             h5Input(options), H5Div(["invalid-feedback"], invalidFeedback)))
       ].toH5;
   }
-  version(test_uim_apps) {
+  version(test_baklava) {
     unittest {
       writeln("--- Test in ", __MODULE__, "/", __LINE__);
       // 

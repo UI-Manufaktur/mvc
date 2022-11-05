@@ -14,12 +14,12 @@ class DBKLFormComponent : DBKLViewComponent {
   }
 
   mixin(OProperty!("CRUDModes", "crudMode"));
-  mixin(OProperty!("DForm", "form"));
+  mixin(OProperty!("DBKLForm", "form"));
   mixin(OProperty!("bool", "readonly")); 
   mixin(BKLParameter!("title"));  
 }
 mixin(BKLViewComponentCalls!("BKLFormComponent", "DBKLFormComponent"));
 
-version(test_uim_apps) { unittest {
+version(test_baklava) { unittest {
   assert(BKLFormComponent);
 }}

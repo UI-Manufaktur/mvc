@@ -65,13 +65,15 @@ public import uim.controls;
 public import uim.baklava.base;
 
 public import uim.baklava.applications;
-public import uim.baklava.routes;
+public import uim.baklava.authentications;
+public import uim.baklava.caches;
+public import uim.baklava.containers;
+public import uim.baklava.controllers;
 public import uim.baklava.layouts;
 public import uim.baklava.models;
+public import uim.baklava.routes;
 public import uim.baklava.views;
-public import uim.baklava.controllers;
-public import uim.baklava.containers;
 
-// helper
+// helpers
 public import uim.baklava.mixins;
 public import uim.baklava.tests;

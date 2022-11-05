@@ -3,7 +3,7 @@ module uim.baklava.views.components.forms.login;
 @safe:
 import uim.baklava;
 
-class DBKLLoginForm : DForm {
+class DBKLLoginForm : DBKLForm {
   mixin(BKLViewComponentThis!("BKLLoginForm"));
 
   mixin(OProperty!("bool", "showLostAccount"));
@@ -42,8 +42,8 @@ class DBKLLoginForm : DForm {
     ].toH5;
   }
 }
-mixin(BKLViewComponentCalls!("BKLLoginForm"));
+mixin(BKLViewComponentCalls!("BKLLoginForm","DBKLLoginForm"));
 
-version(test_uim_apps) { unittest {
+version(test_baklava) { unittest {
   assert(BKLLoginForm);
 }}

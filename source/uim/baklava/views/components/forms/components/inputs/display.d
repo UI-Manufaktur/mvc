@@ -20,7 +20,7 @@ class DDisplayFormInput : DBKLTextFormInput {
 }
 mixin(BKLViewComponentCalls!("BKLDisplayFormInput", "DBKLDisplayFormInput"));
 
-version(test_uim_apps) { unittest {
+version(test_baklava) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
     
     // TODO Add Tests

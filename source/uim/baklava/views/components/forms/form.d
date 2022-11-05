@@ -3,11 +3,11 @@ module uim.baklava.views.components.forms.form;
 @safe:
 import uim.baklava;
 
-class DForm : DBKLViewComponent {
+class DBKLForm : DBKLViewComponent {
   mixin(BKLViewComponentThis!("Form"));
 
   override void initialize() {
-    debugMethodCall(moduleName!DForm~"::DForm("~this.name~"):initialize");   
+    debugMethodCall(moduleName!DBKLForm~"::DBKLForm("~this.name~"):initialize");   
     super.initialize;    
     writeln("In ", __MODULE__, "/", __LINE__);
  
@@ -52,7 +52,7 @@ class DForm : DBKLViewComponent {
   } */
 
   override void beforeH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DForm~":DForm("~this.name~")::beforeH5");
+    debugMethodCall(moduleName!DBKLForm~":DBKLForm("~this.name~")::beforeH5");
     super.beforeH5(options);
     if (hasError || "redirect" in options) { return; }
 
@@ -65,7 +65,7 @@ class DForm : DBKLViewComponent {
   }
 
   override DH5Obj[] toH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DForm~":DForm("~this.name~")::toH5");
+    debugMethodCall(moduleName!DBKLForm~":DBKLForm("~this.name~")::toH5");
     super.toH5(options);
     
     DBS5Col _col = BS5Col(["col-12"]);
@@ -81,7 +81,7 @@ class DForm : DBKLViewComponent {
 }
 mixin(BKLViewComponentCalls!("BKLForm", "DBKLForm"));
 
-version(test_uim_apps) { unittest {
+version(test_baklava) { unittest {
   assert(BKLForm);
 
   assert(BKLForm.entityName("Test").entityName == "Test");
