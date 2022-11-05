@@ -3,7 +3,7 @@ module uim.mvc.views.components.forms.crud.create;
 @safe:
 import uim.mvc;
 
-class DMVCCreateForm : DEntityForm {
+class DMVCCreateForm : DMVCEntityForm {
   mixin(MVCViewComponentThis!("MVCCreateForm"));
 
   override void initialize() {
@@ -13,7 +13,7 @@ class DMVCCreateForm : DEntityForm {
       .crudMode(CRUDModes.Create);
   }
 }
-mixin(MVCViewComponentCalls!("MVCCreateForm"));
+mixin(MVCViewComponentCalls!("MVCCreateForm", "DMVCCreateForm"));
 
 /* 
 auto createPageHeader(string path, string mainTitle, string subTitle) {

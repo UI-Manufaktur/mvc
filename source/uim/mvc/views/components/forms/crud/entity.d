@@ -3,13 +3,13 @@ module uim.mvc.views.components.forms.crud.entity;
 @safe:
 import uim.mvc;
 
-class DEntityForm : DForm {
-  mixin(MVCViewComponentThis!("EntityForm"));
+class DMVCEntityForm : DMVCForm {
+  mixin(MVCViewComponentThis!("MVCEntityForm"));
 
-  mixin(OProperty!("DOOPEntity", "entity"));
+  // mixin(OProperty!("DOOPEntity", "entity"));
 
   override void initialize() {
     super.initialize;
   }
 }
-mixin(MVCViewComponentCalls!("EntityForm"));
+mixin(MVCViewComponentCalls!("MVCEntityForm", "DMVCEntityForm"));

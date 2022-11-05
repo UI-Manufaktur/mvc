@@ -4,7 +4,7 @@ module uim.mvc.views.components.forms.components.inputs.display;
 import uim.mvc;
 
 class DDisplayFormInput : DMVCTextFormInput {
-  mixin(MVCViewComponentThis!("MVCDisplayFormInput", true));
+  mixin(MVCViewComponentThis!("MVCDisplayFormInput"));
 
   override void initialize() {
     super.initialize();

@@ -3,8 +3,8 @@ module uim.mvc.views.components.forms.crud.elements;
 @safe:
 import uim.mvc;
 
-class DElementsForm : DForm {
-  mixin(MVCViewComponentThis!("ElementsForm"));
+class DMVCElementsForm : DMVCForm {
+  mixin(MVCViewComponentThis!("MVCElementsForm"));
 
   mixin(OProperty!("DOOPElement[]", "elements"));
 
@@ -12,4 +12,4 @@ class DElementsForm : DForm {
     super.initialize;
   }
 }
-mixin(MVCViewComponentCalls!("ElementsForm"));
+mixin(MVCViewComponentCalls!("MVCElementsForm", "DMVCElementsForm"));
