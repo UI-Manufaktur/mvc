@@ -9,13 +9,13 @@ class DBKLNullComponent : DBKLViewComponent {
   override void initialize() {
     super.initialize(); 
 
-    this
-    .isNull(true) 
-    .notNull(false); 
+/*     this */
+/*     .isNull(true)  */
+/*     .notNull(false);  */
   }
 
   override DH5Obj[] toH5(STRINGAA options = null) {
-      return null;        
+    return null;        
   }
 
   override string render(STRINGAA options = null) {

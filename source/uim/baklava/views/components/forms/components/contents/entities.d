@@ -91,7 +91,7 @@ class DBKLEntitiesFormContent : DBKLFormContent {
         H5H3(["card-title"], title))
       .body_(["border-bottom py-3"], 
         H5Div(["d-flex"],
-          viewEntities(10)
+          /* viewEntities(10) */
           /* BKLSearchInEntities.toH5(form ? ["entitiesName":form.entitiesName] : null) */
           )
         )

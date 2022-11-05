@@ -15,10 +15,10 @@ class DBKLLogoutView : DBKLView {
     super.beforeH5(options);
     if (hasError || "redirect" in options) { return; }
 
-    if (auto appSession = getAppSession(options)) {
+/*     if (auto appSession = getAppSession(options)) {
       appSessions.remove(appSession.id);
       options.remove("appSessionId");
-    }
+    } */
   }
 
   override DH5Obj[] toH5(STRINGAA options = null) {

@@ -18,9 +18,9 @@ class DBKLEntitiesTableHeader : DBKLTableHeader {
   override void beforeH5(STRINGAA options = null) { 
     super.beforeH5(options);
 
-    if (auto entitiesTable = cast(IBKLWithEntities)table) {
+/*     if (auto entitiesTable = cast(IWithEntities)table) {
       this.entities = entitiesTable.entities;
-    }
+    } */
   }
   
   override DH5Obj[] toH5(STRINGAA options = null) { // hook

@@ -14,7 +14,7 @@ class DBKLEntityFormContent : DBKLFormContent {
     .id("FormContent_%s".format(uniform(1, 1_000)))
     .crudMode(CRUDModes.Create)
     .fields(["name", "display", "description"])
-    .inputHandler(FormInputHandler(/* this.form */));   
+    .inputHandler(BKLFormInputHandler(/* this.form */));   
   }
 
   // mixin(OProperty!("DOOPEntity", "entity"));

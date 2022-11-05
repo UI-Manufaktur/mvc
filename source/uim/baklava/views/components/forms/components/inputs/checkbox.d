@@ -3,8 +3,8 @@ module uim.baklava.views.components.forms.components.inputs.checkbox;
 @safe:
 import uim.baklava;
 
-class DCheckboxFormInput : DBKLFormInput {
-  mixin(BKLViewComponentThis!("CheckboxFormInput"));
+class DBKLCheckboxFormInput : DBKLFormInput {
+  mixin(BKLViewComponentThis!("BKLCheckboxFormInput"));
 
   override void initialize() {
     super.initialize;

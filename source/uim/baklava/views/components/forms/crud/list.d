@@ -11,10 +11,10 @@ class DBKLEntitiesListForm : DBKLEntitiesForm {
 
     this
       .header(
-        FormHeader //.mainTitle("Blogs").subTitle("Übersicht Blogs").actions([["print", "export"]])
+        BKLFormHeader //.mainTitle("Blogs").subTitle("Übersicht Blogs").actions([["print", "export"]])
       )
       .content(
-        EntitiesFormContent      
+        BKLEntitiesFormContent      
       );
     /*       .form
         .header(BKLEntitiesheader(this.form).rootPath("/cms/blogs").mainTitle("Blogs").subTitle("Blogs anzeigen").actions([["print", "export"]]))

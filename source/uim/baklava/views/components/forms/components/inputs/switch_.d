@@ -3,8 +3,8 @@ module uim.baklava.views.components.forms.components.inputs.switch_;
 @safe:
 import uim.baklava;
 
-class DSwitchFormInput : DBKLFormInput {
-  mixin(BKLViewComponentThis!("SwitchFormInput"));
+class DBKLSwitchFormInput : DBKLFormInput {
+  mixin(BKLViewComponentThis!("BKLSwitchFormInput"));
 
   override void initialize() {
     super.initialize;
@@ -16,7 +16,7 @@ class DSwitchFormInput : DBKLFormInput {
   mixin(OProperty!("bool", "checked"));
  
   override DH5Obj h5Input(STRINGAA options = null) {
-    debugMethodCall(moduleName!DSwitchFormInput~":DSwitchFormInput::h5Input");
+    debugMethodCall(moduleName!DBKLSwitchFormInput~":DBKLSwitchFormInput::h5Input");
     super.h5Input(options);
     
     auto input = H5Input(name, ["form-check-input me-1"], ["type":"checkbox", "name":inputName]);
@@ -41,4 +41,4 @@ class DSwitchFormInput : DBKLFormInput {
           h5Input(options), H5Span(["form-check-label"], label))));
   }
 }
-mixin(BKLViewComponentCalls!("SwitchFormInput", "DBKLSwitchFormInput"));
+mixin(BKLViewComponentCalls!("BKLSwitchFormInput", "DBKLSwitchFormInput"));

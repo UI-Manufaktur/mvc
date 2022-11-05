@@ -109,7 +109,7 @@ auto listEntities(T:DOOPEntity)(string rootPath, string mainTitle, int numberEnt
 
 auto listPageHeader(string rootPath, string preTitle, string title, STRINGAA reqParameters) {
     return
-      PageHeader
+      BKLPageHeader
         .rootPath(rootPath)
         .preTitle(preTitle)
         .title(title)

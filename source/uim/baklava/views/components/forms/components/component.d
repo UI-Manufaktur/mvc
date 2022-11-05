@@ -4,7 +4,7 @@ module uim.baklava.views.components.forms.components.component;
 import uim.baklava;
 
 class DBKLFormComponent : DBKLViewComponent {
-  mixin(BKLViewComponentThis!("FormComponent"));
+  mixin(BKLViewComponentThis!("BKLFormComponent"));
 
   override void initialize() {
     debugMethodCall(moduleName!DBKLFormComponent~"::DBKLFormComponent("~this.name~"):initialize");   
@@ -17,6 +17,7 @@ class DBKLFormComponent : DBKLViewComponent {
   mixin(OProperty!("DBKLForm", "form"));
   mixin(OProperty!("bool", "readonly")); 
   mixin(BKLParameter!("title"));  
+  mixin(BKLParameter!("rootPath"));  
 }
 mixin(BKLViewComponentCalls!("BKLFormComponent", "DBKLFormComponent"));
 

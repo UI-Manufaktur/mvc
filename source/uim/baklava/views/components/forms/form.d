@@ -4,7 +4,7 @@ module uim.baklava.views.components.forms.form;
 import uim.baklava;
 
 class DBKLForm : DBKLViewComponent {
-  mixin(BKLViewComponentThis!("Form"));
+  mixin(BKLViewComponentThis!("BKLForm"));
 
   override void initialize() {
     debugMethodCall(moduleName!DBKLForm~"::DBKLForm("~this.name~"):initialize");   
@@ -27,6 +27,7 @@ class DBKLForm : DBKLViewComponent {
 
   mixin(BKLParameter!("method"));
   mixin(OProperty!("bool", "readonly"));
+  mixin(OProperty!("string", "rootPath"));
 
   mixin(OProperty!("CRUDModes", "crudMode"));
 
@@ -56,12 +57,12 @@ class DBKLForm : DBKLViewComponent {
     super.beforeH5(options);
     if (hasError || "redirect" in options) { return; }
 
-    foreach(comp; [this.header, this.content, this.footer]) {
+/*     foreach(comp; [this.header, this.content, this.footer]) {
       comp
         .crudMode(this.crudMode)
         .rootPath(this.rootPath)
-        .title(headerTitle);
-    }
+        .title(headerTitle); 
+    } */
   }
 
   override DH5Obj[] toH5(STRINGAA options = null) {

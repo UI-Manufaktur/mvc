@@ -17,9 +17,9 @@ class DBKLFormInputHandler : DBKLEntityFormContent {
 
     this
       .formInputs([
-        "name": NameFormInput, 
-        "display": DisplayFormInput, 
-        "description": DescriptionFormInput]);
+        "name": BKLNameFormInput, 
+        "display": BKLDisplayFormInput, 
+        "description": BKLDescriptionFormInput]);
   } 
 
 /*   override void _afterSetForm() {

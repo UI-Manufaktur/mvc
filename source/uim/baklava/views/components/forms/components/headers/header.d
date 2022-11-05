@@ -17,6 +17,7 @@ class DBKLFormHeader : DBKLFormComponent {
   }
   
   // mixin(OProperty!("DOOPEntity", "entity"));
+  // mixin(OProperty!("string", "rootPath"));
   mixin(BKLParameter!("mainTitle"));
   mixin(BKLParameter!("subTitle"));
   mixin(OProperty!("string[][]", "actions"));
