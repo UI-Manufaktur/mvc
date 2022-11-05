@@ -13,7 +13,7 @@ auto MVCViewComponentRegistry() {
     DMVCViewComponentRegistry.registry = new DMVCViewComponentRegistry; 
   }
   return 
-  DMVCViewComponentRegistry.registry;
+   DMVCViewComponentRegistry.registry;
 }
 
 version(test_uim_mvc) { unittest {
