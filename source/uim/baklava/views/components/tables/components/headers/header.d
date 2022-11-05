@@ -3,8 +3,8 @@ module uim.baklava.views.components.tables.components.headers.header;
 @safe:
 import uim.baklava;
 
-class DMVCTableHeader : DMVCTableComponent {
-  mixin(ViewComponentThis!("MVCTableHeader"));
+class DBLVTableHeader : DBLVTableComponent {
+  mixin(ViewComponentThis!("BLVTableHeader"));
 
   mixin(OProperty!("STRINGAA[]", "cols"));
 
@@ -27,4 +27,4 @@ class DMVCTableHeader : DMVCTableComponent {
     return [H5Thead.row(ths)].toH5;
   }
 }
-mixin(ViewComponentCalls!("MVCTableHeader"));
+mixin(ViewComponentCalls!("BLVTableHeader"));
