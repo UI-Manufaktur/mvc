@@ -3,9 +3,9 @@ module uim.baklava.views.components.tables.listheader;
 @safe:
 import uim.baklava;
 
-class DMVCListTableHeader : DMVCViewComponent {
+class DBLVListTableHeader : DBLVViewComponent {
   this() { super(); }
-  this(DMVCView myView) { this(); this.view(myView); }
+  this(DBLVView myView) { this(); this.view(myView); }
 
   override DH5Obj[] toH5(STRINGAA options) {
     return [
@@ -21,5 +21,5 @@ class DMVCListTableHeader : DMVCViewComponent {
         .th("headActions", ["w-1"], H5String("Aktionen"))];
   }
 }
-auto MVCListTableHeader() { return new DMVCListTableHeader; }
-auto MVCListTableHeader(DMVCView myView) { return new DMVCListTableHeader(myView); }
+auto BLVListTableHeader() { return new DBLVListTableHeader; }
+auto BLVListTableHeader(DBLVView myView) { return new DBLVListTableHeader(myView); }

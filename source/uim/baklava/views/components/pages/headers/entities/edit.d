@@ -3,8 +3,8 @@ module uim.baklava.views.components.pages.headers.entities.edit;
 @safe:
 import uim.baklava;
 
-class DMVCEditPageHeaderViewComponent : DMVCPageHeaderViewComponent {
-  mixin(MVCViewComponentThis!("MVCEditPageHeaderViewComponent"));
+class DBLVEditPageHeaderViewComponent : DBLVPageHeaderViewComponent {
+  mixin(BLVViewComponentThis!("BLVEditPageHeaderViewComponent"));
   
   override void initialize() {
     super.initialize;
@@ -13,5 +13,5 @@ class DMVCEditPageHeaderViewComponent : DMVCPageHeaderViewComponent {
       .actions([["refresh"], ["list"], ["view"], ["print", "export"]]); 
   }
 }
-mixin(MVCViewComponentCalls!("MVCEditPageHeaderViewComponent", "DMVCEditPageHeaderViewComponent"));
-mixin(MVCViewComponentCalls!("MVCEditPageHeader", "DMVCEditPageHeaderViewComponent"));
+mixin(BLVViewComponentCalls!("BLVEditPageHeaderViewComponent", "DBLVEditPageHeaderViewComponent"));
+mixin(BLVViewComponentCalls!("BLVEditPageHeader", "DBLVEditPageHeaderViewComponent"));

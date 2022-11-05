@@ -3,8 +3,8 @@ module uim.baklava.views.components.forms.crud.entities;
 @safe:
 import uim.baklava;
 
-class DMVCEntitiesForm : DMVCForm {
-  mixin(MVCViewComponentThis!("MVCEntitiesForm"));
+class DBLVEntitiesForm : DBLVForm {
+  mixin(BLVViewComponentThis!("BLVEntitiesForm"));
 
   // mixin(OProperty!("DOOPEntity[]", "entities"));
 
@@ -12,4 +12,4 @@ class DMVCEntitiesForm : DMVCForm {
     super.initialize;
   }
 }
-mixin(MVCViewComponentCalls!("MVCEntitiesForm", "DMVCEntitiesForm"));
+mixin(BLVViewComponentCalls!("BLVEntitiesForm", "DBLVEntitiesForm"));

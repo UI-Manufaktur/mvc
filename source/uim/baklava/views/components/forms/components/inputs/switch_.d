@@ -3,8 +3,8 @@ module uim.baklava.views.components.forms.components.inputs.switch_;
 @safe:
 import uim.baklava;
 
-class DSwitchFormInput : DMVCFormInput {
-  mixin(MVCViewComponentThis!("SwitchFormInput", true));
+class DSwitchFormInput : DBLVFormInput {
+  mixin(BLVViewComponentThis!("SwitchFormInput", true));
 
   override void initialize() {
     super.initialize;
@@ -41,4 +41,4 @@ class DSwitchFormInput : DMVCFormInput {
           h5Input(options), H5Span(["form-check-label"], label))));
   }
 }
-mixin(MVCViewComponentCalls!("SwitchFormInput", true));
+mixin(BLVViewComponentCalls!("SwitchFormInput", true));

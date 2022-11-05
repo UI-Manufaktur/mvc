@@ -3,8 +3,8 @@ module uim.baklava.views.components.forms.crud.update;
 @safe:
 import uim.baklava;
 
-class DMVCUpdateForm : DEntityForm {
-  mixin(MVCViewComponentThis!("MVCUpdateForm"));
+class DBLVUpdateForm : DEntityForm {
+  mixin(BLVViewComponentThis!("BLVUpdateForm"));
 
   override void initialize() {
     super.initialize;
@@ -13,10 +13,10 @@ class DMVCUpdateForm : DEntityForm {
       .crudMode(CRUDModes.Update);
   }
 }
-mixin(MVCViewComponentCalls!("MVCUpdateForm"));
+mixin(BLVViewComponentCalls!("BLVUpdateForm"));
 
 /* 
-auto editheader(T:DOOPEntity)(string path, T entity, DMVCPanes panes, STRINGAA reqParameters) {
+auto editheader(T:DOOPEntity)(string path, T entity, DBLVPanes panes, STRINGAA reqParameters) {
   return 
     BS5CardHeader( 
       H5H4(["card-title me-auto"], "ID: "~entity.id.toString), 
@@ -30,7 +30,7 @@ auto editheader(T:DOOPEntity)(string path, T entity, DMVCPanes panes, STRINGAA r
     );
 }
 
-auto editbody_(T:DOOPEntity)(string path, T entity, DMVCPanes panes, STRINGAA reqParameters) {
+auto editbody_(T:DOOPEntity)(string path, T entity, DBLVPanes panes, STRINGAA reqParameters) {
   return 
     BS5CardBody(
       BS5Row.col(["col-12"], 
@@ -71,14 +71,14 @@ DH5Obj[] FormGroups_Edit(DOOPEntity entity, string[] fields = ["name", "display"
   return results;
 }
 
-class DMVCEditbody_ : DMVCbody_ {
+class DBLVEditbody_ : DBLVbody_ {
   this() { super();
     _fields = ["name", "display", "description"]; }
 
   mixin(OProperty!("string", "id"));
   mixin(OProperty!("string", "path"));
   mixin(OProperty!("DOOPEntity", "entity"));
-  mixin(OProperty!("DMVCPanes", "panes")); 
+  mixin(OProperty!("DBLVPanes", "panes")); 
   mixin(OProperty!("string[]", "fields")); 
   
   
@@ -119,6 +119,6 @@ class DMVCEditbody_ : DMVCbody_ {
       );
   } 
 }
-auto MVCEditbody_() { return new DMVCEditbody_(); }
+auto BLVEditbody_() { return new DBLVEditbody_(); }
 
  */

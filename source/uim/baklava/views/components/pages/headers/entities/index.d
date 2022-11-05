@@ -3,8 +3,8 @@ module uim.baklava.views.components.pages.headers.entities.index;
 @safe:
 import uim.baklava;
 
-class DMVCIndexPageHeaderViewComponent : DMVCPageHeaderViewComponent {
-  mixin(MVCViewComponentThis!("MVCIndexPageHeaderViewComponent"));
+class DBLVIndexPageHeaderViewComponent : DBLVPageHeaderViewComponent {
+  mixin(BLVViewComponentThis!("BLVIndexPageHeaderViewComponent"));
 
   override void initialize() {
     super.initialize;
@@ -13,5 +13,5 @@ class DMVCIndexPageHeaderViewComponent : DMVCPageHeaderViewComponent {
       .actions([["refresh", "create"]]); 
   }
 }
-mixin(MVCViewComponentCalls!("MVCIndexPageHeaderViewComponent", "DMVCIndexPageHeaderViewComponent"));
-mixin(MVCViewComponentCalls!("MVCIndexPageHeader", "DMVCIndexPageHeaderViewComponent"));
+mixin(BLVViewComponentCalls!("BLVIndexPageHeaderViewComponent", "DBLVIndexPageHeaderViewComponent"));
+mixin(BLVViewComponentCalls!("BLVIndexPageHeader", "DBLVIndexPageHeaderViewComponent"));

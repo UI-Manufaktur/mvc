@@ -3,8 +3,8 @@ module uim.baklava.views.components.forms.components.inputs.textarea;
 @safe:
 import uim.baklava;
 
-class DMVCTextAreaFormInput : DMVCFormInput {
-  mixin(MVCViewComponentThis!("MVCTextAreaFormInput"));
+class DBLVTextAreaFormInput : DBLVFormInput {
+  mixin(BLVViewComponentThis!("BLVTextAreaFormInput"));
 
   override void initialize() {
     super.initialize;
@@ -35,7 +35,7 @@ version(test_uim_apps) { unittest {
       // 
       }}
 }
-mixin(MVCViewComponentCalls!("MVCTextAreaFormInput", "DMVCTextAreaFormInput"));
+mixin(BLVViewComponentCalls!("BLVTextAreaFormInput", "DBLVTextAreaFormInput"));
 
 version(test_uim_apps) { unittest {
   writeln("--- Test in ", __MODULE__, "/", __LINE__);    

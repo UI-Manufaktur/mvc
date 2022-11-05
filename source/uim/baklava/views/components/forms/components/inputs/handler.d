@@ -3,11 +3,11 @@ module uim.baklava.views.components.forms.components.inputs.handler;
 @safe:
 import uim.baklava;
 
-class DMVCFormInputHandler : DMVCEntityFormContent {
-  mixin(MVCViewComponentThis!("MVCFormInputHandler"));
+class DBLVFormInputHandler : DBLVEntityFormContent {
+  mixin(BLVViewComponentThis!("BLVFormInputHandler"));
 
-  mixin(OProperty!("DMVCFormInput[string]", "formInputs"));
-  O addFormInputs(this O)(DMVCFormInput[string] newFormInputs) {
+  mixin(OProperty!("DBLVFormInput[string]", "formInputs"));
+  O addFormInputs(this O)(DBLVFormInput[string] newFormInputs) {
     newFormInputs.byKey.each!(key => formInputs[key] = newFormInputs[key]);
     return cast(O)this;
   }
@@ -31,7 +31,7 @@ class DMVCFormInputHandler : DMVCEntityFormContent {
   } */
 
   DH5Obj[] group(string field, bool readonly, STRINGAA options = null) {
-    debug writeln(moduleName!DMVCFormInputHandler, ":DMVCFormInputHandler::group");
+    debug writeln(moduleName!DBLVFormInputHandler, ":DBLVFormInputHandler::group");
     debug writeln("CrudMode:", this.crudMode);
 
 /*     foreach(key, formInput; formInputs) {
@@ -45,7 +45,7 @@ class DMVCFormInputHandler : DMVCEntityFormContent {
       if (auto myInput = this.formInputs.get(field.toLower, null)) { // field name not case sensitive !
         debug writeln("Found formGroup for field:", field);
         myInput.crudMode(this.crudMode)/* .form(form) */;
-        if (auto myFormInput = cast(DMVCFormInput)myInput) {
+        if (auto myFormInput = cast(DBLVFormInput)myInput) {
           return myFormInput.entity(entity).toH5(options);
         }
         return myInput.toH5(options);
@@ -53,4 +53,4 @@ class DMVCFormInputHandler : DMVCEntityFormContent {
     return null;
   }
 }  
-mixin(MVCViewComponentCalls!("MVCFormInputHandler", "DMVCFormInputHandler"));
+mixin(BLVViewComponentCalls!("BLVFormInputHandler", "DBLVFormInputHandler"));

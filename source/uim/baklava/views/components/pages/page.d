@@ -3,20 +3,20 @@ module uim.baklava.views.components.pages.page;
 @safe:
 import uim.baklava;
 
-class DMVCPageViewComponent
- : DMVCViewComponent {
-  mixin(MVCViewComponentThis!("MVCPageViewComponent"));
+class DBLVPageViewComponent
+ : DBLVViewComponent {
+  mixin(BLVViewComponentThis!("BLVPageViewComponent"));
   
   override void initialize() {
     this
-      .header(MVCPageHeader)
-      .body_(MVCPageBody)
-      .footer(MVCPageFooter);
+      .header(BLVPageHeader)
+      .body_(BLVPageBody)
+      .footer(BLVPageFooter);
   }
 
-  mixin(OProperty!("DMVCPageHeaderViewComponent", "header"));
-  mixin(OProperty!("DMVCPageBodyViewComponent", "body_"));
-  mixin(OProperty!("DMVCPageFooterViewComponent", "footer"));
+  mixin(OProperty!("DBLVPageHeaderViewComponent", "header"));
+  mixin(OProperty!("DBLVPageBodyViewComponent", "body_"));
+  mixin(OProperty!("DBLVPageFooterViewComponent", "footer"));
 
   override void _afterSetEntity() {
     if (header) header.entity = this.entity;
@@ -30,4 +30,4 @@ class DMVCPageViewComponent
     if (footer)  footer.entities = this.entities;
   }
 }
-mixin(MVCViewComponentCalls!("MVCPageViewComponent", "DMVCPageViewComponent"));
+mixin(BLVViewComponentCalls!("BLVPageViewComponent", "DBLVPageViewComponent"));

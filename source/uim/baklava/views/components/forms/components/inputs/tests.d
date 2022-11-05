@@ -3,7 +3,7 @@ module uim.baklava.views.components.forms.components.inputs.tests;
 @safe:
 public import uim.baklava;
 
-bool test_formGroup(DMVCFormInput aFormGroup) {
+bool test_formGroup(DBLVFormInput aFormGroup) {
 
   
 

@@ -3,9 +3,9 @@ module uim.baklava.views.components.tables.filter;
 @safe:
 import uim.baklava;
 
-class DMVCEntitiesTableFilter : DMVCViewComponent {
+class DBLVEntitiesTableFilter : DBLVViewComponent {
   this() { super(); this.visibleEntities(10); }
-  this(DMVCView myView) { this().view(myView); }
+  this(DBLVView myView) { this().view(myView); }
 
   mixin(OProperty!("size_t", "visibleEntities"));
   
@@ -20,8 +20,8 @@ class DMVCEntitiesTableFilter : DMVCViewComponent {
         .th()];
   }
 }
-auto MVCEntitiesTableFilter() { return new DMVCEntitiesTableFilter; }
+auto BLVEntitiesTableFilter() { return new DBLVEntitiesTableFilter; }
 
 version(test_uim_apps) { unittest {
-  assert(MVCEntitiesTableFilter);
+  assert(BLVEntitiesTableFilter);
 }}

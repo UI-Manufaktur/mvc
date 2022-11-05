@@ -8,8 +8,8 @@ module uim.baklava.views.components.pages.titles.title;
 @safe:
 import uim.baklava;
 
-class DMVCPageTitleViewComponent : DMVCViewComponent { 
-  mixin(MVCViewComponentThis!("MVCPageTitleViewComponent"));
+class DBLVPageTitleViewComponent : DBLVViewComponent { 
+  mixin(BLVViewComponentThis!("BLVPageTitleViewComponent"));
 
   override DH5Obj[] toH5(STRINGAA options = null) { 
     return
@@ -30,4 +30,4 @@ class DMVCPageTitleViewComponent : DMVCViewComponent {
       )].toH5;  
   }
 }
-mixin(MVCViewComponentCalls!("MVCPageTitleViewComponent", "DMVCPageTitleViewComponent"));
+mixin(BLVViewComponentCalls!("BLVPageTitleViewComponent", "DBLVPageTitleViewComponent"));

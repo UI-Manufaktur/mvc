@@ -3,9 +3,9 @@ module uim.baklava.views.components.tables.history;
 @safe:
 import uim.baklava;
 
-/* class DMVCTableHistory : DMVCEntitiesTableHeader {
+/* class DBLVTableHistory : DBLVEntitiesTableHeader {
   this() { super(); }
-  this(DMVCView myView) { this().view(myView); }
+  this(DBLVView myView) { this().view(myView); }
 
   mixin(OProperty!("DOOPEntity[]", "history"));
   O history(this O)(Json[] jsons) {
@@ -60,9 +60,9 @@ import uim.baklava;
 
   } * /
 }
-auto MVCTableHistory() { return new DMVCTableHistory; }
-/* auto MVCTableHistory(string myKey, string myTitle) { return MVCTableHistory.key(myKey).title(myTitle); }
-auto MVCTableHistory(string myKey, string myTitle, string myPath) { return MVCTableHistory.key(myKey).title(myTitle).path(myPath); }
+auto BLVTableHistory() { return new DBLVTableHistory; }
+/* auto BLVTableHistory(string myKey, string myTitle) { return BLVTableHistory.key(myKey).title(myTitle); }
+auto BLVTableHistory(string myKey, string myTitle, string myPath) { return BLVTableHistory.key(myKey).title(myTitle).path(myPath); }
  * /  
 
   

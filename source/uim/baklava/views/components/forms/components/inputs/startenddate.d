@@ -3,8 +3,8 @@ module uim.baklava.views.components.forms.components.inputs.startenddate;
 @safe:
 import uim.baklava;
 
-class DMVCStartEndDateFormInput : DMVCFormInput {
-  mixin(MVCViewComponentThis!("MVCStartEndDateFormInput", true));
+class DBLVStartEndDateFormInput : DBLVFormInput {
+  mixin(BLVViewComponentThis!("BLVStartEndDateFormInput", true));
 
   DH5Obj h5StartInput(STRINGAA options = null) {
     super.h5Input(options);
@@ -75,4 +75,4 @@ class DMVCStartEndDateFormInput : DMVCFormInput {
       // 
       }}
 }
-mixin(MVCViewComponentCalls!("MVCStartEndDateFormInput", true));
+mixin(BLVViewComponentCalls!("BLVStartEndDateFormInput", true));

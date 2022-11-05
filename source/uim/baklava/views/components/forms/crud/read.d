@@ -3,8 +3,8 @@ module uim.baklava.views.components.forms.crud.read;
 @safe:
 import uim.baklava;
 
-class DMVCReadForm : DEntityForm {
-  mixin(MVCViewComponentThis!("MVCReadForm"));
+class DBLVReadForm : DEntityForm {
+  mixin(BLVViewComponentThis!("BLVReadForm"));
 
   override void initialize() {
     super.initialize;
@@ -13,7 +13,7 @@ class DMVCReadForm : DEntityForm {
       .crudMode(CRUDModes.Read);
   }
 }
-mixin(MVCViewComponentCalls!("MVCReadForm"));
+mixin(BLVViewComponentCalls!("BLVReadForm"));
 
 /* 
 auto viewForm(T:DOOPEntity)(string path, T entity, STRINGAA[] panes, STRINGAA reqParameters) {
@@ -44,7 +44,7 @@ auto viewForm(T:DOOPEntity)(string path, T entity, STRINGAA[] panes, STRINGAA re
       );
 }
 
-auto viewForm(T:DOOPEntity)(string path, T entity, DMVCPanes panes, STRINGAA reqParameters) {
+auto viewForm(T:DOOPEntity)(string path, T entity, DBLVPanes panes, STRINGAA reqParameters) {
 
     return 
     H5Form(["card"], ["action":path~"/create/action", "method":"post"], 

@@ -3,8 +3,8 @@ module uim.baklava.views.components.forms.components.inputs.input;
 @safe:
 import uim.baklava;
 
-class DMVCFormInput : DMVCEntityViewComponent {
-  mixin(MVCViewComponentThis!("MVCFormInput"));
+class DBLVFormInput : DBLVEntityViewComponent {
+  mixin(BLVViewComponentThis!("BLVFormInput"));
 
   // id of label element
   mixin(OProperty!("string", "labelId")); 
@@ -21,7 +21,7 @@ class DMVCFormInput : DMVCEntityViewComponent {
   mixin(OProperty!("string", "invalidFeedback"));
   mixin(OProperty!("string[]", "fields"));
   mixin(OProperty!("string", "path"));
-  // mixin(OProperty!("DMVCPanes", "panes"));
+  // mixin(OProperty!("DBLVPanes", "panes"));
 
   override void initialize() {
     super.initialize();
@@ -68,9 +68,9 @@ class DMVCFormInput : DMVCEntityViewComponent {
       ];
   }
 }
-mixin(MVCViewComponentCalls!("MVCFormInput", "DMVCFormInput"));
+mixin(BLVViewComponentCalls!("BLVFormInput", "DBLVFormInput"));
 
 version(test_uim_apps) { unittest {
-  assert(new DMVCFormInput);
-  assert(MVCFormInput);
+  assert(new DBLVFormInput);
+  assert(BLVFormInput);
 }}

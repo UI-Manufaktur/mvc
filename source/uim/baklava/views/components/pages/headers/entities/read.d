@@ -3,12 +3,12 @@ module uim.baklava.views.components.pages.headers.entities.read;
 @safe:
 import uim.baklava;
 
-class DMVCReadPageHeaderViewComponent : DMVCPageHeaderViewComponent {
-  mixin(MVCViewComponentThis!("MVCReadPageHeaderViewComponent"));
+class DBLVReadPageHeaderViewComponent : DBLVPageHeaderViewComponent {
+  mixin(BLVViewComponentThis!("BLVReadPageHeaderViewComponent"));
   
   override void initialize() {
     super.initialize;
   }
 }
-mixin(MVCViewComponentCalls!("MVCReadPageHeaderViewComponent", "DMVCReadPageHeaderViewComponent"));
-mixin(MVCViewComponentCalls!("MVCReadPageHeader", "DMVCReadPageHeaderViewComponent"));
+mixin(BLVViewComponentCalls!("BLVReadPageHeaderViewComponent", "DBLVReadPageHeaderViewComponent"));
+mixin(BLVViewComponentCalls!("BLVReadPageHeader", "DBLVReadPageHeaderViewComponent"));

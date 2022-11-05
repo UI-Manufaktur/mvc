@@ -3,8 +3,8 @@ module uim.baklava.views.components.tables.versions;
 @safe:
 import uim.baklava;
 
-/* class DMVCTableVersions : DMVCEntitiesTableHeader {
-  mixin(ViewComponentThis!("MVCTableVersions"));
+/* class DBLVTableVersions : DBLVEntitiesTableHeader {
+  mixin(ViewComponentThis!("BLVTableVersions"));
 
   mixin(OProperty!("DOOPEntity[]", "versions"));
   O versions(this O)(Json[] jsons) {
@@ -54,5 +54,5 @@ import uim.baklava;
     _body = H5Tbody(rows);
   }
 }
-mixin(ViewComponentCalls!("MVCTableVersions"));
+mixin(ViewComponentCalls!("BLVTableVersions"));
    */
