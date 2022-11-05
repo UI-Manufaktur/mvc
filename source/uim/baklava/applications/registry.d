@@ -3,20 +3,20 @@ module uim.baklava.applications.registry;
 @safe:
 import uim.baklava;
 
-class DBLVApplicationRegistry : DRegistry!DBLVApplication {
+class DBKLApplicationRegistry : DRegistry!DBKLApplication {
   this() {}  
 
-  static DBLVApplicationRegistry registry; 
+  static DBKLApplicationRegistry registry; 
 }
-auto BLVApplicationRegistry() { 
-  if (!DBLVApplicationRegistry.registry) {
-    DBLVApplicationRegistry.registry = new DBLVApplicationRegistry; 
+auto BKLApplicationRegistry() { 
+  if (!DBKLApplicationRegistry.registry) {
+    DBKLApplicationRegistry.registry = new DBKLApplicationRegistry; 
   }
   return 
-    DBLVApplicationRegistry.registry;
+    DBKLApplicationRegistry.registry;
 }
 
 version(test_uim_mvc) { unittest {
-  assert(BLVApplicationRegistry.register("mvc/test",  BLVApplication).paths == ["mvc/test"]);
-  assert(BLVApplicationRegistry.register("mvc/test2", BLVApplication).paths.length == 2);
+  assert(BKLApplicationRegistry.register("mvc/test",  BKLApplication).paths == ["mvc/test"]);
+  assert(BKLApplicationRegistry.register("mvc/test2", BKLApplication).paths.length == 2);
 }}

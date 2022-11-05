@@ -3,9 +3,9 @@ module uim.baklava.base;
 @safe:
 import uim.baklava;
 
-interface IBLVBase {
-  DBLVApplication application();
-  O application(this O)(DBLVApplication newApplication);
+interface IBKLBase {
+  DBKLApplication application();
+  O application(this O)(DBKLApplication newApplication);
 
   string name();
   O name(this O)(string newName);
@@ -14,25 +14,25 @@ interface IBLVBase {
   Json toJson();
 }
 
-class DBLVBase : IBLVBase {
+class DBKLBase : IBKLBase {
   // Constructors for the main properties
   this() { initialize; }
-  this(DBLVApplication newApplication) { this().application(newApplication); }
+  this(DBKLApplication newApplication) { this().application(newApplication); }
   this(string newName) { this().name(newName); }
   this(string[string] newParameters) { this().parameters(newParameters); }
-  this(DBLVApplication newApplication, string newName) { this(newApplication).name(newName); }
-  this(DBLVApplication newApplication, string[string] newParameters) { this(newApplication).parameters(newParameters); }
+  this(DBKLApplication newApplication, string newName) { this(newApplication).name(newName); }
+  this(DBKLApplication newApplication, string[string] newParameters) { this(newApplication).parameters(newParameters); }
   this(string newName, string[string] newParameters) { this(newName).parameters(newParameters); }
-  this(DBLVApplication newApplication, string newName, string[string] newParameters) { this(newApplication, newName).parameters(newParameters); }
+  this(DBKLApplication newApplication, string newName, string[string] newParameters) { this(newApplication, newName).parameters(newParameters); }
 
   void initialize() {
     // Code for object initialization
     this
-      .name("BLVBase");
+      .name("BKLBase");
   }
 
-  mixin(OProperty!("DBLVApplication", "application"));
-  mixin(BLVParameter!("name"));
+  mixin(OProperty!("DBKLApplication", "application"));
+  mixin(BKLParameter!("name"));
 
 // Start Parameters ----
   mixin(OProperty!("string[string]", "parameters")); 
@@ -73,12 +73,12 @@ class DBLVBase : IBLVBase {
     }
   // #endregion error
 
-  DBLVBase create() {
-    return BLVBase;
+  DBKLBase create() {
+    return BKLBase;
   }
 
-  DBLVBase clone() {
-    DBLVBase result = create;
+  DBKLBase clone() {
+    DBKLBase result = create;
     result.application(this.application);
     return result.fromJson(this.toJson);
   }
@@ -111,20 +111,20 @@ class DBLVBase : IBLVBase {
     return toJson.toString;
   }
 }
-auto BLVBase() { return new DBLVBase; }
+auto BKLBase() { return new DBKLBase; }
 
 version(test_uim_mvc) unittest {
-  assert(BLVBase);
-  assert(BLVBase.name("testName").name == "testName");
+  assert(BKLBase);
+  assert(BKLBase.name("testName").name == "testName");
 
-  assert(BLVBase.parameter("test", "value").hasParameter("test"));
-  assert(BLVBase.parameter("test", "value").parameter("test") == "value");
+  assert(BKLBase.parameter("test", "value").hasParameter("test"));
+  assert(BKLBase.parameter("test", "value").parameter("test") == "value");
 
   auto json = Json.emptyObject;
   json["test"] = "value";
-  assert(BLVBase.fromJson(json).hasParameter("test"));
-  assert(BLVBase.fromJson(json).parameter("test") == "value");
+  assert(BKLBase.fromJson(json).hasParameter("test"));
+  assert(BKLBase.fromJson(json).parameter("test") == "value");
   
-  assert(BLVBase.create.name == "BLVBase");
-  assert(BLVBase.clone.name == "BLVBase");
+  assert(BKLBase.create.name == "BKLBase");
+  assert(BKLBase.clone.name == "BKLBase");
 }

@@ -3,8 +3,8 @@ module uim.baklava.controllers.pages.page;
 @safe:
 import uim.baklava;
 
-class DBLVPageController : DBLVController {
-  mixin(BLVControllerThis!("BLVPageController"));
+class DBKLPageController : DBKLController {
+  mixin(BKLControllerThis!("BKLPageController"));
 
   override void initialize() {
     super.initialize;
@@ -13,34 +13,34 @@ class DBLVPageController : DBLVController {
       .language("en") 
       .mimetype("text/html");
     
-/*     requestReader = BLVRequestReader(this);
-    sessionReader = BLVSessionReader(this);  
+/*     requestReader = BKLRequestReader(this);
+    sessionReader = BKLSessionReader(this);  
  */
     this
-      .links(BLVLinkContainer)
-      .metas(BLVMetaContainer) 
-      .scripts(BLVScriptContainer) 
-      .styles(BLVStyleContainer); 
+      .links(BKLLinkContainer)
+      .metas(BKLMetaContainer) 
+      .scripts(BKLScriptContainer) 
+      .styles(BKLStyleContainer); 
   }
 
-  mixin(OProperty!("DBLVView", "view"));
+  mixin(OProperty!("DBKLView", "view"));
 
   // Containers
-  mixin(OProperty!("DBLVLinkContainer", "links"));
-  mixin(OProperty!("DBLVMetaContainer", "metas"));
-  mixin(OProperty!("DBLVScriptContainer", "scripts"));
-  mixin(OProperty!("DBLVStyleContainer", "styles"));
+  mixin(OProperty!("DBKLLinkContainer", "links"));
+  mixin(OProperty!("DBKLMetaContainer", "metas"));
+  mixin(OProperty!("DBKLScriptContainer", "scripts"));
+  mixin(OProperty!("DBKLStyleContainer", "styles"));
 
-  mixin(OProperty!("DBLVLayout", "layout"));
+  mixin(OProperty!("DBKLLayout", "layout"));
 
   
   override void beforeResponse(STRINGAA options = null) {
-    debugMethodCall(moduleName!DBLVPageController~":DBLVPageController("~this.name~")::beforeResponse");
+    debugMethodCall(moduleName!DBKLPageController~":DBKLPageController("~this.name~")::beforeResponse");
     super.beforeResponse(options);
   }    
 
   override string stringResponse(string[string] options = null) {
-    debugMethodCall(moduleName!DBLVController~":DBLVController::stringResponse");
+    debugMethodCall(moduleName!DBKLController~":DBKLController::stringResponse");
     super.stringResponse(options);
 
     string result;
@@ -56,8 +56,8 @@ class DBLVPageController : DBLVController {
   }
 
   override void afterResponse(STRINGAA options = null) {
-    debugMethodCall(moduleName!DBLVPageController~":DBLVPageController::afterResponse");
+    debugMethodCall(moduleName!DBKLPageController~":DBKLPageController::afterResponse");
     super.afterResponse(options);
   }  
 }
-mixin(BLVControllerCalls!("BLVPageController", "DBLVPageController"));
+mixin(BKLControllerCalls!("BKLPageController", "DBKLPageController"));

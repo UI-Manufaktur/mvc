@@ -3,21 +3,21 @@ module uim.baklava.controllers.components.component;
 @safe:
 import uim.baklava;
 
-class DBLVControllerComponent : DBLVBase, IBLVControllerComponent {
-  mixin(BLVControllerComponentThis!("BLVControllerComponent"));
+class DBKLControllerComponent : DBKLBase, IBKLControllerComponent {
+  mixin(BKLControllerComponentThis!("BKLControllerComponent"));
 
-  mixin(OProperty!("IBLVController", "controller"));  
+  mixin(OProperty!("IBKLController", "controller"));  
 
   override void initialize() {
     super.initialize;
   }
 }
-mixin(BLVControllerComponentCalls!("BLVControllerComponent", "DBLVControllerComponent"));
+mixin(BKLControllerComponentCalls!("BKLControllerComponent", "DBKLControllerComponent"));
 
 version(test_uim_mvc) { unittest {
-  testBLVControllerComponent(BLVControllerComponent, "BLVControllerComponent");
+  testBKLControllerComponent(BKLControllerComponent, "BKLControllerComponent");
 
-  assert(BLVControllerComponent.name == "BLVControllerComponent");
-  assert(BLVControllerComponent.create.name == "BLVControllerComponent");
-  assert(BLVControllerComponent.clone.name == "BLVControllerComponent");
+  assert(BKLControllerComponent.name == "BKLControllerComponent");
+  assert(BKLControllerComponent.create.name == "BKLControllerComponent");
+  assert(BKLControllerComponent.clone.name == "BKLControllerComponent");
 }} 

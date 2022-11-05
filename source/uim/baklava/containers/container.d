@@ -3,7 +3,7 @@ module uim.baklava.containers.container;
 @safe:
 import uim.baklava;
 
-class DBLVContainer { // implements ArrayAccess, ContainerContract
+class DBKLContainer { // implements ArrayAccess, ContainerContract
     // The current globally available container (if any).
     // protected static $instance;
 
@@ -65,14 +65,14 @@ class DBLVContainer { // implements ArrayAccess, ContainerContract
     protected string[] _afterResolvingCallbacks;
 
     // Define a contextual binding.
-    /* DBLVContextualBindingBuilder when(string[] concrete) {
+    /* DBKLContextualBindingBuilder when(string[] concrete) {
         auto aliases = [];
 
          foreach (Util::arrayWrap($concrete) as $c) {
             $aliases[] = $this.getAlias($c);
         }
 
-        return new DBLVContextualBindingBuilder(this, aliases);
+        return new DBKLContextualBindingBuilder(this, aliases);
     } */
 
     // Determine if the given abstract type has been bound.
@@ -436,7 +436,7 @@ class DBLVContainer { // implements ArrayAccess, ContainerContract
      */
 /*     public function refresh(string abstract_, $target, $method)
     {
-        return $this.rebinding(string abstract_, function ($BLV, $instance) use ($target, $method) {
+        return $this.rebinding(string abstract_, function ($BKL, $instance) use ($target, $method) {
             $target.{$method}($instance);
         });
     }
@@ -598,7 +598,7 @@ class DBLVContainer { // implements ArrayAccess, ContainerContract
         }
  */
         // If we defined any extenders for this type, we'll need to spin through them
-        // and BLVly them to the object being built. This allows for the extension
+        // and BKLly them to the object being built. This allows for the extension
         // of services, such as changing configuration or decorating the object.
 /*         foreach ($this.getExtenders($abstract) as $extender) {
             $object = $extender($object, $this);

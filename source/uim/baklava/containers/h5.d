@@ -4,7 +4,7 @@ module uim.baklava.containers.h5;
 import uim.baklava;
 
 // Container for H5 data
-class DBLVH5Container {
+class DBKLH5Container {
   mixin(OProperty!("DH5Obj[]", "entries"));
   DH5Obj[] toH5() { return _entries; }
 
@@ -47,4 +47,4 @@ class DBLVH5Container {
     return cast(O)this; 
   }
 }
-auto BLVH5Container() { return new DBLVH5Container; }
+auto BKLH5Container() { return new DBKLH5Container; }
