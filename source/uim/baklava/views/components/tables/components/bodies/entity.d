@@ -6,4 +6,4 @@ import uim.baklava;
 class DBKLEntityTableBody : DBKLTableBody {
   mixin(ViewComponentThis!("BKLEntityTableBody"));
 }
-mixin(ViewComponentCalls!("BKLEntityTableBody"));
+mixin(ViewComponentCalls!("BKLEntityTableBody", "DBKLEntityTableBody"));

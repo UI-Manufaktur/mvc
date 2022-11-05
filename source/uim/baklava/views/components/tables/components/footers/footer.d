@@ -6,4 +6,4 @@ import uim.baklava;
 class DBKLTableFooter : DBKLTableComponent {
   mixin(ViewComponentThis!("BKLTableFooter"));
 }
-mixin(ViewComponentCalls!("BKLTableFooter"));
+mixin(ViewComponentCalls!("BKLTableFooter", "DBKLTableFooter"));

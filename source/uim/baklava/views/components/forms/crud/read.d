@@ -13,7 +13,7 @@ class DBKLReadForm : DBKLEntityForm {
       .crudMode(CRUDModes.Read);
   }
 }
-mixin(BKLViewComponentCalls!("BKLReadForm"));
+mixin(BKLViewComponentCalls!("BKLReadForm", "DBKLReadForm"));
 
 /* 
 auto viewForm(T:DOOPEntity)(string path, T entity, STRINGAA[] panes, STRINGAA reqParameters) {

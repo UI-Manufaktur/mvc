@@ -3,8 +3,8 @@ module uim.baklava.views.components.forms.crud.list;
 @safe:
 import uim.baklava;
 
-class DBKLEntitiesListForm : DEntitiesForm {
-  mixin(BKLViewComponentThis!("BKLEntitiesListForm", false, true));
+class DBKLEntitiesListForm : DBKLEntitiesForm {
+  mixin(BKLViewComponentThis!("BKLEntitiesListForm"));
 
   override void initialize() {
     super.initialize;
@@ -37,9 +37,9 @@ class DBKLEntitiesListForm : DEntitiesForm {
     return [_col].toH5;
   }  
 }
-mixin(BKLViewComponentCalls!("BKLEntitiesListForm", false, true));
+mixin(BKLViewComponentCalls!("BKLEntitiesListForm", "DBKLEntitiesListForm"));
 
-version(test_uim_apps) { unittest {
+version(test_baklava) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
     
     assert(new DBKLEntitiesListForm);

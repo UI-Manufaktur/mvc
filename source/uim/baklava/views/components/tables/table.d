@@ -25,9 +25,9 @@ class DBKLTableViewComponent : DBKLViewComponent {
       )].toH5;
   }
 }
-mixin(ViewComponentCalls!("BKLTableViewComponent"));
+mixin(ViewComponentCalls!("BKLTableViewComponent", "DBKLTableViewComponent"));
 
-version(test_uim_apps) { unittest {
+version(test_baklava) { unittest {
   assert(BKLTableViewComponent);
 }}
 

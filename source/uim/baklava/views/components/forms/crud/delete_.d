@@ -13,7 +13,7 @@ class DBKLDeleteForm : DBKLEntityForm {
       .crudMode(CRUDModes.Delete);
   }
 }
-mixin(BKLViewComponentCalls!("BKLDeleteForm"));
+mixin(BKLViewComponentCalls!("BKLDeleteForm", "DBKLDeleteForm"));
 
 /* auto deleteheader(string path, DOOPEntity entity, DBKLPanes panes, STRINGAA reqParameters) {  
   return 

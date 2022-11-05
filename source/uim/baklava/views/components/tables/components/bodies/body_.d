@@ -6,5 +6,5 @@ import uim.baklava;
 class DBKLTableBody : DBKLTableComponent {
   mixin(ViewComponentThis!("BKLTableBody"));
 }
-mixin(ViewComponentCalls!("BKLTableBody"));
+mixin(ViewComponentCalls!("BKLTableBody", "DBKLTableBody"));
 

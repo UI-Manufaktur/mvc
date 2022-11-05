@@ -8,4 +8,4 @@ class DBKLTableComponent : DEntitiesViewComponent {
 
   mixin(OProperty!("DBKLTableViewComponent", "table"));
 }
-mixin(ViewComponentCalls!("BKLTableComponent"));
+mixin(ViewComponentCalls!("BKLTableComponent", "DBKLTableComponent"));

@@ -22,6 +22,6 @@ class DBKLEntitiesTableFilter : DBKLViewComponent {
 }
 auto BKLEntitiesTableFilter() { return new DBKLEntitiesTableFilter; }
 
-version(test_uim_apps) { unittest {
+version(test_baklava) { unittest {
   assert(BKLEntitiesTableFilter);
 }}
