@@ -3,8 +3,8 @@ module uim.baklava.views.components.forms.login;
 @safe:
 import uim.baklava;
 
-class DMVCLoginForm : DForm {
-  mixin(MVCViewComponentThis!("MVCLoginForm"));
+class DBLVLoginForm : DForm {
+  mixin(BLVViewComponentThis!("BLVLoginForm"));
 
   mixin(OProperty!("bool", "showLostAccount"));
 
@@ -14,9 +14,9 @@ class DMVCLoginForm : DForm {
     this.showLostAccount(true);
   }
   
-/*   override DMVCViewComponent copy() {
+/*   override DBLVViewComponent copy() {
     return
-      (cast(DMVCLoginForm)copy)
+      (cast(DBLVLoginForm)copy)
       .showLostAccount(this.showLostAccount);
   } */
 
@@ -42,8 +42,8 @@ class DMVCLoginForm : DForm {
     ].toH5;
   }
 }
-mixin(MVCViewComponentCalls!("MVCLoginForm"));
+mixin(BLVViewComponentCalls!("BLVLoginForm"));
 
 version(test_uim_apps) { unittest {
-  assert(MVCLoginForm);
+  assert(BLVLoginForm);
 }}

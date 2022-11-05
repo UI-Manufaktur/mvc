@@ -3,8 +3,8 @@ module uim.baklava.views.components.forms.form;
 @safe:
 import uim.baklava;
 
-class DForm : DMVCViewComponent {
-  mixin(MVCViewComponentThis!("Form"));
+class DForm : DBLVViewComponent {
+  mixin(BLVViewComponentThis!("Form"));
 
   override void initialize() {
     debugMethodCall(moduleName!DForm~"::DForm("~this.name~"):initialize");   
@@ -13,8 +13,8 @@ class DForm : DMVCViewComponent {
  
     this
       .id(name~"_"~to!string(uniform(0, 100_000)))
-      .header(MVCFormHeader)
-      .content(MVCEntityFormContent)
+      .header(BLVFormHeader)
+      .content(BLVEntityFormContent)
       .crudMode(CRUDModes.Read)
       .method("post");
   
@@ -22,23 +22,23 @@ class DForm : DMVCViewComponent {
 
   mixin(OProperty!("string[string]", "defaults"));
   mixin(OProperty!("string[]", "fields"));
-  // mixin(OProperty!("DMVCPanes", "panes"));
-  mixin(MVCParameter!("action"));
+  // mixin(OProperty!("DBLVPanes", "panes"));
+  mixin(BLVParameter!("action"));
 
-  mixin(MVCParameter!("method"));
+  mixin(BLVParameter!("method"));
   mixin(OProperty!("bool", "readonly"));
 
   mixin(OProperty!("CRUDModes", "crudMode"));
 
-  mixin(MVCParameter!("entityName"));
-  mixin(MVCParameter!("entitiesName"));
-  mixin(MVCParameter!("headerTitle"));
-  mixin(MVCParameter!("contentTitle"));
-  mixin(MVCParameter!("footerTitle"));
+  mixin(BLVParameter!("entityName"));
+  mixin(BLVParameter!("entitiesName"));
+  mixin(BLVParameter!("headerTitle"));
+  mixin(BLVParameter!("contentTitle"));
+  mixin(BLVParameter!("footerTitle"));
 
-  mixin(OProperty!("DMVCFormHeader", "header"));
-  mixin(OProperty!("DMVCFormContent", "content"));
-  mixin(OProperty!("DMVCFormFooter", "footer"));
+  mixin(OProperty!("DBLVFormHeader", "header"));
+  mixin(OProperty!("DBLVFormContent", "content"));
+  mixin(OProperty!("DBLVFormFooter", "footer"));
 
 /*   DETBBase _database; 
   O database(this O)(DETBBase aDatabase) { 
@@ -79,14 +79,14 @@ class DForm : DMVCViewComponent {
     return [_col].toH5;
   }  
 }
-mixin(MVCViewComponentCalls!("MVCForm", "DMVCForm"));
+mixin(BLVViewComponentCalls!("BLVForm", "DBLVForm"));
 
 version(test_uim_apps) { unittest {
-  assert(MVCForm);
+  assert(BLVForm);
 
-  assert(MVCForm.entityName("Test").entityName == "Test");
-  assert(MVCForm.entitiesName("Test").entitiesName == "Test");
-  assert(MVCForm.headerTitle("Test").headerTitle == "Test");
-  assert(MVCForm.contentTitle("Test").contentTitle == "Test");
-  assert(MVCForm.footerTitle("Test").footerTitle == "Test");
+  assert(BLVForm.entityName("Test").entityName == "Test");
+  assert(BLVForm.entitiesName("Test").entitiesName == "Test");
+  assert(BLVForm.headerTitle("Test").headerTitle == "Test");
+  assert(BLVForm.contentTitle("Test").contentTitle == "Test");
+  assert(BLVForm.footerTitle("Test").footerTitle == "Test");
 }}

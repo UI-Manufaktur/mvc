@@ -3,29 +3,29 @@ module uim.baklava.views.components.forms.components.contents.entities;
 @safe:
 import uim.baklava;
 
-class DMVCEntitiesFormContent : DMVCFormContent {
-  mixin(MVCViewComponentThis!("MVCEntitiesFormContent"));
+class DBLVEntitiesFormContent : DBLVFormContent {
+  mixin(BLVViewComponentThis!("BLVEntitiesFormContent"));
 
   override void initialize() {
-    debugMethodCall(moduleName!DMVCEntitiesFormContent~"::DMVCEntitiesFormContent("~this.name~"):initialize");   
+    debugMethodCall(moduleName!DBLVEntitiesFormContent~"::DBLVEntitiesFormContent("~this.name~"):initialize");   
     super.initialize;
     debug writeln("In ", __MODULE__, "/", __LINE__);
 
     this // Defaults
-      .tableHeader(MVCEntitiesTableHeader)
-      .tableFilter(MVCEntitiesTableFilter); 
+      .tableHeader(BLVEntitiesTableHeader)
+      .tableFilter(BLVEntitiesTableFilter); 
   }
 
-  mixin(OProperty!("DMVCEntitiesTableHeader", "tableHeader"));
-  mixin(OProperty!("DMVCEntitiesTableFilter", "tableFilter"));
+  mixin(OProperty!("DBLVEntitiesTableHeader", "tableHeader"));
+  mixin(OProperty!("DBLVEntitiesTableFilter", "tableFilter"));
   // mixin(OProperty!("DOOPEntity[]", "entities"));
   
   override void beforeH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DMVCEntitiesFormContent~"DMVCEntitiesFormContent::beforeH5");
+    debugMethodCall(moduleName!DBLVEntitiesFormContent~"DBLVEntitiesFormContent::beforeH5");
     super.beforeH5(options);
     if (hasError || "redirect" in options) { return; }
 
-    debug writeln("in DMVCEntitiesEntitiesForm "~(this.entities ? "Has %s entities".format(this.entities.length) : "No entities"));
+    debug writeln("in DBLVEntitiesEntitiesForm "~(this.entities ? "Has %s entities".format(this.entities.length) : "No entities"));
 
     debug writeln("Before RootPath = ", this.rootPath);
     /* if (owner) { // ???
@@ -35,14 +35,14 @@ class DMVCEntitiesFormContent : DMVCFormContent {
     } */
 
 /*     debug writeln(entities ? "Has entities" : "No entities");
-    if (auto entitiesForm = cast(IMVCWithEntities)this.form) {
+    if (auto entitiesForm = cast(IBLVWithEntities)this.form) {
       debug writeln("Found entitiesForm");
       this.entities(entitiesForm.entities);
     } */
   }
 
   override DH5Obj[] toH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DMVCEntitiesFormContent~"DMVCEntitiesFormContent("~this.name~")::toH5");
+    debugMethodCall(moduleName!DBLVEntitiesFormContent~"DBLVEntitiesFormContent("~this.name~")::toH5");
     super.toH5(options);
 
     debug writeln("RootPath = ", this.rootPath);
@@ -92,7 +92,7 @@ class DMVCEntitiesFormContent : DMVCFormContent {
       .body_(["border-bottom py-3"], 
         H5Div(["d-flex"],
           viewEntities(10)
-          /* MVCSearchInEntities.toH5(form ? ["entitiesName":form.entitiesName] : null) */
+          /* BLVSearchInEntities.toH5(form ? ["entitiesName":form.entitiesName] : null) */
           )
         )
       (table)
@@ -105,13 +105,13 @@ class DMVCEntitiesFormContent : DMVCFormContent {
       ].toH5;
   } 
 }
-mixin(MVCViewComponentCalls!("MVCEntitiesFormContent", "DMVCEntitiesFormContent"));
+mixin(BLVViewComponentCalls!("BLVEntitiesFormContent", "DBLVEntitiesFormContent"));
 
 version(test_uim_apps) { unittest {
   writeln("--- Test in ", __MODULE__, "/", __LINE__);
   
-  assert(new DMVCEntitiesFormContent);
-  assert(MVCEntitiesFormContent);
-  assert(new DMVCEntitiesFormContent(Form));
-  assert(MVCEntitiesFormContent(Form)); 
+  assert(new DBLVEntitiesFormContent);
+  assert(BLVEntitiesFormContent);
+  assert(new DBLVEntitiesFormContent(Form));
+  assert(BLVEntitiesFormContent(Form)); 
 }}

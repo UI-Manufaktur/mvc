@@ -3,7 +3,7 @@ module uim.baklava.tests.model;
 @safe:
 import uim.baklava;
 
-void testMVCModel(DMVCModel aModel, string modelName) { 
+void testBLVModel(DBLVModel aModel, string modelName) { 
   assert(aModel, "Model "~modelName~" does not exist");
   assert(aModel.name("testName").name == "testName", "Model "~modelName~" could not change name");
   assert(aModel.parameters(["a":"b"])["a"] == "b", "Model "~modelName~" could set parameter 'a'");

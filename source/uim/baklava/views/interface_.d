@@ -3,9 +3,9 @@ module uim.baklava.views.interface_;
 @safe:
 import uim.baklava;
 
-interface IMVCView : IMVCBase {
-  IMVCController controller();
-  O controller(this O)(IMVCController newController);
+interface IBLVView : IBLVBase {
+  IBLVController controller();
+  O controller(this O)(IBLVController newController);
 
   DH5Obj[] toH5(STRINGAA options = null);
   string render(STRINGAA options = null);

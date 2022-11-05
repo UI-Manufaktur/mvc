@@ -3,18 +3,18 @@ module uim.baklava.views.components.forms.components.contents.list;
 @safe:
 import uim.baklava;
 
-class DMVCListFormContent : DMVCEntitiesViewComponent {
-  mixin(MVCViewComponentThis!("MVCListFormContent"));
+class DBLVListFormContent : DBLVEntitiesViewComponent {
+  mixin(BLVViewComponentThis!("BLVListFormContent"));
 
-  mixin(OProperty!("DMVCEntityViewComponent", "templateListItem"));
+  mixin(OProperty!("DBLVEntityViewComponent", "templateListItem"));
 
   override void initialize() {
-    debugMethodCall(moduleName!DMVCListFormContent~"::DMVCListFormContent("~this.name~"):initialize");   
+    debugMethodCall(moduleName!DBLVListFormContent~"::DBLVListFormContent("~this.name~"):initialize");   
     super.initialize;
   }
 
   override DH5Obj[] toH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DMVCEntitiesFormContent~"DMVCEntitiesFormContent::toH5");
+    debugMethodCall(moduleName!DBLVEntitiesFormContent~"DBLVEntitiesFormContent::toH5");
     super.toH5(options);
     if (hasError || "redirect" in options) { return null; }
     debug writeln("Found entities for table = ", entities.length);
@@ -26,8 +26,8 @@ class DMVCListFormContent : DMVCEntitiesViewComponent {
     ].toH5;
   } 
 }
-mixin(MVCViewComponentCalls!("MVCListFormContent", "DMVCListFormContent"));
+mixin(BLVViewComponentCalls!("BLVListFormContent", "DBLVListFormContent"));
 
 version(test_uim_apps) { unittest {
-  assert(MVCListFormContent);
+  assert(BLVListFormContent);
 }}

@@ -3,18 +3,18 @@ module uim.baklava.views.components.forms.components.footers.footer;
 @safe:
 import uim.baklava;
 
-class DMVCFormFooter : DMVCFormComponent {
-  mixin(MVCViewComponentThis!("MVCFormFooter"));
+class DBLVFormFooter : DBLVFormComponent {
+  mixin(BLVViewComponentThis!("BLVFormFooter"));
 
   override void initialize() {
-    debugMethodCall(moduleName!DMVCFormFooter~"::DMVCFormFooter("~this.name~"):initialize");   
+    debugMethodCall(moduleName!DBLVFormFooter~"::DBLVFormFooter("~this.name~"):initialize");   
     super.initialize;
 
     debug writeln("In ", __MODULE__, "/", __LINE__);
   }
 }
-mixin(MVCViewComponentCalls!("MVCFormFooter", "DMVCFormFooter"));
+mixin(BLVViewComponentCalls!("BLVFormFooter", "DBLVFormFooter"));
 
 version(test_uim_apps) { unittest {
-  assert(MVCFormFooter);
+  assert(BLVFormFooter);
 }}

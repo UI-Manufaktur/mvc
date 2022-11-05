@@ -8,16 +8,16 @@ module uim.baklava.views.login;
 @safe:
 import uim.baklava;
 
-class DMVCLoginView : DMVCView {
-  mixin(MVCViewThis!("MVCLoginView"));
+class DBLVLoginView : DBLVView {
+  mixin(BLVViewThis!("BLVLoginView"));
   
   override void beforeH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DMVCLoginView~":DMVCLoginView::beforeH5");
+    debugMethodCall(moduleName!DBLVLoginView~":DBLVLoginView::beforeH5");
     this.rootPath(options.get("rootPath", "/"));
   }
 
   override DH5Obj[] toH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DMVCLoginView~":DMVCLoginView::toH5");
+    debugMethodCall(moduleName!DBLVLoginView~":DBLVLoginView::toH5");
     super.toH5(options);
 
     auto message = BS5Row; 
@@ -44,15 +44,15 @@ class DMVCLoginView : DMVCView {
         BS5Row("messages", ["mt-2 mb-2"]),
         BS5Row("logo", ["text-center"],  H5A(["href":"https://www.sicherheitsschmiede.de"], 
           H5Img(["src":"/img/logo.png", "height":"80", "alt":"Sicherheitsschmiede - Sicher im Internet"]))),
-        BS5Row("form", MVCLoginForm.toH5(options)),
+        BS5Row("form", BLVLoginForm.toH5(options)),
         BS5Row("additional", H5Div(["text-center mb-4"], H5Div(["text-center text-muted mt-3"], 
           H5String("Noch kein Konto bei uns? "), H5A(["href":"/register", "tabindex":"-1"], "Registrieren"))))
       )
     ].toH5;
   }
 }
-mixin(MVCViewCalls!("MVCLoginView", "DMVCLoginView"));
+mixin(BLVViewCalls!("BLVLoginView", "DBLVLoginView"));
 
 version(test_uim_apps) { unittest {
-  assert(MVCLoginView);
+  assert(BLVLoginView);
 }}

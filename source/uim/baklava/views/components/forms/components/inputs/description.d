@@ -3,8 +3,8 @@ module uim.baklava.views.components.forms.components.inputs.description;
 @safe:
 import uim.baklava;
 
-class DMVCDescriptionFormInput : DMVCTextAreaFormInput {
-  mixin(MVCViewComponentThis!("MVCDescriptionFormInput"));
+class DBLVDescriptionFormInput : DBLVTextAreaFormInput {
+  mixin(BLVViewComponentThis!("BLVDescriptionFormInput"));
 
   override void initialize() {
     super.initialize;
@@ -17,8 +17,8 @@ class DMVCDescriptionFormInput : DMVCTextAreaFormInput {
       .placeholder("Beschreibung eingeben"); 
   }
 }
-mixin(MVCViewComponentCalls!("MVCDescriptionFormInput", "DMVCDescriptionFormInput"));
+mixin(BLVViewComponentCalls!("BLVDescriptionFormInput", "DBLVDescriptionFormInput"));
 
 version(test_uim_apps) { unittest {
-  assert(MVCDescriptionFormInput);
+  assert(BLVDescriptionFormInput);
 }}

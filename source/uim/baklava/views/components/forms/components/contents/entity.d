@@ -3,11 +3,11 @@ module uim.baklava.views.components.forms.components.contents.entity;
 @safe:
 import uim.baklava;
 
-class DMVCEntityFormContent : DMVCFormContent {
-  mixin(MVCViewComponentThis!("MVCEntityFormContent"));
+class DBLVEntityFormContent : DBLVFormContent {
+  mixin(BLVViewComponentThis!("BLVEntityFormContent"));
 
   override void initialize() {
-    debugMethodCall(moduleName!DMVCEntityFormContent~"::DMVCEntityFormContent("~this.name~"):initialize");   
+    debugMethodCall(moduleName!DBLVEntityFormContent~"::DBLVEntityFormContent("~this.name~"):initialize");   
     super.initialize;
 
     this
@@ -25,9 +25,9 @@ class DMVCEntityFormContent : DMVCFormContent {
     return cast(O)this;
   }
   
-  // mixin(OProperty!("DMVCPanes", "panes"));
+  // mixin(OProperty!("DBLVPanes", "panes"));
 
-  mixin(OProperty!("DMVCFormInputHandler", "inputHandler"));
+  mixin(OProperty!("DBLVFormInputHandler", "inputHandler"));
 
   DH5Obj[] formGroups(STRINGAA options = null) {
     debugMethodCall(moduleName!DEntityFormContent~"::DEntityFormContent:formGroups");    
@@ -35,7 +35,7 @@ class DMVCEntityFormContent : DMVCFormContent {
 
     debug writeln(entity ? "Has entity: "~entity.name : "No entity");
 
-    if (auto myInputHandler = cast(DMVCFormInputHandler)inputHandler) {
+    if (auto myInputHandler = cast(DBLVFormInputHandler)inputHandler) {
       debug writeln("Found inputHandler:",inputHandler.name);
 
       myInputHandler
@@ -83,7 +83,7 @@ class DMVCEntityFormContent : DMVCFormContent {
   } 
 
   override DH5Obj[] toH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DMVCEntityFormContent~"::DMVCEntityFormContent:toH5");    
+    debugMethodCall(moduleName!DBLVEntityFormContent~"::DBLVEntityFormContent:toH5");    
     super.toH5(options);
     if (hasError || "redirect" in options) { return null; }
 
@@ -93,8 +93,8 @@ class DMVCEntityFormContent : DMVCFormContent {
     )].toH5; 
   }
 }
-mixin(MVCViewComponentCalls!("MVCEntityFormContent", "DMVCEntityFormContent"));
+mixin(BLVViewComponentCalls!("BLVEntityFormContent", "DBLVEntityFormContent"));
 
 version(test_uim_apps) { unittest {
-  assert(MVCEntityFormContent);
+  assert(BLVEntityFormContent);
 }}

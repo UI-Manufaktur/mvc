@@ -3,18 +3,18 @@ module uim.baklava.views.components.forms.components.contents.table;
 @safe:
 import uim.baklava;
 
-class DMVCTableFormContent : DMVCEntitiesViewComponent {
-  mixin(MVCViewComponentThis!("MVCTableFormContent"));
+class DBLVTableFormContent : DBLVEntitiesViewComponent {
+  mixin(BLVViewComponentThis!("BLVTableFormContent"));
 
-  mixin(OProperty!("DMVCViewComponent", "row"));
+  mixin(OProperty!("DBLVViewComponent", "row"));
 
   override void initialize() {
-    debugMethodCall(moduleName!DMVCTableFormContent~"::DMVCTableFormContent("~this.name~"):initialize");   
+    debugMethodCall(moduleName!DBLVTableFormContent~"::DBLVTableFormContent("~this.name~"):initialize");   
     super.initialize;
   }
 }
-mixin(MVCViewComponentCalls!("MVCTableFormContent", "DMVCTableFormContent"));
+mixin(BLVViewComponentCalls!("BLVTableFormContent", "DBLVTableFormContent"));
 
 version(test_uim_apps) { unittest {
-  assert(MVCTableFormContent);
+  assert(BLVTableFormContent);
 }}

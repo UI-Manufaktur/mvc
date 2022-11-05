@@ -3,11 +3,11 @@ module uim.baklava.views.components.forms.components.component;
 @safe:
 import uim.baklava;
 
-class DMVCFormComponent : DMVCViewComponent {
-  mixin(MVCViewComponentThis!("FormComponent"));
+class DBLVFormComponent : DBLVViewComponent {
+  mixin(BLVViewComponentThis!("FormComponent"));
 
   override void initialize() {
-    debugMethodCall(moduleName!DMVCFormComponent~"::DMVCFormComponent("~this.name~"):initialize");   
+    debugMethodCall(moduleName!DBLVFormComponent~"::DBLVFormComponent("~this.name~"):initialize");   
     super.initialize;
 
     debug writeln("In ", __MODULE__, "/", __LINE__);
@@ -16,10 +16,10 @@ class DMVCFormComponent : DMVCViewComponent {
   mixin(OProperty!("CRUDModes", "crudMode"));
   mixin(OProperty!("DForm", "form"));
   mixin(OProperty!("bool", "readonly")); 
-  mixin(MVCParameter!("title"));  
+  mixin(BLVParameter!("title"));  
 }
-mixin(MVCViewComponentCalls!("MVCFormComponent", "DMVCFormComponent"));
+mixin(BLVViewComponentCalls!("BLVFormComponent", "DBLVFormComponent"));
 
 version(test_uim_apps) { unittest {
-  assert(MVCFormComponent);
+  assert(BLVFormComponent);
 }}
