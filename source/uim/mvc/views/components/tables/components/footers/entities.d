@@ -4,7 +4,7 @@ module uim.mvc.views.components.tables.components.footers.entities;
 import uim.mvc;
 
 class DMVCEntitiesTableFooter : DMVCTableFooter {
-  mixin(BKLViewComponentThis!("BKLEntitiesTableFooter"));
+  mixin(MVCViewComponentThis!("MVCEntitiesTableFooter"));
 
   mixin(OProperty!("size_t", "pageNo"));
   mixin(OProperty!("size_t", "visibleEntities"));
@@ -43,4 +43,4 @@ class DMVCEntitiesTableFooter : DMVCTableFooter {
                 "Next"~tablerIcon("chevrons-right"))))].toH5;
     } 
 }
-mixin(BKLViewComponentCalls!("BKLEntitiesTableFooter", "DMVCEntitiesTableFooter"));
+mixin(MVCViewComponentCalls!("MVCEntitiesTableFooter", "DMVCEntitiesTableFooter"));

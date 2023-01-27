@@ -26,5 +26,5 @@ class DMVCListTableHeader : DMVCViewComponent {
         .th("headActions", ["w-1"], H5String("Aktionen"))];
   }
 }
-auto BKLListTableHeader() { return new DMVCListTableHeader; }
-auto BKLListTableHeader(DMVCView myView) { return new DMVCListTableHeader(myView); }
+auto MVCListTableHeader() { return new DMVCListTableHeader; }
+auto MVCListTableHeader(DMVCView myView) { return new DMVCListTableHeader(myView); }

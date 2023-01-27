@@ -9,8 +9,8 @@ module uim.mvc.views.components.tables.components.component;
 import uim.mvc;
 
 class DMVCTableComponent : DMVCEntitiesViewComponent {
-  mixin(BKLViewComponentThis!("BKLTableComponent"));
+  mixin(MVCViewComponentThis!("MVCTableComponent"));
 
   mixin(OProperty!("DMVCTableViewComponent", "table"));
 }
-mixin(BKLViewComponentCalls!("BKLTableComponent", "DMVCTableComponent"));
+mixin(MVCViewComponentCalls!("MVCTableComponent", "DMVCTableComponent"));

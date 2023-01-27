@@ -3,7 +3,7 @@ module uim.mvc.views.components.tables.components.headers.entity;
 @safe:
 import uim.mvc;
 
-class DBKLEntityTableHeader : DBKLTableHeader {
-  mixin(BKLViewComponentThis!("BKLEntityTableHeader"));
+class DMVCEntityTableHeader : DMVCTableHeader {
+  mixin(MVCViewComponentThis!("MVCEntityTableHeader"));
 }
-mixin(BKLViewComponentCalls!("BKLEntityTableHeader", "DBKLEntityTableHeader"));
+mixin(MVCViewComponentCalls!("MVCEntityTableHeader", "DMVCEntityTableHeader"));

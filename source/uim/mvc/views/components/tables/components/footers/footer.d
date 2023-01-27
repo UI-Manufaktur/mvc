@@ -3,7 +3,7 @@ module uim.mvc.views.components.tables.components.footers.footer;
 @safe:
 import uim.mvc;
 
-class DBKLTableFooter : DBKLTableComponent {
-  mixin(BKLViewComponentThis!("BKLTableFooter"));
+class DMVCTableFooter : DMVCTableComponent {
+  mixin(MVCViewComponentThis!("MVCTableFooter"));
 }
-mixin(BKLViewComponentCalls!("BKLTableFooter", "DBKLTableFooter"));
+mixin(MVCViewComponentCalls!("MVCTableFooter", "DMVCTableFooter"));

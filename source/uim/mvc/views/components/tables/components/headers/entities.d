@@ -3,8 +3,8 @@ module uim.mvc.views.components.tables.components.headers.entities;
 @safe:
 import uim.mvc;
 
-class DBKLEntitiesTableHeader : DBKLTableHeader {
-  mixin(BKLViewComponentThis!("BKLEntitiesTableHeader"));
+class DMVCEntitiesTableHeader : DMVCTableHeader {
+  mixin(MVCViewComponentThis!("MVCEntitiesTableHeader"));
 
   override void initialize() {
     super.initialize;
@@ -40,5 +40,5 @@ class DBKLEntitiesTableHeader : DBKLTableHeader {
           UIMTextInput(["form-control-sm"], ["aria-label":"Search "~mainTitle.toLower]))))].toH5;
   }
 }
-mixin(BKLViewComponentCalls!("BKLEntitiesTableHeader", "DBKLEntitiesTableHeader"));
+mixin(MVCViewComponentCalls!("MVCEntitiesTableHeader", "DMVCEntitiesTableHeader"));
 

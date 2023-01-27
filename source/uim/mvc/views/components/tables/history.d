@@ -65,9 +65,9 @@ import uim.mvc;
 
   } * /
 }
-auto BKLTableHistory() { return new DMVCTableHistory; }
-/* auto BKLTableHistory(string myKey, string myTitle) { return BKLTableHistory.key(myKey).title(myTitle); }
-auto BKLTableHistory(string myKey, string myTitle, string myPath) { return BKLTableHistory.key(myKey).title(myTitle).path(myPath); }
+auto MVCTableHistory() { return new DMVCTableHistory; }
+/* auto MVCTableHistory(string myKey, string myTitle) { return MVCTableHistory.key(myKey).title(myTitle); }
+auto MVCTableHistory(string myKey, string myTitle, string myPath) { return MVCTableHistory.key(myKey).title(myTitle).path(myPath); }
  * /  
 
   

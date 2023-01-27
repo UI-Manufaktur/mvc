@@ -3,8 +3,8 @@ module uim.mvc.views.components.tables.components.headers.header;
 @safe:
 import uim.mvc;
 
-class DBKLTableHeader : DBKLTableComponent {
-  mixin(BKLViewComponentThis!("BKLTableHeader"));
+class DMVCTableHeader : DMVCTableComponent {
+  mixin(MVCViewComponentThis!("MVCTableHeader"));
 
   mixin(OProperty!("STRINGAA[]", "cols"));
 
@@ -27,4 +27,4 @@ class DBKLTableHeader : DBKLTableComponent {
     return [H5Thead.row(ths)].toH5;
   }
 }
-mixin(BKLViewComponentCalls!("BKLTableHeader", "DBKLTableHeader"));
+mixin(MVCViewComponentCalls!("MVCTableHeader", "DMVCTableHeader"));

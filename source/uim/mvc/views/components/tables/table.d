@@ -9,7 +9,7 @@ module uim.mvc.views.components.tables.table;
 import uim.mvc;
 
 class DMVCTableViewComponent : DMVCViewComponent {
-  mixin(BKLViewComponentThis!("BKLTableViewComponent"));
+  mixin(MVCViewComponentThis!("MVCTableViewComponent"));
   
   mixin(OProperty!("string", "path"));  
   mixin(OProperty!("DMVCViewComponent", "header"));
@@ -30,9 +30,9 @@ class DMVCTableViewComponent : DMVCViewComponent {
       )].toH5;
   }
 }
-mixin(BKLViewComponentCalls!("BKLTableViewComponent", "DMVCTableViewComponent"));
+mixin(MVCViewComponentCalls!("MVCTableViewComponent", "DMVCTableViewComponent"));
 
 version(test_baklava) { unittest {
-  assert(BKLTableViewComponent);
+  assert(MVCTableViewComponent);
 }}
 

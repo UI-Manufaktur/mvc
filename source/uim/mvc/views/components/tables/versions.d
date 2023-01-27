@@ -9,7 +9,7 @@ module uim.mvc.views.components.tables.versions;
 import uim.mvc;
 
 /* class DMVCTableVersions : DMVCEntitiesTableHeader {
-  mixin(ViewComponentThis!("BKLTableVersions"));
+  mixin(ViewComponentThis!("MVCTableVersions"));
 
   mixin(OProperty!("DOOPEntity[]", "versions"));
   O versions(this O)(Json[] jsons) {
@@ -59,5 +59,5 @@ import uim.mvc;
     _body = H5Tbody(rows);
   }
 }
-mixin(ViewComponentCalls!("BKLTableVersions"));
+mixin(ViewComponentCalls!("MVCTableVersions"));
    */
