@@ -4,8 +4,8 @@ module uim.mvc.base;
 import uim.mvc;
 
 interface IBKLBase {
-  DBKLApplication application();
-  O application(this O)(DBKLApplication newApplication);
+  DMVCApplication application();
+  O application(this O)(DMVCApplication newApplication);
 
   string name();
   O name(this O)(string newName);
@@ -14,16 +14,16 @@ interface IBKLBase {
   Json toJson();
 }
 
-class DBKLBase : IBKLBase {
+class DMVCBase : IBKLBase {
   // Constructors for the main properties
   this() { initialize; }
-  this(DBKLApplication newApplication) { this().application(newApplication); }
+  this(DMVCApplication newApplication) { this().application(newApplication); }
   this(string newName) { this().name(newName); }
   this(string[string] newParameters) { this().parameters(newParameters); }
-  this(DBKLApplication newApplication, string newName) { this(newApplication).name(newName); }
-  this(DBKLApplication newApplication, string[string] newParameters) { this(newApplication).parameters(newParameters); }
+  this(DMVCApplication newApplication, string newName) { this(newApplication).name(newName); }
+  this(DMVCApplication newApplication, string[string] newParameters) { this(newApplication).parameters(newParameters); }
   this(string newName, string[string] newParameters) { this(newName).parameters(newParameters); }
-  this(DBKLApplication newApplication, string newName, string[string] newParameters) { this(newApplication, newName).parameters(newParameters); }
+  this(DMVCApplication newApplication, string newName, string[string] newParameters) { this(newApplication, newName).parameters(newParameters); }
 
   void initialize() {
     // Code for object initialization
@@ -31,7 +31,7 @@ class DBKLBase : IBKLBase {
       .name("BKLBase");
   }
 
-  mixin(OProperty!("DBKLApplication", "application"));
+  mixin(OProperty!("DMVCApplication", "application"));
   mixin(BKLParameter!("name"));
 
 // Start Parameters ----
@@ -73,12 +73,12 @@ class DBKLBase : IBKLBase {
     }
   // #endregion error
 
-  DBKLBase create() {
+  DMVCBase create() {
     return BKLBase;
   }
 
-  DBKLBase clone() {
-    DBKLBase result = create;
+  DMVCBase clone() {
+    DMVCBase result = create;
     result.application(this.application);
     return result.fromJson(this.toJson);
   }
@@ -111,7 +111,7 @@ class DBKLBase : IBKLBase {
     return toJson.toString;
   }
 }
-auto BKLBase() { return new DBKLBase; }
+auto BKLBase() { return new DMVCBase; }
 
 version(test_uim_mvc) unittest {
   assert(BKLBase);

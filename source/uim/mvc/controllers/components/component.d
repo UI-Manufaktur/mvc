@@ -3,7 +3,7 @@ module uim.mvc.controllers.components.component;
 @safe:
 import uim.mvc;
 
-class DBKLControllerComponent : DBKLBase, IBKLControllerComponent {
+class DMVCControllerComponent : DMVCBase, IBKLControllerComponent {
   mixin(BKLControllerComponentThis!("BKLControllerComponent"));
 
   mixin(OProperty!("IBKLController", "controller"));  
@@ -12,7 +12,7 @@ class DBKLControllerComponent : DBKLBase, IBKLControllerComponent {
     super.initialize;
   }
 }
-mixin(BKLControllerComponentCalls!("BKLControllerComponent", "DBKLControllerComponent"));
+mixin(BKLControllerComponentCalls!("BKLControllerComponent", "DMVCControllerComponent"));
 
 version(test_uim_mvc) { unittest {
   testBKLControllerComponent(BKLControllerComponent, "BKLControllerComponent");

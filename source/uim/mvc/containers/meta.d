@@ -3,7 +3,7 @@ module uim.mvc.containers.metas;
 @safe:
 import uim.mvc;
 
-class DBKLMetaContainer : DBKLH5Container {
+class DMVCMetaContainer : DMVCH5Container {
 	O entries(this O)(STRINGAA[] newEntries) { 
     this.entries(newEntries.map!(a => H5Meta(a)).array); 
     return cast(O)this;
@@ -19,14 +19,14 @@ class DBKLMetaContainer : DBKLH5Container {
     return cast(O)this;
   }
 }
-auto BKLMetaContainer() { return new DBKLMetaContainer; }
+auto BKLMetaContainer() { return new DMVCMetaContainer; }
 
 version(test_uim_BKLs) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
     
-/*     assert(new DBKLLinkContainer);
+/*     assert(new DMVCLinkContainer);
     assert(BKLLinkContainer);
-    assert(cast(DBKLLinkContainer)BKLLinkContainer);
+    assert(cast(DMVCLinkContainer)BKLLinkContainer);
     assert(!BKLLinkContainer.entries);
     assert(BKLLinkContainer.entries.add("abc").entries);
 

@@ -3,12 +3,12 @@ module uim.mvc.controllers.controller;
 @safe:
 import uim.mvc;
 
-class DBKLController : DBKLBase, IBKLController  {
+class DMVCController : DMVCBase, IBKLController  {
   mixin(BKLControllerThis!("BKLController"));
 
   // Initialization (= hook method)
   override void initialize() {
-    debugMethodCall(moduleName!DBKLController~"::DBKLController("~this.name~"):initialize");   
+    debugMethodCall(moduleName!DMVCController~"::DMVCController("~this.name~"):initialize");   
     super.initialize;
 
     this
@@ -41,8 +41,8 @@ class DBKLController : DBKLBase, IBKLController  {
   mixin(BKLParameter!("persistent"));
   mixin(BKLParameter!("redirect"));
 
-  /* mixin(OProperty!("DBKLCheck[]", "checks"));
-  O addChecks(this O)(DBKLCheck[] newChecks) {
+  /* mixin(OProperty!("DMVCCheck[]", "checks"));
+  O addChecks(this O)(DMVCCheck[] newChecks) {
     this.checks(this.checks~newChecks);
     return cast(O)this;
   } */
@@ -109,24 +109,24 @@ class DBKLController : DBKLBase, IBKLController  {
   }
 
   void beforeResponse(string[string] options = null) {
-    debugMethodCall(moduleName!DBKLController~":DBKLController("~this.name~")::beforeResponse");
+    debugMethodCall(moduleName!DMVCController~":DMVCController("~this.name~")::beforeResponse");
   }    
 
   void afterResponse(string[string] options = null) {
-    debugMethodCall(moduleName!DBKLController~":DBKLController::afterResponse");
+    debugMethodCall(moduleName!DMVCController~":DMVCController::afterResponse");
   }
 
   string stringResponse(string[string] options = null) {
-    debugMethodCall(moduleName!DBKLController~":DBKLController::stringResponse");
+    debugMethodCall(moduleName!DMVCController~":DMVCController::stringResponse");
     return "";
   }
 
   void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse) {
-		debugMethodCall(moduleName!DBKLController~":DBKLController("~this.name~")::request(req, res)");
+		debugMethodCall(moduleName!DMVCController~":DMVCController("~this.name~")::request(req, res)");
   }
 
   void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse, STRINGAA options) {
-		debugMethodCall(moduleName!DBKLController~":DBKLController("~this.name~")::request(req, res, reqParameters)");
+		debugMethodCall(moduleName!DMVCController~":DMVCController("~this.name~")::request(req, res, reqParameters)");
 
 		this.request = newRequest; this.response = newResponse;
     options = requestParameters(options);
@@ -150,7 +150,7 @@ class DBKLController : DBKLBase, IBKLController  {
 		this.response.writeBody(result, this.mimetype); 
   }
 }
-mixin(BKLControllerCalls!("BKLController", "DBKLController"));
+mixin(BKLControllerCalls!("BKLController", "DMVCController"));
 
 version(test_uim_mvc) { unittest {
   testBKLController(BKLController, "BKLController");

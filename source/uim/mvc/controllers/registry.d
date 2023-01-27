@@ -3,17 +3,17 @@ module uim.mvc.controllers.registry;
 @safe:
 import uim.mvc;
 
-class DBKLControllerRegistry : DRegistry!DBKLController{
+class DMVCControllerRegistry : DRegistry!DMVCController{
   this() {}
 
-  static DBKLControllerRegistry registry; 
+  static DMVCControllerRegistry registry; 
 }
 auto BKLControllerRegistry() { 
-  if (!DBKLControllerRegistry.registry) {
-    DBKLControllerRegistry.registry = new DBKLControllerRegistry; 
+  if (!DMVCControllerRegistry.registry) {
+    DMVCControllerRegistry.registry = new DMVCControllerRegistry; 
   }
   return 
-    DBKLControllerRegistry.registry;
+    DMVCControllerRegistry.registry;
 }
 
 version(test_uim_mvc) { unittest {

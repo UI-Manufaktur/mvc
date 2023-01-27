@@ -3,7 +3,7 @@ module uim.mvc.controllers.pages.page;
 @safe:
 import uim.mvc;
 
-class DBKLPageController : DBKLController {
+class DMVCPageController : DMVCController {
   mixin(BKLControllerThis!("BKLPageController"));
 
   override void initialize() {
@@ -23,24 +23,24 @@ class DBKLPageController : DBKLController {
       .styles(BKLStyleContainer); 
   }
 
-  mixin(OProperty!("DBKLView", "view"));
+  mixin(OProperty!("DMVCView", "view"));
 
   // Containers
-  mixin(OProperty!("DBKLLinkContainer", "links"));
-  mixin(OProperty!("DBKLMetaContainer", "metas"));
-  mixin(OProperty!("DBKLScriptContainer", "scripts"));
-  mixin(OProperty!("DBKLStyleContainer", "styles"));
+  mixin(OProperty!("DMVCLinkContainer", "links"));
+  mixin(OProperty!("DMVCMetaContainer", "metas"));
+  mixin(OProperty!("DMVCScriptContainer", "scripts"));
+  mixin(OProperty!("DMVCStyleContainer", "styles"));
 
-  mixin(OProperty!("DBKLLayout", "layout"));
+  mixin(OProperty!("DMVCLayout", "layout"));
 
   
   override void beforeResponse(STRINGAA options = null) {
-    debugMethodCall(moduleName!DBKLPageController~":DBKLPageController("~this.name~")::beforeResponse");
+    debugMethodCall(moduleName!DMVCPageController~":DMVCPageController("~this.name~")::beforeResponse");
     super.beforeResponse(options);
   }    
 
   override string stringResponse(string[string] options = null) {
-    debugMethodCall(moduleName!DBKLController~":DBKLController::stringResponse");
+    debugMethodCall(moduleName!DMVCController~":DMVCController::stringResponse");
     super.stringResponse(options);
 
     string result;
@@ -56,8 +56,8 @@ class DBKLPageController : DBKLController {
   }
 
   override void afterResponse(STRINGAA options = null) {
-    debugMethodCall(moduleName!DBKLPageController~":DBKLPageController::afterResponse");
+    debugMethodCall(moduleName!DMVCPageController~":DMVCPageController::afterResponse");
     super.afterResponse(options);
   }  
 }
-mixin(BKLControllerCalls!("BKLPageController", "DBKLPageController"));
+mixin(BKLControllerCalls!("BKLPageController", "DMVCPageController"));

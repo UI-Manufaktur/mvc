@@ -1,6 +1,6 @@
 module uim.mvc.authentications.authentication;
 
-class DBKLAuthentication {
+class DMVCAuthentication {
   this() {}
 }
 

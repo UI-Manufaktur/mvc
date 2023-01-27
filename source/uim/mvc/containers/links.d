@@ -3,7 +3,7 @@ module uim.mvc.containers.links;
 @safe:
 import uim.mvc;
 
-class DBKLLinkContainer : DBKLH5Container {
+class DMVCLinkContainer : DMVCH5Container {
 	O entries(this O)(STRINGAA[] newEntries) { 
     this.entries(newEntries.map!(a => H5Link(a)).array); 
     return cast(O)this;
@@ -34,14 +34,14 @@ class DBKLLinkContainer : DBKLH5Container {
     return cast(O)this;
   }
 }
-auto BKLLinkContainer() { return new DBKLLinkContainer; }
+auto BKLLinkContainer() { return new DMVCLinkContainer; }
 
 version(test_uim_BKLs) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
     
-assert(new DBKLLinkContainer);
+assert(new DMVCLinkContainer);
     assert(BKLLinkContainer);
-    assert(cast(DBKLLinkContainer)BKLLinkContainer);
+    assert(cast(DMVCLinkContainer)BKLLinkContainer);
     assert(!BKLLinkContainer.entries);
     assert(BKLLinkContainer.entries.add("abc").entries);
 

@@ -3,7 +3,7 @@ module uim.mvc.containers.container;
 @safe:
 import uim.mvc;
 
-class DBKLContainer { // implements ArrayAccess, ContainerContract
+class DMVCContainer { // implements ArrayAccess, ContainerContract
     // The current globally available container (if any).
     // protected static $instance;
 
@@ -65,14 +65,14 @@ class DBKLContainer { // implements ArrayAccess, ContainerContract
     protected string[] _afterResolvingCallbacks;
 
     // Define a contextual binding.
-    /* DBKLContextualBindingBuilder when(string[] concrete) {
+    /* DMVCContextualBindingBuilder when(string[] concrete) {
         auto aliases = [];
 
          foreach (Util::arrayWrap($concrete) as $c) {
             $aliases[] = $this.getAlias($c);
         }
 
-        return new DBKLContextualBindingBuilder(this, aliases);
+        return new DMVCContextualBindingBuilder(this, aliases);
     } */
 
     // Determine if the given abstract type has been bound.

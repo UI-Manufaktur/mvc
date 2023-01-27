@@ -3,7 +3,7 @@ module uim.mvc.controllers.actions.action;
 @safe:
 import uim.mvc;
 
-class DBKLActionController : DBKLController {
+class DMVCActionController : DMVCController {
   mixin(BKLControllerThis!("BKLActionController"));
 }
-mixin(BKLControllerCalls!("BKLActionController", "DBKLActionController"));
+mixin(BKLControllerCalls!("BKLActionController", "DMVCActionController"));

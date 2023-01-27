@@ -3,7 +3,7 @@ module uim.mvc.containers.styles;
 @safe:
 import uim.mvc;
 
-class DBKLStyleContainer : DBKLH5Container {
+class DMVCStyleContainer : DMVCH5Container {
 	O entries(this O)(STRINGAA[] newEntries) { 
     this.entries(newEntries.map!(a => H5Style(a)).array); 
     return cast(O)this;
@@ -38,14 +38,14 @@ class DBKLStyleContainer : DBKLH5Container {
     return cast(O)this;
   }
 }
-auto BKLStyleContainer() { return new DBKLStyleContainer; }
+auto BKLStyleContainer() { return new DMVCStyleContainer; }
 
 version(test_uim_BKLs) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
 
-/*     assert(new DBKLStyleContainer);
+/*     assert(new DMVCStyleContainer);
     assert(BKLStyleContainer);
-    assert(cast(DBKLStyleContainer)BKLStyleContainer);
+    assert(cast(DMVCStyleContainer)BKLStyleContainer);
     assert(!BKLStyleContainer.entries); */
 /*     assert(BKLStyleContainer.entries.add("abc").entries);
 

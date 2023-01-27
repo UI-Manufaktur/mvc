@@ -3,7 +3,7 @@ module uim.mvc.containers.scripts;
 @safe:
 import uim.mvc;
 
-class DBKLScriptContainer : DBKLH5Container {
+class DMVCScriptContainer : DMVCH5Container {
 	O entries(this O)(STRINGAA[] newEntries) { 
     this.entries(newEntries.map!(a => H5Script(a)).array); 
     return cast(O)this;
@@ -44,14 +44,14 @@ class DBKLScriptContainer : DBKLH5Container {
     return cast(O)this;
   }
 }
-auto BKLScriptContainer() { return new DBKLScriptContainer; }
+auto BKLScriptContainer() { return new DMVCScriptContainer; }
 
 version(test_uim_BKLs) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
 
-/*     assert(new DBKLScriptContainer);
+/*     assert(new DMVCScriptContainer);
     assert(BKLScriptContainer);
-    assert(cast(DBKLScriptContainer)BKLScriptContainer);
+    assert(cast(DMVCScriptContainer)BKLScriptContainer);
     assert(!BKLScriptContainer.entries);
     assert(BKLScriptContainer.entries.add("abc").entries); */
 /* 

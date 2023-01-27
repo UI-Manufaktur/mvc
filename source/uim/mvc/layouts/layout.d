@@ -5,7 +5,7 @@ import uim.mvc;
 
 enum DataModes { Local, REST }
 
-class DBKLLayout : DBKLBase, IBKLLayout{
+class DMVCLayout : DMVCBase, IBKLLayout{
   this() {
     initialize(); }
 
@@ -82,20 +82,20 @@ class DBKLLayout : DBKLBase, IBKLLayout{
   mixin(BKLParameter!("title"));
   mixin(BKLParameter!("language"));
 
-  mixin(OProperty!("DBKLNavigationViewComponent", "navigation"));
-  mixin(OProperty!("DBKLPageFooterViewComponent", "footer"));
+  mixin(OProperty!("DMVCNavigationViewComponent", "navigation"));
+  mixin(OProperty!("DMVCPageFooterViewComponent", "footer"));
   mixin(OProperty!("STRINGAA", "headAttributes"));
   mixin(OProperty!("string[]", "headClasses"));
   mixin(OProperty!("STRINGAA", "bodyAttributes"));
   mixin(OProperty!("string[]", "bodyClasses"));
-  mixin(OProperty!("DBKLLayout", "layout"));
+  mixin(OProperty!("DMVCLayout", "layout"));
   mixin(OProperty!("Json", "config"));
 
   // Containers
-  mixin(OProperty!("DBKLLinkContainer", "links"));
-  mixin(OProperty!("DBKLMetaContainer", "metas"));
-  mixin(OProperty!("DBKLScriptContainer", "scripts"));
-  mixin(OProperty!("DBKLStyleContainer", "styles"));
+  mixin(OProperty!("DMVCLinkContainer", "links"));
+  mixin(OProperty!("DMVCMetaContainer", "metas"));
+  mixin(OProperty!("DMVCScriptContainer", "scripts"));
+  mixin(OProperty!("DMVCStyleContainer", "styles"));
 
 // #region render
   protected DH5Obj[] myMetas;
@@ -103,7 +103,7 @@ class DBKLLayout : DBKLBase, IBKLLayout{
   protected DH5Obj[] myStyles;
   protected DH5Obj[] myScripts;
   void beforeRender(STRINGAA options = null) {
-		debugMethodCall(moduleName!DBKLLayout~":DBKLLayout("~this.name~")::beforeRender");
+		debugMethodCall(moduleName!DMVCLayout~":DMVCLayout("~this.name~")::beforeRender");
 
     myMetas = null;
     myLinks = null;
@@ -125,8 +125,8 @@ class DBKLLayout : DBKLBase, IBKLLayout{
     if (this.scripts) myScripts ~= this.scripts.toH5;
 	}
 
-	string render(DBKLPageController controller, DBKLView view, STRINGAA options = null) { 
-		debugMethodCall(moduleName!DBKLLayout~":DBKLLayout("~this.name~")::render(DBKLPageController controller, DBKLView view, STRINGAA options = null)");
+	string render(DMVCPageController controller, DMVCView view, STRINGAA options = null) { 
+		debugMethodCall(moduleName!DMVCLayout~":DMVCLayout("~this.name~")::render(DMVCPageController controller, DMVCView view, STRINGAA options = null)");
     if (view) {
       debug writeln("view is -> ", view.name);
 		  return render(controller, view.toH5(options), options);
@@ -137,8 +137,8 @@ class DBKLLayout : DBKLBase, IBKLLayout{
     }
 	}
 
-	string render(DBKLPageController controller, DH5Obj[] h5Objs, STRINGAA options = null) { 
-		debugMethodCall(moduleName!DBKLLayout~":DBKLLayout("~this.name~")::render(DBKLPageController controller, DH5Obj[] h5Objs, STRINGAA options = null)");
+	string render(DMVCPageController controller, DH5Obj[] h5Objs, STRINGAA options = null) { 
+		debugMethodCall(moduleName!DMVCLayout~":DMVCLayout("~this.name~")::render(DMVCPageController controller, DH5Obj[] h5Objs, STRINGAA options = null)");
 		if (h5Objs) {
       return render(controller, h5Objs.map!(h5 => h5.toString).join, options);
     }
@@ -146,8 +146,8 @@ class DBKLLayout : DBKLBase, IBKLLayout{
 	}
 
 
-	string render(DBKLPageController controller, string content, STRINGAA options = null) { 
-		debugMethodCall(moduleName!DBKLLayout~":DBKLLayout("~this.name~")::render(DBKLPageController controller, string content, STRINGAA options = null)");
+	string render(DMVCPageController controller, string content, STRINGAA options = null) { 
+		debugMethodCall(moduleName!DMVCLayout~":DMVCLayout("~this.name~")::render(DMVCPageController controller, string content, STRINGAA options = null)");
 		beforeRender(options);
 
     debug writeln("myMetas = ", myMetas);
@@ -171,7 +171,7 @@ class DBKLLayout : DBKLBase, IBKLLayout{
 			foreach(k,v; application.parameters) if (k !in options) options[k] = v; }
 
 
-		if (auto pageController = cast(DBKLPageController)controller) {
+		if (auto pageController = cast(DMVCPageController)controller) {
       debug writeln("Found pageController");
 
       if (pageController.metas) myMetas ~= pageController.metas.toH5;
@@ -226,7 +226,7 @@ version(test_baklava) { unittest {
   // #endregion render
 }
 
-/*   override string render(DBKLPageController page, DBKLView view, STRINGAA options = null) {
+/*   override string render(DMVCPageController page, DMVCView view, STRINGAA options = null) {
     super.render(page, view, options);
 
     auto head = ("navigation" in options ? options.get("navigation", "") : navigation.render(options));
@@ -241,7 +241,7 @@ version(test_baklava) { unittest {
     // debug writeln("foot -> ", foot);
 
     // debug writeln("return layout");
-    auto pg = cast(DBKLPage)page;
+    auto pg = cast(DMVCPage)page;
     auto pHeader = pg ? pg.pageHeader : null;
 
  */    /*         BS5Container.fluid()(
@@ -284,13 +284,13 @@ version(test_baklava) { unittest {
         "UIM!Central");    
     }
 
-    mixin(OProperty!("DBKLNavbarSlot[]", "slots"));
+    mixin(OProperty!("DMVCNavbarSlot[]", "slots"));
 
     override DH5Obj navbar() {
       return BS5NavbarNav(this.navSlots);
     }
 
-    override string toString(DBKLPageController page, string[string] reqParameters) {
+    override string toString(DMVCPageController page, string[string] reqParameters) {
       foreach(k,v; parameters) if (k !in reqParameters) reqParameters[k] = v;
       foreach(k,v; page.parameters) if (k !in reqParameters) reqParameters[k] = v;
       if (auto app = page.app) {
@@ -461,7 +461,7 @@ auto newNavbar(string[string] Parameters) {
   </nav>`;
 }
 // megamenu2
-auto dropDownItems(string prefix, DBKLPageController[][string] themes) {
+auto dropDownItems(string prefix, DMVCPageController[][string] themes) {
   string result;
   foreach(theme; themes.getKeys(true)) result ~= H5A(["dropdown-item"], ["href":prefix~theme.toLower], theme).toString;
   return result;

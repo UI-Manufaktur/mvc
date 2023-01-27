@@ -3,17 +3,17 @@ module uim.mvc.applications.registry;
 @safe:
 import uim.mvc;
 
-class DBKLApplicationRegistry : DRegistry!DBKLApplication {
+class DMVCApplicationRegistry : DRegistry!DMVCApplication {
   this() {}  
 
-  static DBKLApplicationRegistry registry; 
+  static DMVCApplicationRegistry registry; 
 }
 auto BKLApplicationRegistry() { 
-  if (!DBKLApplicationRegistry.registry) {
-    DBKLApplicationRegistry.registry = new DBKLApplicationRegistry; 
+  if (!DMVCApplicationRegistry.registry) {
+    DMVCApplicationRegistry.registry = new DMVCApplicationRegistry; 
   }
   return 
-    DBKLApplicationRegistry.registry;
+    DMVCApplicationRegistry.registry;
 }
 
 version(test_uim_mvc) { unittest {

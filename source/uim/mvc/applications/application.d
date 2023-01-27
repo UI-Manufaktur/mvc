@@ -3,7 +3,7 @@ module uim.mvc.applications.application;
 @safe:
 import uim.mvc;
 
-class DBKLApplication : DBKLBase, IBKLApplication { 
+class DMVCApplication : DMVCBase, IBKLApplication { 
   this() { initialize; }
 
   override void initialize() {
@@ -18,14 +18,14 @@ class DBKLApplication : DBKLBase, IBKLApplication {
 
   // Interfaces
   mixin(OProperty!("DETBBase", "database"));
-  mixin(OProperty!("DBKLLayout", "layout"));
-  mixin(OProperty!("DBKLRoute[HTTPMethod][string]", "routes"));
+  mixin(OProperty!("DMVCLayout", "layout"));
+  mixin(OProperty!("DMVCRoute[HTTPMethod][string]", "routes"));
 
   // Main Containers - Allways first
-  mixin(OProperty!("DBKLLinkContainer",   "links"));
-  mixin(OProperty!("DBKLMetaContainer",   "metas"));
-  mixin(OProperty!("DBKLScriptContainer", "scripts"));
-  mixin(OProperty!("DBKLStyleContainer",  "styles"));
+  mixin(OProperty!("DMVCLinkContainer",   "links"));
+  mixin(OProperty!("DMVCMetaContainer",   "metas"));
+  mixin(OProperty!("DMVCScriptContainer", "scripts"));
+  mixin(OProperty!("DMVCStyleContainer",  "styles"));
   
   auto routesPaths() {
     return _routes.keys; 
@@ -44,11 +44,11 @@ class DBKLApplication : DBKLBase, IBKLApplication {
     return null;
   }
 
-  O addRoute(this O)(DBKLRoute newRoute) {
+  O addRoute(this O)(DMVCRoute newRoute) {
     debug writeln("Adding route at '%s'".format(newRoute.path));
     if (newRoute) {
       newRoute.application(this);
-      DBKLRoute[HTTPMethod] routesAtPath = _routes.get(newRoute.path, null);
+      DMVCRoute[HTTPMethod] routesAtPath = _routes.get(newRoute.path, null);
       routesAtPath[newRoute.method] = newRoute;
 
       _routes[newRoute.path] = routesAtPath;
@@ -89,7 +89,7 @@ class DBKLApplication : DBKLBase, IBKLApplication {
     }
   }
 }
-auto BKLApplication() { return new DBKLApplication; }
+auto BKLApplication() { return new DMVCApplication; }
 
 version(test_uim_mvc) unittest {
   assert(

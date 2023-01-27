@@ -4,7 +4,7 @@ module uim.mvc.containers.h5;
 import uim.mvc;
 
 // Container for H5 data
-class DBKLH5Container {
+class DMVCH5Container {
   mixin(OProperty!("DH5Obj[]", "entries"));
   DH5Obj[] toH5() { return _entries; }
 
@@ -47,4 +47,4 @@ class DBKLH5Container {
     return cast(O)this; 
   }
 }
-auto BKLH5Container() { return new DBKLH5Container; }
+auto BKLH5Container() { return new DMVCH5Container; }
