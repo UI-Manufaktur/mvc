@@ -108,12 +108,12 @@ auto listEntities(T:DOOPEntity)(string rootPath, string mainTitle, int numberEnt
 }
 
 auto listPageHeader(string rootPath, string preTitle, string title, STRINGAA reqParameters) {
-    return
-      BKLPageHeader
-        .rootPath(rootPath)
-        .preTitle(preTitle)
-        .title(title)
-        .actions([["refresh", "create"]])
-      .toH5(reqParameters);
+  return
+    BKLPageHeader
+      .rootPath(rootPath)
+      .preTitle(preTitle)
+      .title(title)
+      .actions([["refresh", "create"]])
+    .toH5(reqParameters);
 }
 
