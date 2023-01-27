@@ -1,7 +1,7 @@
-module uim.baklava.views.components.pages.headers.entities.edit;
+module uim.mvc.views.components.pages.headers.entities.edit;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 class DBKLEditPageHeaderViewComponent : DBKLPageHeaderViewComponent {
   mixin(BKLViewComponentThis!("BKLEditPageHeaderViewComponent"));

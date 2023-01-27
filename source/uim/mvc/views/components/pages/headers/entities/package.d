@@ -1,12 +1,12 @@
-module uim.baklava.views.components.pages.headers.entities;
+module uim.mvc.views.components.pages.headers.entities;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 // Modules
-public import uim.baklava.views.components.pages.headers.entities.create;
-public import uim.baklava.views.components.pages.headers.entities.delete_;
-public import uim.baklava.views.components.pages.headers.entities.edit;
-public import uim.baklava.views.components.pages.headers.entities.index;
-public import uim.baklava.views.components.pages.headers.entities.read;
+public import uim.mvc.views.components.pages.headers.entities.create;
+public import uim.mvc.views.components.pages.headers.entities.delete_;
+public import uim.mvc.views.components.pages.headers.entities.edit;
+public import uim.mvc.views.components.pages.headers.entities.index;
+public import uim.mvc.views.components.pages.headers.entities.read;
 

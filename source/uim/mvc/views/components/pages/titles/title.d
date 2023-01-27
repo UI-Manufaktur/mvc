@@ -3,10 +3,10 @@
 *	License: Licensed under Apache 2 [https://apache.org/licenses/LICENSE-2.0.txt]                                       *
 *	Authors: UI Manufaktur UG Team, Ozan Nurettin Süel (Sicherheitsschmiede)										                         * 
 ***********************************************************************************************************************/
-module uim.baklava.views.components.pages.titles.title;
+module uim.mvc.views.components.pages.titles.title;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 class DBKLPageTitleViewComponent : DBKLViewComponent { 
   mixin(BKLViewComponentThis!("BKLPageTitleViewComponent"));

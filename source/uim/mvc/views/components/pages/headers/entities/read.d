@@ -1,7 +1,7 @@
-module uim.baklava.views.components.pages.headers.entities.read;
+module uim.mvc.views.components.pages.headers.entities.read;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 class DBKLReadPageHeaderViewComponent : DBKLPageHeaderViewComponent {
   mixin(BKLViewComponentThis!("BKLReadPageHeaderViewComponent"));

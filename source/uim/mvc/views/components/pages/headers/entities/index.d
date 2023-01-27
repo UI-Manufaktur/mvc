@@ -1,7 +1,7 @@
-module uim.baklava.views.components.pages.headers.entities.index;
+module uim.mvc.views.components.pages.headers.entities.index;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 class DBKLIndexPageHeaderViewComponent : DBKLPageHeaderViewComponent {
   mixin(BKLViewComponentThis!("BKLIndexPageHeaderViewComponent"));

@@ -1,19 +1,19 @@
-module uim.baklava.views.components.tables;
+module uim.mvc.views.components.tables;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 // Main
-public import uim.baklava.views.components.tables.table;
+public import uim.mvc.views.components.tables.table;
 
 // Packages
-public import uim.baklava.views.components.tables.components;
+public import uim.mvc.views.components.tables.components;
 
 // Modules
-public import uim.baklava.views.components.tables.filter;
-public import uim.baklava.views.components.tables.history;
-public import uim.baklava.views.components.tables.listheader;
-public import uim.baklava.views.components.tables.versions;
+public import uim.mvc.views.components.tables.filter;
+public import uim.mvc.views.components.tables.history;
+public import uim.mvc.views.components.tables.listheader;
+public import uim.mvc.views.components.tables.versions;
 
 auto listEntities(T:DOOPEntity)(string rootPath, string mainTitle, int numberEntities, STRINGAA[] columns, T[] entities, int startPos, int endPos, size_t sumEntities) {
   auto header(string rootPath, STRINGAA[] columns) {

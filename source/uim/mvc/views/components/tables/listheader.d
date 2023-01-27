@@ -1,7 +1,7 @@
-module uim.baklava.views.components.tables.listheader;
+module uim.mvc.views.components.tables.listheader;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 class DBKLListTableHeader : DBKLViewComponent {
   this() { super(); }

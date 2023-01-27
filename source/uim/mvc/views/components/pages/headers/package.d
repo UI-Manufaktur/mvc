@@ -1,7 +1,7 @@
-module uim.baklava.views.components.pages.headers;
+module uim.mvc.views.components.pages.headers;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
-public import uim.baklava.views.components.pages.headers.header;
-public import uim.baklava.views.components.pages.headers.entities;
+public import uim.mvc.views.components.pages.headers.header;
+public import uim.mvc.views.components.pages.headers.entities;

@@ -1,7 +1,7 @@
-module uim.baklava.views.components.pages.bodies.body_;
+module uim.mvc.views.components.pages.bodies.body_;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 class DBKLPageBodyViewComponent : DBKLViewComponent {
   mixin(BKLViewComponentThis!("BKLPageBodyViewComponent"));

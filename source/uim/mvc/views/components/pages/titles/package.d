@@ -1,7 +1,7 @@
-module uim.baklava.views.components.pages.titles;
+module uim.mvc.views.components.pages.titles;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 // Modules
-public import uim.baklava.views.components.pages.titles.title;
+public import uim.mvc.views.components.pages.titles.title;

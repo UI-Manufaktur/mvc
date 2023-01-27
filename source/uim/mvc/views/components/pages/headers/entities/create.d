@@ -1,7 +1,7 @@
-module uim.baklava.views.components.pages.headers.entities.create;
+module uim.mvc.views.components.pages.headers.entities.create;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 class DBKLCreatePageHeaderViewComponent : DBKLPageHeaderViewComponent {
   mixin(BKLViewComponentThis!("BKLCreatePageHeaderViewComponent"));

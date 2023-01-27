@@ -1,7 +1,7 @@
-module uim.baklava.views.components.pages.headers.entities.delete_;
+module uim.mvc.views.components.pages.headers.entities.delete_;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 class DBKLDeletePageHeaderViewComponent : DBKLPageHeaderViewComponent {
   mixin(BKLViewComponentThis!("BKLDeletePageHeaderViewComponent"));

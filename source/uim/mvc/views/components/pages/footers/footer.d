@@ -1,7 +1,7 @@
-module uim.baklava.views.components.pages.footers.footer;
+module uim.mvc.views.components.pages.footers.footer;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 class DBKLPageFooterViewComponent : DBKLViewComponent {
   mixin(BKLViewComponentThis!("BKLPageFooterViewComponent"));

@@ -1,7 +1,7 @@
-module uim.baklava.views.components.tables.history;
+module uim.mvc.views.components.tables.history;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 /* class DBKLTableHistory : DBKLEntitiesTableHeader {
   this() { super(); }

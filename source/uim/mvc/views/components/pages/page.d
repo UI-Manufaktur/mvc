@@ -1,7 +1,7 @@
-module uim.baklava.views.components.pages.page;
+module uim.mvc.views.components.pages.page;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 class DBKLPageViewComponent
  : DBKLViewComponent {
