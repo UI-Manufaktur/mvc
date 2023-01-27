@@ -9,7 +9,7 @@ module uim.mvc.views.components.forms.components.contents.entity;
 import uim.mvc;
 
 class DMVCEntityFormContent : DMVCFormContent {
-  mixin(BKLViewComponentThis!("BKLEntityFormContent"));
+  mixin(MVCViewComponentThis!("MVCEntityFormContent"));
 
   override void initialize() {
     debugMethodCall(moduleName!DMVCEntityFormContent~"::DMVCEntityFormContent("~this.name~"):initialize");   
@@ -19,7 +19,7 @@ class DMVCEntityFormContent : DMVCFormContent {
     .id("FormContent_%s".format(uniform(1, 1_000)))
     .crudMode(CRUDModes.Create)
     .fields(["name", "display", "description"])
-    .inputHandler(BKLFormInputHandler(/* this.form */));   
+    .inputHandler(MVCFormInputHandler(/* this.form */));   
   }
 
   // mixin(OProperty!("DOOPEntity", "entity"));
@@ -98,8 +98,8 @@ class DMVCEntityFormContent : DMVCFormContent {
     )].toH5; 
   }
 }
-mixin(BKLViewComponentCalls!("BKLEntityFormContent", "DMVCEntityFormContent"));
+mixin(MVCViewComponentCalls!("MVCEntityFormContent", "DMVCEntityFormContent"));
 
 version(test_baklava) { unittest {
-  assert(BKLEntityFormContent);
+  assert(MVCEntityFormContent);
 }}

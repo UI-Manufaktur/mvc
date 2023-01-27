@@ -4,7 +4,7 @@ module uim.mvc.views.components.forms.components.inputs.date;
 import uim.mvc;
 
 class DMVCDateFormInput : DMVCFormInput {
-  mixin(BKLViewComponentThis!("BKLDateFormInput"));
+  mixin(MVCViewComponentThis!("MVCDateFormInput"));
 
   override DH5Obj h5Input(STRINGAA options = null) {
     super.h5Input(options);
@@ -33,7 +33,7 @@ class DMVCDateFormInput : DMVCFormInput {
     if (hasError) { return; }
   }
 }
-mixin(BKLViewComponentCalls!("BKLDateFormInput", "DMVCDateFormInput"));
+mixin(MVCViewComponentCalls!("MVCDateFormInput", "DMVCDateFormInput"));
 
 version(test_baklava) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);

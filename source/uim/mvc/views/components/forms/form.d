@@ -4,7 +4,7 @@ module uim.mvc.views.components.forms.form;
 import uim.mvc;
 
 class DMVCForm : DMVCViewComponent {
-  mixin(BKLViewComponentThis!("BKLForm"));
+  mixin(MVCViewComponentThis!("MVCForm"));
 
   override void initialize() {
     debugMethodCall(moduleName!DMVCForm~"::DMVCForm("~this.name~"):initialize");   
@@ -13,8 +13,8 @@ class DMVCForm : DMVCViewComponent {
  
     this
       .id(name~"_"~to!string(uniform(0, 100_000)))
-      .header(BKLFormHeader)
-      .content(BKLEntityFormContent)
+      .header(MVCFormHeader)
+      .content(MVCEntityFormContent)
       .crudMode(CRUDModes.Read)
       .method("post");
   
@@ -23,19 +23,19 @@ class DMVCForm : DMVCViewComponent {
   mixin(OProperty!("string[string]", "defaults"));
   mixin(OProperty!("string[]", "fields"));
   // mixin(OProperty!("DMVCPanes", "panes"));
-  mixin(BKLParameter!("action"));
+  mixin(MVCParameter!("action"));
 
-  mixin(BKLParameter!("method"));
+  mixin(MVCParameter!("method"));
   mixin(OProperty!("bool", "readonly"));
   mixin(OProperty!("string", "rootPath"));
 
   mixin(OProperty!("CRUDModes", "crudMode"));
 
-  mixin(BKLParameter!("entityName"));
-  mixin(BKLParameter!("entitiesName"));
-  mixin(BKLParameter!("headerTitle"));
-  mixin(BKLParameter!("contentTitle"));
-  mixin(BKLParameter!("footerTitle"));
+  mixin(MVCParameter!("entityName"));
+  mixin(MVCParameter!("entitiesName"));
+  mixin(MVCParameter!("headerTitle"));
+  mixin(MVCParameter!("contentTitle"));
+  mixin(MVCParameter!("footerTitle"));
 
   mixin(OProperty!("DMVCFormHeader", "header"));
   mixin(OProperty!("DMVCFormContent", "content"));
@@ -80,14 +80,14 @@ class DMVCForm : DMVCViewComponent {
     return [_col].toH5;
   }  
 }
-mixin(BKLViewComponentCalls!("BKLForm", "DMVCForm"));
+mixin(MVCViewComponentCalls!("MVCForm", "DMVCForm"));
 
 version(test_baklava) { unittest {
-  assert(BKLForm);
+  assert(MVCForm);
 
-  assert(BKLForm.entityName("Test").entityName == "Test");
-  assert(BKLForm.entitiesName("Test").entitiesName == "Test");
-  assert(BKLForm.headerTitle("Test").headerTitle == "Test");
-  assert(BKLForm.contentTitle("Test").contentTitle == "Test");
-  assert(BKLForm.footerTitle("Test").footerTitle == "Test");
+  assert(MVCForm.entityName("Test").entityName == "Test");
+  assert(MVCForm.entitiesName("Test").entitiesName == "Test");
+  assert(MVCForm.headerTitle("Test").headerTitle == "Test");
+  assert(MVCForm.contentTitle("Test").contentTitle == "Test");
+  assert(MVCForm.footerTitle("Test").footerTitle == "Test");
 }}

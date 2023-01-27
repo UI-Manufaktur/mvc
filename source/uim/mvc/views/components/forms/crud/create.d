@@ -4,7 +4,7 @@ module uim.mvc.views.components.forms.crud.create;
 import uim.mvc;
 
 class DMVCCreateForm : DMVCEntityForm {
-  mixin(BKLViewComponentThis!("BKLCreateForm"));
+  mixin(MVCViewComponentThis!("MVCCreateForm"));
 
   override void initialize() {
     super.initialize;
@@ -13,7 +13,7 @@ class DMVCCreateForm : DMVCEntityForm {
       .crudMode(CRUDModes.Create);
   }
 }
-mixin(BKLViewComponentCalls!("BKLCreateForm", "DMVCCreateForm"));
+mixin(MVCViewComponentCalls!("MVCCreateForm", "DMVCCreateForm"));
 
 /* 
 auto createPageHeader(string path, string mainTitle, string subTitle) {
@@ -37,7 +37,7 @@ auto createForm(string path, string id, STRINGAA reqParameters) {
   return 
     H5Form("entity_create", ["card"], 
       createheader(path, id, reqParameters),
-      BKLCreatebody_.path(path).id(id).toH5(reqParameters)
+      MVCCreatebody_.path(path).id(id).toH5(reqParameters)
     );
 }
 

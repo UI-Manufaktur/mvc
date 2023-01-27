@@ -9,7 +9,7 @@ module uim.mvc.views.components.forms.components.footers.footer;
 import uim.mvc;
 
 class DMVCFormFooter : DMVCFormComponent {
-  mixin(BKLViewComponentThis!("BKLFormFooter"));
+  mixin(MVCViewComponentThis!("MVCFormFooter"));
 
   override void initialize() {
     debugMethodCall(moduleName!DMVCFormFooter~"::DMVCFormFooter("~this.name~"):initialize");   
@@ -18,8 +18,8 @@ class DMVCFormFooter : DMVCFormComponent {
     debug writeln("In ", __MODULE__, "/", __LINE__);
   }
 }
-mixin(BKLViewComponentCalls!("BKLFormFooter", "DMVCFormFooter"));
+mixin(MVCViewComponentCalls!("MVCFormFooter", "DMVCFormFooter"));
 
 version(test_baklava) { unittest {
-  assert(BKLFormFooter);
+  assert(MVCFormFooter);
 }}

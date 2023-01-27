@@ -4,7 +4,7 @@ module uim.mvc.views.components.forms.components.headers.header;
 import uim.mvc;
 
 class DMVCFormHeader : DMVCFormComponent {
-  mixin(BKLViewComponentThis!("BKLFormHeader"));
+  mixin(MVCViewComponentThis!("MVCFormHeader"));
 
   override void initialize() {
     debugMethodCall(moduleName!DMVCFormHeader~"::DMVCFormHeader("~this.name~"):initialize");   
@@ -18,8 +18,8 @@ class DMVCFormHeader : DMVCFormComponent {
   
   // mixin(OProperty!("DOOPEntity", "entity"));
   // mixin(OProperty!("string", "rootPath"));
-  mixin(BKLParameter!("mainTitle"));
-  mixin(BKLParameter!("subTitle"));
+  mixin(MVCParameter!("mainTitle"));
+  mixin(MVCParameter!("subTitle"));
   mixin(OProperty!("string[][]", "actions"));
 /*   O actions(this O)(string[][] newActions...) { 
     this.actions(newActions); 
@@ -105,8 +105,8 @@ class DMVCFormHeader : DMVCFormComponent {
           H5Span(["d-none d-sm-inline"], buttons)))].toH5;    
   } 
 }
-mixin(BKLViewComponentCalls!("BKLFormHeader", "DMVCFormHeader"));
+mixin(MVCViewComponentCalls!("MVCFormHeader", "DMVCFormHeader"));
 
 version(test_baklava) { unittest {
-  assert(BKLFormHeader);
+  assert(MVCFormHeader);
 }}

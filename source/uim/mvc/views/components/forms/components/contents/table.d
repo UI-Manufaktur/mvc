@@ -9,7 +9,7 @@ module uim.mvc.views.components.forms.components.contents.table;
 import uim.mvc;
 
 class DMVCTableFormContent : DMVCEntitiesViewComponent {
-  mixin(BKLViewComponentThis!("BKLTableFormContent"));
+  mixin(MVCViewComponentThis!("MVCTableFormContent"));
 
   mixin(OProperty!("DMVCViewComponent", "row"));
 
@@ -18,8 +18,8 @@ class DMVCTableFormContent : DMVCEntitiesViewComponent {
     super.initialize;
   }
 }
-mixin(BKLViewComponentCalls!("BKLTableFormContent", "DMVCTableFormContent"));
+mixin(MVCViewComponentCalls!("MVCTableFormContent", "DMVCTableFormContent"));
 
 version(test_baklava) { unittest {
-  assert(BKLTableFormContent);
+  assert(MVCTableFormContent);
 }}

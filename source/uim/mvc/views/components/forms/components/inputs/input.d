@@ -9,7 +9,7 @@ module uim.mvc.views.components.forms.components.inputs.input;
 import uim.mvc;
 
 class DMVCFormInput : DMVCEntityViewComponent {
-  mixin(BKLViewComponentThis!("BKLFormInput"));
+  mixin(MVCViewComponentThis!("MVCFormInput"));
 
   // id of label element
   mixin(OProperty!("string", "labelId")); 
@@ -73,9 +73,9 @@ class DMVCFormInput : DMVCEntityViewComponent {
       ];
   }
 }
-mixin(BKLViewComponentCalls!("BKLFormInput", "DMVCFormInput"));
+mixin(MVCViewComponentCalls!("MVCFormInput", "DMVCFormInput"));
 
 version(test_baklava) { unittest {
   assert(new DMVCFormInput);
-  assert(BKLFormInput);
+  assert(MVCFormInput);
 }}

@@ -4,7 +4,7 @@ module uim.mvc.views.components.forms.components.inputs.display;
 import uim.mvc;
 
 class DMVCDisplayFormInput : DMVCTextFormInput {
-  mixin(BKLViewComponentThis!("BKLDisplayFormInput"));
+  mixin(MVCViewComponentThis!("MVCDisplayFormInput"));
 
   override void initialize() {
     super.initialize();
@@ -18,7 +18,7 @@ class DMVCDisplayFormInput : DMVCTextFormInput {
     .invalidFeedback("Titel ist nicht korrekt"); 
   }
 }
-mixin(BKLViewComponentCalls!("BKLDisplayFormInput", "DMVCDisplayFormInput"));
+mixin(MVCViewComponentCalls!("MVCDisplayFormInput", "DMVCDisplayFormInput"));
 
 version(test_baklava) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);

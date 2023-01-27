@@ -4,7 +4,7 @@ module uim.mvc.views.components.forms.components.inputs.switch_;
 import uim.mvc;
 
 class DMVCSwitchFormInput : DMVCFormInput {
-  mixin(BKLViewComponentThis!("BKLSwitchFormInput"));
+  mixin(MVCViewComponentThis!("MVCSwitchFormInput"));
 
   override void initialize() {
     super.initialize;
@@ -41,4 +41,4 @@ class DMVCSwitchFormInput : DMVCFormInput {
           h5Input(options), H5Span(["form-check-label"], label))));
   }
 }
-mixin(BKLViewComponentCalls!("BKLSwitchFormInput", "DMVCSwitchFormInput"));
+mixin(MVCViewComponentCalls!("MVCSwitchFormInput", "DMVCSwitchFormInput"));

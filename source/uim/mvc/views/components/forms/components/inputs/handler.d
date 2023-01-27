@@ -4,7 +4,7 @@ module uim.mvc.views.components.forms.components.inputs.handler;
 import uim.mvc;
 
 class DMVCFormInputHandler : DMVCEntityFormContent {
-  mixin(BKLViewComponentThis!("BKLFormInputHandler"));
+  mixin(MVCViewComponentThis!("MVCFormInputHandler"));
 
   mixin(OProperty!("DMVCFormInput[string]", "formInputs"));
   O addFormInputs(this O)(DMVCFormInput[string] newFormInputs) {
@@ -17,9 +17,9 @@ class DMVCFormInputHandler : DMVCEntityFormContent {
 
     this
       .formInputs([
-        "name": BKLNameFormInput, 
-        "display": BKLDisplayFormInput, 
-        "description": BKLDescriptionFormInput]);
+        "name": MVCNameFormInput, 
+        "display": MVCDisplayFormInput, 
+        "description": MVCDescriptionFormInput]);
   } 
 
 /*   override void _afterSetForm() {
@@ -53,4 +53,4 @@ class DMVCFormInputHandler : DMVCEntityFormContent {
     return null;
   }
 }  
-mixin(BKLViewComponentCalls!("BKLFormInputHandler", "DMVCFormInputHandler"));
+mixin(MVCViewComponentCalls!("MVCFormInputHandler", "DMVCFormInputHandler"));
