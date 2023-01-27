@@ -1,7 +1,7 @@
-module uim.baklava.views.components.entities;
+module uim.mvc.views.components.entities;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 class DBKLEntitiesViewComponent : DBKLViewComponent {
   mixin(BKLViewComponentThis!("BKLEntitiesViewComponent"));

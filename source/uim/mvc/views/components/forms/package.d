@@ -1,18 +1,18 @@
-module uim.baklava.views.components.forms;
+module uim.mvc.views.components.forms;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 // Main
-public import uim.baklava.views.components.forms.form;
+public import uim.mvc.views.components.forms.form;
 
 // Packages
-public import uim.baklava.views.components.forms.components;
-public import uim.baklava.views.components.forms.crud;
+public import uim.mvc.views.components.forms.components;
+public import uim.mvc.views.components.forms.crud;
 
 // Modules
-public import uim.baklava.views.components.forms.login;
-public import uim.baklava.views.components.forms.login2;
+public import uim.mvc.views.components.forms.login;
+public import uim.mvc.views.components.forms.login2;
 
 
 template FormThis(string name, bool withEntity = false, bool withEntities = false) {

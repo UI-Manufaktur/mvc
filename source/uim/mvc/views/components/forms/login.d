@@ -1,7 +1,7 @@
-module uim.baklava.views.components.forms.login;
+module uim.mvc.views.components.forms.login;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 class DBKLLoginForm : DBKLForm {
   mixin(BKLViewComponentThis!("BKLLoginForm"));

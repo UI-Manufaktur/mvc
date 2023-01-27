@@ -1,7 +1,7 @@
-module uim.baklava.views.components.component;
+module uim.mvc.views.components.component;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 class DBKLViewComponent : DBKLBase, IBKLViewComponent {
   mixin(BKLViewComponentThis!("BKLViewComponent"));

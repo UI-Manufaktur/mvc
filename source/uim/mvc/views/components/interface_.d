@@ -1,7 +1,7 @@
-module uim.baklava.views.components.interface_;
+module uim.mvc.views.components.interface_;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 interface IBKLViewComponent : IBKLBase {
   IBKLView view();

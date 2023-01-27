@@ -1,7 +1,7 @@
-module uim.baklava.views.login2;
+module uim.mvc.views.login2;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 class DBKLLogin2View : DBKLView {
   mixin(BKLViewThis!("BKLLogin2View"));
