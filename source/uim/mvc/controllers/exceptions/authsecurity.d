@@ -3,8 +3,13 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel (Sicherheitsschmiede)                                                      
 **********************************************************************************************************/
-module uim.mvc.views.components.forms.components.inputs.entity;
+module uim.mvc.controllers.exceptions.authsecurity;
 
 @safe:
 import uim.mvc;
 
+// Auth Security exception - used when SecurityComponent detects any issue with the current request
+class AuthSecurityException : SecurityException {
+    // Security Exception type
+    protected string _type = "auth";
+}

@@ -7,12 +7,20 @@ class DControllerComponent : DMVCBase, IControllerComponent {
   mixin(ControllerComponentThis!("ControllerComponent"));
 
   mixin(OProperty!("IController", "controller"));  
-  
+
+  /**
+    * Default config
+    * These are merged with user-provided config when the component is used.
+    */
+  protected Json _defaultConfig = null;
+
   // Component registry class used to lazy load components.
   mixin(OProperty!("DControllerComponentRegistry", "registry");
 
   override void initialize() {
     super.initialize;
+
+    _defaultConfig = Json.emptyObject;
   }
 }
 mixin(ControllerComponentCalls!("ControllerComponent", "DControllerComponent"));

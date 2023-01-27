@@ -12,6 +12,9 @@ class DController : DMVCBase, IController  {
   // Instance of ComponentRegistry used to create Components
   mixin(OProperty!("ControllerComponentRegistry", "components"));
 
+  // Automatically set to the name of a plugin.
+  mixin(OProperty!("string", "plugin"));
+
   // Initialization (= hook method)
   override void initialize() {
     debugMethodCall(moduleName!DController~"::DController("~this.name~"):initialize");   

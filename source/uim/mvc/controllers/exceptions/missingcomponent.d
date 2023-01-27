@@ -3,8 +3,12 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel (Sicherheitsschmiede)                                                      
 **********************************************************************************************************/
-module uim.mvc.views.components.forms.components.inputs.entity;
+module uim.mvc.controllers\Exception;
 
 @safe:
 import uim.mvc;
 
+// Used when a component cannot be found.
+class MissingComponentException : UIMException {
+    protected string _messageTemplate = "Component class %s could not be found.";
+}

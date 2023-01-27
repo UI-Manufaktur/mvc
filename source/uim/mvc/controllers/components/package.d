@@ -5,5 +5,6 @@ public import uim.mvc.controllers.components.interface_;
 public import uim.mvc.controllers.components.registry;
 
 public import uim.mvc.controllers.components.auth;
+public import uim.mvc.controllers.components.flash;
 
 public import uim.mvc.controllers.components.checks;

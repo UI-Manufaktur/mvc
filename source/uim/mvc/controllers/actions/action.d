@@ -8,7 +8,7 @@ module uim.mvc.controllers.actions.action;
 @safe:
 import uim.mvc;
 
-class DMVCActionController : DController {
+class DMVCActionController : DController, IActionController {
   mixin(ControllerThis!("MVCActionController"));
 }
 mixin(ControllerCalls!("MVCActionController", "DMVCActionController"));

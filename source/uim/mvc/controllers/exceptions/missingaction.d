@@ -3,8 +3,15 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel (Sicherheitsschmiede)                                                      
 **********************************************************************************************************/
-module uim.mvc.views.components.forms.components.inputs.entity;
+module uim.mvc.controllers\Exception;
 
-@safe:
-import uim.mvc;
+import uim.mvc.core.exceptions\UIMException;
 
+/**
+ * Missing Action exception - used when a controller action
+ * cannot be found, or when the controller"s isAction() method returns false.
+ */
+class MissingActionException : UIMException {
+
+    protected _messageTemplate = "Action %s::%s() could not be found, or is not accessible.";
+}
