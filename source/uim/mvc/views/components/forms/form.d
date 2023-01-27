@@ -20,26 +20,28 @@ class DMVCForm : DMVCViewComponent {
   
   }
 
-  mixin(OProperty!("string[string]", "defaults"));
-  mixin(OProperty!("string[]", "fields"));
-  // mixin(OProperty!("DMVCPanes", "panes"));
-  mixin(MVCParameter!("action"));
+  // #region Properties
+    mixin(OProperty!("string[string]", "defaults"));
+    mixin(OProperty!("string[]", "fields"));
+    // mixin(OProperty!("DMVCPanes", "panes"));
+    mixin(MVCParameter!("action"));
 
-  mixin(MVCParameter!("method"));
-  mixin(OProperty!("bool", "readonly"));
-  mixin(OProperty!("string", "rootPath"));
+    mixin(MVCParameter!("method"));
+    mixin(OProperty!("bool", "readonly"));
+    mixin(OProperty!("string", "rootPath"));
 
-  mixin(OProperty!("CRUDModes", "crudMode"));
+    mixin(OProperty!("CRUDModes", "crudMode"));
 
-  mixin(MVCParameter!("entityName"));
-  mixin(MVCParameter!("entitiesName"));
-  mixin(MVCParameter!("headerTitle"));
-  mixin(MVCParameter!("contentTitle"));
-  mixin(MVCParameter!("footerTitle"));
+    mixin(MVCParameter!("entityName"));
+    mixin(MVCParameter!("entitiesName"));
+    mixin(MVCParameter!("headerTitle"));
+    mixin(MVCParameter!("contentTitle"));
+    mixin(MVCParameter!("footerTitle"));
 
-  mixin(OProperty!("DMVCFormHeader", "header"));
-  mixin(OProperty!("DMVCFormContent", "content"));
-  mixin(OProperty!("DMVCFormFooter", "footer"));
+    mixin(OProperty!("DMVCFormHeader", "header"));
+    mixin(OProperty!("DMVCFormContent", "content"));
+    mixin(OProperty!("DMVCFormFooter", "footer"));
+  // #endregion Properties
 
 /*   DETBBase _database; 
   O database(this O)(DETBBase aDatabase) { 

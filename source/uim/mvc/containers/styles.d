@@ -1,3 +1,8 @@
+/*********************************************************************************************************
+	Copyright: © 2015-2023 Ozan Nurettin Süel (Sicherheitsschmiede)                                        
+	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
+	Authors: Ozan Nurettin Süel (Sicherheitsschmiede)                                                      
+**********************************************************************************************************/
 module uim.mvc.containers.styles;
 
 @safe:
@@ -9,34 +14,38 @@ class DMVCStyleContainer : DMVCH5Container {
     return cast(O)this;
   }
 
-	O addLinks(this O)(string[] newLinks...) { 
-    this.addLinks(newLinks); 
-    return cast(O)this;
-  }
-	
-  O addLinks(this O)(string[] newLinks) { 
-    this.addLinks(newLinks.map!(entry => ["rel":"stylesheet", "href":entry]).array); 
-    return cast(O)this;
-  }
+  // #region addLinks
+    O addLinks(this O)(string[] newLinks...) { 
+      this.addLinks(newLinks); 
+      return cast(O)this;
+    }
+    
+    O addLinks(this O)(string[] newLinks) { 
+      this.addLinks(newLinks.map!(entry => ["rel":"stylesheet", "href":entry]).array); 
+      return cast(O)this;
+    }
 
-	O addContent(this O)(string[] newEntries...) { 
-    this.addContent(newEntries); 
-    return cast(O)this;
-  }
-	
-  O addContent(this O)(string[] newEntries) { 
-    this.add(newEntries.map!(entry => H5Style(entry)).array); 
-    return cast(O)this;
-  }
+    O addLinks(this O)(STRINGAA[] newEntries...) { 
+      this.add(newEntries); 
+      return cast(O)this;
+    }
+    O addLinks(this O)(STRINGAA[] newEntries) { 
+      this.add(newEntries.map!(entry => H5Link(entry)).array); 
+      return cast(O)this;
+    }
+  // #endregion addLinks
 
-	O addLinks(this O)(STRINGAA[] newEntries...) { 
-    this.add(newEntries); 
-    return cast(O)this;
-  }
-  O addLinks(this O)(STRINGAA[] newEntries) { 
-    this.add(newEntries.map!(entry => H5Link(entry)).array); 
-    return cast(O)this;
-  }
+  // #region addContent
+    O addContent(this O)(string[] newEntries...) { 
+      this.addContent(newEntries); 
+      return cast(O)this;
+    }
+    
+    O addContent(this O)(string[] newEntries) { 
+      this.add(newEntries.map!(entry => H5Style(entry)).array); 
+      return cast(O)this;
+    }
+  // #endregion addContent
 }
 auto MVCStyleContainer() { return new DMVCStyleContainer; }
 

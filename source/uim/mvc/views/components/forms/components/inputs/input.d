@@ -11,23 +11,25 @@ import uim.mvc;
 class DMVCFormInput : DMVCEntityViewComponent {
   mixin(MVCViewComponentThis!("MVCFormInput"));
 
-  // id of label element
-  mixin(OProperty!("string", "labelId")); 
+  // #region Fields
+    // id of label element
+    mixin(OProperty!("string", "labelId")); 
 
-  mixin(OProperty!("bool", "readonly")); 
+    mixin(OProperty!("bool", "readonly")); 
 
-  // id of input element
-  mixin(OProperty!("string", "inputId")); 
-  mixin(OProperty!("string", "inputName"));
-  mixin(OProperty!("string", "fieldName"));
-  mixin(OProperty!("string", "fieldValue"));
-  mixin(OProperty!("string", "label"));
-  mixin(OProperty!("string", "placeholder"));
-  mixin(OProperty!("string", "invalidFeedback"));
-  mixin(OProperty!("string[]", "fields"));
-  mixin(OProperty!("string", "path"));
-  // mixin(OProperty!("DMVCPanes", "panes"));
-
+    // id of input element
+    mixin(OProperty!("string", "inputId")); 
+    mixin(OProperty!("string", "inputName"));
+    mixin(OProperty!("string", "fieldName"));
+    mixin(OProperty!("string", "fieldValue"));
+    mixin(OProperty!("string", "label"));
+    mixin(OProperty!("string", "placeholder"));
+    mixin(OProperty!("string", "invalidFeedback"));
+    mixin(OProperty!("string[]", "fields"));
+    mixin(OProperty!("string", "path"));
+    // mixin(OProperty!("DMVCPanes", "panes"));
+  // #endregion Fields
+  
   override void initialize() {
     super.initialize();
 
