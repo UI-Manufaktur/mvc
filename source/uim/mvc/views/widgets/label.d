@@ -14,7 +14,7 @@ import uim.mvc;
  * Generally this element is used by other widgets,
  * and FormHelper itself.
  */
-class DMVCLabelWidget : IMVCWidget {
+class DMVCLabelWidget : IWidget {
   // Templates
   protected DVIWStringTemplate _templates;
 

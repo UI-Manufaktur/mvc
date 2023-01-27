@@ -14,7 +14,7 @@ import uim.mvc;
  * This class is usually used internally by `Cake\View\Helper\FormHelper`,
  * it but can be used to generate standalone file upload controls.
  */
-class FileWidget : DMVCWidget {
+class FileWidget : DWidget {
   override void initialize() {
     super.initialize;
         
@@ -37,7 +37,7 @@ class FileWidget : DMVCWidget {
     *
     * @param array<string, mixed> myData The data to build a file input with.
     * @param uim.mvc.views\Form\IContext $context The current form context.
-    * @return string HTML elements.
+    * returns HTML string
     */
   string render(Json someData, IContext aContext) {
     auto myData += this.mergeDefaults(someData, aContext);

@@ -10,7 +10,7 @@ import uim.mvc;
  * If you need to make basic submit inputs with type=submit,
  * // use  the Basic input widget.
  */
-class ButtonWidget : DMVCWidget {
+class ButtonWidget : DWidget {
     // StringTemplate instance.
     protected DVIWStringTemplate _templates;
 
@@ -19,9 +19,9 @@ class ButtonWidget : DMVCWidget {
      *
      * @param uim.mvc.views\StringTemplate myTemplates Templates list.
      */
-    this(StringTemplate myTemplates) {
-        super(myTemplates);
-        _templates = myTemplates;
+    this(StringTemplate aTemplate) {
+        super(aTemplate);
+        _templates = aTemplate;
     }
 
     override void initialize() {

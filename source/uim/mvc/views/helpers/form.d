@@ -62,7 +62,7 @@ class FormHelper : DMVCHelper
     /**
      * Locator for input widgets.
      */
-    protected DMVCWidget\WidgetLocator _locator;
+    protected DWidget\WidgetLocator _locator;
 
     // Context for the current form.
     protected DMVCForm\IContext|null _context;
@@ -2318,8 +2318,8 @@ class FormHelper : DMVCHelper
      * Allows you to add or replace widget instances with custom code.
      *
      * @param string myName The name of the widget. e.g~ "text".
-     * @param uim.mvc.views\Widget\IMVCWidget|array $spec Either a string class
-     *   name or an object implementing the IMVCWidget.
+     * @param uim.mvc.views\Widget\IWidget|array $spec Either a string class
+     *   name or an object implementing the IWidget.
      */
     void addWidget(string myName, $spec) {
         _locator.add([myName: $spec]);

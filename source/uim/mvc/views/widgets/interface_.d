@@ -9,7 +9,7 @@ module uim.mvc.views.widgets.interface_;
 import uim.mvc;
 
 // Interface for input widgets.
-interface IMVCWidget {
+interface IWidget {
   /**
     * Converts the myData into one or many HTML elements.
     *

@@ -14,7 +14,7 @@ import uim.mvc;
  * This class is usually used internally by `Cake\View\Helper\FormHelper`,
  * it but can be used to generate standalone checkboxes.
  */
-class CheckboxWidget : DMVCWidget {
+class CheckboxWidget : DWidget {
   override void initialize() {
       super.initialize;
 
