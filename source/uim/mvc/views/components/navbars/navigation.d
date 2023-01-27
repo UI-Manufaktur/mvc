@@ -1,7 +1,7 @@
-module uim.baklava.views.components.navbars.navigation;
+module uim.mvc.views.components.navbars.navigation;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 class DBKLNavigationViewComponent : DBKLViewComponent {
   mixin(BKLViewComponentThis!("BKLNavigationViewComponent"));

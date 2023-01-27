@@ -1,7 +1,7 @@
-module uim.baklava.views.components.forms.crud.element;
+module uim.mvc.views.components.forms.crud.element;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 class DBKLElementForm : DBKLForm {
   mixin(BKLViewComponentThis!("BKLElementForm"));

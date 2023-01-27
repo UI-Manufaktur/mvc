@@ -1,7 +1,7 @@
-module uim.baklava.views.components.forms.components.inputs.switch_;
+module uim.mvc.views.components.forms.components.inputs.switch_;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 class DBKLSwitchFormInput : DBKLFormInput {
   mixin(BKLViewComponentThis!("BKLSwitchFormInput"));

@@ -1,7 +1,7 @@
-module uim.baklava.views.components.forms.components.inputs.tests;
+module uim.mvc.views.components.forms.components.inputs.tests;
 
 @safe:
-public import uim.baklava;
+public import uim.mvc;
 
 bool test_formGroup(DBKLFormInput aFormGroup) {
 

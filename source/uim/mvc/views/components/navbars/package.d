@@ -1,5 +1,5 @@
-module uim.baklava.views.components.navbars;
+module uim.mvc.views.components.navbars;
 
-public import uim.baklava.views.components.navbars.navbar;
-public import uim.baklava.views.components.navbars.navigation;
-public import uim.baklava.views.components.navbars.slot;
+public import uim.mvc.views.components.navbars.navbar;
+public import uim.mvc.views.components.navbars.navigation;
+public import uim.mvc.views.components.navbars.slot;

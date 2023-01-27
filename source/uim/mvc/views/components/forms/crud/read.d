@@ -1,7 +1,7 @@
-module uim.baklava.views.components.forms.crud.read;
+module uim.mvc.views.components.forms.crud.read;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 class DBKLReadForm : DBKLEntityForm {
   mixin(BKLViewComponentThis!("BKLReadForm"));

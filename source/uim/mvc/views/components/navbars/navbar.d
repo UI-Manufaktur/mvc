@@ -1,7 +1,7 @@
-module uim.baklava.views.components.navbars.navbar;
+module uim.mvc.views.components.navbars.navbar;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 /* class DBKLFirstNavbar : DBKLViewComponent {
     this() { super(); }

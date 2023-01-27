@@ -1,7 +1,7 @@
-module uim.baklava.views.components.forms.crud.delete_;
+module uim.mvc.views.components.forms.crud.delete_;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 class DBKLDeleteForm : DBKLEntityForm {
   mixin(BKLViewComponentThis!("BKLDeleteForm"));

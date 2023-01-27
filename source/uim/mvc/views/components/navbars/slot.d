@@ -1,7 +1,7 @@
-module uim.baklava.views.components.navbars.slot;
+module uim.mvc.views.components.navbars.slot;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 class DBKLNavbarSlotViewComponent : DBKLViewComponent {
     mixin(BKLViewComponentThis!("BKLNavbarSlotViewComponent"));

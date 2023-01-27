@@ -1,7 +1,7 @@
-module uim.baklava.views.components.forms.crud.update;
+module uim.mvc.views.components.forms.crud.update;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 class DBKLUpdateForm : DBKLEntityForm {
   mixin(BKLViewComponentThis!("BKLUpdateForm"));
