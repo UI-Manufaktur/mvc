@@ -4,7 +4,7 @@ module uim.mvc.views.components.forms.login;
 import uim.mvc;
 
 class DMVCLoginForm : DMVCForm {
-  mixin(BKLViewComponentThis!("BKLLoginForm"));
+  mixin(MVCViewComponentThis!("MVCLoginForm"));
 
   mixin(OProperty!("bool", "showLostAccount"));
 
@@ -42,8 +42,8 @@ class DMVCLoginForm : DMVCForm {
     ].toH5;
   }
 }
-mixin(BKLViewComponentCalls!("BKLLoginForm","DMVCLoginForm"));
+mixin(MVCViewComponentCalls!("MVCLoginForm","DMVCLoginForm"));
 
 version(test_baklava) { unittest {
-  assert(BKLLoginForm);
+  assert(MVCLoginForm);
 }}

@@ -9,7 +9,7 @@ module uim.mvc.views.components.forms.components.component;
 import uim.mvc;
 
 class DMVCFormComponent : DMVCViewComponent {
-  mixin(BKLViewComponentThis!("BKLFormComponent"));
+  mixin(MVCViewComponentThis!("MVCFormComponent"));
 
   override void initialize() {
     debugMethodCall(moduleName!DMVCFormComponent~"::DMVCFormComponent("~this.name~"):initialize");   
@@ -21,11 +21,11 @@ class DMVCFormComponent : DMVCViewComponent {
   mixin(OProperty!("CRUDModes", "crudMode"));
   mixin(OProperty!("DMVCForm", "form"));
   mixin(OProperty!("bool", "readonly")); 
-  mixin(BKLParameter!("title"));  
-  mixin(BKLParameter!("rootPath"));  
+  mixin(MVCParameter!("title"));  
+  mixin(MVCParameter!("rootPath"));  
 }
-mixin(BKLViewComponentCalls!("BKLFormComponent", "DMVCFormComponent"));
+mixin(MVCViewComponentCalls!("MVCFormComponent", "DMVCFormComponent"));
 
 version(test_baklava) { unittest {
-  assert(BKLFormComponent);
+  assert(MVCFormComponent);
 }}

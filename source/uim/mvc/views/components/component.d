@@ -3,14 +3,14 @@ module uim.mvc.views.components.component;
 @safe:
 import uim.mvc;
 
-class DMVCViewComponent : DMVCBase, IBKLViewComponent {
-  mixin(BKLViewComponentThis!("BKLViewComponent"));
+class DMVCViewComponent : DMVCBase, IMVCViewComponent {
+  mixin(MVCViewComponentThis!("MVCViewComponent"));
 
   override void initialize() {
     super.initialize;
   }
 
-  mixin(OProperty!("IBKLView", "view"));
+  mixin(OProperty!("IMVCView", "view"));
   mixin(OProperty!("string", "id"));
 
   mixin(OProperty!("DOOPEntity", "entity"));
@@ -47,12 +47,12 @@ class DMVCViewComponent : DMVCBase, IBKLViewComponent {
     return result;
   }
 }
-mixin(BKLViewComponentCalls!("BKLViewComponent", "DMVCViewComponent"));
+mixin(MVCViewComponentCalls!("MVCViewComponent", "DMVCViewComponent"));
 
 version(test_uim_mvc) { unittest {
-  testBKLViewComponent(BKLViewComponent, "BKLViewComponent");
+  testMVCViewComponent(MVCViewComponent, "MVCViewComponent");
 
-  assert(BKLViewComponent.name == "BKLViewComponent");
-  assert(BKLViewComponent.create.name == "BKLViewComponent");
-  assert(BKLViewComponent.clone.name == "BKLViewComponent");
+  assert(MVCViewComponent.name == "MVCViewComponent");
+  assert(MVCViewComponent.create.name == "MVCViewComponent");
+  assert(MVCViewComponent.clone.name == "MVCViewComponent");
 }} 

@@ -4,7 +4,7 @@ module uim.mvc.views.components.null_;
 import uim.mvc;
 
 class DMVCNullComponent : DMVCViewComponent {
-  mixin(BKLViewComponentThis!("BKLNullComponent"));
+  mixin(MVCViewComponentThis!("MVCNullComponent"));
   
   override void initialize() {
     super.initialize(); 
@@ -22,8 +22,8 @@ class DMVCNullComponent : DMVCViewComponent {
     return null; 
   }
 }
-mixin(BKLViewComponentCalls!("BKLNullComponent", "DMVCNullComponent"));
+mixin(MVCViewComponentCalls!("MVCNullComponent", "DMVCNullComponent"));
 
 version(test_baklava) { unittest {
-  assert(BKLNullComponent);
+  assert(MVCNullComponent);
 }}

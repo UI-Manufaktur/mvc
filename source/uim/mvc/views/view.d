@@ -3,14 +3,14 @@ module uim.mvc.views.view;
 @safe:
 import uim.mvc;
 
-class DMVCView : DMVCBase, IBKLView { 
-  mixin(BKLViewThis!("BKLView"));
+class DMVCView : DMVCBase, IMVCView { 
+  mixin(MVCViewThis!("MVCView"));
 
   override void initialize() {
     super.initialize;
   }
   
-  mixin(OProperty!("IBKLController", "controller"));  
+  mixin(OProperty!("IMVCController", "controller"));  
   mixin(OProperty!("DOOPEntity", "entity"));
   mixin(OProperty!("DOOPEntity[]", "entities"));
   mixin(OProperty!("string", "rootPath"));
@@ -46,12 +46,12 @@ class DMVCView : DMVCBase, IBKLView {
     return result;
   }
 }
-mixin(BKLViewCalls!("BKLView", "DMVCView"));
+mixin(MVCViewCalls!("MVCView", "DMVCView"));
 
 version(test_uim_mvc) { unittest { 
-  testBKLView(BKLView, "BKLView");
+  testMVCView(MVCView, "MVCView");
 
-  assert(BKLView.name == "BKLView");
-  assert(BKLView.create.name == "BKLView");
-  assert(BKLView.clone.name == "BKLView");
+  assert(MVCView.name == "MVCView");
+  assert(MVCView.create.name == "MVCView");
+  assert(MVCView.clone.name == "MVCView");
 }} 

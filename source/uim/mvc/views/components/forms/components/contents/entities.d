@@ -9,7 +9,7 @@ module uim.mvc.views.components.forms.components.contents.entities;
 import uim.mvc;
 
 class DMVCEntitiesFormContent : DMVCFormContent {
-  mixin(BKLViewComponentThis!("BKLEntitiesFormContent"));
+  mixin(MVCViewComponentThis!("MVCEntitiesFormContent"));
 
   override void initialize() {
     debugMethodCall(moduleName!DMVCEntitiesFormContent~"::DMVCEntitiesFormContent("~this.name~"):initialize");   
@@ -17,8 +17,8 @@ class DMVCEntitiesFormContent : DMVCFormContent {
     debug writeln("In ", __MODULE__, "/", __LINE__);
 
     this // Defaults
-      .tableHeader(BKLEntitiesTableHeader)
-      .tableFilter(BKLEntitiesTableFilter); 
+      .tableHeader(MVCEntitiesTableHeader)
+      .tableFilter(MVCEntitiesTableFilter); 
   }
 
   mixin(OProperty!("DMVCEntitiesTableHeader", "tableHeader"));
@@ -40,7 +40,7 @@ class DMVCEntitiesFormContent : DMVCFormContent {
     } */
 
 /*     debug writeln(entities ? "Has entities" : "No entities");
-    if (auto entitiesForm = cast(IBKLWithEntities)this.form) {
+    if (auto entitiesForm = cast(IMVCWithEntities)this.form) {
       debug writeln("Found entitiesForm");
       this.entities(entitiesForm.entities);
     } */
@@ -97,7 +97,7 @@ class DMVCEntitiesFormContent : DMVCFormContent {
       .body_(["border-bottom py-3"], 
         H5Div(["d-flex"],
           /* viewEntities(10) */
-          /* BKLSearchInEntities.toH5(form ? ["entitiesName":form.entitiesName] : null) */
+          /* MVCSearchInEntities.toH5(form ? ["entitiesName":form.entitiesName] : null) */
           )
         )
       (table)
@@ -110,13 +110,13 @@ class DMVCEntitiesFormContent : DMVCFormContent {
       ].toH5;
   } 
 }
-mixin(BKLViewComponentCalls!("BKLEntitiesFormContent", "DMVCEntitiesFormContent"));
+mixin(MVCViewComponentCalls!("MVCEntitiesFormContent", "DMVCEntitiesFormContent"));
 
 version(test_baklava) { unittest {
   writeln("--- Test in ", __MODULE__, "/", __LINE__);
   
   assert(new DMVCEntitiesFormContent);
-  assert(BKLEntitiesFormContent);
+  assert(MVCEntitiesFormContent);
   assert(new DMVCEntitiesFormContent(Form));
-  assert(BKLEntitiesFormContent(Form)); 
+  assert(MVCEntitiesFormContent(Form)); 
 }}

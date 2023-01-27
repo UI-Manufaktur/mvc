@@ -8,7 +8,7 @@ class DMVCViewRegistry : DRegistry!DMVCView{
 
   static DMVCViewRegistry registry; 
 }
-auto BKLViewRegistry() { 
+auto MVCViewRegistry() { 
   if (!DMVCViewRegistry.registry) {
     DMVCViewRegistry.registry = new DMVCViewRegistry; 
   }
@@ -17,6 +17,6 @@ auto BKLViewRegistry() {
 }
 
 version(test_uim_mvc) { unittest {
-  assert(BKLViewRegistry.register("mvc/view",  BKLView).paths == ["mvc/view"]);
-  assert(BKLViewRegistry.register("mvc/view2", BKLView).paths.length == 2);
+  assert(MVCViewRegistry.register("mvc/view",  MVCView).paths == ["mvc/view"]);
+  assert(MVCViewRegistry.register("mvc/view2", MVCView).paths.length == 2);
 }}

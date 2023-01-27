@@ -4,7 +4,7 @@ module uim.mvc.views.components.entity;
 import uim.mvc;
 
 class DMVCEntityViewComponent : DMVCViewComponent {
-  mixin(BKLViewComponentThis!("BKLEntityViewComponent"));
+  mixin(MVCViewComponentThis!("MVCEntityViewComponent"));
 
   // mixin(OProperty!("DOOPEntity", "entity"));
   mixin(OProperty!("CRUDModes", "crudMode"));
@@ -14,4 +14,4 @@ class DMVCEntityViewComponent : DMVCViewComponent {
     super.beforeH5(options);
   }
 }
-mixin(BKLViewComponentCalls!("BKLEntityViewComponent", "DMVCEntityViewComponent"));
+mixin(MVCViewComponentCalls!("MVCEntityViewComponent", "DMVCEntityViewComponent"));
