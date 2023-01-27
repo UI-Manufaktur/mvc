@@ -3,25 +3,25 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel (Sicherheitsschmiede)                                                      
 **********************************************************************************************************/
-module uim.mvc.views.registry;
+module uim.mvc.views.widgets.registry;
 
 @safe:
 import uim.mvc;
 
-class DMVCViewRegistry : DRegistry!DMVCView{
+class DWidgetRegistry : DRegistry!DWidget{
   this() {}
 
-  static DMVCViewRegistry registry; 
+  static DWidgetRegistry registry; 
 }
-auto MVCViewRegistry() { 
-  if (!DMVCViewRegistry.registry) {
-    DMVCViewRegistry.registry = new DMVCViewRegistry; 
+auto WidgetRegistry() { 
+  if (!DWidgetRegistry.registry) {
+    DWidgetRegistry.registry = new DWidgetRegistry; 
   }
   return 
-    DMVCViewRegistry.registry;
+    DWidgetRegistry.registry;
 }
 
 version(test_uim_mvc) { unittest {
-  assert(MVCViewRegistry.register("mvc/view",  MVCView).paths == ["mvc/view"]);
-  assert(MVCViewRegistry.register("mvc/view2", MVCView).paths.length == 2);
+  assert(WidgetRegistry.register("mvc/model",  Widget).paths == ["mvc/model"]);
+  assert(WidgetRegistry.register("mvc/model2", Widget).paths.length == 2);
 }}

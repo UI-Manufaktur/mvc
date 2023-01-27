@@ -27,8 +27,8 @@ class DWidget : IWidget {
      * templatesList -Templates list.
      */
     this(StringTemplate templatesList) {
-        initialize;
-        _templates = templatesList;
+      initialize;
+      _templates = templatesList;
     }
 
     override void initialize() {

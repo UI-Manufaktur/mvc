@@ -53,6 +53,15 @@ class DMVCView : DMVCBase, IMVCView {
   mixin(OProperty!("DEntity[]", "entities"));
   mixin(OProperty!("string", "rootPath"));
 
+  // Helpers collection
+  protected DVIWHelperRegistry _helpers;
+
+  // ViewBlock instance.
+  protected DMVCViewBlock viewBlock;
+
+  // The name of the plugin.
+  protected string _pluginName;
+
   void beforeH5(STRINGAA options = null) {
     // 
   }
