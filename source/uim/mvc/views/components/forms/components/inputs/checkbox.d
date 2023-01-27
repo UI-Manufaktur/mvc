@@ -8,7 +8,7 @@ module uim.mvc.views.components.forms.components.inputs.checkbox;
 @safe:
 import uim.mvc;
 
-class DBKLCheckboxFormInput : DBKLFormInput {
+class DMVCCheckboxFormInput : DMVCFormInput {
   mixin(BKLViewComponentThis!("BKLCheckboxFormInput"));
 
   override void initialize() {
@@ -43,12 +43,12 @@ class DBKLCheckboxFormInput : DBKLFormInput {
           h5Input(options), H5Span(["form-check-label"], label))));
   }
 }
-mixin(BKLViewComponentCalls!("BKLCheckboxFormInput", "DBKLCheckboxFormInput"));
+mixin(BKLViewComponentCalls!("BKLCheckboxFormInput", "DMVCCheckboxFormInput"));
 
 version(test_baklava) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
     
-    assert(new DBKLCheckboxFormInput);
+    assert(new DMVCCheckboxFormInput);
     assert(BKLCheckboxFormInput);
   }
 }

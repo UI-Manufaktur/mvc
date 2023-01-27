@@ -8,17 +8,17 @@ module uim.mvc.views.components.forms.components.contents.table;
 @safe:
 import uim.mvc;
 
-class DBKLTableFormContent : DBKLEntitiesViewComponent {
+class DMVCTableFormContent : DMVCEntitiesViewComponent {
   mixin(BKLViewComponentThis!("BKLTableFormContent"));
 
-  mixin(OProperty!("DBKLViewComponent", "row"));
+  mixin(OProperty!("DMVCViewComponent", "row"));
 
   override void initialize() {
-    debugMethodCall(moduleName!DBKLTableFormContent~"::DBKLTableFormContent("~this.name~"):initialize");   
+    debugMethodCall(moduleName!DMVCTableFormContent~"::DMVCTableFormContent("~this.name~"):initialize");   
     super.initialize;
   }
 }
-mixin(BKLViewComponentCalls!("BKLTableFormContent", "DBKLTableFormContent"));
+mixin(BKLViewComponentCalls!("BKLTableFormContent", "DMVCTableFormContent"));
 
 version(test_baklava) { unittest {
   assert(BKLTableFormContent);

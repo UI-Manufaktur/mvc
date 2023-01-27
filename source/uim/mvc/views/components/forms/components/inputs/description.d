@@ -3,7 +3,7 @@ module uim.mvc.views.components.forms.components.inputs.description;
 @safe:
 import uim.mvc;
 
-class DBKLDescriptionFormInput : DBKLTextAreaFormInput {
+class DMVCDescriptionFormInput : DMVCTextAreaFormInput {
   mixin(BKLViewComponentThis!("BKLDescriptionFormInput"));
 
   override void initialize() {
@@ -17,7 +17,7 @@ class DBKLDescriptionFormInput : DBKLTextAreaFormInput {
       .placeholder("Beschreibung eingeben"); 
   }
 }
-mixin(BKLViewComponentCalls!("BKLDescriptionFormInput", "DBKLDescriptionFormInput"));
+mixin(BKLViewComponentCalls!("BKLDescriptionFormInput", "DMVCDescriptionFormInput"));
 
 version(test_baklava) { unittest {
   assert(BKLDescriptionFormInput);

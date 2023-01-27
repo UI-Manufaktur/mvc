@@ -8,11 +8,11 @@ module uim.mvc.views.components.forms.components.contents.entity;
 @safe:
 import uim.mvc;
 
-class DBKLEntityFormContent : DBKLFormContent {
+class DMVCEntityFormContent : DMVCFormContent {
   mixin(BKLViewComponentThis!("BKLEntityFormContent"));
 
   override void initialize() {
-    debugMethodCall(moduleName!DBKLEntityFormContent~"::DBKLEntityFormContent("~this.name~"):initialize");   
+    debugMethodCall(moduleName!DMVCEntityFormContent~"::DMVCEntityFormContent("~this.name~"):initialize");   
     super.initialize;
 
     this
@@ -30,17 +30,17 @@ class DBKLEntityFormContent : DBKLFormContent {
     return cast(O)this;
   }
   
-  // mixin(OProperty!("DBKLPanes", "panes"));
+  // mixin(OProperty!("DMVCPanes", "panes"));
 
-  mixin(OProperty!("DBKLFormInputHandler", "inputHandler"));
+  mixin(OProperty!("DMVCFormInputHandler", "inputHandler"));
 
   DH5Obj[] formGroups(STRINGAA options = null) {
-    debugMethodCall(moduleName!DBKLEntityFormContent~"::DBKLEntityFormContent:formGroups");    
+    debugMethodCall(moduleName!DMVCEntityFormContent~"::DMVCEntityFormContent:formGroups");    
     DH5Obj[] results;
 
     debug writeln(entity ? "Has entity: "~entity.name : "No entity");
 
-    if (auto myInputHandler = cast(DBKLFormInputHandler)inputHandler) {
+    if (auto myInputHandler = cast(DMVCFormInputHandler)inputHandler) {
       debug writeln("Found inputHandler:",inputHandler.name);
 
       myInputHandler
@@ -66,7 +66,7 @@ class DBKLEntityFormContent : DBKLFormContent {
   }  
 
   DH5Obj bodyContent(STRINGAA options = null) {
-    debugMethodCall(moduleName!DBKLEntityFormContent~"::DBKLEntityFormContent:bodyContent");    
+    debugMethodCall(moduleName!DMVCEntityFormContent~"::DMVCEntityFormContent:bodyContent");    
     DH5Obj row = BS5Row();
     
     auto col = BS5Col(["col-12"], 
@@ -88,7 +88,7 @@ class DBKLEntityFormContent : DBKLFormContent {
   } 
 
   override DH5Obj[] toH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DBKLEntityFormContent~"::DBKLEntityFormContent:toH5");    
+    debugMethodCall(moduleName!DMVCEntityFormContent~"::DMVCEntityFormContent:toH5");    
     super.toH5(options);
     if (hasError || "redirect" in options) { return null; }
 
@@ -98,7 +98,7 @@ class DBKLEntityFormContent : DBKLFormContent {
     )].toH5; 
   }
 }
-mixin(BKLViewComponentCalls!("BKLEntityFormContent", "DBKLEntityFormContent"));
+mixin(BKLViewComponentCalls!("BKLEntityFormContent", "DMVCEntityFormContent"));
 
 version(test_baklava) { unittest {
   assert(BKLEntityFormContent);

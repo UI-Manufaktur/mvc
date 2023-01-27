@@ -3,7 +3,7 @@ module uim.mvc.views.components.forms.login2;
 @safe:
 import uim.mvc;
 
-class DBKLLogin2Form : DBKLForm {
+class DMVCLogin2Form : DMVCForm {
   mixin(BKLViewComponentThis!("BKLLogin2Form"));
 
   override void initialize() {
@@ -40,7 +40,7 @@ class DBKLLogin2Form : DBKLForm {
     return results;
   }
 }
-mixin(BKLViewComponentCalls!("BKLLogin2Form", "DBKLLogin2Form"));
+mixin(BKLViewComponentCalls!("BKLLogin2Form", "DMVCLogin2Form"));
 
 version(test_baklava) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);

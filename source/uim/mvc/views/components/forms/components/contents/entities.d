@@ -8,11 +8,11 @@ module uim.mvc.views.components.forms.components.contents.entities;
 @safe:
 import uim.mvc;
 
-class DBKLEntitiesFormContent : DBKLFormContent {
+class DMVCEntitiesFormContent : DMVCFormContent {
   mixin(BKLViewComponentThis!("BKLEntitiesFormContent"));
 
   override void initialize() {
-    debugMethodCall(moduleName!DBKLEntitiesFormContent~"::DBKLEntitiesFormContent("~this.name~"):initialize");   
+    debugMethodCall(moduleName!DMVCEntitiesFormContent~"::DMVCEntitiesFormContent("~this.name~"):initialize");   
     super.initialize;
     debug writeln("In ", __MODULE__, "/", __LINE__);
 
@@ -21,16 +21,16 @@ class DBKLEntitiesFormContent : DBKLFormContent {
       .tableFilter(BKLEntitiesTableFilter); 
   }
 
-  mixin(OProperty!("DBKLEntitiesTableHeader", "tableHeader"));
-  mixin(OProperty!("DBKLEntitiesTableFilter", "tableFilter"));
+  mixin(OProperty!("DMVCEntitiesTableHeader", "tableHeader"));
+  mixin(OProperty!("DMVCEntitiesTableFilter", "tableFilter"));
   // mixin(OProperty!("DOOPEntity[]", "entities"));
   
   override void beforeH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DBKLEntitiesFormContent~"DBKLEntitiesFormContent::beforeH5");
+    debugMethodCall(moduleName!DMVCEntitiesFormContent~"DMVCEntitiesFormContent::beforeH5");
     super.beforeH5(options);
     if (hasError || "redirect" in options) { return; }
 
-    debug writeln("in DBKLEntitiesEntitiesForm "~(this.entities ? "Has %s entities".format(this.entities.length) : "No entities"));
+    debug writeln("in DMVCEntitiesEntitiesForm "~(this.entities ? "Has %s entities".format(this.entities.length) : "No entities"));
 
     debug writeln("Before RootPath = ", this.rootPath);
     /* if (owner) { // ???
@@ -47,7 +47,7 @@ class DBKLEntitiesFormContent : DBKLFormContent {
   }
 
   override DH5Obj[] toH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DBKLEntitiesFormContent~"DBKLEntitiesFormContent("~this.name~")::toH5");
+    debugMethodCall(moduleName!DMVCEntitiesFormContent~"DMVCEntitiesFormContent("~this.name~")::toH5");
     super.toH5(options);
 
     debug writeln("RootPath = ", this.rootPath);
@@ -110,13 +110,13 @@ class DBKLEntitiesFormContent : DBKLFormContent {
       ].toH5;
   } 
 }
-mixin(BKLViewComponentCalls!("BKLEntitiesFormContent", "DBKLEntitiesFormContent"));
+mixin(BKLViewComponentCalls!("BKLEntitiesFormContent", "DMVCEntitiesFormContent"));
 
 version(test_baklava) { unittest {
   writeln("--- Test in ", __MODULE__, "/", __LINE__);
   
-  assert(new DBKLEntitiesFormContent);
+  assert(new DMVCEntitiesFormContent);
   assert(BKLEntitiesFormContent);
-  assert(new DBKLEntitiesFormContent(Form));
+  assert(new DMVCEntitiesFormContent(Form));
   assert(BKLEntitiesFormContent(Form)); 
 }}

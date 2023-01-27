@@ -3,11 +3,11 @@ module uim.mvc.views.components.forms.components.headers.header;
 @safe:
 import uim.mvc;
 
-class DBKLFormHeader : DBKLFormComponent {
+class DMVCFormHeader : DMVCFormComponent {
   mixin(BKLViewComponentThis!("BKLFormHeader"));
 
   override void initialize() {
-    debugMethodCall(moduleName!DBKLFormHeader~"::DBKLFormHeader("~this.name~"):initialize");   
+    debugMethodCall(moduleName!DMVCFormHeader~"::DMVCFormHeader("~this.name~"):initialize");   
     super.initialize;
     debug writeln("In ", __MODULE__, "/", __LINE__);
 
@@ -27,7 +27,7 @@ class DBKLFormHeader : DBKLFormComponent {
   } */
 
   DH5Obj actionButton(string action, STRINGAA options = null) {
-    debugMethodCall(moduleName!DBKLFormHeader~":DBKLFormHeader::actionButton");
+    debugMethodCall(moduleName!DMVCFormHeader~":DMVCFormHeader::actionButton");
 
     auto entityId = this.entity ? this.entity["id"] : "-missing-";
 
@@ -51,7 +51,7 @@ class DBKLFormHeader : DBKLFormComponent {
   }
 
   DH5Obj[] actionButtons(STRINGAA options = null) {
-    debugMethodCall(moduleName!DBKLFormHeader~":DBKLFormHeader::actionButtons");
+    debugMethodCall(moduleName!DMVCFormHeader~":DMVCFormHeader::actionButtons");
     debug writeln ("Actions: ", this.actions);
 
     DH5Obj[] results;
@@ -66,7 +66,7 @@ class DBKLFormHeader : DBKLFormComponent {
   }
 
   DH5Obj h5CardHeader(STRINGAA options = null) {
-    debugMethodCall(moduleName!DBKLFormHeader~":DBKLFormHeader::h5CardHeader");
+    debugMethodCall(moduleName!DMVCFormHeader~":DMVCFormHeader::h5CardHeader");
 
     return BS5CardHeader(id,
       H5H4(["card-title me-auto"], title),
@@ -75,7 +75,7 @@ class DBKLFormHeader : DBKLFormComponent {
   }
 
   override void beforeH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DBKLFormHeader~":DBKLFormHeader::beforeH5");
+    debugMethodCall(moduleName!DMVCFormHeader~":DMVCFormHeader::beforeH5");
     super.beforeH5(options);
 
     /* if (form) {
@@ -91,7 +91,7 @@ class DBKLFormHeader : DBKLFormComponent {
   } 
 
   override DH5Obj[] toH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DBKLFormHeader~":DBKLFormHeader::toH5");
+    debugMethodCall(moduleName!DMVCFormHeader~":DMVCFormHeader::toH5");
     super.toH5(options);
     if (hasError) { return null; }
     
@@ -105,7 +105,7 @@ class DBKLFormHeader : DBKLFormComponent {
           H5Span(["d-none d-sm-inline"], buttons)))].toH5;    
   } 
 }
-mixin(BKLViewComponentCalls!("BKLFormHeader", "DBKLFormHeader"));
+mixin(BKLViewComponentCalls!("BKLFormHeader", "DMVCFormHeader"));
 
 version(test_baklava) { unittest {
   assert(BKLFormHeader);

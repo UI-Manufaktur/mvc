@@ -3,11 +3,11 @@ module uim.mvc.views.components.forms.form;
 @safe:
 import uim.mvc;
 
-class DBKLForm : DBKLViewComponent {
+class DMVCForm : DMVCViewComponent {
   mixin(BKLViewComponentThis!("BKLForm"));
 
   override void initialize() {
-    debugMethodCall(moduleName!DBKLForm~"::DBKLForm("~this.name~"):initialize");   
+    debugMethodCall(moduleName!DMVCForm~"::DMVCForm("~this.name~"):initialize");   
     super.initialize;    
     writeln("In ", __MODULE__, "/", __LINE__);
  
@@ -22,7 +22,7 @@ class DBKLForm : DBKLViewComponent {
 
   mixin(OProperty!("string[string]", "defaults"));
   mixin(OProperty!("string[]", "fields"));
-  // mixin(OProperty!("DBKLPanes", "panes"));
+  // mixin(OProperty!("DMVCPanes", "panes"));
   mixin(BKLParameter!("action"));
 
   mixin(BKLParameter!("method"));
@@ -37,9 +37,9 @@ class DBKLForm : DBKLViewComponent {
   mixin(BKLParameter!("contentTitle"));
   mixin(BKLParameter!("footerTitle"));
 
-  mixin(OProperty!("DBKLFormHeader", "header"));
-  mixin(OProperty!("DBKLFormContent", "content"));
-  mixin(OProperty!("DBKLFormFooter", "footer"));
+  mixin(OProperty!("DMVCFormHeader", "header"));
+  mixin(OProperty!("DMVCFormContent", "content"));
+  mixin(OProperty!("DMVCFormFooter", "footer"));
 
 /*   DETBBase _database; 
   O database(this O)(DETBBase aDatabase) { 
@@ -53,7 +53,7 @@ class DBKLForm : DBKLViewComponent {
   } */
 
   override void beforeH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DBKLForm~":DBKLForm("~this.name~")::beforeH5");
+    debugMethodCall(moduleName!DMVCForm~":DMVCForm("~this.name~")::beforeH5");
     super.beforeH5(options);
     if (hasError || "redirect" in options) { return; }
 
@@ -66,7 +66,7 @@ class DBKLForm : DBKLViewComponent {
   }
 
   override DH5Obj[] toH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DBKLForm~":DBKLForm("~this.name~")::toH5");
+    debugMethodCall(moduleName!DMVCForm~":DMVCForm("~this.name~")::toH5");
     super.toH5(options);
     
     DBS5Col _col = BS5Col(["col-12"]);
@@ -80,7 +80,7 @@ class DBKLForm : DBKLViewComponent {
     return [_col].toH5;
   }  
 }
-mixin(BKLViewComponentCalls!("BKLForm", "DBKLForm"));
+mixin(BKLViewComponentCalls!("BKLForm", "DMVCForm"));
 
 version(test_baklava) { unittest {
   assert(BKLForm);

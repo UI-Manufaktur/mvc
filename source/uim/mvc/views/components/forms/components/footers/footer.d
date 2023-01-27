@@ -8,17 +8,17 @@ module uim.mvc.views.components.forms.components.footers.footer;
 @safe:
 import uim.mvc;
 
-class DBKLFormFooter : DBKLFormComponent {
+class DMVCFormFooter : DMVCFormComponent {
   mixin(BKLViewComponentThis!("BKLFormFooter"));
 
   override void initialize() {
-    debugMethodCall(moduleName!DBKLFormFooter~"::DBKLFormFooter("~this.name~"):initialize");   
+    debugMethodCall(moduleName!DMVCFormFooter~"::DMVCFormFooter("~this.name~"):initialize");   
     super.initialize;
 
     debug writeln("In ", __MODULE__, "/", __LINE__);
   }
 }
-mixin(BKLViewComponentCalls!("BKLFormFooter", "DBKLFormFooter"));
+mixin(BKLViewComponentCalls!("BKLFormFooter", "DMVCFormFooter"));
 
 version(test_baklava) { unittest {
   assert(BKLFormFooter);

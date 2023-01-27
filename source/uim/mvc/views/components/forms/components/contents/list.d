@@ -8,18 +8,18 @@ module uim.mvc.views.components.forms.components.contents.list;
 @safe:
 import uim.mvc;
 
-class DBKLListFormContent : DBKLEntitiesViewComponent {
+class DMVCListFormContent : DMVCEntitiesViewComponent {
   mixin(BKLViewComponentThis!("BKLListFormContent"));
 
-  mixin(OProperty!("DBKLEntityViewComponent", "templateListItem"));
+  mixin(OProperty!("DMVCEntityViewComponent", "templateListItem"));
 
   override void initialize() {
-    debugMethodCall(moduleName!DBKLListFormContent~"::DBKLListFormContent("~this.name~"):initialize");   
+    debugMethodCall(moduleName!DMVCListFormContent~"::DMVCListFormContent("~this.name~"):initialize");   
     super.initialize;
   }
 
   override DH5Obj[] toH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DBKLEntitiesFormContent~"DBKLEntitiesFormContent::toH5");
+    debugMethodCall(moduleName!DMVCEntitiesFormContent~"DMVCEntitiesFormContent::toH5");
     super.toH5(options);
     if (hasError || "redirect" in options) { return null; }
     debug writeln("Found entities for table = ", entities.length);
@@ -31,7 +31,7 @@ class DBKLListFormContent : DBKLEntitiesViewComponent {
     ].toH5;
   } 
 }
-mixin(BKLViewComponentCalls!("BKLListFormContent", "DBKLListFormContent"));
+mixin(BKLViewComponentCalls!("BKLListFormContent", "DMVCListFormContent"));
 
 version(test_baklava) { unittest {
   assert(BKLListFormContent);

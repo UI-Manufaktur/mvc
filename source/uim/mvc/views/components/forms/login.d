@@ -3,7 +3,7 @@ module uim.mvc.views.components.forms.login;
 @safe:
 import uim.mvc;
 
-class DBKLLoginForm : DBKLForm {
+class DMVCLoginForm : DMVCForm {
   mixin(BKLViewComponentThis!("BKLLoginForm"));
 
   mixin(OProperty!("bool", "showLostAccount"));
@@ -14,9 +14,9 @@ class DBKLLoginForm : DBKLForm {
     this.showLostAccount(true);
   }
   
-/*   override DBKLViewComponent copy() {
+/*   override DMVCViewComponent copy() {
     return
-      (cast(DBKLLoginForm)copy)
+      (cast(DMVCLoginForm)copy)
       .showLostAccount(this.showLostAccount);
   } */
 
@@ -42,7 +42,7 @@ class DBKLLoginForm : DBKLForm {
     ].toH5;
   }
 }
-mixin(BKLViewComponentCalls!("BKLLoginForm","DBKLLoginForm"));
+mixin(BKLViewComponentCalls!("BKLLoginForm","DMVCLoginForm"));
 
 version(test_baklava) { unittest {
   assert(BKLLoginForm);

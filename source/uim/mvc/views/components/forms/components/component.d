@@ -8,23 +8,23 @@ module uim.mvc.views.components.forms.components.component;
 @safe:
 import uim.mvc;
 
-class DBKLFormComponent : DBKLViewComponent {
+class DMVCFormComponent : DMVCViewComponent {
   mixin(BKLViewComponentThis!("BKLFormComponent"));
 
   override void initialize() {
-    debugMethodCall(moduleName!DBKLFormComponent~"::DBKLFormComponent("~this.name~"):initialize");   
+    debugMethodCall(moduleName!DMVCFormComponent~"::DMVCFormComponent("~this.name~"):initialize");   
     super.initialize;
 
     debug writeln("In ", __MODULE__, "/", __LINE__);
   }
 
   mixin(OProperty!("CRUDModes", "crudMode"));
-  mixin(OProperty!("DBKLForm", "form"));
+  mixin(OProperty!("DMVCForm", "form"));
   mixin(OProperty!("bool", "readonly")); 
   mixin(BKLParameter!("title"));  
   mixin(BKLParameter!("rootPath"));  
 }
-mixin(BKLViewComponentCalls!("BKLFormComponent", "DBKLFormComponent"));
+mixin(BKLViewComponentCalls!("BKLFormComponent", "DMVCFormComponent"));
 
 version(test_baklava) { unittest {
   assert(BKLFormComponent);

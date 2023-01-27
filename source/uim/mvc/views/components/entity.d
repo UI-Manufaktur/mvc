@@ -3,15 +3,15 @@ module uim.mvc.views.components.entity;
 @safe:
 import uim.mvc;
 
-class DBKLEntityViewComponent : DBKLViewComponent {
+class DMVCEntityViewComponent : DMVCViewComponent {
   mixin(BKLViewComponentThis!("BKLEntityViewComponent"));
 
   // mixin(OProperty!("DOOPEntity", "entity"));
   mixin(OProperty!("CRUDModes", "crudMode"));
 
   override void beforeH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DBKLEntityViewComponent~":DBKLEntityViewComponent("~this.name~")::beforeH5");
+    debugMethodCall(moduleName!DMVCEntityViewComponent~":DMVCEntityViewComponent("~this.name~")::beforeH5");
     super.beforeH5(options);
   }
 }
-mixin(BKLViewComponentCalls!("BKLEntityViewComponent", "DBKLEntityViewComponent"));
+mixin(BKLViewComponentCalls!("BKLEntityViewComponent", "DMVCEntityViewComponent"));
