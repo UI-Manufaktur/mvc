@@ -33,6 +33,6 @@ class DMVCCardsFormContent : DMVCEntitiesViewComponent {
 }
 mixin(MVCViewComponentCalls!("MVCCardsFormContent", "DMVCCardsFormContent"));
 
-version(test_baklava) { unittest {
+version(test_uim_mvc) { unittest {
   assert(MVCCardsFormContent);
 }}

@@ -107,6 +107,6 @@ class DMVCFormHeader : DMVCFormComponent {
 }
 mixin(MVCViewComponentCalls!("MVCFormHeader", "DMVCFormHeader"));
 
-version(test_baklava) { unittest {
+version(test_uim_mvc) { unittest {
   assert(MVCFormHeader);
 }}

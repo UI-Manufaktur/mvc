@@ -26,6 +26,6 @@ class DMVCLogin2View : DMVCView {
 }
 mixin(MVCViewCalls!("MVCLogin2View", "DMVCLogin2View"));
 
-version(test_baklava) { unittest {
+version(test_uim_mvc) { unittest {
   assert(MVCLogin2View);
 }}

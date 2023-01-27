@@ -24,6 +24,6 @@ class DMVCDescriptionFormInput : DMVCTextAreaFormInput {
 }
 mixin(MVCViewComponentCalls!("MVCDescriptionFormInput", "DMVCDescriptionFormInput"));
 
-version(test_baklava) { unittest {
+version(test_uim_mvc) { unittest {
   assert(MVCDescriptionFormInput);
 }}

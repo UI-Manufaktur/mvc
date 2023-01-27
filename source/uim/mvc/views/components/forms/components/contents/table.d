@@ -20,6 +20,6 @@ class DMVCTableFormContent : DMVCEntitiesViewComponent {
 }
 mixin(MVCViewComponentCalls!("MVCTableFormContent", "DMVCTableFormContent"));
 
-version(test_baklava) { unittest {
+version(test_uim_mvc) { unittest {
   assert(MVCTableFormContent);
 }}

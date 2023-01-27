@@ -33,6 +33,6 @@ class DMVCListFormContent : DMVCEntitiesViewComponent {
 }
 mixin(MVCViewComponentCalls!("MVCListFormContent", "DMVCListFormContent"));
 
-version(test_baklava) { unittest {
+version(test_uim_mvc) { unittest {
   assert(MVCListFormContent);
 }}

@@ -100,6 +100,6 @@ class DMVCEntityFormContent : DMVCFormContent {
 }
 mixin(MVCViewComponentCalls!("MVCEntityFormContent", "DMVCEntityFormContent"));
 
-version(test_baklava) { unittest {
+version(test_uim_mvc) { unittest {
   assert(MVCEntityFormContent);
 }}

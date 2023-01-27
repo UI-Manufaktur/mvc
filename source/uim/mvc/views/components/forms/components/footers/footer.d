@@ -20,6 +20,6 @@ class DMVCFormFooter : DMVCFormComponent {
 }
 mixin(MVCViewComponentCalls!("MVCFormFooter", "DMVCFormFooter"));
 
-version(test_baklava) { unittest {
+version(test_uim_mvc) { unittest {
   assert(MVCFormFooter);
 }}

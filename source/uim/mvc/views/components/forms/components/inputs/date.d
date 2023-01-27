@@ -35,7 +35,7 @@ class DMVCDateFormInput : DMVCFormInput {
 }
 mixin(MVCViewComponentCalls!("MVCDateFormInput", "DMVCDateFormInput"));
 
-version(test_baklava) { unittest {
+version(test_uim_mvc) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
     // 
 }}

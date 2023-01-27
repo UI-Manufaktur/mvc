@@ -26,6 +26,6 @@ class DMVCFormComponent : DMVCViewComponent {
 }
 mixin(MVCViewComponentCalls!("MVCFormComponent", "DMVCFormComponent"));
 
-version(test_baklava) { unittest {
+version(test_uim_mvc) { unittest {
   assert(MVCFormComponent);
 }}

@@ -42,7 +42,7 @@ class DMVCLogin2Form : DMVCForm {
 }
 mixin(MVCViewComponentCalls!("MVCLogin2Form", "DMVCLogin2Form"));
 
-version(test_baklava) { unittest {
+version(test_uim_mvc) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
     // TODO
 }}

@@ -84,7 +84,7 @@ class DMVCForm : DMVCViewComponent {
 }
 mixin(MVCViewComponentCalls!("MVCForm", "DMVCForm"));
 
-version(test_baklava) { unittest {
+version(test_uim_mvc) { unittest {
   assert(MVCForm);
 
   assert(MVCForm.entityName("Test").entityName == "Test");

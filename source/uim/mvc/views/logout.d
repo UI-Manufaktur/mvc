@@ -61,6 +61,6 @@ class DMVCLogoutView : DMVCView {
 }
 mixin(MVCViewCalls!("MVCLogoutView", "DMVCLogoutView"));
 
-version(test_baklava) { unittest {
+version(test_uim_mvc) { unittest {
   assert(MVCLogoutView);
 }}

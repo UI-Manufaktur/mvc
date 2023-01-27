@@ -203,7 +203,7 @@ class DMVCLayout : DMVCBase, IMVCLayout{
 
 		return _html.toString;
 	}
-version(test_baklava) { unittest {
+version(test_uim_mvc) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
 		// writeln(H5MVCLayout);
 		// assert(H5MVCLayout.render == `<!doctype html><html dir="ltr" lang="en"><head></head><body></body></html>`);
