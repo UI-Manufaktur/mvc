@@ -1,22 +1,27 @@
+/*********************************************************************************************************
+	Copyright: © 2015-2023 Ozan Nurettin Süel (Sicherheitsschmiede)                                        
+	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
+	Authors: Ozan Nurettin Süel (Sicherheitsschmiede)                                                      
+**********************************************************************************************************/
 module uim.mvc.controllers.registry;
 
 @safe:
 import uim.mvc;
 
-class DMVCControllerRegistry : DRegistry!DMVCController{
+class DControllerRegistry : DRegistry!DController{
   this() {}
 
-  static DMVCControllerRegistry registry; 
+  static DControllerRegistry registry; 
 }
-auto MVCControllerRegistry() { 
-  if (!DMVCControllerRegistry.registry) {
-    DMVCControllerRegistry.registry = new DMVCControllerRegistry; 
+auto ControllerRegistry() { 
+  if (!DControllerRegistry.registry) {
+    DControllerRegistry.registry = new DControllerRegistry; 
   }
   return 
-    DMVCControllerRegistry.registry;
+    DControllerRegistry.registry;
 }
 
 version(test_uim_mvc) { unittest {
-  assert(MVCControllerRegistry.register("mvc/controllercomponent",  MVCController).paths == ["mvc/controllercomponent"]);
-  assert(MVCControllerRegistry.register("mvc/controllercomponent2", MVCController).paths.length == 2);
+  assert(ControllerRegistry.register("mvc/controllercomponent",  Controller).paths == ["mvc/controllercomponent"]);
+  assert(ControllerRegistry.register("mvc/controllercomponent2", Controller).paths.length == 2);
 }}

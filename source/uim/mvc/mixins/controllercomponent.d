@@ -12,12 +12,12 @@ string mvcControllerComponentThis(string name) {
   return 
     mvcBaseThis(name)~
   `
-    this(IMVCController myController) { this().controller(myController); }
+    this(IController myController) { this().controller(myController); }
   `;
 }
 
-template MVCControllerComponentThis(string name) {
-  const char[] MVCControllerComponentThis = mvcControllerComponentThis(name);
+template ControllerComponentThis(string name) {
+  const char[] ControllerComponentThis = mvcControllerComponentThis(name);
 }
 
 string mvcControllerComponentCalls(string shortName, string className) {
@@ -34,8 +34,8 @@ string mvcControllerComponentCalls(string shortName, string className) {
   `;
 }
 
-template MVCControllerComponentCalls(string shortName, string className) {
-  const char[] MVCControllerComponentCalls = mvcControllerComponentCalls(shortName, className);
+template ControllerComponentCalls(string shortName, string className) {
+  const char[] ControllerComponentCalls = mvcControllerComponentCalls(shortName, className);
 }
 
 

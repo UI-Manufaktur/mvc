@@ -3,20 +3,20 @@ module uim.mvc.controllers.components.registry;
 @safe:
 import uim.mvc;
 
-class DMVCControllerComponentRegistry : DRegistry!DMVCControllerComponent{
+class DControllerComponentRegistry : DRegistry!DControllerComponent{
   this() {}
 
-  static DMVCControllerComponentRegistry registry; 
+  static DControllerComponentRegistry registry; 
 }
-auto MVCControllerComponentRegistry() { 
-  if (!DMVCControllerComponentRegistry.registry) {
-    DMVCControllerComponentRegistry.registry = new DMVCControllerComponentRegistry; 
+auto ControllerComponentRegistry() { 
+  if (!DControllerComponentRegistry.registry) {
+    DControllerComponentRegistry.registry = new DControllerComponentRegistry; 
   }
   return 
-  DMVCControllerComponentRegistry.registry;
+  DControllerComponentRegistry.registry;
 }
 
 version(test_uim_mvc) { unittest {
-  assert(MVCControllerComponentRegistry.register("mvc/controllercomponent",  MVCControllerComponent).paths == ["mvc/controllercomponent"]);
-  assert(MVCControllerComponentRegistry.register("mvc/controllercomponent2", MVCControllerComponent).paths.length == 2);
+  assert(ControllerComponentRegistry.register("mvc/controllercomponent",  ControllerComponent).paths == ["mvc/controllercomponent"]);
+  assert(ControllerComponentRegistry.register("mvc/controllercomponent2", ControllerComponent).paths.length == 2);
 }}

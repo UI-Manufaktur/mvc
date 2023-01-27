@@ -5,7 +5,7 @@ import uim.mvc;
 
 class DMVCRoute : DMVCBase, IMVCRoute {
   this() { super(); }
-  this(string aPath, HTTPMethod aMethod, DMVCController aController) {
+  this(string aPath, HTTPMethod aMethod, DController aController) {
     this().path(aPath).method(aMethod).controller(aController);
   }
 
@@ -15,14 +15,14 @@ class DMVCRoute : DMVCBase, IMVCRoute {
 
   mixin(OProperty!("string", "path"));
   mixin(OProperty!("HTTPMethod", "method"));
-  mixin(OProperty!("DMVCController", "controller"));
+  mixin(OProperty!("DController", "controller"));
 }
 auto MVCRoute() { return new DMVCRoute; }
-auto MVCRoute(string aPath, HTTPMethod aMethod, DMVCController aController) { return new DMVCRoute(aPath, aMethod, aController); }
+auto MVCRoute(string aPath, HTTPMethod aMethod, DController aController) { return new DMVCRoute(aPath, aMethod, aController); }
 
 version(test_uim_mvc) { unittest { 
   assert(MVCRoute);
-  assert(MVCRoute("testPath", HTTPMethod.GET, MVCController));
+  assert(MVCRoute("testPath", HTTPMethod.GET, Controller));
   assert(MVCRoute("testPath", HTTPMethod.GET, MVCActionController));
   assert(MVCRoute("testPath", HTTPMethod.GET, MVCPageController));
 }} 

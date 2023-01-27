@@ -3,8 +3,8 @@ module uim.mvc.controllers.pages.page;
 @safe:
 import uim.mvc;
 
-class DMVCPageController : DMVCController {
-  mixin(MVCControllerThis!("MVCPageController"));
+class DMVCPageController : DController {
+  mixin(ControllerThis!("MVCPageController"));
 
   override void initialize() {
     super.initialize;
@@ -40,7 +40,7 @@ class DMVCPageController : DMVCController {
   }    
 
   override string stringResponse(string[string] options = null) {
-    debugMethodCall(moduleName!DMVCController~":DMVCController::stringResponse");
+    debugMethodCall(moduleName!DController~":DController::stringResponse");
     super.stringResponse(options);
 
     string result;
@@ -60,4 +60,4 @@ class DMVCPageController : DMVCController {
     super.afterResponse(options);
   }  
 }
-mixin(MVCControllerCalls!("MVCPageController", "DMVCPageController"));
+mixin(ControllerCalls!("MVCPageController", "DMVCPageController"));

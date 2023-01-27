@@ -3,21 +3,21 @@ module uim.mvc.controllers.components.component;
 @safe:
 import uim.mvc;
 
-class DMVCControllerComponent : DMVCBase, IMVCControllerComponent {
-  mixin(MVCControllerComponentThis!("MVCControllerComponent"));
+class DControllerComponent : DMVCBase, IControllerComponent {
+  mixin(ControllerComponentThis!("ControllerComponent"));
 
-  mixin(OProperty!("IMVCController", "controller"));  
+  mixin(OProperty!("IController", "controller"));  
 
   override void initialize() {
     super.initialize;
   }
 }
-mixin(MVCControllerComponentCalls!("MVCControllerComponent", "DMVCControllerComponent"));
+mixin(ControllerComponentCalls!("ControllerComponent", "DControllerComponent"));
 
 version(test_uim_mvc) { unittest {
-  testMVCControllerComponent(MVCControllerComponent, "MVCControllerComponent");
+  testControllerComponent(ControllerComponent, "ControllerComponent");
 
-  assert(MVCControllerComponent.name == "MVCControllerComponent");
-  assert(MVCControllerComponent.create.name == "MVCControllerComponent");
-  assert(MVCControllerComponent.clone.name == "MVCControllerComponent");
+  assert(ControllerComponent.name == "ControllerComponent");
+  assert(ControllerComponent.create.name == "ControllerComponent");
+  assert(ControllerComponent.clone.name == "ControllerComponent");
 }} 

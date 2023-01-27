@@ -3,43 +3,45 @@ module uim.mvc.controllers.controller;
 @safe:
 import uim.mvc;
 
-class DMVCController : DMVCBase, IMVCController  {
-  mixin(MVCControllerThis!("MVCController"));
+class DController : DMVCBase, IController  {
+  mixin(ControllerThis!("Controller"));
 
   // Initialization (= hook method)
   override void initialize() {
-    debugMethodCall(moduleName!DMVCController~"::DMVCController("~this.name~"):initialize");   
+    debugMethodCall(moduleName!DController~"::DController("~this.name~"):initialize");   
     super.initialize;
 
     this
-      .name("MVCController"); 
+      .name("Controller"); 
   }
   
-  mixin(MVCParameter!("mimetype")); 
-  mixin(MVCParameter!("rootPath")); 
-  mixin(MVCParameter!("collectionName"));
-  mixin(MVCParameter!("entitiesName")); 
-	mixin(MVCParameter!("language"));
-  mixin(MVCParameter!("responseResult"));
+  // #region Properties
+    mixin(MVCParameter!("mimetype")); 
+    mixin(MVCParameter!("rootPath")); 
+    mixin(MVCParameter!("collectionName"));
+    mixin(MVCParameter!("entitiesName")); 
+    mixin(MVCParameter!("language"));
+    mixin(MVCParameter!("responseResult"));
 
-  mixin(MVCParameter!("httpMode"));
-  mixin(MVCParameter!("stringRequest"));
-  mixin(MVCParameter!("method"));
-  mixin(MVCParameter!("form"));
-  mixin(MVCParameter!("peer"));
-  mixin(MVCParameter!("host"));
-  mixin(MVCParameter!("path"));
-  mixin(MVCParameter!("rootDir"));
-  mixin(MVCParameter!("queryString"));
-  mixin(MVCParameter!("fullURL"));
-  mixin(MVCParameter!("json"));
-  mixin(MVCParameter!("username"));
-  mixin(MVCParameter!("password"));
-  mixin(MVCParameter!("contentType"));
-  mixin(MVCParameter!("contentTypeParameters"));
-  mixin(MVCParameter!("timeCreated"));
-  mixin(MVCParameter!("persistent"));
-  mixin(MVCParameter!("redirect"));
+    mixin(MVCParameter!("httpMode"));
+    mixin(MVCParameter!("stringRequest"));
+    mixin(MVCParameter!("method"));
+    mixin(MVCParameter!("form"));
+    mixin(MVCParameter!("peer"));
+    mixin(MVCParameter!("host"));
+    mixin(MVCParameter!("path"));
+    mixin(MVCParameter!("rootDir"));
+    mixin(MVCParameter!("queryString"));
+    mixin(MVCParameter!("fullURL"));
+    mixin(MVCParameter!("json"));
+    mixin(MVCParameter!("username"));
+    mixin(MVCParameter!("password"));
+    mixin(MVCParameter!("contentType"));
+    mixin(MVCParameter!("contentTypeParameters"));
+    mixin(MVCParameter!("timeCreated"));
+    mixin(MVCParameter!("persistent"));
+    mixin(MVCParameter!("redirect"));
+  // #endregion Properties
 
   /* mixin(OProperty!("DMVCCheck[]", "checks"));
   O addChecks(this O)(DMVCCheck[] newChecks) {
@@ -109,24 +111,24 @@ class DMVCController : DMVCBase, IMVCController  {
   }
 
   void beforeResponse(string[string] options = null) {
-    debugMethodCall(moduleName!DMVCController~":DMVCController("~this.name~")::beforeResponse");
+    debugMethodCall(moduleName!DController~":DController("~this.name~")::beforeResponse");
   }    
 
   void afterResponse(string[string] options = null) {
-    debugMethodCall(moduleName!DMVCController~":DMVCController::afterResponse");
+    debugMethodCall(moduleName!DController~":DController::afterResponse");
   }
 
   string stringResponse(string[string] options = null) {
-    debugMethodCall(moduleName!DMVCController~":DMVCController::stringResponse");
+    debugMethodCall(moduleName!DController~":DController::stringResponse");
     return "";
   }
 
   void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse) {
-		debugMethodCall(moduleName!DMVCController~":DMVCController("~this.name~")::request(req, res)");
+		debugMethodCall(moduleName!DController~":DController("~this.name~")::request(req, res)");
   }
 
   void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse, STRINGAA options) {
-		debugMethodCall(moduleName!DMVCController~":DMVCController("~this.name~")::request(req, res, reqParameters)");
+		debugMethodCall(moduleName!DController~":DController("~this.name~")::request(req, res, reqParameters)");
 
 		this.request = newRequest; this.response = newResponse;
     options = requestParameters(options);
@@ -150,14 +152,14 @@ class DMVCController : DMVCBase, IMVCController  {
 		this.response.writeBody(result, this.mimetype); 
   }
 }
-mixin(MVCControllerCalls!("MVCController", "DMVCController"));
+mixin(ControllerCalls!("Controller", "DController"));
 
 version(test_uim_mvc) { unittest {
-  testMVCController(MVCController, "MVCController");
+  testController(Controller, "Controller");
 
-  assert(MVCController.name == "MVCController");
-  assert(MVCController.create.name == "MVCController");
-  assert(MVCController.clone.name == "MVCController");
+  assert(Controller.name == "Controller");
+  assert(Controller.create.name == "Controller");
+  assert(Controller.clone.name == "Controller");
 }} 
 
 

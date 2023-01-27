@@ -3,16 +3,16 @@ module uim.mvc.models.model;
 @safe:
 import uim.mvc;
 
-class DMVCModel : DMVCBase, IMVCModel { 
-  mixin(MVCModelThis!("MVCModel"));
+class DModel : DMVCBase, IModel { 
+  mixin(ModelThis!("Model"));
 
   override void initialize() {}
 
   mixin(OProperty!("DETBBase", "datasource")); 
 }
-mixin(MVCModelCalls!("MVCModel", "DMVCModel"));
+mixin(ModelCalls!("Model", "DModel"));
 
 version(test_uim_mvc) { unittest { 
-  assert(MVCModel);
-  assert(MVCModel.name == "MVCModel");
+  assert(Model);
+  assert(Model.name == "Model");
 }} 
