@@ -4,7 +4,7 @@ module uim.mvc.views.components.forms.crud.entities;
 import uim.mvc;
 
 class DMVCEntitiesForm : DMVCForm {
-  mixin(BKLViewComponentThis!("BKLEntitiesForm"));
+  mixin(MVCViewComponentThis!("MVCEntitiesForm"));
 
   // mixin(OProperty!("DOOPEntity[]", "entities"));
 
@@ -12,4 +12,4 @@ class DMVCEntitiesForm : DMVCForm {
     super.initialize;
   }
 }
-mixin(BKLViewComponentCalls!("BKLEntitiesForm", "DMVCEntitiesForm"));
+mixin(MVCViewComponentCalls!("MVCEntitiesForm", "DMVCEntitiesForm"));

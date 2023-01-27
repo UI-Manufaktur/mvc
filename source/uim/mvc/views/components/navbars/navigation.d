@@ -4,7 +4,7 @@ module uim.mvc.views.components.navbars.navigation;
 import uim.mvc;
 
 class DMVCNavigationViewComponent : DMVCViewComponent {
-  mixin(BKLViewComponentThis!("BKLNavigationViewComponent"));
+  mixin(MVCViewComponentThis!("MVCNavigationViewComponent"));
 
   override void initialize() {
     debugMethodCall(moduleName!DMVCNavigationViewComponent~"::DMVCNavigationViewComponent("~this.name~"):initialize");   
@@ -12,11 +12,11 @@ class DMVCNavigationViewComponent : DMVCViewComponent {
 
     debug writeln("Add First Nav");
     this
-      .firstNavbar(BKLFirstNavbar);
+      .firstNavbar(MVCFirstNavbar);
 
     debug writeln("Add Second Nav");
     this
-      .secondNavbar(BKLSecondNavbar);
+      .secondNavbar(MVCSecondNavbar);
   }
 
   mixin(OProperty!("DMVCViewComponent", "firstNavbar"));
@@ -47,5 +47,5 @@ class DMVCNavigationViewComponent : DMVCViewComponent {
     return firstNavbarH5~secondNavbarH5;
   }
 }
-mixin(BKLViewComponentCalls!("BKLNavigationViewComponent", "DMVCNavigationViewComponent"));
-mixin(BKLViewComponentCalls!("BKLNavigation", "DMVCNavigationViewComponent"));
+mixin(MVCViewComponentCalls!("MVCNavigationViewComponent", "DMVCNavigationViewComponent"));
+mixin(MVCViewComponentCalls!("MVCNavigation", "DMVCNavigationViewComponent"));

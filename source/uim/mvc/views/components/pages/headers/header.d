@@ -4,7 +4,7 @@ module uim.mvc.views.components.pages.headers.header;
 import uim.mvc;
 
 class DMVCPageHeaderViewComponent : DMVCViewComponent {
-  mixin(BKLViewComponentThis!("BKLPageHeaderViewComponent"));
+  mixin(MVCViewComponentThis!("MVCPageHeaderViewComponent"));
 
   override void initialize() {
     super.initialize;
@@ -15,13 +15,13 @@ class DMVCPageHeaderViewComponent : DMVCViewComponent {
       .printable(true);
   }
 
-  mixin(BKLParameter!("preTitle"));
-  mixin(BKLParameter!("title"));
+  mixin(MVCParameter!("preTitle"));
+  mixin(MVCParameter!("title"));
   mixin(OProperty!("string[][]", "actions"));
   mixin(OProperty!("bool", "printable"));
-  mixin(BKLParameter!("mainTitle"));
-  mixin(BKLParameter!("subTitle"));
-  mixin(BKLParameter!("rootPath"));
+  mixin(MVCParameter!("mainTitle"));
+  mixin(MVCParameter!("subTitle"));
+  mixin(MVCParameter!("rootPath"));
   mixin(OProperty!("DUIMBreadcrumbControl", "breadcrumbs"));
   mixin(OProperty!("DUIMToolbarControl", "headerToolbar"));
 
@@ -69,5 +69,5 @@ class DMVCPageHeaderViewComponent : DMVCViewComponent {
       ].toH5;
   }
 }
-mixin(BKLViewComponentCalls!("BKLPageHeaderViewComponent", "DMVCPageHeaderViewComponent"));
-mixin(BKLViewComponentCalls!("BKLPageHeader", "DMVCPageHeaderViewComponent"));
+mixin(MVCViewComponentCalls!("MVCPageHeaderViewComponent", "DMVCPageHeaderViewComponent"));
+mixin(MVCViewComponentCalls!("MVCPageHeader", "DMVCPageHeaderViewComponent"));

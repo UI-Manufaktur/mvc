@@ -4,7 +4,7 @@ module uim.mvc.views.components.forms.crud.update;
 import uim.mvc;
 
 class DMVCUpdateForm : DMVCEntityForm {
-  mixin(BKLViewComponentThis!("BKLUpdateForm"));
+  mixin(MVCViewComponentThis!("MVCUpdateForm"));
 
   override void initialize() {
     super.initialize;
@@ -13,7 +13,7 @@ class DMVCUpdateForm : DMVCEntityForm {
       .crudMode(CRUDModes.Update);
   }
 }
-mixin(BKLViewComponentCalls!("BKLUpdateForm", "DMVCUpdateForm"));
+mixin(MVCViewComponentCalls!("MVCUpdateForm", "DMVCUpdateForm"));
 
 /* 
 auto editheader(T:DOOPEntity)(string path, T entity, DMVCPanes panes, STRINGAA reqParameters) {
@@ -119,6 +119,6 @@ class DMVCEditbody_ : DMVCbody_ {
       );
   } 
 }
-auto BKLEditbody_() { return new DMVCEditbody_(); }
+auto MVCEditbody_() { return new DMVCEditbody_(); }
 
  */

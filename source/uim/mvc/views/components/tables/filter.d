@@ -25,8 +25,8 @@ class DMVCEntitiesTableFilter : DMVCViewComponent {
         .th()];
   }
 }
-auto BKLEntitiesTableFilter() { return new DMVCEntitiesTableFilter; }
+auto MVCEntitiesTableFilter() { return new DMVCEntitiesTableFilter; }
 
 version(test_baklava) { unittest {
-  assert(BKLEntitiesTableFilter);
+  assert(MVCEntitiesTableFilter);
 }}

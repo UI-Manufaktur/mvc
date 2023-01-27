@@ -9,7 +9,7 @@ module uim.mvc.views.components.pages.titles.title;
 import uim.mvc;
 
 class DMVCPageTitleViewComponent : DMVCViewComponent { 
-  mixin(BKLViewComponentThis!("BKLPageTitleViewComponent"));
+  mixin(MVCViewComponentThis!("MVCPageTitleViewComponent"));
 
   override DH5Obj[] toH5(STRINGAA options = null) { 
     return
@@ -30,4 +30,4 @@ class DMVCPageTitleViewComponent : DMVCViewComponent {
       )].toH5;  
   }
 }
-mixin(BKLViewComponentCalls!("BKLPageTitleViewComponent", "DMVCPageTitleViewComponent"));
+mixin(MVCViewComponentCalls!("MVCPageTitleViewComponent", "DMVCPageTitleViewComponent"));

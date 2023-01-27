@@ -3,8 +3,8 @@ module uim.mvc.views.components.pages.bodies.body_;
 @safe:
 import uim.mvc;
 
-class DBKLPageBodyViewComponent : DBKLViewComponent {
-  mixin(BKLViewComponentThis!("BKLPageBodyViewComponent"));
+class DMVCPageBodyViewComponent : DMVCViewComponent {
+  mixin(MVCViewComponentThis!("MVCPageBodyViewComponent"));
 
   override void initialize() {
     super.initialize;
@@ -25,5 +25,5 @@ class DBKLPageBodyViewComponent : DBKLViewComponent {
       ].toH5;
   }
 }
-mixin(BKLViewComponentCalls!("BKLPageBodyViewComponent", "DBKLPageBodyViewComponent"));
-mixin(BKLViewComponentCalls!("BKLPageBody", "DBKLPageBodyViewComponent"));
+mixin(MVCViewComponentCalls!("MVCPageBodyViewComponent", "DMVCPageBodyViewComponent"));
+mixin(MVCViewComponentCalls!("MVCPageBody", "DMVCPageBodyViewComponent"));

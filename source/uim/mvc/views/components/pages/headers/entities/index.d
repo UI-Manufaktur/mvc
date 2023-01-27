@@ -4,7 +4,7 @@ module uim.mvc.views.components.pages.headers.entities.index;
 import uim.mvc;
 
 class DMVCIndexPageHeaderViewComponent : DMVCPageHeaderViewComponent {
-  mixin(BKLViewComponentThis!("BKLIndexPageHeaderViewComponent"));
+  mixin(MVCViewComponentThis!("MVCIndexPageHeaderViewComponent"));
 
   override void initialize() {
     super.initialize;
@@ -13,5 +13,5 @@ class DMVCIndexPageHeaderViewComponent : DMVCPageHeaderViewComponent {
       .actions([["refresh", "create"]]); 
   }
 }
-mixin(BKLViewComponentCalls!("BKLIndexPageHeaderViewComponent", "DMVCIndexPageHeaderViewComponent"));
-mixin(BKLViewComponentCalls!("BKLIndexPageHeader", "DMVCIndexPageHeaderViewComponent"));
+mixin(MVCViewComponentCalls!("MVCIndexPageHeaderViewComponent", "DMVCIndexPageHeaderViewComponent"));
+mixin(MVCViewComponentCalls!("MVCIndexPageHeader", "DMVCIndexPageHeaderViewComponent"));

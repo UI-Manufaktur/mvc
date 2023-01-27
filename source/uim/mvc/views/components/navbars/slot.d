@@ -4,7 +4,7 @@ module uim.mvc.views.components.navbars.slot;
 import uim.mvc;
 
 class DMVCNavbarSlotViewComponent : DMVCViewComponent {
-    mixin(BKLViewComponentThis!("BKLNavbarSlotViewComponent"));
+    mixin(MVCViewComponentThis!("MVCNavbarSlotViewComponent"));
 
     mixin(OProperty!("bool", "active"));
     mixin(OProperty!("string", "title"));
@@ -34,4 +34,4 @@ class DMVCNavbarSlotViewComponent : DMVCViewComponent {
       )].toH5;
     }
 }
-mixin(BKLViewComponentCalls!("BKLNavbarSlotViewComponent", "DMVCNavbarSlotViewComponent"));
+mixin(MVCViewComponentCalls!("MVCNavbarSlotViewComponent", "DMVCNavbarSlotViewComponent"));

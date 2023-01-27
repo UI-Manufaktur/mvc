@@ -5,13 +5,13 @@ import uim.mvc;
 
 class DMVCPageViewComponent
  : DMVCViewComponent {
-  mixin(BKLViewComponentThis!("BKLPageViewComponent"));
+  mixin(MVCViewComponentThis!("MVCPageViewComponent"));
   
   override void initialize() {
     this
-      .header(BKLPageHeader)
-      .body_(BKLPageBody)
-      .footer(BKLPageFooter);
+      .header(MVCPageHeader)
+      .body_(MVCPageBody)
+      .footer(MVCPageFooter);
   }
 
   mixin(OProperty!("DMVCPageHeaderViewComponent", "header"));
@@ -30,4 +30,4 @@ class DMVCPageViewComponent
     if (footer)  footer.entities = this.entities;
   }
 }
-mixin(BKLViewComponentCalls!("BKLPageViewComponent", "DMVCPageViewComponent"));
+mixin(MVCViewComponentCalls!("MVCPageViewComponent", "DMVCPageViewComponent"));

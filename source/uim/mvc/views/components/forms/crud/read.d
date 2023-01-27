@@ -4,7 +4,7 @@ module uim.mvc.views.components.forms.crud.read;
 import uim.mvc;
 
 class DMVCReadForm : DMVCEntityForm {
-  mixin(BKLViewComponentThis!("BKLReadForm"));
+  mixin(MVCViewComponentThis!("MVCReadForm"));
 
   override void initialize() {
     super.initialize;
@@ -13,7 +13,7 @@ class DMVCReadForm : DMVCEntityForm {
       .crudMode(CRUDModes.Read);
   }
 }
-mixin(BKLViewComponentCalls!("BKLReadForm", "DMVCReadForm"));
+mixin(MVCViewComponentCalls!("MVCReadForm", "DMVCReadForm"));
 
 /* 
 auto viewForm(T:DOOPEntity)(string path, T entity, STRINGAA[] panes, STRINGAA reqParameters) {

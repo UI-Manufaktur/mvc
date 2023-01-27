@@ -4,21 +4,21 @@ module uim.mvc.views.components.forms.crud.list;
 import uim.mvc;
 
 class DMVCEntitiesListForm : DMVCEntitiesForm {
-  mixin(BKLViewComponentThis!("BKLEntitiesListForm"));
+  mixin(MVCViewComponentThis!("MVCEntitiesListForm"));
 
   override void initialize() {
     super.initialize;
 
     this
       .header(
-        BKLFormHeader //.mainTitle("Blogs").subTitle("Übersicht Blogs").actions([["print", "export"]])
+        MVCFormHeader //.mainTitle("Blogs").subTitle("Übersicht Blogs").actions([["print", "export"]])
       )
       .content(
-        BKLEntitiesFormContent      
+        MVCEntitiesFormContent      
       );
     /*       .form
-        .header(BKLEntitiesheader(this.form).rootPath("/cms/blogs").mainTitle("Blogs").subTitle("Blogs anzeigen").actions([["print", "export"]]))
-        .body_(BKLListbody_(this.form).rootPath("/cms/blogs"));
+        .header(MVCEntitiesheader(this.form).rootPath("/cms/blogs").mainTitle("Blogs").subTitle("Blogs anzeigen").actions([["print", "export"]]))
+        .body_(MVCListbody_(this.form).rootPath("/cms/blogs"));
  */
   }
 
@@ -37,12 +37,12 @@ class DMVCEntitiesListForm : DMVCEntitiesForm {
     return [_col].toH5;
   }  
 }
-mixin(BKLViewComponentCalls!("BKLEntitiesListForm", "DMVCEntitiesListForm"));
+mixin(MVCViewComponentCalls!("MVCEntitiesListForm", "DMVCEntitiesListForm"));
 
 version(test_baklava) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
     
     assert(new DMVCEntitiesListForm);
-    assert(BKLEntitiesListForm);
+    assert(MVCEntitiesListForm);
   }
 }

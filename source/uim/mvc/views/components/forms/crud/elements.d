@@ -4,7 +4,7 @@ module uim.mvc.views.components.forms.crud.elements;
 import uim.mvc;
 
 class DMVCElementsForm : DMVCForm {
-  mixin(BKLViewComponentThis!("BKLElementsForm"));
+  mixin(MVCViewComponentThis!("MVCElementsForm"));
 
   mixin(OProperty!("DOOPElement[]", "elements"));
 
@@ -12,4 +12,4 @@ class DMVCElementsForm : DMVCForm {
     super.initialize;
   }
 }
-mixin(BKLViewComponentCalls!("BKLElementsForm", "DMVCElementsForm"));
+mixin(MVCViewComponentCalls!("MVCElementsForm", "DMVCElementsForm"));
