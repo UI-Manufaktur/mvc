@@ -1,7 +1,7 @@
-module uim.baklava.tests.view;
+module uim.mvc.tests.view;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 void testBKLView(DBKLView aView, string viewName) { 
   assert(aView, "View "~viewName~" does not exist");

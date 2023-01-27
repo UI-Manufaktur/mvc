@@ -1,7 +1,7 @@
-module uim.baklava.models.model;
+module uim.mvc.models.model;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 class DBKLModel : DBKLBase, IBKLModel { 
   mixin(BKLModelThis!("BKLModel"));

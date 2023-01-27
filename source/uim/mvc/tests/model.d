@@ -1,7 +1,7 @@
-module uim.baklava.tests.model;
+module uim.mvc.tests.model;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 void testBKLModel(DBKLModel aModel, string modelName) { 
   assert(aModel, "Model "~modelName~" does not exist");

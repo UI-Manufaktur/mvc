@@ -1,7 +1,7 @@
-module uim.baklava.views.interface_;
+module uim.mvc.views.interface_;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 interface IBKLView : IBKLBase {
   IBKLController controller();

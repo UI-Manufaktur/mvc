@@ -1,7 +1,7 @@
-module uim.baklava.tests.controller;
+module uim.mvc.tests.controller;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 void testBKLController(DBKLController aController, string controllerName) { 
   assert(aController, "Controller "~controllerName~" does not exist");

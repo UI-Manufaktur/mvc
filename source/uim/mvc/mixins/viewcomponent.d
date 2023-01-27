@@ -1,7 +1,7 @@
-module uim.baklava.mixins.viewcomponent;
+module uim.mvc.mixins.viewcomponent;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 string mvcViewComponentThis(string name) {
   return 

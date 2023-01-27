@@ -1,12 +1,12 @@
-module uim.baklava.tests;
+module uim.mvc.tests;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
-public import uim.baklava.tests.controller;
-public import uim.baklava.tests.controllercomponent;
+public import uim.mvc.tests.controller;
+public import uim.mvc.tests.controllercomponent;
 
-public import uim.baklava.tests.model;
+public import uim.mvc.tests.model;
 
-public import uim.baklava.tests.view;
-public import uim.baklava.tests.viewcomponent;
+public import uim.mvc.tests.view;
+public import uim.mvc.tests.viewcomponent;

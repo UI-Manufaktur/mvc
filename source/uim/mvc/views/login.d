@@ -3,10 +3,10 @@
 *	License: Licensed under Apache 2 [https://apache.org/licenses/LICENSE-2.0.txt]                                       *
 *	Authors: UI Manufaktur UG Team, Ozan Nurettin Süel (Sicherheitsschmiede)										                         * 
 ***********************************************************************************************************************/
-module uim.baklava.views.login;
+module uim.mvc.views.login;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 class DBKLLoginView : DBKLView {
   mixin(BKLViewThis!("BKLLoginView"));

@@ -1,7 +1,7 @@
-module uim.baklava.routes.interface_;
+module uim.mvc.routes.interface_;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 interface IBKLRoute : IBKLBase {
 }

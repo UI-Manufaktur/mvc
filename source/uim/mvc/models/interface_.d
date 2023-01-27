@@ -1,7 +1,7 @@
-module uim.baklava.models.interface_;
+module uim.mvc.models.interface_;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 interface IBKLModel  {
   

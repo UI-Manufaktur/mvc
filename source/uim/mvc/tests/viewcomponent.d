@@ -1,7 +1,7 @@
-module uim.baklava.tests.viewcomponent;
+module uim.mvc.tests.viewcomponent;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 void testBKLViewComponent(DBKLViewComponent aViewComponent, string viewcomponentName) { 
   assert(aViewComponent, "ViewComponent "~viewcomponentName~" does not exist");

@@ -1,4 +1,4 @@
-module uim.baklava.routes;
+module uim.mvc.routes;
 
-public import uim.baklava.routes.interface_;
-public import uim.baklava.routes.route;
+public import uim.mvc.routes.interface_;
+public import uim.mvc.routes.route;
