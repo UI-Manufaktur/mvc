@@ -1,3 +1,3 @@
-module uim.baklava.authentications;
+module uim.mvc.authentications;
 
-public import uim.baklava.authentications.authentication;
+public import uim.mvc.authentications.authentication;

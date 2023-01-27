@@ -1,7 +1,7 @@
-module uim.baklava.containers.links;
+module uim.mvc.containers.links;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 class DBKLLinkContainer : DBKLH5Container {
 	O entries(this O)(STRINGAA[] newEntries) { 

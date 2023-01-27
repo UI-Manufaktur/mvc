@@ -1,6 +1,6 @@
-module uim.baklava.containers.interface_;
+module uim.mvc.containers.interface_;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 interface IBKLContainer {}

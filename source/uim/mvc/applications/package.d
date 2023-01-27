@@ -1,5 +1,5 @@
-module uim.baklava.applications;
+module uim.mvc.applications;
 
-public import uim.baklava.applications.application;
-public import uim.baklava.applications.interface_;
-public import uim.baklava.applications.registry;
+public import uim.mvc.applications.application;
+public import uim.mvc.applications.interface_;
+public import uim.mvc.applications.registry;

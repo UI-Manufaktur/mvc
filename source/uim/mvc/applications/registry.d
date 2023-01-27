@@ -1,7 +1,7 @@
-module uim.baklava.applications.registry;
+module uim.mvc.applications.registry;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 class DBKLApplicationRegistry : DRegistry!DBKLApplication {
   this() {}  

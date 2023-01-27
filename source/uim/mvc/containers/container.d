@@ -1,7 +1,7 @@
-module uim.baklava.containers.container;
+module uim.mvc.containers.container;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 class DBKLContainer { // implements ArrayAccess, ContainerContract
     // The current globally available container (if any).

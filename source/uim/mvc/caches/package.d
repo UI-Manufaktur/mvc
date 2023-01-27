@@ -1,3 +1,3 @@
-module uim.baklava.caches;
+module uim.mvc.caches;
 
-public import uim.baklava.caches.cache;
+public import uim.mvc.caches.cache;

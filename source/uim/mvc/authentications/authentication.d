@@ -1,4 +1,4 @@
-module uim.baklava.authentications.authentication;
+module uim.mvc.authentications.authentication;
 
 class DBKLAuthentication {
   this() {}

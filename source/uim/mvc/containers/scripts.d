@@ -1,7 +1,7 @@
-module uim.baklava.containers.scripts;
+module uim.mvc.containers.scripts;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 class DBKLScriptContainer : DBKLH5Container {
 	O entries(this O)(STRINGAA[] newEntries) { 

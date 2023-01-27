@@ -1,7 +1,7 @@
-module uim.baklava.containers.Applicationinterface;
+module uim.mvc.containers.Applicationinterface;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 // Interface for Applications that configure and use a dependency injection container.
 interface IBKLContainerApplication {

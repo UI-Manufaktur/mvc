@@ -1,7 +1,7 @@
-module uim.baklava.containers.metas;
+module uim.mvc.containers.metas;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 class DBKLMetaContainer : DBKLH5Container {
 	O entries(this O)(STRINGAA[] newEntries) { 

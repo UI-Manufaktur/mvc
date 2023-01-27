@@ -1,7 +1,7 @@
-module uim.baklava.containers.styles;
+module uim.mvc.containers.styles;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 class DBKLStyleContainer : DBKLH5Container {
 	O entries(this O)(STRINGAA[] newEntries) { 

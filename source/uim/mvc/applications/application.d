@@ -1,7 +1,7 @@
-module uim.baklava.applications.application;
+module uim.mvc.applications.application;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 class DBKLApplication : DBKLBase, IBKLApplication { 
   this() { initialize; }

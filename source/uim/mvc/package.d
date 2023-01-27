@@ -1,4 +1,4 @@
-module uim.baklava;
+module uim.mvc;
 
 // Phobos
 public import std.algorithm; 
@@ -62,18 +62,18 @@ public import uim.html;
 public import uim.oop;
 public import uim.controls;
 
-public import uim.baklava.base;
+public import uim.mvc.base;
 
-public import uim.baklava.applications;
-public import uim.baklava.authentications;
-public import uim.baklava.caches;
-public import uim.baklava.containers;
-public import uim.baklava.controllers;
-public import uim.baklava.layouts;
-public import uim.baklava.models;
-public import uim.baklava.routes;
-public import uim.baklava.views;
+public import uim.mvc.applications;
+public import uim.mvc.authentications;
+public import uim.mvc.caches;
+public import uim.mvc.containers;
+public import uim.mvc.controllers;
+public import uim.mvc.layouts;
+public import uim.mvc.models;
+public import uim.mvc.routes;
+public import uim.mvc.views;
 
 // helpers
-public import uim.baklava.mixins;
-public import uim.baklava.tests;
+public import uim.mvc.mixins;
+public import uim.mvc.tests;

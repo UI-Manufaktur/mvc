@@ -1,7 +1,7 @@
-module uim.baklava.base;
+module uim.mvc.base;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 interface IBKLBase {
   DBKLApplication application();
