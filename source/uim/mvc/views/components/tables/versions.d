@@ -1,7 +1,7 @@
-module uim.baklava.views.components.tables.versions;
+module uim.mvc.views.components.tables.versions;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 /* class DBKLTableVersions : DBKLEntitiesTableHeader {
   mixin(ViewComponentThis!("BKLTableVersions"));

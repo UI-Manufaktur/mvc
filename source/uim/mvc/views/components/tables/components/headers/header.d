@@ -1,7 +1,7 @@
-module uim.baklava.views.components.tables.components.headers.header;
+module uim.mvc.views.components.tables.components.headers.header;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 class DBKLTableHeader : DBKLTableComponent {
   mixin(BKLViewComponentThis!("BKLTableHeader"));

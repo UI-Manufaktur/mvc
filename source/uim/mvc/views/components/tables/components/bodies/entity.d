@@ -1,7 +1,7 @@
-module uim.baklava.views.components.tables.components.bodies.entity;
+module uim.mvc.views.components.tables.components.bodies.entity;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 class DBKLEntityTableBody : DBKLTableBody {
   mixin(BKLViewComponentThis!("BKLEntityTableBody"));

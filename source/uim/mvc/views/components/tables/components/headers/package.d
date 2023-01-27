@@ -1,11 +1,11 @@
-module uim.baklava.views.components.tables.components.headers;
+module uim.mvc.views.components.tables.components.headers;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 // Main
-public import uim.baklava.views.components.tables.components.headers.header;
+public import uim.mvc.views.components.tables.components.headers.header;
 
 // Modules
-public import uim.baklava.views.components.tables.components.headers.entities;
-public import uim.baklava.views.components.tables.components.headers.entity;
+public import uim.mvc.views.components.tables.components.headers.entities;
+public import uim.mvc.views.components.tables.components.headers.entity;

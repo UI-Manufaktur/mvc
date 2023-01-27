@@ -1,7 +1,7 @@
-module uim.baklava.views.components.tables.components.headers.entities;
+module uim.mvc.views.components.tables.components.headers.entities;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 class DBKLEntitiesTableHeader : DBKLTableHeader {
   mixin(BKLViewComponentThis!("BKLEntitiesTableHeader"));

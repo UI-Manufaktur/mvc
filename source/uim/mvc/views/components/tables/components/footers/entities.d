@@ -1,7 +1,7 @@
-module uim.baklava.views.components.tables.components.footers.entities;
+module uim.mvc.views.components.tables.components.footers.entities;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 class DBKLEntitiesTableFooter : DBKLTableFooter {
   mixin(BKLViewComponentThis!("BKLEntitiesTableFooter"));
