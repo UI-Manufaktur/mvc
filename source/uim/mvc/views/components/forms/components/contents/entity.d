@@ -1,7 +1,7 @@
-module uim.baklava.views.components.forms.components.contents.entity;
+module uim.mvc.views.components.forms.components.contents.entity;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 class DBKLEntityFormContent : DBKLFormContent {
   mixin(BKLViewComponentThis!("BKLEntityFormContent"));

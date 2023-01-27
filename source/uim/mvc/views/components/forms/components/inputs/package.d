@@ -1,26 +1,26 @@
-module uim.baklava.views.components.forms.components.inputs;
+module uim.mvc.views.components.forms.components.inputs;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 // Main
-public import uim.baklava.views.components.forms.components.inputs.entity;
-public import uim.baklava.views.components.forms.components.inputs.input;
-public import uim.baklava.views.components.forms.components.inputs.handler;
+public import uim.mvc.views.components.forms.components.inputs.entity;
+public import uim.mvc.views.components.forms.components.inputs.input;
+public import uim.mvc.views.components.forms.components.inputs.handler;
 
 // Modules
-public import uim.baklava.views.components.forms.components.inputs.checkbox;
-public import uim.baklava.views.components.forms.components.inputs.description;
-public import uim.baklava.views.components.forms.components.inputs.date;
-public import uim.baklava.views.components.forms.components.inputs.display;
-public import uim.baklava.views.components.forms.components.inputs.name;
-public import uim.baklava.views.components.forms.components.inputs.startenddate;
-public import uim.baklava.views.components.forms.components.inputs.switch_;
-public import uim.baklava.views.components.forms.components.inputs.text;
-public import uim.baklava.views.components.forms.components.inputs.textarea;
+public import uim.mvc.views.components.forms.components.inputs.checkbox;
+public import uim.mvc.views.components.forms.components.inputs.description;
+public import uim.mvc.views.components.forms.components.inputs.date;
+public import uim.mvc.views.components.forms.components.inputs.display;
+public import uim.mvc.views.components.forms.components.inputs.name;
+public import uim.mvc.views.components.forms.components.inputs.startenddate;
+public import uim.mvc.views.components.forms.components.inputs.switch_;
+public import uim.mvc.views.components.forms.components.inputs.text;
+public import uim.mvc.views.components.forms.components.inputs.textarea;
 
 // for tests
-public import uim.baklava.views.components.forms.components.inputs.tests;
+public import uim.mvc.views.components.forms.components.inputs.tests;
 
 // Mixins
 template FormInputThis(string name, bool withEntity = false, bool withEntities = false) {

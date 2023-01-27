@@ -1,7 +1,7 @@
-module uim.baklava.views.components.forms.components.inputs.date;
+module uim.mvc.views.components.forms.components.inputs.date;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 class DBKLDateFormInput : DBKLFormInput {
   mixin(BKLViewComponentThis!("BKLDateFormInput"));

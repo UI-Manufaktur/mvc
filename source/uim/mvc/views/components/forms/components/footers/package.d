@@ -1,7 +1,7 @@
-module uim.baklava.views.components.forms.components.footers;
+module uim.mvc.views.components.forms.components.footers;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 // Main 
-public import uim.baklava.views.components.forms.components.footers.footer;
+public import uim.mvc.views.components.forms.components.footers.footer;

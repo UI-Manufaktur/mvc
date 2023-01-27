@@ -1,5 +1,5 @@
-module uim.baklava.views.components.forms.components.inputs.entity;
+module uim.mvc.views.components.forms.components.inputs.entity;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 

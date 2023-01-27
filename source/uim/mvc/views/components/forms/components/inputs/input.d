@@ -1,7 +1,7 @@
-module uim.baklava.views.components.forms.components.inputs.input;
+module uim.mvc.views.components.forms.components.inputs.input;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 class DBKLFormInput : DBKLEntityViewComponent {
   mixin(BKLViewComponentThis!("BKLFormInput"));

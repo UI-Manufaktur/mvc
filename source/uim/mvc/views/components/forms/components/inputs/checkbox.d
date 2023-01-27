@@ -1,7 +1,7 @@
-module uim.baklava.views.components.forms.components.inputs.checkbox;
+module uim.mvc.views.components.forms.components.inputs.checkbox;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 class DBKLCheckboxFormInput : DBKLFormInput {
   mixin(BKLViewComponentThis!("BKLCheckboxFormInput"));
