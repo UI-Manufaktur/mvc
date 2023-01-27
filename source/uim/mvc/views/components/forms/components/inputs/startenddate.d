@@ -69,7 +69,7 @@ class DMVCStartEndDateFormInput : DMVCFormInput {
             h5Input(options), H5Div(["invalid-feedback"], invalidFeedback)))
       ].toH5;
   }
-  version(test_baklava) {
+  version(test_uim_mvc) {
     unittest {
       writeln("--- Test in ", __MODULE__, "/", __LINE__);
       // 

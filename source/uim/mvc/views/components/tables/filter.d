@@ -27,6 +27,6 @@ class DMVCEntitiesTableFilter : DMVCViewComponent {
 }
 auto MVCEntitiesTableFilter() { return new DMVCEntitiesTableFilter; }
 
-version(test_baklava) { unittest {
+version(test_uim_mvc) { unittest {
   assert(MVCEntitiesTableFilter);
 }}

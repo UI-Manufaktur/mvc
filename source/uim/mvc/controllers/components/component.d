@@ -7,6 +7,9 @@ class DControllerComponent : DMVCBase, IControllerComponent {
   mixin(ControllerComponentThis!("ControllerComponent"));
 
   mixin(OProperty!("IController", "controller"));  
+  
+  // Component registry class used to lazy load components.
+  mixin(OProperty!("DControllerComponentRegistry", "registry");
 
   override void initialize() {
     super.initialize;

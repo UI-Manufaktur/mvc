@@ -29,7 +29,7 @@ class DMVCFormInput : DMVCEntityViewComponent {
     mixin(OProperty!("string", "path"));
     // mixin(OProperty!("DMVCPanes", "panes"));
   // #endregion Fields
-  
+
   override void initialize() {
     super.initialize();
 
@@ -77,7 +77,7 @@ class DMVCFormInput : DMVCEntityViewComponent {
 }
 mixin(MVCViewComponentCalls!("MVCFormInput", "DMVCFormInput"));
 
-version(test_baklava) { unittest {
+version(test_uim_mvc) { unittest {
   assert(new DMVCFormInput);
   assert(MVCFormInput);
 }}

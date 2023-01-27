@@ -10,7 +10,7 @@ class DMVCView : DMVCBase, IMVCView {
     super.initialize;
   }
   
-  mixin(OProperty!("IMVCController", "controller"));  
+  mixin(OProperty!("IController", "controller"));  
   mixin(OProperty!("DEntity", "entity"));
   mixin(OProperty!("DEntity[]", "entities"));
   mixin(OProperty!("string", "rootPath"));

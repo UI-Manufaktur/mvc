@@ -4,8 +4,8 @@ module uim.mvc.views.interface_;
 import uim.mvc;
 
 interface IMVCView : IMVCBase {
-  IMVCController controller();
-  O controller(this O)(IMVCController newController);
+  IController controller();
+  O controller(this O)(IController newController);
 
   DH5Obj[] toH5(STRINGAA options = null);
   string render(STRINGAA options = null);

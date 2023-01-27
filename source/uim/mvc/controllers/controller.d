@@ -6,10 +6,32 @@ import uim.mvc;
 class DController : DMVCBase, IController  {
   mixin(ControllerThis!("Controller"));
 
+  // Set to true to automatically render the view after action logic.
+  mixin(OProperty!("bool", "autoRender"));
+
+  // Instance of ComponentRegistry used to create Components
+  mixin(OProperty!("ControllerComponentRegistry", "components"));
+
   // Initialization (= hook method)
   override void initialize() {
     debugMethodCall(moduleName!DController~"::DController("~this.name~"):initialize");   
     super.initialize;
+
+    _autoRender = true;
+
+    /**
+      * Default configuration for this class.
+      *
+      * Keys:
+      * - key: Session key used to store user record.
+      * - redirect: Session key used to store redirect URL.
+      *
+      */
+      _defaultConfig = Json.emptyObject;
+      _defaultConfig["key"] = "Auth.User";
+      _defaultConfig["redirect"] = "Auth.redirect";
+
+      _Config = Json.emptyObject;
 
     this
       .name("Controller"); 
@@ -49,17 +71,35 @@ class DController : DMVCBase, IController  {
     return cast(O)this;
   } */
 
-  HTTPServerRequest _request;
-  HTTPServerRequest request() { return _request; }
-  void request(HTTPServerRequest newRequest) { _request = newRequest; }
 
-  HTTPServerResponse _response;
-  HTTPServerResponse response() { return _response; }
-  void response(HTTPServerResponse newResponse) { _response = newResponse; }
+  // #region HTTPServerRequest _request
+    /**
+      * An instance of a HTTPServerRequest object that contains information about the current request.
+      * This object contains all the information about a request and several methods for reading
+      * additional information about the request.
+      * @link https://vibed.org/api/vibe.http.server/HTTPServerRequest
+      */
+    HTTPServerRequest _request;
+    HTTPServerRequest request() { return _request; }
+    void request(HTTPServerRequest newRequest) { _request = newRequest; }
+  // #region HTTPServerRequest _request
 
+  // #region HTTPServerResponse response
+    /**
+     * An instance of a Response object that contains information about the impending response
+     *
+     * @link https://vibed.org/api/vibe.http.server/HTTPServerResponse
+     */
+    HTTPServerResponse _response;
+    HTTPServerResponse response() { return _response; }
+    void response(HTTPServerResponse newResponse) { _response = newResponse; }
+  // #endregion HTTPServerResponse response
+
+  // https://vibed.org/api/vibe.http.session/
   mixin(OProperty!("DEntity", "session"));
 
-  /// Configuration of controller
+  // Configuration of controller
+  mixin(OProperty!("Json", "defaultConfig"));
   mixin(OProperty!("Json", "config"));
 
   bool hasRedirect() {

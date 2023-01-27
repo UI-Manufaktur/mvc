@@ -24,6 +24,6 @@ class DMVCNullComponent : DMVCViewComponent {
 }
 mixin(MVCViewComponentCalls!("MVCNullComponent", "DMVCNullComponent"));
 
-version(test_baklava) { unittest {
+version(test_uim_mvc) { unittest {
   assert(MVCNullComponent);
 }}

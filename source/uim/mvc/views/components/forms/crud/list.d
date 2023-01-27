@@ -39,7 +39,7 @@ class DMVCEntitiesListForm : DMVCEntitiesForm {
 }
 mixin(MVCViewComponentCalls!("MVCEntitiesListForm", "DMVCEntitiesListForm"));
 
-version(test_baklava) { unittest {
+version(test_uim_mvc) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
     
     assert(new DMVCEntitiesListForm);

@@ -28,7 +28,7 @@ class DMVCTextFormInput : DMVCFormInput {
 }
 mixin(MVCViewComponentCalls!("MVCTextFormInput", "DMVCTextFormInput"));
 
-version(test_baklava) { unittest {
+version(test_uim_mvc) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
 
   }}
