@@ -1,7 +1,7 @@
-module uim.baklava.controllers.interface_;
+module uim.mvc.controllers.interface_;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 interface IBKLController : IBKLBase  {
   string rootPath(); 

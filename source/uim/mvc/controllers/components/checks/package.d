@@ -1,3 +1,3 @@
-module uim.baklava.controllers.components.checks;
+module uim.mvc.controllers.components.checks;
 
-public import uim.baklava.controllers.components.checks.check;
+public import uim.mvc.controllers.components.checks.check;

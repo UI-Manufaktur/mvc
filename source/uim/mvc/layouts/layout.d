@@ -1,7 +1,7 @@
-module uim.baklava.layouts.layout;
+module uim.mvc.layouts.layout;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 enum DataModes { Local, REST }
 

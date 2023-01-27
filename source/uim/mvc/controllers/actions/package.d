@@ -1,3 +1,3 @@
-module uim.baklava.controllers.actions;
+module uim.mvc.controllers.actions;
 
-public import uim.baklava.controllers.actions.action;
+public import uim.mvc.controllers.actions.action;

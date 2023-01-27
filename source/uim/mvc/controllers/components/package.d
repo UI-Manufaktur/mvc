@@ -1,7 +1,7 @@
-module uim.baklava.controllers.components;
+module uim.mvc.controllers.components;
 
-public import uim.baklava.controllers.components.component;
-public import uim.baklava.controllers.components.interface_;
-public import uim.baklava.controllers.components.registry;
+public import uim.mvc.controllers.components.component;
+public import uim.mvc.controllers.components.interface_;
+public import uim.mvc.controllers.components.registry;
 
-public import uim.baklava.controllers.components.checks;
+public import uim.mvc.controllers.components.checks;

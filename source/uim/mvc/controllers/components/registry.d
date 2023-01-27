@@ -1,7 +1,7 @@
-module uim.baklava.controllers.components.registry;
+module uim.mvc.controllers.components.registry;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 class DBKLControllerComponentRegistry : DRegistry!DBKLControllerComponent{
   this() {}

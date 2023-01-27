@@ -1,7 +1,7 @@
-module uim.baklava.controllers.components.interface_;
+module uim.mvc.controllers.components.interface_;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 interface IBKLControllerComponent : IBKLBase {
   IBKLController controller();

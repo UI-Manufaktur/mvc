@@ -1,7 +1,7 @@
-module uim.baklava.controllers.actions.action;
+module uim.mvc.controllers.actions.action;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 class DBKLActionController : DBKLController {
   mixin(BKLControllerThis!("BKLActionController"));

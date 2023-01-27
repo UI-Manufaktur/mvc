@@ -1,7 +1,7 @@
-module uim.baklava.mixins.layout;
+module uim.mvc.mixins.layout;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 string mvcLayoutThis(string name) {
   return

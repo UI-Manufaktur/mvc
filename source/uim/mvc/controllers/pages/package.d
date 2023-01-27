@@ -1,3 +1,3 @@
-module uim.baklava.controllers.pages;
+module uim.mvc.controllers.pages;
 
-public import uim.baklava.controllers.pages.page;
+public import uim.mvc.controllers.pages.page;

@@ -1,4 +1,4 @@
-module uim.baklava.layouts;
+module uim.mvc.layouts;
 
-public import uim.baklava.layouts.interface_;
-public import uim.baklava.layouts.layout;
+public import uim.mvc.layouts.interface_;
+public import uim.mvc.layouts.layout;

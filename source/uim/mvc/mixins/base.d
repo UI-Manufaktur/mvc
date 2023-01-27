@@ -1,7 +1,7 @@
-module uim.baklava.mixins.base;
+module uim.mvc.mixins.base;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 string mvcBaseThis(string name) {
   return `

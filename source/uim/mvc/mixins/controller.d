@@ -1,7 +1,7 @@
-module uim.baklava.mixins.controller;
+module uim.mvc.mixins.controller;
 
 @safe:
-import uim.baklava;
+import uim.mvc;
 
 string mvcControllerThis(string name) {
   return
