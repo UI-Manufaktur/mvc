@@ -3,9 +3,9 @@ module uim.mvc.routes.route;
 @safe:
 import uim.mvc;
 
-class DBKLRoute : DBKLBase, IBKLRoute {
+class DMVCRoute : DMVCBase, IBKLRoute {
   this() { super(); }
-  this(string aPath, HTTPMethod aMethod, DBKLController aController) {
+  this(string aPath, HTTPMethod aMethod, DMVCController aController) {
     this().path(aPath).method(aMethod).controller(aController);
   }
 
@@ -15,10 +15,10 @@ class DBKLRoute : DBKLBase, IBKLRoute {
 
   mixin(OProperty!("string", "path"));
   mixin(OProperty!("HTTPMethod", "method"));
-  mixin(OProperty!("DBKLController", "controller"));
+  mixin(OProperty!("DMVCController", "controller"));
 }
-auto BKLRoute() { return new DBKLRoute; }
-auto BKLRoute(string aPath, HTTPMethod aMethod, DBKLController aController) { return new DBKLRoute(aPath, aMethod, aController); }
+auto BKLRoute() { return new DMVCRoute; }
+auto BKLRoute(string aPath, HTTPMethod aMethod, DMVCController aController) { return new DMVCRoute(aPath, aMethod, aController); }
 
 version(test_uim_mvc) { unittest { 
   assert(BKLRoute);

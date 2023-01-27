@@ -3,17 +3,17 @@ module uim.mvc.views.registry;
 @safe:
 import uim.mvc;
 
-class DBKLViewRegistry : DRegistry!DBKLView{
+class DMVCViewRegistry : DRegistry!DMVCView{
   this() {}
 
-  static DBKLViewRegistry registry; 
+  static DMVCViewRegistry registry; 
 }
 auto BKLViewRegistry() { 
-  if (!DBKLViewRegistry.registry) {
-    DBKLViewRegistry.registry = new DBKLViewRegistry; 
+  if (!DMVCViewRegistry.registry) {
+    DMVCViewRegistry.registry = new DMVCViewRegistry; 
   }
   return 
-  DBKLViewRegistry.registry;
+  DMVCViewRegistry.registry;
 }
 
 version(test_uim_mvc) { unittest {

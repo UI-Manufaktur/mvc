@@ -3,7 +3,7 @@ module uim.mvc.views.view;
 @safe:
 import uim.mvc;
 
-class DBKLView : DBKLBase, IBKLView { 
+class DMVCView : DMVCBase, IBKLView { 
   mixin(BKLViewThis!("BKLView"));
 
   override void initialize() {
@@ -24,7 +24,7 @@ class DBKLView : DBKLBase, IBKLView {
   }
 
   DH5Obj[] toH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DBKLView~":DBKLView("~this.name~")::toH5");
+    debugMethodCall(moduleName!DMVCView~":DMVCView("~this.name~")::toH5");
     beforeH5(options);
     DH5Obj[] result;     
     afterH5(options);  
@@ -46,7 +46,7 @@ class DBKLView : DBKLBase, IBKLView {
     return result;
   }
 }
-mixin(BKLViewCalls!("BKLView", "DBKLView"));
+mixin(BKLViewCalls!("BKLView", "DMVCView"));
 
 version(test_uim_mvc) { unittest { 
   testBKLView(BKLView, "BKLView");

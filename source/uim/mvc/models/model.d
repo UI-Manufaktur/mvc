@@ -3,14 +3,14 @@ module uim.mvc.models.model;
 @safe:
 import uim.mvc;
 
-class DBKLModel : DBKLBase, IBKLModel { 
+class DMVCModel : DMVCBase, IBKLModel { 
   mixin(BKLModelThis!("BKLModel"));
 
   override void initialize() {}
 
   mixin(OProperty!("DETBBase", "datasource")); 
 }
-mixin(BKLModelCalls!("BKLModel", "DBKLModel"));
+mixin(BKLModelCalls!("BKLModel", "DMVCModel"));
 
 version(test_uim_mvc) { unittest { 
   assert(BKLModel);

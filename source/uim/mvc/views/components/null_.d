@@ -3,7 +3,7 @@ module uim.mvc.views.components.null_;
 @safe:
 import uim.mvc;
 
-class DBKLNullComponent : DBKLViewComponent {
+class DMVCNullComponent : DMVCViewComponent {
   mixin(BKLViewComponentThis!("BKLNullComponent"));
   
   override void initialize() {
@@ -22,7 +22,7 @@ class DBKLNullComponent : DBKLViewComponent {
     return null; 
   }
 }
-mixin(BKLViewComponentCalls!("BKLNullComponent", "DBKLNullComponent"));
+mixin(BKLViewComponentCalls!("BKLNullComponent", "DMVCNullComponent"));
 
 version(test_baklava) { unittest {
   assert(BKLNullComponent);

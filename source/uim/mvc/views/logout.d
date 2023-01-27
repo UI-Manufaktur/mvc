@@ -8,7 +8,7 @@ module uim.mvc.views.logout;
 @safe:
 import uim.mvc;
 
-class DBKLLogoutView : DBKLView {
+class DMVCLogoutView : DMVCView {
   mixin(BKLViewThis!("BKLLogoutView"));
 
   override void beforeH5(STRINGAA options = null) {
@@ -59,7 +59,7 @@ class DBKLLogoutView : DBKLView {
     ].toH5;
   }
 }
-mixin(BKLViewCalls!("BKLLogoutView", "DBKLLogoutView"));
+mixin(BKLViewCalls!("BKLLogoutView", "DMVCLogoutView"));
 
 version(test_baklava) { unittest {
   assert(BKLLogoutView);

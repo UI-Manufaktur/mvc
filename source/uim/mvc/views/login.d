@@ -8,16 +8,16 @@ module uim.mvc.views.login;
 @safe:
 import uim.mvc;
 
-class DBKLLoginView : DBKLView {
+class DMVCLoginView : DMVCView {
   mixin(BKLViewThis!("BKLLoginView"));
   
   override void beforeH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DBKLLoginView~":DBKLLoginView::beforeH5");
+    debugMethodCall(moduleName!DMVCLoginView~":DMVCLoginView::beforeH5");
     this.rootPath(options.get("rootPath", "/"));
   }
 
   override DH5Obj[] toH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DBKLLoginView~":DBKLLoginView::toH5");
+    debugMethodCall(moduleName!DMVCLoginView~":DMVCLoginView::toH5");
     super.toH5(options);
 
     auto message = BS5Row; 
@@ -51,7 +51,7 @@ class DBKLLoginView : DBKLView {
     ].toH5;
   }
 }
-mixin(BKLViewCalls!("BKLLoginView", "DBKLLoginView"));
+mixin(BKLViewCalls!("BKLLoginView", "DMVCLoginView"));
 
 version(test_baklava) { unittest {
   assert(BKLLoginView);

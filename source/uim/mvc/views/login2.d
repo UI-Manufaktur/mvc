@@ -3,11 +3,11 @@ module uim.mvc.views.login2;
 @safe:
 import uim.mvc;
 
-class DBKLLogin2View : DBKLView {
+class DMVCLogin2View : DMVCView {
   mixin(BKLViewThis!("BKLLogin2View"));
 
   override void beforeH5(STRINGAA options = null) { 
-    debugMethodCall(moduleName!DBKLLogin2View~":DBKLLogin2View::beforeH5");
+    debugMethodCall(moduleName!DMVCLogin2View~":DMVCLogin2View::beforeH5");
     super.beforeH5(options);
   }
 
@@ -24,7 +24,7 @@ class DBKLLogin2View : DBKLView {
     ].toH5;
   }
 }
-mixin(BKLViewCalls!("BKLLogin2View", "DBKLLogin2View"));
+mixin(BKLViewCalls!("BKLLogin2View", "DMVCLogin2View"));
 
 version(test_baklava) { unittest {
   assert(BKLLogin2View);
