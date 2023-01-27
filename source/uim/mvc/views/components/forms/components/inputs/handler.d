@@ -3,11 +3,11 @@ module uim.mvc.views.components.forms.components.inputs.handler;
 @safe:
 import uim.mvc;
 
-class DBKLFormInputHandler : DBKLEntityFormContent {
+class DMVCFormInputHandler : DMVCEntityFormContent {
   mixin(BKLViewComponentThis!("BKLFormInputHandler"));
 
-  mixin(OProperty!("DBKLFormInput[string]", "formInputs"));
-  O addFormInputs(this O)(DBKLFormInput[string] newFormInputs) {
+  mixin(OProperty!("DMVCFormInput[string]", "formInputs"));
+  O addFormInputs(this O)(DMVCFormInput[string] newFormInputs) {
     newFormInputs.byKey.each!(key => formInputs[key] = newFormInputs[key]);
     return cast(O)this;
   }
@@ -31,7 +31,7 @@ class DBKLFormInputHandler : DBKLEntityFormContent {
   } */
 
   DH5Obj[] group(string field, bool readonly, STRINGAA options = null) {
-    debug writeln(moduleName!DBKLFormInputHandler, ":DBKLFormInputHandler::group");
+    debug writeln(moduleName!DMVCFormInputHandler, ":DMVCFormInputHandler::group");
     debug writeln("CrudMode:", this.crudMode);
 
 /*     foreach(key, formInput; formInputs) {
@@ -45,7 +45,7 @@ class DBKLFormInputHandler : DBKLEntityFormContent {
       if (auto myInput = this.formInputs.get(field.toLower, null)) { // field name not case sensitive !
         debug writeln("Found formGroup for field:", field);
         myInput.crudMode(this.crudMode)/* .form(form) */;
-        if (auto myFormInput = cast(DBKLFormInput)myInput) {
+        if (auto myFormInput = cast(DMVCFormInput)myInput) {
           return myFormInput.entity(entity).toH5(options);
         }
         return myInput.toH5(options);
@@ -53,4 +53,4 @@ class DBKLFormInputHandler : DBKLEntityFormContent {
     return null;
   }
 }  
-mixin(BKLViewComponentCalls!("BKLFormInputHandler", "DBKLFormInputHandler"));
+mixin(BKLViewComponentCalls!("BKLFormInputHandler", "DMVCFormInputHandler"));

@@ -8,7 +8,7 @@ module uim.mvc.views.components.tables.versions;
 @safe:
 import uim.mvc;
 
-/* class DBKLTableVersions : DBKLEntitiesTableHeader {
+/* class DMVCTableVersions : DMVCEntitiesTableHeader {
   mixin(ViewComponentThis!("BKLTableVersions"));
 
   mixin(OProperty!("DOOPEntity[]", "versions"));

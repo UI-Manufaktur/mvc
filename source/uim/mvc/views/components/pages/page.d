@@ -3,8 +3,8 @@ module uim.mvc.views.components.pages.page;
 @safe:
 import uim.mvc;
 
-class DBKLPageViewComponent
- : DBKLViewComponent {
+class DMVCPageViewComponent
+ : DMVCViewComponent {
   mixin(BKLViewComponentThis!("BKLPageViewComponent"));
   
   override void initialize() {
@@ -14,9 +14,9 @@ class DBKLPageViewComponent
       .footer(BKLPageFooter);
   }
 
-  mixin(OProperty!("DBKLPageHeaderViewComponent", "header"));
-  mixin(OProperty!("DBKLPageBodyViewComponent", "body_"));
-  mixin(OProperty!("DBKLPageFooterViewComponent", "footer"));
+  mixin(OProperty!("DMVCPageHeaderViewComponent", "header"));
+  mixin(OProperty!("DMVCPageBodyViewComponent", "body_"));
+  mixin(OProperty!("DMVCPageFooterViewComponent", "footer"));
 
   override void _afterSetEntity() {
     if (header) header.entity = this.entity;
@@ -30,4 +30,4 @@ class DBKLPageViewComponent
     if (footer)  footer.entities = this.entities;
   }
 }
-mixin(BKLViewComponentCalls!("BKLPageViewComponent", "DBKLPageViewComponent"));
+mixin(BKLViewComponentCalls!("BKLPageViewComponent", "DMVCPageViewComponent"));

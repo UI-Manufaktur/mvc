@@ -8,13 +8,13 @@ module uim.mvc.views.components.tables.table;
 @safe:
 import uim.mvc;
 
-class DBKLTableViewComponent : DBKLViewComponent {
+class DMVCTableViewComponent : DMVCViewComponent {
   mixin(BKLViewComponentThis!("BKLTableViewComponent"));
   
   mixin(OProperty!("string", "path"));  
-  mixin(OProperty!("DBKLViewComponent", "header"));
-  mixin(OProperty!("DBKLViewComponent", "content"));
-  mixin(OProperty!("DBKLViewComponent", "footer"));
+  mixin(OProperty!("DMVCViewComponent", "header"));
+  mixin(OProperty!("DMVCViewComponent", "content"));
+  mixin(OProperty!("DMVCViewComponent", "footer"));
 
   override DH5Obj[] toH5(STRINGAA options = null) { // hook
     super.toH5(options);
@@ -30,7 +30,7 @@ class DBKLTableViewComponent : DBKLViewComponent {
       )].toH5;
   }
 }
-mixin(BKLViewComponentCalls!("BKLTableViewComponent", "DBKLTableViewComponent"));
+mixin(BKLViewComponentCalls!("BKLTableViewComponent", "DMVCTableViewComponent"));
 
 version(test_baklava) { unittest {
   assert(BKLTableViewComponent);

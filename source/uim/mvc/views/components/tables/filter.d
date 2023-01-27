@@ -8,9 +8,9 @@ module uim.mvc.views.components.tables.filter;
 @safe:
 import uim.mvc;
 
-class DBKLEntitiesTableFilter : DBKLViewComponent {
+class DMVCEntitiesTableFilter : DMVCViewComponent {
   this() { super(); this.visibleEntities(10); }
-  this(DBKLView myView) { this().view(myView); }
+  this(DMVCView myView) { this().view(myView); }
 
   mixin(OProperty!("size_t", "visibleEntities"));
   
@@ -25,7 +25,7 @@ class DBKLEntitiesTableFilter : DBKLViewComponent {
         .th()];
   }
 }
-auto BKLEntitiesTableFilter() { return new DBKLEntitiesTableFilter; }
+auto BKLEntitiesTableFilter() { return new DMVCEntitiesTableFilter; }
 
 version(test_baklava) { unittest {
   assert(BKLEntitiesTableFilter);

@@ -3,7 +3,7 @@ module uim.mvc.views.components.pages.headers.entities.delete_;
 @safe:
 import uim.mvc;
 
-class DBKLDeletePageHeaderViewComponent : DBKLPageHeaderViewComponent {
+class DMVCDeletePageHeaderViewComponent : DMVCPageHeaderViewComponent {
   mixin(BKLViewComponentThis!("BKLDeletePageHeaderViewComponent"));
   
   override void initialize() {
@@ -13,5 +13,5 @@ class DBKLDeletePageHeaderViewComponent : DBKLPageHeaderViewComponent {
       .actions([["refresh"], ["list"], ["view", "edit"], ["print", "export"]]); 
   }
 }
-mixin(BKLViewComponentCalls!("BKLDeletePageHeaderViewComponent", "DBKLDeletePageHeaderViewComponent"));
-mixin(BKLViewComponentCalls!("BKLDeletePageHeader", "DBKLDeletePageHeaderViewComponent"));
+mixin(BKLViewComponentCalls!("BKLDeletePageHeaderViewComponent", "DMVCDeletePageHeaderViewComponent"));
+mixin(BKLViewComponentCalls!("BKLDeletePageHeader", "DMVCDeletePageHeaderViewComponent"));

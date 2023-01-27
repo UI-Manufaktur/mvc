@@ -3,7 +3,7 @@ module uim.mvc.views.components.pages.headers.entities.edit;
 @safe:
 import uim.mvc;
 
-class DBKLEditPageHeaderViewComponent : DBKLPageHeaderViewComponent {
+class DMVCEditPageHeaderViewComponent : DMVCPageHeaderViewComponent {
   mixin(BKLViewComponentThis!("BKLEditPageHeaderViewComponent"));
   
   override void initialize() {
@@ -13,5 +13,5 @@ class DBKLEditPageHeaderViewComponent : DBKLPageHeaderViewComponent {
       .actions([["refresh"], ["list"], ["view"], ["print", "export"]]); 
   }
 }
-mixin(BKLViewComponentCalls!("BKLEditPageHeaderViewComponent", "DBKLEditPageHeaderViewComponent"));
-mixin(BKLViewComponentCalls!("BKLEditPageHeader", "DBKLEditPageHeaderViewComponent"));
+mixin(BKLViewComponentCalls!("BKLEditPageHeaderViewComponent", "DMVCEditPageHeaderViewComponent"));
+mixin(BKLViewComponentCalls!("BKLEditPageHeader", "DMVCEditPageHeaderViewComponent"));

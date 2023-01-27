@@ -3,7 +3,7 @@ module uim.mvc.views.components.pages.headers.entities.create;
 @safe:
 import uim.mvc;
 
-class DBKLCreatePageHeaderViewComponent : DBKLPageHeaderViewComponent {
+class DMVCCreatePageHeaderViewComponent : DMVCPageHeaderViewComponent {
   mixin(BKLViewComponentThis!("BKLCreatePageHeaderViewComponent"));
   
   override void initialize() {
@@ -13,5 +13,5 @@ class DBKLCreatePageHeaderViewComponent : DBKLPageHeaderViewComponent {
       .actions([["refresh"], ["list"]]); 
   }
 }
-mixin(BKLViewComponentCalls!("BKLCreatePageHeaderViewComponent", "DBKLCreatePageHeaderViewComponent"));
-mixin(BKLViewComponentCalls!("BKLCreatePageHeader", "DBKLCreatePageHeaderViewComponent"));
+mixin(BKLViewComponentCalls!("BKLCreatePageHeaderViewComponent", "DMVCCreatePageHeaderViewComponent"));
+mixin(BKLViewComponentCalls!("BKLCreatePageHeader", "DMVCCreatePageHeaderViewComponent"));

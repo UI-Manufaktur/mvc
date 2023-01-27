@@ -3,7 +3,7 @@ module uim.mvc.views.components.pages.headers.header;
 @safe:
 import uim.mvc;
 
-class DBKLPageHeaderViewComponent : DBKLViewComponent {
+class DMVCPageHeaderViewComponent : DMVCViewComponent {
   mixin(BKLViewComponentThis!("BKLPageHeaderViewComponent"));
 
   override void initialize() {
@@ -69,5 +69,5 @@ class DBKLPageHeaderViewComponent : DBKLViewComponent {
       ].toH5;
   }
 }
-mixin(BKLViewComponentCalls!("BKLPageHeaderViewComponent", "DBKLPageHeaderViewComponent"));
-mixin(BKLViewComponentCalls!("BKLPageHeader", "DBKLPageHeaderViewComponent"));
+mixin(BKLViewComponentCalls!("BKLPageHeaderViewComponent", "DMVCPageHeaderViewComponent"));
+mixin(BKLViewComponentCalls!("BKLPageHeader", "DMVCPageHeaderViewComponent"));

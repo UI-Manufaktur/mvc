@@ -8,9 +8,9 @@ module uim.mvc.views.components.tables.listheader;
 @safe:
 import uim.mvc;
 
-class DBKLListTableHeader : DBKLViewComponent {
+class DMVCListTableHeader : DMVCViewComponent {
   this() { super(); }
-  this(DBKLView myView) { this(); this.view(myView); }
+  this(DMVCView myView) { this(); this.view(myView); }
 
   override DH5Obj[] toH5(STRINGAA options) {
     return [
@@ -26,5 +26,5 @@ class DBKLListTableHeader : DBKLViewComponent {
         .th("headActions", ["w-1"], H5String("Aktionen"))];
   }
 }
-auto BKLListTableHeader() { return new DBKLListTableHeader; }
-auto BKLListTableHeader(DBKLView myView) { return new DBKLListTableHeader(myView); }
+auto BKLListTableHeader() { return new DMVCListTableHeader; }
+auto BKLListTableHeader(DMVCView myView) { return new DMVCListTableHeader(myView); }

@@ -8,7 +8,7 @@ module uim.mvc.views.components.tables.components.bodies.entities;
 @safe:
 import uim.mvc;
 
-class DBKLEntitiesTableBody : DBKLTableBody {
+class DMVCEntitiesTableBody : DMVCTableBody {
   mixin(BKLViewComponentThis!("BKLEntitiesTableBody"));
 }
-mixin(BKLViewComponentCalls!("BKLEntitiesTableBody", "DBKLEntitiesTableBody"));
+mixin(BKLViewComponentCalls!("BKLEntitiesTableBody", "DMVCEntitiesTableBody"));

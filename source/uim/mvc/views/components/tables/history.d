@@ -8,9 +8,9 @@ module uim.mvc.views.components.tables.history;
 @safe:
 import uim.mvc;
 
-/* class DBKLTableHistory : DBKLEntitiesTableHeader {
+/* class DMVCTableHistory : DMVCEntitiesTableHeader {
   this() { super(); }
-  this(DBKLView myView) { this().view(myView); }
+  this(DMVCView myView) { this().view(myView); }
 
   mixin(OProperty!("DOOPEntity[]", "history"));
   O history(this O)(Json[] jsons) {
@@ -65,7 +65,7 @@ import uim.mvc;
 
   } * /
 }
-auto BKLTableHistory() { return new DBKLTableHistory; }
+auto BKLTableHistory() { return new DMVCTableHistory; }
 /* auto BKLTableHistory(string myKey, string myTitle) { return BKLTableHistory.key(myKey).title(myTitle); }
 auto BKLTableHistory(string myKey, string myTitle, string myPath) { return BKLTableHistory.key(myKey).title(myTitle).path(myPath); }
  * /  
