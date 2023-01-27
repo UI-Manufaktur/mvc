@@ -15,7 +15,7 @@ class DControllerComponent : DMVCBase, IControllerComponent {
   protected Json _defaultConfig = null;
 
   // Component registry class used to lazy load components.
-  mixin(OProperty!("DControllerComponentRegistry", "registry");
+  mixin(OProperty!("DControllerComponentRegistry", "registry"));
 
   override void initialize() {
     super.initialize;

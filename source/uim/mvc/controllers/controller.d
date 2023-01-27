@@ -34,7 +34,7 @@ class DController : DMVCBase, IController  {
       _defaultConfig["key"] = "Auth.User";
       _defaultConfig["redirect"] = "Auth.redirect";
 
-      _Config = Json.emptyObject;
+      _config = Json.emptyObject;
 
     this
       .name("Controller"); 

@@ -8,6 +8,39 @@ module uim.mvc.views.view;
 @safe:
 import uim.mvc;
 
+/**
+ * View, the V in the MVC triad. View interacts with Helpers, ViewComponents and view variables passed
+ * in from the controller to render the results of the controller action. Often this is HTML,
+ * but can also take the form of JSON, XML, PDF"s or streaming files.
+ *
+ * UIM uses a two-step-view pattern. This means that the template content is rendered first,
+ * and then inserted into the selected layout. This also means you can pass data from the template to the
+ * layout using `this.set()`
+ *
+ * View class supports using plugins as themes. You can set
+ *
+ * ```
+ * void beforeRender(IEvent myEvent) {
+ *  this.viewBuilder().setTheme("SuperHot");
+ * }
+ * ```
+ *
+ * in your Controller to use plugin `SuperHot` as a theme. Eg. If current action
+ * is PostsController::index() then View class will look for template file
+ * `plugins/SuperHot/templates/Posts/index.php`. If a theme template
+ * is not found for the current action the default app template file is used.
+ *
+ * @property uim.mvc.views\Helper\BreadcrumbsHelper $Breadcrumbs
+ * @property uim.mvc.views\Helper\FlashHelper $Flash
+ * @property uim.mvc.views\Helper\FormHelper $Form
+ * @property uim.mvc.views\Helper\HtmlHelper $Html
+ * @property uim.mvc.views\Helper\NumberHelper $Number
+ * @property uim.mvc.views\Helper\PaginatorHelper $Paginator
+ * @property uim.mvc.views\Helper\TextHelper $Text
+ * @property uim.mvc.views\Helper\TimeHelper $Time
+ * @property uim.mvc.views\Helper\UrlHelper myUrl
+ * @property uim.mvc.views\ViewBlock $Blocks
+ */
 class DMVCView : DMVCBase, IMVCView { 
   mixin(MVCViewThis!("MVCView"));
 

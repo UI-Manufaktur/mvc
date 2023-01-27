@@ -5,8 +5,9 @@
 **********************************************************************************************************/
 module uim.mvc.controllers.exceptions.invalidparameter;
 
-import uim.mvc.core.exceptions.UIMException;
-use Throwable;
+@safe:
+import uim.mvc;
+/* use Throwable; */
 
 // Used when a passed parameter or action parameter type declaration is missing or invalid.
 class InvalidParameterException : UIMException {
@@ -26,11 +27,11 @@ class InvalidParameterException : UIMException {
      * @param int|null $code The error code
      * @param \Throwable|null $previous the previous exception.
      */
-    this($message = "", Nullable!int $code = null, ?Throwable $previous = null) {
+    this($message = "", Nullable!int errorCode = 0, ?Throwable $previous = null) {
         if (is_array($message)) {
             _messageTemplate = _templates[$message["template"]] ?? "";
             unset($message["template"]);
         }
-        super($message, $code, $previous);
+        super($message, errorCode, $previous);
     }
 }
