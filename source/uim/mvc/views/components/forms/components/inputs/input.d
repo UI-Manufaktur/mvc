@@ -8,7 +8,7 @@ module uim.mvc.views.components.forms.components.inputs.input;
 @safe:
 import uim.mvc;
 
-class DBKLFormInput : DBKLEntityViewComponent {
+class DMVCFormInput : DMVCEntityViewComponent {
   mixin(BKLViewComponentThis!("BKLFormInput"));
 
   // id of label element
@@ -26,7 +26,7 @@ class DBKLFormInput : DBKLEntityViewComponent {
   mixin(OProperty!("string", "invalidFeedback"));
   mixin(OProperty!("string[]", "fields"));
   mixin(OProperty!("string", "path"));
-  // mixin(OProperty!("DBKLPanes", "panes"));
+  // mixin(OProperty!("DMVCPanes", "panes"));
 
   override void initialize() {
     super.initialize();
@@ -73,9 +73,9 @@ class DBKLFormInput : DBKLEntityViewComponent {
       ];
   }
 }
-mixin(BKLViewComponentCalls!("BKLFormInput", "DBKLFormInput"));
+mixin(BKLViewComponentCalls!("BKLFormInput", "DMVCFormInput"));
 
 version(test_baklava) { unittest {
-  assert(new DBKLFormInput);
+  assert(new DMVCFormInput);
   assert(BKLFormInput);
 }}

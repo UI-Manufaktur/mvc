@@ -3,7 +3,7 @@ module uim.mvc.views.components.forms.crud.list;
 @safe:
 import uim.mvc;
 
-class DBKLEntitiesListForm : DBKLEntitiesForm {
+class DMVCEntitiesListForm : DMVCEntitiesForm {
   mixin(BKLViewComponentThis!("BKLEntitiesListForm"));
 
   override void initialize() {
@@ -23,7 +23,7 @@ class DBKLEntitiesListForm : DBKLEntitiesForm {
   }
 
   override DH5Obj[] toH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DBKLEntitiesListForm~":DBKLEntitiesListForm("~this.name~")::toH5");
+    debugMethodCall(moduleName!DMVCEntitiesListForm~":DMVCEntitiesListForm("~this.name~")::toH5");
     super.toH5(options);
     
     DBS5Col _col = BS5Col(["col-12"]);
@@ -37,12 +37,12 @@ class DBKLEntitiesListForm : DBKLEntitiesForm {
     return [_col].toH5;
   }  
 }
-mixin(BKLViewComponentCalls!("BKLEntitiesListForm", "DBKLEntitiesListForm"));
+mixin(BKLViewComponentCalls!("BKLEntitiesListForm", "DMVCEntitiesListForm"));
 
 version(test_baklava) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
     
-    assert(new DBKLEntitiesListForm);
+    assert(new DMVCEntitiesListForm);
     assert(BKLEntitiesListForm);
   }
 }

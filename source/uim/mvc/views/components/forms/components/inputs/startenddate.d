@@ -3,7 +3,7 @@ module uim.mvc.views.components.forms.components.inputs.startenddate;
 @safe:
 import uim.mvc;
 
-class DBKLStartEndDateFormInput : DBKLFormInput {
+class DMVCStartEndDateFormInput : DMVCFormInput {
   mixin(BKLViewComponentThis!("BKLStartEndDateFormInput"));
 
   DH5Obj h5StartInput(STRINGAA options = null) {
@@ -75,4 +75,4 @@ class DBKLStartEndDateFormInput : DBKLFormInput {
       // 
       }}
 }
-mixin(BKLViewComponentCalls!("BKLStartEndDateFormInput", "DBKLStartEndDateFormInput"));
+mixin(BKLViewComponentCalls!("BKLStartEndDateFormInput", "DMVCStartEndDateFormInput"));

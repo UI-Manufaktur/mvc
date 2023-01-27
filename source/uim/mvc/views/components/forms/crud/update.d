@@ -3,7 +3,7 @@ module uim.mvc.views.components.forms.crud.update;
 @safe:
 import uim.mvc;
 
-class DBKLUpdateForm : DBKLEntityForm {
+class DMVCUpdateForm : DMVCEntityForm {
   mixin(BKLViewComponentThis!("BKLUpdateForm"));
 
   override void initialize() {
@@ -13,10 +13,10 @@ class DBKLUpdateForm : DBKLEntityForm {
       .crudMode(CRUDModes.Update);
   }
 }
-mixin(BKLViewComponentCalls!("BKLUpdateForm", "DBKLUpdateForm"));
+mixin(BKLViewComponentCalls!("BKLUpdateForm", "DMVCUpdateForm"));
 
 /* 
-auto editheader(T:DOOPEntity)(string path, T entity, DBKLPanes panes, STRINGAA reqParameters) {
+auto editheader(T:DOOPEntity)(string path, T entity, DMVCPanes panes, STRINGAA reqParameters) {
   return 
     BS5CardHeader( 
       H5H4(["card-title me-auto"], "ID: "~entity.id.toString), 
@@ -30,7 +30,7 @@ auto editheader(T:DOOPEntity)(string path, T entity, DBKLPanes panes, STRINGAA r
     );
 }
 
-auto editbody_(T:DOOPEntity)(string path, T entity, DBKLPanes panes, STRINGAA reqParameters) {
+auto editbody_(T:DOOPEntity)(string path, T entity, DMVCPanes panes, STRINGAA reqParameters) {
   return 
     BS5CardBody(
       BS5Row.col(["col-12"], 
@@ -71,14 +71,14 @@ DH5Obj[] FormGroups_Edit(DOOPEntity entity, string[] fields = ["name", "display"
   return results;
 }
 
-class DBKLEditbody_ : DBKLbody_ {
+class DMVCEditbody_ : DMVCbody_ {
   this() { super();
     _fields = ["name", "display", "description"]; }
 
   mixin(OProperty!("string", "id"));
   mixin(OProperty!("string", "path"));
   mixin(OProperty!("DOOPEntity", "entity"));
-  mixin(OProperty!("DBKLPanes", "panes")); 
+  mixin(OProperty!("DMVCPanes", "panes")); 
   mixin(OProperty!("string[]", "fields")); 
   
   
@@ -119,6 +119,6 @@ class DBKLEditbody_ : DBKLbody_ {
       );
   } 
 }
-auto BKLEditbody_() { return new DBKLEditbody_(); }
+auto BKLEditbody_() { return new DMVCEditbody_(); }
 
  */

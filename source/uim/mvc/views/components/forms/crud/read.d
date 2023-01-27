@@ -3,7 +3,7 @@ module uim.mvc.views.components.forms.crud.read;
 @safe:
 import uim.mvc;
 
-class DBKLReadForm : DBKLEntityForm {
+class DMVCReadForm : DMVCEntityForm {
   mixin(BKLViewComponentThis!("BKLReadForm"));
 
   override void initialize() {
@@ -13,7 +13,7 @@ class DBKLReadForm : DBKLEntityForm {
       .crudMode(CRUDModes.Read);
   }
 }
-mixin(BKLViewComponentCalls!("BKLReadForm", "DBKLReadForm"));
+mixin(BKLViewComponentCalls!("BKLReadForm", "DMVCReadForm"));
 
 /* 
 auto viewForm(T:DOOPEntity)(string path, T entity, STRINGAA[] panes, STRINGAA reqParameters) {
@@ -44,7 +44,7 @@ auto viewForm(T:DOOPEntity)(string path, T entity, STRINGAA[] panes, STRINGAA re
       );
 }
 
-auto viewForm(T:DOOPEntity)(string path, T entity, DBKLPanes panes, STRINGAA reqParameters) {
+auto viewForm(T:DOOPEntity)(string path, T entity, DMVCPanes panes, STRINGAA reqParameters) {
 
     return 
     H5Form(["card"], ["action":path~"/create/action", "method":"post"], 

@@ -3,7 +3,7 @@ module uim.mvc.views.components.forms.components.inputs.text;
 @safe:
 import uim.mvc;
 
-class DBKLTextFormInput : DBKLFormInput {
+class DMVCTextFormInput : DMVCFormInput {
   mixin(BKLViewComponentThis!("BKLTextFormInput"));
 
   override DH5Obj[] toH5(STRINGAA options = null) { // hook
@@ -26,7 +26,7 @@ class DBKLTextFormInput : DBKLFormInput {
     ].toH5;
   }
 }
-mixin(BKLViewComponentCalls!("BKLTextFormInput", "DBKLTextFormInput"));
+mixin(BKLViewComponentCalls!("BKLTextFormInput", "DMVCTextFormInput"));
 
 version(test_baklava) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);

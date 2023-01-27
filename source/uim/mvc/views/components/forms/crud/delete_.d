@@ -3,7 +3,7 @@ module uim.mvc.views.components.forms.crud.delete_;
 @safe:
 import uim.mvc;
 
-class DBKLDeleteForm : DBKLEntityForm {
+class DMVCDeleteForm : DMVCEntityForm {
   mixin(BKLViewComponentThis!("BKLDeleteForm"));
 
   override void initialize() {
@@ -13,9 +13,9 @@ class DBKLDeleteForm : DBKLEntityForm {
       .crudMode(CRUDModes.Delete);
   }
 }
-mixin(BKLViewComponentCalls!("BKLDeleteForm", "DBKLDeleteForm"));
+mixin(BKLViewComponentCalls!("BKLDeleteForm", "DMVCDeleteForm"));
 
-/* auto deleteheader(string path, DOOPEntity entity, DBKLPanes panes, STRINGAA reqParameters) {  
+/* auto deleteheader(string path, DOOPEntity entity, DMVCPanes panes, STRINGAA reqParameters) {  
   return 
     BS5CardHeader( 
       H5H4(["card-title me-auto"], "ID: "~entity.id.toString),
@@ -27,14 +27,14 @@ mixin(BKLViewComponentCalls!("BKLDeleteForm", "DBKLDeleteForm"));
     );
 } */
 
-/* class DBKLDeletebody_ : DBKLbody_ {
+/* class DMVCDeletebody_ : DMVCbody_ {
   this() { super();
     _fields = ["name", "display", "description"]; }
 
   mixin(OProperty!("string", "id"));
   mixin(OProperty!("string", "path"));
   mixin(OProperty!("DOOPEntity", "entity"));
-  mixin(OProperty!("DBKLPanes", "panes")); 
+  mixin(OProperty!("DMVCPanes", "panes")); 
   mixin(OProperty!("string[]", "fields")); 
   
   
@@ -75,6 +75,6 @@ mixin(BKLViewComponentCalls!("BKLDeleteForm", "DBKLDeleteForm"));
       );
   } 
 }
-auto BKLDeletebody_() { return new DBKLDeletebody_(); }
+auto BKLDeletebody_() { return new DMVCDeletebody_(); }
 
  */

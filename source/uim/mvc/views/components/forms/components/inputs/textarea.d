@@ -3,7 +3,7 @@ module uim.mvc.views.components.forms.components.inputs.textarea;
 @safe:
 import uim.mvc;
 
-class DBKLTextAreaFormInput : DBKLFormInput {
+class DMVCTextAreaFormInput : DMVCFormInput {
   mixin(BKLViewComponentThis!("BKLTextAreaFormInput"));
 
   override void initialize() {
@@ -35,7 +35,7 @@ version(test_baklava) { unittest {
       // 
       }}
 }
-mixin(BKLViewComponentCalls!("BKLTextAreaFormInput", "DBKLTextAreaFormInput"));
+mixin(BKLViewComponentCalls!("BKLTextAreaFormInput", "DMVCTextAreaFormInput"));
 
 version(test_baklava) { unittest {
   writeln("--- Test in ", __MODULE__, "/", __LINE__);    

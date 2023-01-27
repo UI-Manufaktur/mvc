@@ -3,7 +3,7 @@ module uim.mvc.views.components.forms.crud.create;
 @safe:
 import uim.mvc;
 
-class DBKLCreateForm : DBKLEntityForm {
+class DMVCCreateForm : DMVCEntityForm {
   mixin(BKLViewComponentThis!("BKLCreateForm"));
 
   override void initialize() {
@@ -13,7 +13,7 @@ class DBKLCreateForm : DBKLEntityForm {
       .crudMode(CRUDModes.Create);
   }
 }
-mixin(BKLViewComponentCalls!("BKLCreateForm", "DBKLCreateForm"));
+mixin(BKLViewComponentCalls!("BKLCreateForm", "DMVCCreateForm"));
 
 /* 
 auto createPageHeader(string path, string mainTitle, string subTitle) {

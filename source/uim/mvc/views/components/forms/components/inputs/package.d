@@ -26,39 +26,39 @@ public import uim.mvc.views.components.forms.components.inputs.tests;
 template FormInputThis(string name, bool withEntity = false, bool withEntities = false) {
   const char[] FormInputThis = `
 this() { super(); }
-this(DBKLForm myForm) { this().form(myForm); };
+this(DMVCForm myForm) { this().form(myForm); };
 `~
 (withEntity ? `
 this(DOOPEntity myEntity) { this().entity(myEntity); }
-this(DBKLForm myForm, DOOPEntity myEntity) { this(myForm).entity(myEntity); }
+this(DMVCForm myForm, DOOPEntity myEntity) { this(myForm).entity(myEntity); }
 this(string myName, DOOPEntity myEntity) { this(myName).entity(myEntity); }
-this(DBKLForm myForm, string myName, DOOPEntity myEntity) { this(myForm, myName).entity(myEntity); }
+this(DMVCForm myForm, string myName, DOOPEntity myEntity) { this(myForm, myName).entity(myEntity); }
 ` : ``)
 ~
 (withEntities ? `
 this(DOOPEntity[] myEntities) { this().entities(myEntities); }
-this(DBKLForm myForm, DOOPEntity[] myEntities) { this(myForm).entities(myEntities); }
+this(DMVCForm myForm, DOOPEntity[] myEntities) { this(myForm).entities(myEntities); }
 this(string myName, DOOPEntity[] myEntities) { this(myName).entities(myEntities); }
-this(DBKLForm myForm, string myName, DOOPEntity[] myEntities) { this(myForm, myName).entities(myEntities); }
+this(DMVCForm myForm, string myName, DOOPEntity[] myEntities) { this(myForm, myName).entities(myEntities); }
 ` : ``);
 }
 
 template FormInputCalls(string name, bool withEntity = false, bool withEntities = false) {
   const char[] FormInputCalls = `
 auto `~name~`() { return new D`~name~`; }
-auto `~name~`(DBKLForm myForm) { return new D`~name~`(myForm); };
+auto `~name~`(DMVCForm myForm) { return new D`~name~`(myForm); };
 `~
 (withEntity ? `
 this(DOOPEntity myEntity) { this().entity(myEntity); }
-this(DBKLForm myForm, DOOPEntity myEntity) { this(myForm).entity(myEntity); }
+this(DMVCForm myForm, DOOPEntity myEntity) { this(myForm).entity(myEntity); }
 this(string myName, DOOPEntity myEntity) { this(myName).entity(myEntity); }
-this(DBKLForm myForm, string myName, DOOPEntity myEntity) { this(myForm, myName).entity(myEntity); }
+this(DMVCForm myForm, string myName, DOOPEntity myEntity) { this(myForm, myName).entity(myEntity); }
 ` : ``)
 ~
 (withEntities ? `
 this(DOOPEntity[] myEntities) { this().entities(myEntities); }
-this(DBKLForm myForm, DOOPEntity[] myEntities) { this(myForm).entities(myEntities); }
+this(DMVCForm myForm, DOOPEntity[] myEntities) { this(myForm).entities(myEntities); }
 this(string myName, DOOPEntity[] myEntities) { this(myName).entities(myEntities); }
-this(DBKLForm myForm, string myName, DOOPEntity[] myEntities) { this(myForm, myName).entities(myEntities); }
+this(DMVCForm myForm, string myName, DOOPEntity[] myEntities) { this(myForm, myName).entities(myEntities); }
 ` : ``);
 }

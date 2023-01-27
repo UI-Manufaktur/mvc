@@ -3,7 +3,7 @@ module uim.mvc.views.components.forms.components.inputs.switch_;
 @safe:
 import uim.mvc;
 
-class DBKLSwitchFormInput : DBKLFormInput {
+class DMVCSwitchFormInput : DMVCFormInput {
   mixin(BKLViewComponentThis!("BKLSwitchFormInput"));
 
   override void initialize() {
@@ -16,7 +16,7 @@ class DBKLSwitchFormInput : DBKLFormInput {
   mixin(OProperty!("bool", "checked"));
  
   override DH5Obj h5Input(STRINGAA options = null) {
-    debugMethodCall(moduleName!DBKLSwitchFormInput~":DBKLSwitchFormInput::h5Input");
+    debugMethodCall(moduleName!DMVCSwitchFormInput~":DMVCSwitchFormInput::h5Input");
     super.h5Input(options);
     
     auto input = H5Input(name, ["form-check-input me-1"], ["type":"checkbox", "name":inputName]);
@@ -41,4 +41,4 @@ class DBKLSwitchFormInput : DBKLFormInput {
           h5Input(options), H5Span(["form-check-label"], label))));
   }
 }
-mixin(BKLViewComponentCalls!("BKLSwitchFormInput", "DBKLSwitchFormInput"));
+mixin(BKLViewComponentCalls!("BKLSwitchFormInput", "DMVCSwitchFormInput"));
