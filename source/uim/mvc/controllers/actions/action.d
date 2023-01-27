@@ -4,6 +4,6 @@ module uim.mvc.controllers.actions.action;
 import uim.mvc;
 
 class DMVCActionController : DMVCController {
-  mixin(BKLControllerThis!("BKLActionController"));
+  mixin(MVCControllerThis!("MVCActionController"));
 }
-mixin(BKLControllerCalls!("BKLActionController", "DMVCActionController"));
+mixin(MVCControllerCalls!("MVCActionController", "DMVCActionController"));

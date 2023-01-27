@@ -3,7 +3,7 @@ module uim.mvc.base;
 @safe:
 import uim.mvc;
 
-interface IBKLBase {
+interface IMVCBase {
   DMVCApplication application();
   O application(this O)(DMVCApplication newApplication);
 
@@ -14,7 +14,7 @@ interface IBKLBase {
   Json toJson();
 }
 
-class DMVCBase : IBKLBase {
+class DMVCBase : IMVCBase {
   // Constructors for the main properties
   this() { initialize; }
   this(DMVCApplication newApplication) { this().application(newApplication); }
@@ -28,11 +28,11 @@ class DMVCBase : IBKLBase {
   void initialize() {
     // Code for object initialization
     this
-      .name("BKLBase");
+      .name("MVCBase");
   }
 
   mixin(OProperty!("DMVCApplication", "application"));
-  mixin(BKLParameter!("name"));
+  mixin(MVCParameter!("name"));
 
 // Start Parameters ----
   mixin(OProperty!("string[string]", "parameters")); 
@@ -74,7 +74,7 @@ class DMVCBase : IBKLBase {
   // #endregion error
 
   DMVCBase create() {
-    return BKLBase;
+    return MVCBase;
   }
 
   DMVCBase clone() {
@@ -111,20 +111,20 @@ class DMVCBase : IBKLBase {
     return toJson.toString;
   }
 }
-auto BKLBase() { return new DMVCBase; }
+auto MVCBase() { return new DMVCBase; }
 
 version(test_uim_mvc) unittest {
-  assert(BKLBase);
-  assert(BKLBase.name("testName").name == "testName");
+  assert(MVCBase);
+  assert(MVCBase.name("testName").name == "testName");
 
-  assert(BKLBase.parameter("test", "value").hasParameter("test"));
-  assert(BKLBase.parameter("test", "value").parameter("test") == "value");
+  assert(MVCBase.parameter("test", "value").hasParameter("test"));
+  assert(MVCBase.parameter("test", "value").parameter("test") == "value");
 
   auto json = Json.emptyObject;
   json["test"] = "value";
-  assert(BKLBase.fromJson(json).hasParameter("test"));
-  assert(BKLBase.fromJson(json).parameter("test") == "value");
+  assert(MVCBase.fromJson(json).hasParameter("test"));
+  assert(MVCBase.fromJson(json).parameter("test") == "value");
   
-  assert(BKLBase.create.name == "BKLBase");
-  assert(BKLBase.clone.name == "BKLBase");
+  assert(MVCBase.create.name == "MVCBase");
+  assert(MVCBase.clone.name == "MVCBase");
 }

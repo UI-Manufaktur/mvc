@@ -4,7 +4,7 @@ module uim.mvc.controllers.pages.page;
 import uim.mvc;
 
 class DMVCPageController : DMVCController {
-  mixin(BKLControllerThis!("BKLPageController"));
+  mixin(MVCControllerThis!("MVCPageController"));
 
   override void initialize() {
     super.initialize;
@@ -13,14 +13,14 @@ class DMVCPageController : DMVCController {
       .language("en") 
       .mimetype("text/html");
     
-/*     requestReader = BKLRequestReader(this);
-    sessionReader = BKLSessionReader(this);  
+/*     requestReader = MVCRequestReader(this);
+    sessionReader = MVCSessionReader(this);  
  */
     this
-      .links(BKLLinkContainer)
-      .metas(BKLMetaContainer) 
-      .scripts(BKLScriptContainer) 
-      .styles(BKLStyleContainer); 
+      .links(MVCLinkContainer)
+      .metas(MVCMetaContainer) 
+      .scripts(MVCScriptContainer) 
+      .styles(MVCStyleContainer); 
   }
 
   mixin(OProperty!("DMVCView", "view"));
@@ -60,4 +60,4 @@ class DMVCPageController : DMVCController {
     super.afterResponse(options);
   }  
 }
-mixin(BKLControllerCalls!("BKLPageController", "DMVCPageController"));
+mixin(MVCControllerCalls!("MVCPageController", "DMVCPageController"));

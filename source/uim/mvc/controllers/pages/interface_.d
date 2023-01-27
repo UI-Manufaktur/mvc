@@ -3,5 +3,5 @@ module uim.mvc.controllers.pages.interface_;
 @safe:
 import uim.mvc;
 
-interface IBKLPageController : IBKLController  {
+interface IMVCPageController : IMVCController  {
 }

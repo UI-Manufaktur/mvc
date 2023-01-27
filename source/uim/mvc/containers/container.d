@@ -436,7 +436,7 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
      */
 /*     public function refresh(string abstract_, $target, $method)
     {
-        return $this.rebinding(string abstract_, function ($BKL, $instance) use ($target, $method) {
+        return $this.rebinding(string abstract_, function ($MVC, $instance) use ($target, $method) {
             $target.{$method}($instance);
         });
     }
@@ -598,7 +598,7 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
         }
  */
         // If we defined any extenders for this type, we'll need to spin through them
-        // and BKLly them to the object being built. This allows for the extension
+        // and MVCly them to the object being built. This allows for the extension
         // of services, such as changing configuration or decorating the object.
 /*         foreach ($this.getExtenders($abstract) as $extender) {
             $object = $extender($object, $this);

@@ -8,7 +8,7 @@ class DMVCApplicationRegistry : DRegistry!DMVCApplication {
 
   static DMVCApplicationRegistry registry; 
 }
-auto BKLApplicationRegistry() { 
+auto MVCApplicationRegistry() { 
   if (!DMVCApplicationRegistry.registry) {
     DMVCApplicationRegistry.registry = new DMVCApplicationRegistry; 
   }
@@ -17,6 +17,6 @@ auto BKLApplicationRegistry() {
 }
 
 version(test_uim_mvc) { unittest {
-  assert(BKLApplicationRegistry.register("mvc/test",  BKLApplication).paths == ["mvc/test"]);
-  assert(BKLApplicationRegistry.register("mvc/test2", BKLApplication).paths.length == 2);
+  assert(MVCApplicationRegistry.register("mvc/test",  MVCApplication).paths == ["mvc/test"]);
+  assert(MVCApplicationRegistry.register("mvc/test2", MVCApplication).paths.length == 2);
 }}

@@ -8,7 +8,7 @@ class DMVCControllerRegistry : DRegistry!DMVCController{
 
   static DMVCControllerRegistry registry; 
 }
-auto BKLControllerRegistry() { 
+auto MVCControllerRegistry() { 
   if (!DMVCControllerRegistry.registry) {
     DMVCControllerRegistry.registry = new DMVCControllerRegistry; 
   }
@@ -17,6 +17,6 @@ auto BKLControllerRegistry() {
 }
 
 version(test_uim_mvc) { unittest {
-  assert(BKLControllerRegistry.register("mvc/controllercomponent",  BKLController).paths == ["mvc/controllercomponent"]);
-  assert(BKLControllerRegistry.register("mvc/controllercomponent2", BKLController).paths.length == 2);
+  assert(MVCControllerRegistry.register("mvc/controllercomponent",  MVCController).paths == ["mvc/controllercomponent"]);
+  assert(MVCControllerRegistry.register("mvc/controllercomponent2", MVCController).paths.length == 2);
 }}

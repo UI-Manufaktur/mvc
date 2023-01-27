@@ -5,23 +5,23 @@ import uim.mvc;
 
 enum DataModes { Local, REST }
 
-class DMVCLayout : DMVCBase, IBKLLayout{
+class DMVCLayout : DMVCBase, IMVCLayout{
   this() {
     initialize(); }
 
   override void initialize() {
-    debug writeln("Initialize 'BKLLayout'"); 
+    debug writeln("Initialize 'MVCLayout'"); 
     super.initialize;
  
     // Default settings
     this
-      .name("BKLLayout")
-      .title("BKLLayout")
+      .name("MVCLayout")
+      .title("MVCLayout")
       .layoutStyle("tabler")
-      .links(BKLLinkContainer) 
-      .metas(BKLMetaContainer) 
-      .scripts(BKLScriptContainer)
-      .styles(BKLStyleContainer); 
+      .links(MVCLinkContainer) 
+      .metas(MVCMetaContainer) 
+      .scripts(MVCScriptContainer)
+      .styles(MVCStyleContainer); 
 
     debug writeln("Select Style"); 
     if (layoutStyle == "tabler") {
@@ -69,18 +69,18 @@ class DMVCLayout : DMVCBase, IBKLLayout{
     debug writeln("Add navigation"); 
     this
       .navigation(
-        BKLNavigation.fixedTop(true));
+        MVCNavigation.fixedTop(true));
 
     debug writeln("Add footer"); 
     this    
       .footer(
-        BKLPageFooter);
+        MVCPageFooter);
   }
 
   // Parameters
-  mixin(BKLParameter!("layoutStyle"));
-  mixin(BKLParameter!("title"));
-  mixin(BKLParameter!("language"));
+  mixin(MVCParameter!("layoutStyle"));
+  mixin(MVCParameter!("title"));
+  mixin(MVCParameter!("language"));
 
   mixin(OProperty!("DMVCNavigationViewComponent", "navigation"));
   mixin(OProperty!("DMVCPageFooterViewComponent", "footer"));
@@ -205,9 +205,9 @@ class DMVCLayout : DMVCBase, IBKLLayout{
 	}
 version(test_baklava) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
-		// writeln(H5BKLLayout);
-		// assert(H5BKLLayout.render == `<!doctype html><html dir="ltr" lang="en"><head></head><body></body></html>`);
-		//assert(H5BKLLayout()("xxx") == `<!doctype html><html dir="ltr" lang="en"><head></head><body>xxx</body></html>`);
+		// writeln(H5MVCLayout);
+		// assert(H5MVCLayout.render == `<!doctype html><html dir="ltr" lang="en"><head></head><body></body></html>`);
+		//assert(H5MVCLayout()("xxx") == `<!doctype html><html dir="ltr" lang="en"><head></head><body>xxx</body></html>`);
 	}}
 
   void renderHead(DH5Html html, string[] classes, STRINGAA attributes, string content, STRINGAA options = null) {

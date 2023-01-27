@@ -3,7 +3,7 @@ module uim.mvc.applications.application;
 @safe:
 import uim.mvc;
 
-class DMVCApplication : DMVCBase, IBKLApplication { 
+class DMVCApplication : DMVCBase, IMVCApplication { 
   this() { initialize; }
 
   override void initialize() {
@@ -12,7 +12,7 @@ class DMVCApplication : DMVCBase, IBKLApplication {
 
   // Application data 
   mixin(OProperty!("UUID", "id"));
-  mixin(BKLParameter!("rootPath"));
+  mixin(MVCParameter!("rootPath"));
   mixin(OProperty!("size_t", "versionNumber"));
   mixin(OProperty!("Json", "config"));
 
@@ -68,7 +68,7 @@ class DMVCApplication : DMVCBase, IBKLApplication {
     request(newRequest, newResponse, null);
   }
   void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse, string[string] options) {
-		debugMethodCall(moduleName!BKLApplication~":BKLApplication("~this.name~")::request(req, res, reqParameters)");
+		debugMethodCall(moduleName!MVCApplication~":MVCApplication("~this.name~")::request(req, res, reqParameters)");
 
     writeln("rootPath = '%s'".format(this.rootPath));
     writeln("newRequest.fullURL = '%s'".format(newRequest.fullURL));
@@ -89,14 +89,14 @@ class DMVCApplication : DMVCBase, IBKLApplication {
     }
   }
 }
-auto BKLApplication() { return new DMVCApplication; }
+auto MVCApplication() { return new DMVCApplication; }
 
 version(test_uim_mvc) unittest {
   assert(
-    BKLApplication
-      .addRoute(BKLRoute("ecm/index", HTTPMethod.GET, BKLPageController))
-      .addRoute(BKLRoute("ecm/documents", HTTPMethod.GET, BKLPageController))
-      .addRoute(BKLRoute("ecm/folders", HTTPMethod.GET, BKLPageController))
-      .addRoute(BKLRoute("ecm/workspaces", HTTPMethod.GET, BKLPageController))
+    MVCApplication
+      .addRoute(MVCRoute("ecm/index", HTTPMethod.GET, MVCPageController))
+      .addRoute(MVCRoute("ecm/documents", HTTPMethod.GET, MVCPageController))
+      .addRoute(MVCRoute("ecm/folders", HTTPMethod.GET, MVCPageController))
+      .addRoute(MVCRoute("ecm/workspaces", HTTPMethod.GET, MVCPageController))
   );
 }

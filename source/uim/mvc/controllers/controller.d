@@ -3,8 +3,8 @@ module uim.mvc.controllers.controller;
 @safe:
 import uim.mvc;
 
-class DMVCController : DMVCBase, IBKLController  {
-  mixin(BKLControllerThis!("BKLController"));
+class DMVCController : DMVCBase, IMVCController  {
+  mixin(MVCControllerThis!("MVCController"));
 
   // Initialization (= hook method)
   override void initialize() {
@@ -12,34 +12,34 @@ class DMVCController : DMVCBase, IBKLController  {
     super.initialize;
 
     this
-      .name("BKLController"); 
+      .name("MVCController"); 
   }
   
-  mixin(BKLParameter!("mimetype")); 
-  mixin(BKLParameter!("rootPath")); 
-  mixin(BKLParameter!("collectionName"));
-  mixin(BKLParameter!("entitiesName")); 
-	mixin(BKLParameter!("language"));
-  mixin(BKLParameter!("responseResult"));
+  mixin(MVCParameter!("mimetype")); 
+  mixin(MVCParameter!("rootPath")); 
+  mixin(MVCParameter!("collectionName"));
+  mixin(MVCParameter!("entitiesName")); 
+	mixin(MVCParameter!("language"));
+  mixin(MVCParameter!("responseResult"));
 
-  mixin(BKLParameter!("httpMode"));
-  mixin(BKLParameter!("stringRequest"));
-  mixin(BKLParameter!("method"));
-  mixin(BKLParameter!("form"));
-  mixin(BKLParameter!("peer"));
-  mixin(BKLParameter!("host"));
-  mixin(BKLParameter!("path"));
-  mixin(BKLParameter!("rootDir"));
-  mixin(BKLParameter!("queryString"));
-  mixin(BKLParameter!("fullURL"));
-  mixin(BKLParameter!("json"));
-  mixin(BKLParameter!("username"));
-  mixin(BKLParameter!("password"));
-  mixin(BKLParameter!("contentType"));
-  mixin(BKLParameter!("contentTypeParameters"));
-  mixin(BKLParameter!("timeCreated"));
-  mixin(BKLParameter!("persistent"));
-  mixin(BKLParameter!("redirect"));
+  mixin(MVCParameter!("httpMode"));
+  mixin(MVCParameter!("stringRequest"));
+  mixin(MVCParameter!("method"));
+  mixin(MVCParameter!("form"));
+  mixin(MVCParameter!("peer"));
+  mixin(MVCParameter!("host"));
+  mixin(MVCParameter!("path"));
+  mixin(MVCParameter!("rootDir"));
+  mixin(MVCParameter!("queryString"));
+  mixin(MVCParameter!("fullURL"));
+  mixin(MVCParameter!("json"));
+  mixin(MVCParameter!("username"));
+  mixin(MVCParameter!("password"));
+  mixin(MVCParameter!("contentType"));
+  mixin(MVCParameter!("contentTypeParameters"));
+  mixin(MVCParameter!("timeCreated"));
+  mixin(MVCParameter!("persistent"));
+  mixin(MVCParameter!("redirect"));
 
   /* mixin(OProperty!("DMVCCheck[]", "checks"));
   O addChecks(this O)(DMVCCheck[] newChecks) {
@@ -150,14 +150,14 @@ class DMVCController : DMVCBase, IBKLController  {
 		this.response.writeBody(result, this.mimetype); 
   }
 }
-mixin(BKLControllerCalls!("BKLController", "DMVCController"));
+mixin(MVCControllerCalls!("MVCController", "DMVCController"));
 
 version(test_uim_mvc) { unittest {
-  testBKLController(BKLController, "BKLController");
+  testMVCController(MVCController, "MVCController");
 
-  assert(BKLController.name == "BKLController");
-  assert(BKLController.create.name == "BKLController");
-  assert(BKLController.clone.name == "BKLController");
+  assert(MVCController.name == "MVCController");
+  assert(MVCController.create.name == "MVCController");
+  assert(MVCController.clone.name == "MVCController");
 }} 
 
 
