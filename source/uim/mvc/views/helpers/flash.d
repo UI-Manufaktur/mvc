@@ -6,7 +6,7 @@
 module uim.mvc.views.helpers;
 
 @safe:
-import uim.cake;
+import uim.mvc;
 
 /**
  * FlashHelper class to render flash messages.

@@ -6,7 +6,7 @@
 module uim.mvc.views.helpers;
 
 @safe:
-import uim.cake;
+import uim.mvc;
 
 /**
  * Number helper library.
@@ -27,14 +27,14 @@ class DMVCNumberHelper : DMVCHelper {
      *
      * @param uim.mvc.views\View $view The View this helper is being attached to.
      * @param array<string, mixed> myConfig Configuration settings for the helper
-     * @throws uim.cake.Core\exceptions.UIMException When the engine class could not be found.
+     * @throws uim.mvc.Core\exceptions.UIMException When the engine class could not be found.
      */
     this(View $view, array myConfig = null) {
         super.this($view, myConfig);
 
         myConfig = _config;
 
-        /** @psalm-var class-string<uim.cake.i18n\Number>|null $engineClass */
+        /** @psalm-var class-string<uim.mvc.i18n\Number>|null $engineClass */
         $engineClass = App::className(myConfig["engine"], "Utility");
         if ($engineClass is null) {
             throw new UIMException(sprintf("Class for %s could not be found", myConfig["engine"]));
@@ -66,7 +66,7 @@ class DMVCNumberHelper : DMVCHelper {
      * @param int $precision The precision of the returned number.
      * @param array<string, mixed> myOptions Additional options.
      * @return string Formatted float.
-     * @see uim.cake.i18n\Number::precision()
+     * @see uim.mvc.i18n\Number::precision()
      * @link https://book.UIM.org/4/en/views/helpers/number.html#formatting-floating-point-numbers
      */
     string precision($number, int $precision = 3, array myOptions = null) {
@@ -78,7 +78,7 @@ class DMVCNumberHelper : DMVCHelper {
      *
      * @param string|int $size Size in bytes
      * @return string Human readable size
-     * @see uim.cake.i18n\Number::toReadableSize()
+     * @see uim.mvc.i18n\Number::toReadableSize()
      * @link https://book.UIM.org/4/en/views/helpers/number.html#interacting-with-human-readable-values
      */
     string toReadableSize($size) {
@@ -96,7 +96,7 @@ class DMVCNumberHelper : DMVCHelper {
      * @param int $precision The precision of the returned number
      * @param array<string, mixed> myOptions Options
      * @return string Percentage string
-     * @see uim.cake.i18n\Number::toPercentage()
+     * @see uim.mvc.i18n\Number::toPercentage()
      * @link https://book.UIM.org/4/en/views/helpers/number.html#formatting-percentages
      */
     string toPercentage($number, int $precision = 2, array myOptions = null) {

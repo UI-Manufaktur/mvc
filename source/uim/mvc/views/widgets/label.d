@@ -6,7 +6,7 @@
 module uim.mvc.views.widgets.label;
 
 @safe:
-import uim.cake;
+import uim.mvc;
 
 /**
  * Form "widget" for creating labels.

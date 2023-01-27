@@ -1,7 +1,7 @@
 module uim.mvc.views.helpers;
 
 @safe:
-import uim.cake;
+import uim.mvc;
 
 /**
  * Pagination Helper class for easy generation of pagination links.

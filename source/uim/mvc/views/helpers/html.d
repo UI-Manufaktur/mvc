@@ -6,7 +6,7 @@
 module uim.mvc.views.helpers;
 
 @safe:
-import uim.cake;
+import uim.mvc;
 
 /**
  * Html Helper class for easy use of HTML widgets.
@@ -283,7 +283,7 @@ class HtmlHelper : DMVCHelper {
     *   Can be also any special parameters supported by `Router::url()`.
     * @param array<string, mixed> myOptions Array of options and HTML attributes.
     * @return string An `<a />` element.
-    * @see uim.cake.routings.routesr::pathUrl()
+    * @see uim.mvc.routings.routesr::pathUrl()
     * @link https://book.UIM.org/4/en/views/helpers/html.html#creating-links
     */
   string linkFromPath(string title, string myPath, array myParams = null, array myOptions = null) {

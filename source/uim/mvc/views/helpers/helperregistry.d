@@ -6,13 +6,13 @@
 module uim.mvc.views;
 
 @safe:
-import uim.cake;
+import uim.mvc;
 
 /**
  * HelperRegistry is used as a registry for loaded helpers and handles loading
  * and constructing helper class objects.
  *
- * @: uim.cake.Core\ObjectRegistry<uim.mvc.views\Helper>
+ * @: uim.mvc.Core\ObjectRegistry<uim.mvc.views\Helper>
  */
 class DMVCHelperRegistry : ObjectRegistry, IEventDispatcher {
   // use EventDispatcherTrait;

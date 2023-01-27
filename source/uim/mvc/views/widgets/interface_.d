@@ -6,7 +6,7 @@
 module uim.mvc.views.widgets.interface_;
 
 @safe:
-import uim.cake;
+import uim.mvc;
 
 // Interface for input widgets.
 interface IMVCWidget {

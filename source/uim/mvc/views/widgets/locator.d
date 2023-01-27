@@ -6,7 +6,7 @@
 module uim.mvc.views.widgets.locator;
 
 @safe:
-import uim.cake;
+import uim.mvc;
 
 /* use ReflectionClass;
 // use  RuntimeException;

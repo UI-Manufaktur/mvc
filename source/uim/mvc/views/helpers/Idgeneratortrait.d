@@ -6,7 +6,7 @@
 module uim.mvc.views.helpers;
 
 @safe:
-import uim.cake;
+import uim.mvc;
 
 /**
  * A trait that provides id generating methods to be

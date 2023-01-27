@@ -6,7 +6,7 @@
 module uim.mvc.views;
 
 @safe:
-import uim.cake;
+import uim.mvc;
 
 /**
  * Abstract base class for all other Helpers in UIM.

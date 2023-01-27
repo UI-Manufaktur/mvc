@@ -6,7 +6,7 @@
 module uim.mvc.views.helpers;
 
 @safe:
-import uim.cake;
+import uim.mvc;
 
 // UrlHelper class for generating URLs.
 class DMVCUrlHelper : DMVCHelper {
@@ -27,7 +27,7 @@ class DMVCUrlHelper : DMVCHelper {
       super.initialize(myConfig);
       $engineClassConfig = this.getConfig("assetUrlClassName");
 
-      /** @psalm-var class-string<uim.cake.routings.Asset>|null $engineClass */
+      /** @psalm-var class-string<uim.mvc.routings.Asset>|null $engineClass */
       $engineClass = App::className($engineClassConfig, "Routing");
       if ($engineClass is null) {
           throw new UIMException(sprintf("Class for %s could not be found", $engineClassConfig));
@@ -80,7 +80,7 @@ class DMVCUrlHelper : DMVCHelper {
     *   Can be also any special parameters supported by `Router::url()`.
     * @param array<string, mixed> myOptions Array of options.
     * @return string Full translated URL with base path.
-    * @see uim.cake.routings.routesr::pathUrl()
+    * @see uim.mvc.routings.routesr::pathUrl()
     */
   string buildFromPath(string myPath, array myParams = null, array myOptions = null) {
       return this.build(["_path": myPath] + myParams, myOptions);

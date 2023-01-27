@@ -1,7 +1,7 @@
 module uim.mvc.views.widgets;
 
 @safe:
-import uim.cake;
+import uim.mvc;
 
 /**
  * Button input class

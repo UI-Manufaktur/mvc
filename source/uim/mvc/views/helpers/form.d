@@ -6,7 +6,7 @@
 module uim.mvc.views.helpers;
 
 @safe:
-import uim.cake;
+import uim.mvc;
 
 /* use InvalidArgumentException;
 // use  RuntimeException; */
@@ -98,7 +98,7 @@ class FormHelper : DMVCHelper
     protected string[] _groupedInputTypes = ["radio", "multicheckbox"];
 
     // Form protector
-    protected uim.cake.Form\FormProtectorformProtector;
+    protected uim.mvc.Form\FormProtectorformProtector;
 
     /**
      * Construct the widgets and binds the default context providers
@@ -588,7 +588,7 @@ class FormHelper : DMVCHelper
      * Create FormProtector instance.
      *
      * @param array<string, mixed> $formTokenData Token data.
-     * @return uim.cake.Form\FormProtector
+     * @return uim.mvc.Form\FormProtector
      */
     protected FormProtector createFormProtector(array $formTokenData) {
       $session = _View.getRequest().getSession();
@@ -602,8 +602,8 @@ class FormHelper : DMVCHelper
     /**
      * Get form protector instance.
      *
-     * @return uim.cake.Form\FormProtector
-     * @throws uim.cake.Core\exceptions.UIMException
+     * @return uim.mvc.Form\FormProtector
+     * @throws uim.mvc.Core\exceptions.UIMException
      */
     FormProtector getFormProtector(): 
     {
@@ -1504,7 +1504,7 @@ class FormHelper : DMVCHelper
      * @param string method Method name / input type to make.
      * @param array myParams Parameters for the method call
      * @return string Formatted input method.
-     * @throws uim.cake.Core\exceptions.UIMException When there are no params for the method call.
+     * @throws uim.mvc.Core\exceptions.UIMException When there are no params for the method call.
      */
     auto __call(string method, array myParams) {
         if (empty(myParams)) {

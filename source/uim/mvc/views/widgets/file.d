@@ -6,7 +6,7 @@
 module uim.mvc.views.widgets.file;
 
 @safe:
-import uim.cake;
+import uim.mvc;
 
 /**
  * Input widget class for generating a file upload control.

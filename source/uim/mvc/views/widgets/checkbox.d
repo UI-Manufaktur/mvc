@@ -6,7 +6,7 @@
 module uim.mvc.views.widgets;
 
 @safe:
-import uim.cake;
+import uim.mvc;
 
 /**
  * Input widget for creating checkbox widgets.
