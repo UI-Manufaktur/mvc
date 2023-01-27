@@ -6,7 +6,7 @@ import uim.mvc;
 class DMVCEntitiesForm : DMVCForm {
   mixin(MVCViewComponentThis!("MVCEntitiesForm"));
 
-  // mixin(OProperty!("DOOPEntity[]", "entities"));
+  // mixin(OProperty!("DEntity[]", "entities"));
 
   override void initialize() {
     super.initialize;

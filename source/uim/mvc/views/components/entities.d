@@ -6,7 +6,7 @@ import uim.mvc;
 class DMVCEntitiesViewComponent : DMVCViewComponent {
   mixin(MVCViewComponentThis!("MVCEntitiesViewComponent"));
 
-  // mixin(OProperty!("DOOPEntity[]", "entities"));
+  // mixin(OProperty!("DEntity[]", "entities"));
 
   override void beforeH5(STRINGAA options = null) {
     debugMethodCall(moduleName!DMVCEntitiesViewComponent~":DMVCEntitiesViewComponent("~this.name~")::beforeH5");

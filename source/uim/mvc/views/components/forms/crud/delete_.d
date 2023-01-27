@@ -15,7 +15,7 @@ class DMVCDeleteForm : DMVCEntityForm {
 }
 mixin(MVCViewComponentCalls!("MVCDeleteForm", "DMVCDeleteForm"));
 
-/* auto deleteheader(string path, DOOPEntity entity, DMVCPanes panes, STRINGAA reqParameters) {  
+/* auto deleteheader(string path, DEntity entity, DMVCPanes panes, STRINGAA reqParameters) {  
   return 
     BS5CardHeader( 
       H5H4(["card-title me-auto"], "ID: "~entity.id.toString),
@@ -33,7 +33,7 @@ mixin(MVCViewComponentCalls!("MVCDeleteForm", "DMVCDeleteForm"));
 
   mixin(OProperty!("string", "id"));
   mixin(OProperty!("string", "path"));
-  mixin(OProperty!("DOOPEntity", "entity"));
+  mixin(OProperty!("DEntity", "entity"));
   mixin(OProperty!("DMVCPanes", "panes")); 
   mixin(OProperty!("string[]", "fields")); 
   

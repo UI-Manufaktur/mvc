@@ -32,6 +32,8 @@ class DMVCBase : IMVCBase {
   }
 
   mixin(OProperty!("DMVCApplication", "application"));
+
+  // The name of a mvc object. Names are plural, named after the model they manipulate.
   mixin(MVCParameter!("name"));
 
 // Start Parameters ----

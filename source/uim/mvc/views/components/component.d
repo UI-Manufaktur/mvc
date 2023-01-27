@@ -13,8 +13,8 @@ class DMVCViewComponent : DMVCBase, IMVCViewComponent {
   mixin(OProperty!("IMVCView", "view"));
   mixin(OProperty!("string", "id"));
 
-  mixin(OProperty!("DOOPEntity", "entity"));
-  mixin(OProperty!("DOOPEntity[]", "entities"));
+  mixin(OProperty!("DEntity", "entity"));
+  mixin(OProperty!("DEntity[]", "entities"));
 
   void beforeH5(STRINGAA options = null) {
     // 

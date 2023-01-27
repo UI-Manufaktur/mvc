@@ -6,7 +6,7 @@ import uim.mvc;
 class DMVCEntityViewComponent : DMVCViewComponent {
   mixin(MVCViewComponentThis!("MVCEntityViewComponent"));
 
-  // mixin(OProperty!("DOOPEntity", "entity"));
+  // mixin(OProperty!("DEntity", "entity"));
   mixin(OProperty!("CRUDModes", "crudMode"));
 
   override void beforeH5(STRINGAA options = null) {

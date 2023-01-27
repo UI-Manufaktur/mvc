@@ -23,7 +23,7 @@ class DMVCEntitiesFormContent : DMVCFormContent {
 
   mixin(OProperty!("DMVCEntitiesTableHeader", "tableHeader"));
   mixin(OProperty!("DMVCEntitiesTableFilter", "tableFilter"));
-  // mixin(OProperty!("DOOPEntity[]", "entities"));
+  // mixin(OProperty!("DEntity[]", "entities"));
   
   override void beforeH5(STRINGAA options = null) {
     debugMethodCall(moduleName!DMVCEntitiesFormContent~"DMVCEntitiesFormContent::beforeH5");
@@ -52,7 +52,7 @@ class DMVCEntitiesFormContent : DMVCFormContent {
 
     debug writeln("RootPath = ", this.rootPath);
 
-    auto row(DOOPEntity entity) {
+    auto row(DEntity entity) {
       if (!entity) return null;
       
       return [

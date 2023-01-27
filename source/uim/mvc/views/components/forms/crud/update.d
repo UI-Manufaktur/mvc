@@ -16,7 +16,7 @@ class DMVCUpdateForm : DMVCEntityForm {
 mixin(MVCViewComponentCalls!("MVCUpdateForm", "DMVCUpdateForm"));
 
 /* 
-auto editheader(T:DOOPEntity)(string path, T entity, DMVCPanes panes, STRINGAA reqParameters) {
+auto editheader(T:DEntity)(string path, T entity, DMVCPanes panes, STRINGAA reqParameters) {
   return 
     BS5CardHeader( 
       H5H4(["card-title me-auto"], "ID: "~entity.id.toString), 
@@ -30,7 +30,7 @@ auto editheader(T:DOOPEntity)(string path, T entity, DMVCPanes panes, STRINGAA r
     );
 }
 
-auto editbody_(T:DOOPEntity)(string path, T entity, DMVCPanes panes, STRINGAA reqParameters) {
+auto editbody_(T:DEntity)(string path, T entity, DMVCPanes panes, STRINGAA reqParameters) {
   return 
     BS5CardBody(
       BS5Row.col(["col-12"], 
@@ -40,7 +40,7 @@ auto editbody_(T:DOOPEntity)(string path, T entity, DMVCPanes panes, STRINGAA re
 
 }
 
-DH5Obj[] FormGroups_Edit(DOOPEntity entity, string[] fields = ["name", "display", "description"]) {
+DH5Obj[] FormGroups_Edit(DEntity entity, string[] fields = ["name", "display", "description"]) {
   DH5Obj[] results;
 
   foreach(field; fields) {
@@ -77,7 +77,7 @@ class DMVCEditbody_ : DMVCbody_ {
 
   mixin(OProperty!("string", "id"));
   mixin(OProperty!("string", "path"));
-  mixin(OProperty!("DOOPEntity", "entity"));
+  mixin(OProperty!("DEntity", "entity"));
   mixin(OProperty!("DMVCPanes", "panes")); 
   mixin(OProperty!("string[]", "fields")); 
   

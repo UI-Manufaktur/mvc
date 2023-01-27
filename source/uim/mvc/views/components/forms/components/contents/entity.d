@@ -22,7 +22,7 @@ class DMVCEntityFormContent : DMVCFormContent {
     .inputHandler(MVCFormInputHandler(/* this.form */));   
   }
 
-  // mixin(OProperty!("DOOPEntity", "entity"));
+  // mixin(OProperty!("DEntity", "entity"));
 
   mixin(OProperty!("string[]", "fields"));
   O addFields(this O)(string[] newFields) {

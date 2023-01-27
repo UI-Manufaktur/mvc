@@ -37,7 +37,7 @@ class DMVCPageHeaderViewComponent : DMVCViewComponent {
     if ("subTitle" in options) this.subTitle = options["subTitle"];
     // TODO what to do with following?
 /*     mixin(OProperty!("DH5Obj", "breadcrumbs"));
-    mixin(OProperty!("DOOPEntity", "entity"));
+    mixin(OProperty!("DEntity", "entity"));
  */  
 
     this

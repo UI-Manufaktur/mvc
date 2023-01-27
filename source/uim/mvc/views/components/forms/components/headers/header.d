@@ -16,7 +16,7 @@ class DMVCFormHeader : DMVCFormComponent {
       .crudMode(CRUDModes.Read); 
   }
   
-  // mixin(OProperty!("DOOPEntity", "entity"));
+  // mixin(OProperty!("DEntity", "entity"));
   // mixin(OProperty!("string", "rootPath"));
   mixin(MVCParameter!("mainTitle"));
   mixin(MVCParameter!("subTitle"));
