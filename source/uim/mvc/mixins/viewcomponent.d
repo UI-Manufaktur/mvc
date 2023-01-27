@@ -7,12 +7,12 @@ string mvcViewComponentThis(string name) {
   return 
     mvcBaseThis(name)~
   `
-    this(IBKLView myView) { this().view(myView); }
+    this(IMVCView myView) { this().view(myView); }
   `;
 }
 
-template BKLViewComponentThis(string name) {
-  const char[] BKLViewComponentThis = mvcViewComponentThis(name);
+template MVCViewComponentThis(string name) {
+  const char[] MVCViewComponentThis = mvcViewComponentThis(name);
 }
 
 string mvcViewComponentCalls(string shortName, string className) {
@@ -29,6 +29,6 @@ string mvcViewComponentCalls(string shortName, string className) {
   `;
 }
 
-template BKLViewComponentCalls(string shortName, string className) {
-  const char[] BKLViewComponentCalls = mvcViewComponentCalls(shortName, className);
+template MVCViewComponentCalls(string shortName, string className) {
+  const char[] MVCViewComponentCalls = mvcViewComponentCalls(shortName, className);
 }

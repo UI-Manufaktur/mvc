@@ -44,27 +44,27 @@ class DMVCScriptContainer : DMVCH5Container {
     return cast(O)this;
   }
 }
-auto BKLScriptContainer() { return new DMVCScriptContainer; }
+auto MVCScriptContainer() { return new DMVCScriptContainer; }
 
-version(test_uim_BKLs) { unittest {
+version(test_uim_MVCs) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
 
 /*     assert(new DMVCScriptContainer);
-    assert(BKLScriptContainer);
-    assert(cast(DMVCScriptContainer)BKLScriptContainer);
-    assert(!BKLScriptContainer.entries);
-    assert(BKLScriptContainer.entries.add("abc").entries); */
+    assert(MVCScriptContainer);
+    assert(cast(DMVCScriptContainer)MVCScriptContainer);
+    assert(!MVCScriptContainer.entries);
+    assert(MVCScriptContainer.entries.add("abc").entries); */
 /* 
-    assert(BKLScriptContainer.entries.add("abc").entries.length == 1);
-    assert(BKLScriptContainer.entries.add(["src":"abc"]).entries.length == 1);
-    assert(BKLScriptContainer.entries.add(H5Style).entries.length == 1);
+    assert(MVCScriptContainer.entries.add("abc").entries.length == 1);
+    assert(MVCScriptContainer.entries.add(["src":"abc"]).entries.length == 1);
+    assert(MVCScriptContainer.entries.add(H5Style).entries.length == 1);
 
-    assert(BKLScriptContainer.entries.add("abc", "xyz").entries.length == 2);
-    assert(BKLScriptContainer.entries.add(["src":"abc"], ["src":"xyz"]).entries.length == 2);
-    assert(BKLScriptContainer.entries.add(H5Style, H5Style).entries.length == 2);
+    assert(MVCScriptContainer.entries.add("abc", "xyz").entries.length == 2);
+    assert(MVCScriptContainer.entries.add(["src":"abc"], ["src":"xyz"]).entries.length == 2);
+    assert(MVCScriptContainer.entries.add(H5Style, H5Style).entries.length == 2);
 
-    assert(BKLScriptContainer.entries.add(["abc", "xyz"]).entries.length == 2);
-    assert(BKLScriptContainer.entries.add([["src":"abc"], ["src":"xyz"]]).entries.length == 2);
-    assert(BKLScriptContainer.entries.add([H5Style, H5Style]).entries.length == 2); */
+    assert(MVCScriptContainer.entries.add(["abc", "xyz"]).entries.length == 2);
+    assert(MVCScriptContainer.entries.add([["src":"abc"], ["src":"xyz"]]).entries.length == 2);
+    assert(MVCScriptContainer.entries.add([H5Style, H5Style]).entries.length == 2); */
   }
 }

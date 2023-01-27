@@ -13,8 +13,8 @@ public import uim.mvc.mixins.viewcomponent;
 public import uim.mvc.mixins.controller;
 public import uim.mvc.mixins.controllercomponent;
 
-template BKLParameter(string name) {
-  const char[] BKLParameter = `
+template MVCParameter(string name) {
+  const char[] MVCParameter = `
     O `~name~`(this O)(string value) {
       this.parameter("`~name~`", value);
       return cast(O)this;

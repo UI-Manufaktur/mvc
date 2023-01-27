@@ -27,8 +27,8 @@ string mvcBaseThis(string name) {
   `;
 }
 
-template BKLBaseThis(string name) {
-  const char[] BKLBaseThis = mvcBaseThis(name);
+template MVCBaseThis(string name) {
+  const char[] MVCBaseThis = mvcBaseThis(name);
 }
 
 string mvcBaseCalls(string shortName, string className) {
@@ -45,8 +45,8 @@ string mvcBaseCalls(string shortName, string className) {
   `;
 }
 
-template BKLBaseCalls(string shortName, string className) {
-  const char[] BKLBaseCalls = mvcBaseCalls(shortName, className);
+template MVCBaseCalls(string shortName, string className) {
+  const char[] MVCBaseCalls = mvcBaseCalls(shortName, className);
 }
 
 

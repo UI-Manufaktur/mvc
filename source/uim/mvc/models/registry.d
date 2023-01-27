@@ -8,7 +8,7 @@ class DMVCModelRegistry : DRegistry!DMVCModel{
 
   static DMVCModelRegistry registry; 
 }
-auto BKLModelRegistry() { 
+auto MVCModelRegistry() { 
   if (!DMVCModelRegistry.registry) {
     DMVCModelRegistry.registry = new DMVCModelRegistry; 
   }
@@ -17,6 +17,6 @@ auto BKLModelRegistry() {
 }
 
 version(test_uim_mvc) { unittest {
-  assert(BKLModelRegistry.register("mvc/model",  BKLModel).paths == ["mvc/model"]);
-  assert(BKLModelRegistry.register("mvc/model2", BKLModel).paths.length == 2);
+  assert(MVCModelRegistry.register("mvc/model",  MVCModel).paths == ["mvc/model"]);
+  assert(MVCModelRegistry.register("mvc/model2", MVCModel).paths.length == 2);
 }}

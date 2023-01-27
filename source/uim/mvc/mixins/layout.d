@@ -13,8 +13,8 @@ string mvcLayoutThis(string name) {
     mvcBaseThis(name);
 }
 
-template BKLLayoutThis(string name) {
-  const char[] BKLLayoutThis = mvcLayoutThis(name);
+template MVCLayoutThis(string name) {
+  const char[] MVCLayoutThis = mvcLayoutThis(name);
 }
 
 string mvcLayoutCalls(string shortName, string className) {
@@ -31,6 +31,6 @@ string mvcLayoutCalls(string shortName, string className) {
   `;
 }
 
-template BKLLayoutCalls(string shortName, string className) {
-  const char[] BKLLayoutCalls = mvcLayoutCalls(shortName, className);
+template MVCLayoutCalls(string shortName, string className) {
+  const char[] MVCLayoutCalls = mvcLayoutCalls(shortName, className);
 }

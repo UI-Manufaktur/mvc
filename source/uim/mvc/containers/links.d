@@ -34,27 +34,27 @@ class DMVCLinkContainer : DMVCH5Container {
     return cast(O)this;
   }
 }
-auto BKLLinkContainer() { return new DMVCLinkContainer; }
+auto MVCLinkContainer() { return new DMVCLinkContainer; }
 
-version(test_uim_BKLs) { unittest {
+version(test_uim_MVCs) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
     
 assert(new DMVCLinkContainer);
-    assert(BKLLinkContainer);
-    assert(cast(DMVCLinkContainer)BKLLinkContainer);
-    assert(!BKLLinkContainer.entries);
-    assert(BKLLinkContainer.entries.add("abc").entries);
+    assert(MVCLinkContainer);
+    assert(cast(DMVCLinkContainer)MVCLinkContainer);
+    assert(!MVCLinkContainer.entries);
+    assert(MVCLinkContainer.entries.add("abc").entries);
 
-    assert(BKLLinkContainer.entries.add("abc").entries.length == 1);
-    assert(BKLLinkContainer.entries.add(["src":"abc"]).entries.length == 1);
-    assert(BKLLinkContainer.entries.add(H5Link).entries.length == 1);
+    assert(MVCLinkContainer.entries.add("abc").entries.length == 1);
+    assert(MVCLinkContainer.entries.add(["src":"abc"]).entries.length == 1);
+    assert(MVCLinkContainer.entries.add(H5Link).entries.length == 1);
 
-    assert(BKLLinkContainer.entries.add("abc", "xyz").entries.length == 2);
-    assert(BKLLinkContainer.entries.add(["src":"abc"], ["src":"xyz"]).entries.length == 2);
-    assert(BKLLinkContainer.entries.add(H5Link, H5Link).entries.length == 2);
+    assert(MVCLinkContainer.entries.add("abc", "xyz").entries.length == 2);
+    assert(MVCLinkContainer.entries.add(["src":"abc"], ["src":"xyz"]).entries.length == 2);
+    assert(MVCLinkContainer.entries.add(H5Link, H5Link).entries.length == 2);
 
-    assert(BKLLinkContainer.entries.add(["abc", "xyz"]).entries.length == 2);
-    assert(BKLLinkContainer.entries.add([["src":"abc"], ["src":"xyz"]]).entries.length == 2);
-    assert(BKLLinkContainer.entries.add([H5Link, H5Link]).entries.length == 2); 
+    assert(MVCLinkContainer.entries.add(["abc", "xyz"]).entries.length == 2);
+    assert(MVCLinkContainer.entries.add([["src":"abc"], ["src":"xyz"]]).entries.length == 2);
+    assert(MVCLinkContainer.entries.add([H5Link, H5Link]).entries.length == 2); 
   }
 }

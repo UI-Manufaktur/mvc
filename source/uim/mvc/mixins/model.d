@@ -13,8 +13,8 @@ string mvcModelThis(string name) {
     mvcBaseThis(name);
 }
 
-template BKLModelThis(string name) {
-  const char[] BKLModelThis = mvcModelThis(name);
+template MVCModelThis(string name) {
+  const char[] MVCModelThis = mvcModelThis(name);
 }
 
 string mvcModelCalls(string shortName, string className) {
@@ -31,6 +31,6 @@ string mvcModelCalls(string shortName, string className) {
   `;
 }
 
-template BKLModelCalls(string shortName, string className) {
-  const char[] BKLModelCalls = mvcModelCalls(shortName, className);
+template MVCModelCalls(string shortName, string className) {
+  const char[] MVCModelCalls = mvcModelCalls(shortName, className);
 }

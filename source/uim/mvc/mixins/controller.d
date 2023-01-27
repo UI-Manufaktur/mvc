@@ -13,8 +13,8 @@ string mvcControllerThis(string name) {
     mvcBaseThis(name);
 }
 
-template BKLControllerThis(string name) {
-  const char[] BKLControllerThis = mvcControllerThis(name);
+template MVCControllerThis(string name) {
+  const char[] MVCControllerThis = mvcControllerThis(name);
 }
 
 string mvcControllerCalls(string shortName, string className) {
@@ -31,8 +31,8 @@ string mvcControllerCalls(string shortName, string className) {
   `;
 }
 
-template BKLControllerCalls(string shortName, string className) {
-  const char[] BKLControllerCalls = mvcControllerCalls(shortName, className);
+template MVCControllerCalls(string shortName, string className) {
+  const char[] MVCControllerCalls = mvcControllerCalls(shortName, className);
 }
 
 
