@@ -13,7 +13,7 @@ class DControllerRegistry : DRegistry!DController{
 
   static DControllerRegistry registry; 
 }
-auto ControllerRegistry() { 
+auto ControllerRegistry() { // Singleton
   if (!DControllerRegistry.registry) {
     DControllerRegistry.registry = new DControllerRegistry; 
   }
