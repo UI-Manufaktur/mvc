@@ -65,10 +65,10 @@ class FormHelper : DMVCHelper
     protected DWidget\WidgetLocator _locator;
 
     // Context for the current form.
-    protected DMVCForm\IContext|null _context;
+    protected DForm\IContext|null _context;
 
     // Context factory.
-    protected DMVCForm\ContextFactory _contextFactory;
+    protected DForm\ContextFactory _contextFactory;
 
     /**
      * The action attribute value of the last created form.

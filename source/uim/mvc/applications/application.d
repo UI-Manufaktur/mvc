@@ -27,7 +27,7 @@ class DMVCApplication : DMVCBase, IMVCApplication {
   // Interfaces
   mixin(OProperty!("DETBBase", "database"));
   mixin(OProperty!("DMVCLayout", "layout"));
-  mixin(OProperty!("DMVCRoute[HTTPMethod][string]", "routes"));
+  mixin(OProperty!("DRoute[HTTPMethod][string]", "routes"));
 
   // Main Containers - Allways first
   mixin(OProperty!("DMVCLinkContainer",   "links"));
@@ -52,11 +52,11 @@ class DMVCApplication : DMVCBase, IMVCApplication {
     return null;
   }
 
-  O addRoute(this O)(DMVCRoute newRoute) {
+  O addRoute(this O)(DRoute newRoute) {
     debug writeln("Adding route at '%s'".format(newRoute.path));
     if (newRoute) {
       newRoute.application(this);
-      DMVCRoute[HTTPMethod] routesAtPath = _routes.get(newRoute.path, null);
+      DRoute[HTTPMethod] routesAtPath = _routes.get(newRoute.path, null);
       routesAtPath[newRoute.method] = newRoute;
 
       _routes[newRoute.path] = routesAtPath;
@@ -102,9 +102,9 @@ auto MVCApplication() { return new DMVCApplication; }
 version(test_uim_mvc) unittest {
   assert(
     MVCApplication
-      .addRoute(MVCRoute("ecm/index", HTTPMethod.GET, MVCPageController))
-      .addRoute(MVCRoute("ecm/documents", HTTPMethod.GET, MVCPageController))
-      .addRoute(MVCRoute("ecm/folders", HTTPMethod.GET, MVCPageController))
-      .addRoute(MVCRoute("ecm/workspaces", HTTPMethod.GET, MVCPageController))
+      .addRoute(Route("ecm/index", HTTPMethod.GET, MVCPageController))
+      .addRoute(Route("ecm/documents", HTTPMethod.GET, MVCPageController))
+      .addRoute(Route("ecm/folders", HTTPMethod.GET, MVCPageController))
+      .addRoute(Route("ecm/workspaces", HTTPMethod.GET, MVCPageController))
   );
 }

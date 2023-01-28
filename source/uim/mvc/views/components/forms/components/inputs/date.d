@@ -3,7 +3,7 @@ module uim.mvc.views.components.forms.components.inputs.date;
 @safe:
 import uim.mvc;
 
-class DMVCDateFormInput : DMVCFormInput {
+class DMVCDateFormInput : DFormInput {
   mixin(MVCViewComponentThis!("MVCDateFormInput"));
 
   override DH5Obj h5Input(STRINGAA options = null) {

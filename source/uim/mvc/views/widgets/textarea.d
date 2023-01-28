@@ -32,7 +32,7 @@ class DMVCTextareaWidget : DWidget {
     *
     * All other keys will be converted into HTML attributes.
     *
-    * @param array<string, mixed> myData The data to build a textarea with.
+    * someData - The data to build a textarea with.
     * @param uim.mvc.views\Form\IContext $context The current form context.
     * returns HTML string
     */

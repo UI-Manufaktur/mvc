@@ -8,7 +8,7 @@ module uim.mvc.views.components.forms.components.inputs.checkbox;
 @safe:
 import uim.mvc;
 
-class DMVCCheckboxFormInput : DMVCFormInput {
+class DMVCCheckboxFormInput : DFormInput {
   mixin(MVCViewComponentThis!("MVCCheckboxFormInput"));
 
   override void initialize() {

@@ -129,9 +129,9 @@ class DMVCSelectBoxWidget : DWidget {
 
   /**
     * Render the contents of the select element.
-    * @param array<string, mixed> myData The context for rendering a select.
+    * someData - The context for rendering a select.
     */
-  protected string[] _renderContent(array myData) {
+  protected string[] _renderContent(Json someData) {
       myOptions = myData["options"];
 
       if (myOptions instanceof Traversable) {
