@@ -10,5 +10,5 @@ import uim.mvc;
 
 // Used when a component cannot be found.
 class MissingComponentException : UIMException {
-    protected string _messageTemplate = "Component class %s could not be found.";
+  protected string _messageTemplate = "Component class %s could not be found.";
 }

@@ -13,7 +13,7 @@ interface IWidget {
   /**
     * Converts the myData into one or many HTML elements.
     *
-    * @param array<string, mixed> myData The data to render.
+    * someData - The data to render.
     * @param uim.mvc.views\Form\IContext $context The current form context.
     * @return string Generated HTML for the widget element.
     */

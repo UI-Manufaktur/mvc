@@ -32,7 +32,7 @@ class DMVCLabelWidget : IWidget {
     * templatesList -Templates list.
     */
   this(StringTemplate templatesList) {
-      _templates = templatesList;
+    _templates = templatesList;
   }
 
   void initialize() {

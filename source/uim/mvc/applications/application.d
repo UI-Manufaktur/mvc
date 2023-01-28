@@ -15,9 +15,12 @@ class DMVCApplication : DMVCBase, IMVCApplication {
     super.initialize;
   }
 
+  // #region parameters
+    mixin(MVCParameter!("rootPath"));
+  // #endregion parameters
+
   // Application data 
   mixin(OProperty!("UUID", "id"));
-  mixin(MVCParameter!("rootPath"));
   mixin(OProperty!("size_t", "versionNumber"));
   mixin(OProperty!("Json", "config"));
 

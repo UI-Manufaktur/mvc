@@ -89,20 +89,20 @@ class DWidgetLocator {
     myfiles = null;
 
     foreach ($widgets as myKey: $widget) {
-        if (is_int(myKey)) {
-            myfiles ~= $widget;
-            continue;
-        }
+      if (is_int(myKey)) {
+          myfiles ~= $widget;
+          continue;
+      }
 
-        if (is_object($widget) && !($widget instanceof IWidget)) {
-            throw new RuntimeException(sprintf(
-                "Widget objects must implement `%s`. Got `%s` instance instead.",
-                IWidget::class,
-                getTypeName($widget)
-            ));
-        }
+      if (is_object($widget) && !($widget instanceof IWidget)) {
+          throw new RuntimeException(sprintf(
+              "Widget objects must implement `%s`. Got `%s` instance instead.",
+              IWidget::class,
+              getTypeName($widget)
+          ));
+      }
 
-        _widgets[myKey] = $widget;
+      _widgets[myKey] = $widget;
     }
 
     foreach (myfiles as myfile) {

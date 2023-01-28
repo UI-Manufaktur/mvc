@@ -36,28 +36,27 @@ class DMVCBase : IMVCBase {
   // The name of a mvc object. Names are plural, named after the model they manipulate.
   mixin(MVCParameter!("name"));
 
-  // Start Parameters ----
-  mixin(OProperty!("string[string]", "parameters")); 
-  bool hasParameter(string key) {
-    return key in _parameters ? true : false;
-  }
-  string parameter(string key) {
-    return _parameters.get(key, null);
-  }
-  O parameter(this O)(string key, string newValue) {
-    _parameters[key] = newValue;
-    return cast(O)this;
-  }
-
-  string opIndex(string key) {
-    switch(key) { 
-      default: return this.parameter(key);
+  // #region Parameters
+    mixin(OProperty!("string[string]", "parameters")); 
+    bool hasParameter(string key) {
+      return key in _parameters ? true : false;
     }
-  }
-  void opIndexAssign(string newValue, string key) {
-    this.parameter(key, newValue);
-  }
-// End Parameters ----
+    string parameter(string key) {
+      return _parameters.get(key, null);
+    }
+    O parameter(this O)(string key, string newValue) {
+      _parameters[key] = newValue;
+      return cast(O)this;
+    }
+    string opIndex(string key) {
+      switch(key) { 
+        default: return this.parameter(key);
+      }
+    }
+    void opIndexAssign(string newValue, string key) {
+      this.parameter(key, newValue);
+    }
+  // #endregion Parameters
 
 // #region error handling
     string _error;

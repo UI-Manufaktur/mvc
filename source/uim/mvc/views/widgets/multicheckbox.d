@@ -6,7 +6,7 @@ import uim.mvc;
 /**
  * Input widget class for generating multiple checkboxes.
  *
- * This class is usually used internally by `Cake\View\Helper\FormHelper`,
+ * This class is usually used internally by `DFormHelper`,
  * it but can be used to generate standalone multiple checkboxes.
  */
 class DMVCMultiCheckboxWidget : DWidget {

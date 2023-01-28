@@ -45,12 +45,12 @@ class FileWidget : DWidget {
     unset(myData["val"]);
 
     return _templates.format("file", [
-        "name": myData["name"],
-        "templateVars": myData["templateVars"],
-        "attrs": _templates.formatAttributes(
-            myData,
-            ["name"]
-        ),
+      "name": myData["name"],
+      "templateVars": myData["templateVars"],
+      "attrs": _templates.formatAttributes(
+          myData,
+          ["name"]
+      ),
     ]);
   }
 

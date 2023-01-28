@@ -13,5 +13,5 @@ import uim.mvc;
  * cannot be found, or when the controller"s isAction() method returns false.
  */
 class MissingActionException : UIMException {
-  protected _messageTemplate = "Action %s::%s() could not be found, or is not accessible.";
+  protected string _messageTemplate = "Action %s::%s() could not be found, or is not accessible.";
 }
