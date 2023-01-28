@@ -3,11 +3,11 @@ module uim.mvc.views.components.forms.components.headers.header;
 @safe:
 import uim.mvc;
 
-class DMVCFormHeader : DMVCFormComponent {
+class DFormHeader : DFormComponent {
   mixin(MVCViewComponentThis!("MVCFormHeader"));
 
   override void initialize() {
-    debugMethodCall(moduleName!DMVCFormHeader~"::DMVCFormHeader("~this.name~"):initialize");   
+    debugMethodCall(moduleName!DFormHeader~"::DFormHeader("~this.name~"):initialize");   
     super.initialize;
     debug writeln("In ", __MODULE__, "/", __LINE__);
 
@@ -27,7 +27,7 @@ class DMVCFormHeader : DMVCFormComponent {
   } */
 
   DH5Obj actionButton(string action, STRINGAA options = null) {
-    debugMethodCall(moduleName!DMVCFormHeader~":DMVCFormHeader::actionButton");
+    debugMethodCall(moduleName!DFormHeader~":DFormHeader::actionButton");
 
     auto entityId = this.entity ? this.entity["id"] : "-missing-";
 
@@ -51,7 +51,7 @@ class DMVCFormHeader : DMVCFormComponent {
   }
 
   DH5Obj[] actionButtons(STRINGAA options = null) {
-    debugMethodCall(moduleName!DMVCFormHeader~":DMVCFormHeader::actionButtons");
+    debugMethodCall(moduleName!DFormHeader~":DFormHeader::actionButtons");
     debug writeln ("Actions: ", this.actions);
 
     DH5Obj[] results;
@@ -66,7 +66,7 @@ class DMVCFormHeader : DMVCFormComponent {
   }
 
   DH5Obj h5CardHeader(STRINGAA options = null) {
-    debugMethodCall(moduleName!DMVCFormHeader~":DMVCFormHeader::h5CardHeader");
+    debugMethodCall(moduleName!DFormHeader~":DFormHeader::h5CardHeader");
 
     return BS5CardHeader(id,
       H5H4(["card-title me-auto"], title),
@@ -75,7 +75,7 @@ class DMVCFormHeader : DMVCFormComponent {
   }
 
   override void beforeH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DMVCFormHeader~":DMVCFormHeader::beforeH5");
+    debugMethodCall(moduleName!DFormHeader~":DFormHeader::beforeH5");
     super.beforeH5(options);
 
     /* if (form) {
@@ -91,7 +91,7 @@ class DMVCFormHeader : DMVCFormComponent {
   } 
 
   override DH5Obj[] toH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DMVCFormHeader~":DMVCFormHeader::toH5");
+    debugMethodCall(moduleName!DFormHeader~":DFormHeader::toH5");
     super.toH5(options);
     if (hasError) { return null; }
     
@@ -105,7 +105,7 @@ class DMVCFormHeader : DMVCFormComponent {
           H5Span(["d-none d-sm-inline"], buttons)))].toH5;    
   } 
 }
-mixin(MVCViewComponentCalls!("MVCFormHeader", "DMVCFormHeader"));
+mixin(MVCViewComponentCalls!("MVCFormHeader", "DFormHeader"));
 
 version(test_uim_mvc) { unittest {
   assert(MVCFormHeader);

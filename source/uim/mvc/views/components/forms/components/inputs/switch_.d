@@ -3,7 +3,7 @@ module uim.mvc.views.components.forms.components.inputs.switch_;
 @safe:
 import uim.mvc;
 
-class DMVCSwitchFormInput : DMVCFormInput {
+class DMVCSwitchFormInput : DFormInput {
   mixin(MVCViewComponentThis!("MVCSwitchFormInput"));
 
   override void initialize() {

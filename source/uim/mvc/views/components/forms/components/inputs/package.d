@@ -26,39 +26,39 @@ public import uim.mvc.views.components.forms.components.inputs.tests;
 template FormInputThis(string name, bool withEntity = false, bool withEntities = false) {
   const char[] FormInputThis = `
 this() { super(); }
-this(DMVCForm myForm) { this().form(myForm); };
+this(DForm myForm) { this().form(myForm); };
 `~
 (withEntity ? `
 this(DEntity myEntity) { this().entity(myEntity); }
-this(DMVCForm myForm, DEntity myEntity) { this(myForm).entity(myEntity); }
+this(DForm myForm, DEntity myEntity) { this(myForm).entity(myEntity); }
 this(string myName, DEntity myEntity) { this(myName).entity(myEntity); }
-this(DMVCForm myForm, string myName, DEntity myEntity) { this(myForm, myName).entity(myEntity); }
+this(DForm myForm, string myName, DEntity myEntity) { this(myForm, myName).entity(myEntity); }
 ` : ``)
 ~
 (withEntities ? `
 this(DEntity[] myEntities) { this().entities(myEntities); }
-this(DMVCForm myForm, DEntity[] myEntities) { this(myForm).entities(myEntities); }
+this(DForm myForm, DEntity[] myEntities) { this(myForm).entities(myEntities); }
 this(string myName, DEntity[] myEntities) { this(myName).entities(myEntities); }
-this(DMVCForm myForm, string myName, DEntity[] myEntities) { this(myForm, myName).entities(myEntities); }
+this(DForm myForm, string myName, DEntity[] myEntities) { this(myForm, myName).entities(myEntities); }
 ` : ``);
 }
 
 template FormInputCalls(string name, bool withEntity = false, bool withEntities = false) {
   const char[] FormInputCalls = `
 auto `~name~`() { return new D`~name~`; }
-auto `~name~`(DMVCForm myForm) { return new D`~name~`(myForm); };
+auto `~name~`(DForm myForm) { return new D`~name~`(myForm); };
 `~
 (withEntity ? `
 this(DEntity myEntity) { this().entity(myEntity); }
-this(DMVCForm myForm, DEntity myEntity) { this(myForm).entity(myEntity); }
+this(DForm myForm, DEntity myEntity) { this(myForm).entity(myEntity); }
 this(string myName, DEntity myEntity) { this(myName).entity(myEntity); }
-this(DMVCForm myForm, string myName, DEntity myEntity) { this(myForm, myName).entity(myEntity); }
+this(DForm myForm, string myName, DEntity myEntity) { this(myForm, myName).entity(myEntity); }
 ` : ``)
 ~
 (withEntities ? `
 this(DEntity[] myEntities) { this().entities(myEntities); }
-this(DMVCForm myForm, DEntity[] myEntities) { this(myForm).entities(myEntities); }
+this(DForm myForm, DEntity[] myEntities) { this(myForm).entities(myEntities); }
 this(string myName, DEntity[] myEntities) { this(myName).entities(myEntities); }
-this(DMVCForm myForm, string myName, DEntity[] myEntities) { this(myForm, myName).entities(myEntities); }
+this(DForm myForm, string myName, DEntity[] myEntities) { this(myForm, myName).entities(myEntities); }
 ` : ``);
 }

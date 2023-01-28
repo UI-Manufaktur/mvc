@@ -8,7 +8,7 @@ module uim.mvc.views.components.forms.components.inputs.input;
 @safe:
 import uim.mvc;
 
-class DMVCFormInput : DMVCEntityViewComponent {
+class DFormInput : DMVCEntityViewComponent {
   mixin(MVCViewComponentThis!("MVCFormInput"));
 
   // #region Fields
@@ -75,9 +75,9 @@ class DMVCFormInput : DMVCEntityViewComponent {
       ];
   }
 }
-mixin(MVCViewComponentCalls!("MVCFormInput", "DMVCFormInput"));
+mixin(MVCViewComponentCalls!("MVCFormInput", "DFormInput"));
 
 version(test_uim_mvc) { unittest {
-  assert(new DMVCFormInput);
+  assert(new DFormInput);
   assert(MVCFormInput);
 }}

@@ -8,7 +8,7 @@ module uim.mvc.views.components.forms.components.contents.entities;
 @safe:
 import uim.mvc;
 
-class DMVCEntitiesFormContent : DMVCFormContent {
+class DMVCEntitiesFormContent : DFormContent {
   mixin(MVCViewComponentThis!("MVCEntitiesFormContent"));
 
   override void initialize() {

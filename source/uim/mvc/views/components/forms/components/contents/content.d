@@ -8,17 +8,17 @@ module uim.mvc.views.components.forms.components.contents.content;
 @safe:
 import uim.mvc;
 
-class DMVCFormContent : DMVCFormComponent {
+class DFormContent : DFormComponent {
   mixin(MVCViewComponentThis!("MVCFormContent"));
 
   override void initialize() {
-    debugMethodCall(moduleName!DMVCFormContent~"::DMVCFormContent("~this.name~"):initialize");   
+    debugMethodCall(moduleName!DFormContent~"::DFormContent("~this.name~"):initialize");   
     super.initialize;
 
     debug writeln("In ", __MODULE__, "/", __LINE__);
   }
 }
-mixin(MVCViewComponentCalls!("MVCFormContent", "DMVCFormContent"));
+mixin(MVCViewComponentCalls!("MVCFormContent", "DFormContent"));
 
 version(test_uim_mvc) { unittest {
   assert(MVCFormContent);

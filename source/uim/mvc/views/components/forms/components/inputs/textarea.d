@@ -8,7 +8,7 @@ module uim.mvc.views.components.forms.components.inputs.textarea;
 @safe:
 import uim.mvc;
 
-class DMVCTextAreaFormInput : DMVCFormInput {
+class DMVCTextAreaFormInput : DFormInput {
   mixin(MVCViewComponentThis!("MVCTextAreaFormInput"));
 
   override void initialize() {

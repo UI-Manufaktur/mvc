@@ -8,11 +8,11 @@ module uim.mvc.views.components.forms.form;
 @safe:
 import uim.mvc;
 
-class DMVCForm : DMVCViewComponent {
+class DForm : DMVCViewComponent {
   mixin(MVCViewComponentThis!("MVCForm"));
 
   override void initialize() {
-    debugMethodCall(moduleName!DMVCForm~"::DMVCForm("~this.name~"):initialize");   
+    debugMethodCall(moduleName!DForm~"::DForm("~this.name~"):initialize");   
     super.initialize;    
     writeln("In ", __MODULE__, "/", __LINE__);
  
@@ -43,9 +43,9 @@ class DMVCForm : DMVCViewComponent {
     mixin(MVCParameter!("contentTitle"));
     mixin(MVCParameter!("footerTitle"));
 
-    mixin(OProperty!("DMVCFormHeader", "header"));
-    mixin(OProperty!("DMVCFormContent", "content"));
-    mixin(OProperty!("DMVCFormFooter", "footer"));
+    mixin(OProperty!("DFormHeader", "header"));
+    mixin(OProperty!("DFormContent", "content"));
+    mixin(OProperty!("DFormFooter", "footer"));
   // #endregion Properties
 
 /*   DETBBase _database; 
@@ -60,7 +60,7 @@ class DMVCForm : DMVCViewComponent {
   } */
 
   override void beforeH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DMVCForm~":DMVCForm("~this.name~")::beforeH5");
+    debugMethodCall(moduleName!DForm~":DForm("~this.name~")::beforeH5");
     super.beforeH5(options);
     if (hasError || "redirect" in options) { return; }
 
@@ -73,7 +73,7 @@ class DMVCForm : DMVCViewComponent {
   }
 
   override DH5Obj[] toH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DMVCForm~":DMVCForm("~this.name~")::toH5");
+    debugMethodCall(moduleName!DForm~":DForm("~this.name~")::toH5");
     super.toH5(options);
     
     DBS5Col _col = BS5Col(["col-12"]);
@@ -87,7 +87,7 @@ class DMVCForm : DMVCViewComponent {
     return [_col].toH5;
   }  
 }
-mixin(MVCViewComponentCalls!("MVCForm", "DMVCForm"));
+mixin(MVCViewComponentCalls!("MVCForm", "DForm"));
 
 version(test_uim_mvc) { unittest {
   assert(MVCForm);

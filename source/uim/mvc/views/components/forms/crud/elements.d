@@ -3,7 +3,7 @@ module uim.mvc.views.components.forms.crud.elements;
 @safe:
 import uim.mvc;
 
-class DMVCElementsForm : DMVCForm {
+class DMVCElementsForm : DForm {
   mixin(MVCViewComponentThis!("MVCElementsForm"));
 
   mixin(OProperty!("DElement[]", "elements"));

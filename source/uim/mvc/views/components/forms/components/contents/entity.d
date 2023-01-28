@@ -8,7 +8,7 @@ module uim.mvc.views.components.forms.components.contents.entity;
 @safe:
 import uim.mvc;
 
-class DMVCEntityFormContent : DMVCFormContent {
+class DMVCEntityFormContent : DFormContent {
   mixin(MVCViewComponentThis!("MVCEntityFormContent"));
 
   override void initialize() {
@@ -32,7 +32,7 @@ class DMVCEntityFormContent : DMVCFormContent {
   
   // mixin(OProperty!("DMVCPanes", "panes"));
 
-  mixin(OProperty!("DMVCFormInputHandler", "inputHandler"));
+  mixin(OProperty!("DFormInputHandler", "inputHandler"));
 
   DH5Obj[] formGroups(STRINGAA options = null) {
     debugMethodCall(moduleName!DMVCEntityFormContent~"::DMVCEntityFormContent:formGroups");    
@@ -40,7 +40,7 @@ class DMVCEntityFormContent : DMVCFormContent {
 
     debug writeln(entity ? "Has entity: "~entity.name : "No entity");
 
-    if (auto myInputHandler = cast(DMVCFormInputHandler)inputHandler) {
+    if (auto myInputHandler = cast(DFormInputHandler)inputHandler) {
       debug writeln("Found inputHandler:",inputHandler.name);
 
       myInputHandler

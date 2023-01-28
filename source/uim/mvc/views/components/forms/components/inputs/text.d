@@ -8,7 +8,7 @@ module uim.mvc.views.components.forms.components.inputs.text;
 @safe:
 import uim.mvc;
 
-class DMVCTextFormInput : DMVCFormInput {
+class DMVCTextFormInput : DFormInput {
   mixin(MVCViewComponentThis!("MVCTextFormInput"));
 
   override DH5Obj[] toH5(STRINGAA options = null) { // hook

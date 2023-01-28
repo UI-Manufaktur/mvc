@@ -8,7 +8,7 @@ module uim.mvc.views.components.forms.login;
 @safe:
 import uim.mvc;
 
-class DMVCLoginForm : DMVCForm {
+class DMVCLoginForm : DForm {
   mixin(MVCViewComponentThis!("MVCLoginForm"));
 
   mixin(OProperty!("bool", "showLostAccount"));

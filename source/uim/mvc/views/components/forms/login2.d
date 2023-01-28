@@ -8,7 +8,7 @@ module uim.mvc.views.components.forms.login2;
 @safe:
 import uim.mvc;
 
-class DMVCLogin2Form : DMVCForm {
+class DMVCLogin2Form : DForm {
   mixin(MVCViewComponentThis!("MVCLogin2Form"));
 
   override void initialize() {
