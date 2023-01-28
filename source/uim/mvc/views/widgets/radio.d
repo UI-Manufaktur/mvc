@@ -27,12 +27,12 @@ class DMVCRadioWidget : DWidget {
     *   the radio + input element. Can use the `input` and `label`
     *   variables.
     *
-    * @param uim.mvc.views\StringTemplate myTemplates Templates list.
-    * @param uim.mvc.views\Widget\LabelWidget $label Label widget instance.
+    * aTemplates - Templates list.
+    * aLabel - Label widget instance.
     */
-  this(StringTemplate myTemplates, DMVCLabelWidget $label) {
-      _templates = myTemplates;
-      _label = $label;
+  this(StringTemplate aTemplates, DMVCLabelWidget aLabel) {
+    _templates = aTemplates;
+    _label = aLabel;
   }
 
   override void initialize() {

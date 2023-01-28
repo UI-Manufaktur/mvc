@@ -8,7 +8,7 @@ module uim.mvc.views.components.tables.components.bodies.entity;
 @safe:
 import uim.mvc;
 
-class DMVCEntityTableBody : DMVCTableBody {
+class DMVCEntityTableBody : DTableBody {
   mixin(MVCViewComponentThis!("MVCEntityTableBody"));
 }
 mixin(MVCViewComponentCalls!("MVCEntityTableBody", "DMVCEntityTableBody"));

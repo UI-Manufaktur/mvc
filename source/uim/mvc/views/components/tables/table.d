@@ -8,7 +8,7 @@ module uim.mvc.views.components.tables.table;
 @safe:
 import uim.mvc;
 
-class DMVCTableViewComponent : DMVCViewComponent {
+class DTableViewComponent : DMVCViewComponent {
   mixin(MVCViewComponentThis!("MVCTableViewComponent"));
   
   mixin(OProperty!("string", "path"));  
@@ -30,7 +30,7 @@ class DMVCTableViewComponent : DMVCViewComponent {
       )].toH5;
   }
 }
-mixin(MVCViewComponentCalls!("MVCTableViewComponent", "DMVCTableViewComponent"));
+mixin(MVCViewComponentCalls!("MVCTableViewComponent", "DTableViewComponent"));
 
 version(test_uim_mvc) { unittest {
   assert(MVCTableViewComponent);

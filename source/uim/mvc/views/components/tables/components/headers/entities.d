@@ -3,7 +3,7 @@ module uim.mvc.views.components.tables.components.headers.entities;
 @safe:
 import uim.mvc;
 
-class DMVCEntitiesTableHeader : DMVCTableHeader {
+class DMVCEntitiesTableHeader : DTableHeader {
   mixin(MVCViewComponentThis!("MVCEntitiesTableHeader"));
 
   override void initialize() {

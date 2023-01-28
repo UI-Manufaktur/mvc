@@ -8,7 +8,7 @@ module uim.mvc.views.components.tables.components.footers.entities;
 @safe:
 import uim.mvc;
 
-class DMVCEntitiesTableFooter : DMVCTableFooter {
+class DMVCEntitiesTableFooter : DTableFooter {
   mixin(MVCViewComponentThis!("MVCEntitiesTableFooter"));
 
   mixin(OProperty!("size_t", "pageNo"));

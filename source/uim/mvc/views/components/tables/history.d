@@ -8,7 +8,7 @@ module uim.mvc.views.components.tables.history;
 @safe:
 import uim.mvc;
 
-/* class DMVCTableHistory : DMVCEntitiesTableHeader {
+/* class DTableHistory : DMVCEntitiesTableHeader {
   this() { super(); }
   this(DMVCView myView) { this().view(myView); }
 
@@ -65,7 +65,7 @@ import uim.mvc;
 
   } * /
 }
-auto MVCTableHistory() { return new DMVCTableHistory; }
+auto MVCTableHistory() { return new DTableHistory; }
 /* auto MVCTableHistory(string myKey, string myTitle) { return MVCTableHistory.key(myKey).title(myTitle); }
 auto MVCTableHistory(string myKey, string myTitle, string myPath) { return MVCTableHistory.key(myKey).title(myTitle).path(myPath); }
  * /  
