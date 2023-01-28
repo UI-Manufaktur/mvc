@@ -44,19 +44,19 @@ class ButtonWidget : DWidget {
   * @param uim.mvc.views\Form\IContext $context The current form context.
   */
   string render(Json someData, IContext aContext) {
-      myData += [
-          "text": "",
-          "type": "submit",
-          "escapeTitle": true,
-          "escape": true,
-          "templateVars": [],
-      ];
+    if (someData == Json(null)) then someData = Json.emptyObject;
+    
+		someDate["text"] = "";
+    someDate["type"] = "submit";
+    someDate["escapeTitle"] = true;
+    someDate["escape"] = true;
+    someDate["templateVars"] = [];
 
-      return _templates.format("button", [
-          "text": myData["escapeTitle"] ? h(myData["text"]) : myData["text"],
-          "templateVars": myData["templateVars"],
-          "attrs": _templates.formatAttributes(myData, ["text", "escapeTitle"]),
-      ]);
+		return _templates.format("button", [
+				"text": myData["escapeTitle"] ? h(myData["text"]) : myData["text"],
+				"templateVars": myData["templateVars"],
+				"attrs": _templates.formatAttributes(myData, ["text", "escapeTitle"]),
+		]);
   }
 
 

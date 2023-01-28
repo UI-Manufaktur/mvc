@@ -46,12 +46,21 @@ class DMVCView : DMVCBase, IMVCView {
 
   override void initialize() {
     super.initialize;
+
+    this
+      .layoutName("default");
+
   }
   
-  mixin(OProperty!("IController", "controller"));  
-  mixin(OProperty!("DEntity", "entity"));
-  mixin(OProperty!("DEntity[]", "entities"));
-  mixin(OProperty!("string", "rootPath"));
+  // #region Properties
+    mixin(OProperty!("IController", "controller"));  
+    mixin(OProperty!("DEntity", "entity"));
+    mixin(OProperty!("DEntity[]", "entities"));
+    mixin(OProperty!("string", "rootPath"));
+
+    // The name of the layout render the template inside of. 
+    mixin(OProperty!("string", "layoutName"));
+  // #endregion Properties
 
   // Helpers collection
   protected DVIWHelperRegistry _helpers;

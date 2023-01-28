@@ -132,14 +132,14 @@ class DMVCSelectBoxWidget : DWidget {
     * someData - The context for rendering a select.
     */
   protected string[] _renderContent(Json someData) {
-      myOptions = myData["options"];
+      myOptions = someData["options"];
 
       if (myOptions instanceof Traversable) {
           myOptions = iterator_to_array(myOptions);
       }
 
-      if (!empty(myData["empty"])) {
-          myOptions = _emptyValue(myData["empty"]) + (array)myOptions;
+      if (!empty(someData["empty"])) {
+          myOptions = _emptyValue(someData["empty"]) + (array)myOptions;
       }
       if (empty(myOptions)) {
           return [];

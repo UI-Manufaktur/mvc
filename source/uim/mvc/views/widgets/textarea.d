@@ -37,18 +37,18 @@ class DMVCTextareaWidget : DWidget {
     * returns HTML string
     */
   string render(Json someData, IContext aContext) {
-      myData += this.mergeDefaults(someData, aContext);
+      someData += this.mergeDefaults(someData, aContext);
 
-      if (!myData.isSet("maxlength") && myData.isSet("fieldName")) {
-          myData = this.setMaxLength(myData, $context, myData["fieldName"]);
+      if (!someData.isSet("maxlength") && someData.isSet("fieldName")) {
+        someData = this.setMaxLength(myData, aContext, myData["fieldName"]);
       }
 
       return _templates.format("textarea", [
-          "name": myData["name"],
-          "value": myData["escape"] ? h(myData["val"]) : myData["val"],
+          "name": someData["name"],
+          "value": someData["escape"] ? h(someData["val"]) : someData["val"],
           "templateVars": myData["templateVars"],
           "attrs": _templates.formatAttributes(
-              myData,
+              someData,
               ["name", "val"]
           ),
       ]);
