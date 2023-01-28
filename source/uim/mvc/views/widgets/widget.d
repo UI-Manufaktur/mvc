@@ -97,8 +97,8 @@ class DWidget : IWidget {
     * @param uim.mvc.views\Form\IContext $context Context instance.
     * @return array<string, mixed> Updated data array.
     */
-  protected Json mergeDefaults(Json myData, IContext aContext) {
-      myData += _defaults;
+  protected Json mergeDefaults(Json someData, IContext aContext) {
+      auto myData = mergeJsonObjects(_defaults, someData);
 
       if (myData.isSet("fieldName") && !array_key_exists("required", myData)) {
           myData = this.setRequired(myData, $context, myData["fieldName"]);

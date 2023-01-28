@@ -26,8 +26,122 @@ import uim.mvc;
  */
 class FormHelper : DMVCHelper
 {
-/*     use IdGeneratorTrait;
-    // use StringTemplateTrait; */
+/ Prefix for id attribute.
+    protected string _idPrefix;
+
+    // A list of id suffixes used in the current rendering.
+    protected string[] _idSuffixes = null;
+
+    /**
+     * Clear the stored ID suffixes.
+     */
+    protected void _clearIds() {
+        _idSuffixes = null;
+    }
+
+    /**
+     * Generate an ID attribute for an element.
+     *
+     * Ensures that id"s for a given set of fields are unique.
+     *
+     * @param string myName The ID attribute name.
+     * @param string val The ID attribute value.
+     * @return string Generated id.
+     */
+    protected string _id(string myName, string val) {
+        myName = _domId(myName);
+        $suffix = _idSuffix($val);
+
+        return trim(myName ~ "-" ~ $suffix, "-");
+    }
+
+    /**
+     * Generate an ID suffix.
+     *
+     * Ensures that id"s for a given set of fields are unique.
+     *
+     * @param string val The ID attribute value.
+     * @return string Generated id suffix.
+     */
+    protected string _idSuffix(string val) {
+        $idSuffix = mb_strtolower(replace(["/", "@", "<", ">", " ", """, "\""], "-", $val));
+        myCount = 1;
+        $check = $idSuffix;
+        while (hasAllValues($check, _idSuffixes, true)) {
+            $check = $idSuffix . myCount++;
+        }
+        _idSuffixes ~= $check;
+
+        return $check;
+    }
+
+    /**
+     * Generate an ID suitable for use in an ID attribute.
+     *
+     * @param string myValue The value to convert into an ID.
+     * @return string The generated id.
+     */
+    protected string _domId(string myValue) {
+        $domId = mb_strtolower(Text::slug(myValue, "-"));
+        if (_idPrefix) {
+            $domId = _idPrefix ~ "-" ~ $domId;
+        }
+
+        return $domId;
+    }
+    protected DVIWStringTemplate _templater;
+
+  /**
+    * Sets templates to use.
+    *
+    * @param array<string> myTemplates Templates to be added.
+    * @return this
+    */
+  auto setTemplates(array myTemplates) {
+      _templater().add(myTemplates);
+
+      return this;
+  }
+
+  /**
+    * Gets templates to use or a specific template.
+    *
+    * @param string|null myTemplate String for reading a specific template, null for all.
+    * @return array|string
+    */
+  auto getTemplates(Nullable!string myTemplate = null) {
+      return _templater().get(myTemplate);
+  }
+
+  /**
+    * Formats a template string with myData
+    *
+    * @param string myName The template name.
+    * @param array<string, mixed> myData The data to insert.
+    */
+  string formatTemplate(string myName, array myData) {
+      return _templater().format(myName, myData);
+  }
+
+  // Returns the templater instance.
+  StringTemplate templater() {
+      if (_templater is null) {
+          StringTemplate myClass = this.getConfig("templateClass") ?: StringTemplate::class;
+          _templater = new myClass();
+
+          myTemplates = this.getConfig("templates");
+          if (myTemplates) {
+              if (is_string(myTemplates)) {
+                  _templater.add(_defaultConfig["templates"]);
+                  _templater.load(myTemplates);
+              } else {
+                  _templater.add(myTemplates);
+              }
+          }
+      }
+
+      return _templater;
+  }
 
     /**
      * Other helpers used by FormHelper

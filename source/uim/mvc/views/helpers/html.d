@@ -17,7 +17,59 @@ import uim.mvc;
  * @link https://book.UIM.org/4/en/views/helpers/html.html
  */
 class HtmlHelper : DMVCHelper {
-  // use StringTemplateTrait;
+  protected DVIWStringTemplate _templater;
+
+  /**
+    * Sets templates to use.
+    *
+    * @param array<string> myTemplates Templates to be added.
+    * @return this
+    */
+  auto setTemplates(array myTemplates) {
+      _templater().add(myTemplates);
+
+      return this;
+  }
+
+  /**
+    * Gets templates to use or a specific template.
+    *
+    * @param string|null myTemplate String for reading a specific template, null for all.
+    * @return array|string
+    */
+  auto getTemplates(Nullable!string myTemplate = null) {
+      return _templater().get(myTemplate);
+  }
+
+  /**
+    * Formats a template string with myData
+    *
+    * @param string myName The template name.
+    * @param array<string, mixed> myData The data to insert.
+    */
+  string formatTemplate(string myName, array myData) {
+      return _templater().format(myName, myData);
+  }
+
+  // Returns the templater instance.
+  StringTemplate templater() {
+      if (_templater is null) {
+          StringTemplate myClass = this.getConfig("templateClass") ?: StringTemplate::class;
+          _templater = new myClass();
+
+          myTemplates = this.getConfig("templates");
+          if (myTemplates) {
+              if (is_string(myTemplates)) {
+                  _templater.add(_defaultConfig["templates"]);
+                  _templater.load(myTemplates);
+              } else {
+                  _templater.add(myTemplates);
+              }
+          }
+      }
+
+      return _templater;
+  }
 
   // List of helpers used by this helper
   protected array helpers = ["Url"];
