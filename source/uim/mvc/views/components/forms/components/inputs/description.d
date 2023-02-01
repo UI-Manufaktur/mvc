@@ -9,7 +9,7 @@ module uim.mvc.views.components.forms.components.inputs.description;
 import uim.mvc;
 
 class DMVCDescriptionFormInput : DMVCTextAreaFormInput {
-  mixin(MVCViewComponentThis!("MVCDescriptionFormInput"));
+  mixin(ViewComponentThis!("MVCDescriptionFormInput"));
 
   override void initialize() {
     super.initialize;
@@ -22,7 +22,7 @@ class DMVCDescriptionFormInput : DMVCTextAreaFormInput {
       .placeholder("Beschreibung eingeben"); 
   }
 }
-mixin(MVCViewComponentCalls!("MVCDescriptionFormInput", "DMVCDescriptionFormInput"));
+mixin(ViewComponentCalls!("MVCDescriptionFormInput", "DMVCDescriptionFormInput"));
 
 version(test_uim_mvc) { unittest {
   assert(MVCDescriptionFormInput);

@@ -9,7 +9,7 @@ module uim.mvc.views.components.forms.components.inputs.checkbox;
 import uim.mvc;
 
 class DMVCCheckboxFormInput : DFormInput {
-  mixin(MVCViewComponentThis!("MVCCheckboxFormInput"));
+  mixin(ViewComponentThis!("MVCCheckboxFormInput"));
 
   override void initialize() {
     super.initialize;
@@ -43,7 +43,7 @@ class DMVCCheckboxFormInput : DFormInput {
           h5Input(options), H5Span(["form-check-label"], label))));
   }
 }
-mixin(MVCViewComponentCalls!("MVCCheckboxFormInput", "DMVCCheckboxFormInput"));
+mixin(ViewComponentCalls!("MVCCheckboxFormInput", "DMVCCheckboxFormInput"));
 
 version(test_uim_mvc) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);

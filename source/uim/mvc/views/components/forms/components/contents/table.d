@@ -9,16 +9,16 @@ module uim.mvc.views.components.forms.components.contents.table;
 import uim.mvc;
 
 class DTableFormContent : DMVCEntitiesViewComponent {
-  mixin(MVCViewComponentThis!("MVCTableFormContent"));
+  mixin(ViewComponentThis!("MVCTableFormContent"));
 
-  mixin(OProperty!("DMVCViewComponent", "row"));
+  mixin(OProperty!("DViewComponent", "row"));
 
   override void initialize() {
     debugMethodCall(moduleName!DTableFormContent~"::DTableFormContent("~this.name~"):initialize");   
     super.initialize;
   }
 }
-mixin(MVCViewComponentCalls!("MVCTableFormContent", "DTableFormContent"));
+mixin(ViewComponentCalls!("MVCTableFormContent", "DTableFormContent"));
 
 version(test_uim_mvc) { unittest {
   assert(MVCTableFormContent);
