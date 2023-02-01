@@ -28,7 +28,7 @@ class DMVCPageController : DController {
       .styles(MVCStyleContainer); 
   }
 
-  mixin(OProperty!("DMVCView", "view"));
+  mixin(OProperty!("DView", "view"));
 
   // Containers
   mixin(OProperty!("DMVCLinkContainer", "links"));

@@ -11,10 +11,9 @@ import uim.mvc;
 
 // Used when a passed parameter or action parameter type declaration is missing or invalid.
 class InvalidParameterException : UIMException {
-  protected string[] _templates = [
+  protected STRINGAA _templates = [
     "failed_coercion": "Unable to coerce '%s' to `%s` for `%s` in action %s::%s().",
-    "missing_dependency": "Failed to inject dependency from service container for parameter `%s` " ~
-        "with type `%s` in action %s::%s().",
+    "missing_dependency": "Failed to inject dependency from service container for parameter `%s` with type `%s` in action %s::%s().",
     "missing_parameter": "Missing passed parameter for `%s` in action %s::%s().",
     "unsupported_type": "Type declaration for `%s` in action %s::%s() is unsupported.",
   ];
@@ -29,8 +28,8 @@ class InvalidParameterException : UIMException {
     */
   this($message = "", int errorCode = 0, ?Throwable $previous = null) {
       if (is_array($message)) {
-          _messageTemplate = _templates[$message["template"]] ?? "";
-          unset($message["template"]);
+        _messageTemplate = _templates[$message["template"]] ?? "";
+        unset($message["template"]);
       }
       super($message, errorCode, $previous);
   }

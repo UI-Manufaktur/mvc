@@ -130,8 +130,8 @@ class DMVCLayout : DMVCBase, IMVCLayout{
     if (this.scripts) myScripts ~= this.scripts.toH5;
 	}
 
-	string render(DMVCPageController controller, DMVCView view, STRINGAA options = null) { 
-		debugMethodCall(moduleName!DMVCLayout~":DMVCLayout("~this.name~")::render(DMVCPageController controller, DMVCView view, STRINGAA options = null)");
+	string render(DMVCPageController controller, DView view, STRINGAA options = null) { 
+		debugMethodCall(moduleName!DMVCLayout~":DMVCLayout("~this.name~")::render(DMVCPageController controller, DView view, STRINGAA options = null)");
     if (view) {
       debug writeln("view is -> ", view.name);
 		  return render(controller, view.toH5(options), options);
@@ -231,7 +231,7 @@ version(test_uim_mvc) { unittest {
   // #endregion render
 }
 
-/*   override string render(DMVCPageController page, DMVCView view, STRINGAA options = null) {
+/*   override string render(DMVCPageController page, DView view, STRINGAA options = null) {
     super.render(page, view, options);
 
     auto head = ("navigation" in options ? options.get("navigation", "") : navigation.render(options));

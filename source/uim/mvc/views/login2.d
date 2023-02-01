@@ -3,8 +3,8 @@ module uim.mvc.views.login2;
 @safe:
 import uim.mvc;
 
-class DMVCLogin2View : DMVCView {
-  mixin(MVCViewThis!("MVCLogin2View"));
+class DMVCLogin2View : DView {
+  mixin(ViewThis!("MVCLogin2View"));
 
   override void beforeH5(STRINGAA options = null) { 
     debugMethodCall(moduleName!DMVCLogin2View~":DMVCLogin2View::beforeH5");
@@ -24,7 +24,7 @@ class DMVCLogin2View : DMVCView {
     ].toH5;
   }
 }
-mixin(MVCViewCalls!("MVCLogin2View", "DMVCLogin2View"));
+mixin(ViewCalls!("MVCLogin2View", "DMVCLogin2View"));
 
 version(test_uim_mvc) { unittest {
   assert(MVCLogin2View);

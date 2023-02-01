@@ -8,7 +8,7 @@ module uim.mvc.views.interface_;
 @safe:
 import uim.mvc;
 
-interface IMVCView : IMVCBase {
+interface IView : IMVCBase {
   IController controller();
   O controller(this O)(IController newController);
 
