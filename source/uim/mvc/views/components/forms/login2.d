@@ -9,7 +9,7 @@ module uim.mvc.views.components.forms.login2;
 import uim.mvc;
 
 class DMVCLogin2Form : DForm {
-  mixin(MVCViewComponentThis!("MVCLogin2Form"));
+  mixin(ViewComponentThis!("MVCLogin2Form"));
 
   override void initialize() {
     super.initialize;
@@ -45,7 +45,7 @@ class DMVCLogin2Form : DForm {
     return results;
   }
 }
-mixin(MVCViewComponentCalls!("MVCLogin2Form", "DMVCLogin2Form"));
+mixin(ViewComponentCalls!("MVCLogin2Form", "DMVCLogin2Form"));
 
 version(test_uim_mvc) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);

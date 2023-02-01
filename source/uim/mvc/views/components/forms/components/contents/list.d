@@ -9,7 +9,7 @@ module uim.mvc.views.components.forms.components.contents.list;
 import uim.mvc;
 
 class DMVCListFormContent : DMVCEntitiesViewComponent {
-  mixin(MVCViewComponentThis!("MVCListFormContent"));
+  mixin(ViewComponentThis!("MVCListFormContent"));
 
   mixin(OProperty!("DMVCEntityViewComponent", "templateListItem"));
 
@@ -31,7 +31,7 @@ class DMVCListFormContent : DMVCEntitiesViewComponent {
     ].toH5;
   } 
 }
-mixin(MVCViewComponentCalls!("MVCListFormContent", "DMVCListFormContent"));
+mixin(ViewComponentCalls!("MVCListFormContent", "DMVCListFormContent"));
 
 version(test_uim_mvc) { unittest {
   assert(MVCListFormContent);

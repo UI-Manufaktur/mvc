@@ -8,8 +8,8 @@ module uim.mvc.views.components.forms.form;
 @safe:
 import uim.mvc;
 
-class DForm : DMVCViewComponent {
-  mixin(MVCViewComponentThis!("MVCForm"));
+class DForm : DViewComponent {
+  mixin(ViewComponentThis!("MVCForm"));
 
   override void initialize() {
     debugMethodCall(moduleName!DForm~"::DForm("~this.name~"):initialize");   
@@ -87,7 +87,7 @@ class DForm : DMVCViewComponent {
     return [_col].toH5;
   }  
 }
-mixin(MVCViewComponentCalls!("MVCForm", "DForm"));
+mixin(ViewComponentCalls!("MVCForm", "DForm"));
 
 version(test_uim_mvc) { unittest {
   assert(MVCForm);

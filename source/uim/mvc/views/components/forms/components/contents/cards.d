@@ -9,7 +9,7 @@ module uim.mvc.views.components.forms.components.contents.cards;
 import uim.mvc;
 
 class DMVCCardsFormContent : DMVCEntitiesViewComponent {
-  mixin(MVCViewComponentThis!("MVCCardsFormContent"));
+  mixin(ViewComponentThis!("MVCCardsFormContent"));
 
   mixin(OProperty!("DMVCEntityViewComponent", "card"));
 
@@ -31,7 +31,7 @@ class DMVCCardsFormContent : DMVCEntitiesViewComponent {
     ].toH5;
   } 
 }
-mixin(MVCViewComponentCalls!("MVCCardsFormContent", "DMVCCardsFormContent"));
+mixin(ViewComponentCalls!("MVCCardsFormContent", "DMVCCardsFormContent"));
 
 version(test_uim_mvc) { unittest {
   assert(MVCCardsFormContent);

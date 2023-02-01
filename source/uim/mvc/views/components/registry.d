@@ -8,20 +8,20 @@ module uim.mvc.views.components.registry;
 @safe:
 import uim.mvc;
 
-class DMVCViewComponentRegistry : DRegistry!DMVCViewComponent{
+class DViewComponentRegistry : DRegistry!DViewComponent{
   this() {}
 
-  static DMVCViewComponentRegistry registry; 
+  static DViewComponentRegistry registry; 
 }
-auto MVCViewComponentRegistry() { 
-  if (!DMVCViewComponentRegistry.registry) {
-    DMVCViewComponentRegistry.registry = new DMVCViewComponentRegistry; 
+auto ViewComponentRegistry() { 
+  if (!DViewComponentRegistry.registry) {
+    DViewComponentRegistry.registry = new DViewComponentRegistry; 
   }
   return 
-   DMVCViewComponentRegistry.registry;
+   DViewComponentRegistry.registry;
 }
 
 version(test_uim_mvc) { unittest {
-  assert(MVCViewComponentRegistry.register("mvc/viewcomponent",  MVCViewComponent).paths == ["mvc/viewcomponent"]);
-  assert(MVCViewComponentRegistry.register("mvc/viewcomponent2", MVCViewComponent).paths.length == 2);
+  assert(ViewComponentRegistry.register("mvc/viewcomponent",  ViewComponent).paths == ["mvc/viewcomponent"]);
+  assert(ViewComponentRegistry.register("mvc/viewcomponent2", ViewComponent).paths.length == 2);
 }}

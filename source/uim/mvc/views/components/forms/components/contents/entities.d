@@ -9,7 +9,7 @@ module uim.mvc.views.components.forms.components.contents.entities;
 import uim.mvc;
 
 class DMVCEntitiesFormContent : DFormContent {
-  mixin(MVCViewComponentThis!("MVCEntitiesFormContent"));
+  mixin(ViewComponentThis!("MVCEntitiesFormContent"));
 
   override void initialize() {
     debugMethodCall(moduleName!DMVCEntitiesFormContent~"::DMVCEntitiesFormContent("~this.name~"):initialize");   
@@ -110,7 +110,7 @@ class DMVCEntitiesFormContent : DFormContent {
       ].toH5;
   } 
 }
-mixin(MVCViewComponentCalls!("MVCEntitiesFormContent", "DMVCEntitiesFormContent"));
+mixin(ViewComponentCalls!("MVCEntitiesFormContent", "DMVCEntitiesFormContent"));
 
 version(test_uim_mvc) { unittest {
   writeln("--- Test in ", __MODULE__, "/", __LINE__);
