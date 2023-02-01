@@ -8,8 +8,8 @@ module uim.mvc.views.logout;
 @safe:
 import uim.mvc;
 
-class DMVCLogoutView : DMVCView {
-  mixin(MVCViewThis!("MVCLogoutView"));
+class DMVCLogoutView : DView {
+  mixin(ViewThis!("MVCLogoutView"));
 
   override void beforeH5(STRINGAA options = null) {
     super.beforeH5(options);
@@ -59,7 +59,7 @@ class DMVCLogoutView : DMVCView {
     ].toH5;
   }
 }
-mixin(MVCViewCalls!("MVCLogoutView", "DMVCLogoutView"));
+mixin(ViewCalls!("MVCLogoutView", "DMVCLogoutView"));
 
 version(test_uim_mvc) { unittest {
   assert(MVCLogoutView);

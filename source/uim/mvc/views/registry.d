@@ -8,20 +8,20 @@ module uim.mvc.views.registry;
 @safe:
 import uim.mvc;
 
-class DMVCViewRegistry : DRegistry!DMVCView{
+class DViewRegistry : DRegistry!DView{
   this() {}
 
-  static DMVCViewRegistry registry; 
+  static DViewRegistry registry; 
 }
-auto MVCViewRegistry() { 
-  if (!DMVCViewRegistry.registry) {
-    DMVCViewRegistry.registry = new DMVCViewRegistry; 
+auto ViewRegistry() { 
+  if (!DViewRegistry.registry) {
+    DViewRegistry.registry = new DViewRegistry; 
   }
   return 
-    DMVCViewRegistry.registry;
+    DViewRegistry.registry;
 }
 
 version(test_uim_mvc) { unittest {
-  assert(MVCViewRegistry.register("mvc/view",  MVCView).paths == ["mvc/view"]);
-  assert(MVCViewRegistry.register("mvc/view2", MVCView).paths.length == 2);
+  assert(ViewRegistry.register("mvc/view",  View).paths == ["mvc/view"]);
+  assert(ViewRegistry.register("mvc/view2", View).paths.length == 2);
 }}

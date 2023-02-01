@@ -3,14 +3,14 @@ module uim.mvc.views.components.component;
 @safe:
 import uim.mvc;
 
-class DMVCViewComponent : DMVCBase, IMVCViewComponent {
-  mixin(MVCViewComponentThis!("MVCViewComponent"));
+class DViewComponent : DMVCBase, IViewComponent {
+  mixin(ViewComponentThis!("ViewComponent"));
 
   override void initialize() {
     super.initialize;
   }
 
-  mixin(OProperty!("IMVCView", "view"));
+  mixin(OProperty!("IView", "view"));
   mixin(OProperty!("string", "id"));
 
   mixin(OProperty!("DEntity", "entity"));
@@ -25,7 +25,7 @@ class DMVCViewComponent : DMVCBase, IMVCViewComponent {
   }
 
   DH5Obj[] toH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DMVCView~":DMVCView("~this.name~")::toH5");
+    debugMethodCall(moduleName!DView~":DView("~this.name~")::toH5");
     beforeH5(options);
     DH5Obj[] result;     
     afterH5(options);  
@@ -47,12 +47,12 @@ class DMVCViewComponent : DMVCBase, IMVCViewComponent {
     return result;
   }
 }
-mixin(MVCViewComponentCalls!("MVCViewComponent", "DMVCViewComponent"));
+mixin(ViewComponentCalls!("ViewComponent", "DViewComponent"));
 
 version(test_uim_mvc) { unittest {
-  testMVCViewComponent(MVCViewComponent, "MVCViewComponent");
+  testViewComponent(ViewComponent, "ViewComponent");
 
-  assert(MVCViewComponent.name == "MVCViewComponent");
-  assert(MVCViewComponent.create.name == "MVCViewComponent");
-  assert(MVCViewComponent.clone.name == "MVCViewComponent");
+  assert(ViewComponent.name == "ViewComponent");
+  assert(ViewComponent.create.name == "ViewComponent");
+  assert(ViewComponent.clone.name == "ViewComponent");
 }} 

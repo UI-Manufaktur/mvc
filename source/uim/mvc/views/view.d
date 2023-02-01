@@ -41,8 +41,8 @@ import uim.mvc;
  * @property uim.mvc.views\Helper\UrlHelper myUrl
  * @property uim.mvc.views\ViewBlock $Blocks
  */
-class DMVCView : DMVCBase, IMVCView { 
-  mixin(MVCViewThis!("MVCView"));
+class DView : DMVCBase, IView { 
+  mixin(ViewThis!("View"));
 
   override void initialize() {
     super.initialize;
@@ -66,7 +66,7 @@ class DMVCView : DMVCBase, IMVCView {
   protected DVIWHelperRegistry _helpers;
 
   // ViewBlock instance.
-  protected DMVCViewBlock viewBlock;
+  protected DViewBlock viewBlock;
 
   // The name of the plugin.
   protected string _pluginName;
@@ -80,7 +80,7 @@ class DMVCView : DMVCBase, IMVCView {
   }
 
   DH5Obj[] toH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DMVCView~":DMVCView("~this.name~")::toH5");
+    debugMethodCall(moduleName!DView~":DView("~this.name~")::toH5");
     beforeH5(options);
     DH5Obj[] result;     
     afterH5(options);  
@@ -102,12 +102,12 @@ class DMVCView : DMVCBase, IMVCView {
     return result;
   }
 }
-mixin(MVCViewCalls!("MVCView", "DMVCView"));
+mixin(ViewCalls!("View", "DView"));
 
 version(test_uim_mvc) { unittest { 
-  testMVCView(MVCView, "MVCView");
+  testView(View, "View");
 
-  assert(MVCView.name == "MVCView");
-  assert(MVCView.create.name == "MVCView");
-  assert(MVCView.clone.name == "MVCView");
+  assert(View.name == "View");
+  assert(View.create.name == "View");
+  assert(View.clone.name == "View");
 }} 

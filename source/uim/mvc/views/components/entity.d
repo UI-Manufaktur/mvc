@@ -3,8 +3,8 @@ module uim.mvc.views.components.entity;
 @safe:
 import uim.mvc;
 
-class DMVCEntityViewComponent : DMVCViewComponent {
-  mixin(MVCViewComponentThis!("MVCEntityViewComponent"));
+class DMVCEntityViewComponent : DViewComponent {
+  mixin(ViewComponentThis!("MVCEntityViewComponent"));
 
   // mixin(OProperty!("DEntity", "entity"));
   mixin(OProperty!("CRUDModes", "crudMode"));
@@ -14,4 +14,4 @@ class DMVCEntityViewComponent : DMVCViewComponent {
     super.beforeH5(options);
   }
 }
-mixin(MVCViewComponentCalls!("MVCEntityViewComponent", "DMVCEntityViewComponent"));
+mixin(ViewComponentCalls!("MVCEntityViewComponent", "DMVCEntityViewComponent"));
