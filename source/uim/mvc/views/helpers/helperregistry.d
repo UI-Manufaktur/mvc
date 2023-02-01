@@ -18,16 +18,16 @@ class DMVCHelperRegistry : ObjectRegistry, IEventDispatcher {
   // use EventDispatcherTrait;
 
   // View object to use when making helpers.
-  protected DMVCView _View;
+  protected DView _View;
 
   /**
     * Constructor
     *
-    * @param uim.mvc.views\DMVCView $view DMVCView object.
+    * @param uim.mvc.views\DView $view DView object.
     */
-  this(DMVCView aView) {
-      _View = aView;
-      this.setEventManager(aView.getEventManager());
+  this(DView aView) {
+    _View = aView;
+    this.setEventManager(aView.getEventManager());
   }
 
   /**
@@ -41,26 +41,26 @@ class DMVCHelperRegistry : ObjectRegistry, IEventDispatcher {
     *    App helpers are searched, and then plugin helpers.
     */
   bool __isSet(string helperName) {
-      if (isSet(_loaded, helperName)) {
-          return true;
-      }
+    if (isSet(_loaded, helperName)) {
+        return true;
+    }
 
-      try {
-          this.load($helper);
-      } catch (MissingHelperException myException) {
-          myPlugin = _View.getPlugin();
-          if (!empty(myPlugin)) {
-              this.load(myPlugin ~ "." ~ $helper);
+    try {
+        this.load($helper);
+    } catch (MissingHelperException myException) {
+        myPlugin = _View.getPlugin();
+        if (!empty(myPlugin)) {
+            this.load(myPlugin ~ "." ~ $helper);
 
-              return true;
-          }
-      }
+            return true;
+        }
+    }
 
-      if (!empty(myException)) {
-          throw myException;
-      }
+    if (!empty(myException)) {
+        throw myException;
+    }
 
-      return true;
+    return true;
   }
 
   /**

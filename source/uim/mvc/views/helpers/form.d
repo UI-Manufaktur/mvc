@@ -212,7 +212,7 @@ class FormHelper : DMVCHelper
     protected string[] _groupedInputTypes = ["radio", "multicheckbox"];
 
     // Form protector
-    protected uim.mvc.Form\FormProtectorformProtector;
+    protected uim.mvc.formsFormProtectorformProtector;
 
     /**
      * Construct the widgets and binds the default context providers
@@ -609,21 +609,21 @@ class FormHelper : DMVCHelper
      * @link https://book.UIM.org/4/en/views/helpers/form.html#closing-the-form
      */
     string end(array $secureAttributes = null) {
-        $out = "";
+      $out = "";
 
-        if (this.requestType != "get" && _View.getRequest().getAttribute("formTokenData")  !is null) {
-            $out ~= this.secure([], $secureAttributes);
-        }
-        $out ~= this.formatTemplate("formEnd", []);
+      if (this.requestType != "get" && _View.getRequest().getAttribute("formTokenData")  !is null) {
+          $out ~= this.secure([], $secureAttributes);
+      }
+      $out ~= this.formatTemplate("formEnd", []);
 
-        _templater().pop();
-        this.requestType = null;
-        _context = null;
-        _valueSources = ["data", "context"];
-        _idPrefix = this.getConfig("idPrefix");
-        this.formProtector = null;
+      _templater().pop();
+      this.requestType = null;
+      _context = null;
+      _valueSources = ["data", "context"];
+      _idPrefix = this.getConfig("idPrefix");
+      this.formProtector = null;
 
-        return $out;
+      return $out;
     }
 
     /**
@@ -689,10 +689,9 @@ class FormHelper : DMVCHelper
      *
      * Unlocked fields are not included in the form protection field hash.
      *
-     * @param string myName The dot separated name for the field.
-     * @return this
+     * fieldName - The dot separated name for the field.
      */
-    function unlockField(string myName) {
+    function unlockField(string fieldName) {
         this.getFormProtector().unlockField(myName);
 
         return this;
@@ -701,10 +700,10 @@ class FormHelper : DMVCHelper
     /**
      * Create FormProtector instance.
      *
-     * @param array<string, mixed> $formTokenData Token data.
-     * @return uim.mvc.Form\FormProtector
+     * formTokenData - Token data.
+     * @return uim.mvc.formsFormProtector
      */
-    protected FormProtector createFormProtector(array $formTokenData) {
+    protected FormProtector createFormProtector(Json formTokenData) {
       $session = _View.getRequest().getSession();
       $session.start();
 
@@ -716,11 +715,10 @@ class FormHelper : DMVCHelper
     /**
      * Get form protector instance.
      *
-     * @return uim.mvc.Form\FormProtector
-     * @throws uim.mvc.Core\exceptions.UIMException
+     * @return uim.mvc.formsFormProtector
+     * @throws uim.oop.exceptions.UIMException
      */
-    FormProtector getFormProtector(): 
-    {
+    FormProtector getFormProtector() {
         if (this.formProtector is null) {
             throw new UIMException(
                 "`FormProtector` instance has not been created. Ensure you have loaded the `FormProtectionComponent`"
@@ -1618,7 +1616,7 @@ class FormHelper : DMVCHelper
      * @param string method Method name / input type to make.
      * @param array myParams Parameters for the method call
      * @return string Formatted input method.
-     * @throws uim.mvc.Core\exceptions.UIMException When there are no params for the method call.
+     * @throws uim.oop.exceptions.UIMException When there are no params for the method call.
      */
     auto __call(string method, array myParams) {
         if (empty(myParams)) {

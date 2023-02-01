@@ -37,7 +37,7 @@ class TextHelper : DMVCHelper {
     *
     * @param uim.mvc.views\View $view the view object the helper is attached to.
     * @param array<string, mixed> myConfig Settings array Settings array
-    * @throws uim.mvc.Core\exceptions.UIMException when the engine class could not be found.
+    * @throws uim.oop.exceptions.UIMException when the engine class could not be found.
     */
   this(View $view, array myConfig = null) {
       super.this($view, myConfig);

@@ -48,27 +48,27 @@ class HtmlHelper : DMVCHelper {
     * @param array<string, mixed> myData The data to insert.
     */
   string formatTemplate(string myName, array myData) {
-      return _templater().format(myName, myData);
+    return _templater().format(myName, myData);
   }
 
   // Returns the templater instance.
   StringTemplate templater() {
-      if (_templater is null) {
-          StringTemplate myClass = this.getConfig("templateClass") ?: StringTemplate::class;
-          _templater = new myClass();
+    if (_templater is null) {
+      StringTemplate myClass = this.getConfig("templateClass") ?: StringTemplate::class;
+      _templater = new myClass();
 
-          myTemplates = this.getConfig("templates");
-          if (myTemplates) {
-              if (is_string(myTemplates)) {
-                  _templater.add(_defaultConfig["templates"]);
-                  _templater.load(myTemplates);
-              } else {
-                  _templater.add(myTemplates);
-              }
-          }
+      myTemplates = this.getConfig("templates");
+      if (myTemplates) {
+        if (is_string(myTemplates)) {
+          _templater.add(_defaultConfig["templates"]);
+          _templater.load(myTemplates);
+        } else {
+          _templater.add(myTemplates);
+        }
       }
+    }
 
-      return _templater;
+    return _templater;
   }
 
   // List of helpers used by this helper
@@ -76,37 +76,37 @@ class HtmlHelper : DMVCHelper {
 
   // Default config for this class
   protected Json _defaultConfig = [
-      "templates": [
-          "meta": "<meta{{attrs}}/>",
-          "metalink": "<link href="{{url}}"{{attrs}}/>",
-          "link": "<a href="{{url}}"{{attrs}}>{{content}}</a>",
-          "mailto": "<a href="mailto:{{url}}"{{attrs}}>{{content}}</a>",
-          "image": "<img src="{{url}}"{{attrs}}/>",
-          "tableheader": "<th{{attrs}}>{{content}}</th>",
-          "tableheaderrow": "<tr{{attrs}}>{{content}}</tr>",
-          "tablecell": "<td{{attrs}}>{{content}}</td>",
-          "tablerow": "<tr{{attrs}}>{{content}}</tr>",
-          "block": "<div{{attrs}}>{{content}}</div>",
-          "blockstart": "<div{{attrs}}>",
-          "blockend": "</div>",
-          "tag": "<{{tag}}{{attrs}}>{{content}}</{{tag}}>",
-          "tagstart": "<{{tag}}{{attrs}}>",
-          "tagend": "</{{tag}}>",
-          "tagselfclosing": "<{{tag}}{{attrs}}/>",
-          "para": "<p{{attrs}}>{{content}}</p>",
-          "parastart": "<p{{attrs}}>",
-          "css": "<link rel="{{rel}}" href="{{url}}"{{attrs}}/>",
-          "style": "<style{{attrs}}>{{content}}</style>",
-          "charset": "<meta charset="{{charset}}"/>",
-          "ul": "<ul{{attrs}}>{{content}}</ul>",
-          "ol": "<ol{{attrs}}>{{content}}</ol>",
-          "li": "<li{{attrs}}>{{content}}</li>",
-          "javascriptblock": "<script{{attrs}}>{{content}}</script>",
-          "javascriptstart": "<script>",
-          "javascriptlink": "<script src="{{url}}"{{attrs}}></script>",
-          "javascriptend": "</script>",
-          "confirmJs": "{{confirm}}",
-      ],
+    "templates": [
+      "meta": "<meta{{attrs}}/>",
+      "metalink": "<link href="{{url}}"{{attrs}}/>",
+      "link": "<a href="{{url}}"{{attrs}}>{{content}}</a>",
+      "mailto": "<a href="mailto:{{url}}"{{attrs}}>{{content}}</a>",
+      "image": "<img src="{{url}}"{{attrs}}/>",
+      "tableheader": "<th{{attrs}}>{{content}}</th>",
+      "tableheaderrow": "<tr{{attrs}}>{{content}}</tr>",
+      "tablecell": "<td{{attrs}}>{{content}}</td>",
+      "tablerow": "<tr{{attrs}}>{{content}}</tr>",
+      "block": "<div{{attrs}}>{{content}}</div>",
+      "blockstart": "<div{{attrs}}>",
+      "blockend": "</div>",
+      "tag": "<{{tag}}{{attrs}}>{{content}}</{{tag}}>",
+      "tagstart": "<{{tag}}{{attrs}}>",
+      "tagend": "</{{tag}}>",
+      "tagselfclosing": "<{{tag}}{{attrs}}/>",
+      "para": "<p{{attrs}}>{{content}}</p>",
+      "parastart": "<p{{attrs}}>",
+      "css": "<link rel="{{rel}}" href="{{url}}"{{attrs}}/>",
+      "style": "<style{{attrs}}>{{content}}</style>",
+      "charset": "<meta charset="{{charset}}"/>",
+      "ul": "<ul{{attrs}}>{{content}}</ul>",
+      "ol": "<ol{{attrs}}>{{content}}</ol>",
+      "li": "<li{{attrs}}>{{content}}</li>",
+      "javascriptblock": "<script{{attrs}}>{{content}}</script>",
+      "javascriptstart": "<script>",
+      "javascriptlink": "<script src="{{url}}"{{attrs}}></script>",
+      "javascriptend": "</script>",
+      "confirmJs": "{{confirm}}",
+    ],
   ];
 
   // Names of script & css files that have been included once
@@ -156,73 +156,73 @@ class HtmlHelper : DMVCHelper {
     * @link https://book.UIM.org/4/en/views/helpers/html.html#creating-meta-tags
     */
   Nullable!string meta(myType, myContents = null, array myOptions = null) {
-      if (!is_array(myType)) {
-          myTypes = [
-              "rss": ["type": "application/rss+xml", "rel": "alternate", "title": myType, "link": myContents],
-              "atom": ["type": "application/atom+xml", "title": myType, "link": myContents],
-              "icon": ["type": "image/x-icon", "rel": "icon", "link": myContents],
-              "keywords": ["name": "keywords", "content": myContents],
-              "description": ["name": "description", "content": myContents],
-              "robots": ["name": "robots", "content": myContents],
-              "viewport": ["name": "viewport", "content": myContents],
-              "canonical": ["rel": "canonical", "link": myContents],
-              "next": ["rel": "next", "link": myContents],
-              "prev": ["rel": "prev", "link": myContents],
-              "first": ["rel": "first", "link": myContents],
-              "last": ["rel": "last", "link": myContents],
-          ];
+    if (!is_array(myType)) {
+        myTypes = [
+            "rss": ["type": "application/rss+xml", "rel": "alternate", "title": myType, "link": myContents],
+            "atom": ["type": "application/atom+xml", "title": myType, "link": myContents],
+            "icon": ["type": "image/x-icon", "rel": "icon", "link": myContents],
+            "keywords": ["name": "keywords", "content": myContents],
+            "description": ["name": "description", "content": myContents],
+            "robots": ["name": "robots", "content": myContents],
+            "viewport": ["name": "viewport", "content": myContents],
+            "canonical": ["rel": "canonical", "link": myContents],
+            "next": ["rel": "next", "link": myContents],
+            "prev": ["rel": "prev", "link": myContents],
+            "first": ["rel": "first", "link": myContents],
+            "last": ["rel": "last", "link": myContents],
+        ];
 
-          if (myType == "icon" && myContents is null) {
-              myTypes["icon"]["link"] = "favicon.ico";
-          }
+        if (myType == "icon" && myContents is null) {
+            myTypes["icon"]["link"] = "favicon.ico";
+        }
 
-          if (isSet(myTypes, myType)) {
-              myType = myTypes[myType];
-          } elseif (!isSet(myOptions, "type") && myContents  !is null) {
-              if (is_array(myContents) && isSet(myContents, "_ext")) {
-                  myType = myTypes[myContents["_ext"]];
-              } else {
-                  myType = ["name": myType, "content": myContents];
-              }
-          } elseif (isSet(myOptions, "type") && myTypes[myOptions["type"]])) {
-              myType = myTypes[myOptions["type"]];
-              unset(myOptions["type"]);
-          } else {
-              myType = null;
-          }
+        if (isSet(myTypes, myType)) {
+            myType = myTypes[myType];
+        } elseif (!isSet(myOptions, "type") && myContents  !is null) {
+            if (is_array(myContents) && isSet(myContents, "_ext")) {
+                myType = myTypes[myContents["_ext"]];
+            } else {
+                myType = ["name": myType, "content": myContents];
+            }
+        } elseif (isSet(myOptions, "type") && myTypes[myOptions["type"]])) {
+            myType = myTypes[myOptions["type"]];
+            unset(myOptions["type"]);
+        } else {
+            myType = null;
+        }
       }
 
       myOptions += myType + ["block": null];
       $out = "";
 
       if (isSet(myOptions, "link")) {
-          if (is_array(myOptions["link"])) {
-              myOptions["link"] = this.Url.build(myOptions["link"]);
-          } else {
-              myOptions["link"] = this.Url.assetUrl(myOptions["link"]);
-          }
-          if (isSet(myOptions, "rel") && myOptions["rel"] == "icon") {
-              $out = this.formatTemplate("metalink", [
-                  "url": myOptions["link"],
-                  "attrs": _templater().formatAttributes(myOptions, ["block", "link"]),
-              ]);
-              myOptions["rel"] = "shortcut icon";
-          }
-          $out ~= this.formatTemplate("metalink", [
-              "url": myOptions["link"],
-              "attrs": _templater().formatAttributes(myOptions, ["block", "link"]),
-          ]);
+        if (is_array(myOptions["link"])) {
+            myOptions["link"] = this.Url.build(myOptions["link"]);
+        } else {
+            myOptions["link"] = this.Url.assetUrl(myOptions["link"]);
+        }
+        if (isSet(myOptions, "rel") && myOptions["rel"] == "icon") {
+            $out = this.formatTemplate("metalink", [
+                "url": myOptions["link"],
+                "attrs": _templater().formatAttributes(myOptions, ["block", "link"]),
+            ]);
+            myOptions["rel"] = "shortcut icon";
+        }
+        $out ~= this.formatTemplate("metalink", [
+            "url": myOptions["link"],
+            "attrs": _templater().formatAttributes(myOptions, ["block", "link"]),
+        ]);
       } else {
-          $out = this.formatTemplate("meta", [
-              "attrs": _templater().formatAttributes(myOptions, ["block", "type"]),
-          ]);
+        $out = this.formatTemplate("meta", [
+          "attrs": _templater().formatAttributes(myOptions, ["block", "type"]),
+        ]);
       }
 
       if (empty(myOptions["block"])) {
-          return $out;
+        return $out;
       }
       if (myOptions["block"] == true) {
-          myOptions["block"] = __FUNCTION__;
+        myOptions["block"] = __FUNCTION__;
       }
       _View.append(myOptions["block"], $out);
 
@@ -238,13 +238,13 @@ class HtmlHelper : DMVCHelper {
     * @link https://book.UIM.org/4/en/views/helpers/html.html#creating-charset-tags
     */
   string charset(Nullable!string charset = null) {
-      if (empty($charset)) {
-          $charset = (string)Configure::read("App.encoding").toLower;
-      }
+    if (empty($charset)) {
+        $charset = (string)Configure::read("App.encoding").toLower;
+    }
 
-      return this.formatTemplate("charset", [
-          "charset": !empty($charset) ? $charset : "utf-8",
-      ]);
+    return this.formatTemplate("charset", [
+        "charset": !empty($charset) ? $charset : "utf-8",
+    ]);
   }
 
   /**
@@ -272,51 +272,51 @@ class HtmlHelper : DMVCHelper {
     * @link https://book.UIM.org/4/en/views/helpers/html.html#creating-links
     */
   string link($title, myUrl = null, array myOptions = null) {
-      $escapeTitle = true;
-      if (myUrl  !is null) {
-          myUrl = this.Url.build(myUrl, myOptions);
-          unset(myOptions["fullBase"]);
-      } else {
-          myUrl = this.Url.build($title);
-          $title = htmlspecialchars_decode(myUrl, ENT_QUOTES);
-          $title = h(urldecode($title));
-          $escapeTitle = false;
-      }
+    $escapeTitle = true;
+    if (myUrl  !is null) {
+        myUrl = this.Url.build(myUrl, myOptions);
+        unset(myOptions["fullBase"]);
+    } else {
+        myUrl = this.Url.build($title);
+        $title = htmlspecialchars_decode(myUrl, ENT_QUOTES);
+        $title = h(urldecode($title));
+        $escapeTitle = false;
+    }
 
-      if (isSet(myOptions, "escapeTitle")) {
-          $escapeTitle = myOptions["escapeTitle"];
-          unset(myOptions["escapeTitle"]);
-      } elseif (isSet(myOptions, "escape")) {
-          $escapeTitle = myOptions["escape"];
-      }
+    if (isSet(myOptions, "escapeTitle")) {
+        $escapeTitle = myOptions["escapeTitle"];
+        unset(myOptions["escapeTitle"]);
+    } elseif (isSet(myOptions, "escape")) {
+        $escapeTitle = myOptions["escape"];
+    }
 
-      if ($escapeTitle == true) {
-          $title = h($title);
-      } elseif (is_string($escapeTitle)) {
-          /** @psalm-suppress PossiblyInvalidArgument */
-          $title = htmlentities($title, ENT_QUOTES, $escapeTitle);
-      }
+    if ($escapeTitle == true) {
+        $title = h($title);
+    } elseif (is_string($escapeTitle)) {
+        /** @psalm-suppress PossiblyInvalidArgument */
+        $title = htmlentities($title, ENT_QUOTES, $escapeTitle);
+    }
 
-      myTemplater = _templater();
-      $confirmMessage = null;
-      if (isSet(myOptions, "confirm")) {
-          $confirmMessage = myOptions["confirm"];
-          unset(myOptions["confirm"]);
-      }
-      if ($confirmMessage) {
-          $confirm = _confirm("return true;", "return false;");
-          myOptions["data-confirm-message"] = $confirmMessage;
-          myOptions["onclick"] = myTemplater.format("confirmJs", [
-              "confirmMessage": h($confirmMessage),
-              "confirm": $confirm,
-          ]);
-      }
-
-      return myTemplater.format("link", [
-          "url": myUrl,
-          "attrs": myTemplater.formatAttributes(myOptions),
-          "content": $title,
+    myTemplater = _templater();
+    $confirmMessage = null;
+    if (isSet(myOptions, "confirm")) {
+      $confirmMessage = myOptions["confirm"];
+      unset(myOptions["confirm"]);
+    }
+    if ($confirmMessage) {
+      $confirm = _confirm("return true;", "return false;");
+      myOptions["data-confirm-message"] = $confirmMessage;
+      myOptions["onclick"] = myTemplater.format("confirmJs", [
+        "confirmMessage": h($confirmMessage),
+        "confirm": $confirm,
       ]);
+    }
+
+    return myTemplater.format("link", [
+      "url": myUrl,
+      "attrs": myTemplater.formatAttributes(myOptions),
+      "content": $title,
+    ]);
   }
 
   /**

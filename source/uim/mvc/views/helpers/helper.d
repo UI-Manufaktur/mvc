@@ -42,59 +42,55 @@ class Helper : IEventListener {
   protected array[string] _helperMap = null;
 
   // The View instance this helper is attached to
-  protected DMVCView _View;
-
+  protected DView _view;
+  /**
+    * Get the view instance this helper is bound to.
+    * returns The bound view instance.
+    */
+  auto View view() {
+    return _view;
+  }
   /**
     * Default Constructor
     *
-    * @param uim.mvc.views\View $view The View this helper is being attached to.
-    * @param array<string, mixed> myConfig Configuration settings for the helper.
+    * attachedView - The View this helper is being attached to.
+    * aConfig - Configuration settings for the helper.
     */
-  this(View $view, array myConfig = null) {
-      _View = $view;
-      this.setConfig(myConfig);
+  this(View attachedView, array aConfig = null) {
+    _view = attachedView;
+    this.setConfig(myConfig);
 
-      if (!empty(this.helpers)) {
-          _helperMap = $view.helpers().normalizeArray(this.helpers);
-      }
+    if (!empty(this.helpers)) {
+      _helperMap = $view.helpers().normalizeArray(this.helpers);
+    }
 
-      this.initialize(myConfig);
+    this.initialize(myConfig);
   }
 
   /**
     * Provide non fatal errors on missing method calls.
     *
-    * @param string method Method to invoke
+    * methodName - Method to invoke
     * @param array myParams Array of params for the method.
     * @return mixed|void
     */
-  auto __call(string method, array myParams) {
-      trigger_error(sprintf("Method %1$s::%2$s does not exist", static::class, $method), E_USER_WARNING);
+  auto __call(string methodName, array myParams) {
+    trigger_error(sprintf("Method %1$s::%2$s does not exist", static::class, $method), E_USER_WARNING);
   }
 
   /**
     * Lazy loads helpers.
     *
-    * @param string myName Name of the property being accessed.
+    * propertyName - Name of the property being accessed.
     * @return uim.mvc.views\Helper|null|void Helper instance if helper with provided name exists
     */
-  auto __get(string myName) {
-      if (isSet(_helperMap, myName) && !isSet(this.{myName})) {
-          myConfig = ["enabled": false] + (array)_helperMap[myName]["config"];
-          this.{myName} = _View.loadHelper(_helperMap[myName]["class"], myConfig);
+  auto __get(string propertyName) {
+    if (isSet(_helperMap, myName) && !isSet(this.{myName})) {
+      myConfig = ["enabled": false] + (array)_helperMap[myName]["config"];
+      this.{myName} = _View.loadHelper(_helperMap[myName]["class"], myConfig);
 
-          return this.{myName};
-      }
-  }
-
-  /**
-    * Get the view instance this helper is bound to.
-    *
-    * @return uim.mvc.views\View The bound view instance.
-    */
-  auto getView(): View
-  {
-      return _View;
+      return this.{myName};
+    }
   }
 
   /**
@@ -105,7 +101,7 @@ class Helper : IEventListener {
     * @return string "onclick" JS code
     */
   protected string _confirm(string okCode, string cancelCode) {
-      return "if (confirm(this.dataset.confirmMessage)) { {$okCode} } {$cancelCode}";
+    return "if (confirm(this.dataset.confirmMessage)) { {$okCode} } {$cancelCode}";
   }
 
   /**
@@ -117,15 +113,15 @@ class Helper : IEventListener {
     * @return array<string, mixed> Array of options with myKey set.
     */
   array addClass(array myOptions, string myClass, string myKey = "class") {
-      if (isSet(myOptions, myKey) && is_array(myOptions[myKey])) {
-          myOptions[myKey] ~= myClass;
-      } elseif (isSet(myOptions[myKey]) && trim(myOptions[myKey])) {
-          myOptions[myKey] ~= " " ~ myClass;
-      } else {
-          myOptions[myKey] = myClass;
-      }
+    if (isSet(myOptions, myKey) && is_array(myOptions[myKey])) {
+      myOptions[myKey] ~= myClass;
+    } elseif (isSet(myOptions[myKey]) && trim(myOptions[myKey])) {
+      myOptions[myKey] ~= " " ~ myClass;
+    } else {
+      myOptions[myKey] = myClass;
+    }
 
-      return myOptions;
+    return myOptions;
   }
 
   /**
@@ -139,23 +135,23 @@ class Helper : IEventListener {
     *
     * @return array<string, mixed>
     */
-  array implementedEvents() {
-      myEventMap = [
-          "View.beforeRenderFile": "beforeRenderFile",
-          "View.afterRenderFile": "afterRenderFile",
-          "View.beforeRender": "beforeRender",
-          "View.afterRender": "afterRender",
-          "View.beforeLayout": "beforeLayout",
-          "View.afterLayout": "afterLayout",
-      ];
-      myEvents = null;
-      foreach (myEventMap as myEvent: $method) {
-          if (method_exists(this, $method)) {
-              myEvents[myEvent] = $method;
-          }
+  Json implementedEvents() {
+    myEventMap = [
+      "View.beforeRenderFile": "beforeRenderFile",
+      "View.afterRenderFile": "afterRenderFile",
+      "View.beforeRender": "beforeRender",
+      "View.afterRender": "afterRender",
+      "View.beforeLayout": "beforeLayout",
+      "View.afterLayout": "afterLayout",
+    ];
+    Json myEvents = Json.emptyObject;
+    foreach (myEvent, $method; myEventMap) {
+      if (method_exists(this, $method)) {
+        myEvents[myEvent] = $method;
       }
+    }
 
-      return myEvents;
+    return myEvents;
   }
 
   /**
@@ -172,11 +168,11 @@ class Helper : IEventListener {
     * Returns an array that can be used to describe the internal state of this
     * object.
     */
-  array Json __debugInfo() {
-      return [
-          "helpers": this.helpers,
-          "implementedEvents": this.implementedEvents(),
-          "_config": this.getConfig(),
-      ];
+  Json __debugInfo() {
+    return [
+      "helpers": this.helpers,
+      "implementedEvents": this.implementedEvents(),
+      "_config": this.getConfig(),
+    ];
   }
 }

@@ -35,7 +35,7 @@ class DWidgetLocator {
   protected DVIWStringTemplate _templates;
 
   // View instance.
-  protected DMVCView _view;
+  protected DView _view;
 
   /**
     * Constructor

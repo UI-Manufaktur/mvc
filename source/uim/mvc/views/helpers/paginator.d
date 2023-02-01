@@ -119,7 +119,7 @@ class PaginatorHelper : DMVCHelper {
      * @param uim.mvc.views\View $view The View this helper is being attached to.
      * @param array<string, mixed> myConfig Configuration settings for the helper.
      */
-    this(DMVCView aView, array myConfig = null) {
+    this(DView aView, array myConfig = null) {
         super.this(aView, myConfig);
 
         myQuery = _View.getRequest().getQueryParams();

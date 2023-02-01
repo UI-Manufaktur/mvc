@@ -25,12 +25,12 @@ class DMVCNumberHelper : DMVCHelper {
      * - `engine` Class name to use to replace Cake\I18n\Number functionality
      *            The class needs to be placed in the `Utility` directory.
      *
-     * @param uim.mvc.views\View $view The View this helper is being attached to.
+     * attachedView - The View this helper is being attached to.
      * @param array<string, mixed> myConfig Configuration settings for the helper
-     * @throws uim.mvc.Core\exceptions.UIMException When the engine class could not be found.
+     * @throws uim.oop.exceptions.UIMException When the engine class could not be found.
      */
-    this(View $view, array myConfig = null) {
-        super.this($view, myConfig);
+    this(View attachedView, array myConfig = null) {
+        super.this(attachedView, myConfig);
 
         myConfig = _config;
 
@@ -56,7 +56,7 @@ class DMVCNumberHelper : DMVCHelper {
      * @return mixed Whatever is returned by called method, or false on failure
      */
     auto __call(string method, array myParams) {
-        return _engine.{$method}(...myParams);
+      return _engine.{$method}(...myParams);
     }
 
     /**
@@ -76,13 +76,13 @@ class DMVCNumberHelper : DMVCHelper {
     /**
      * Returns a formatted-for-humans file size.
      *
-     * @param string|int $size Size in bytes
+     * byteSize - Size in bytes
      * @return string Human readable size
      * @see uim.mvc.i18n\Number::toReadableSize()
      * @link https://book.UIM.org/4/en/views/helpers/number.html#interacting-with-human-readable-values
      */
-    string toReadableSize($size) {
-        return _engine.toReadableSize($size);
+    string toReadableSize(size_t byteSize) {
+      return _engine.toReadableSize(byteSize);
     }
 
     /**
@@ -100,7 +100,7 @@ class DMVCNumberHelper : DMVCHelper {
      * @link https://book.UIM.org/4/en/views/helpers/number.html#formatting-percentages
      */
     string toPercentage($number, int $precision = 2, array myOptions = null) {
-        return _engine.toPercentage($number, $precision, myOptions);
+      return _engine.toPercentage($number, $precision, myOptions);
     }
 
     /**
