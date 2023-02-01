@@ -4,7 +4,7 @@ module uim.mvc.views.components.tables.components.headers.header;
 import uim.mvc;
 
 class DTableHeader : DTableComponent {
-  mixin(MVCViewComponentThis!("MVCTableHeader"));
+  mixin(ViewComponentThis!("MVCTableHeader"));
 
   mixin(OProperty!("STRINGAA[]", "cols"));
 
@@ -27,4 +27,4 @@ class DTableHeader : DTableComponent {
     return [H5Thead.row(ths)].toH5;
   }
 }
-mixin(MVCViewComponentCalls!("MVCTableHeader", "DTableHeader"));
+mixin(ViewComponentCalls!("MVCTableHeader", "DTableHeader"));

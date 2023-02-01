@@ -4,7 +4,7 @@ module uim.mvc.views.components.tables.components.headers.entities;
 import uim.mvc;
 
 class DMVCEntitiesTableHeader : DTableHeader {
-  mixin(MVCViewComponentThis!("MVCEntitiesTableHeader"));
+  mixin(ViewComponentThis!("MVCEntitiesTableHeader"));
 
   override void initialize() {
     super.initialize;
@@ -40,5 +40,5 @@ class DMVCEntitiesTableHeader : DTableHeader {
           UIMTextInput(["form-control-sm"], ["aria-label":"Search "~mainTitle.toLower]))))].toH5;
   }
 }
-mixin(MVCViewComponentCalls!("MVCEntitiesTableHeader", "DMVCEntitiesTableHeader"));
+mixin(ViewComponentCalls!("MVCEntitiesTableHeader", "DMVCEntitiesTableHeader"));
 

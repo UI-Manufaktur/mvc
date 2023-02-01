@@ -4,6 +4,6 @@ module uim.mvc.views.components.tables.components.headers.entity;
 import uim.mvc;
 
 class DMVCEntityTableHeader : DTableHeader {
-  mixin(MVCViewComponentThis!("MVCEntityTableHeader"));
+  mixin(ViewComponentThis!("MVCEntityTableHeader"));
 }
-mixin(MVCViewComponentCalls!("MVCEntityTableHeader", "DMVCEntityTableHeader"));
+mixin(ViewComponentCalls!("MVCEntityTableHeader", "DMVCEntityTableHeader"));

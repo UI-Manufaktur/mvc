@@ -9,7 +9,7 @@ module uim.mvc.views.components.tables.components.bodies.body_;
 import uim.mvc;
 
 class DTableBody : DTableComponent {
-  mixin(MVCViewComponentThis!("MVCTableBody"));
+  mixin(ViewComponentThis!("MVCTableBody"));
 }
-mixin(MVCViewComponentCalls!("MVCTableBody", "DTableBody"));
+mixin(ViewComponentCalls!("MVCTableBody", "DTableBody"));
 

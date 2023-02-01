@@ -4,6 +4,6 @@ module uim.mvc.views.components.tables.components.footers.footer;
 import uim.mvc;
 
 class DTableFooter : DTableComponent {
-  mixin(MVCViewComponentThis!("MVCTableFooter"));
+  mixin(ViewComponentThis!("MVCTableFooter"));
 }
-mixin(MVCViewComponentCalls!("MVCTableFooter", "DTableFooter"));
+mixin(ViewComponentCalls!("MVCTableFooter", "DTableFooter"));
