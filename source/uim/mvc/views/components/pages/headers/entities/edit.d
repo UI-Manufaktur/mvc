@@ -4,7 +4,7 @@ module uim.mvc.views.components.pages.headers.entities.edit;
 import uim.mvc;
 
 class DMVCEditPageHeaderViewComponent : DMVCPageHeaderViewComponent {
-  mixin(MVCViewComponentThis!("MVCEditPageHeaderViewComponent"));
+  mixin(ViewComponentThis!("MVCEditPageHeaderViewComponent"));
   
   override void initialize() {
     super.initialize;
@@ -13,5 +13,5 @@ class DMVCEditPageHeaderViewComponent : DMVCPageHeaderViewComponent {
       .actions([["refresh"], ["list"], ["view"], ["print", "export"]]); 
   }
 }
-mixin(MVCViewComponentCalls!("MVCEditPageHeaderViewComponent", "DMVCEditPageHeaderViewComponent"));
-mixin(MVCViewComponentCalls!("MVCEditPageHeader", "DMVCEditPageHeaderViewComponent"));
+mixin(ViewComponentCalls!("MVCEditPageHeaderViewComponent", "DMVCEditPageHeaderViewComponent"));
+mixin(ViewComponentCalls!("MVCEditPageHeader", "DMVCEditPageHeaderViewComponent"));

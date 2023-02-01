@@ -8,9 +8,9 @@ module uim.mvc.views.components.tables.filter;
 @safe:
 import uim.mvc;
 
-class DMVCEntitiesTableFilter : DMVCViewComponent {
+class DMVCEntitiesTableFilter : DViewComponent {
   this() { super(); this.visibleEntities(10); }
-  this(DMVCView myView) { this().view(myView); }
+  this(DView myView) { this().view(myView); }
 
   mixin(OProperty!("size_t", "visibleEntities"));
   

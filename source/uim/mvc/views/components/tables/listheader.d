@@ -8,9 +8,9 @@ module uim.mvc.views.components.tables.listheader;
 @safe:
 import uim.mvc;
 
-class DMVCListTableHeader : DMVCViewComponent {
+class DMVCListTableHeader : DViewComponent {
   this() { super(); }
-  this(DMVCView myView) { this(); this.view(myView); }
+  this(DView myView) { this(); this.view(myView); }
 
   override DH5Obj[] toH5(STRINGAA options) {
     return [
@@ -27,4 +27,4 @@ class DMVCListTableHeader : DMVCViewComponent {
   }
 }
 auto MVCListTableHeader() { return new DMVCListTableHeader; }
-auto MVCListTableHeader(DMVCView myView) { return new DMVCListTableHeader(myView); }
+auto MVCListTableHeader(DView myView) { return new DMVCListTableHeader(myView); }

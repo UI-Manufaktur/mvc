@@ -10,7 +10,7 @@ import uim.mvc;
 
 /* class DTableHistory : DMVCEntitiesTableHeader {
   this() { super(); }
-  this(DMVCView myView) { this().view(myView); }
+  this(DView myView) { this().view(myView); }
 
   mixin(OProperty!("DEntity[]", "history"));
   O history(this O)(Json[] jsons) {

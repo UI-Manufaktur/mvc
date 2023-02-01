@@ -4,11 +4,11 @@ module uim.mvc.views.components.pages.headers.entities.read;
 import uim.mvc;
 
 class DMVCReadPageHeaderViewComponent : DMVCPageHeaderViewComponent {
-  mixin(MVCViewComponentThis!("MVCReadPageHeaderViewComponent"));
+  mixin(ViewComponentThis!("MVCReadPageHeaderViewComponent"));
   
   override void initialize() {
     super.initialize;
   }
 }
-mixin(MVCViewComponentCalls!("MVCReadPageHeaderViewComponent", "DMVCReadPageHeaderViewComponent"));
-mixin(MVCViewComponentCalls!("MVCReadPageHeader", "DMVCReadPageHeaderViewComponent"));
+mixin(ViewComponentCalls!("MVCReadPageHeaderViewComponent", "DMVCReadPageHeaderViewComponent"));
+mixin(ViewComponentCalls!("MVCReadPageHeader", "DMVCReadPageHeaderViewComponent"));
