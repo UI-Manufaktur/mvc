@@ -9,7 +9,7 @@ module uim.mvc.views.components.forms.crud.read;
 import uim.mvc;
 
 class DMVCReadForm : DMVCEntityForm {
-  mixin(MVCViewComponentThis!("MVCReadForm"));
+  mixin(ViewComponentThis!("MVCReadForm"));
 
   override void initialize() {
     super.initialize;
@@ -18,7 +18,7 @@ class DMVCReadForm : DMVCEntityForm {
       .crudMode(CRUDModes.Read);
   }
 }
-mixin(MVCViewComponentCalls!("MVCReadForm", "DMVCReadForm"));
+mixin(ViewComponentCalls!("MVCReadForm", "DMVCReadForm"));
 
 /* 
 auto viewForm(T:DEntity)(string path, T entity, STRINGAA[] panes, STRINGAA reqParameters) {

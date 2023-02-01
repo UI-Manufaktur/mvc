@@ -3,7 +3,7 @@ module uim.mvc.views.components.navbars.navbar;
 @safe:
 import uim.mvc;
 
-/* class DMVCFirstNavbar : DMVCViewComponent {
+/* class DMVCFirstNavbar : DViewComponent {
     this() { super(); }
 
     override DH5Obj[] toH5(STRINGAA options = null) {   
@@ -55,7 +55,7 @@ import uim.mvc;
 }
 auto MVCFirstNavbar() { return new DMVCFirstNavbar; }
 
-class DMVCSecondNavbar : DMVCViewComponent {
+class DMVCSecondNavbar : DViewComponent {
   this() { super(); }
 
   mixin(OProperty!("DMVCNavbarSlotViewComponent[]", "slots"));
@@ -85,8 +85,8 @@ auto MVCSecondNavbar() { return new DMVCSecondNavbar; }
 auto MVCSecondNavbar(DMVCNavbarSlotViewComponent[] slots) { return MVCSecondNavbar.slots(slots); }
  */
 
-class DMVCFirstNavbar : DMVCViewComponent {
-  mixin(MVCViewComponentThis!("MVCFirstNavbar"));
+class DMVCFirstNavbar : DViewComponent {
+  mixin(ViewComponentThis!("MVCFirstNavbar"));
 
   mixin(MVCParameter!("appLogo"));
   mixin(MVCParameter!("appTitle"));
@@ -124,7 +124,7 @@ class DMVCFirstNavbar : DMVCViewComponent {
       ].toH5;
   }
 }
-mixin(MVCViewComponentCalls!("MVCFirstNavbar", "DMVCFirstNavbar"));
+mixin(ViewComponentCalls!("MVCFirstNavbar", "DMVCFirstNavbar"));
 
 
 auto messagesNavitem(STRINGAA options = null) {
@@ -162,8 +162,8 @@ auto userNavitem(STRINGAA options = null) {
     );
 }
 
-class DMVCSecondNavbar : DMVCViewComponent {
-  mixin(MVCViewComponentThis!("MVCSecondNavbar"));
+class DMVCSecondNavbar : DViewComponent {
+  mixin(ViewComponentThis!("MVCSecondNavbar"));
 
   mixin(OProperty!("DMVCNavbarSlotViewComponent[]", "leftSlots"));
   mixin(OProperty!("DMVCNavbarSlotViewComponent[]", "rightSlots"));
@@ -242,7 +242,7 @@ class DMVCSecondNavbar : DMVCViewComponent {
       )].toH5;
   }
 }
-mixin(MVCViewComponentCalls!("MVCSecondNavbar", "DMVCSecondNavbar"));
+mixin(ViewComponentCalls!("MVCSecondNavbar", "DMVCSecondNavbar"));
 
 /*
 BS5NavItem(["active"], 

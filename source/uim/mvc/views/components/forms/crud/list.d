@@ -9,7 +9,7 @@ module uim.mvc.views.components.forms.crud.list;
 import uim.mvc;
 
 class DMVCEntitiesListForm : DMVCEntitiesForm {
-  mixin(MVCViewComponentThis!("MVCEntitiesListForm"));
+  mixin(ViewComponentThis!("MVCEntitiesListForm"));
 
   override void initialize() {
     super.initialize;
@@ -42,7 +42,7 @@ class DMVCEntitiesListForm : DMVCEntitiesForm {
     return [_col].toH5;
   }  
 }
-mixin(MVCViewComponentCalls!("MVCEntitiesListForm", "DMVCEntitiesListForm"));
+mixin(ViewComponentCalls!("MVCEntitiesListForm", "DMVCEntitiesListForm"));
 
 version(test_uim_mvc) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);

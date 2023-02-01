@@ -4,8 +4,8 @@ module uim.mvc.views.components.pages.page;
 import uim.mvc;
 
 class DMVCPageViewComponent
- : DMVCViewComponent {
-  mixin(MVCViewComponentThis!("MVCPageViewComponent"));
+ : DViewComponent {
+  mixin(ViewComponentThis!("MVCPageViewComponent"));
   
   override void initialize() {
     this
@@ -30,4 +30,4 @@ class DMVCPageViewComponent
     if (footer)  footer.entities = this.entities;
   }
 }
-mixin(MVCViewComponentCalls!("MVCPageViewComponent", "DMVCPageViewComponent"));
+mixin(ViewComponentCalls!("MVCPageViewComponent", "DMVCPageViewComponent"));

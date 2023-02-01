@@ -3,8 +3,8 @@ module uim.mvc.views.components.pages.footers.footer;
 @safe:
 import uim.mvc;
 
-class DMVCPageFooterViewComponent : DMVCViewComponent {
-  mixin(MVCViewComponentThis!("MVCPageFooterViewComponent"));
+class DMVCPageFooterViewComponent : DViewComponent {
+  mixin(ViewComponentThis!("MVCPageFooterViewComponent"));
 
   override void initialize() {
     super.initialize; 
@@ -35,5 +35,5 @@ class DMVCPageFooterViewComponent : DMVCViewComponent {
         ))].toH5;
   }
 }
-mixin(MVCViewComponentCalls!("MVCPageFooterViewComponent", "DMVCPageFooterViewComponent"));
-mixin(MVCViewComponentCalls!("MVCPageFooter", "DMVCPageFooterViewComponent"));
+mixin(ViewComponentCalls!("MVCPageFooterViewComponent", "DMVCPageFooterViewComponent"));
+mixin(ViewComponentCalls!("MVCPageFooter", "DMVCPageFooterViewComponent"));
