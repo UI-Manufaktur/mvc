@@ -9,7 +9,7 @@ module uim.mvc.views.components.forms.components.inputs.name;
 import uim.mvc;
 
 class DMVCNameFormInput : DMVCTextFormInput {
-  mixin(MVCViewComponentThis!("MVCNameFormInput"));
+  mixin(ViewComponentThis!("MVCNameFormInput"));
 
   override void initialize() {
     super.initialize;
@@ -23,4 +23,4 @@ class DMVCNameFormInput : DMVCTextFormInput {
       .invalidFeedback("Name ist nicht korrekt");
   }
 }
-mixin(MVCViewComponentCalls!("MVCNameFormInput", "DMVCNameFormInput"));
+mixin(ViewComponentCalls!("MVCNameFormInput", "DMVCNameFormInput"));

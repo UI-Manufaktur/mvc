@@ -9,7 +9,7 @@ module uim.mvc.views.components.forms.components.inputs.textarea;
 import uim.mvc;
 
 class DMVCTextAreaFormInput : DFormInput {
-  mixin(MVCViewComponentThis!("MVCTextAreaFormInput"));
+  mixin(ViewComponentThis!("MVCTextAreaFormInput"));
 
   override void initialize() {
     super.initialize;
@@ -40,7 +40,7 @@ version(test_uim_mvc) { unittest {
       // 
       }}
 }
-mixin(MVCViewComponentCalls!("MVCTextAreaFormInput", "DMVCTextAreaFormInput"));
+mixin(ViewComponentCalls!("MVCTextAreaFormInput", "DMVCTextAreaFormInput"));
 
 version(test_uim_mvc) { unittest {
   writeln("--- Test in ", __MODULE__, "/", __LINE__);    

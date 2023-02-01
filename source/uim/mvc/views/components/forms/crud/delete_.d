@@ -9,7 +9,7 @@ module uim.mvc.views.components.forms.crud.delete_;
 import uim.mvc;
 
 class DMVCDeleteForm : DMVCEntityForm {
-  mixin(MVCViewComponentThis!("MVCDeleteForm"));
+  mixin(ViewComponentThis!("MVCDeleteForm"));
 
   override void initialize() {
     super.initialize;
@@ -18,7 +18,7 @@ class DMVCDeleteForm : DMVCEntityForm {
       .crudMode(CRUDModes.Delete);
   }
 }
-mixin(MVCViewComponentCalls!("MVCDeleteForm", "DMVCDeleteForm"));
+mixin(ViewComponentCalls!("MVCDeleteForm", "DMVCDeleteForm"));
 
 /* auto deleteheader(string path, DEntity entity, DMVCPanes panes, STRINGAA reqParameters) {  
   return 

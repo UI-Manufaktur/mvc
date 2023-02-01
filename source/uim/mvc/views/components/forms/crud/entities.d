@@ -9,7 +9,7 @@ module uim.mvc.views.components.forms.crud.entities;
 import uim.mvc;
 
 class DMVCEntitiesForm : DForm {
-  mixin(MVCViewComponentThis!("MVCEntitiesForm"));
+  mixin(ViewComponentThis!("MVCEntitiesForm"));
 
   // mixin(OProperty!("DEntity[]", "entities"));
 
@@ -17,4 +17,4 @@ class DMVCEntitiesForm : DForm {
     super.initialize;
   }
 }
-mixin(MVCViewComponentCalls!("MVCEntitiesForm", "DMVCEntitiesForm"));
+mixin(ViewComponentCalls!("MVCEntitiesForm", "DMVCEntitiesForm"));

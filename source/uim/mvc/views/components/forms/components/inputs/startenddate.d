@@ -4,7 +4,7 @@ module uim.mvc.views.components.forms.components.inputs.startenddate;
 import uim.mvc;
 
 class DMVCStartEndDateFormInput : DFormInput {
-  mixin(MVCViewComponentThis!("MVCStartEndDateFormInput"));
+  mixin(ViewComponentThis!("MVCStartEndDateFormInput"));
 
   DH5Obj h5StartInput(STRINGAA options = null) {
     super.h5Input(options);
@@ -75,4 +75,4 @@ class DMVCStartEndDateFormInput : DFormInput {
       // 
       }}
 }
-mixin(MVCViewComponentCalls!("MVCStartEndDateFormInput", "DMVCStartEndDateFormInput"));
+mixin(ViewComponentCalls!("MVCStartEndDateFormInput", "DMVCStartEndDateFormInput"));
