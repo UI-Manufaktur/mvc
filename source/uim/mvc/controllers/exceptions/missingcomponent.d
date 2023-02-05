@@ -9,6 +9,10 @@ module uim.mvc.controllers.exceptions.missingcomponent;
 import uim.mvc;
 
 // Used when a component cannot be found.
-class MissingComponentException : UIMException {
-  protected string _messageTemplate = "Component class %s could not be found.";
+class DMissingComponentException : UIMException {
+	override void initialize() {
+		super.initialize;
+  	this.messageTemplate("Component class %s could not be found.");
+	}
 }
+auto MissingComponentException() { return new DMissingComponentException; }

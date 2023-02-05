@@ -17,7 +17,7 @@ import uim.mvc;
  * @link https://book.UIM.org/4/en/views/helpers/html.html
  */
 class HtmlHelper : DMVCHelper {
-  protected DVIWStringTemplate _templater;
+  protected DStringTemplate _templater;
 
   /**
     * Sets templates to use.

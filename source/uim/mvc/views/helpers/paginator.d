@@ -15,7 +15,7 @@ import uim.mvc;
  * @link https://book.UIM.org/4/en/views/helpers/paginator.html
  */
 class PaginatorHelper : DMVCHelper {
-    protected DVIWStringTemplate _templater;
+    protected DStringTemplate _templater;
 
   /**
     * Sets templates to use.

@@ -63,7 +63,7 @@ class FlashHelper : DMVCHelper {
         }
 
         auto renderedResult = "";
-        foreach (myMessages as myMessage) {
+        foreach (myMessage; myMessages) {
             myMessage = myOptions + myMessage;
             renderedResult ~= _View.element(myMessage["element"], myMessage);
         }

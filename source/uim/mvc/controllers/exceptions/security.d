@@ -13,46 +13,16 @@ class SecurityException : BadRequestException {
   // Security Exception type
   protected string _type = "secure";
 
-  /**
-    * Reason for request blackhole
-    *
-    */
-  protected Nullable!string _reason;
+  // Reason for request blackhole
+  mixin(OProperty!("string", "reason"));
 
-  /**
-    * Getter for type
-    */
+  // Getter for type
   string getType() {
-      return _type;
+    return _type;
   }
 
-  /**
-    * Set Message
-    *
-    * @param string $message Exception message
-    */
+  // Set Message
   void setMessage(string aMessage) {
-      this.message = aMessage;
-  }
-
-  /**
-    * Set Reason
-    *
-    * @param string|null $reason Reason details
-    * @return this
-    */
-  function setReason(Nullable!string $reason = null) {
-      _reason = $reason;
-
-      return this;
-  }
-
-  /**
-    * Get Reason
-    *
-    * @return string|null
-    */
-  Nullable!string getReason() {
-      return _reason;
+    this.message = aMessage;
   }
 }

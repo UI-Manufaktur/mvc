@@ -15,18 +15,18 @@ import uim.mvc;
  * @property uim.mvc.views\Helper\UrlHelper myUrl
  */
 class BreadcrumbsHelper : DMVCHelper {
-    protected DVIWStringTemplate _templater;
+  protected DStringTemplate _templater;
 
   /**
     * Sets templates to use.
     *
-    * @param array<string> myTemplates Templates to be added.
+    * someTemplates - Templates to be added.
     * @return this
     */
-  auto setTemplates(array myTemplates) {
-      _templater().add(myTemplates);
+  auto setTemplates(string[] someTemplates) {
+    _templater().add(myTemplates);
 
-      return this;
+    return this;
   }
 
   /**
@@ -35,7 +35,7 @@ class BreadcrumbsHelper : DMVCHelper {
     * @param string|null myTemplate String for reading a specific template, null for all.
     * @return array|string
     */
-  auto getTemplates(Nullable!string myTemplate = null) {
+  auto string[] templates(string myTemplate = null) {
       return _templater().get(myTemplate);
   }
 
@@ -51,22 +51,22 @@ class BreadcrumbsHelper : DMVCHelper {
 
   // Returns the templater instance.
   StringTemplate templater() {
-      if (_templater is null) {
-          StringTemplate myClass = this.getConfig("templateClass") ?: StringTemplate::class;
-          _templater = new myClass();
+    if (_templater is null) {
+      StringTemplate myClass = this.getConfig("templateClass") ?: StringTemplate::class;
+      _templater = new myClass();
 
-          myTemplates = this.getConfig("templates");
-          if (myTemplates) {
-              if (is_string(myTemplates)) {
-                  _templater.add(_defaultConfig["templates"]);
-                  _templater.load(myTemplates);
-              } else {
-                  _templater.add(myTemplates);
-              }
-          }
+      myTemplates = this.getConfig("templates");
+      if (myTemplates) {
+        if (is_string(myTemplates)) {
+          _templater.add(_defaultConfig["templates"]);
+          _templater.load(myTemplates);
+        } else {
+          _templater.add(myTemplates);
+        }
       }
+    }
 
-      return _templater;
+    return _templater;
   }
     // Other helpers used by BreadcrumbsHelper.
     protected array helpers = ["Url"];

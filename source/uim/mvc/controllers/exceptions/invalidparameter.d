@@ -26,11 +26,11 @@ class InvalidParameterException : UIMException {
     * errorCode - The error code
     * @param \Throwable|null $previous the previous exception.
     */
-  this($message = "", int errorCode = 0, ?Throwable $previous = null) {
+/*   this($message = "", int errorCode = 0, ?Throwable $previous = null) {
       if (is_array($message)) {
         _messageTemplate = _templates[$message["template"]] ?? "";
         unset($message["template"]);
       }
       super($message, errorCode, $previous);
-  }
+  } */
 }

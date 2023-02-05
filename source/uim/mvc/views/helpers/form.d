@@ -89,7 +89,7 @@ class FormHelper : DMVCHelper
 
         return $domId;
     }
-    protected DVIWStringTemplate _templater;
+    protected DStringTemplate _templater;
 
   /**
     * Sets templates to use.

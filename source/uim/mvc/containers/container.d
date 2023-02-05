@@ -368,12 +368,12 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
     O tag(this O)(string[] abstracts, string[] tags) {
 /*         $tags = is_array($tags) ? $tags : array_slice(func_get_args(), 1);
 
-        foreach ($tags as $tag) {
+        foreach (myTag; tags) {
             if (! isset($this.tags[$tag])) {
                 $this.tags[$tag] = [];
             }
 
-            foreach ((array) $abstracts as $abstract) {
+            foreach (abstract, (array) $abstracts) {
                 $this.tags[$tag][] = $abstract;
             }
         }
@@ -1084,7 +1084,7 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
     {
         $results = [];
 
-        foreach ($callbacksPerType as $type => $callbacks) {
+        foreach ($type => $callbacks; $callbacksPerType) {
             if ($type === $abstract || $object instanceof $type) {
                 $results = array_merge($results, $callbacks);
             }
