@@ -16,7 +16,7 @@ import uim.mvc;
  */
 class DMVCLabelWidget : IWidget {
   // Templates
-  protected DVIWStringTemplate _templates;
+  protected DStringTemplate _templates;
 
   // The template to use.
   protected string _labelTemplate = "label";

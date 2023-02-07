@@ -12,7 +12,7 @@ import uim.mvc;
  */
 class ButtonWidget : DWidget {
   // StringTemplate instance.
-  protected DVIWStringTemplate _templates;
+  protected DStringTemplate _templates;
 
   /**
   * Constructor.

@@ -32,7 +32,7 @@ class DWidgetLocator {
   protected array _widgets = null;
 
   // Templates to use.
-  protected DVIWStringTemplate _templates;
+  protected DStringTemplate _templates;
 
   // View instance.
   protected DView _view;

@@ -16,7 +16,7 @@ use Exception;
  * @see uim.mvc.i18n\Time
  */
 class TimeHelper : DMVCHelper {
-    protected DVIWStringTemplate _templater;
+    protected DStringTemplate _templater;
 
   /**
     * Sets templates to use.

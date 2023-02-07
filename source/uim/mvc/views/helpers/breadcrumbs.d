@@ -42,17 +42,17 @@ class BreadcrumbsHelper : DMVCHelper {
   /**
     * Formats a template string with myData
     *
-    * @param string myName The template name.
-    * @param array<string, mixed> myData The data to insert.
+    * myName - The template name.
+    * myData - The data to insert.
     */
-  string formatTemplate(string myName, array myData) {
+  string formatTemplate(string myName, Json myData) {
       return _templater().format(myName, myData);
   }
 
   // Returns the templater instance.
   StringTemplate templater() {
     if (_templater is null) {
-      StringTemplate myClass = this.getConfig("templateClass") ?: StringTemplate::class;
+      StringTemplate myClass = isSet(getConfig, "templateClass") ? this.getConfig("templateClass") : StringTemplate::class;
       _templater = new myClass();
 
       myTemplates = this.getConfig("templates");

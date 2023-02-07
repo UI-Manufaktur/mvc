@@ -147,7 +147,7 @@ class DMVCRadioWidget : DWidget {
         _idPrefix = myData["idPrefix"];
         _clearIds();
         $opts = null;
-        foreach (myOptions as $val: $text) {
+        foreach ($val: $text; myOptions) {
             $opts ~= _renderInput($val, $text, myData, $context);
         }
 

@@ -225,7 +225,7 @@ class DMVCSelectBoxWidget : DWidget {
     */
   protected string[] _renderOptions(iterable myOptions, ?array $disabled, $selected, myTemplateVars, $escape) {
       $out = null;
-      foreach (myOptions as myKey: $val) {
+      foreach (myKey: $val; myOptions) {
           // Option groups
           $isIterable = is_iterable($val);
           if (

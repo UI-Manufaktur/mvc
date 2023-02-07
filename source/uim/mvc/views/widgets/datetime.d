@@ -22,7 +22,7 @@ use DateTimeInterface;
  */
 class DMVCDateTimeWidget : DWidget {
   // Template instance.
-  protected DVIWStringTemplate _templates;
+  protected DStringTemplate _templates;
 
   // Formats for various input types.
   protected string[] formatMap:
