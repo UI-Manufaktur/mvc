@@ -237,13 +237,13 @@ class HtmlHelper : DMVCHelper {
     * @return string A meta tag containing the specified character set.
     * @link https://book.UIM.org/4/en/views/helpers/html.html#creating-charset-tags
     */
-  string charset(Nullable!string charset = null) {
+  string charset(string charset = null) {
     if (empty($charset)) {
-        $charset = (string)Configure::read("App.encoding").toLower;
+      $charset = (string)Configure::read("App.encoding").toLower;
     }
 
     return this.formatTemplate("charset", [
-        "charset": !empty($charset) ? $charset : "utf-8",
+      "charset": !charset.isEmpty ? charset : "utf-8",
     ]);
   }
 

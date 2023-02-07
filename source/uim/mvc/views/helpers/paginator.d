@@ -42,31 +42,31 @@ class PaginatorHelper : DMVCHelper {
   /**
     * Formats a template string with myData
     *
-    * @param string myName The template name.
-    * @param array<string, mixed> myData The data to insert.
+    * templateName- The template name.
+    * insertData - The data to insert.
     */
-  string formatTemplate(string myName, array myData) {
-      return _templater().format(myName, myData);
+  string formatTemplate(string templateName, Json insertData) {
+    return _templater().format(templateName, insertData);
   }
 
   // Returns the templater instance.
   StringTemplate templater() {
-      if (_templater is null) {
-          StringTemplate myClass = this.getConfig("templateClass") ?: StringTemplate::class;
-          _templater = new myClass();
+    if (_templater is null) {
+      StringTemplate myClass = this.getConfig("templateClass") ?: StringTemplate::class;
+      _templater = new myClass();
 
-          myTemplates = this.getConfig("templates");
-          if (myTemplates) {
-              if (is_string(myTemplates)) {
-                  _templater.add(_defaultConfig["templates"]);
-                  _templater.load(myTemplates);
-              } else {
-                  _templater.add(myTemplates);
-              }
-          }
+      myTemplates = this.getConfig("templates");
+      if (myTemplates) {
+        if (is_string(myTemplates)) {
+          _templater.add(_defaultConfig["templates"]);
+          _templater.load(myTemplates);
+        } else {
+          _templater.add(myTemplates);
+        }
       }
+    }
 
-      return _templater;
+    return _templater;
   }
 
     /**

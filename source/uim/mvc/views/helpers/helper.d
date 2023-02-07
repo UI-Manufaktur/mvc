@@ -159,20 +159,19 @@ class Helper : IEventListener {
     *
     * Implement this method to avoid having to overwrite the constructor and call parent.
     *
-    * @param array<string, mixed> myConfig The configuration settings provided to this helper.
+    * configSettings - The configuration settings provided to this helper.
     */
-  void initialize(array myConfig) {
+  void initialize(Json configSettings) {
   }
 
-  /**
-    * Returns an array that can be used to describe the internal state of this
-    * object.
-    */
+  // Returns an array that can be used to describe the internal state of this object.
   Json __debugInfo() {
-    return [
-      "helpers": this.helpers,
-      "implementedEvents": this.implementedEvents(),
-      "_config": this.getConfig(),
-    ];
+    auto myDebugInfo = Json.emptyObject;
+    
+    myDebugInfo["helpers"] = this.helpers;
+    myDebugInfo["implementedEvents"] = this.implementedEvents();
+    myDebugInfo["_config"] = this.getConfig();
+
+    return myDebugInfo;
   }
 }

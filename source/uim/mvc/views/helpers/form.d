@@ -2545,26 +2545,26 @@ StringTemplate templater() {
     * @return mixed Field value derived from sources or defaults.
     */
   auto getSourceValue(string myFieldname, array myOptions = null) {
-      myValueMap = [
-          "data": "getData",
-          "query": "getQuery",
-      ];
-      foreach (this.getValueSources() as myValuesSource) {
-          if (myValuesSource == "context") {
-              $val = _getContext().val(myFieldname, myOptions);
-              if ($val  !is null) {
-                  return $val;
-              }
-          }
-          if (isSet(myValueMap, myValuesSource)) {
-              $method = myValueMap[myValuesSource];
-              myValue = _View.getRequest().{$method}(myFieldname);
-              if (myValue  !is null) {
-                  return myValue;
-              }
-          }
-      }
+    myValueMap = [
+        "data": "getData",
+        "query": "getQuery",
+    ];
+    foreach (this.getValueSources() as myValuesSource) {
+        if (myValuesSource == "context") {
+            $val = _getContext().val(myFieldname, myOptions);
+            if ($val  !is null) {
+                return $val;
+            }
+        }
+        if (isSet(myValueMap, myValuesSource)) {
+            $method = myValueMap[myValuesSource];
+            myValue = _View.getRequest().{$method}(myFieldname);
+            if (myValue  !is null) {
+                return myValue;
+            }
+        }
+    }
 
-      return null;
+    return null;
   }
 }

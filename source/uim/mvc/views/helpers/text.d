@@ -14,8 +14,6 @@ import uim.mvc;
  * Text manipulations: Highlight, excerpt, truncate, strip of links, convert email addresses to mailto: links...
  *
  * @property uim.mvc.views\Helper\HtmlHelper $Html
- * @link https://book.UIM.org/4/en/views/helpers/text.html
- * @see uim.mvc.Utility\Text
  */
 class TextHelper : DMVCHelper {
   /**
@@ -39,8 +37,8 @@ class TextHelper : DMVCHelper {
     * @param array<string, mixed> myConfig Settings array Settings array
     * @throws uim.oop.exceptions.UIMException when the engine class could not be found.
     */
-  this(View $view, array myConfig = null) {
-      super.this($view, myConfig);
+  this(DView owningView, Json myConfig = null) {
+      super.this(owningView, myConfig);
 
       myConfig = _config;
 

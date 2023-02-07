@@ -95,9 +95,8 @@ class DMVCNumberHelper : DMVCHelper {
      * @param string|float $number A floating point number
      * @param int $precision The precision of the returned number
      * @param array<string, mixed> myOptions Options
-     * @return string Percentage string
+     * returns  Percentage string
      * @see uim.mvc.i18n\Number::toPercentage()
-     * @link https://book.UIM.org/4/en/views/helpers/number.html#formatting-percentages
      */
     string toPercentage($number, int $precision = 2, array myOptions = null) {
       return _engine.toPercentage($number, $precision, myOptions);
@@ -176,9 +175,9 @@ class DMVCNumberHelper : DMVCHelper {
      */
     string formatDelta(myValue, array myOptions = null) {
         $formatted = _engine.formatDelta(myValue, myOptions);
-        myOptions += ["escape": true];
+      myOptions["escape"] = true;
 
-        return myOptions["escape"] ? h($formatted) : $formatted;
+      return myOptions["escape"] ? h($formatted) : $formatted;
     }
 
     /**

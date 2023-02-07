@@ -32,11 +32,10 @@ class BreadcrumbsHelper : DMVCHelper {
   /**
     * Gets templates to use or a specific template.
     *
-    * @param string|null myTemplate String for reading a specific template, null for all.
-    * @return array|string
+    * aTemplate - String for reading a specific template, null for all.
     */
-  auto string[] templates(string myTemplate = null) {
-      return _templater().get(myTemplate);
+  auto string[] templates(string aTemplate = null) {
+      return _templater().get(aTemplate);
   }
 
   /**

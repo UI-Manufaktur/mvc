@@ -71,12 +71,8 @@ class FlashHelper : DMVCHelper {
         return renderedResult;
     }
 
-    /**
-     * Event listeners.
-     *
-     * @return array<string, mixed>
-     */
-    array implementedEvents() {
+    // Event listeners.
+    Json implementedEvents() {
         return [];
     }
 }

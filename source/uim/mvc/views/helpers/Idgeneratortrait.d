@@ -35,11 +35,11 @@ import uim.mvc;
      * @param string val The ID attribute value.
      * @return string Generated id.
      */
-    /* protected string _id(string myName, string val) {
-        myName = _domId(myName);
+    /* protected string _id(string idAttributeName, string val) {
+        auto myIdAttributeName = _domId(idAttributeName);
         $suffix = _idSuffix($val);
 
-        return trim(myName ~ "-" ~ $suffix, "-");
+        return trim(myIdAttributeName ~ "-" ~ $suffix, "-");
     } */
 
     /**

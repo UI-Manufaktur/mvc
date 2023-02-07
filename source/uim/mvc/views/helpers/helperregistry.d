@@ -11,8 +11,6 @@ import uim.mvc;
 /**
  * HelperRegistry is used as a registry for loaded helpers and handles loading
  * and constructing helper class objects.
- *
- * @: uim.mvc.Core\ObjectRegistry<uim.mvc.views\Helper>
  */
 class DMVCHelperRegistry : ObjectRegistry, IEventDispatcher {
   // use EventDispatcherTrait;
