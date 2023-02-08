@@ -38,17 +38,17 @@ class TextHelper : DMVCHelper {
     * @throws uim.oop.exceptions.UIMException when the engine class could not be found.
     */
   this(DView owningView, Json myConfig = null) {
-      super.this(owningView, myConfig);
+    super(owningView, myConfig);
 
-      myConfig = _config;
+    myConfig = _config;
 
-      /** @psalm-var class-string<uim.mvc.Utility\Text>|null $engineClass */
-      $engineClass = App::className(myConfig["engine"], "Utility");
-      if ($engineClass is null) {
-          throw new UIMException(sprintf("Class for %s could not be found", myConfig["engine"]));
-      }
+    /** @psalm-var class-string<uim.mvc.Utility\Text>|null $engineClass */
+    $engineClass = App::className(myConfig["engine"], "Utility");
+    if ($engineClass is null) {
+        throw new UIMException(sprintf("Class for %s could not be found", myConfig["engine"]));
+    }
 
-      _engine = new $engineClass(myConfig);
+    _engine = new $engineClass(myConfig);
   }
 
   void initialize() {

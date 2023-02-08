@@ -19,11 +19,9 @@ import uim.mvc;
     // A list of id suffixes used in the current rendering.
     protected string[] _idSuffixes = null;
 
-    /**
-     * Clear the stored ID suffixes.
-     * /
+    // Clear the stored ID suffixes.
     protected void _clearIds() {
-        _idSuffixes = null;
+      _idSuffixes = null;
     } * /
 
     /**
@@ -36,10 +34,10 @@ import uim.mvc;
      * @return string Generated id.
      */
     /* protected string _id(string idAttributeName, string val) {
-        auto myIdAttributeName = _domId(idAttributeName);
-        $suffix = _idSuffix($val);
+      auto myIdAttributeName = _domId(idAttributeName);
+      $suffix = _idSuffix($val);
 
-        return trim(myIdAttributeName ~ "-" ~ $suffix, "-");
+      return trim(myIdAttributeName ~ "-" ~ $suffix, "-");
     } */
 
     /**

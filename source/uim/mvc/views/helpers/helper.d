@@ -47,7 +47,7 @@ class Helper : IEventListener {
     * Get the view instance this helper is bound to.
     * returns The bound view instance.
     */
-  auto View view() {
+  auto DView view() {
     return _view;
   }
   /**
@@ -56,17 +56,26 @@ class Helper : IEventListener {
     * attachedView - The View this helper is being attached to.
     * aConfig - Configuration settings for the helper.
     */
-  this(View attachedView, array aConfig = null) {
+  this(DView attachedView, Json configSettings = Json(null)) {
     _view = attachedView;
-    this.setConfig(myConfig);
+    this.setConfig(configSettings);
 
     if (!empty(this.helpers)) {
       _helperMap = $view.helpers().normalizeArray(this.helpers);
     }
 
-    this.initialize(myConfig);
+    this.initialize(configSettings);
   }
 
+  /**
+    * Constructor hook method.
+    *
+    * Implement this method to avoid having to overwrite the constructor and call parent.
+    *
+    * configSettings - The configuration settings provided to this helper.
+    */
+  void initialize(Json configSettings) {
+  }
   /**
     * Provide non fatal errors on missing method calls.
     *
@@ -152,16 +161,6 @@ class Helper : IEventListener {
     }
 
     return myEvents;
-  }
-
-  /**
-    * Constructor hook method.
-    *
-    * Implement this method to avoid having to overwrite the constructor and call parent.
-    *
-    * configSettings - The configuration settings provided to this helper.
-    */
-  void initialize(Json configSettings) {
   }
 
   // Returns an array that can be used to describe the internal state of this object.

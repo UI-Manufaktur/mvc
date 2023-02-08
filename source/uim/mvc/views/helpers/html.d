@@ -150,83 +150,82 @@ class HtmlHelper : DMVCHelper {
     * @param array<string, mixed>|string myType The title of the external resource, Or an array of attributes for a
     *   custom meta tag.
     * @param array|string|null myContents The address of the external resource or string for content attribute
-    * @param array<string, mixed> myOptions Other attributes for the generated tag. If the type attribute is html,
+    * additionalOptions - Other attributes for the generated tag. If the type attribute is html,
     *    rss, atom, or icon, the mime-type is returned.
     * @return string|null A completed `<link />` element, or null if the element was sent to a block.
-    * @link https://book.UIM.org/4/en/views/helpers/html.html#creating-meta-tags
     */
-  Nullable!string meta(myType, myContents = null, array myOptions = null) {
+  Nullable!string meta(myType, myContents = null, Json additionalOptions = null) {
     if (!is_array(myType)) {
-        myTypes = [
-            "rss": ["type": "application/rss+xml", "rel": "alternate", "title": myType, "link": myContents],
-            "atom": ["type": "application/atom+xml", "title": myType, "link": myContents],
-            "icon": ["type": "image/x-icon", "rel": "icon", "link": myContents],
-            "keywords": ["name": "keywords", "content": myContents],
-            "description": ["name": "description", "content": myContents],
-            "robots": ["name": "robots", "content": myContents],
-            "viewport": ["name": "viewport", "content": myContents],
-            "canonical": ["rel": "canonical", "link": myContents],
-            "next": ["rel": "next", "link": myContents],
-            "prev": ["rel": "prev", "link": myContents],
-            "first": ["rel": "first", "link": myContents],
-            "last": ["rel": "last", "link": myContents],
-        ];
+      myTypes = [
+          "rss": ["type": "application/rss+xml", "rel": "alternate", "title": myType, "link": myContents],
+          "atom": ["type": "application/atom+xml", "title": myType, "link": myContents],
+          "icon": ["type": "image/x-icon", "rel": "icon", "link": myContents],
+          "keywords": ["name": "keywords", "content": myContents],
+          "description": ["name": "description", "content": myContents],
+          "robots": ["name": "robots", "content": myContents],
+          "viewport": ["name": "viewport", "content": myContents],
+          "canonical": ["rel": "canonical", "link": myContents],
+          "next": ["rel": "next", "link": myContents],
+          "prev": ["rel": "prev", "link": myContents],
+          "first": ["rel": "first", "link": myContents],
+          "last": ["rel": "last", "link": myContents],
+      ];
 
-        if (myType == "icon" && myContents is null) {
-            myTypes["icon"]["link"] = "favicon.ico";
-        }
-
-        if (isSet(myTypes, myType)) {
-            myType = myTypes[myType];
-        } elseif (!isSet(myOptions, "type") && myContents  !is null) {
-            if (is_array(myContents) && isSet(myContents, "_ext")) {
-                myType = myTypes[myContents["_ext"]];
-            } else {
-                myType = ["name": myType, "content": myContents];
-            }
-        } elseif (isSet(myOptions, "type") && myTypes[myOptions["type"]])) {
-            myType = myTypes[myOptions["type"]];
-            unset(myOptions["type"]);
-        } else {
-            myType = null;
-        }
+      if (myType == "icon" && myContents is null) {
+          myTypes["icon"]["link"] = "favicon.ico";
       }
 
-      myOptions += myType + ["block": null];
-      $out = "";
-
-      if (isSet(myOptions, "link")) {
-        if (is_array(myOptions["link"])) {
-            myOptions["link"] = this.Url.build(myOptions["link"]);
-        } else {
-            myOptions["link"] = this.Url.assetUrl(myOptions["link"]);
-        }
-        if (isSet(myOptions, "rel") && myOptions["rel"] == "icon") {
-            $out = this.formatTemplate("metalink", [
-                "url": myOptions["link"],
-                "attrs": _templater().formatAttributes(myOptions, ["block", "link"]),
-            ]);
-            myOptions["rel"] = "shortcut icon";
-        }
-        $out ~= this.formatTemplate("metalink", [
-            "url": myOptions["link"],
-            "attrs": _templater().formatAttributes(myOptions, ["block", "link"]),
-        ]);
+      if (isSet(myTypes, myType)) {
+          myType = myTypes[myType];
+      } elseif (!isSet(myOptions, "type") && myContents  !is null) {
+          if (is_array(myContents) && isSet(myContents, "_ext")) {
+              myType = myTypes[myContents["_ext"]];
+          } else {
+              myType = ["name": myType, "content": myContents];
+          }
+      } elseif (isSet(myOptions, "type") && myTypes[myOptions["type"]])) {
+          myType = myTypes[myOptions["type"]];
+          unset(myOptions["type"]);
       } else {
-        $out = this.formatTemplate("meta", [
-          "attrs": _templater().formatAttributes(myOptions, ["block", "type"]),
-        ]);
+          myType = null;
       }
+    }
 
-      if (empty(myOptions["block"])) {
-        return $out;
-      }
-      if (myOptions["block"] == true) {
-        myOptions["block"] = __FUNCTION__;
-      }
-      _View.append(myOptions["block"], $out);
+    myOptions += myType + ["block": null];
+    $out = "";
 
-      return null;
+    if (isSet(myOptions, "link")) {
+      if (is_array(myOptions["link"])) {
+          myOptions["link"] = this.Url.build(myOptions["link"]);
+      } else {
+          myOptions["link"] = this.Url.assetUrl(myOptions["link"]);
+      }
+      if (isSet(myOptions, "rel") && myOptions["rel"] == "icon") {
+          $out = this.formatTemplate("metalink", [
+              "url": myOptions["link"],
+              "attrs": _templater().formatAttributes(myOptions, ["block", "link"]),
+          ]);
+          myOptions["rel"] = "shortcut icon";
+      }
+      $out ~= this.formatTemplate("metalink", [
+          "url": myOptions["link"],
+          "attrs": _templater().formatAttributes(myOptions, ["block", "link"]),
+      ]);
+    } else {
+      $out = this.formatTemplate("meta", [
+        "attrs": _templater().formatAttributes(myOptions, ["block", "type"]),
+      ]);
+    }
+
+    if (empty(myOptions["block"])) {
+      return $out;
+    }
+    if (myOptions["block"] == true) {
+      myOptions["block"] = __FUNCTION__;
+    }
+    _View.append(myOptions["block"], $out);
+
+    return null;
   }
 
   /**

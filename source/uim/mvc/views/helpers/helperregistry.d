@@ -16,7 +16,7 @@ class DMVCHelperRegistry : ObjectRegistry, IEventDispatcher {
   // use EventDispatcherTrait;
 
   // View object to use when making helpers.
-  protected DView _View;
+  protected DView _view;
 
   /**
     * Constructor
@@ -24,7 +24,7 @@ class DMVCHelperRegistry : ObjectRegistry, IEventDispatcher {
     * @param uim.mvc.views\DView $view DView object.
     */
   this(DView aView) {
-    _View = aView;
+    _view = aView;
     this.setEventManager(aView.getEventManager());
   }
 
@@ -46,7 +46,7 @@ class DMVCHelperRegistry : ObjectRegistry, IEventDispatcher {
     try {
         this.load($helper);
     } catch (MissingHelperException myException) {
-        myPlugin = _View.getPlugin();
+        myPlugin = _view.getPlugin();
         if (!empty(myPlugin)) {
             this.load(myPlugin ~ "." ~ $helper);
 
@@ -121,7 +121,7 @@ class DMVCHelperRegistry : ObjectRegistry, IEventDispatcher {
     * @psalm-suppress MoreSpecificImplementedParamType
     */
   protected Helper _create(string className, string aliasName, array myConfig) {
-      DVIWHelper $instance = new myClass(_View, myConfig);
+      DVIWHelper $instance = new myClass(_view, myConfig);
 
       myEnable = myConfig["enabled"] ?? true;
       if (myEnable) {

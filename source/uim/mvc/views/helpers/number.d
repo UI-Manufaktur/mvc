@@ -14,7 +14,6 @@ import uim.mvc;
  * Methods to make numbers more readable.
  */
 class DMVCNumberHelper : DMVCHelper {
-    // Cake\I18n\Number instance
     protected I18n\Number _engine;
 
     /**
@@ -30,17 +29,17 @@ class DMVCNumberHelper : DMVCHelper {
      * @throws uim.oop.exceptions.UIMException When the engine class could not be found.
      */
     this(View attachedView, array myConfig = null) {
-        super.this(attachedView, myConfig);
+      super(attachedView, myConfig);
 
-        myConfig = _config;
+      myConfig = _config;
 
-        /** @psalm-var class-string<uim.mvc.i18n\Number>|null $engineClass */
-        $engineClass = App::className(myConfig["engine"], "Utility");
-        if ($engineClass is null) {
-            throw new UIMException(sprintf("Class for %s could not be found", myConfig["engine"]));
-        }
+      /** @psalm-var class-string<uim.mvc.i18n\Number>|null $engineClass */
+      $engineClass = App::className(myConfig["engine"], "Utility");
+      if ($engineClass is null) {
+          throw new UIMException(sprintf("Class for %s could not be found", myConfig["engine"]));
+      }
 
-        _engine = new $engineClass(myConfig);
+      _engine = new $engineClass(myConfig);
     }
 
     void initialize() {

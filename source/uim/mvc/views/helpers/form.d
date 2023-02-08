@@ -239,7 +239,7 @@ StringTemplate templater() {
           unset(myConfig["groupedInputTypes"]);
       }
 
-      super.this($view, myConfig);
+      super($view, myConfig);
 
       if (!$locator) {
           $locator = new WidgetLocator(_templater(), _View, $widgets);

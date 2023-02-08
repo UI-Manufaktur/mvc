@@ -4,3 +4,5 @@
 	Authors: Ozan Nurettin Süel (Sicherheitsschmiede)                                                      
 **********************************************************************************************************/
 module uim.mvc.views.helpers;
+
+public import uim.mvc.views.helpers.breadcrumbs;

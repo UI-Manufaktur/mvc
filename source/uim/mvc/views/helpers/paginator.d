@@ -120,7 +120,7 @@ class PaginatorHelper : DMVCHelper {
      * @param array<string, mixed> myConfig Configuration settings for the helper.
      */
     this(DView aView, array myConfig = null) {
-        super.this(aView, myConfig);
+        super(aView, myConfig);
 
         myQuery = _View.getRequest().getQueryParams();
         unset(myQuery["page"], myQuery["limit"], myQuery["sort"], myQuery["direction"]);

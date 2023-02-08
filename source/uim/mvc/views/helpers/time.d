@@ -52,22 +52,22 @@ class TimeHelper : DMVCHelper {
 
   // Returns the templater instance.
   StringTemplate templater() {
-      if (_templater is null) {
-          StringTemplate myClass = this.getConfig("templateClass") ?: StringTemplate::class;
-          _templater = new myClass();
+    if (_templater is null) {
+      StringTemplate myClass = this.getConfig("templateClass") ?: StringTemplate::class;
+      _templater = new myClass();
 
-          myTemplates = this.getConfig("templates");
-          if (myTemplates) {
-              if (is_string(myTemplates)) {
-                  _templater.add(_defaultConfig["templates"]);
-                  _templater.load(myTemplates);
-              } else {
-                  _templater.add(myTemplates);
-              }
-          }
+      myTemplates = this.getConfig("templates");
+      if (myTemplates) {
+        if (is_string(myTemplates)) {
+            _templater.add(_defaultConfig["templates"]);
+            _templater.load(myTemplates);
+        } else {
+            _templater.add(myTemplates);
+        }
       }
+    }
 
-      return _templater;
+    return _templater;
   }
 
     override void initialize() {
