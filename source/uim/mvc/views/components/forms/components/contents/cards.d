@@ -13,7 +13,7 @@ class DMVCCardsFormContent : DMVCEntitiesViewComponent {
 
   mixin(OProperty!("DMVCEntityViewComponent", "card"));
 
-  override void initialize() {
+  override void initialize(Json configSetting = Json(null)) {
     debugMethodCall(moduleName!DMVCCardsFormContent~"::DMVCCardsFormContent("~this.name~"):initialize");   
     super.initialize;
   }

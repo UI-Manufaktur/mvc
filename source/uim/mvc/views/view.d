@@ -44,7 +44,7 @@ import uim.mvc;
 class DView : DMVCBase, IView { 
   mixin(ViewThis!("View"));
 
-  override void initialize() {
+  override void initialize(Json configSetting = Json(null)) {
     super.initialize;
 
     this

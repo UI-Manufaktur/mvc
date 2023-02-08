@@ -11,8 +11,8 @@ import uim.mvc;
 class DMVCNullComponent : DViewComponent {
   mixin(ViewComponentThis!("MVCNullComponent"));
   
-  override void initialize() {
-    super.initialize(); 
+  override void initialize(Json configSetting = Json(null)) {
+    super.initialize(Json configSetting = Json(null)); 
 
 /*     this */
 /*     .isNull(true)  */
