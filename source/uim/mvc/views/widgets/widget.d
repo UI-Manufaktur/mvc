@@ -31,7 +31,7 @@ class DWidget : IWidget {
       _templates = templatesList;
     }
 
-    override void initialize() {
+    override void initialize(Json configSetting = Json(null)) {
       super.initialize;
 
       defaults["name"] = "";

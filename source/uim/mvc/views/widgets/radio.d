@@ -96,7 +96,7 @@ class DMVCRadioWidget : DWidget {
     _label = aLabel;
   }
 
-  override void initialize() {
+  override void initialize(Json configSetting = Json(null)) {
     super.initialize;
             
     _defaults["name"] = "";
