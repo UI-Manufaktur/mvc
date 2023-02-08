@@ -11,7 +11,7 @@ import uim.mvc;
 class DMVCCreateForm : DMVCEntityForm {
   mixin(ViewComponentThis!("MVCCreateForm"));
 
-  override void initialize() {
+  override void initialize(Json configSetting = Json(null)) {
     super.initialize;
 
     this

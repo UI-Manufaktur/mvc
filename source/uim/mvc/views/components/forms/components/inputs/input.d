@@ -30,8 +30,8 @@ class DFormInput : DMVCEntityViewComponent {
     // mixin(OProperty!("DMVCPanes", "panes"));
   // #endregion Fields
 
-  override void initialize() {
-    super.initialize();
+  override void initialize(Json configSetting = Json(null)) {
+    super.initialize(Json configSetting = Json(null));
 
     this
       .id("forminput-%s".format(uniform(1, 1_000)))

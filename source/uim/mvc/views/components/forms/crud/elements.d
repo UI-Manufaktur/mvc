@@ -13,7 +13,7 @@ class DMVCElementsForm : DForm {
 
   mixin(OProperty!("DElement[]", "elements"));
 
-  override void initialize() {
+  override void initialize(Json configSetting = Json(null)) {
     super.initialize;
   }
 }

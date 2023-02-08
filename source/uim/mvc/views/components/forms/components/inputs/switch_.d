@@ -6,7 +6,7 @@ import uim.mvc;
 class DMVCSwitchFormInput : DFormInput {
   mixin(ViewComponentThis!("MVCSwitchFormInput"));
 
-  override void initialize() {
+  override void initialize(Json configSetting = Json(null)) {
     super.initialize;
 
     this
