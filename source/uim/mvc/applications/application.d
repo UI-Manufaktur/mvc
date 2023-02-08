@@ -11,7 +11,7 @@ import uim.mvc;
 class DMVCApplication : DMVCBase, IMVCApplication { 
   this() { initialize; }
 
-  override void initialize() {
+  override void initialize(Json configSetting = Json(null)) {
     super.initialize;
   }
 

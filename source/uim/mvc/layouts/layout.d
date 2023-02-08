@@ -12,9 +12,9 @@ enum DataModes { Local, REST }
 
 class DMVCLayout : DMVCBase, IMVCLayout{
   this() {
-    initialize(); }
+    initialize(Json configSetting = Json(null)); }
 
-  override void initialize() {
+  override void initialize(Json configSetting = Json(null)) {
     debug writeln("Initialize 'MVCLayout'"); 
     super.initialize;
  

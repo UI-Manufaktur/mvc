@@ -15,7 +15,7 @@ import uim.mvc;
 class FlashComponent : DControllerComponent {
   mixin(ControllerComponentThis!("FlashControllerComponent"));
   
-  override void initialize() {
+  override void initialize(Json configSetting = Json(null)) {
     super.initialize;
 
     // Default configuration

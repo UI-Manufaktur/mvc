@@ -10,7 +10,7 @@ import uim.mvc;
 
 // Used when a component cannot be found.
 class DMissingComponentException : UIMException {
-	override void initialize() {
+	override void initialize(Json configSetting = Json(null)) {
 		super.initialize;
   	this.messageTemplate("Component class %s could not be found.");
 	}
