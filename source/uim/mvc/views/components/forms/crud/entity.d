@@ -13,7 +13,7 @@ class DMVCEntityForm : DForm {
 
   // mixin(OProperty!("DEntity", "entity"));
 
-  override void initialize() {
+  override void initialize(Json configSetting = Json(null)) {
     super.initialize;
   }
 }
