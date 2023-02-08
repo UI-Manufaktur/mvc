@@ -6,7 +6,7 @@ import uim.mvc;
 class DMVCReadPageHeaderViewComponent : DMVCPageHeaderViewComponent {
   mixin(ViewComponentThis!("MVCReadPageHeaderViewComponent"));
   
-  override void initialize() {
+  override void initialize(Json configSetting = Json(null)) {
     super.initialize;
   }
 }

@@ -6,7 +6,7 @@ import uim.mvc;
 class DMVCDeletePageHeaderViewComponent : DMVCPageHeaderViewComponent {
   mixin(ViewComponentThis!("MVCDeletePageHeaderViewComponent"));
   
-  override void initialize() {
+  override void initialize(Json configSetting = Json(null)) {
     super.initialize;
 
     this

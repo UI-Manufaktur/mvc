@@ -60,19 +60,19 @@ import uim.mvc;
       return $check;
     } */
 
-    /**
-     * Generate an ID suitable for use in an ID attribute.
-     *
-     * @param string myValue The value to convert into an ID.
-     * @return string The generated id.
-     */
-    /* protected string _domId(string myValue) {
-      $domId = mb_strtolower(Text::slug(myValue, "-"));
-      if (_idPrefix) {
-          $domId = _idPrefix ~ "-" ~ $domId;
-      }
-
-      return $domId;
+  /**
+    * Generate an ID suitable for use in an ID attribute.
+    *
+    * @param string myValue The value to convert into an ID.
+    * @return string The generated id.
+    */
+  /* protected string _domId(string myValue) {
+    $domId = mb_strtolower(Text::slug(myValue, "-"));
+    if (_idPrefix) {
+        $domId = _idPrefix ~ "-" ~ $domId;
     }
+
+    return $domId;
+  }
 }
  */

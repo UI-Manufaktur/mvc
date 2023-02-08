@@ -248,8 +248,8 @@ StringTemplate templater() {
       _idPrefix = this.getConfig("idPrefix");
   }
 
-  void initialize() {
-    super.initialize();
+  void initialize(Json configSetting = Json(null)) {
+    super.initialize(Json configSetting = Json(null));
 
     _helpers ~= ["Url", "Html"];
 
