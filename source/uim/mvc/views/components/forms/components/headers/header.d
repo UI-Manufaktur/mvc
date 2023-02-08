@@ -6,7 +6,7 @@ import uim.mvc;
 class DFormHeader : DFormComponent {
   mixin(ViewComponentThis!("MVCFormHeader"));
 
-  override void initialize() {
+  override void initialize(Json configSetting = Json(null)) {
     debugMethodCall(moduleName!DFormHeader~"::DFormHeader("~this.name~"):initialize");   
     super.initialize;
     debug writeln("In ", __MODULE__, "/", __LINE__);

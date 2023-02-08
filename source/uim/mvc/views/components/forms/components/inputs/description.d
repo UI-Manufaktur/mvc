@@ -11,7 +11,7 @@ import uim.mvc;
 class DMVCDescriptionFormInput : DMVCTextAreaFormInput {
   mixin(ViewComponentThis!("MVCDescriptionFormInput"));
 
-  override void initialize() {
+  override void initialize(Json configSetting = Json(null)) {
     super.initialize;
      
     this
