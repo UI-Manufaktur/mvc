@@ -130,8 +130,8 @@ class PaginatorHelper : DMVCHelper {
         );
     }
 
-    void initialize() {
-      super.initialize();
+    void initialize(Json configSetting = Json(null)) {
+      super.initialize(Json configSetting = Json(null));
       
       _helpers ~= ["Url", "Number", "Html", "Form"];
     }

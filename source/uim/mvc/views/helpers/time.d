@@ -70,7 +70,7 @@ class TimeHelper : DMVCHelper {
     return _templater;
   }
 
-    override void initialize() {
+    override void initialize(Json configSetting = Json(null)) {
         super.initialize;
         // Config options
         _defaultConfig["outputTimezone"] = null;

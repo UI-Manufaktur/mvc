@@ -23,17 +23,17 @@ class DMVCUrlHelper : DMVCHelper {
     *
     * @param array<string, mixed> myConfig The configuration settings provided to this helper.
     */
-  void initialize(array myConfig) {
-      super.initialize(myConfig);
-      $engineClassConfig = this.getConfig("assetUrlClassName");
+  override void initialize(array myConfig) {
+    super.initialize(myConfig);
+    $engineClassConfig = this.getConfig("assetUrlClassName");
 
-      /** @psalm-var class-string<uim.mvc.routings.Asset>|null $engineClass */
-      $engineClass = App::className($engineClassConfig, "Routing");
-      if ($engineClass is null) {
-          throw new UIMException(sprintf("Class for %s could not be found", $engineClassConfig));
-      }
+    /** @psalm-var class-string<uim.mvc.routings.Asset>|null $engineClass */
+    $engineClass = App::className($engineClassConfig, "Routing");
+    if ($engineClass is null) {
+        throw new UIMException(sprintf("Class for %s could not be found", $engineClassConfig));
+    }
 
-      _assetUrlClassName = $engineClass;
+    _assetUrlClassName = $engineClass;
   }
 
   /**

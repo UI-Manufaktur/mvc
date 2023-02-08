@@ -15,7 +15,7 @@ import uim.mvc;
  * it but can be used to generate standalone file upload controls.
  */
 class FileWidget : DWidget {
-  override void initialize() {
+  override void initialize(Json configSetting = Json(null)) {
     super.initialize;
         
     _defaults["name"] = "";

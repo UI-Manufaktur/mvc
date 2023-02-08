@@ -24,7 +24,7 @@ class ButtonWidget : DWidget {
       _templates = aTemplate;
   }
 
-  override void initialize() {
+  override void initialize(Json configSetting = Json(null)) {
       super.initialize;
   }
   /**
@@ -46,16 +46,16 @@ class ButtonWidget : DWidget {
   string render(Json someData, IContext aContext) {
     if (someData == Json(null)) then someData = Json.emptyObject;
     
-		someDate["text"] = "";
-    someDate["type"] = "submit";
-    someDate["escapeTitle"] = true;
-    someDate["escape"] = true;
-    someDate["templateVars"] = [];
+		someData["text"] = "";
+    someData["type"] = "submit";
+    someData["escapeTitle"] = true;
+    someData["escape"] = true;
+    someData["templateVars"] = [];
 
 		return _templates.format("button", [
-				"text": myData["escapeTitle"] ? h(myData["text"]) : myData["text"],
-				"templateVars": myData["templateVars"],
-				"attrs": _templates.formatAttributes(myData, ["text", "escapeTitle"]),
+      "text": someData["escapeTitle"] ? h(someData["text"]) : someData["text"],
+      "templateVars": someData["templateVars"],
+      "attrs": _templates.formatAttributes(someData, ["text", "escapeTitle"]),
 		]);
   }
 

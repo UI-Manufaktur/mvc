@@ -30,7 +30,7 @@ class DMVCDateTimeWidget : DWidget {
   // Step size for various input types. If not set, defaults to browser default.
   protected Json defaultStep;;
 
-  void initialize() {
+  void initialize(Json configSetting = Json(null)) {
     super.initialize;
 
     // Data defaults.
@@ -199,10 +199,10 @@ class DMVCDateTimeWidget : DWidget {
   }
 
   array secureFields(array myData) {
-      if (!myData.isSet("name") || myData["name"] == "") {
-          return [];
-      }
+    if (!myData.isSet("name") || myData["name"] == "") {
+      return [];
+    }
 
-      return [myData["name"]];
+    return [myData["name"]];
   }
 }
