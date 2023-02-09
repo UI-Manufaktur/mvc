@@ -24,7 +24,7 @@ import uim.mvc;
  * @property uim.mvc.views\Helper\UrlHelper myUrl
  * @link https://book.UIM.org/4/en/views/helpers/form.html
  */
-class FormHelper : DMVCHelper {
+class FormHelper : DHelper {
   // Prefix for id attribute.
   protected string _idPrefix;
 

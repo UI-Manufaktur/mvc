@@ -13,7 +13,7 @@ import uim.mvc;
  *
  * Methods to make numbers more readable.
  */
-class DMVCNumberHelper : DMVCHelper {
+class DMVCNumberHelper : DHelper {
     protected I18n\Number _engine;
 
     /**

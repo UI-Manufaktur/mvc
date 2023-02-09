@@ -14,7 +14,7 @@ import uim.mvc;
  * @property uim.mvc.views\Helper\FormHelper $Form
  * @link https://book.UIM.org/4/en/views/helpers/paginator.html
  */
-class PaginatorHelper : DMVCHelper {
+class PaginatorHelper : DHelper {
     protected DStringTemplate _templater;
 
   /**

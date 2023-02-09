@@ -14,7 +14,7 @@ import uim.mvc;
  *
  * @property uim.mvc.views\Helper\UrlHelper myUrl
  */
-class BreadcrumbsHelper : DMVCHelper {
+class DBreadcrumbsHelper : DHelper {
   protected DStringTemplate _templater;
 
   /**

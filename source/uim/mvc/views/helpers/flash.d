@@ -14,7 +14,7 @@ import uim.mvc;
  * After setting messages in your controllers with FlashComponent, you can use
  * this class to output your flash messages in your views.
  */
-class FlashHelper : DMVCHelper {
+class FlashHelper : DHelper {
     /**
      * Used to render the message set in FlashComponent::set()
      *

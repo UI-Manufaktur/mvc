@@ -16,7 +16,7 @@ import uim.mvc;
  * @property uim.mvc.views\Helper\UrlHelper myUrl
  * @link https://book.UIM.org/4/en/views/helpers/html.html
  */
-class HtmlHelper : DMVCHelper {
+class HtmlHelper : DHelper {
   protected DStringTemplate _templater;
 
   /**

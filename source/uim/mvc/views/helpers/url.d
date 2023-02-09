@@ -9,7 +9,7 @@ module uim.mvc.views.helpers;
 import uim.mvc;
 
 // UrlHelper class for generating URLs.
-class DMVCUrlHelper : DMVCHelper {
+class DMVCUrlHelper : DHelper {
   // Default config for this class
   protected Json _defaultConfig = [
       "assetUrlClassName": Asset::class,

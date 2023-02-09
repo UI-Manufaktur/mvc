@@ -15,7 +15,7 @@ import uim.mvc;
  *
  * @property uim.mvc.views\Helper\HtmlHelper $Html
  */
-class TextHelper : DMVCHelper {
+class TextHelper : DHelper {
   /**
     * An array of hashes and their contents.
     * Used when inserting links into text.

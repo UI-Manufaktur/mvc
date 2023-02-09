@@ -15,7 +15,7 @@ use Exception;
  * @link https://book.UIM.org/4/en/views/helpers/time.html
  * @see uim.mvc.i18n\Time
  */
-class TimeHelper : DMVCHelper {
+class TimeHelper : DHelper {
     protected DStringTemplate _templater;
 
   /**
