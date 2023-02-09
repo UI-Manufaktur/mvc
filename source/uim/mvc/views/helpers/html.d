@@ -270,7 +270,7 @@ class HtmlHelper : DHelper {
     * @return string An `<a />` element.
     * @link https://book.UIM.org/4/en/views/helpers/html.html#creating-links
     */
-  string link(string title, myUrl = null, array myOptions = null) {
+  string link(string title, myUrl = null, DValueMap someOptions = null) {
     $escapeTitle = true;
     if (myUrl  !is null) {
       myUrl = this.Url.build(myUrl, myOptions);
@@ -337,7 +337,7 @@ class HtmlHelper : DHelper {
     * @see uim.mvc.routings.routesr::pathUrl()
     * @link https://book.UIM.org/4/en/views/helpers/html.html#creating-links
     */
-  string linkFromPath(string title, string myPath, array myParams = null, array myOptions = null) {
+  string linkFromPath(string title, string myPath, array myParams = null, DValueMap someOptions = null) {
       return this.link($title, ["_path": myPath] + myParams, myOptions);
   }
 
@@ -392,7 +392,7 @@ class HtmlHelper : DHelper {
     * @return string|null CSS `<link />` or `<style />` tag, depending on the type of link.
     * @link https://book.UIM.org/4/en/views/helpers/html.html#linking-to-css-files
     */
-  Nullable!string css(myPath, array myOptions = null) {
+  Nullable!string css(myPath, DValueMap someOptions = null) {
       myOptions += [
           "once": true,
           "block": null,
@@ -491,7 +491,7 @@ class HtmlHelper : DHelper {
     *   or if $once is true and the file has been included before.
     * @link https://book.UIM.org/4/en/views/helpers/html.html#linking-to-javascript-files
     */
-  Nullable!string script(myUrl, array myOptions = null) {
+  Nullable!string script(myUrl, DValueMap someOptions = null) {
       _defaults = [
           "block": null,
           "once": true,
@@ -549,7 +549,7 @@ class HtmlHelper : DHelper {
     * @return string|null String or null depending on the value of `myOptions["block"]`
     * @link https://book.UIM.org/4/en/views/helpers/html.html#creating-inline-javascript-blocks
     */
-  Nullable!string scriptBlock(string script, array myOptions = null) {
+  Nullable!string scriptBlock(string script, DValueMap someOptions = null) {
       myOptions += ["block": null, "nonce": _View.getRequest().getAttribute("cspScriptNonce")];
 
       $out = this.formatTemplate("javascriptblock", [
@@ -581,7 +581,7 @@ class HtmlHelper : DHelper {
     * @param array<string, mixed> myOptions Options for the code block.
     * @link https://book.UIM.org/4/en/views/helpers/html.html#creating-inline-javascript-blocks
     */
-  void scriptStart(array myOptions = null) {
+  void scriptStart(DValueMap someOptions = null) {
       _scriptBlockOptions = myOptions;
       ob_start();
   }
@@ -662,7 +662,7 @@ class HtmlHelper : DHelper {
     * @return string completed img tag
     * @link https://book.UIM.org/4/en/views/helpers/html.html#linking-to-images
     */
-  string image(myPath, array myOptions = null) {
+  string image(myPath, DValueMap someOptions = null) {
       if (is_string(myPath)) {
           myPath = this.Url.image(myPath, myOptions);
       } else {
@@ -824,7 +824,7 @@ class HtmlHelper : DHelper {
     * @param string myContents The content of the row.
     * @param array<string, mixed> myOptions HTML attributes.
     */
-  string tableRow(string myContents, array myOptions = null) {
+  string tableRow(string myContents, DValueMap someOptions = null) {
       return this.formatTemplate("tablerow", [
           "attrs": _templater().formatAttributes(myOptions),
           "content": myContents,
@@ -837,7 +837,7 @@ class HtmlHelper : DHelper {
     * @param string myContents The content of the cell.
     * @param array<string, mixed> myOptions HTML attributes.
     */
-  string tableCell(string myContents, array myOptions = null) {
+  string tableCell(string myContents, DValueMap someOptions = null) {
       return this.formatTemplate("tablecell", [
           "attrs": _templater().formatAttributes(myOptions),
           "content": myContents,
@@ -857,7 +857,7 @@ class HtmlHelper : DHelper {
     * @param array<string, mixed> myOptions Additional HTML attributes of the DIV tag, see above.
     * @return string The formatted tag element
     */
-  string tag(string myName, Nullable!string text = null, array myOptions = null) {
+  string tag(string myName, Nullable!string text = null, DValueMap someOptions = null) {
       if (myOptions.get("escape", null)) {
           $text = h($text);
           unset(myOptions["escape"]);
@@ -888,7 +888,7 @@ class HtmlHelper : DHelper {
     * @param array<string, mixed> myOptions Additional HTML attributes of the DIV tag
     * @return string The formatted DIV element
     */
-  string div(Nullable!string myClass = null, Nullable!string text = null, array myOptions = null) {
+  string div(Nullable!string myClass = null, Nullable!string text = null, DValueMap someOptions = null) {
       if (!empty(myClass)) {
           myOptions["class"] = myClass;
       }
@@ -908,7 +908,7 @@ class HtmlHelper : DHelper {
     * @param array<string, mixed> myOptions Additional HTML attributes of the P tag
     * @return string The formatted P element
     */
-  string para(Nullable!string myClass, Nullable!string text, array myOptions = null) {
+  string para(Nullable!string myClass, Nullable!string text, DValueMap someOptions = null) {
       if (!empty(myOptions["escape"])) {
           $text = h($text);
       }
@@ -986,7 +986,7 @@ class HtmlHelper : DHelper {
     * @param array<string, mixed> myOptions Array of HTML attributes, and special options above.
     * @return string Generated media element
     */
-  string media(myPath, array myOptions = null) {
+  string media(myPath, DValueMap someOptions = null) {
       myOptions += [
           "tag": null,
           "pathPrefix": "files/",
@@ -1076,7 +1076,7 @@ class HtmlHelper : DHelper {
     * @return string The nested list
     * @link https://book.UIM.org/4/en/views/helpers/html.html#creating-nested-lists
     */
-  string nestedList(array $list, array myOptions = null, array $itemOptions = null) {
+  string nestedList(array $list, DValueMap someOptions = null, array $itemOptions = null) {
       myOptions += ["tag": "ul"];
       myItems = _nestedListItem($list, myOptions, $itemOptions);
 
@@ -1095,7 +1095,7 @@ class HtmlHelper : DHelper {
     * @return string The nested list element
     * @see uim.mvc.views\Helper\HtmlHelper::nestedList()
     */
-  protected string _nestedListItem(array myItems, array myOptions, array $itemOptions) {
+  protected string _nestedListItem(array myItems, DValueMap someOptions, array $itemOptions) {
       $out = "";
 
       $index = 1;

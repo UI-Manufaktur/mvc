@@ -102,7 +102,7 @@ class DBreadcrumbsHelper : DHelper {
      * - *templateVars*: Specific template vars in case you override the templates provided.
      * @return this
      */
-/*     function add(string[] crumbTitles, myUrl = null, array myOptions = null) {
+/*     function add(string[] crumbTitles, myUrl = null, DValueMap someOptions = null) {
       foreach (myCrumb; crumbTitles) {
         this.crumbs ~= $myCrumb + ["title": "", "url": null, "options": []];
       }
@@ -131,7 +131,7 @@ class DBreadcrumbsHelper : DHelper {
      * - *templateVars*: Specific template vars in case you override the templates provided.
      * @return this
      */
-    function prepend($title, myUrl = null, array myOptions = null) {
+/*     function prepend($title, myUrl = null, DValueMap someOptions = null) {
         if (is_array($title)) {
             $crumbs = null;
             foreach ($title as $crumb) {
@@ -146,7 +146,7 @@ class DBreadcrumbsHelper : DHelper {
         array_unshift(this.crumbs, compact("title", "url", "options"));
 
         return this;
-    }
+    } */
 
     /**
      * Insert a crumb at a specific index.
@@ -168,7 +168,7 @@ class DBreadcrumbsHelper : DHelper {
      * @return this
      * @throws \LogicException In case the index is out of bound
      */
-    function insertAt(int $index, string title, myUrl = null, array myOptions = null) {
+/*     function insertAt(int $index, string title, myUrl = null, DValueMap someOptions = null) {
         if (!isSet(this.crumbs, $index)) {
             throw new LogicException(sprintf("No crumb could be found at index '%s'", $index));
         }
@@ -176,7 +176,7 @@ class DBreadcrumbsHelper : DHelper {
         array_splice(this.crumbs, $index, 0, [compact("title", "url", "options")]);
 
         return this;
-    }
+    } */
 
     /**
      * Insert a crumb before the first matching crumb with the specified title.
@@ -197,7 +197,7 @@ class DBreadcrumbsHelper : DHelper {
      * @return this
      * @throws \LogicException In case the matching crumb can not be found
      */
-    function insertBefore(string matchingTitle, string title, myUrl = null, array myOptions = null) {
+/*     function insertBefore(string matchingTitle, string title, myUrl = null, DValueMap someOptions = null) {
         myKey = this.findCrumb($matchingTitle);
 
         if (myKey is null) {
@@ -205,7 +205,7 @@ class DBreadcrumbsHelper : DHelper {
         }
 
         return this.insertAt(myKey, $title, myUrl, myOptions);
-    }
+    } */
 
     /**
      * Insert a crumb after the first matching crumb with the specified title.
@@ -226,7 +226,7 @@ class DBreadcrumbsHelper : DHelper {
      * @return this
      * @throws \LogicException In case the matching crumb can not be found.
      */
-    function insertAfter(string matchingTitle, string title, myUrl = null, array myOptions = null) {
+    function insertAfter(string matchingTitle, string title, myUrl = null, DValueMap someOptions = null) {
         myKey = this.findCrumb($matchingTitle);
 
         if (myKey is null) {

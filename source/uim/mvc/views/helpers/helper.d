@@ -71,16 +71,16 @@ class DHelper : IEventListener {
      * @return this
      * @throws uim.cake.Core\exceptions.UIMException When trying to set a key that is invalid.
      */
-    function setConfig($key, $value = null, $merge = true) {
-        if (!_configInitialized) {
-            _config = _defaultConfig;
-            _configInitialized = true;
-        }
+/*     auto setConfig($key, $value = null, $merge = true) {
+      if (!_configInitialized) {
+        _config = _defaultConfig;
+        _configInitialized = true;
+      }
 
-        _configWrite($key, $value, $merge);
+      _configWrite($key, $value, $merge);
 
-        return this;
-    }
+      return this;
+    } */
 
     /**
      * Returns the config.
@@ -115,7 +115,7 @@ class DHelper : IEventListener {
      * @param mixed $default The return value when the key does not exist.
      * @return mixed Configuration data at the named key or null if the key does not exist.
      */
-    function getConfig(Nullable!string aKey = null, $default = null) {
+/*     function getConfig(string aKey = null, $default = null) {
         if (!_configInitialized) {
             _config = _defaultConfig;
             _configInitialized = true;
@@ -124,25 +124,25 @@ class DHelper : IEventListener {
         $return = _configRead($key);
 
         return $return ?? $default;
-    }
+    } */
 
     /**
      * Returns the config for this specific key.
      *
      * The config value for this key must exist, it can never be null.
      *
-     * @param string aKey The key to get.
+     * aKey The key to get.
      * @return mixed Configuration data at the named key
      * @throws \InvalidArgumentException
      */
-    function getConfigOrFail(string aKey) {
-        aConfig = this.getConfig($key);
-        if (aConfig == null) {
-            throw new InvalidArgumentException(sprintf("Expected configuration `%s` not found.", $key));
-        }
+/*     function getConfigOrFail(string aKey) {
+      aConfig = this.getConfig(aKey);
+      if (aConfig == null) {
+          throw new InvalidArgumentException(sprintf("Expected configuration `%s` not found.", $key));
+      }
 
-        return aConfig;
-    }
+      return aConfig;
+    } */
 
     /**
      * Merge provided config with existing config. Unlike `config()` which does
@@ -170,7 +170,7 @@ class DHelper : IEventListener {
      * @param mixed|null $value The value to set.
      * @return this
      */
-    function configShallow($key, $value = null) {
+    /* function configShallow($key, $value = null) {
         if (!_configInitialized) {
             _config = _defaultConfig;
             _configInitialized = true;
@@ -179,7 +179,7 @@ class DHelper : IEventListener {
         _configWrite($key, $value, "shallow");
 
         return this;
-    }
+    } */
 
     /**
      * Reads a config key.
@@ -393,7 +393,7 @@ class DHelper : IEventListener {
     * @param string myKey the key to use for class. Defaults to `"class"`.
     * @return array<string, mixed> Array of options with myKey set.
     */
-  array addClass(array myOptions, string myClass, string myKey = "class") {
+  array addClass(DValueMap someOptions, string myClass, string myKey = "class") {
     if (isSet(myOptions, myKey) && is_array(myOptions[myKey])) {
       myOptions[myKey] ~= myClass;
     } elseif (isSet(myOptions[myKey]) && trim(myOptions[myKey])) {

@@ -15,11 +15,11 @@ import uim.mvc;
  *
  * Automatic generation of HTML FORMs from given data.
  *
- * @method string text(string myFieldName, array myOptions = null) Creates input of type text.
- * @method string number(string myFieldName, array myOptions = null) Creates input of type number.
- * @method string email(string myFieldName, array myOptions = null) Creates input of type email.
- * @method string password(string myFieldName, array myOptions = null) Creates input of type password.
- * @method string search(string myFieldName, array myOptions = null) Creates input of type search.
+ * @method string text(string myFieldName, DValueMap someOptions = null) Creates input of type text.
+ * @method string number(string myFieldName, DValueMap someOptions = null) Creates input of type number.
+ * @method string email(string myFieldName, DValueMap someOptions = null) Creates input of type email.
+ * @method string password(string myFieldName, DValueMap someOptions = null) Creates input of type password.
+ * @method string search(string myFieldName, DValueMap someOptions = null) Creates input of type search.
  * @property uim.mvc.views\Helper\HtmlHelper $Html
  * @property uim.mvc.views\Helper\UrlHelper myUrl
  * @link https://book.UIM.org/4/en/views/helpers/form.html
@@ -205,7 +205,7 @@ string formatTemplate(string myName, array myData) {
   protected string[] _groupedInputTypes = ["radio", "multicheckbox"];
 
   // Form protector
-  protected uim.mvc.formsFormProtectorformProtector;
+  protected DFormProtector _formProtector;
 
   /**
     * Construct the widgets and binds the default context providers
@@ -213,7 +213,7 @@ string formatTemplate(string myName, array myData) {
     * @param uim.mvc.views\View $view The View this helper is being attached to.
     * configSetting Configuration - settings for the helper.
     */
-  this(View owningView, Json configSetting = Json(null)) {
+  /* this(View owningView, Json configSetting = Json(null)) {
       $locator = null;
       $widgets = _defaultWidgets;
       if (isSet(configSetting, "locator")) {
@@ -240,7 +240,7 @@ string formatTemplate(string myName, array myData) {
       }
       this.setWidgetLocator($locator);
       _idPrefix = this.getConfig("idPrefix");
-  }
+  } */
 
   void initialize(Json configSetting = Json(null)) {
     super.initialize(configSetting);
@@ -251,115 +251,115 @@ string formatTemplate(string myName, array myData) {
     _defaultConfig["idPrefix"] = null;
     _defaultConfig["errorClass"] = "form-error";
     _defaultConfig["typeMap"] = [
-          "string": "text",
-          "text": "textarea",
-          "uuid": "string",
-          "datetime": "datetime",
-          "datetimefractional": "datetime",
-          "timestamp": "datetime",
-          "timestampfractional": "datetime",
-          "timestamptimezone": "datetime",
-          "date": "date",
-          "time": "time",
-          "year": "year",
-          "boolean": "checkbox",
-          "float": "number",
-          "integer": "number",
-          "tinyinteger": "number",
-          "smallinteger": "number",
-          "decimal": "number",
-          "binary": "file",
+        "string": "text",
+        "text": "textarea",
+        "uuid": "string",
+        "datetime": "datetime",
+        "datetimefractional": "datetime",
+        "timestamp": "datetime",
+        "timestampfractional": "datetime",
+        "timestamptimezone": "datetime",
+        "date": "date",
+        "time": "time",
+        "year": "year",
+        "boolean": "checkbox",
+        "float": "number",
+        "integer": "number",
+        "tinyinteger": "number",
+        "smallinteger": "number",
+        "decimal": "number",
+        "binary": "file",
       ];
-    _defaultConfig["templates"] = [
-          // Used for button elements in button().
-          "button": "<button{{attrs}}>{{text}}</button>",
-          // Used for checkboxes in checkbox() and multiCheckbox().
-          "checkbox": "<input type="checkbox" name="{{name}}" value="{{value}}"{{attrs}}>",
-          // Input group wrapper for checkboxes created via control().
-          "checkboxFormGroup": "{{label}}",
-          // Wrapper container for checkboxes.
-          "checkboxWrapper": "<div class="checkbox">{{label}}</div>",
-          // Error message wrapper elements.
-          "error": "<div class="error-message" id="{{id}}">{{content}}</div>",
-          // Container for error items.
-          "errorList": "<ul>{{content}}</ul>",
-          // Error item wrapper.
-          "errorItem": "<li>{{text}}</li>",
-          // File input used by file().
-          "file": "<input type="file" name="{{name}}"{{attrs}}>",
-          // Fieldset element used by allControls().
-          "fieldset": "<fieldset{{attrs}}>{{content}}</fieldset>",
-          // Open tag used by create().
-          "formStart": "<form{{attrs}}>",
-          // Close tag used by end().
-          "formEnd": "</form>",
-          // General grouping container for control(). Defines input/label ordering.
-          "formGroup": "{{label}}{{input}}",
-          // Wrapper content used to hide other content.
-          "hiddenBlock": "<div style="display:none;">{{content}}</div>",
-          // Generic input element.
-          "input": "<input type="{{type}}" name="{{name}}"{{attrs}}/>",
-          // Submit input element.
-          "inputSubmit": "<input type="{{type}}"{{attrs}}/>",
-          // Container element used by control().
-          "inputContainer": "<div class="input {{type}}{{required}}">{{content}}</div>",
-          // Container element used by control() when a field has an error.
-          "inputContainerError": "<div class="input {{type}}{{required}} error">{{content}}{{error}}</div>",
-          // Label element when inputs are not nested inside the label.
-          "label": "<label{{attrs}}>{{text}}</label>",
-          // Label element used for radio and multi-checkbox inputs.
-          "nestingLabel": "{{hidden}}<label{{attrs}}>{{input}}{{text}}</label>",
-          // Legends created by allControls()
-          "legend": "<legend>{{text}}</legend>",
-          // Multi-Checkbox input set title element.
-          "multicheckboxTitle": "<legend>{{text}}</legend>",
-          // Multi-Checkbox wrapping container.
-          "multicheckboxWrapper": "<fieldset{{attrs}}>{{content}}</fieldset>",
-          // Option element used in select pickers.
-          "option": "<option value="{{value}}"{{attrs}}>{{text}}</option>",
-          // Option group element used in select pickers.
-          "optgroup": "<optgroup label="{{label}}"{{attrs}}>{{content}}</optgroup>",
-          // Select element,
-          "select": "<select name="{{name}}"{{attrs}}>{{content}}</select>",
-          // Multi-select element,
-          "selectMultiple": "<select name="{{name}}[]" multiple="multiple"{{attrs}}>{{content}}</select>",
-          // Radio input element,
-          "radio": "<input type="radio" name="{{name}}" value="{{value}}"{{attrs}}>",
-          // Wrapping container for radio input/label,
-          "radioWrapper": "{{label}}",
-          // Textarea input element,
-          "textarea": "<textarea name="{{name}}"{{attrs}}>{{value}}</textarea>",
-          // Container for submit buttons.
-          "submitContainer": "<div class="submit">{{content}}</div>",
-          // Confirm javascript template for postLink()
-          "confirmJs": "{{confirm}}",
-          // selected class
-          "selectedClass": "selected",
-      ];
+
+      Json templateData = Json.emptyObject;
+      // Used for button elements in button().
+      templateData["button"] = `<button{{attrs}}>{{text}}</button>`;
+      // Used for checkboxes in checkbox() and multiCheckbox().
+      templateData["checkbox"] = `<input type="checkbox" name="{{name}}" value="{{value}}"{{attrs}}>`;
+      // Input group wrapper for checkboxes created via control().
+      templateData["checkboxFormGroup"] = "{{label}}";
+      // Wrapper container for checkboxes.
+      templateData["checkboxWrapper"] = `<div class="checkbox">{{label}}</div>`;
+      // Error message wrapper elements.
+      templateData["error"] = `<div class="error-message" id="{{id}}">{{content}}</div>`;
+      // Container for error items.
+      templateData["errorList"] = `<ul>{{content}}</ul>`;
+      // Error item wrapper.
+      templateData["errorItem"] = `<li>{{text}}</li>`;
+      // File input used by file().
+      templateData["file"] = `<input type="file" name="{{name}}"{{attrs}}>`;
+      // Fieldset element used by allControls().
+      templateData["fieldset"] = `<fieldset{{attrs}}>{{content}}</fieldset>`;
+      // Open tag used by create().
+      templateData["formStart"] = `<form{{attrs}}>`;
+      // Close tag used by end().
+      templateData["formEnd"] = `</form>`;
+      // General grouping container for control(). Defines input/label ordering.
+      templateData["formGroup"] = "{{label}}{{input}}";
+      // Wrapper content used to hide other content.
+      templateData["hiddenBlock"] = `<div style="display:none;">{{content}}</div>`;
+      // Generic input element.
+      templateData["input"] = `<input type="{{type}}" name="{{name}}"{{attrs}}/>`;
+      // Submit input element.
+      templateData["inputSubmit"] = `<input type="{{type}}"{{attrs}}/>`;
+      // Container element used by control().
+      templateData["inputContainer"] = `<div class="input {{type}}{{required}}">{{content}}</div>`;
+      // Container element used by control() when a field has an error.
+      templateData["inputContainerError"] = `<div class="input {{type}}{{required}} error">{{content}}{{error}}</div>`;
+      // Label element when inputs are not nested inside the label.
+      templateData["label"] = `<label{{attrs}}>{{text}}</label>`;
+      // Label element used for radio and multi-checkbox inputs.
+      templateData["nestingLabel"] = `{{hidden}}<label{{attrs}}>{{input}}{{text}}</label>`;
+      // Legends created by allControls()
+      templateData["legend"] = `<legend>{{text}}</legend>`;
+      // Multi-Checkbox input set title element.
+      templateData["multicheckboxTitle"] = `<legend>{{text}}</legend>`;
+      // Multi-Checkbox wrapping container.
+      templateData["multicheckboxWrapper"] = `<fieldset{{attrs}}>{{content}}</fieldset>`;
+      // Option element used in select pickers.
+      templateData["option"] = `<option value="{{value}}"{{attrs}}>{{text}}</option>`;
+      // Option group element used in select pickers.
+      templateData["optgroup"] = `<optgroup label="{{label}}"{{attrs}}>{{content}}</optgroup>`;
+      // Select element,
+      templateData["select"] = `<select name="{{name}}"{{attrs}}>{{content}}</select>`;
+      // Multi-select element,
+      templateData["selectMultiple"] = `<select name="{{name}}[]" multiple="multiple"{{attrs}}>{{content}}</select>`;
+      // Radio input element,
+      templateData["radio"] = `<input type="radio" name="{{name}}" value="{{value}}"{{attrs}}>`;
+      // Wrapping container for radio input/label,
+      templateData["radioWrapper"] = "{{label}}";
+      // Textarea input element,
+      templateData["textarea"] = `<textarea name="{{name}}"{{attrs}}>{{value}}</textarea>`;
+      // Container for submit buttons.
+      templateData["submitContainer"] = `<div class="submit">{{content}}</div>`;
+      // Confirm javascript template for postLink()
+      templateData["confirmJs"] = "{{confirm}}";
+      // selected class
+      templateData["selectedClass"] = "selected";
+      
+      _defaultConfig["templates"] = templateData;
       // set HTML5 validation message to custom required/empty messages
       _defaultConfig["autoSetCustomValidity"] = true;
-  ];
   }
 
   /**
     * Get the widget locator currently used by the helper.
     *
-    * @return uim.mvc.views\Widget\WidgetLocator Current locator instance
+    * returns WidgetLocator Current locator instance
     */
   auto WidgetLocator getWidgetLocator() {
-      return _locator;
+    return _locator;
   }
 
   /**
     * Set the widget locator the helper will use.
     *
-    * @param uim.mvc.views\Widget\WidgetLocator $instance The locator instance to set.
-    * @return this
+    * @param uim.mvc.views\Widget\WidgetLocator locatorToSet The locator instance to set.
     */
-  auto setWidgetLocator(WidgetLocator $instance) {
-      _locator = $instance;
+  auto setWidgetLocator(WidgetLocator locatorToSet) {
+    _locator = locatorToSet;
 
-      return this;
+    return this;
   }
 
   /**
@@ -369,18 +369,18 @@ string formatTemplate(string myName, array myData) {
     * @param array $contexts An array of context providers.
     * @return uim.mvc.views\Form\ContextFactory
     */
-  ContextFactory contextFactory(?ContextFactory $instance = null, array $contexts = null) {
-      if ($instance is null) {
-          if (_contextFactory is null) {
-              _contextFactory = ContextFactory::createWithDefaults($contexts);
-          }
-
-          return _contextFactory;
+/*   DContextFactory contextFactory(DContextFactory factoryToSet = null, array $contexts = null) {
+    if (factoryToSet is null) {
+      if (_contextFactory is null) {
+          _contextFactory = ContextFactory::createWithDefaults($contexts);
       }
-      _contextFactory = $instance;
 
       return _contextFactory;
-  }
+    }
+    _contextFactory = factoryToSet;
+
+    return _contextFactory;
+  } */
 
   /**
     * Returns an HTML form element.
@@ -410,23 +410,23 @@ string formatTemplate(string myName, array myData) {
     * @return string An formatted opening FORM tag.
     * @link https://book.UIM.org/4/en/views/helpers/form.html#Cake\View\Helper\FormHelper::create
     */
-  string create($context = null, array myOptions = null) {
+  /* string create($context = null, Json htmlAttributeOptions = null) {
       $append = "";
 
       if ($context instanceof IContext) {
           this.context($context);
       } else {
-          if (empty(myOptions["context"])) {
-              myOptions["context"] = null;
+          if (empty(htmlAttributeOptions["context"])) {
+              htmlAttributeOptions["context"] = null;
           }
-          myOptions["context"]["entity"] = $context;
-          $context = _getContext(myOptions["context"]);
-          unset(myOptions["context"]);
+          htmlAttributeOptions["context"]["entity"] = $context;
+          $context = _getContext(htmlAttributeOptions["context"]);
+          unset(htmlAttributeOptions["context"]);
       }
 
       $isCreate = $context.isCreate();
 
-      myOptions += [
+      htmlAttributeOptions += [
           "type": $isCreate ? "post" : "put",
           "url": null,
           "encoding": Configure::read("App.encoding")).toLower,
@@ -435,43 +435,43 @@ string formatTemplate(string myName, array myData) {
           "valueSources": null,
       ];
 
-      if (isSet(myOptions, "valueSources")) {
-          this.setValueSources(myOptions["valueSources"]);
-          unset(myOptions["valueSources"]);
+      if (isSet(htmlAttributeOptions, "valueSources")) {
+          this.setValueSources(htmlAttributeOptions["valueSources"]);
+          unset(htmlAttributeOptions["valueSources"]);
       }
 
-      if (myOptions["idPrefix"]  !is null) {
-          _idPrefix = myOptions["idPrefix"];
+      if (htmlAttributeOptions["idPrefix"]  !is null) {
+          _idPrefix = htmlAttributeOptions["idPrefix"];
       }
       myTemplater = _templater();
 
-      if (!empty(myOptions["templates"])) {
+      if (!empty(htmlAttributeOptions["templates"])) {
           myTemplater.push();
-          $method = is_string(myOptions["templates"]) ? "load" : "add";
-          myTemplater.{$method}(myOptions["templates"]);
+          $method = is_string(htmlAttributeOptions["templates"]) ? "load" : "add";
+          myTemplater.{$method}(htmlAttributeOptions["templates"]);
       }
-      unset(myOptions["templates"]);
+      unset(htmlAttributeOptions["templates"]);
 
-      if (myOptions["url"] == false) {
+      if (htmlAttributeOptions["url"] == false) {
           myUrl = _View.getRequest().getRequestTarget();
           $action = null;
       } else {
-          myUrl = _formUrl($context, myOptions);
+          myUrl = _formUrl($context, htmlAttributeOptions);
           $action = this.Url.build(myUrl);
       }
 
       _lastAction(myUrl);
-      unset(myOptions["url"], myOptions["idPrefix"]);
+      unset(htmlAttributeOptions["url"], htmlAttributeOptions["idPrefix"]);
 
       $htmlAttributes = null;
-      switch (myOptions["type"].toLower) {
+      switch (htmlAttributeOptions["type"].toLower) {
           case "get":
               $htmlAttributes["method"] = "get";
               break;
           // Set enctype for form
           case "file":
               $htmlAttributes["enctype"] = "multipart/form-data";
-              myOptions["type"] = $isCreate ? "post" : "put";
+              htmlAttributeOptions["type"] = $isCreate ? "post" : "put";
           // Move on
           case "put":
           // Move on
@@ -480,28 +480,28 @@ string formatTemplate(string myName, array myData) {
           case "patch":
               $append ~= this.hidden("_method", [
                   "name": "_method",
-                  "value": strtoupper(myOptions["type"]),
+                  "value": strtoupper(htmlAttributeOptions["type"]),
                   "secure": static::SECURE_SKIP,
               ]);
           // Default to post method
           default:
               $htmlAttributes["method"] = "post";
       }
-      if (isSet(myOptions, "method")) {
-          $htmlAttributes["method"] = myOptions["method"]).toLower;
+      if (isSet(htmlAttributeOptions, "method")) {
+          $htmlAttributes["method"] = htmlAttributeOptions["method"]).toLower;
       }
-      if (isSet(myOptions, "enctype")) {
-          $htmlAttributes["enctype"] = myOptions["enctype"]).toLower;
+      if (isSet(htmlAttributeOptions, "enctype")) {
+          $htmlAttributes["enctype"] = htmlAttributeOptions["enctype"]).toLower;
       }
 
-      this.requestType = myOptions["type"]).toLower;
+      this.requestType = htmlAttributeOptions["type"]).toLower;
 
-      if (!empty(myOptions["encoding"])) {
-          $htmlAttributes["accept-charset"] = myOptions["encoding"];
+      if (!empty(htmlAttributeOptions["encoding"])) {
+          $htmlAttributes["accept-charset"] = htmlAttributeOptions["encoding"];
       }
-      unset(myOptions["type"], myOptions["encoding"]);
+      unset(htmlAttributeOptions["type"], htmlAttributeOptions["encoding"]);
 
-      $htmlAttributes += myOptions;
+      $htmlAttributes += htmlAttributeOptions;
 
       if (this.requestType != "get") {
           $formTokenData = _View.getRequest().getAttribute("formTokenData");
@@ -520,30 +520,30 @@ string formatTemplate(string myName, array myData) {
 
       return this.formatTemplate("formStart", [
           "attrs": myTemplater.formatAttributes($htmlAttributes) . $actionAttr,
-          "templateVars": myOptions["templateVars"] ?? [],
+          "templateVars": htmlAttributeOptions["templateVars"] ?? [],
       ]) . $append;
-  }
+  } */
 
   /**
     * Create the URL for a form based on the options.
     *
     * @param uim.mvc.views\Form\IContext $context The context object to use.
-    * @param array<string, mixed> myOptions An array of options from create()
+    * @param array<string, mixed> optionsFromCreate An array of options from create()
     * @return array|string The action attribute for the form.
     */
-  protected auto _formUrl(IContext $context, array myOptions) {
+ /*  protected auto _formUrl(IContext $context, Json optionsFromCreate = Json(null)) {
       myRequest = _View.getRequest();
 
-      if (myOptions["url"] is null) {
+      if (optionsFromCreate["url"] is null) {
           return myRequest.getRequestTarget();
       }
 
       if (
-          is_string(myOptions["url"]) ||
-          (is_array(myOptions["url"]) &&
-          isSet(myOptions["url"], "_name"))
+          is_string(optionsFromCreate["url"]) ||
+          (is_array(optionsFromCreate["url"]) &&
+          isSet(optionsFromCreate["url"], "_name"))
       ) {
-          return myOptions["url"];
+          return optionsFromCreate["url"];
       }
 
       $actionDefaults = [
@@ -552,30 +552,30 @@ string formatTemplate(string myName, array myData) {
           "action": myRequest.getParam("action"),
       ];
 
-      $action = (array)myOptions["url"] + $actionDefaults;
+      $action = (array)optionsFromCreate["url"] + $actionDefaults;
 
       return $action;
-  }
+  } */
 
   /**
     * Correctly store the last created form action URL.
     *
     * @param array|string|null myUrl The URL of the last form.
     */
-  protected void _lastAction(myUrl = null) {
+/*   protected void _lastAction(myUrl = null) {
       $action = Router::url(myUrl, true);
       myQuery = parse_url($action, PHP_URL_QUERY);
       myQuery = myQuery ? "?" ~ myQuery : "";
 
       myPath = parse_url($action, PHP_URL_PATH) ?: "";
       _lastAction = myPath . myQuery;
-  }
+  } */
 
   /**
     * Return a CSRF input if the request data is present.
     * Used to secure forms in conjunction with CsrfMiddleware.
     */
-  protected string _csrfField() {
+  /* protected string _csrfField() {
       myRequest = _View.getRequest();
 
       $csrfToken = myRequest.getAttribute("csrfToken");
@@ -588,7 +588,7 @@ string formatTemplate(string myName, array myData) {
           "secure": static::SECURE_SKIP,
           "autocomplete": "off",
       ]);
-  }
+  } */
 
   /**
     * Closes an HTML form, cleans up values set by FormHelper::create(), and writes hidden
@@ -601,7 +601,7 @@ string formatTemplate(string myName, array myData) {
     * @return string A closing FORM tag.
     * @link https://book.UIM.org/4/en/views/helpers/form.html#closing-the-form
     */
-  string end(array $secureAttributes = null) {
+  /* string end(array $secureAttributes = null) {
     $out = "";
 
     if (this.requestType != "get" && _View.getRequest().getAttribute("formTokenData")  !is null) {
@@ -617,7 +617,7 @@ string formatTemplate(string myName, array myData) {
     this.formProtector = null;
 
     return $out;
-  }
+  } */
 
   /**
     * Generates a hidden field with a security hash based on the fields used in
@@ -634,7 +634,7 @@ string formatTemplate(string myName, array myData) {
     * @return string A hidden input field with a security hash, or empty string when
     *   secured forms are not in use.
     */
-  string secure(array myFields = null, array $secureAttributes = null) {
+  /* string secure(array myFields = null, array $secureAttributes = null) {
       if (!this.formProtector) {
           return "";
       }
@@ -675,7 +675,7 @@ string formatTemplate(string myName, array myData) {
       }
 
       return this.formatTemplate("hiddenBlock", ["content": $out]);
-  }
+  } */
 
   /**
     * Add to the list of fields that are currently unlocked.
@@ -684,11 +684,11 @@ string formatTemplate(string myName, array myData) {
     *
     * fieldName - The dot separated name for the field.
     */
-  function unlockField(string fieldName) {
+/*   function unlockField(string fieldName) {
       this.getFormProtector().unlockField(myName);
 
       return this;
-  }
+  } */
 
   /**
     * Create FormProtector instance.
@@ -696,31 +696,26 @@ string formatTemplate(string myName, array myData) {
     * formTokenData - Token data.
     * @return uim.mvc.formsFormProtector
     */
-  protected FormProtector createFormProtector(Json formTokenData) {
+/*   protected DFormProtector createFormProtector(Json formTokenData) {
     $session = _View.getRequest().getSession();
     $session.start();
 
     return new FormProtector(
         $formTokenData
     );
-  }
+  } */
 
-  /**
-    * Get form protector instance.
-    *
-    * @return uim.mvc.formsFormProtector
-    * @throws uim.oop.exceptions.UIMException
-    */
-  FormProtector getFormProtector() {
-      if (this.formProtector is null) {
-          throw new UIMException(
-              "`FormProtector` instance has not been created. Ensure you have loaded the `FormProtectionComponent`"
-              ~ " in your controller and called `FormHelper::create()` before calling `FormHelper::unlockField()`."
-          );
-      }
+  // Get form protector instance.
+  /* DFormProtector getFormProtector() {
+    if (this.formProtector is null) {
+        throw new UIMException(
+            "`FormProtector` instance has not been created. Ensure you have loaded the `FormProtectionComponent`"
+            ~ " in your controller and called `FormHelper::create()` before calling `FormHelper::unlockField()`."
+        );
+    }
 
-      return this.formProtector;
-  }
+    return this.formProtector;
+  } */
 
   /**
     * Returns true if there is an error for the given field, otherwise false
@@ -750,7 +745,7 @@ string formatTemplate(string myName, array myData) {
     * @return string Formatted errors or "".
     * @link https://book.UIM.org/4/en/views/helpers/form.html#displaying-and-checking-errors
     */
-  string error(string myField, $text = null, array myOptions = null) {
+  /* string error(string myField, $text = null, Json myOptions = Json(null)) {
       if (substr(myField, -5) == "._ids") {
           myField = substr(myField, 0, -5);
       }
@@ -804,7 +799,7 @@ string formatTemplate(string myName, array myData) {
           "id": _domId(myField) ~ "-error",
       ]);
   }
-
+ */
   /**
     * Returns a formatted LABEL element for HTML forms.
     *
@@ -863,15 +858,15 @@ string formatTemplate(string myName, array myData) {
     * @return string The formatted LABEL element
     * @link https://book.UIM.org/4/en/views/helpers/form.html#creating-labels
     */
-  string label(string myFieldName, Nullable!string text = null, array myOptions = null) {
+  /* string label(string myFieldName, Nullable!string text = null, DValueMap someOptions = null) {
       if ($text is null) {
           $text = myFieldName;
           if (substr($text, -5) == "._ids") {
               $text = substr($text, 0, -5);
           }
           if (indexOf($text, ".") != false) {
-              myFieldElements = explode(".", $text);
-              $text = array_pop(myFieldElements);
+            myFieldElements = explode(".", $text);
+            $text = array_pop(myFieldElements);
           }
           if (substr($text, -3) == "_id") {
               $text = substr($text, 0, -3);
@@ -898,7 +893,7 @@ string formatTemplate(string myName, array myData) {
       }
 
       return this.widget("label", $attrs);
-  }
+  } */
 
   /**
     * Generate a set of controls for `myFields`. If myFields is empty the fields
@@ -921,7 +916,7 @@ string formatTemplate(string myName, array myData) {
     *
     * @param array myFields An array of customizations for the fields that will be
     *   generated. This array allows you to set custom types, labels, or other options.
-    * @param array<string, mixed> myOptions Options array. Valid keys are:
+    * someOptions - Options array. Valid keys are:
     *
     * - `fieldset` Set to false to disable the fieldset. You can also pass an array of params to be
     *    applied as HTML attributes to the fieldset tag. If you pass an empty array, the fieldset will
@@ -931,17 +926,17 @@ string formatTemplate(string myName, array myData) {
     * @return string Completed form controls.
     * @link https://book.UIM.org/4/en/views/helpers/form.html#generating-entire-forms
     */
-  string allControls(array myFields = null, array myOptions = null) {
-      $context = _getContext();
+  string allControls(array myFields = null, DValueMap someOptions = null) {
+    $context = _getContext();
 
-      myModelFields = $context.fieldNames();
+    myModelFields = $context.fieldNames();
 
-      myFields = array_merge(
-          Hash::normalize(myModelFields),
-          Hash::normalize(myFields)
-      );
+    myFields = array_merge(
+        Hash::normalize(myModelFields),
+        Hash::normalize(myFields)
+    );
 
-      return this.controls(myFields, myOptions);
+    return this.controls(myFields, someOptions);
   }
 
   /**
@@ -967,7 +962,7 @@ string formatTemplate(string myName, array myData) {
     * @return string Completed form inputs.
     * @link https://book.UIM.org/4/en/views/helpers/form.html#generating-entire-forms
     */
-  string controls(array myFields, array myOptions = null) {
+  string controls(array myFields, DValueMap someOptions = null) {
       myFields = Hash::normalize(myFields);
 
       $out = "";
@@ -995,7 +990,7 @@ string formatTemplate(string myName, array myData) {
     *    to customize the legend text.
     * @return string Completed form inputs.
     */
-  string fieldset(string myFields = "", array myOptions = null) {
+  string fieldset(string myFields = "", DValueMap someOptions = null) {
       $legend = myOptions["legend"] ?? true;
       myFieldset = myOptions["fieldset"] ?? true;
       $context = _getContext();
@@ -1061,7 +1056,7 @@ string formatTemplate(string myName, array myData) {
     * @psalm-suppress InvalidReturnType
     * @psalm-suppress InvalidReturnStatement
     */
-  string control(string myFieldName, array myOptions = null) {
+  string control(string myFieldName, DValueMap someOptions = null) {
       myOptions += [
           "type": null,
           "label": null,
@@ -1179,7 +1174,7 @@ string formatTemplate(string myName, array myData) {
     * @param array<string, mixed> myOptions The options for group template
     * @return string The generated group template
     */
-  protected string _groupTemplate(array myOptions) {
+  protected string _groupTemplate(DValueMap someOptions) {
       myGroupTemplate = myOptions["options"]["type"] ~ "FormGroup";
       if (!_templater().get(myGroupTemplate)) {
           myGroupTemplate = "formGroup";
@@ -1199,7 +1194,7 @@ string formatTemplate(string myName, array myData) {
     * @param array<string, mixed> myOptions The options for input container template
     * @return string The generated input container template
     */
-  protected string _inputContainerTemplate(array myOptions) {
+  protected string _inputContainerTemplate(DValueMap someOptions) {
       $inputContainerTemplate = myOptions["options"]["type"] ~ "Container" ~ myOptions["errorSuffix"];
       if (!_templater().get($inputContainerTemplate)) {
           $inputContainerTemplate = "inputContainer" ~ myOptions["errorSuffix"];
@@ -1222,7 +1217,7 @@ string formatTemplate(string myName, array myData) {
     * @return array|string The generated input element string
     *  or array if checkbox() is called with option "hiddenField" set to "_split".
     */
-  protected auto _getInput(string myFieldName, array myOptions) {
+  protected auto _getInput(string myFieldName, DValueMap someOptions) {
       $label = myOptions["labelOptions"];
       unset(myOptions["labelOptions"]);
       switch (myOptions["type"]).toLower) {
@@ -1251,7 +1246,7 @@ string formatTemplate(string myName, array myData) {
     * @param array<string, mixed> myOptions Options list.
     * @return array<string, mixed> Options
     */
-  protected auto _parseOptions(string myFieldName, array myOptions)array
+  protected auto _parseOptions(string myFieldName, DValueMap someOptions)array
   {
       $needsMagicType = false;
       if (empty(myOptions["type"])) {
@@ -1273,7 +1268,7 @@ string formatTemplate(string myName, array myData) {
     * @param array<string, mixed> myOptions the options passed to the input method
     * @return string
     */
-  protected string _inputType(string myFieldName, array myOptions) {
+  protected string _inputType(string myFieldName, DValueMap someOptions) {
       $context = _getContext();
 
       if ($context.isPrimaryKey(myFieldName)) {
@@ -1320,7 +1315,7 @@ string formatTemplate(string myName, array myData) {
     * @param array<string, mixed> myOptions Options list.
     * @return array
     */
-  protected array _optionsOptions(string myFieldName, array myOptions) {
+  protected array _optionsOptions(string myFieldName, DValueMap someOptions) {
       if (isSet(myOptions, "options")) {
           return myOptions;
       }
@@ -1358,7 +1353,7 @@ string formatTemplate(string myName, array myData) {
     * overwrite the "type" key in options.
     * @return array<string, mixed>
     */
-  protected array _magicOptions(string myFieldName, array myOptions, bool $allowOverride) {
+  protected array _magicOptions(string myFieldName, DValueMap someOptions, bool $allowOverride) {
       myOptions += [
           "templateVars": [],
       ];
@@ -1388,7 +1383,7 @@ string formatTemplate(string myName, array myData) {
     * @param array<string, mixed> myOptions Options list.
     * @return array<string, mixed> Modified options list.
     */
-  protected auto setRequiredAndCustomValidity(string myFieldName, array myOptions) {
+  protected auto setRequiredAndCustomValidity(string myFieldName, DValueMap someOptions) {
       $context = _getContext();
 
       if (!isSet(myOptions, "required") && myOptions["type"] != "hidden") {
@@ -1419,7 +1414,7 @@ string formatTemplate(string myName, array myData) {
     * @param array<string, mixed> myOptions Options list.
     * @return string|false Generated label element or false.
     */
-  protected auto _getLabel(string myFieldName, array myOptions) {
+  protected auto _getLabel(string myFieldName, DValueMap someOptions) {
       if (myOptions["type"] == "hidden") {
           return false;
       }
@@ -1444,7 +1439,7 @@ string formatTemplate(string myName, array myData) {
     * @param mixed $default The default option value
     * @return mixed the contents of the option or default
     */
-  protected auto _extractOption(string myName, array myOptions, $default = null) {
+  protected auto _extractOption(string myName, DValueMap someOptions, $default = null) {
       if (array_key_exists(myName, myOptions)) {
           return myOptions[myName];
       }
@@ -1463,7 +1458,7 @@ string formatTemplate(string myName, array myData) {
     * @param array<string, mixed> myOptions Options for the label element.
     * @return string Generated label element
     */
-  protected string _inputLabel(string myFieldName, $label = null, array myOptions = null) {
+  protected string _inputLabel(string myFieldName, $label = null, DValueMap someOptions = null) {
       myOptions += ["id": null, "input": null, "nestedInput": false, "templateVars": []];
       $labelAttributes = ["templateVars": myOptions["templateVars"]];
       if (is_array($label)) {
@@ -1509,7 +1504,7 @@ string formatTemplate(string myName, array myData) {
     * @param array<string, mixed> myOptions Array of HTML attributes.
     * @link https://book.UIM.org/4/en/views/helpers/form.html#creating-checkboxes
     */
-  string[] checkbox(string myFieldName, array myOptions = null) {
+  string[] checkbox(string myFieldName, DValueMap someOptions = null) {
       myOptions += ["hiddenField": true, "value": 1];
 
       // Work around value=>val translations.
@@ -1634,7 +1629,7 @@ string formatTemplate(string myName, array myData) {
     * @return string A generated HTML text input element
     * @link https://book.UIM.org/4/en/views/helpers/form.html#creating-textareas
     */
-  string textarea(string myFieldName, array myOptions = null) {
+  string textarea(string myFieldName, DValueMap someOptions = null) {
       myOptions = _initInputField(myFieldName, myOptions);
       unset(myOptions["type"]);
 
@@ -1649,7 +1644,7 @@ string formatTemplate(string myName, array myData) {
     * @return string A generated hidden input
     * @link https://book.UIM.org/4/en/views/helpers/form.html#creating-hidden-inputs
     */
-  string hidden(string myFieldName, array myOptions = null) {
+  string hidden(string myFieldName, DValueMap someOptions = null) {
       myOptions += ["required": false, "secure": true];
 
       $secure = myOptions["secure"];
@@ -1681,7 +1676,7 @@ string formatTemplate(string myName, array myData) {
     * @return string A generated file input.
     * @link https://book.UIM.org/4/en/views/helpers/form.html#creating-file-inputs
     */
-  string file(string myFieldName, array myOptions = null) {
+  string file(string myFieldName, DValueMap someOptions = null) {
       myOptions += ["secure": true];
       myOptions = _initInputField(myFieldName, myOptions);
 
@@ -1705,7 +1700,7 @@ string formatTemplate(string myName, array myData) {
     * @return string A HTML button tag.
     * @link https://book.UIM.org/4/en/views/helpers/form.html#creating-button-elements
     */
-  string button(string title, array myOptions = null) {
+  string button(string title, DValueMap someOptions = null) {
       myOptions += [
           "type": "submit",
           "escapeTitle": true,
@@ -1750,7 +1745,7 @@ string formatTemplate(string myName, array myData) {
     * @return string A HTML button tag.
     * @link https://book.UIM.org/4/en/views/helpers/form.html#creating-standalone-buttons-and-post-links
     */
-  string postButton(string title, myUrl, array myOptions = null) {
+  string postButton(string title, myUrl, DValueMap someOptions = null) {
       $formOptions = ["url": myUrl];
       if (isSet(myOptions, "method")) {
           $formOptions["type"] = myOptions["method"];
@@ -1802,7 +1797,7 @@ string formatTemplate(string myName, array myData) {
     * @return string An `<a />` element.
     * @link https://book.UIM.org/4/en/views/helpers/form.html#creating-standalone-buttons-and-post-links
     */
-  string postLink(string title, myUrl = null, array myOptions = null) {
+  string postLink(string title, myUrl = null, DValueMap someOptions = null) {
       myOptions += ["block": null, "confirm": null];
 
       myRequestMethod = "POST";
@@ -1912,7 +1907,7 @@ string formatTemplate(string myName, array myData) {
     * @return string A HTML submit button
     * @link https://book.UIM.org/4/en/views/helpers/form.html#creating-buttons-and-submit-elements
     */
-  string submit(Nullable!string caption = null, array myOptions = null) {
+  string submit(Nullable!string caption = null, DValueMap someOptions = null) {
       if ($caption is null) {
           $caption = __d("cake", "Submit");
       }
@@ -2153,7 +2148,7 @@ string formatTemplate(string myName, array myData) {
     * @return string Completed year select input
     * @link https://book.UIM.org/4/en/views/helpers/form.html#creating-year-inputs
     */
-  string year(string myFieldName, array myOptions = null) {
+  string year(string myFieldName, DValueMap someOptions = null) {
       myOptions += [
           "empty": true,
       ];
@@ -2173,7 +2168,7 @@ string formatTemplate(string myName, array myData) {
     * @param string myFieldName The field name.
     * @param array<string, mixed> myOptions Array of options or HTML attributes.
     */
-  string month(string myFieldName, array myOptions = null) {
+  string month(string myFieldName, DValueMap someOptions = null) {
       myOptions += [
           "value": null,
       ];
@@ -2195,7 +2190,7 @@ string formatTemplate(string myName, array myData) {
     * @param string myFieldName The field name.
     * @param array<string, mixed> myOptions Array of options or HTML attributes.
     */
-  string dateTime(string myFieldName, array myOptions = null) {
+  string dateTime(string myFieldName, DValueMap someOptions = null) {
       myOptions += [
           "value": null,
       ];
@@ -2216,7 +2211,7 @@ string formatTemplate(string myName, array myData) {
     * @param string myFieldName The field name.
     * @param array<string, mixed> myOptions Array of options or HTML attributes.
     */
-  string time(string myFieldName, array myOptions = null) {
+  string time(string myFieldName, DValueMap someOptions = null) {
       myOptions += [
           "value": null,
       ];
@@ -2269,7 +2264,7 @@ string formatTemplate(string myName, array myData) {
     * @param array<string, mixed>|array<string> myOptions Array of options to append options into.
     * @return array<string, mixed> Array of options for the input.
     */
-  protected array _initInputField(string myField, array myOptions = null) {
+  protected array _initInputField(string myField, DValueMap someOptions = null) {
       myOptions += ["fieldName": myField];
 
       if (!isSet(myOptions, "secure")) {
@@ -2332,7 +2327,7 @@ string formatTemplate(string myName, array myData) {
     * @param array<string, mixed> myOptions The option set.
     * @return bool Whether the field is disabled.
     */
-  protected bool _isDisabled(array myOptions) {
+  protected bool _isDisabled(DValueMap someOptions) {
       if (!isSet(myOptions["disabled"])) {
           return false;
       }
@@ -2536,7 +2531,7 @@ string formatTemplate(string myName, array myData) {
     * @param array<string, mixed> myOptions The options containing default values.
     * @return mixed Field value derived from sources or defaults.
     */
-  auto getSourceValue(string myFieldname, array myOptions = null) {
+  auto getSourceValue(string myFieldname, DValueMap someOptions = null) {
     myValueMap = [
         "data": "getData",
         "query": "getQuery",

@@ -56,7 +56,7 @@ class FlashHelper : DHelper {
      * @return string|null Rendered flash message or null if flash key does not exist
      *   in session.
      */
-    Nullable!string render(string myKey = "flash", array myOptions = null) {
+    Nullable!string render(string myKey = "flash", DValueMap someOptions = null) {
         auto myMessages = _View.getRequest().getFlash().consume(myKey);
         if (myMessages is null) {
             return null;

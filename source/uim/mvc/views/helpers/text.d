@@ -81,7 +81,7 @@ class TextHelper : DHelper {
     * @return string The text with links
     * @link https://book.UIM.org/4/en/views/helpers/text.html#linking-urls
     */
-  string autoLinkUrls(string text, array myOptions = null) {
+  string autoLinkUrls(string text, DValueMap someOptions = null) {
       _placeholders = null;
       myOptions += ["escape": true];
 
@@ -176,7 +176,7 @@ class TextHelper : DHelper {
     * @return string
     * @see uim.mvc.views\Helper\TextHelper::autoLinkEmails()
     */
-  protected string _linkEmails(string text, array myOptions) {
+  protected string _linkEmails(string text, DValueMap someOptions) {
       $replace = null;
       foreach (_placeholders as $hash: myContents) {
           myUrl = myContents["content"];
@@ -199,7 +199,7 @@ class TextHelper : DHelper {
     * @return string The text with links
     * @link https://book.UIM.org/4/en/views/helpers/text.html#linking-email-addresses
     */
-  string autoLinkEmails(string text, array myOptions = null) {
+  string autoLinkEmails(string text, DValueMap someOptions = null) {
       myOptions += ["escape": true];
       _placeholders = null;
 
@@ -228,7 +228,7 @@ class TextHelper : DHelper {
     * @return string The text with links
     * @link https://book.UIM.org/4/en/views/helpers/text.html#linking-both-urls-and-email-addresses
     */
-  string autoLink(string text, array myOptions = null) {
+  string autoLink(string text, DValueMap someOptions = null) {
       $text = this.autoLinkUrls($text, myOptions);
 
       return this.autoLinkEmails($text, ["escape": false] + myOptions);
@@ -245,7 +245,7 @@ class TextHelper : DHelper {
     * @see uim.mvc.Utility\Text::highlight()
     * @link https://book.UIM.org/4/en/views/helpers/text.html#highlighting-substrings
     */
-  string highlight(string text, string phrase, array myOptions = null) {
+  string highlight(string text, string phrase, DValueMap someOptions = null) {
       return _engine.highlight($text, $phrase, myOptions);
   }
 
@@ -293,7 +293,7 @@ class TextHelper : DHelper {
     * @see uim.mvc.Utility\Text::truncate()
     * @link https://book.UIM.org/4/en/views/helpers/text.html#truncating-text
     */
-  string truncate(string text, int $length = 100, array myOptions = null) {
+  string truncate(string text, int $length = 100, DValueMap someOptions = null) {
       return _engine.truncate($text, $length, myOptions);
   }
 
@@ -315,7 +315,7 @@ class TextHelper : DHelper {
     * @see uim.mvc.Utility\Text::tail()
     * @link https://book.UIM.org/4/en/views/helpers/text.html#truncating-the-tail-of-a-string
     */
-  string tail(string text, int $length = 100, array myOptions = null) {
+  string tail(string text, int $length = 100, DValueMap someOptions = null) {
       return _engine.tail($text, $length, myOptions);
   }
 
@@ -370,16 +370,12 @@ class TextHelper : DHelper {
     * @see uim.mvc.Utility\Text::setTransliterator()
     * @see uim.mvc.Utility\Text::setTransliteratorId()
     */
-  string slug(string string, STRINGAA someOptions = null) {
+  string slug(string string, DValueMap someOptions = null) {
       return _engine.slug($string, myOptions);
   }
 
-  /**
-    * Event listeners.
-    *
-    * @return array<string, mixed>
-    */
-  array implementedEvents() {
+  // Event listeners.
+  Json implementedEvents() {
       return [];
   }
 }
