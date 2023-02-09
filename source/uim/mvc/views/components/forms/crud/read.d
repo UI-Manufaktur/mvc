@@ -12,7 +12,7 @@ class DMVCReadForm : DMVCEntityForm {
   mixin(ViewComponentThis!("MVCReadForm"));
 
   override void initialize(Json configSetting = Json(null)) {
-    super.initialize;
+    super.initialize(configSettings);
 
     this
       .crudMode(CRUDModes.Read);

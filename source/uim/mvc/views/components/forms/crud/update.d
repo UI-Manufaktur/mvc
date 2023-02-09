@@ -12,7 +12,7 @@ class DMVCUpdateForm : DMVCEntityForm {
   mixin(ViewComponentThis!("MVCUpdateForm"));
 
   override void initialize(Json configSetting = Json(null)) {
-    super.initialize;
+    super.initialize(configSettings);
 
     this
       .crudMode(CRUDModes.Update);

@@ -12,7 +12,7 @@ class DMVCCreateForm : DMVCEntityForm {
   mixin(ViewComponentThis!("MVCCreateForm"));
 
   override void initialize(Json configSetting = Json(null)) {
-    super.initialize;
+    super.initialize(configSettings);
 
     this
       .crudMode(CRUDModes.Create);

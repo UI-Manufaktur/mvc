@@ -8,7 +8,7 @@ class DMVCNavigationViewComponent : DViewComponent {
 
   override void initialize(Json configSetting = Json(null)) {
     debugMethodCall(moduleName!DMVCNavigationViewComponent~"::DMVCNavigationViewComponent("~this.name~"):initialize");   
-    super.initialize;
+    super.initialize(configSettings);
 
     debug writeln("Add First Nav");
     this

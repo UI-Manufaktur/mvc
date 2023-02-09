@@ -12,7 +12,7 @@ class DMVCDeleteForm : DMVCEntityForm {
   mixin(ViewComponentThis!("MVCDeleteForm"));
 
   override void initialize(Json configSetting = Json(null)) {
-    super.initialize;
+    super.initialize(configSettings);
 
     this
       .crudMode(CRUDModes.Delete);

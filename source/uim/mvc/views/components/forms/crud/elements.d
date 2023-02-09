@@ -14,7 +14,7 @@ class DMVCElementsForm : DForm {
   mixin(OProperty!("DElement[]", "elements"));
 
   override void initialize(Json configSetting = Json(null)) {
-    super.initialize;
+    super.initialize(configSettings);
   }
 }
 mixin(ViewComponentCalls!("MVCElementsForm", "DMVCElementsForm"));

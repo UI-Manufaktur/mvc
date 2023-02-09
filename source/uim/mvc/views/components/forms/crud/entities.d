@@ -14,7 +14,7 @@ class DMVCEntitiesForm : DForm {
   // mixin(OProperty!("DEntity[]", "entities"));
 
   override void initialize(Json configSetting = Json(null)) {
-    super.initialize;
+    super.initialize(configSettings);
   }
 }
 mixin(ViewComponentCalls!("MVCEntitiesForm", "DMVCEntitiesForm"));

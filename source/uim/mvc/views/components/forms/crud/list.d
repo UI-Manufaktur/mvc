@@ -12,7 +12,7 @@ class DMVCEntitiesListForm : DMVCEntitiesForm {
   mixin(ViewComponentThis!("MVCEntitiesListForm"));
 
   override void initialize(Json configSetting = Json(null)) {
-    super.initialize;
+    super.initialize(configSettings);
 
     this
       .header(
