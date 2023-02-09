@@ -13,7 +13,7 @@ class DFormFooter : DFormComponent {
 
   override void initialize(Json configSetting = Json(null)) {
     debugMethodCall(moduleName!DFormFooter~"::DFormFooter("~this.name~"):initialize");   
-    super.initialize;
+    super.initialize(configSettings);
 
     debug writeln("In ", __MODULE__, "/", __LINE__);
   }

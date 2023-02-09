@@ -15,7 +15,7 @@ class DTableFormContent : DMVCEntitiesViewComponent {
 
   override void initialize(Json configSetting = Json(null)) {
     debugMethodCall(moduleName!DTableFormContent~"::DTableFormContent("~this.name~"):initialize");   
-    super.initialize;
+    super.initialize(configSettings);
   }
 }
 mixin(ViewComponentCalls!("MVCTableFormContent", "DTableFormContent"));

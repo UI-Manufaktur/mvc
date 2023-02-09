@@ -8,7 +8,7 @@ class DFormHeader : DFormComponent {
 
   override void initialize(Json configSetting = Json(null)) {
     debugMethodCall(moduleName!DFormHeader~"::DFormHeader("~this.name~"):initialize");   
-    super.initialize;
+    super.initialize(configSettings);
     debug writeln("In ", __MODULE__, "/", __LINE__);
 
     this

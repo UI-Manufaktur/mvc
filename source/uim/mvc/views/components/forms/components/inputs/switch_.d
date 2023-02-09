@@ -7,7 +7,7 @@ class DMVCSwitchFormInput : DFormInput {
   mixin(ViewComponentThis!("MVCSwitchFormInput"));
 
   override void initialize(Json configSetting = Json(null)) {
-    super.initialize;
+    super.initialize(configSettings);
 
     this
       .fieldValue("false");

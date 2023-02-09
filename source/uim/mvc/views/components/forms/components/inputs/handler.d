@@ -13,7 +13,7 @@ class DFormInputHandler : DMVCEntityFormContent {
   }
 
   override void initialize(Json configSetting = Json(null)) {
-    super.initialize;
+    super.initialize(configSettings);
 
     this
       .formInputs([

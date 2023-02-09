@@ -12,7 +12,7 @@ class DMVCTextAreaFormInput : DFormInput {
   mixin(ViewComponentThis!("MVCTextAreaFormInput"));
 
   override void initialize(Json configSetting = Json(null)) {
-    super.initialize;
+    super.initialize(configSettings);
 
     this
       .rows("3")

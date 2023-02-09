@@ -12,7 +12,7 @@ class DMVCNameFormInput : DMVCTextFormInput {
   mixin(ViewComponentThis!("MVCNameFormInput"));
 
   override void initialize(Json configSetting = Json(null)) {
-    super.initialize;
+    super.initialize(configSettings);
 
     this
       .id("entity_name")

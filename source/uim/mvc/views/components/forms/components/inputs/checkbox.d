@@ -12,7 +12,7 @@ class DMVCCheckboxFormInput : DFormInput {
   mixin(ViewComponentThis!("MVCCheckboxFormInput"));
 
   override void initialize(Json configSetting = Json(null)) {
-    super.initialize;
+    super.initialize(configSettings);
 
     this
       .fieldValue("false");

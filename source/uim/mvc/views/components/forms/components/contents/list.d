@@ -15,7 +15,7 @@ class DMVCListFormContent : DMVCEntitiesViewComponent {
 
   override void initialize(Json configSetting = Json(null)) {
     debugMethodCall(moduleName!DMVCListFormContent~"::DMVCListFormContent("~this.name~"):initialize");   
-    super.initialize;
+    super.initialize(configSettings);
   }
 
   override DH5Obj[] toH5(STRINGAA options = null) {
