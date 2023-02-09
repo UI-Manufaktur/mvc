@@ -14,10 +14,10 @@ interface IWidget {
     * Converts the myData into one or many HTML elements.
     *
     * someData - The data to render.
-    * @param uim.mvc.views\Form\IContext $context The current form context.
+    * formContext - The current form context.
     * @return string Generated HTML for the widget element.
     */
-  string render(Json someData, IContext aContext);
+  string render(Json someData, IContext formContext);
 
   /**
     * Returns a list of fields that need to be secured for this widget.

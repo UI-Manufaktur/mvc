@@ -12,7 +12,7 @@ class DMVCNullComponent : DViewComponent {
   mixin(ViewComponentThis!("MVCNullComponent"));
   
   override void initialize(Json configSetting = Json(null)) {
-    super.initialize(Json configSetting = Json(null)); 
+    super.initialize(configSetting); 
 
 /*     this */
 /*     .isNull(true)  */

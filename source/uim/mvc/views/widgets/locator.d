@@ -45,10 +45,10 @@ class DWidgetLocator {
     * @param array $widgets See add() method for more information.
     */
   this(StringTemplate myTemplates, View $view, array $widgets = null) {
-      _templates = myTemplates;
-      _view = $view;
+    _templates = myTemplates;
+    _view = $view;
 
-      this.add($widgets);
+    this.add($widgets);
   }
 
   /**
@@ -61,9 +61,9 @@ class DWidgetLocator {
     * @param string myfile The file to load
     */
   void load(string aFile) {
-      $loader = new PhpConfig();
-      $widgets = $loader.read(aFile);
-      this.add($widgets);
+    $loader = new PhpConfig();
+    $widgets = $loader.read(aFile);
+    this.add($widgets);
   }
 
   /**
@@ -122,21 +122,20 @@ class DWidgetLocator {
   * @return uim.mvc.views\Widget\IWidget IWidget instance.
   * @throws \RuntimeException when widget is undefined.
   */
-auto get(string myName): IWidget
-{
-    if (!isSet(_widgets, myName)) {
-        if (empty(_widgets["_default"])) {
-            throw new RuntimeException(sprintf("Unknown widget `%s`", myName));
-        }
+IWidget get(string myName) {
+  if (!isSet(_widgets, myName)) {
+      if (empty(_widgets["_default"])) {
+          throw new RuntimeException(sprintf("Unknown widget `%s`", myName));
+      }
 
-        myName = "_default";
-    }
+      myName = "_default";
+  }
 
-    if (_widgets[myName] instanceof IWidget) {
-        return _widgets[myName];
-    }
+  if (_widgets[myName] instanceof IWidget) {
+      return _widgets[myName];
+  }
 
-    return _widgets[myName] = _resolveWidget(_widgets[myName]);
+  return _widgets[myName] = _resolveWidget(_widgets[myName]);
 }
 
 // Clear the registry and reset the widgets.

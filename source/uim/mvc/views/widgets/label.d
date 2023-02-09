@@ -54,21 +54,19 @@ class DMVCLabelWidget : IWidget {
     * @param uim.mvc.views\Form\IContext $context The current form context.
     */
   string render(Json someData, IContext aContext) {
-      myData += [
-          "text": "",
-          "input": "",
-          "hidden": "",
-          "escape": true,
-          "templateVars": [],
-      ];
+        someData["text"] = "";
+        someData["input"] = "";
+        someData["hidden"] = "";
+        someData["escape"] = true;
+        someData["templateVars"] = [];
 
-      return _templates.format(_labelTemplate, [
-          "text": myData["escape"] ? h(myData["text"]) : myData["text"],
-          "input": myData["input"],
-          "hidden": myData["hidden"],
-          "templateVars": myData["templateVars"],
-          "attrs": _templates.formatAttributes(myData, ["text", "input", "hidden"]),
-      ]);
+    return _templates.format(_labelTemplate, [
+        "text": myData["escape"] ? h(myData["text"]) : myData["text"],
+        "input": myData["input"],
+        "hidden": myData["hidden"],
+        "templateVars": myData["templateVars"],
+        "attrs": _templates.formatAttributes(myData, ["text", "input", "hidden"]),
+    ]);
   }
 
   

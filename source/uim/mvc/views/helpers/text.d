@@ -52,7 +52,7 @@ class TextHelper : DMVCHelper {
   }
 
   void initialize(Json configSetting = Json(null)) {
-      super.initialize(Json configSetting = Json(null));
+      super.initialize(configSetting);
       
       _helpers ~= ["Html"];        
       _defaultConfig["engine"] = Text::class];

@@ -43,7 +43,7 @@ class DMVCNumberHelper : DMVCHelper {
     }
 
     void initialize(Json configSetting = Json(null)) {
-      super.initialize(Json configSetting = Json(null));
+      super.initialize(configSetting);
 
       _defaultConfig["engine"] = Number::class;
     }

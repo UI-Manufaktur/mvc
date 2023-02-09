@@ -249,7 +249,7 @@ StringTemplate templater() {
   }
 
   void initialize(Json configSetting = Json(null)) {
-    super.initialize(Json configSetting = Json(null));
+    super.initialize(configSetting);
 
     _helpers ~= ["Url", "Html"];
 

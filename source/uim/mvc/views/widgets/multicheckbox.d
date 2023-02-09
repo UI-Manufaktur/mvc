@@ -65,13 +65,13 @@ class DMVCMultiCheckboxWidget : DWidget {
      * @param string myValue The value to convert into an ID.
      * @return string The generated id.
      */
-    protected string _domId(string myValue) {
-        $domId = mb_strtolower(Text::slug(myValue, "-"));
-        if (_idPrefix) {
-            $domId = _idPrefix ~ "-" ~ $domId;
-        }
+    protected string domId(string valueToConvert) {
+      auto resultingId = mb_strtolower(Text::slug(valueToConvert, "-"));
+      if (_idPrefix) {
+        resultingId = _idPrefix ~ "-" ~ resultingId;
+      }
 
-        return $domId;
+      return resultingId;
     }
 
   override void initialize(Json configSetting = Json(null)) {

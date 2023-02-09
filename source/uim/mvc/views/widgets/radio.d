@@ -63,16 +63,16 @@ class DMVCRadioWidget : DWidget {
     /**
      * Generate an ID suitable for use in an ID attribute.
      *
-     * @param string myValue The value to convert into an ID.
+     * valueToConvert - The value to convert into an ID.
      * @return string The generated id.
      */
-    protected string _domId(string myValue) {
-        $domId = mb_strtolower(Text::slug(myValue, "-"));
-        if (_idPrefix) {
-            $domId = _idPrefix ~ "-" ~ $domId;
-        }
+    protected string _domId(string valueToConvert) {
+      $domId = mb_strtolower(Text::slug(valueToConvert, "-"));
+      if (_idPrefix) {
+          $domId = _idPrefix ~ "-" ~ $domId;
+      }
 
-        return $domId;
+      return $domId;
     }
   // Label instance.
   protected DMVCLabelWidget _label;
@@ -130,28 +130,28 @@ class DMVCRadioWidget : DWidget {
      * @param uim.mvc.views\Form\IContext $context The current form context.
      */
     string render(Json someData, IContext aContext) {
-        auto myData += this.mergeDefaults(someData, aContext);
+      auto myData += this.mergeDefaults(someData, aContext);
 
-        if (myData["options"] instanceof Traversable) {
-            myOptions = iterator_to_array(myData["options"]);
-        } else {
-            myOptions = (array)myData["options"];
-        }
+      if (myData["options"] instanceof Traversable) {
+          myOptions = iterator_to_array(myData["options"]);
+      } else {
+          myOptions = (array)myData["options"];
+      }
 
-        if (!empty(myData["empty"])) {
-            $empty = myData["empty"] == true ? "empty" : myData["empty"];
-            myOptions = ["": $empty] + myOptions;
-        }
-        unset(myData["empty"]);
+      if (!empty(myData["empty"])) {
+          $empty = myData["empty"] == true ? "empty" : myData["empty"];
+          myOptions = ["": $empty] + myOptions;
+      }
+      unset(myData["empty"]);
 
-        _idPrefix = myData["idPrefix"];
-        _clearIds();
-        $opts = null;
-        foreach ($val: $text; myOptions) {
-            $opts ~= _renderInput($val, $text, myData, $context);
-        }
+      _idPrefix = myData["idPrefix"];
+      _clearIds();
+      $opts = null;
+      foreach ($val: $text; myOptions) {
+          $opts ~= _renderInput($val, $text, myData, $context);
+      }
 
-        return implode("", $opts);
+      return implode("", $opts);
     }
 
     /**

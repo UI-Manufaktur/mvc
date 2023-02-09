@@ -10,7 +10,6 @@ import uim.mvc;
 
 /**
  * Form "widget" for creating labels that contain their input.
- *
  * Generally this element is used by other widgets, and FormHelper itself.
  */
 class DMVCNestingLabelWidget : DMVCLabelWidget {

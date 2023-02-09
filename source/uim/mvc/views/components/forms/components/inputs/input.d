@@ -31,7 +31,7 @@ class DFormInput : DMVCEntityViewComponent {
   // #endregion Fields
 
   override void initialize(Json configSetting = Json(null)) {
-    super.initialize(Json configSetting = Json(null));
+    super.initialize(configSetting);
 
     this
       .id("forminput-%s".format(uniform(1, 1_000)))
