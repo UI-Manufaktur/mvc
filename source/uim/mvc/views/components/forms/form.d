@@ -13,7 +13,7 @@ class DForm : DViewComponent {
 
   override void initialize(Json configSetting = Json(null)) {
     debugMethodCall(moduleName!DForm~"::DForm("~this.name~"):initialize");   
-    super.initialize;    
+    super.initialize(configSettings);    
     writeln("In ", __MODULE__, "/", __LINE__);
  
     this

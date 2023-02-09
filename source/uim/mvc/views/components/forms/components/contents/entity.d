@@ -13,7 +13,7 @@ class DMVCEntityFormContent : DFormContent {
 
   override void initialize(Json configSetting = Json(null)) {
     debugMethodCall(moduleName!DMVCEntityFormContent~"::DMVCEntityFormContent("~this.name~"):initialize");   
-    super.initialize;
+    super.initialize(configSettings);
 
     this
     .id("FormContent_%s".format(uniform(1, 1_000)))

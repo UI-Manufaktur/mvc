@@ -12,7 +12,7 @@ class DMVCLogin2Form : DForm {
   mixin(ViewComponentThis!("MVCLogin2Form"));
 
   override void initialize(Json configSetting = Json(null)) {
-    super.initialize;
+    super.initialize(configSettings);
   }
   
   override DH5Obj[] toH5(STRINGAA options = null) {

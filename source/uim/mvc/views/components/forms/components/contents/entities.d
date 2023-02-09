@@ -13,7 +13,7 @@ class DMVCEntitiesFormContent : DFormContent {
 
   override void initialize(Json configSetting = Json(null)) {
     debugMethodCall(moduleName!DMVCEntitiesFormContent~"::DMVCEntitiesFormContent("~this.name~"):initialize");   
-    super.initialize;
+    super.initialize(configSettings);
     debug writeln("In ", __MODULE__, "/", __LINE__);
 
     this // Defaults

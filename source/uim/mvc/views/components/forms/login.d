@@ -14,7 +14,7 @@ class DMVCLoginForm : DForm {
   mixin(OProperty!("bool", "showLostAccount"));
 
   override void initialize(Json configSetting = Json(null)) {
-    super.initialize;
+    super.initialize(configSettings);
 
     this.showLostAccount(true);
   }
