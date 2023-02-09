@@ -7,7 +7,7 @@ class DMVCCreatePageHeaderViewComponent : DMVCPageHeaderViewComponent {
   mixin(ViewComponentThis!("MVCCreatePageHeaderViewComponent"));
   
   override void initialize(Json configSetting = Json(null)) {
-    super.initialize;
+    super.initialize(configSettings);
     
     this
       .actions([["refresh"], ["list"]]); 

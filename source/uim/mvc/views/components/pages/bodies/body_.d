@@ -7,7 +7,7 @@ class DMVCPageBodyViewComponent : DViewComponent {
   mixin(ViewComponentThis!("MVCPageBodyViewComponent"));
 
   override void initialize(Json configSetting = Json(null)) {
-    super.initialize;
+    super.initialize(configSettings);
   }
 
   override DH5Obj[] toH5(STRINGAA options = null) {

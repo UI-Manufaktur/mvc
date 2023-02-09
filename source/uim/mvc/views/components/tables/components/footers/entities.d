@@ -15,7 +15,7 @@ class DMVCEntitiesTableFooter : DTableFooter {
   mixin(OProperty!("size_t", "visibleEntities"));
 
   override void initialize(Json configSetting = Json(null)) {
-    super.initialize;
+    super.initialize(configSettings);
 
     this
     .visibleEntities(10)

@@ -7,7 +7,7 @@ class DMVCEditPageHeaderViewComponent : DMVCPageHeaderViewComponent {
   mixin(ViewComponentThis!("MVCEditPageHeaderViewComponent"));
   
   override void initialize(Json configSetting = Json(null)) {
-    super.initialize;
+    super.initialize(configSettings);
 
     this
       .actions([["refresh"], ["list"], ["view"], ["print", "export"]]); 

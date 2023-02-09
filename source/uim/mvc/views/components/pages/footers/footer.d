@@ -7,7 +7,7 @@ class DMVCPageFooterViewComponent : DViewComponent {
   mixin(ViewComponentThis!("MVCPageFooterViewComponent"));
 
   override void initialize(Json configSetting = Json(null)) {
-    super.initialize; 
+    super.initialize(configSettings); 
     
     this
       .inner = `Version 1.0.1 - Copyright 2017-2021 UI-Manufaktur UG (haftungsbeschränkt) - License MVC`;

@@ -7,7 +7,7 @@ class DMVCPageHeaderViewComponent : DViewComponent {
   mixin(ViewComponentThis!("MVCPageHeaderViewComponent"));
 
   override void initialize(Json configSetting = Json(null)) {
-    super.initialize;
+    super.initialize(configSettings);
 
     this
       .breadcrumbs(UIMBreadcrumb)
