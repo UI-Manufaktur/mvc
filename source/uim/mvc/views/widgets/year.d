@@ -11,7 +11,7 @@ import uim.mvc;
  */
 class DMVCYearWidget : DWidget {
   override void initialize(Json configSetting = Json(null)) {
-    super.initialize;
+    super.initialize(configSettings);
         
     _defaults["name"] = "";
     _defaults["val"] = null;

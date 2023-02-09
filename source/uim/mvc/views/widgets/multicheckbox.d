@@ -75,7 +75,7 @@ class DMVCMultiCheckboxWidget : DWidget {
     }
 
   override void initialize(Json configSetting = Json(null)) {
-    super.initialize;
+    super.initialize(configSettings);
     
     _defaults["name"] = "";
     _defaults["escape"] = true;
@@ -112,7 +112,7 @@ class DMVCMultiCheckboxWidget : DWidget {
     }
 
     override void initialize(Json configSetting = Json(null)) {
-      super.initialize;
+      super.initialize(configSettings);
     }
     /**
      * Render multi-checkbox widget.

@@ -25,7 +25,7 @@ class ButtonWidget : DWidget {
   }
 
   override void initialize(Json configSetting = Json(null)) {
-      super.initialize;
+      super.initialize(configSettings);
   }
   /**
   * Render a button.

@@ -12,7 +12,7 @@ import uim.mvc;
  */
 class DMVCTextareaWidget : DWidget {
   override void initialize(Json configSetting = Json(null)) {
-    super.initialize;
+    super.initialize(configSettings);
     
     _defaults["val"] = "";
     _defaults["name"] = "";

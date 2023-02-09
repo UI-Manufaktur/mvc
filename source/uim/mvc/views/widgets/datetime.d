@@ -31,7 +31,7 @@ class DMVCDateTimeWidget : DWidget {
   protected Json defaultStep;;
 
   void initialize(Json configSetting = Json(null)) {
-    super.initialize;
+    super.initialize(configSettings);
 
     // Data defaults.
   _defaults = [

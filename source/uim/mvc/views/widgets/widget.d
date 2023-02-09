@@ -32,7 +32,7 @@ class DWidget : IWidget {
     }
 
     override void initialize(Json configSetting = Json(null)) {
-      super.initialize;
+      super.initialize(configSettings);
 
       defaults["name"] = "";
       defaults["val"] = null;

@@ -71,7 +71,7 @@ class TimeHelper : DMVCHelper {
   }
 
     override void initialize(Json configSetting = Json(null)) {
-        super.initialize;
+        super.initialize(configSettings);
         // Config options
         _defaultConfig["outputTimezone"] = null;
     }
