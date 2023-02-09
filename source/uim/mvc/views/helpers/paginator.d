@@ -117,10 +117,10 @@ class PaginatorHelper : DHelper {
      * Constructor. Overridden to merge passed args with URL options.
      *
      * @param uim.mvc.views\View $view The View this helper is being attached to.
-     * @param array<string, mixed> myConfig Configuration settings for the helper.
+     * @param array<string, mixed> configSettings Configuration settings for the helper.
      */
-    this(DView aView, array myConfig = null) {
-        super(aView, myConfig);
+    this(DView aView, array configSettings = null) {
+        super(aView, configSettings);
 
         myQuery = _View.getRequest().getQueryParams();
         unset(myQuery["page"], myQuery["limit"], myQuery["sort"], myQuery["direction"]);

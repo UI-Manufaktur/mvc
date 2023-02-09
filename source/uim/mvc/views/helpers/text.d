@@ -34,21 +34,21 @@ class TextHelper : DHelper {
     *            The class needs to be placed in the `Utility` directory.
     *
     * @param uim.mvc.views\View $view the view object the helper is attached to.
-    * @param array<string, mixed> myConfig Settings array Settings array
+    * @param array<string, mixed> configSettings Settings array Settings array
     * @throws uim.oop.exceptions.UIMException when the engine class could not be found.
     */
-  this(DView owningView, Json myConfig = null) {
-    super(owningView, myConfig);
+  this(DView owningView, Json configSettings = Json(null)) {
+    super(owningView, configSettings);
 
-    myConfig = _config;
+    configSettings = _config;
 
     /** @psalm-var class-string<uim.mvc.Utility\Text>|null $engineClass */
-    $engineClass = App::className(myConfig["engine"], "Utility");
+    $engineClass = App::className(configSettings["engine"], "Utility");
     if ($engineClass is null) {
-        throw new UIMException(sprintf("Class for %s could not be found", myConfig["engine"]));
+        throw new UIMException(sprintf("Class for %s could not be found", configSettings["engine"]));
     }
 
-    _engine = new $engineClass(myConfig);
+    _engine = new $engineClass(configSettings);
   }
 
   void initialize(Json configSetting = Json(null)) {

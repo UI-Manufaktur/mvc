@@ -21,10 +21,10 @@ class DMVCUrlHelper : DHelper {
   /**
     * Check proper configuration
     *
-    * @param array<string, mixed> myConfig The configuration settings provided to this helper.
+    * @param array<string, mixed> configSettings The configuration settings provided to this helper.
     */
-  override void initialize(array myConfig) {
-    super.initialize(myConfig);
+  override void initialize(array configSettings) {
+    super.initialize(configSettings);
     $engineClassConfig = this.getConfig("assetUrlClassName");
 
     /** @psalm-var class-string<uim.mvc.routings.Asset>|null $engineClass */

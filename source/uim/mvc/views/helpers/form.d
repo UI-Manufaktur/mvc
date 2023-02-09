@@ -44,14 +44,14 @@ class FormHelper : DHelper {
     * Ensures that id"s for a given set of fields are unique.
     *
     * @param string myName The ID attribute name.
-    * @param string val The ID attribute value.
+    * idAttributeValue - The ID attribute value.
     * @return string Generated id.
     */
-  protected string _id(string myName, string val) {
-      myName = _domId(myName);
-      $suffix = _idSuffix($val);
+  protected string _id(string idAttributeName, string idAttributeValue) {
+    idAttributeName = _domId(idAttributeName);
+    auto mySuffix = _idSuffix(idAttributeValue);
 
-      return trim(myName ~ "-" ~ $suffix, "-");
+    return trim(idAttributeName ~ "-" ~ mySuffix); //, "-");
   }
 
   /**
@@ -59,11 +59,11 @@ class FormHelper : DHelper {
     *
     * Ensures that id"s for a given set of fields are unique.
     *
-    * @param string val The ID attribute value.
+    * idAttributeValue - The ID attribute value.
     * @return string Generated id suffix.
     */
-  protected string _idSuffix(string val) {
-      $idSuffix = mb_strtolower(replace(["/", "@", "<", ">", " ", """, "\""], "-", $val));
+/*   protected string _idSuffix(string idAttributeValue) {
+      $idSuffix = mb_strtolower(replace(["/", "@", "<", ">", " ", """, "\""], "-", idAttributeValue));
       myCount = 1;
       $check = $idSuffix;
       while (hasAllValues($check, _idSuffixes, true)) {
@@ -73,21 +73,21 @@ class FormHelper : DHelper {
 
       return $check;
   }
-
+ */
   /**
     * Generate an ID suitable for use in an ID attribute.
     *
     * @param string myValue The value to convert into an ID.
     * @return string The generated id.
     */
-  protected string _domId(string myValue) {
-      $domId = mb_strtolower(Text::slug(myValue, "-"));
-      if (_idPrefix) {
-          $domId = _idPrefix ~ "-" ~ $domId;
-      }
+/*   protected string _domId(string myValue) {
+    $domId = mb_strtolower(Text::slug(myValue, "-"));
+    if (_idPrefix) {
+        $domId = _idPrefix ~ "-" ~ $domId;
+    }
 
-      return $domId;
-  }
+    return $domId;
+  } */
   protected DStringTemplate _templater;
 
 /**
@@ -123,7 +123,7 @@ string formatTemplate(string myName, array myData) {
 }
 
 // Returns the templater instance.
-StringTemplate templater() {
+/* StringTemplate templater() {
     if (_templater is null) {
         StringTemplate myClass = this.getConfig("templateClass") ?: StringTemplate::class;
         _templater = new myClass();
@@ -140,7 +140,7 @@ StringTemplate templater() {
     }
 
     return _templater;
-}
+} */
 
   /**
     * Other helpers used by FormHelper
@@ -175,13 +175,13 @@ StringTemplate templater() {
   /**
     * Locator for input widgets.
     */
-  protected DWidget\WidgetLocator _locator;
+  protected DWidgetLocator _locator;
 
   // Context for the current form.
-  protected DForm\IContext|null _context;
+  protected IContext _context;
 
   // Context factory.
-  protected DForm\ContextFactory _contextFactory;
+  protected DContextFactory _contextFactory;
 
   /**
     * The action attribute value of the last created form.
@@ -198,16 +198,10 @@ StringTemplate templater() {
     */
   protected string[] supportedValueSources = ["context", "data", "query"];
 
-  /**
-    * The default sources.
-    *
-    * @see FormHelper::$supportedValueSources for valid values.
-    */
+  // The default sources.
   protected string[] _valueSources = ["data", "context"];
 
-  /**
-    * Grouped input types.
-    */
+  // Grouped input types.
   protected string[] _groupedInputTypes = ["radio", "multicheckbox"];
 
   // Form protector
@@ -217,29 +211,29 @@ StringTemplate templater() {
     * Construct the widgets and binds the default context providers
     *
     * @param uim.mvc.views\View $view The View this helper is being attached to.
-    * @param array<string, mixed> myConfig Configuration settings for the helper.
+    * configSetting Configuration - settings for the helper.
     */
-  this(View $view, array myConfig = null) {
+  this(View owningView, Json configSetting = Json(null)) {
       $locator = null;
       $widgets = _defaultWidgets;
-      if (isSet(myConfig, "locator")) {
-          $locator = myConfig["locator"];
-          unset(myConfig["locator"]);
+      if (isSet(configSetting, "locator")) {
+          $locator = configSetting["locator"];
+          unset(configSetting["locator"]);
       }
-      if (isSet(myConfig, "widgets")) {
-          if (is_string(myConfig["widgets"])) {
-              myConfig["widgets"] = (array)myConfig["widgets"];
+      if (isSet(configSetting, "widgets")) {
+          if (is_string(configSetting["widgets"])) {
+              configSetting["widgets"] = (array)configSetting["widgets"];
           }
-          $widgets = myConfig["widgets"] + $widgets;
-          unset(myConfig["widgets"]);
+          $widgets = configSetting["widgets"] + $widgets;
+          unset(configSetting["widgets"]);
       }
 
-      if (isSet(myConfig, "groupedInputTypes")) {
-          _groupedInputTypes = myConfig["groupedInputTypes"];
-          unset(myConfig["groupedInputTypes"]);
+      if (isSet(configSetting, "groupedInputTypes")) {
+          _groupedInputTypes = configSetting["groupedInputTypes"];
+          unset(configSetting["groupedInputTypes"]);
       }
 
-      super($view, myConfig);
+      super(owningView, configSetting);
 
       if (!$locator) {
           $locator = new WidgetLocator(_templater(), _View, $widgets);
@@ -2240,17 +2234,15 @@ StringTemplate templater() {
     * See dateTime() options.
     *
     * @param string myFieldName The field name.
-    * @param array<string, mixed> myOptions Array of options or HTML attributes.
+    * optionsOrHTMLAttributes - Array of options or HTML attributes.
     */
-  string date(string myFieldName, array myOptions = null) {
-      myOptions += [
-          "value": null,
-      ];
+  string date(string myFieldName, Json optionsOrHTMLAttributes = null) {
+    optionsOrHTMLAttributes["value"] = null;
 
-      myOptions = _initInputField(myFieldName, myOptions);
-      myOptions["type"] = "date";
+    optionsOrHTMLAttributes = _initInputField(myFieldName, optionsOrHTMLAttributes);
+    optionsOrHTMLAttributes["type"] = "date";
 
-      return this.widget("datetime", myOptions);
+    return this.widget("datetime", optionsOrHTMLAttributes);
   }
 
   /**

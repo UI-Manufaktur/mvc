@@ -270,30 +270,30 @@ class HtmlHelper : DHelper {
     * @return string An `<a />` element.
     * @link https://book.UIM.org/4/en/views/helpers/html.html#creating-links
     */
-  string link($title, myUrl = null, array myOptions = null) {
+  string link(string title, myUrl = null, array myOptions = null) {
     $escapeTitle = true;
     if (myUrl  !is null) {
-        myUrl = this.Url.build(myUrl, myOptions);
-        unset(myOptions["fullBase"]);
+      myUrl = this.Url.build(myUrl, myOptions);
+      unset(myOptions["fullBase"]);
     } else {
-        myUrl = this.Url.build($title);
-        $title = htmlspecialchars_decode(myUrl, ENT_QUOTES);
-        $title = h(urldecode($title));
-        $escapeTitle = false;
+      myUrl = this.Url.build(title);
+      title = htmlspecialchars_decode(myUrl, ENT_QUOTES);
+      title = h(urldecode(title));
+      $escapeTitle = false;
     }
 
     if (isSet(myOptions, "escapeTitle")) {
-        $escapeTitle = myOptions["escapeTitle"];
-        unset(myOptions["escapeTitle"]);
+      $escapeTitle = myOptions["escapeTitle"];
+      unset(myOptions["escapeTitle"]);
     } elseif (isSet(myOptions, "escape")) {
-        $escapeTitle = myOptions["escape"];
+      $escapeTitle = myOptions["escape"];
     }
 
     if ($escapeTitle == true) {
-        $title = h($title);
+        title = h(title);
     } elseif (is_string($escapeTitle)) {
-        /** @psalm-suppress PossiblyInvalidArgument */
-        $title = htmlentities($title, ENT_QUOTES, $escapeTitle);
+      /** @psalm-suppress PossiblyInvalidArgument */
+      title = htmlentities(title, ENT_QUOTES, $escapeTitle);
     }
 
     myTemplater = _templater();

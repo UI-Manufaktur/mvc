@@ -25,21 +25,21 @@ class DMVCNumberHelper : DHelper {
      *            The class needs to be placed in the `Utility` directory.
      *
      * attachedView - The View this helper is being attached to.
-     * @param array<string, mixed> myConfig Configuration settings for the helper
+     * configSettings - Configuration settings for the helper
      * @throws uim.oop.exceptions.UIMException When the engine class could not be found.
      */
-    this(View attachedView, array myConfig = null) {
-      super(attachedView, myConfig);
+    this(View attachedView, Json configSettings = null) {
+      super(attachedView, configSettings);
 
-      myConfig = _config;
+      configSettings = _config;
 
       /** @psalm-var class-string<uim.mvc.i18n\Number>|null $engineClass */
-      $engineClass = App::className(myConfig["engine"], "Utility");
+      $engineClass = App::className(configSettings["engine"], "Utility");
       if ($engineClass is null) {
-          throw new UIMException(sprintf("Class for %s could not be found", myConfig["engine"]));
+          throw new UIMException(sprintf("Class for %s could not be found", configSettings["engine"]));
       }
 
-      _engine = new $engineClass(myConfig);
+      _engine = new $engineClass(configSettings);
     }
 
     void initialize(Json configSetting = Json(null)) {

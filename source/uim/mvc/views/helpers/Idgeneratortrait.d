@@ -13,52 +13,52 @@ import uim.mvc;
  * used in various widget classes.
  */
 /* trait IdGeneratorTrait {
-    // Prefix for id attribute.
-    protected string _idPrefix;
+  // Prefix for id attribute.
+  protected string _idPrefix;
 
-    // A list of id suffixes used in the current rendering.
-    protected string[] _idSuffixes = null;
+  // A list of id suffixes used in the current rendering.
+  protected string[] _idSuffixes = null;
 
-    // Clear the stored ID suffixes.
-    protected void _clearIds() {
-      _idSuffixes = null;
-    } * /
+  // Clear the stored ID suffixes.
+  protected void _clearIds() {
+    _idSuffixes = null;
+  } * /
 
-    /**
-     * Generate an ID attribute for an element.
-     *
-     * Ensures that id"s for a given set of fields are unique.
-     *
-     * @param string myName The ID attribute name.
-     * @param string val The ID attribute value.
-     * @return string Generated id.
-     */
-    /* protected string _id(string idAttributeName, string val) {
-      auto myIdAttributeName = _domId(idAttributeName);
-      $suffix = _idSuffix($val);
+  /**
+    * Generate an ID attribute for an element.
+    *
+    * Ensures that id"s for a given set of fields are unique.
+    *
+    * @param string myName The ID attribute name.
+    * @param string val The ID attribute value.
+    * @return string Generated id.
+    */
+  /* protected string _id(string idAttributeName, string val) {
+    auto myIdAttributeName = _domId(idAttributeName);
+    $suffix = _idSuffix($val);
 
-      return trim(myIdAttributeName ~ "-" ~ $suffix, "-");
-    } */
+    return trim(myIdAttributeName ~ "-" ~ $suffix, "-");
+  } */
 
-    /**
-     * Generate an ID suffix.
-     *
-     * Ensures that id"s for a given set of fields are unique.
-     *
-     * @param string val The ID attribute value.
-     * @return string Generated id suffix.
-     */
-    /* protected string _idSuffix(string val) {
-      $idSuffix = mb_strtolower(replace(["/", "@", "<", ">", " ", """, "\""], "-", $val));
-      myCount = 1;
-      $check = $idSuffix;
-      while (hasAllValues($check, _idSuffixes, true)) {
-          $check = $idSuffix . myCount++;
-      }
-      _idSuffixes ~= $check;
+  /**
+    * Generate an ID suffix.
+    *
+    * Ensures that id"s for a given set of fields are unique.
+    *
+    * @param string val The ID attribute value.
+    * @return string Generated id suffix.
+    */
+  /* protected string _idSuffix(string val) {
+    $idSuffix = mb_strtolower(replace(["/", "@", "<", ">", " ", """, "\""], "-", $val));
+    myCount = 1;
+    $check = $idSuffix;
+    while (hasAllValues($check, _idSuffixes, true)) {
+        $check = $idSuffix . myCount++;
+    }
+    _idSuffixes ~= $check;
 
-      return $check;
-    } */
+    return $check;
+  } */
 
   /**
     * Generate an ID suitable for use in an ID attribute.

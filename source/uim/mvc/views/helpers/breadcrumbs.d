@@ -3,7 +3,7 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel (Sicherheitsschmiede)                                                      
 **********************************************************************************************************/
-module uim.mvc.views.helpers;
+module uim.mvc.views.helpers.breadcrumbs;
 
 @safe:
 import uim.mvc;
@@ -19,12 +19,10 @@ class DBreadcrumbsHelper : DHelper {
 
   /**
     * Sets templates to use.
-    *
-    * someTemplates - Templates to be added.
-    * @return this
+    * templatesToAdd - Templates to be added.
     */
-  auto setTemplates(string[] someTemplates) {
-    _templater().add(myTemplates);
+  auto setTemplates(string[] templatesToAdd) {
+    _templater().add(templatesToAdd);
 
     return this;
   }
@@ -32,10 +30,10 @@ class DBreadcrumbsHelper : DHelper {
   /**
     * Gets templates to use or a specific template.
     *
-    * aTemplate - String for reading a specific template, null for all.
+    * specificTemplate String for reading a specific template, null for all.
     */
-  auto string[] templates(string aTemplate = null) {
-      return _templater().get(aTemplate);
+  auto string[] templates(string specificTemplate = null) {
+      return _templater().get(specificTemplate);
   }
 
   /**
@@ -45,11 +43,11 @@ class DBreadcrumbsHelper : DHelper {
     * myData - The data to insert.
     */
   string formatTemplate(string myName, Json myData) {
-      return _templater().format(myName, myData);
+    return _templater().format(myName, myData);
   }
 
   // Returns the templater instance.
-  StringTemplate templater() {
+  /* StringTemplate templater() {
     if (_templater is null) {
       StringTemplate myClass = isSet(getConfig, "templateClass") ? this.getConfig("templateClass") : StringTemplate::class;
       _templater = new myClass();
@@ -66,19 +64,19 @@ class DBreadcrumbsHelper : DHelper {
     }
 
     return _templater;
-  }
+  } */
     // Other helpers used by BreadcrumbsHelper.
     protected array helpers = ["Url"];
 
     // Default config for the helper.
-    protected Json _defaultConfig = [
+/*     protected Json _defaultConfig = [
         "templates": [
             "wrapper": "<ul{{attrs}}>{{content}}</ul>",
             "item": "<li{{attrs}}><a href="{{url}}"{{innerAttrs}}>{{title}}</a></li>{{separator}}",
             "itemWithoutLink": "<li{{attrs}}><span{{innerAttrs}}>{{title}}</span></li>{{separator}}",
             "separator": "<li{{attrs}}><span{{innerAttrs}}>{{separator}}</span></li>",
         ],
-    ];
+    ]; */
 
     // The crumb list.
     protected array crumbs = null;
@@ -86,7 +84,7 @@ class DBreadcrumbsHelper : DHelper {
     /**
      * Add a crumb to the end of the trail.
      *
-     * @param array|string title If provided as a string, it represents the title of the crumb.
+     * crumbTitles - If provided as a string, it represents the title of the crumb.
      * Alternatively, if you want to add multiple crumbs at once, you can provide an array, with each values being a
      * single crumb. Arrays are expected to be of this form:
      *
@@ -104,19 +102,13 @@ class DBreadcrumbsHelper : DHelper {
      * - *templateVars*: Specific template vars in case you override the templates provided.
      * @return this
      */
-    function add($title, myUrl = null, array myOptions = null) {
-        if (is_array($title)) {
-            foreach ($title as $crumb) {
-                this.crumbs ~= $crumb + ["title": "", "url": null, "options": []];
-            }
+/*     function add(string[] crumbTitles, myUrl = null, array myOptions = null) {
+      foreach (myCrumb; crumbTitles) {
+        this.crumbs ~= $myCrumb + ["title": "", "url": null, "options": []];
+      }
 
-            return this;
-        }
-
-        this.crumbs ~= compact("title", "url", "options");
-
-        return this;
-    }
+      return this;
+    } */
 
     /**
      * Prepend a crumb to the start of the queue.
