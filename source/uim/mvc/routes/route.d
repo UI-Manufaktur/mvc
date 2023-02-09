@@ -15,7 +15,7 @@ class DRoute : DMVCBase, IRoute {
   }
 
   override void initialize(Json configSetting = Json(null)) {
-    super.initialize;
+    super.initialize(configSettings);
   }
 
   mixin(OProperty!("string", "path"));

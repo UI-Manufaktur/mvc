@@ -45,7 +45,7 @@ class DView : DMVCBase, IView {
   mixin(ViewThis!("View"));
 
   override void initialize(Json configSetting = Json(null)) {
-    super.initialize;
+    super.initialize(configSettings);
 
     this
       .layoutName("default");

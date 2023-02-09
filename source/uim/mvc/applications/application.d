@@ -12,7 +12,7 @@ class DMVCApplication : DMVCBase, IMVCApplication {
   this() { initialize; }
 
   override void initialize(Json configSetting = Json(null)) {
-    super.initialize;
+    super.initialize(configSettings);
   }
 
   // #region parameters

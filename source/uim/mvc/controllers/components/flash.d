@@ -16,7 +16,7 @@ class FlashComponent : DControllerComponent {
   mixin(ControllerComponentThis!("FlashControllerComponent"));
   
   override void initialize(Json configSetting = Json(null)) {
-    super.initialize;
+    super.initialize(configSettings);
 
     // Default configuration
     _defaultConfig["key"]= "flash";

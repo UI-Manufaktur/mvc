@@ -14,7 +14,7 @@ import uim.mvc;
  */
 class DMissingActionException : UIMException {
 	override void initialize(Json configSetting = Json(null)) {
-		super.initialize;
+		super.initialize(configSettings);
 		this.messageTemplate("Action %s::%s() could not be found, or is not accessible.");
 	}
 }

@@ -18,7 +18,7 @@ class DController : DMVCBase, IController  {
   // Initialization (= hook method)
   override void initialize(Json configSetting = Json(null)) {
     debugMethodCall(moduleName!DController~"::DController("~this.name~"):initialize");   
-    super.initialize;
+    super.initialize(configSettings);
 
     _autoRender = true;
 

@@ -18,7 +18,7 @@ class DControllerComponent : DMVCBase, IControllerComponent {
   mixin(OProperty!("DControllerComponentRegistry", "registry"));
 
   override void initialize(Json configSetting = Json(null)) {
-    super.initialize;
+    super.initialize(configSettings);
 
     _defaultConfig = Json.emptyObject;
   }

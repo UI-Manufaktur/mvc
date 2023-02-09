@@ -12,7 +12,7 @@ class DMVCPageController : DController {
   mixin(ControllerThis!("MVCPageController"));
 
   override void initialize(Json configSetting = Json(null)) {
-    super.initialize;
+    super.initialize(configSettings);
 
     this
       .language("en") 
