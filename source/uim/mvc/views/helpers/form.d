@@ -926,7 +926,7 @@ string formatTemplate(string myName, array myData) {
     * @return string Completed form controls.
     * @link https://book.UIM.org/4/en/views/helpers/form.html#generating-entire-forms
     */
-  string allControls(array myFields = null, DValueMap someOptions = null) {
+/*   string allControls(array myFields = null, DValueMap someOptions = null) {
     $context = _getContext();
 
     myModelFields = $context.fieldNames();
@@ -937,7 +937,7 @@ string formatTemplate(string myName, array myData) {
     );
 
     return this.controls(myFields, someOptions);
-  }
+  } */
 
   /**
     * Generate a set of controls for `myFields` wrapped in a fieldset element.
@@ -952,7 +952,7 @@ string formatTemplate(string myName, array myData) {
     *
     * @param array myFields An array of the fields to generate. This array allows
     *   you to set custom types, labels, or other options.
-    * @param array<string, mixed> myOptions Options array. Valid keys are:
+    * someOptions Options array. Valid keys are:
     *
     * - `fieldset` Set to false to disable the fieldset. You can also pass an
     *    array of params to be applied as HTML attributes to the fieldset tag.
@@ -962,7 +962,7 @@ string formatTemplate(string myName, array myData) {
     * @return string Completed form inputs.
     * @link https://book.UIM.org/4/en/views/helpers/form.html#generating-entire-forms
     */
-  string controls(array myFields, DValueMap someOptions = null) {
+/*   string controls(array myFields, DValueMap someOptions = null) {
       myFields = Hash::normalize(myFields);
 
       $out = "";
@@ -975,7 +975,7 @@ string formatTemplate(string myName, array myData) {
       }
 
       return this.fieldset($out, myOptions);
-  }
+  } */
 
   /**
     * Wrap a set of inputs in a fieldset

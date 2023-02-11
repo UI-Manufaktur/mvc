@@ -154,7 +154,7 @@ class DMVCDateTimeWidget : DWidget {
     * @return string
     * @throws \InvalidArgumentException If invalid input type is passed.
     */
-  protected string formatDateTime(myValue, array myOptions) {
+  protected string formatDateTime(myValue, DValueMap someOptions) {
       if (myValue == "" || myValue is null) {
           return "";
       }
