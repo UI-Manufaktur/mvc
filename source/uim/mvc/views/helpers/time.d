@@ -278,7 +278,7 @@ class TimeHelper : DHelper {
      * @return string Relative time string.
      * @see uim.mvc.i18n\Time::timeAgoInWords()
      */
-    string timeAgoInWords($dateTime, DValueMap someOptions = null) {
+    string timeAgoInWords($dateTime, DOptions someOptions = null) {
         $element = null;
         myOptions += [
             "element": null,

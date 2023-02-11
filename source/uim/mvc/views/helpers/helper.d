@@ -393,7 +393,7 @@ class DHelper : IEventListener {
     * @param string myKey the key to use for class. Defaults to `"class"`.
     * @return array<string, mixed> Array of options with myKey set.
     */
-  array addClass(DValueMap someOptions, string myClass, string myKey = "class") {
+  array addClass(DOptions someOptions, string myClass, string myKey = "class") {
     if (isSet(myOptions, myKey) && is_array(myOptions[myKey])) {
       myOptions[myKey] ~= myClass;
     } elseif (isSet(myOptions[myKey]) && trim(myOptions[myKey])) {

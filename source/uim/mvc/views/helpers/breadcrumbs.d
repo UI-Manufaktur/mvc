@@ -102,7 +102,7 @@ class DBreadcrumbsHelper : DHelper {
      * - *templateVars*: Specific template vars in case you override the templates provided.
      * @return this
      */
-/*     function add(string[] crumbTitles, myUrl = null, DValueMap someOptions = null) {
+/*     function add(string[] crumbTitles, myUrl = null, DOptions someOptions = null) {
       foreach (myCrumb; crumbTitles) {
         this.crumbs ~= $myCrumb + ["title": "", "url": null, "options": []];
       }
@@ -131,7 +131,7 @@ class DBreadcrumbsHelper : DHelper {
      * - *templateVars*: Specific template vars in case you override the templates provided.
      * @return this
      */
-/*     function prepend($title, myUrl = null, DValueMap someOptions = null) {
+/*     function prepend($title, myUrl = null, DOptions someOptions = null) {
         if (is_array($title)) {
             $crumbs = null;
             foreach ($title as $crumb) {
@@ -168,7 +168,7 @@ class DBreadcrumbsHelper : DHelper {
      * @return this
      * @throws \LogicException In case the index is out of bound
      */
-/*     function insertAt(int $index, string title, myUrl = null, DValueMap someOptions = null) {
+/*     function insertAt(int $index, string title, myUrl = null, DOptions someOptions = null) {
         if (!isSet(this.crumbs, $index)) {
             throw new LogicException(sprintf("No crumb could be found at index '%s'", $index));
         }
@@ -197,7 +197,7 @@ class DBreadcrumbsHelper : DHelper {
      * @return this
      * @throws \LogicException In case the matching crumb can not be found
      */
-/*     function insertBefore(string matchingTitle, string title, myUrl = null, DValueMap someOptions = null) {
+/*     function insertBefore(string matchingTitle, string title, myUrl = null, DOptions someOptions = null) {
         myKey = this.findCrumb($matchingTitle);
 
         if (myKey is null) {
@@ -226,7 +226,7 @@ class DBreadcrumbsHelper : DHelper {
      * @return this
      * @throws \LogicException In case the matching crumb can not be found.
      */
-    function insertAfter(string matchingTitle, string title, myUrl = null, DValueMap someOptions = null) {
+    function insertAfter(string matchingTitle, string title, myUrl = null, DOptions someOptions = null) {
         myKey = this.findCrumb($matchingTitle);
 
         if (myKey is null) {

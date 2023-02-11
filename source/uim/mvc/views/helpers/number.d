@@ -68,7 +68,7 @@ class DMVCNumberHelper : DHelper {
      * @see uim.mvc.i18n\Number::precision()
      * @link https://book.UIM.org/4/en/views/helpers/number.html#formatting-floating-point-numbers
      */
-    string precision($number, int $precision = 3, DValueMap someOptions = null) {
+    string precision($number, int $precision = 3, DOptions someOptions = null) {
         return _engine.precision($number, $precision, myOptions);
     }
 
@@ -97,7 +97,7 @@ class DMVCNumberHelper : DHelper {
      * returns  Percentage string
      * @see uim.mvc.i18n\Number::toPercentage()
      */
-    string toPercentage($number, int $precision = 2, DValueMap someOptions = null) {
+    string toPercentage($number, int $precision = 2, DOptions someOptions = null) {
       return _engine.toPercentage($number, $precision, myOptions);
     }
 
@@ -118,7 +118,7 @@ class DMVCNumberHelper : DHelper {
      * @return string Formatted number
      * @link https://book.UIM.org/4/en/views/helpers/number.html#formatting-numbers
      */
-    string format($number, DValueMap someOptions = null) {
+    string format($number, DOptions someOptions = null) {
         $formatted = _engine.format($number, myOptions);
         myOptions += ["escape": true];
 
@@ -149,7 +149,7 @@ class DMVCNumberHelper : DHelper {
      * @param array<string, mixed> myOptions Options list.
      * @return string Number formatted as a currency.
      */
-    string currency($number, Nullable!string currency = null, DValueMap someOptions = null) {
+    string currency($number, Nullable!string currency = null, DOptions someOptions = null) {
         $formatted = _engine.currency($number, $currency, myOptions);
         myOptions += ["escape": true];
 
@@ -172,7 +172,7 @@ class DMVCNumberHelper : DHelper {
      * @param array<string, mixed> myOptions Options list.
      * @return string formatted delta
      */
-    string formatDelta(myValue, DValueMap someOptions = null) {
+    string formatDelta(myValue, DOptions someOptions = null) {
         $formatted = _engine.formatDelta(myValue, myOptions);
       myOptions["escape"] = true;
 
@@ -212,7 +212,7 @@ class DMVCNumberHelper : DHelper {
      * @param array<string, mixed> myOptions An array with options.
      * @return string formatted number
      */
-    string ordinal(myValue, DValueMap someOptions = null) {
+    string ordinal(myValue, DOptions someOptions = null) {
         return _engine.ordinal(myValue, myOptions);
     }
 }

@@ -15,11 +15,11 @@ import uim.mvc;
  *
  * Automatic generation of HTML FORMs from given data.
  *
- * @method string text(string myFieldName, DValueMap someOptions = null) Creates input of type text.
- * @method string number(string myFieldName, DValueMap someOptions = null) Creates input of type number.
- * @method string email(string myFieldName, DValueMap someOptions = null) Creates input of type email.
- * @method string password(string myFieldName, DValueMap someOptions = null) Creates input of type password.
- * @method string search(string myFieldName, DValueMap someOptions = null) Creates input of type search.
+ * @method string text(string myFieldName, DOptions someOptions = null) Creates input of type text.
+ * @method string number(string myFieldName, DOptions someOptions = null) Creates input of type number.
+ * @method string email(string myFieldName, DOptions someOptions = null) Creates input of type email.
+ * @method string password(string myFieldName, DOptions someOptions = null) Creates input of type password.
+ * @method string search(string myFieldName, DOptions someOptions = null) Creates input of type search.
  * @property uim.mvc.views\Helper\HtmlHelper $Html
  * @property uim.mvc.views\Helper\UrlHelper myUrl
  * @link https://book.UIM.org/4/en/views/helpers/form.html
@@ -858,7 +858,7 @@ string formatTemplate(string myName, array myData) {
     * @return string The formatted LABEL element
     * @link https://book.UIM.org/4/en/views/helpers/form.html#creating-labels
     */
-  /* string label(string myFieldName, Nullable!string text = null, DValueMap someOptions = null) {
+  /* string label(string myFieldName, Nullable!string text = null, DOptions someOptions = null) {
       if ($text is null) {
           $text = myFieldName;
           if (substr($text, -5) == "._ids") {
@@ -926,7 +926,7 @@ string formatTemplate(string myName, array myData) {
     * @return string Completed form controls.
     * @link https://book.UIM.org/4/en/views/helpers/form.html#generating-entire-forms
     */
-/*   string allControls(array myFields = null, DValueMap someOptions = null) {
+/*   string allControls(array myFields = null, DOptions someOptions = null) {
     $context = _getContext();
 
     myModelFields = $context.fieldNames();
@@ -962,7 +962,7 @@ string formatTemplate(string myName, array myData) {
     * @return string Completed form inputs.
     * @link https://book.UIM.org/4/en/views/helpers/form.html#generating-entire-forms
     */
-/*   string controls(array myFields, DValueMap someOptions = null) {
+/*   string controls(array myFields, DOptions someOptions = null) {
       myFields = Hash::normalize(myFields);
 
       $out = "";
@@ -990,7 +990,7 @@ string formatTemplate(string myName, array myData) {
     *    to customize the legend text.
     * @return string Completed form inputs.
     */
-  string fieldset(string myFields = "", DValueMap someOptions = null) {
+  string fieldset(string myFields = "", DOptions someOptions = null) {
       $legend = myOptions["legend"] ?? true;
       myFieldset = myOptions["fieldset"] ?? true;
       $context = _getContext();
@@ -1056,7 +1056,7 @@ string formatTemplate(string myName, array myData) {
     * @psalm-suppress InvalidReturnType
     * @psalm-suppress InvalidReturnStatement
     */
-  string control(string myFieldName, DValueMap someOptions = null) {
+  string control(string myFieldName, DOptions someOptions = null) {
       myOptions += [
           "type": null,
           "label": null,
@@ -1174,7 +1174,7 @@ string formatTemplate(string myName, array myData) {
     * @param array<string, mixed> myOptions The options for group template
     * @return string The generated group template
     */
-  protected string _groupTemplate(DValueMap someOptions) {
+  protected string _groupTemplate(DOptions someOptions) {
       myGroupTemplate = myOptions["options"]["type"] ~ "FormGroup";
       if (!_templater().get(myGroupTemplate)) {
           myGroupTemplate = "formGroup";
@@ -1194,7 +1194,7 @@ string formatTemplate(string myName, array myData) {
     * @param array<string, mixed> myOptions The options for input container template
     * @return string The generated input container template
     */
-  protected string _inputContainerTemplate(DValueMap someOptions) {
+  protected string _inputContainerTemplate(DOptions someOptions) {
       $inputContainerTemplate = myOptions["options"]["type"] ~ "Container" ~ myOptions["errorSuffix"];
       if (!_templater().get($inputContainerTemplate)) {
           $inputContainerTemplate = "inputContainer" ~ myOptions["errorSuffix"];
@@ -1217,7 +1217,7 @@ string formatTemplate(string myName, array myData) {
     * @return array|string The generated input element string
     *  or array if checkbox() is called with option "hiddenField" set to "_split".
     */
-  protected auto _getInput(string myFieldName, DValueMap someOptions) {
+  protected auto _getInput(string myFieldName, DOptions someOptions) {
       $label = myOptions["labelOptions"];
       unset(myOptions["labelOptions"]);
       switch (myOptions["type"]).toLower) {
@@ -1246,7 +1246,7 @@ string formatTemplate(string myName, array myData) {
     * @param array<string, mixed> myOptions Options list.
     * @return array<string, mixed> Options
     */
-  protected auto _parseOptions(string myFieldName, DValueMap someOptions)array
+  protected auto _parseOptions(string myFieldName, DOptions someOptions)array
   {
       $needsMagicType = false;
       if (empty(myOptions["type"])) {
@@ -1268,7 +1268,7 @@ string formatTemplate(string myName, array myData) {
     * @param array<string, mixed> myOptions the options passed to the input method
     * @return string
     */
-  protected string _inputType(string myFieldName, DValueMap someOptions) {
+  protected string _inputType(string myFieldName, DOptions someOptions) {
       $context = _getContext();
 
       if ($context.isPrimaryKey(myFieldName)) {
@@ -1315,7 +1315,7 @@ string formatTemplate(string myName, array myData) {
     * @param array<string, mixed> myOptions Options list.
     * @return array
     */
-  protected array _optionsOptions(string myFieldName, DValueMap someOptions) {
+  protected array _optionsOptions(string myFieldName, DOptions someOptions) {
       if (isSet(myOptions, "options")) {
           return myOptions;
       }
@@ -1353,7 +1353,7 @@ string formatTemplate(string myName, array myData) {
     * overwrite the "type" key in options.
     * @return array<string, mixed>
     */
-  protected array _magicOptions(string myFieldName, DValueMap someOptions, bool $allowOverride) {
+  protected array _magicOptions(string myFieldName, DOptions someOptions, bool $allowOverride) {
       myOptions += [
           "templateVars": [],
       ];
@@ -1383,7 +1383,7 @@ string formatTemplate(string myName, array myData) {
     * @param array<string, mixed> myOptions Options list.
     * @return array<string, mixed> Modified options list.
     */
-  protected auto setRequiredAndCustomValidity(string myFieldName, DValueMap someOptions) {
+  protected auto setRequiredAndCustomValidity(string myFieldName, DOptions someOptions) {
       $context = _getContext();
 
       if (!isSet(myOptions, "required") && myOptions["type"] != "hidden") {
@@ -1414,7 +1414,7 @@ string formatTemplate(string myName, array myData) {
     * @param array<string, mixed> myOptions Options list.
     * @return string|false Generated label element or false.
     */
-  protected auto _getLabel(string myFieldName, DValueMap someOptions) {
+  protected auto _getLabel(string myFieldName, DOptions someOptions) {
       if (myOptions["type"] == "hidden") {
           return false;
       }
@@ -1439,7 +1439,7 @@ string formatTemplate(string myName, array myData) {
     * @param mixed $default The default option value
     * @return mixed the contents of the option or default
     */
-  protected auto _extractOption(string myName, DValueMap someOptions, $default = null) {
+  protected auto _extractOption(string myName, DOptions someOptions, $default = null) {
       if (array_key_exists(myName, myOptions)) {
           return myOptions[myName];
       }
@@ -1458,7 +1458,7 @@ string formatTemplate(string myName, array myData) {
     * @param array<string, mixed> myOptions Options for the label element.
     * @return string Generated label element
     */
-  protected string _inputLabel(string myFieldName, $label = null, DValueMap someOptions = null) {
+  protected string _inputLabel(string myFieldName, $label = null, DOptions someOptions = null) {
       myOptions += ["id": null, "input": null, "nestedInput": false, "templateVars": []];
       $labelAttributes = ["templateVars": myOptions["templateVars"]];
       if (is_array($label)) {
@@ -1504,7 +1504,7 @@ string formatTemplate(string myName, array myData) {
     * @param array<string, mixed> myOptions Array of HTML attributes.
     * @link https://book.UIM.org/4/en/views/helpers/form.html#creating-checkboxes
     */
-  string[] checkbox(string myFieldName, DValueMap someOptions = null) {
+  string[] checkbox(string myFieldName, DOptions someOptions = null) {
       myOptions += ["hiddenField": true, "value": 1];
 
       // Work around value=>val translations.
@@ -1629,7 +1629,7 @@ string formatTemplate(string myName, array myData) {
     * @return string A generated HTML text input element
     * @link https://book.UIM.org/4/en/views/helpers/form.html#creating-textareas
     */
-  string textarea(string myFieldName, DValueMap someOptions = null) {
+  string textarea(string myFieldName, DOptions someOptions = null) {
       myOptions = _initInputField(myFieldName, myOptions);
       unset(myOptions["type"]);
 
@@ -1644,7 +1644,7 @@ string formatTemplate(string myName, array myData) {
     * @return string A generated hidden input
     * @link https://book.UIM.org/4/en/views/helpers/form.html#creating-hidden-inputs
     */
-  string hidden(string myFieldName, DValueMap someOptions = null) {
+  string hidden(string myFieldName, DOptions someOptions = null) {
       myOptions += ["required": false, "secure": true];
 
       $secure = myOptions["secure"];
@@ -1676,7 +1676,7 @@ string formatTemplate(string myName, array myData) {
     * @return string A generated file input.
     * @link https://book.UIM.org/4/en/views/helpers/form.html#creating-file-inputs
     */
-  string file(string myFieldName, DValueMap someOptions = null) {
+  string file(string myFieldName, DOptions someOptions = null) {
       myOptions += ["secure": true];
       myOptions = _initInputField(myFieldName, myOptions);
 
@@ -1700,7 +1700,7 @@ string formatTemplate(string myName, array myData) {
     * @return string A HTML button tag.
     * @link https://book.UIM.org/4/en/views/helpers/form.html#creating-button-elements
     */
-  string button(string title, DValueMap someOptions = null) {
+  string button(string title, DOptions someOptions = null) {
       myOptions += [
           "type": "submit",
           "escapeTitle": true,
@@ -1745,7 +1745,7 @@ string formatTemplate(string myName, array myData) {
     * @return string A HTML button tag.
     * @link https://book.UIM.org/4/en/views/helpers/form.html#creating-standalone-buttons-and-post-links
     */
-  string postButton(string title, myUrl, DValueMap someOptions = null) {
+  string postButton(string title, myUrl, DOptions someOptions = null) {
       $formOptions = ["url": myUrl];
       if (isSet(myOptions, "method")) {
           $formOptions["type"] = myOptions["method"];
@@ -1797,7 +1797,7 @@ string formatTemplate(string myName, array myData) {
     * @return string An `<a />` element.
     * @link https://book.UIM.org/4/en/views/helpers/form.html#creating-standalone-buttons-and-post-links
     */
-  string postLink(string title, myUrl = null, DValueMap someOptions = null) {
+  string postLink(string title, myUrl = null, DOptions someOptions = null) {
       myOptions += ["block": null, "confirm": null];
 
       myRequestMethod = "POST";
@@ -1907,7 +1907,7 @@ string formatTemplate(string myName, array myData) {
     * @return string A HTML submit button
     * @link https://book.UIM.org/4/en/views/helpers/form.html#creating-buttons-and-submit-elements
     */
-  string submit(Nullable!string caption = null, DValueMap someOptions = null) {
+  string submit(Nullable!string caption = null, DOptions someOptions = null) {
       if ($caption is null) {
           $caption = __d("cake", "Submit");
       }
@@ -2148,7 +2148,7 @@ string formatTemplate(string myName, array myData) {
     * @return string Completed year select input
     * @link https://book.UIM.org/4/en/views/helpers/form.html#creating-year-inputs
     */
-  string year(string myFieldName, DValueMap someOptions = null) {
+  string year(string myFieldName, DOptions someOptions = null) {
       myOptions += [
           "empty": true,
       ];
@@ -2168,7 +2168,7 @@ string formatTemplate(string myName, array myData) {
     * @param string myFieldName The field name.
     * @param array<string, mixed> myOptions Array of options or HTML attributes.
     */
-  string month(string myFieldName, DValueMap someOptions = null) {
+  string month(string myFieldName, DOptions someOptions = null) {
       myOptions += [
           "value": null,
       ];
@@ -2190,7 +2190,7 @@ string formatTemplate(string myName, array myData) {
     * @param string myFieldName The field name.
     * @param array<string, mixed> myOptions Array of options or HTML attributes.
     */
-  string dateTime(string myFieldName, DValueMap someOptions = null) {
+  string dateTime(string myFieldName, DOptions someOptions = null) {
       myOptions += [
           "value": null,
       ];
@@ -2211,7 +2211,7 @@ string formatTemplate(string myName, array myData) {
     * @param string myFieldName The field name.
     * @param array<string, mixed> myOptions Array of options or HTML attributes.
     */
-  string time(string myFieldName, DValueMap someOptions = null) {
+  string time(string myFieldName, DOptions someOptions = null) {
       myOptions += [
           "value": null,
       ];
@@ -2264,7 +2264,7 @@ string formatTemplate(string myName, array myData) {
     * @param array<string, mixed>|array<string> myOptions Array of options to append options into.
     * @return array<string, mixed> Array of options for the input.
     */
-  protected array _initInputField(string myField, DValueMap someOptions = null) {
+  protected array _initInputField(string myField, DOptions someOptions = null) {
       myOptions += ["fieldName": myField];
 
       if (!isSet(myOptions, "secure")) {
@@ -2327,7 +2327,7 @@ string formatTemplate(string myName, array myData) {
     * @param array<string, mixed> myOptions The option set.
     * @return bool Whether the field is disabled.
     */
-  protected bool _isDisabled(DValueMap someOptions) {
+  protected bool _isDisabled(DOptions someOptions) {
       if (!isSet(myOptions["disabled"])) {
           return false;
       }
@@ -2531,7 +2531,7 @@ string formatTemplate(string myName, array myData) {
     * @param array<string, mixed> myOptions The options containing default values.
     * @return mixed Field value derived from sources or defaults.
     */
-  auto getSourceValue(string myFieldname, DValueMap someOptions = null) {
+  auto getSourceValue(string myFieldname, DOptions someOptions = null) {
     myValueMap = [
         "data": "getData",
         "query": "getQuery",
