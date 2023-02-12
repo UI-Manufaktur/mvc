@@ -13,7 +13,7 @@ class DMVCLoginForm : DForm {
 
   mixin(OProperty!("bool", "showLostAccount"));
 
-  override void initialize(DConfig configSetting = null) {
+  override void initialize(DConfig configSettings = null) {
     super.initialize(configSettings);
 
     this.showLostAccount(true);

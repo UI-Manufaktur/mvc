@@ -11,7 +11,7 @@ import uim.mvc;
 class DMVCNullComponent : DViewComponent {
   mixin(ViewComponentThis!("MVCNullComponent"));
   
-  override void initialize(DConfig configSetting = null) {
+  override void initialize(DConfig configSettings = null) {
     super.initialize(configSetting); 
 
 /*     this */
