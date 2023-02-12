@@ -7,7 +7,7 @@ class DMVCPageViewComponent
  : DViewComponent {
   mixin(ViewComponentThis!("MVCPageViewComponent"));
   
-  override void initialize(Json configSetting = Json(null)) {
+  override void initialize(DConfig configSetting = null) {
     this
       .header(MVCPageHeader)
       .body_(MVCPageBody)
