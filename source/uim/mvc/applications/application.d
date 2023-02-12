@@ -26,7 +26,7 @@ class DMVCApplication : DMVCBase, IMVCApplication {
 
   // Interfaces
   mixin(OProperty!("DETBBase", "database"));
-  mixin(OProperty!("DMVCLayout", "layout"));
+  mixin(OProperty!("DLayout", "layout"));
   mixin(OProperty!("DRoute[HTTPMethod][string]", "routes"));
 
   // Main Containers - Allways first

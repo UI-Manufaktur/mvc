@@ -36,7 +36,7 @@ class DMVCPageController : DController {
   mixin(OProperty!("DMVCScriptContainer", "scripts"));
   mixin(OProperty!("DMVCStyleContainer", "styles"));
 
-  mixin(OProperty!("DMVCLayout", "layout"));
+  mixin(OProperty!("DLayout", "layout"));
 
   override void beforeResponse(STRINGAA options = null) {
     debugMethodCall(moduleName!DMVCPageController~":DMVCPageController("~this.name~")::beforeResponse");

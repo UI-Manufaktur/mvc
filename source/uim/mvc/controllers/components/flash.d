@@ -21,7 +21,7 @@ class FlashComponent : DControllerComponent {
     // Default configuration
     _defaultConfig["key"] = "flash";
     _defaultConfig["element"] = "default";
-    _defaultConfig["params"] = [];
+    _defaultConfig["params"] = ArrayValue;
     _defaultConfig["clear"] = false;
     _defaultConfig["duplicate"] = true;
   }

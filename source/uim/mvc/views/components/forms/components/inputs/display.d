@@ -7,7 +7,7 @@ class DMVCDisplayFormInput : DMVCTextFormInput {
   mixin(ViewComponentThis!("MVCDisplayFormInput"));
 
   override void initialize(DConfig configSettings = null) {
-    super.initialize(configSetting);
+    super.initialize(configSettings);
 
     this
     .id("entity_display")

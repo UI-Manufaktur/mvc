@@ -63,10 +63,10 @@ class DView : DMVCBase, IView {
   // #endregion Properties
 
   // Helpers collection
-  protected DVIWHelperRegistry _helpers;
+  // protected DVIWHelperRegistry _helpers;
 
   // ViewBlock instance.
-  protected DViewBlock viewBlock;
+  // protected DViewBlock viewBlock;
 
   // The name of the plugin.
   protected string _pluginName;

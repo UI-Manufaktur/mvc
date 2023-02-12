@@ -3,7 +3,7 @@ module uim.mvc.mixins.view;
 @safe:
 import uim.mvc;
 
-string ViewThis(string name) {
+auto viewThis(string name) {
   return 
     mvcBaseThis(name)~
   `
@@ -12,10 +12,10 @@ string ViewThis(string name) {
 }
 
 template ViewThis(string name) {
-  const char[] ViewThis = ViewThis(name);
+  const char[] ViewThis = viewThis(name);
 }
 
-string ViewCalls(string shortName, string className) {
+string viewCalls(string shortName, string className) {
   return `
     auto `~shortName~`() { return new `~className~`; }
     auto `~shortName~`(DMVCApplication myApplication) { return new `~className~`(myApplication); }
@@ -31,5 +31,5 @@ string ViewCalls(string shortName, string className) {
 }
 
 template ViewCalls(string shortName, string className) {
-  const char[] ViewCalls = ViewCalls(shortName, className);
+  const char[] ViewCalls = viewCalls(shortName, className);
 }

@@ -31,7 +31,7 @@ class DFormInput : DMVCEntityViewComponent {
   // #endregion Fields
 
   override void initialize(DConfig configSettings = null) {
-    super.initialize(configSetting);
+    super.initialize(configSettings);
 
     this
       .id("forminput-%s".format(uniform(1, 1_000)))

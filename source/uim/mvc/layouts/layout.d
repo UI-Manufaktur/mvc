@@ -10,18 +10,18 @@ import uim.mvc;
 
 enum DataModes { Local, REST }
 
-class DMVCLayout : DMVCBase, IMVCLayout{
+class DLayout : DMVCBase, ILayout{
   this() {
-    initialize(configSetting); }
+    initialize(configSettings); }
 
   override void initialize(DConfig configSettings = null) {
-    debug writeln("Initialize 'MVCLayout'"); 
+    debug writeln("Initialize 'Layout'"); 
     super.initialize(configSettings);
  
     // Default settings
     this
-      .name("MVCLayout")
-      .title("MVCLayout")
+      .name("Layout")
+      .title("Layout")
       .layoutStyle("tabler")
       .links(MVCLinkContainer) 
       .metas(MVCMetaContainer) 
@@ -93,7 +93,7 @@ class DMVCLayout : DMVCBase, IMVCLayout{
   mixin(OProperty!("string[]", "headClasses"));
   mixin(OProperty!("STRINGAA", "bodyAttributes"));
   mixin(OProperty!("string[]", "bodyClasses"));
-  mixin(OProperty!("DMVCLayout", "layout"));
+  mixin(OProperty!("DLayout", "layout"));
   mixin(OProperty!("Json", "config"));
 
   // Containers
@@ -108,7 +108,7 @@ class DMVCLayout : DMVCBase, IMVCLayout{
   protected DH5Obj[] myStyles;
   protected DH5Obj[] myScripts;
   void beforeRender(STRINGAA options = null) {
-		debugMethodCall(moduleName!DMVCLayout~":DMVCLayout("~this.name~")::beforeRender");
+		debugMethodCall(moduleName!DLayout~":DLayout("~this.name~")::beforeRender");
 
     myMetas = null;
     myLinks = null;
@@ -131,7 +131,7 @@ class DMVCLayout : DMVCBase, IMVCLayout{
 	}
 
 	string render(DMVCPageController controller, DView view, STRINGAA options = null) { 
-		debugMethodCall(moduleName!DMVCLayout~":DMVCLayout("~this.name~")::render(DMVCPageController controller, DView view, STRINGAA options = null)");
+		debugMethodCall(moduleName!DLayout~":DLayout("~this.name~")::render(DMVCPageController controller, DView view, STRINGAA options = null)");
     if (view) {
       debug writeln("view is -> ", view.name);
 		  return render(controller, view.toH5(options), options);
@@ -143,7 +143,7 @@ class DMVCLayout : DMVCBase, IMVCLayout{
 	}
 
 	string render(DMVCPageController controller, DH5Obj[] h5Objs, STRINGAA options = null) { 
-		debugMethodCall(moduleName!DMVCLayout~":DMVCLayout("~this.name~")::render(DMVCPageController controller, DH5Obj[] h5Objs, STRINGAA options = null)");
+		debugMethodCall(moduleName!DLayout~":DLayout("~this.name~")::render(DMVCPageController controller, DH5Obj[] h5Objs, STRINGAA options = null)");
 		if (h5Objs) {
       return render(controller, h5Objs.map!(h5 => h5.toString).join, options);
     }
@@ -152,7 +152,7 @@ class DMVCLayout : DMVCBase, IMVCLayout{
 
 
 	string render(DMVCPageController controller, string content, STRINGAA options = null) { 
-		debugMethodCall(moduleName!DMVCLayout~":DMVCLayout("~this.name~")::render(DMVCPageController controller, string content, STRINGAA options = null)");
+		debugMethodCall(moduleName!DLayout~":DLayout("~this.name~")::render(DMVCPageController controller, string content, STRINGAA options = null)");
 		beforeRender(options);
 
     debug writeln("myMetas = ", myMetas);
@@ -210,9 +210,9 @@ class DMVCLayout : DMVCBase, IMVCLayout{
 	}
 version(test_uim_mvc) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
-		// writeln(H5MVCLayout);
-		// assert(H5MVCLayout.render == `<!doctype html><html dir="ltr" lang="en"><head></head><body></body></html>`);
-		//assert(H5MVCLayout()("xxx") == `<!doctype html><html dir="ltr" lang="en"><head></head><body>xxx</body></html>`);
+		// writeln(H5Layout);
+		// assert(H5Layout.render == `<!doctype html><html dir="ltr" lang="en"><head></head><body></body></html>`);
+		//assert(H5Layout()("xxx") == `<!doctype html><html dir="ltr" lang="en"><head></head><body>xxx</body></html>`);
 	}}
 
   void renderHead(DH5Html html, string[] classes, STRINGAA attributes, string content, STRINGAA options = null) {

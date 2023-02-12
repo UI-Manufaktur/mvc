@@ -12,7 +12,7 @@ class DMVCNullComponent : DViewComponent {
   mixin(ViewComponentThis!("MVCNullComponent"));
   
   override void initialize(DConfig configSettings = null) {
-    super.initialize(configSetting); 
+    super.initialize(configSettings); 
 
 /*     this */
 /*     .isNull(true)  */

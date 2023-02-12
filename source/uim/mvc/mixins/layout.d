@@ -8,16 +8,16 @@ module uim.mvc.mixins.layout;
 @safe:
 import uim.mvc;
 
-string mvcLayoutThis(string name) {
+string LayoutThis(string name) {
   return
     mvcBaseThis(name);
 }
 
-template MVCLayoutThis(string name) {
-  const char[] MVCLayoutThis = mvcLayoutThis(name);
+template LayoutThis(string name) {
+  const char[] LayoutThis = LayoutThis(name);
 }
 
-string mvcLayoutCalls(string shortName, string className) {
+string LayoutCalls(string shortName, string className) {
   return `
     auto `~shortName~`() { return new `~className~`; }
     auto `~shortName~`(DMVCApplication myApplication) { return new `~className~`(myApplication); }
@@ -31,6 +31,6 @@ string mvcLayoutCalls(string shortName, string className) {
   `;
 }
 
-template MVCLayoutCalls(string shortName, string className) {
-  const char[] MVCLayoutCalls = mvcLayoutCalls(shortName, className);
+template LayoutCalls(string shortName, string className) {
+  const char[] LayoutCalls = LayoutCalls(shortName, className);
 }
