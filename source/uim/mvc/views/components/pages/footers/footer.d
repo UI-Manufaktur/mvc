@@ -6,7 +6,7 @@ import uim.mvc;
 class DMVCPageFooterViewComponent : DViewComponent {
   mixin(ViewComponentThis!("MVCPageFooterViewComponent"));
 
-  override void initialize(DConfig configSetting = null) {
+  override void initialize(DConfig configSettings = null) {
     super.initialize(configSettings); 
     
     this

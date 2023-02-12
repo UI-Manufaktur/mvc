@@ -7,7 +7,7 @@ class DMVCPageViewComponent
  : DViewComponent {
   mixin(ViewComponentThis!("MVCPageViewComponent"));
   
-  override void initialize(DConfig configSetting = null) {
+  override void initialize(DConfig configSettings = null) {
     this
       .header(MVCPageHeader)
       .body_(MVCPageBody)
