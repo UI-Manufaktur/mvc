@@ -13,7 +13,7 @@ import uim.mvc;
  * cannot be found, or when the controller"s isAction() method returns false.
  */
 class DMissingActionException : UIMException {
-	override void initialize(Json configSetting = Json(null)) {
+	override void initialize(DConfig configSetting = null) {
 		super.initialize(configSettings);
 		this.messageTemplate("Action %s::%s() could not be found, or is not accessible.");
 	}

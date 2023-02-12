@@ -11,7 +11,7 @@ import uim.mvc;
 class DMVCPageController : DController {
   mixin(ControllerThis!("MVCPageController"));
 
-  override void initialize(Json configSetting = Json(null)) {
+  override void initialize(DConfig configSetting = null) {
     super.initialize(configSettings);
 
     this

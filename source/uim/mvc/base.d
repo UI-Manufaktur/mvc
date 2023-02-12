@@ -25,7 +25,7 @@ class DMVCBase : IMVCBase {
   this(string newName, string[string] newParameters) { this(newName).parameters(newParameters); }
   this(DMVCApplication newApplication, string newName, string[string] newParameters) { this(newApplication, newName).parameters(newParameters); }
 
-  void initialize(Json configSetting = Json(null)) {
+  void initialize(DConfig configSetting = null) {
     // Code for object initialization
     this
       .name("MVCBase");

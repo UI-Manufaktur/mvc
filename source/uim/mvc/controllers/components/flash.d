@@ -15,14 +15,14 @@ import uim.mvc;
 class FlashComponent : DControllerComponent {
   mixin(ControllerComponentThis!("FlashControllerComponent"));
   
-  override void initialize(Json configSetting = Json(null)) {
+  override void initialize(DConfig configSetting = null) {
     super.initialize(configSettings);
 
     // Default configuration
-    _defaultConfig["key"]= "flash";
-    _defaultConfig["element"]= "default";
-    _defaultConfig["params"]= [];
-    _defaultConfig["clear"]= false;
-    _defaultConfig["duplicate"]= true;
+    _defaultConfig["key"] = "flash";
+    _defaultConfig["element"] = "default";
+    _defaultConfig["params"] = [];
+    _defaultConfig["clear"] = false;
+    _defaultConfig["duplicate"] = true;
   }
 }

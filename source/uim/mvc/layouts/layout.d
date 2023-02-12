@@ -14,7 +14,7 @@ class DMVCLayout : DMVCBase, IMVCLayout{
   this() {
     initialize(configSetting); }
 
-  override void initialize(Json configSetting = Json(null)) {
+  override void initialize(DConfig configSetting = null) {
     debug writeln("Initialize 'MVCLayout'"); 
     super.initialize(configSettings);
  
