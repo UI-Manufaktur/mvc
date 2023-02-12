@@ -10,7 +10,7 @@ import uim.mvc;
 
 // Used when a component cannot be found.
 class DMissingComponentException : DUIMException {
-	override void initialize(DConfig configSettings = null) {
+	override void initialize(DConfigurationValue configSettings = null) {
 		super.initialize(configSettings);
   	this.messageTemplate("Component class %s could not be found.");
 	}

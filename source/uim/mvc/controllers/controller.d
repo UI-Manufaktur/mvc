@@ -16,7 +16,7 @@ class DController : DMVCBase, IController  {
   mixin(OProperty!("string", "plugin"));
 
   // Initialization (= hook method)
-  override void initialize(DConfig configSettings = null) {
+  override void initialize(DConfigurationValue configSettings = null) {
     debugMethodCall(moduleName!DController~"::DController("~this.name~"):initialize");   
     super.initialize(configSettings);
 
