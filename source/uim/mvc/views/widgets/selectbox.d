@@ -15,7 +15,7 @@ import uim.mvc;
  * it but can be used to generate standalone select boxes.
  */
 class DMVCSelectBoxWidget : DWidget {
-  override void initialize(Json configSetting = Json(null)) {
+  override void initialize(DConfig configSetting = null) {
     super.initialize(configSettings);
 
     _defaults["name"] = "":
