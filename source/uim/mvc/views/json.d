@@ -8,4 +8,4 @@ module uim.mvc.views.json;
 @safe:
 import uim.mvc;
 
-class DJsonView : DView {
+class DJsonView : DView {}
