@@ -30,7 +30,7 @@ class DFormInput : DMVCEntityViewComponent {
     // mixin(OProperty!("DMVCPanes", "panes"));
   // #endregion Fields
 
-  override void initialize(DConfig configSettings = null) {
+  override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
 
     this
