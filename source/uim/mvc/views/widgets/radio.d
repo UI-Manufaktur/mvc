@@ -96,7 +96,7 @@ class DMVCRadioWidget : DWidget {
     _label = aLabel;
   }
 
-  override void initialize(DConfig configSetting = null) {
+  override void initialize(DConfig configSettings = null) {
     super.initialize(configSettings);
             
     _defaults["name"] = "";

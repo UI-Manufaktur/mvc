@@ -10,7 +10,7 @@ import uim.mvc;
  * it but can be used to generate standalone calendar year select boxes.
  */
 class DMVCYearWidget : DWidget {
-  override void initialize(DConfig configSetting = null) {
+  override void initialize(DConfig configSettings = null) {
     super.initialize(configSettings);
         
     _defaults["name"] = "";
