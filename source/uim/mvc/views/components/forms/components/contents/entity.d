@@ -11,7 +11,7 @@ import uim.mvc;
 class DMVCEntityFormContent : DFormContent {
   mixin(ViewComponentThis!("MVCEntityFormContent"));
 
-  override void initialize(DConfig configSettings = null) {
+  override void initialize(DConfigurationValue configSettings = null) {
     debugMethodCall(moduleName!DMVCEntityFormContent~"::DMVCEntityFormContent("~this.name~"):initialize");   
     super.initialize(configSettings);
 
