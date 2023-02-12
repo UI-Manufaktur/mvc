@@ -6,7 +6,7 @@ import uim.mvc;
 class DMVCEditPageHeaderViewComponent : DMVCPageHeaderViewComponent {
   mixin(ViewComponentThis!("MVCEditPageHeaderViewComponent"));
   
-  override void initialize(DConfig configSettings = null) {
+  override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
 
     this

@@ -6,7 +6,7 @@ import uim.mvc;
 class DMVCDeletePageHeaderViewComponent : DMVCPageHeaderViewComponent {
   mixin(ViewComponentThis!("MVCDeletePageHeaderViewComponent"));
   
-  override void initialize(DConfig configSettings = null) {
+  override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
 
     this

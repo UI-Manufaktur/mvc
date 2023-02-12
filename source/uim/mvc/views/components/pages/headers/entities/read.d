@@ -6,7 +6,7 @@ import uim.mvc;
 class DMVCReadPageHeaderViewComponent : DMVCPageHeaderViewComponent {
   mixin(ViewComponentThis!("MVCReadPageHeaderViewComponent"));
   
-  override void initialize(DConfig configSettings = null) {
+  override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
   }
 }

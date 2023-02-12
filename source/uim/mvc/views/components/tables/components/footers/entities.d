@@ -14,7 +14,7 @@ class DMVCEntitiesTableFooter : DTableFooter {
   mixin(OProperty!("size_t", "pageNo"));
   mixin(OProperty!("size_t", "visibleEntities"));
 
-  override void initialize(DConfig configSettings = null) {
+  override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
 
     this
