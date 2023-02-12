@@ -3,7 +3,7 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel (Sicherheitsschmiede)                                                      
 **********************************************************************************************************/
-module uim.mvc.views.helpers;
+module uim.mvc.views.helpers.form;
 
 @safe:
 import uim.mvc;
@@ -213,7 +213,7 @@ string formatTemplate(string myName, array myData) {
     * @param uim.mvc.views\View $view The View this helper is being attached to.
     * configSetting Configuration - settings for the helper.
     */
-  /* this(View owningView, DConfig configSetting = null) {
+  /* this(View owningView, DConfig configSettings = null) {
       $locator = null;
       $widgets = _defaultWidgets;
       if (isSet(configSetting, "locator")) {
@@ -242,7 +242,7 @@ string formatTemplate(string myName, array myData) {
       _idPrefix = this.getConfig("idPrefix");
   } */
 
-  void initialize(DConfig configSetting = null) {
+  void initialize(DConfig configSettings = null) {
     super.initialize(configSetting);
 
     _helpers ~= ["Url", "Html"];
@@ -1215,7 +1215,7 @@ string formatTemplate(string myName, array myData) {
     * @return array|string The generated input element string
     *  or array if checkbox() is called with option "hiddenField" set to "_split".
     */
-  protected auto _getInput(string myFieldName, DOptions someOptions) {
+/*   protected auto _getInput(string myFieldName, DOptions someOptions) {
       $label = myOptions["labelOptions"];
       unset(myOptions["labelOptions"]);
       switch (myOptions["type"]).toLower) {
@@ -1235,7 +1235,7 @@ string formatTemplate(string myName, array myData) {
           default:
               return this.{myOptions["type"]}(myFieldName, myOptions);
       }
-  }
+  } */
 
   /**
     * Generates input options array
@@ -1244,7 +1244,7 @@ string formatTemplate(string myName, array myData) {
     * @param array<string, mixed> myOptions Options list.
     * @return array<string, mixed> Options
     */
-  protected auto _parseOptions(string myFieldName, DOptions someOptions)array
+ /*  protected auto _parseOptions(string myFieldName, DOptions someOptions)array
   {
       $needsMagicType = false;
       if (empty(myOptions["type"])) {
@@ -1255,7 +1255,7 @@ string formatTemplate(string myName, array myData) {
       myOptions = _magicOptions(myFieldName, myOptions, $needsMagicType);
 
       return myOptions;
-  }
+  } */
 
   /**
     * Returns the input type that was guessed for the provided fieldName,
@@ -1266,7 +1266,7 @@ string formatTemplate(string myName, array myData) {
     * @param array<string, mixed> myOptions the options passed to the input method
     * @return string
     */
-  protected string _inputType(string myFieldName, DOptions someOptions) {
+  /* protected string _inputType(string myFieldName, DOptions someOptions) {
       $context = _getContext();
 
       if ($context.isPrimaryKey(myFieldName)) {
@@ -1303,7 +1303,7 @@ string formatTemplate(string myName, array myData) {
       }
 
       return myType;
-  }
+  } */
 
   /**
     * Selects the variable containing the options for a select field if present,
@@ -1313,7 +1313,7 @@ string formatTemplate(string myName, array myData) {
     * @param array<string, mixed> myOptions Options list.
     * @return array
     */
-  protected array _optionsOptions(string myFieldName, DOptions someOptions) {
+  /* protected array _optionsOptions(string myFieldName, DOptions someOptions) {
       if (isSet(myOptions, "options")) {
           return myOptions;
       }
@@ -1340,7 +1340,7 @@ string formatTemplate(string myName, array myData) {
       myOptions["options"] = $varOptions;
 
       return myOptions;
-  }
+  } */
 
   /**
     * Magically set option type and corresponding options
@@ -1351,7 +1351,7 @@ string formatTemplate(string myName, array myData) {
     * overwrite the "type" key in options.
     * @return array<string, mixed>
     */
-  protected array _magicOptions(string myFieldName, DOptions someOptions, bool $allowOverride) {
+  /* protected array _magicOptions(string myFieldName, DOptions someOptions, bool $allowOverride) {
       myOptions += [
           "templateVars": [],
       ];
@@ -1372,7 +1372,7 @@ string formatTemplate(string myName, array myData) {
       }
 
       return myOptions;
-  }
+  } */
 
   /**
     * Set required attribute and custom validity JS.
@@ -1381,7 +1381,7 @@ string formatTemplate(string myName, array myData) {
     * @param array<string, mixed> myOptions Options list.
     * @return array<string, mixed> Modified options list.
     */
-  protected auto setRequiredAndCustomValidity(string myFieldName, DOptions someOptions) {
+  /* protected auto setRequiredAndCustomValidity(string myFieldName, DOptions someOptions) {
       $context = _getContext();
 
       if (!isSet(myOptions, "required") && myOptions["type"] != "hidden") {
@@ -1403,7 +1403,7 @@ string formatTemplate(string myName, array myData) {
       }
 
       return myOptions;
-  }
+  } */
 
   /**
     * Generate label for input
@@ -1412,7 +1412,7 @@ string formatTemplate(string myName, array myData) {
     * @param array<string, mixed> myOptions Options list.
     * @return string|false Generated label element or false.
     */
-  protected auto _getLabel(string myFieldName, DOptions someOptions) {
+  /* protected auto _getLabel(string myFieldName, DOptions someOptions) {
       if (myOptions["type"] == "hidden") {
           return false;
       }
@@ -1427,7 +1427,7 @@ string formatTemplate(string myName, array myData) {
       }
 
       return _inputLabel(myFieldName, $label, myOptions);
-  }
+  } */
 
   /**
     * Extracts a single option from an options array.
@@ -1437,13 +1437,13 @@ string formatTemplate(string myName, array myData) {
     * @param mixed $default The default option value
     * @return mixed the contents of the option or default
     */
-  protected auto _extractOption(string myName, DOptions someOptions, $default = null) {
+  /* protected auto _extractOption(string myName, DOptions someOptions, $default = null) {
       if (array_key_exists(myName, myOptions)) {
           return myOptions[myName];
       }
 
       return $default;
-  }
+  } */
 
   /**
     * Generate a label for an input() call.
@@ -1456,7 +1456,7 @@ string formatTemplate(string myName, array myData) {
     * @param array<string, mixed> myOptions Options for the label element.
     * @return string Generated label element
     */
-  protected string _inputLabel(string myFieldName, $label = null, DOptions someOptions = null) {
+  /* protected string _inputLabel(string myFieldName, $label = null, DOptions someOptions = null) {
       myOptions += ["id": null, "input": null, "nestedInput": false, "templateVars": []];
       $labelAttributes = ["templateVars": myOptions["templateVars"]];
       if (is_array($label)) {
@@ -1482,7 +1482,7 @@ string formatTemplate(string myName, array myData) {
       }
 
       return this.label(myFieldName, $labelText, $labelAttributes);
-  }
+  } */
 
   /**
     * Creates a checkbox input widget.
@@ -1502,7 +1502,7 @@ string formatTemplate(string myName, array myData) {
     * @param array<string, mixed> myOptions Array of HTML attributes.
     * @link https://book.UIM.org/4/en/views/helpers/form.html#creating-checkboxes
     */
-  string[] checkbox(string myFieldName, DOptions someOptions = null) {
+  /* string[] checkbox(string myFieldName, DOptions someOptions = null) {
       myOptions += ["hiddenField": true, "value": 1];
 
       // Work around value=>val translations.
@@ -1536,7 +1536,7 @@ string formatTemplate(string myName, array myData) {
 
       return $output . this.widget("checkbox", myOptions);
   }
-
+ */
   /**
     * Creates a set of radio widgets.
     *
@@ -1559,7 +1559,7 @@ string formatTemplate(string myName, array myData) {
     * @return string Completed radio widget set.
     * @link https://book.UIM.org/4/en/views/helpers/form.html#creating-radio-buttons
     */
-  string radio(string myFieldName, iterable myOptions = null, array $attributes = null) {
+  /* string radio(string myFieldName, iterable myOptions = null, array $attributes = null) {
       $attributes["options"] = myOptions;
       $attributes["idPrefix"] = _idPrefix;
       $attributes = _initInputField(myFieldName, $attributes);
@@ -1580,7 +1580,7 @@ string formatTemplate(string myName, array myData) {
 
       return myHidden . $radio;
   }
-
+ */
   /**
     * Missing method handler - : various simple input types. Is used to create inputs
     * of various types. e.g. `this.Form.text();` will create `<input type="text"/>` while
@@ -1604,7 +1604,7 @@ string formatTemplate(string myName, array myData) {
     * @return string Formatted input method.
     * @throws uim.oop.exceptions.UIMException When there are no params for the method call.
     */
-  auto __call(string method, array myParams) {
+  /* auto __call(string method, array myParams) {
       if (empty(myParams)) {
           throw new UIMException(sprintf("Missing field name for FormHelper::%s", $method));
       }
@@ -1613,7 +1613,7 @@ string formatTemplate(string myName, array myData) {
       myOptions = _initInputField(myParams[0], myOptions);
 
       return this.widget(myOptions["type"], myOptions);
-  }
+  } */
 
   /**
     * Creates a textarea widget.
@@ -1627,12 +1627,12 @@ string formatTemplate(string myName, array myData) {
     * @return string A generated HTML text input element
     * @link https://book.UIM.org/4/en/views/helpers/form.html#creating-textareas
     */
-  string textarea(string myFieldName, DOptions someOptions = null) {
+  /* string textarea(string myFieldName, DOptions someOptions = null) {
       myOptions = _initInputField(myFieldName, myOptions);
       unset(myOptions["type"]);
 
       return this.widget("textarea", myOptions);
-  }
+  } */
 
   /**
     * Creates a hidden input field.
@@ -1642,7 +1642,7 @@ string formatTemplate(string myName, array myData) {
     * @return string A generated hidden input
     * @link https://book.UIM.org/4/en/views/helpers/form.html#creating-hidden-inputs
     */
-  string hidden(string myFieldName, DOptions someOptions = null) {
+  /* string hidden(string myFieldName, DOptions someOptions = null) {
       myOptions += ["required": false, "secure": true];
 
       $secure = myOptions["secure"];
@@ -1664,7 +1664,7 @@ string formatTemplate(string myName, array myData) {
       myOptions["type"] = "hidden";
 
       return this.widget("hidden", myOptions);
-  }
+  } */
 
   /**
     * Creates file input widget.
@@ -1698,7 +1698,7 @@ string formatTemplate(string myName, array myData) {
     * @return string A HTML button tag.
     * @link https://book.UIM.org/4/en/views/helpers/form.html#creating-button-elements
     */
-  string button(string title, DOptions someOptions = null) {
+/*   string button(string title, DOptions someOptions = null) {
       myOptions += [
           "type": "submit",
           "escapeTitle": true,
@@ -1720,7 +1720,7 @@ string formatTemplate(string myName, array myData) {
       }
 
       return this.widget("button", myOptions);
-  }
+  } */
 
   /**
     * Create a `<button>` tag with a surrounding `<form>` that submits via POST as default.
@@ -1743,7 +1743,7 @@ string formatTemplate(string myName, array myData) {
     * @return string A HTML button tag.
     * @link https://book.UIM.org/4/en/views/helpers/form.html#creating-standalone-buttons-and-post-links
     */
-  string postButton(string title, myUrl, DOptions someOptions = null) {
+ /*  string postButton(string title, myUrl, DOptions someOptions = null) {
       $formOptions = ["url": myUrl];
       if (isSet(myOptions, "method")) {
           $formOptions["type"] = myOptions["method"];
@@ -1764,7 +1764,7 @@ string formatTemplate(string myName, array myData) {
       $out ~= this.end();
 
       return $out;
-  }
+  } */
 
   /**
     * Creates an HTML link, but access the URL using the method you specify
@@ -1795,7 +1795,7 @@ string formatTemplate(string myName, array myData) {
     * @return string An `<a />` element.
     * @link https://book.UIM.org/4/en/views/helpers/form.html#creating-standalone-buttons-and-post-links
     */
-  string postLink(string title, myUrl = null, DOptions someOptions = null) {
+  /* string postLink(string title, myUrl = null, DOptions someOptions = null) {
       myOptions += ["block": null, "confirm": null];
 
       myRequestMethod = "POST";
@@ -1884,7 +1884,7 @@ string formatTemplate(string myName, array myData) {
       $out ~= this.Html.link($title, myUrl, myOptions);
 
       return $out;
-  }
+  } */
 
   /**
     * Creates a submit button element. This method will generate `<input />` elements that
@@ -1905,7 +1905,7 @@ string formatTemplate(string myName, array myData) {
     * @return string A HTML submit button
     * @link https://book.UIM.org/4/en/views/helpers/form.html#creating-buttons-and-submit-elements
     */
-  string submit(Nullable!string caption = null, DOptions someOptions = null) {
+  /* string submit(Nullable!string caption = null, DOptions someOptions = null) {
       if ($caption is null) {
           $caption = __d("cake", "Submit");
       }
@@ -1970,7 +1970,7 @@ string formatTemplate(string myName, array myData) {
           "content": $input,
           "templateVars": myOptions["templateVars"],
       ]);
-  }
+  } */
 
   /**
     * Returns a formatted SELECT element.
@@ -2025,7 +2025,7 @@ string formatTemplate(string myName, array myData) {
     * @see uim.mvc.views\Helper\FormHelper::multiCheckbox() for creating multiple checkboxes.
     * @link https://book.UIM.org/4/en/views/helpers/form.html#creating-select-pickers
     */
-  string select(string myFieldName, iterable myOptions = null, array $attributes = null) {
+ /*  string select(string myFieldName, iterable myOptions = null, array $attributes = null) {
       $attributes += [
           "disabled": null,
           "escape": true,
@@ -2075,7 +2075,7 @@ string formatTemplate(string myName, array myData) {
       unset($attributes["hiddenField"], $attributes["type"]);
 
       return myHidden . this.widget("select", $attributes);
-  }
+  } */
 
   /**
     * Creates a set of checkboxes out of options.
@@ -2102,7 +2102,7 @@ string formatTemplate(string myName, array myData) {
     * @return string Formatted SELECT element
     * @see uim.mvc.views\Helper\FormHelper::select() for supported option formats.
     */
-  string multiCheckbox(string myFieldName, iterable myOptions, array $attributes = null) {
+  /* string multiCheckbox(string myFieldName, iterable myOptions, array $attributes = null) {
       $attributes += [
           "disabled": null,
           "escape": true,
@@ -2126,7 +2126,7 @@ string formatTemplate(string myName, array myData) {
       unset($attributes["hiddenField"]);
 
       return myHidden . this.widget("multicheckbox", $attributes);
-  }
+  } */
 
   /**
     * Returns a SELECT element for years
@@ -2166,7 +2166,7 @@ string formatTemplate(string myName, array myData) {
     * @param string myFieldName The field name.
     * @param array<string, mixed> myOptions Array of options or HTML attributes.
     */
-  string month(string myFieldName, DOptions someOptions = null) {
+ /*  string month(string myFieldName, DOptions someOptions = null) {
       myOptions += [
           "value": null,
       ];
@@ -2175,7 +2175,7 @@ string formatTemplate(string myName, array myData) {
       myOptions["type"] = "month";
 
       return this.widget("datetime", myOptions);
-  }
+  } */
 
   /**
     * Generate an input tag with type "datetime-local".
@@ -2262,7 +2262,7 @@ string formatTemplate(string myName, array myData) {
     * @param array<string, mixed>|array<string> myOptions Array of options to append options into.
     * @return array<string, mixed> Array of options for the input.
     */
-  protected array _initInputField(string myField, DOptions someOptions = null) {
+  /* protected array _initInputField(string myField, DOptions someOptions = null) {
       myOptions += ["fieldName": myField];
 
       if (!isSet(myOptions, "secure")) {
@@ -2317,7 +2317,7 @@ string formatTemplate(string myName, array myData) {
       }
 
       return myOptions;
-  }
+  } */
 
   /**
     * Determine if a field is disabled.
@@ -2325,7 +2325,7 @@ string formatTemplate(string myName, array myData) {
     * @param array<string, mixed> myOptions The option set.
     * @return bool Whether the field is disabled.
     */
-  protected bool _isDisabled(DOptions someOptions) {
+  /* protected bool _isDisabled(DOptions someOptions) {
       if (!isSet(myOptions["disabled"])) {
           return false;
       }
@@ -2353,7 +2353,7 @@ string formatTemplate(string myName, array myData) {
 
       return false;
   }
-
+ */
   /**
     * Add a new context type.
     *
@@ -2368,9 +2368,9 @@ string formatTemplate(string myName, array myData) {
     * @param callable $check A callable that returns an object
     *   when the form context is the correct type.
     */
-  void addContextProvider(string myType, callable $check) {
+  /* void addContextProvider(string myType, callable $check) {
       this.contextFactory().addProvider(myType, $check);
-  }
+  } */
 
   /**
     * Get the context instance for the current form set.
@@ -2380,13 +2380,13 @@ string formatTemplate(string myName, array myData) {
     * @param uim.mvc.views\Form\IContext|null $context Either the new context when setting, or null to get.
     * @return uim.mvc.views\Form\IContext The context for the form.
     */
-  IContext context(?IContext $context = null) {
+  /* IContext context(?IContext $context = null) {
       if ($context instanceof IContext) {
           _context = $context;
       }
 
       return _getContext();
-  }
+  } */
 
   /**
     * Find the matching context provider for the data.
@@ -2398,7 +2398,7 @@ string formatTemplate(string myName, array myData) {
     * @throws \RuntimeException when the context class does not implement the
     *   IContext.
     */
-  protected IContext _getContext(myData = null) {
+  /* protected IContext _getContext(myData = null) {
       if (isSet(_context) && empty(myData)) {
           return _context;
       }
@@ -2406,7 +2406,7 @@ string formatTemplate(string myName, array myData) {
 
       return _context = this.contextFactory()
           .get(_View.getRequest(), myData);
-  }
+  } */
 
   /**
     * Add a new widget to FormHelper.
@@ -2417,9 +2417,9 @@ string formatTemplate(string myName, array myData) {
     * @param uim.mvc.views\Widget\IWidget|array $spec Either a string class
     *   name or an object implementing the IWidget.
     */
-  void addWidget(string myName, $spec) {
+/*   void addWidget(string myName, $spec) {
       _locator.add([myName: $spec]);
-  }
+  } */
 
   /**
     * Render a named widget.
@@ -2432,7 +2432,7 @@ string formatTemplate(string myName, array myData) {
     * @param string myName The name of the widget. e.g~ "text".
     * @param array myData The data to render.
     */
-  string widget(string myName, array myData = null) {
+  /* string widget(string myName, array myData = null) {
       $secure = null;
       if (myData.isSet("secure"])) {
           $secure = myData["secure"];
@@ -2452,35 +2452,30 @@ string formatTemplate(string myName, array myData) {
       }
 
       return $out;
-  }
+  } */
 
   /**
     * Restores the default values built into FormHelper.
     *
     * This method will not reset any templates set in custom widgets.
     */
-  void resetTemplates() {
+/*   void resetTemplates() {
       this.setTemplates(_defaultConfig["templates"]);
-  }
+  } */
 
-  /**
-    * Event listeners.
-    *
-    * @return array<string, mixed>
-    */
-  array implementedEvents() {
-      return [];
+  // Event listeners.
+  DOptions implementedEvents() {
+    return null;
   }
 
   /**
     * Gets the value sources.
-    *
     * Returns a list, but at least one item, of valid sources, such as: `"context"`, `"data"` and `"query"`.
     *
     * @return List of value sources.
     */
   string[] getValueSources() {
-      return _valueSources;
+    return _valueSources;
   }
 
   /**
@@ -2490,7 +2485,7 @@ string formatTemplate(string myName, array myData) {
     * @return void
     * @throws \InvalidArgumentException If sources list contains invalid value.
     */
-  protected void validateValueSources(array $sources) {
+  /* protected void validateValueSources(array $sources) {
       $diff = array_diff($sources, this.supportedValueSources);
 
       if ($diff) {
@@ -2500,7 +2495,7 @@ string formatTemplate(string myName, array myData) {
               implode(", ", this.supportedValueSources)
           ));
       }
-  }
+  } */
 
   /**
     * Sets the value sources.
@@ -2513,14 +2508,14 @@ string formatTemplate(string myName, array myData) {
     * @return this
     * @throws \InvalidArgumentException If sources list contains invalid value.
     */
-  auto setValueSources($sources) {
+  /* auto setValueSources($sources) {
       $sources = (array)$sources;
 
       this.validateValueSources($sources);
       _valueSources = $sources;
 
       return this;
-  }
+  } */
 
   /**
     * Gets a single field value from the sources available.
@@ -2529,7 +2524,7 @@ string formatTemplate(string myName, array myData) {
     * @param array<string, mixed> myOptions The options containing default values.
     * @return mixed Field value derived from sources or defaults.
     */
-  auto getSourceValue(string myFieldname, DOptions someOptions = null) {
+  /* auto getSourceValue(string myFieldname, DOptions someOptions = null) {
     myValueMap = [
         "data": "getData",
         "query": "getQuery",
@@ -2551,5 +2546,5 @@ string formatTemplate(string myName, array myData) {
     }
 
     return null;
-  }
+  } */
 }

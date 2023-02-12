@@ -38,7 +38,7 @@ class DHelperRegistry : ObjectRegistry, IEventDispatcher {
     * @throws uim.mvc.views\exceptions.MissingHelperException When a helper could not be found.
     *    App helpers are searched, and then plugin helpers.
     */
-  bool __isSet(string helperName) {
+/*   bool __isSet(string helperName) {
     if (isSet(_loaded, helperName)) {
         return true;
     }
@@ -59,7 +59,7 @@ class DHelperRegistry : ObjectRegistry, IEventDispatcher {
     }
 
     return true;
-  }
+  } */
 
   /**
     * Provide read access to the loaded objects
@@ -67,7 +67,7 @@ class DHelperRegistry : ObjectRegistry, IEventDispatcher {
     * propertyName - Name of property to read
     * @return uim.mvc.views\Helper|null
     */
-  auto __get(string propertyName) {
+  /* auto __get(string propertyName) {
       if (isSet(_loaded, propertyName)) {
           return _loaded[propertyName];
       }
@@ -76,7 +76,7 @@ class DHelperRegistry : ObjectRegistry, IEventDispatcher {
       }
 
       return null;
-  }
+  } */
 
   /**
     * Resolve a helper classname.
@@ -87,9 +87,9 @@ class DHelperRegistry : ObjectRegistry, IEventDispatcher {
     * @return string|null Either the correct class name or null.
     * @psalm-return class-string|null
     */
-  protected Nullable!string _resolveClassName(string partialClassName) {
+/*   protected Nullable!string _resolveClassName(string partialClassName) {
       return App::className(partialClassName, "View/Helper", "Helper");
-  }
+  } */
 
   /**
     * Throws an exception when a helper is missing.
@@ -101,12 +101,12 @@ class DHelperRegistry : ObjectRegistry, IEventDispatcher {
     * @param string|null myPlugin The plugin the helper is missing in.
     * @throws uim.mvc.views\exceptions.MissingHelperException
     */
-  protected void _throwMissingClassError(string myClass, Nullable!string myPlugin) {
+/*   protected void _throwMissingClassError(string myClass, Nullable!string myPlugin) {
       throw new MissingHelperException([
           "class": myClass ~ "Helper",
           "plugin": myPlugin,
       ]);
-  }
+  } */
 
   /**
     * Create the helper instance.
@@ -120,7 +120,7 @@ class DHelperRegistry : ObjectRegistry, IEventDispatcher {
     * @return uim.mvc.views\Helper The constructed helper class.
     * @psalm-suppress MoreSpecificImplementedParamType
     */
-  protected Helper _create(string className, string aliasName, array myConfig) {
+/*   protected Helper _create(string className, string aliasName, array myConfig) {
       DVIWHelper $instance = new myClass(_view, myConfig);
 
       myEnable = myConfig["enabled"] ?? true;
@@ -129,5 +129,5 @@ class DHelperRegistry : ObjectRegistry, IEventDispatcher {
       }
 
       return $instance;
-  }
+  } */
 }

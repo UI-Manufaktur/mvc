@@ -6,7 +6,7 @@ import uim.mvc;
 class DMVCEntitiesTableHeader : DTableHeader {
   mixin(ViewComponentThis!("MVCEntitiesTableHeader"));
 
-  override void initialize(DConfig configSetting = null) {
+  override void initialize(DConfig configSettings = null) {
     super.initialize(configSettings);
 
     this.visibleEntities(10);
