@@ -14,7 +14,7 @@ class DLayout : DMVCBase, ILayout{
   this() {
     initialize(configSettings); }
 
-  override void initialize(DConfig configSettings = null) {
+  override void initialize(DConfigurationValue configSettings = null) {
     debug writeln("Initialize 'Layout'"); 
     super.initialize(configSettings);
  

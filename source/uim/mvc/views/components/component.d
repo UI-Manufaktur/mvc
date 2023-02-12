@@ -6,7 +6,7 @@ import uim.mvc;
 class DViewComponent : DMVCBase, IViewComponent {
   mixin(ViewComponentThis!("ViewComponent"));
 
-  override void initialize(DConfig configSettings = null) {
+  override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
   }
 
