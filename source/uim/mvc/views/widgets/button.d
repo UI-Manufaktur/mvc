@@ -1,4 +1,4 @@
-module uim.mvc.views.widgets;
+module uim.mvc.views.widgets.button;
 
 @safe:
 import uim.mvc;
@@ -24,7 +24,7 @@ class ButtonWidget : DWidget {
       _templates = aTemplate;
   }
 
-  override void initialize(DConfig configSetting = null) {
+  override void initialize(DConfig configSettings = null) {
       super.initialize(configSettings);
   }
   /**

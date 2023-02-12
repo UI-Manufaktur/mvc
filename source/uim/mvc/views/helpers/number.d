@@ -3,7 +3,7 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel (Sicherheitsschmiede)                                                      
 **********************************************************************************************************/
-module uim.mvc.views.helpers;
+module uim.mvc.views.helpers.number;
 
 @safe:
 import uim.mvc;
@@ -42,7 +42,7 @@ class DMVCNumberHelper : DHelper {
       _engine = new $engineClass(configSettings);
     }
 
-    void initialize(DConfig configSetting = null) {
+    void initialize(DConfig configSettings = null) {
       super.initialize(configSetting);
 
       _defaultConfig["engine"] = Number::class;

@@ -30,7 +30,7 @@ class DMVCDateTimeWidget : DWidget {
   // Step size for various input types. If not set, defaults to browser default.
   protected Json defaultStep;;
 
-  void initialize(DConfig configSetting = null) {
+  void initialize(DConfig configSettings = null) {
     super.initialize(configSettings);
 
     // Data defaults.

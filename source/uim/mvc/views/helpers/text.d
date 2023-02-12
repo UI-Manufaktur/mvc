@@ -51,7 +51,7 @@ class TextHelper : DHelper {
     _engine = new $engineClass(configSettings);
   }
 
-  void initialize(DConfig configSetting = null) {
+  void initialize(DConfig configSettings = null) {
       super.initialize(configSetting);
       
       _helpers ~= ["Html"];        

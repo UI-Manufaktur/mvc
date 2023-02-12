@@ -130,7 +130,7 @@ class PaginatorHelper : DHelper {
         );
     }
 
-    void initialize(DConfig configSetting = null) {
+    void initialize(DConfig configSettings = null) {
       super.initialize(configSetting);
       
       _helpers ~= ["Url", "Number", "Html", "Form"];
