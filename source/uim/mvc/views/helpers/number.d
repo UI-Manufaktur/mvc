@@ -42,7 +42,7 @@ class DMVCNumberHelper : DHelper {
       _engine = new $engineClass(configSettings);
     }
 
-    void initialize(Json configSetting = Json(null)) {
+    void initialize(DConfig configSetting = null) {
       super.initialize(configSetting);
 
       _defaultConfig["engine"] = Number::class;

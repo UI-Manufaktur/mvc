@@ -213,7 +213,7 @@ string formatTemplate(string myName, array myData) {
     * @param uim.mvc.views\View $view The View this helper is being attached to.
     * configSetting Configuration - settings for the helper.
     */
-  /* this(View owningView, Json configSetting = Json(null)) {
+  /* this(View owningView, DConfig configSetting = null) {
       $locator = null;
       $widgets = _defaultWidgets;
       if (isSet(configSetting, "locator")) {
@@ -242,7 +242,7 @@ string formatTemplate(string myName, array myData) {
       _idPrefix = this.getConfig("idPrefix");
   } */
 
-  void initialize(Json configSetting = Json(null)) {
+  void initialize(DConfig configSetting = null) {
     super.initialize(configSetting);
 
     _helpers ~= ["Url", "Html"];
@@ -990,7 +990,7 @@ string formatTemplate(string myName, array myData) {
     *    to customize the legend text.
     * @return string Completed form inputs.
     */
-  string fieldset(string myFields = "", DOptions someOptions = null) {
+  /* string fieldset(string myFields = "", DOptions someOptions = null) {
       $legend = myOptions["legend"] ?? true;
       myFieldset = myOptions["fieldset"] ?? true;
       $context = _getContext();
@@ -1022,7 +1022,7 @@ string formatTemplate(string myName, array myData) {
 
       return $out;
   }
-
+ */
   /**
     * Generates a form control element complete with label and wrapper div.
     *
@@ -1056,17 +1056,15 @@ string formatTemplate(string myName, array myData) {
     * @psalm-suppress InvalidReturnType
     * @psalm-suppress InvalidReturnStatement
     */
-  string control(string myFieldName, DOptions someOptions = null) {
-      myOptions += [
-          "type": null,
-          "label": null,
-          "error": null,
-          "required": null,
-          "options": null,
-          "templates": [],
-          "templateVars": [],
-          "labelOptions": true,
-      ];
+  /* string control(string myFieldName, DOptions someOptions = null) {
+      myOptions["type"] = null;
+      myOptions["label"] = null;
+      myOptions["error"] = null;
+      myOptions["required"] = null;
+      myOptions["options"] = null;
+      myOptions["templates"] = [];
+      myOptions["templateVars"] = [];
+      myOptions["labelOptions"] = true;
       myOptions = _parseOptions(myFieldName, myOptions);
       myOptions += ["id": _domId(myFieldName)];
 
@@ -1166,7 +1164,7 @@ string formatTemplate(string myName, array myData) {
       }
 
       return myResult;
-  }
+  } */
 
   /**
     * Generates an group template element
@@ -1174,7 +1172,7 @@ string formatTemplate(string myName, array myData) {
     * @param array<string, mixed> myOptions The options for group template
     * @return string The generated group template
     */
-  protected string _groupTemplate(DOptions someOptions) {
+/*   protected string _groupTemplate(DOptions someOptions) {
       myGroupTemplate = myOptions["options"]["type"] ~ "FormGroup";
       if (!_templater().get(myGroupTemplate)) {
           myGroupTemplate = "formGroup";
@@ -1186,7 +1184,7 @@ string formatTemplate(string myName, array myData) {
           "error": myOptions["error"],
           "templateVars": myOptions["options"]["templateVars"] ?? [],
       ]);
-  }
+  } */
 
   /**
     * Generates an input container template
@@ -1194,7 +1192,7 @@ string formatTemplate(string myName, array myData) {
     * @param array<string, mixed> myOptions The options for input container template
     * @return string The generated input container template
     */
-  protected string _inputContainerTemplate(DOptions someOptions) {
+/*   protected string _inputContainerTemplate(DOptions someOptions) {
       $inputContainerTemplate = myOptions["options"]["type"] ~ "Container" ~ myOptions["errorSuffix"];
       if (!_templater().get($inputContainerTemplate)) {
           $inputContainerTemplate = "inputContainer" ~ myOptions["errorSuffix"];
@@ -1207,7 +1205,7 @@ string formatTemplate(string myName, array myData) {
           "type": myOptions["options"]["type"],
           "templateVars": myOptions["options"]["templateVars"] ?? [],
       ]);
-  }
+  } */
 
   /**
     * Generates an input element

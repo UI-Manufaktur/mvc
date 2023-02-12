@@ -226,7 +226,7 @@ class DBreadcrumbsHelper : DHelper {
      * @return this
      * @throws \LogicException In case the matching crumb can not be found.
      */
-    function insertAfter(string matchingTitle, string title, myUrl = null, DOptions someOptions = null) {
+    /* function insertAfter(string matchingTitle, string title, myUrl = null, DOptions someOptions = null) {
         myKey = this.findCrumb($matchingTitle);
 
         if (myKey is null) {
@@ -234,25 +234,23 @@ class DBreadcrumbsHelper : DHelper {
         }
 
         return this.insertAt(myKey + 1, $title, myUrl, myOptions);
-    }
+    } */
 
-    /**
-     * Returns the crumb list.
-     */
-    array getCrumbs() {
+    // Returns the crumb list.
+/*     array getCrumbs() {
         return this.crumbs;
     }
-
+ */
     /**
      * Removes all existing crumbs.
      *
      * @return this
      */
-    function reset() {
+/*     function reset() {
         this.crumbs = null;
 
         return this;
-    }
+    } */
 
     /**
      * Renders the breadcrumbs trail.
@@ -270,7 +268,7 @@ class DBreadcrumbsHelper : DHelper {
      * If you use the default for this option (empty), it will not render a separator.
      * @return string The breadcrumbs trail
      */
-    string render(array $attributes = null, array $separator = null) {
+    /* string render(array $attributes = null, array $separator = null) {
         if (!this.crumbs) {
             return "";
         }
@@ -333,7 +331,7 @@ class DBreadcrumbsHelper : DHelper {
         ]);
 
         return $crumbTrail;
-    }
+    } */
 
     /**
      * Search a crumb in the current stack which title matches the one provided as argument.
@@ -342,7 +340,7 @@ class DBreadcrumbsHelper : DHelper {
      * @param string title Title to find.
      * @return int|null Index of the crumb found, or null if it can not be found.
      */
-    protected Nullable!int findCrumb(string title) {
+/*     protected Nullable!int findCrumb(string title) {
         foreach (this.crumbs as myKey: $crumb) {
             if ($crumb["title"] == $title) {
                 return myKey;
@@ -350,5 +348,5 @@ class DBreadcrumbsHelper : DHelper {
         }
 
         return null;
-    }
+    } */
 }

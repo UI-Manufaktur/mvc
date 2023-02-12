@@ -6,7 +6,7 @@ import uim.mvc;
 class DMVCIndexPageHeaderViewComponent : DMVCPageHeaderViewComponent {
   mixin(ViewComponentThis!("MVCIndexPageHeaderViewComponent"));
 
-  override void initialize(Json configSetting = Json(null)) {
+  override void initialize(DConfig configSetting = null) {
     super.initialize(configSettings);
     
     this
