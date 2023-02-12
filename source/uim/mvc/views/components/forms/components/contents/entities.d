@@ -103,10 +103,10 @@ class DMVCEntitiesFormContent : DFormContent {
       (table)
       .footer(["d-flex align-items-center"], 
         H5P("availableEntites",["m-0 text-muted"], "Anzeige <span>1</span> bis <span>8</span> von <span>"~to!string(entities.length)~"</span> Einträgen"),
-        H5Ul("pagesEntites", ["m-0 ms-auto pagination"], linkPrev("prevEntities"))
+        H5Ul("pagesEntites", ["m-0 ms-auto pagination"]/* , linkPrev("prevEntities") */)
         .li(["page-item active"], 
           H5A("pageDisplay", ["page-link"], "1"))
-        (linkNext("nextEntities")))
+        /* (linkNext("nextEntities")) */)
       ].toH5;
   } 
 }

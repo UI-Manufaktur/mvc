@@ -1,9 +1,14 @@
+/*********************************************************************************************************
+	Copyright: © 2015-2023 Ozan Nurettin Süel (Sicherheitsschmiede)                                        
+	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
+	Authors: Ozan Nurettin Süel (Sicherheitsschmiede)                                                      
+**********************************************************************************************************/
 module uim.mvc.controllers.components.auth;
 
 @safe:
 import uim.mvc;
 
-class DAuthControllerComponent : DControllerComponent {
+/* class DAuthControllerComponent : DControllerComponent {
   mixin(ControllerComponentThis!("AuthControllerComponent"));
 
   // The query string key used for remembering the referred page when getting redirected to login.
@@ -11,4 +16,4 @@ class DAuthControllerComponent : DControllerComponent {
 
   // Constant for 'all'
   const string ALL = "all";
-}
+} */

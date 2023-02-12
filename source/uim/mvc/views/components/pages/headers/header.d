@@ -40,10 +40,10 @@ class DMVCPageHeaderViewComponent : DViewComponent {
     mixin(OProperty!("DEntity", "entity"));
  */  
 
-    this
+/*     this
       .headerToolbar
         .buttons(
-          pageheaderToolbarButtons(actions, rootPath, entity ? entity["id"] : null));
+          pageheaderToolbarButtons(actions, rootPath, entity ? entity["id"] : null)); */
   }
 
   override DH5Obj[] toH5(STRINGAA options = null) {

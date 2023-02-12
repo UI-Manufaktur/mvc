@@ -12,7 +12,7 @@ enum DataModes { Local, REST }
 
 class DLayout : DMVCBase, ILayout{
   this() {
-    initialize(configSettings); }
+    initialize(); }
 
   override void initialize(DConfigurationValue configSettings = null) {
     debug writeln("Initialize 'Layout'"); 

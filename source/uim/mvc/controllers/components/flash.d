@@ -1,3 +1,8 @@
+/*********************************************************************************************************
+	Copyright: © 2015-2023 Ozan Nurettin Süel (Sicherheitsschmiede)                                        
+	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
+	Authors: Ozan Nurettin Süel (Sicherheitsschmiede)                                                      
+**********************************************************************************************************/
 module uim.mvc.controllers.components.flash;
 
 @safe:
@@ -12,7 +17,7 @@ import uim.mvc;
  * @method void warning(string $message, DOptions someOptions = null) Set a message using "warning" element
  * @method void error(string $message, DOptions someOptions = null) Set a message using "error" element
  */
-class FlashComponent : DControllerComponent {
+/* class DFlashComponent : DControllerComponent {
   mixin(ControllerComponentThis!("FlashControllerComponent"));
   
   override void initialize(DConfigurationValue configSettings = null) {
@@ -21,8 +26,8 @@ class FlashComponent : DControllerComponent {
     // Default configuration
     _defaultConfig["key"] = "flash";
     _defaultConfig["element"] = "default";
-    _defaultConfig["params"] = ArrayValue;
+    _defaultConfig["params"] = ArrayValue; 
     _defaultConfig["clear"] = false;
     _defaultConfig["duplicate"] = true;
   }
-}
+} */
