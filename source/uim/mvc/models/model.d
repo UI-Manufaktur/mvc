@@ -6,7 +6,7 @@ import uim.mvc;
 class DModel : DMVCBase, IModel { 
   mixin(ModelThis!("Model"));
 
-  override void initialize(Json configSetting = Json(null)) {}
+  override void initialize(DConfig configSetting = null) {}
 
   mixin(OProperty!("DETBBase", "datasource")); 
 }
