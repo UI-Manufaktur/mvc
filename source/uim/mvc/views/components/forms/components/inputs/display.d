@@ -6,7 +6,7 @@ import uim.mvc;
 class DMVCDisplayFormInput : DMVCTextFormInput {
   mixin(ViewComponentThis!("MVCDisplayFormInput"));
 
-  override void initialize(Json configSetting = Json(null)) {
+  override void initialize(DConfig configSetting = null) {
     super.initialize(configSetting);
 
     this
