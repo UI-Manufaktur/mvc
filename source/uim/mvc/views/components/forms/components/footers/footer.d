@@ -11,7 +11,7 @@ import uim.mvc;
 class DFormFooter : DFormComponent {
   mixin(ViewComponentThis!("MVCFormFooter"));
 
-  override void initialize(DConfig configSetting = null) {
+  override void initialize(DConfig configSettings = null) {
     debugMethodCall(moduleName!DFormFooter~"::DFormFooter("~this.name~"):initialize");   
     super.initialize(configSettings);
 
