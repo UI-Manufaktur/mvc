@@ -11,7 +11,7 @@ import uim.mvc;
 class DMVCDeleteForm : DMVCEntityForm {
   mixin(ViewComponentThis!("MVCDeleteForm"));
 
-  override void initialize(DConfig configSetting = null) {
+  override void initialize(DConfig configSettings = null) {
     super.initialize(configSettings);
 
     this

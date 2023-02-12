@@ -13,7 +13,7 @@ class DMVCEntitiesForm : DForm {
 
   // mixin(OProperty!("DEntity[]", "entities"));
 
-  override void initialize(DConfig configSetting = null) {
+  override void initialize(DConfig configSettings = null) {
     super.initialize(configSettings);
   }
 }
