@@ -6,7 +6,7 @@ import uim.mvc;
 class DFormProtectionControllerComponent : DControllerComponent {
   mixin(ControllerComponentThis!("FormProtectionControllerComponent"));
   
-  override void initialize(DConfig configSetting = null) {
+  override void initialize(DConfig configSettings = null) {
     super.initialize(configSettings);
   }
 }
