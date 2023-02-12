@@ -74,7 +74,7 @@ class DMVCMultiCheckboxWidget : DWidget {
       return resultingId;
     }
 
-  override void initialize(Json configSetting = Json(null)) {
+  override void initialize(DConfig configSetting = null) {
     super.initialize(configSettings);
     
     _defaults["name"] = "";
@@ -111,7 +111,7 @@ class DMVCMultiCheckboxWidget : DWidget {
         _label = aLabel;
     }
 
-    override void initialize(Json configSetting = Json(null)) {
+    override void initialize(DConfig configSetting = null) {
       super.initialize(configSettings);
     }
     /**

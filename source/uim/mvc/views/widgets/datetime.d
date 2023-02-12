@@ -30,7 +30,7 @@ class DMVCDateTimeWidget : DWidget {
   // Step size for various input types. If not set, defaults to browser default.
   protected Json defaultStep;;
 
-  void initialize(Json configSetting = Json(null)) {
+  void initialize(DConfig configSetting = null) {
     super.initialize(configSettings);
 
     // Data defaults.
@@ -154,7 +154,7 @@ class DMVCDateTimeWidget : DWidget {
     * @return string
     * @throws \InvalidArgumentException If invalid input type is passed.
     */
-  protected string formatDateTime(myValue, DValueMap someOptions) {
+  protected string formatDateTime(myValue, DOptions someOptions) {
       if (myValue == "" || myValue is null) {
           return "";
       }

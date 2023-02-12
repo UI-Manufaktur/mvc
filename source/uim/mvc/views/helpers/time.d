@@ -70,7 +70,7 @@ class TimeHelper : DHelper {
     return _templater;
   }
 
-    override void initialize(Json configSetting = Json(null)) {
+    override void initialize(DConfig configSetting = null) {
         super.initialize(configSettings);
         // Config options
         _defaultConfig["outputTimezone"] = null;

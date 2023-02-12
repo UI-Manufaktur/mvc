@@ -35,7 +35,7 @@ class DMVCLabelWidget : IWidget {
     _templates = templatesList;
   }
 
-  void initialize(Json configSetting = Json(null)) {
+  void initialize(DConfig configSetting = null) {
     super.initialize(configSettings);
   }
   

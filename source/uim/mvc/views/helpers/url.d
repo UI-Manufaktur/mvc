@@ -51,7 +51,7 @@ class DMVCUrlHelper : DHelper {
     * @param array<string, mixed> myOptions Array of options.
     * @return string Full translated URL with base path.
     */
-  string build(myUrl = null, DValueMap someOptions = null) {
+  string build(myUrl = null, DOptions someOptions = null) {
       _defaults = [
           "fullBase": false,
           "escape": true,
@@ -82,7 +82,7 @@ class DMVCUrlHelper : DHelper {
     * @return string Full translated URL with base path.
     * @see uim.mvc.routings.routesr::pathUrl()
     */
-  string buildFromPath(string myPath, array myParams = null, DValueMap someOptions = null) {
+  string buildFromPath(string myPath, array myParams = null, DOptions someOptions = null) {
       return this.build(["_path": myPath] + myParams, myOptions);
   }
 
@@ -103,7 +103,7 @@ class DMVCUrlHelper : DHelper {
     *        enable timestamping regardless of debug value.
     * @return string Generated URL
     */
-  string image(string myPath, DValueMap someOptions = null) {
+  string image(string myPath, DOptions someOptions = null) {
       myOptions += ["theme": _View.getTheme()];
 
       return h(_assetUrlClassName::imageUrl(myPath, myOptions));
@@ -127,7 +127,7 @@ class DMVCUrlHelper : DHelper {
     *        enable timestamping regardless of debug value.
     * @return string Generated URL
     */
-  string css(string myPath, DValueMap someOptions = null) {
+  string css(string myPath, DOptions someOptions = null) {
       myOptions += ["theme": _View.getTheme()];
 
       return h(_assetUrlClassName::cssUrl(myPath, myOptions));
@@ -151,7 +151,7 @@ class DMVCUrlHelper : DHelper {
     *        enable timestamping regardless of debug value.
     * @return string Generated URL
     */
-  string script(string myPath, DValueMap someOptions = null) {
+  string script(string myPath, DOptions someOptions = null) {
       myOptions += ["theme": _View.getTheme()];
 
       return h(_assetUrlClassName::scriptUrl(myPath, myOptions));
@@ -179,7 +179,7 @@ class DMVCUrlHelper : DHelper {
     * @param array<string, mixed> myOptions Options array.
     * @return string Generated URL
     */
-  string assetUrl(string myPath, DValueMap someOptions = null) {
+  string assetUrl(string myPath, DOptions someOptions = null) {
       myOptions += ["theme": _View.getTheme()];
 
       return h(_assetUrlClassName::url(myPath, myOptions));
