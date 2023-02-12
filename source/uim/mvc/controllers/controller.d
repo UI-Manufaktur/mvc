@@ -10,7 +10,7 @@ class DController : DMVCBase, IController  {
   mixin(OProperty!("bool", "autoRender"));
 
   // Instance of ComponentRegistry used to create Components
-  mixin(OProperty!("ControllerComponentRegistry", "components"));
+  mixin(OProperty!("DControllerComponentRegistry", "components"));
 
   // Automatically set to the name of a plugin.
   mixin(OProperty!("string", "plugin"));
