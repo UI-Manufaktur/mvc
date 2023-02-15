@@ -1,13 +1,13 @@
 module uim.mvc.controllers.checks.requests.accountname;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DControllerCheckRequestHasAccountName : DControllerCheckDatabaseHasAccounts {
   mixin(ControllerComponentThis!("APPCheckRequestHasAccountName"));
 
-  override void initialize() {
-    super.initialize;
+  override void initialize(DConfigurationValue configSettings = null) {
+    super.initialize(configSettings);
 
     this
     .redirectUrl("/login");

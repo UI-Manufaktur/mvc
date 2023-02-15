@@ -6,8 +6,8 @@ import uim.mvc;
 class DControllerCheckDatabaseHasSessions : DControllerCheckDatabaseHasSystems {
   mixin(ControllerComponentThis!("APPCheckDatabaseHasSessions"));
 
-  override void initialize() {
-    super.initialize;
+  override void initialize(DConfigurationValue configSettings = null) {
+    super.initialize(configSettings);
 
     this
     .redirectUrl("/error?message=collection_sessions_missing");

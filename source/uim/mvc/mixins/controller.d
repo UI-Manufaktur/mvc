@@ -17,8 +17,8 @@ template ControllerThis(string name) {
   const char[] ControllerThis = mvcControllerThis(name);
 }
 
-string mvcControllerCalls(string shortName, string className = "") {
-  string clName = className ? className : "D"~shortName;
+string mvcControllerCalls(string shortName, string className = null) {
+  string clName = className.length > 0 ? className : "D"~shortName;
   return `
     auto `~shortName~`() { return new `~clName~`; }
     auto `~shortName~`(DMVCApplication myApplication) { return new `~clName~`(myApplication); }

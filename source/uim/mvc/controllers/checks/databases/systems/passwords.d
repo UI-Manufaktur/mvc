@@ -6,8 +6,8 @@ import uim.mvc;
 class DControllerCheckDatabaseHasPasswords : DControllerCheckDatabaseHasSystems {
   mixin(ControllerComponentThis!("APPCheckDatabaseHasPasswords"));
 
-  override void initialize() {
-    super.initialize;
+  override void initialize(DConfigurationValue configSettings = null) {
+    super.initialize(configSettings);
 
     this
     .redirectUrl("/error?message=collection_passwords_missing");

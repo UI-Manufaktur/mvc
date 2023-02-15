@@ -6,8 +6,8 @@ import uim.mvc;
 class DControllerCheckDatabaseHasSites : DControllerCheckDatabaseHasSystems {
   mixin(ControllerComponentThis!("APPCheckDatabaseHasSites"));
 
-  override void initialize() {
-    super.initialize;
+  override void initialize(DConfigurationValue configSettings = null) {
+    super.initialize(configSettings);
 
     this
     .redirectUrl("/error?message=collection_sites_missing");
