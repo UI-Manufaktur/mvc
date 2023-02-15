@@ -27,8 +27,6 @@ class DControllerComponent : DMVCObject, IControllerComponent {
 
   override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
-
-    _defaultConfig = Json.emptyObject;
   }
 }
 mixin(ControllerComponentCalls!("ControllerComponent", "DControllerComponent"));

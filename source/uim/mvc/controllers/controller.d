@@ -35,11 +35,8 @@ class DController : DMVCObject, IController  {
       * - redirect: Session key used to store redirect URL.
       *
       */
-      _defaultConfig = Json.emptyObject;
       _defaultConfig["key"] = "Auth.User";
       _defaultConfig["redirect"] = "Auth.redirect";
-
-      _config = Json.emptyObject;
 
     this
       .name("Controller"); 
@@ -198,12 +195,16 @@ class DController : DMVCObject, IController  {
 }
 mixin(ControllerCalls!("Controller", "DController"));
 
-version(test_uim_mvc) { unittest {
+///
+unittest {
   testController(Controller, "Controller");
 
   assert(Controller.name == "Controller");
   assert(Controller.create.name == "Controller");
   assert(Controller.clone.name == "Controller");
-}} 
+
+  assert(Controller.defaultConfig["key"] == "Auth.User");
+  assert(Controller.defaultConfig["redirect"] == "Auth.redirect");
+}
 
 

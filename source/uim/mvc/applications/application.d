@@ -22,7 +22,6 @@ class DMVCApplication : DMVCObject, IMVCApplication {
   // Application data 
   mixin(OProperty!("UUID", "id"));
   mixin(OProperty!("size_t", "versionNumber"));
-  mixin(OProperty!("Json", "config"));
 
   // Interfaces
   mixin(OProperty!("DETBBase", "database"));

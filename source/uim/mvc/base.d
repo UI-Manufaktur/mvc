@@ -29,7 +29,7 @@ class DMVCObject : IMVCObject {
     // Code for object initialization
     this
       .name("MVCObject")
-      .defaultConfig(ConfigurationValue);
+      .defaultConfig(ConfigurationValue)
       .config(ConfigurationValue);
   }
 

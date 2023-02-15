@@ -3,14 +3,14 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel (Sicherheitsschmiede)                                                      
 **********************************************************************************************************/
-module uim.mvc.mixins.layout;
+module  uim.mvc.mixins.layout;
 
 @safe:
 import uim.mvc;
 
 string LayoutThis(string name) {
   return
-    mvcBaseThis(name);
+    mvcObjectThis(name);
 }
 
 template LayoutThis(string name) {

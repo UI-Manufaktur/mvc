@@ -10,7 +10,7 @@ import uim.mvc;
 
 string mvcControllerThis(string name) {
   return
-    mvcBaseThis(name);
+    mvcObjectThis(name);
 }
 
 template ControllerThis(string name) {

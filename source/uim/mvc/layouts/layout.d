@@ -94,7 +94,6 @@ class DLayout : DMVCObject, ILayout{
   mixin(OProperty!("STRINGAA", "bodyAttributes"));
   mixin(OProperty!("string[]", "bodyClasses"));
   mixin(OProperty!("DLayout", "layout"));
-  mixin(OProperty!("Json", "config"));
 
   // Containers
   mixin(OProperty!("DMVCLinkContainer", "links"));

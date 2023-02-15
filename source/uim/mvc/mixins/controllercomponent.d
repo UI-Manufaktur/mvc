@@ -10,7 +10,7 @@ import uim.mvc;
 
 string mvcControllerComponentThis(string name) {
   return 
-    mvcBaseThis(name)~
+    mvcObjectThis(name)~
   `
     this(IController myController) { this().controller(myController); }
   `;
