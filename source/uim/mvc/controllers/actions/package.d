@@ -5,5 +5,15 @@
 **********************************************************************************************************/
 module uim.mvc.controllers.actions;
 
-public import uim.mvc.controllers.actions.action;
+// Main classes
 public import uim.mvc.controllers.actions.interface_;
+public import uim.mvc.controllers.actions.action;
+
+// Subclasses
+public import uim.mvc.controllers.actions.create;
+public import uim.mvc.controllers.actions.entities;
+public import uim.mvc.controllers.actions.entity;
+public import uim.mvc.controllers.actions.login;
+public import uim.mvc.controllers.actions.login2;
+public import uim.mvc.controllers.actions.setsite;
+public import uim.mvc.controllers.actions.system;
