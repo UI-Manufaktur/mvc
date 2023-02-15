@@ -1,7 +1,7 @@
 module uim.mvc.controllers.checks.databases.tenant_by_name;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DControllerCheckDatabaseHasTenant : DControllerCheckDatabaseExists {
   mixin(ControllerComponentThis!("APPCheckDatabaseHasTenant"));

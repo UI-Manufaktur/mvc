@@ -1,7 +1,7 @@
 module uim.mvc.controllers.checks.databases.systems.accounts;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DControllerCheckDatabaseHasAccounts : DControllerCheckDatabaseHasSystems {
   mixin(ControllerComponentThis!("APPCheckDatabaseHasAccounts"));

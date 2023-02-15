@@ -1,7 +1,7 @@
 module uim.mvc.controllers.checks.requests.accountid;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DControllerCheckRequestHasAccountId : DControllerCheckDatabaseHasAccounts {
   mixin(ControllerComponentThis!("APPCheckAccountIdInSession"));

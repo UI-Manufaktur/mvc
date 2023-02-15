@@ -1,7 +1,7 @@
 module uim.mvc.controllers.checks.databases.systems.logins;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DControllerCheckDatabaseHasLogins : DControllerCheckDatabaseHasSystems {
   mixin(ControllerComponentThis!("APPCheckDatabaseHasLogins"));

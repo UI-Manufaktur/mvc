@@ -1,7 +1,7 @@
 module uim.mvc.controllers.checks.databases.systems.sessions;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DControllerCheckDatabaseHasSessions : DControllerCheckDatabaseHasSystems {
   mixin(ControllerComponentThis!("APPCheckDatabaseHasSessions"));

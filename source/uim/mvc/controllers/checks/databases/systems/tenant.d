@@ -1,7 +1,7 @@
 module uim.mvc.controllers.checks.databases.systems.tenant;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DControllerCheckDatabaseHasSystems : DControllerCheckDatabaseExists {
   mixin(ControllerComponentThis!("APPCheckDatabaseHasSystems"));

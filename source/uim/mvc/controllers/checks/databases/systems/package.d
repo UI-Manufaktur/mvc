@@ -1,7 +1,7 @@
 module uim.mvc.controllers.checks.databases.systems;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 // Main
 public import uim.mvc.controllers.checks.databases.systems.tenant;
