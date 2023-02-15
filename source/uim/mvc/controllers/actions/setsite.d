@@ -1,7 +1,7 @@
-module uim.apps.controllers.actions.setsite;
+module uim.mvcs.controllers.actions.setsite;
 
 @safe:
-import uim.apps;
+import uim.mvcs;
 
 class DAPPSelectSiteActionController : DActionController {
   mixin(ControllerThis!("APPSelectSiteActionController"));

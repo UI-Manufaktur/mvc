@@ -1,7 +1,7 @@
-module uim.apps.controllers.actions.create;
+module uim.mvcs.controllers.actions.create;
 
 @safe:
-import uim.apps;
+import uim.mvcs;
 
 class DAPPCreateActionController : DActionController {
   mixin(ControllerThis!("APPCreateActionController"));

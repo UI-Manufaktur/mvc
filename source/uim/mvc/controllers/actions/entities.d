@@ -1,7 +1,7 @@
-module uim.apps.controllers.actions.entities;
+module uim.mvcs.controllers.actions.entities;
 
 @safe:
-import uim.apps;
+import uim.mvcs;
 
 class DAPPEntitiesActionController : DActionController {
   mixin(ControllerThis!("APPEntitiesActionController"));

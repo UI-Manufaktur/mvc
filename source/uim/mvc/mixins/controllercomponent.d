@@ -8,7 +8,7 @@ module uim.mvc.mixins.controllercomponent;
 @safe:
 import uim.mvc;
 
-string mvcControllerComponentThis(string name) {
+string controllerComponentThis(string name) {
   return 
     mvcObjectThis(name)~
   `
@@ -17,7 +17,7 @@ string mvcControllerComponentThis(string name) {
 }
 
 template ControllerComponentThis(string name) {
-  const char[] ControllerComponentThis = mvcControllerComponentThis(name);
+  const char[] ControllerComponentThis = controllerComponentThis(name);
 }
 
 string mvcControllerComponentCalls(string shortName, string className) {
