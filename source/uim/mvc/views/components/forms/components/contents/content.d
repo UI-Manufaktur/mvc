@@ -12,7 +12,7 @@ class DFormContent : DFormComponent {
   mixin(ViewComponentThis!("MVCFormContent"));
 
   override void initialize(DConfigurationValue configSettings = null) {
-    debugMethodCall(moduleName!DFormContent~"::DFormContent("~this.name~"):initialize");   
+    version(test_uim_mvc) { debugMethodCall(moduleName!DFormContent~"::DFormContent("~this.name~"):initialize"); }  
     super.initialize(configSettings);
 
     debug writeln("In ", __MODULE__, "/", __LINE__);

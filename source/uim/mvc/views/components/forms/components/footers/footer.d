@@ -12,7 +12,7 @@ class DFormFooter : DFormComponent {
   mixin(ViewComponentThis!("MVCFormFooter"));
 
   override void initialize(DConfigurationValue configSettings = null) {
-    debugMethodCall(moduleName!DFormFooter~"::DFormFooter("~this.name~"):initialize");   
+    version(test_uim_mvc) { debugMethodCall(moduleName!DFormFooter~"::DFormFooter("~this.name~"):initialize"); }  
     super.initialize(configSettings);
 
     debug writeln("In ", __MODULE__, "/", __LINE__);

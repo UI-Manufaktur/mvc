@@ -1,7 +1,7 @@
-module uim.mvcs.controllers.actions.system;
+module uim.mvc.controllers.actions.system;
 
 @safe:
-import uim.mvcs;
+import uim.mvc;
 
 class DAPPSystemActionController : DActionController {
   mixin(ControllerThis!("APPSystemActionController"));

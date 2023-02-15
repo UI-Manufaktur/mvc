@@ -1,7 +1,7 @@
-module uim.mvcs.controllers.actions.login;
+module uim.mvc.controllers.actions.login;
 
 @safe:
-import uim.mvcs;
+import uim.mvc;
 
 class DAPPLoginActionController : DAPPSystemActionController {
   mixin(ControllerThis!("APPLoginActionController"));
