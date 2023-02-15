@@ -3,7 +3,7 @@ module uim.mvc.controllers.components.interface_;
 @safe:
 import uim.mvc;
 
-interface IControllerComponent : IMVCBase {
+interface IControllerComponent : IMVCObject {
   IController controller();
   O controller(this O)(IController newController);
 }

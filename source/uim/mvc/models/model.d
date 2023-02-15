@@ -3,7 +3,7 @@ module uim.mvc.models.model;
 @safe:
 import uim.mvc;
 
-class DModel : DMVCBase, IModel { 
+class DModel : DMVCObject, IModel { 
   mixin(ModelThis!("Model"));
 
   override void initialize(DConfigurationValue configSettings = null) {}

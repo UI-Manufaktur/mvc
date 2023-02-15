@@ -21,14 +21,14 @@ string mvcBaseThis(string name) {
     this(string myName, string[string] myParameters) { this(name).parameters(myParameters); }
     this(DMVCApplication myApplication, string myName, string[string] myParameters) { this(myApplication, name).parameters(myParameters); }
 
-    override DMVCBase create() {
+    override DMVCObject create() {
       return `~name~`;
     }
   `;
 }
 
-template MVCBaseThis(string name) {
-  const char[] MVCBaseThis = mvcBaseThis(name);
+template MVCObjectThis(string name) {
+  const char[] MVCObjectThis = mvcBaseThis(name);
 }
 
 string mvcBaseCalls(string shortName, string className) {
@@ -45,8 +45,8 @@ string mvcBaseCalls(string shortName, string className) {
   `;
 }
 
-template MVCBaseCalls(string shortName, string className) {
-  const char[] MVCBaseCalls = mvcBaseCalls(shortName, className);
+template MVCObjectCalls(string shortName, string className) {
+  const char[] MVCObjectCalls = mvcBaseCalls(shortName, className);
 }
 
 

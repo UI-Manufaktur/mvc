@@ -8,7 +8,7 @@ module uim.mvc.applications.application;
 @safe:
 import uim.mvc;
 
-class DMVCApplication : DMVCBase, IMVCApplication { 
+class DMVCApplication : DMVCObject, IMVCApplication { 
   this() { initialize; }
 
   override void initialize(DConfigurationValue configSettings = null) {

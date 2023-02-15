@@ -8,7 +8,7 @@ module uim.mvc.controllers.controller;
 @safe:
 import uim.mvc;
 
-class DController : DMVCBase, IController  {
+class DController : DMVCObject, IController  {
   mixin(ControllerThis!("Controller"));
 
   // Set to true to automatically render the view after action logic.
@@ -105,10 +105,6 @@ class DController : DMVCBase, IController  {
 
   // https://vibed.org/api/vibe.http.session/
   mixin(OProperty!("DEntity", "session"));
-
-  // Configuration of controller
-  mixin(OProperty!("Json", "defaultConfig"));
-  mixin(OProperty!("Json", "config"));
 
   bool hasRedirect() {
     return (this.redirect.length > 0);

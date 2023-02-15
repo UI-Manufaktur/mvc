@@ -3,7 +3,7 @@ module uim.mvc.base;
 @safe:
 import uim.mvc;
 
-interface IMVCBase {
+interface IMVCObject {
   DMVCApplication application();
   O application(this O)(DMVCApplication newApplication);
 
@@ -14,7 +14,7 @@ interface IMVCBase {
   Json toJson();
 }
 
-class DMVCBase : IMVCBase {
+class DMVCObject : IMVCObject {
   // Constructors for the main properties
   this() { initialize; }
   this(DMVCApplication newApplication) { this().application(newApplication); }
@@ -28,13 +28,24 @@ class DMVCBase : IMVCBase {
   void initialize(DConfigurationValue configSettings = null) {
     // Code for object initialization
     this
-      .name("MVCBase");
+      .name("MVCObject")
+      .defaultConfig(ConfigurationValue);
+      .config(ConfigurationValue);
   }
 
   mixin(OProperty!("DMVCApplication", "application"));
 
   // The name of a mvc object. Names are plural, named after the model they manipulate.
   mixin(MVCParameter!("name"));
+
+  /**
+    * Default config
+    * These are merged with user-provided config when the component is used.
+    */
+  mixin(OProperty!("DConfigurationValue", "defaultConfig"));
+
+  // Configuration of mvcobject
+  mixin(OProperty!("DConfigurationValue", "config"));
 
   // #region Parameters
     mixin(OProperty!("string[string]", "parameters")); 
@@ -74,12 +85,12 @@ class DMVCBase : IMVCBase {
     }
   // #endregion error
 
-  DMVCBase create() {
-    return MVCBase;
+  DMVCObject create() {
+    return MVCObject;
   }
 
-  DMVCBase clone() {
-    DMVCBase result = create;
+  DMVCObject clone() {
+    DMVCObject result = create;
     result.application(this.application);
     return result.fromJson(this.toJson);
   }
@@ -112,20 +123,20 @@ class DMVCBase : IMVCBase {
     return toJson.toString;
   }
 }
-auto MVCBase() { return new DMVCBase; }
+auto MVCObject() { return new DMVCObject; }
 
 version(test_uim_mvc) unittest {
-  assert(MVCBase);
-  assert(MVCBase.name("testName").name == "testName");
+  assert(MVCObject);
+  assert(MVCObject.name("testName").name == "testName");
 
-  assert(MVCBase.parameter("test", "value").hasParameter("test"));
-  assert(MVCBase.parameter("test", "value").parameter("test") == "value");
+  assert(MVCObject.parameter("test", "value").hasParameter("test"));
+  assert(MVCObject.parameter("test", "value").parameter("test") == "value");
 
   auto json = Json.emptyObject;
   json["test"] = "value";
-  assert(MVCBase.fromJson(json).hasParameter("test"));
-  assert(MVCBase.fromJson(json).parameter("test") == "value");
+  assert(MVCObject.fromJson(json).hasParameter("test"));
+  assert(MVCObject.fromJson(json).parameter("test") == "value");
   
-  assert(MVCBase.create.name == "MVCBase");
-  assert(MVCBase.clone.name == "MVCBase");
+  assert(MVCObject.create.name == "MVCObject");
+  assert(MVCObject.clone.name == "MVCObject");
 }
