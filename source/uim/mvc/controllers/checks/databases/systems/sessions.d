@@ -1,4 +1,4 @@
-module uim.apps.controllers.components.checks.databases.systems.sessions;
+module uim.mvc.controllers.checks.databases.systems.sessions;
 
 @safe:
 import uim.apps;

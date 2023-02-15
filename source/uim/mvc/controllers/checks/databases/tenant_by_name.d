@@ -1,4 +1,4 @@
-module uim.apps.controllers.components.checks.databases.tenant_by_name;
+module uim.mvc.controllers.checks.databases.tenant_by_name;
 
 @safe:
 import uim.apps;
