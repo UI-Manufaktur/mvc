@@ -8,6 +8,6 @@ module uim.mvc.layouts.interface_;
 @safe:
 import uim.mvc;
 
-interface ILayout : IMVCBase {
+interface ILayout : IMVCObject {
 
 }

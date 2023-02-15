@@ -8,7 +8,7 @@ module uim.mvc.routes.route;
 @safe:
 import uim.mvc;
 
-class DRoute : DMVCBase, IRoute {
+class DRoute : DMVCObject, IRoute {
   this() { super(); }
   this(string aPath, HTTPMethod aMethod, DController aController) {
     this().path(aPath).method(aMethod).controller(aController);

@@ -3,7 +3,7 @@ module uim.mvc.views.components.component;
 @safe:
 import uim.mvc;
 
-class DViewComponent : DMVCBase, IViewComponent {
+class DViewComponent : DMVCObject, IViewComponent {
   mixin(ViewComponentThis!("ViewComponent"));
 
   override void initialize(DConfigurationValue configSettings = null) {

@@ -3,7 +3,7 @@ module uim.mvc.views.components.interface_;
 @safe:
 import uim.mvc;
 
-interface IViewComponent : IMVCBase {
+interface IViewComponent : IMVCObject {
   IView view();
   O view(this O)(IView newView);
 

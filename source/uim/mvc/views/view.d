@@ -41,7 +41,7 @@ import uim.mvc;
  * @property uim.mvc.views\Helper\UrlHelper myUrl
  * @property uim.mvc.views\ViewBlock $Blocks
  */
-class DView : DMVCBase, IView { 
+class DView : DMVCObject, IView { 
   mixin(ViewThis!("View"));
 
   override void initialize(DConfigurationValue configSettings = null) {
