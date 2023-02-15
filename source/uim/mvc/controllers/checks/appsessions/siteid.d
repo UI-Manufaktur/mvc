@@ -6,8 +6,8 @@ import uim.mvc;
 class DControllerCheckAppSessionHasSiteId : DControllerCheckAppSessionHasSession {
   mixin(ControllerComponentThis!("APPCheckAppSessionHasSiteId"));
 
-  override void initialize() {
-    super.initialize;
+  override void initialize(DConfigurationValue configSettings = null) {
+    super.initialize(configSettings);
 
     this
     .redirectUrl("/login");

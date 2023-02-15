@@ -6,8 +6,8 @@ import uim.mvc;
 class DControllerCheckDatabaseExists : DControllerCheck {
   mixin(ControllerComponentThis!("APPCheckDatabaseExists"));
 
-  override void initialize() {
-    super.initialize;
+  override void initialize(DConfigurationValue configSettings = null) {
+    super.initialize(configSettings);
 
     this
     .redirectUrl("/error?message=database_missing");
