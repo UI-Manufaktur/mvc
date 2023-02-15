@@ -78,3 +78,7 @@ public import uim.mvc.views;
 // helpers
 public import uim.mvc.mixins;
 public import uim.mvc.tests;
+
+DSession[string] appSessions;
+DEntity[size_t] entityPool;
+DEntity[][size_t] entitiesPool;

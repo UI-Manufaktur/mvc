@@ -107,6 +107,20 @@ class DController : DMVCObject, IController  {
   // https://vibed.org/api/vibe.http.session/
   mixin(OProperty!("DSession", "session"));
 
+  // #region database
+    DETBBase _database; 
+    O database(this O)(DETBBase aDatabase) { 
+      _database = aDatabase; 
+      return cast(O)this; }
+
+    DETBBase database() {
+      if (_database) { return _database; } // has his own database
+      if (this.controller && this.controller.database) { return this.controller.database; } // owner has database
+      if (auto myApp = cast(DMVCApplication)app) { return myApp.database; } // Leading app has database
+      return null; // no database found
+    }
+  // #endregion database
+  
   bool hasRedirect() {
     return (this.redirect.length > 0);
   }
