@@ -1,3 +1,3 @@
-module uim.mvc.controllers.components.checks;
+module uim.mvc.controllers.checks;
 
-public import uim.mvc.controllers.components.checks.check;
+public import uim.mvc.controllers.checks.check;

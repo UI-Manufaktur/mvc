@@ -8,8 +8,8 @@ module uim.mvc.controllers.pages.page;
 @safe:
 import uim.mvc;
 
-class DMVCPageController : DController {
-  mixin(ControllerThis!("MVCPageController"));
+class DPageController : DController {
+  mixin(ControllerThis!("PageController"));
 
   override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
@@ -39,7 +39,7 @@ class DMVCPageController : DController {
   mixin(OProperty!("DLayout", "layout"));
 
   override void beforeResponse(STRINGAA options = null) {
-    debugMethodCall(moduleName!DMVCPageController~":DMVCPageController("~this.name~")::beforeResponse");
+    debugMethodCall(moduleName!DPageController~":DPageController("~this.name~")::beforeResponse");
     super.beforeResponse(options);
   }    
 
@@ -60,8 +60,8 @@ class DMVCPageController : DController {
   }
 
   override void afterResponse(STRINGAA options = null) {
-    debugMethodCall(moduleName!DMVCPageController~":DMVCPageController::afterResponse");
+    debugMethodCall(moduleName!DPageController~":DPageController::afterResponse");
     super.afterResponse(options);
   }  
 }
-mixin(ControllerCalls!("MVCPageController", "DMVCPageController"));
+mixin(ControllerCalls!("PageController", "DPageController"));

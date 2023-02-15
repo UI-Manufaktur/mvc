@@ -3,7 +3,7 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel (Sicherheitsschmiede)                                                      
 **********************************************************************************************************/
-module uim.mvc.controllers.components.checks.check;
+module uim.mvc.controllers.checks.check;
 
 @safe:
 import uim.mvc;
@@ -11,8 +11,8 @@ import uim.mvc;
 class DControllerCheck : DControllerComponent {
   mixin(ControllerComponentThis!("ControllerCheck"));
 
-  override void initialize() {
-    super.initialize;
+  override void initialize(DConfigurationValue configSettings = null) {
+    super.initialize(configSettings);
 
     this
     .name("ControllerCheck");
@@ -38,7 +38,7 @@ class DControllerCheck : DControllerComponent {
     return true;
   }
 }
-mixin(ControllerComponentCalls!("ControllerCheck"));
+mixin(ControllerComponentCalls!("ControllerCheck", "DControllerCheck"));
 
 version(test_uim_apps) { unittest {
 	writeln("--- Test in ", __MODULE__, "/", __LINE__);

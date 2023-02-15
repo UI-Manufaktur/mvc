@@ -71,11 +71,11 @@ class DController : DMVCObject, IController  {
   // #endregion Properties
 
   /// Owning controller
-  mixin(OProperty!("DAPPApplication", "app"));
+  mixin(OProperty!("DMVCApplication", "app"));
   mixin(OProperty!("DController", "controller"));
 
-  mixin(OProperty!("DMVCCheck[]", "checks"));
-  O addChecks(this O)(DMVCCheck[] newChecks) {
+  mixin(OProperty!("DControllerCheck[]", "checks"));
+  O addChecks(this O)(DControllerCheck[] newChecks) {
     this.checks(this.checks~newChecks);
     return cast(O)this;
   } 
@@ -105,7 +105,7 @@ class DController : DMVCObject, IController  {
   // #endregion HTTPServerResponse response
 
   // https://vibed.org/api/vibe.http.session/
-  mixin(OProperty!("DEntity", "session"));
+  mixin(OProperty!("DSession", "session"));
 
   bool hasRedirect() {
     return (this.redirect.length > 0);

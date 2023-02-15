@@ -129,8 +129,8 @@ class DLayout : DMVCObject, ILayout{
     if (this.scripts) myScripts ~= this.scripts.toH5;
 	}
 
-	string render(DMVCPageController controller, DView view, STRINGAA options = null) { 
-		debugMethodCall(moduleName!DLayout~":DLayout("~this.name~")::render(DMVCPageController controller, DView view, STRINGAA options = null)");
+	string render(DPageController controller, DView view, STRINGAA options = null) { 
+		debugMethodCall(moduleName!DLayout~":DLayout("~this.name~")::render(DPageController controller, DView view, STRINGAA options = null)");
     if (view) {
       debug writeln("view is -> ", view.name);
 		  return render(controller, view.toH5(options), options);
@@ -141,8 +141,8 @@ class DLayout : DMVCObject, ILayout{
     }
 	}
 
-	string render(DMVCPageController controller, DH5Obj[] h5Objs, STRINGAA options = null) { 
-		debugMethodCall(moduleName!DLayout~":DLayout("~this.name~")::render(DMVCPageController controller, DH5Obj[] h5Objs, STRINGAA options = null)");
+	string render(DPageController controller, DH5Obj[] h5Objs, STRINGAA options = null) { 
+		debugMethodCall(moduleName!DLayout~":DLayout("~this.name~")::render(DPageController controller, DH5Obj[] h5Objs, STRINGAA options = null)");
 		if (h5Objs) {
       return render(controller, h5Objs.map!(h5 => h5.toString).join, options);
     }
@@ -150,8 +150,8 @@ class DLayout : DMVCObject, ILayout{
 	}
 
 
-	string render(DMVCPageController controller, string content, STRINGAA options = null) { 
-		debugMethodCall(moduleName!DLayout~":DLayout("~this.name~")::render(DMVCPageController controller, string content, STRINGAA options = null)");
+	string render(DPageController controller, string content, STRINGAA options = null) { 
+		debugMethodCall(moduleName!DLayout~":DLayout("~this.name~")::render(DPageController controller, string content, STRINGAA options = null)");
 		beforeRender(options);
 
     debug writeln("myMetas = ", myMetas);
@@ -175,7 +175,7 @@ class DLayout : DMVCObject, ILayout{
 			foreach(k,v; application.parameters) if (k !in options) options[k] = v; }
 
 
-		if (auto pageController = cast(DMVCPageController)controller) {
+		if (auto pageController = cast(DPageController)controller) {
       debug writeln("Found pageController");
 
       if (pageController.metas) myMetas ~= pageController.metas.toH5;
@@ -230,7 +230,7 @@ version(test_uim_mvc) { unittest {
   // #endregion render
 }
 
-/*   override string render(DMVCPageController page, DView view, STRINGAA options = null) {
+/*   override string render(DPageController page, DView view, STRINGAA options = null) {
     super.render(page, view, options);
 
     auto head = ("navigation" in options ? options.get("navigation", "") : navigation.render(options));
@@ -294,7 +294,7 @@ version(test_uim_mvc) { unittest {
       return BS5NavbarNav(this.navSlots);
     }
 
-    override string toString(DMVCPageController page, string[string] reqParameters) {
+    override string toString(DPageController page, string[string] reqParameters) {
       foreach(k,v; parameters) if (k !in reqParameters) reqParameters[k] = v;
       foreach(k,v; page.parameters) if (k !in reqParameters) reqParameters[k] = v;
       if (auto app = page.app) {
@@ -465,7 +465,7 @@ auto newNavbar(string[string] Parameters) {
   </nav>`;
 }
 // megamenu2
-auto dropDownItems(string prefix, DMVCPageController[][string] themes) {
+auto dropDownItems(string prefix, DPageController[][string] themes) {
   string result;
   foreach(theme; themes.getKeys(true)) result ~= H5A(["dropdown-item"], ["href":prefix~theme.toLower], theme).toString;
   return result;

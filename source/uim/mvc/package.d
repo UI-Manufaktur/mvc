@@ -72,6 +72,7 @@ public import uim.mvc.controllers;
 public import uim.mvc.layouts;
 public import uim.mvc.models;
 public import uim.mvc.routes;
+public import uim.mvc.security;
 public import uim.mvc.views;
 
 // helpers
