@@ -22,7 +22,7 @@ class DController : DMVCObject, IController  {
 
   // Initialization (= hook method)
   override void initialize(DConfigurationValue configSettings = null) {
-    debugMethodCall(moduleName!DController~"::DController("~this.name~"):initialize");   
+    version(test_uim_mvc) { debugMethodCall(moduleName!DController~"::DController("~this.name~"):initialize"); }  
     super.initialize(configSettings);
 
     _autoRender = true;
@@ -70,11 +70,15 @@ class DController : DMVCObject, IController  {
     mixin(MVCParameter!("redirect"));
   // #endregion Properties
 
-  /* mixin(OProperty!("DMVCCheck[]", "checks"));
+  /// Owning controller
+  mixin(OProperty!("DAPPApplication", "app"));
+  mixin(OProperty!("DController", "controller"));
+
+  mixin(OProperty!("DMVCCheck[]", "checks"));
   O addChecks(this O)(DMVCCheck[] newChecks) {
     this.checks(this.checks~newChecks);
     return cast(O)this;
-  } */
+  } 
 
 
   // #region HTTPServerRequest _request

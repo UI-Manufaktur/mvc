@@ -17,13 +17,14 @@ interface IMVCObject {
 class DMVCObject : IMVCObject {
   // Constructors for the main properties
   this() { initialize; }
-  this(DMVCApplication newApplication) { this().application(newApplication); }
-  this(string newName) { this().name(newName); }
-  this(string[string] newParameters) { this().parameters(newParameters); }
-  this(DMVCApplication newApplication, string newName) { this(newApplication).name(newName); }
-  this(DMVCApplication newApplication, string[string] newParameters) { this(newApplication).parameters(newParameters); }
-  this(string newName, string[string] newParameters) { this(newName).parameters(newParameters); }
-  this(DMVCApplication newApplication, string newName, string[string] newParameters) { this(newApplication, newName).parameters(newParameters); }
+  this(DConfigurationValue configSettings) { this().initialize(configSettings); }
+  this(DMVCApplication newApplication, DConfigurationValue configSettings = null) { this(configSettings).application(newApplication); }
+  this(string newName, DConfigurationValue configSettings = null) { this(configSettings).name(newName); }
+  this(string[string] newParameters, DConfigurationValue configSettings = null) { this(configSettings).parameters(newParameters); }
+  this(DMVCApplication newApplication, string newName, DConfigurationValue configSettings = null) { this(newApplication).name(newName); }
+  this(DMVCApplication newApplication, string[string] newParameters, DConfigurationValue configSettings = null) { this(newApplication,configSettings).parameters(newParameters); }
+  this(string newName, string[string] newParameters, DConfigurationValue configSettings = null) { this(newName, configSettings).parameters(newParameters); }
+  this(DMVCApplication newApplication, string newName, string[string] newParameters, DConfigurationValue configSettings = null) { this(newApplication, newName, configSettings).parameters(newParameters); }
 
   void initialize(DConfigurationValue configSettings = null) {
     // Code for object initialization

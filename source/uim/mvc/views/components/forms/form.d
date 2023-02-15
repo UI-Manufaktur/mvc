@@ -12,9 +12,9 @@ class DForm : DViewComponent {
   mixin(ViewComponentThis!("MVCForm"));
 
   override void initialize(DConfigurationValue configSettings = null) {
-    debugMethodCall(moduleName!DForm~"::DForm("~this.name~"):initialize");   
+    version(test_uim_mvc) { debugMethodCall(moduleName!DForm~"::DForm("~this.name~"):initialize"); }  
     super.initialize(configSettings);    
-    writeln("In ", __MODULE__, "/", __LINE__);
+    version(test_uim_mvc) { debug writeln("In ", __MODULE__, "/", __LINE__); }
  
     this
       .id(name~"_"~to!string(uniform(0, 100_000)))

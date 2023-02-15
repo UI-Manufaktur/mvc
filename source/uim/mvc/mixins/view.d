@@ -5,7 +5,7 @@ import uim.mvc;
 
 auto viewThis(string name) {
   return 
-    mvcBaseThis(name)~
+    mvcObjectThis(name)~
   `
     this(IController myController) { this().controller(myController); }
   `;

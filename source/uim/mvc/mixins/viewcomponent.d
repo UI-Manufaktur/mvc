@@ -5,7 +5,7 @@ import uim.mvc;
 
 string viewComponentThis(string name) {
   return 
-    mvcBaseThis(name)~
+    mvcObjectThis(name)~
   `
     this(IView myView) { this().view(myView); }
   `;
