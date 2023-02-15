@@ -1,4 +1,4 @@
-module uim.apps.controllers.components.checks.databases.collection_by_name;
+module uim.mvc.controllers.checks.databases.collection_by_name;
 
 @safe:
 import uim.apps;

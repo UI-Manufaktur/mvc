@@ -1,14 +1,14 @@
-module uim.apps.controllers.components.checks.databases;
+module uim.mvc.controllers.checks.databases;
 
 @safe:
 import uim.apps;
 
 // Main
-public import uim.apps.controllers.components.checks.databases.database;
+public import uim.mvc.controllers.checks.databases.database;
 
 // Package
-public import uim.apps.controllers.components.checks.databases.systems;
+public import uim.mvc.controllers.checks.databases.systems;
 
 // Modules
-public import uim.apps.controllers.components.checks.databases.collection_by_name;
-public import uim.apps.controllers.components.checks.databases.tenant_by_name;
+public import uim.mvc.controllers.checks.databases.collection_by_name;
+public import uim.mvc.controllers.checks.databases.tenant_by_name;

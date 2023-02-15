@@ -1,4 +1,4 @@
-module uim.apps.controllers.components.checks.appsessions.site;
+module uim.mvc.controllers.checks.appsessions.site;
 
 @safe:
 import uim.apps;
