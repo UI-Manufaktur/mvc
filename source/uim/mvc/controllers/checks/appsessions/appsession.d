@@ -1,7 +1,7 @@
 module uim.mvc.controllers.checks.appsessions.appsession;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DControllerCheckAppSessionExists : DControllerCheck {
   mixin(ControllerComponentThis!("APPCheckAppSessionExists"));

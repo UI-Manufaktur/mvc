@@ -1,7 +1,7 @@
 module uim.mvc.controllers.checks.databases.collection_by_name;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DControllerCheckDatabaseHasCollection : DControllerCheckDatabaseExists {
   mixin(ControllerComponentThis!("APPCheckDatabaseHasCollection"));

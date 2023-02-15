@@ -1,7 +1,7 @@
 module uim.mvc.controllers.checks.appsessions.siteid;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DControllerCheckAppSessionHasSiteId : DControllerCheckAppSessionHasSession {
   mixin(ControllerComponentThis!("APPCheckAppSessionHasSiteId"));

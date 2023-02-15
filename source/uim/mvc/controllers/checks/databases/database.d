@@ -1,7 +1,7 @@
 module uim.mvc.controllers.checks.databases.database;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DControllerCheckDatabaseExists : DControllerCheck {
   mixin(ControllerComponentThis!("APPCheckDatabaseExists"));

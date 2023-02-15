@@ -1,7 +1,7 @@
 module uim.mvc.controllers.checks.appsessions;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 // Main
 public import uim.mvc.controllers.checks.appsessions.appsession;
