@@ -3,7 +3,7 @@ module uim.mvc.controllers.checks.appsessions.site;
 @safe:
 import uim.mvc;
 
-class DControllerCheckAppSessionHasSite : DControllerCheckAppSessionExists {
+class DControllerCheckAppSessionHasSite : DAppSessionExistsCheck {
   mixin(ControllerComponentThis!("APPCheckAppSessionHasSite"));
 
   override void initialize(DConfigurationValue configSettings = null) {

@@ -8,8 +8,8 @@ module uim.mvc.controllers.actions.login;
 @safe:
 import uim.mvc;
 
-class DAPPLoginActionController : DAPPSystemActionController {
-  mixin(ControllerThis!("APPLoginActionController"));
+class DLoginActionController : DAPPSystemActionController {
+  mixin(ControllerThis!("LoginActionController"));
 
   override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings); 
@@ -20,7 +20,7 @@ class DAPPLoginActionController : DAPPSystemActionController {
   }
 
   override void beforeResponse(STRINGAA options = null) {
-    debug writeln(moduleName!DAPPLoginActionController~":DAPPLoginActionController("~this.name~")::beforeResponse");
+    debug writeln(moduleName!DLoginActionController~":DLoginActionController("~this.name~")::beforeResponse");
     super.beforeResponse(options);    
     if (hasError || "redirect" in options) { return; }
 
@@ -33,7 +33,7 @@ class DAPPLoginActionController : DAPPSystemActionController {
         
     debug writeln("1");
     // appSession missing, create new one
-    debug writeln(moduleName!DAPPLoginActionController~":DAPPLoginActionController::beforeResponse -> Read httpSession");
+    debug writeln(moduleName!DLoginActionController~":DLoginActionController::beforeResponse -> Read httpSession");
     auto httpSession = this.response.startSession();
     appSessions[httpSession.id] = APPSession(httpSession);
     options["appSessionId"] = httpSession.id;
@@ -42,7 +42,7 @@ class DAPPLoginActionController : DAPPSystemActionController {
     // Create login and session object 
     this.appSession(appSessions[httpSession.id]);
     auto lastAccessedOn = toTimestamp(now());
-    debug writeln(moduleName!DAPPLoginActionController~":DAPPLoginActionController("~this.name~")::beforeResponse -> New login entity");
+    debug writeln(moduleName!DLoginActionController~":DLoginActionController("~this.name~")::beforeResponse -> New login entity");
     
     this
       .tenant(database["systems"]);
@@ -64,7 +64,7 @@ class DAPPLoginActionController : DAPPSystemActionController {
       return; 
     }
 
-    debug writeln(moduleName!DAPPLoginActionController~":DAPPLoginActionController::beforeResponse -> New session entity");
+    debug writeln(moduleName!DLoginActionController~":DLoginActionController::beforeResponse -> New session entity");
     auto session = this.sessions.createFromTemplate;
     session.lastAccessedOn = lastAccessedOn;
     session["loginId"] = login.id;    
@@ -72,8 +72,8 @@ class DAPPLoginActionController : DAPPSystemActionController {
     appSession.session = this.sessions.findOne(session.id);
     if (!appSession.session) // debug writeln("No appSession.session for id ", session.id);
 
-    debug writeln(moduleName!DAPPLoginActionController~":DAPPLoginActionController::beforeResponse -> Go to login2");
+    debug writeln(moduleName!DLoginActionController~":DLoginActionController::beforeResponse -> Go to login2");
     options["redirect"] = "/login2?loginId="~appSession.login.id.toString; 
     debug writeln(appSession.debugInfo); }
 }
-mixin(ControllerCalls!("APPLoginActionController"));
+mixin(ControllerCalls!("LoginActionController"));

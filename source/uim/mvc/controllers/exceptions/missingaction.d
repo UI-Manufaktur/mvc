@@ -15,7 +15,8 @@ import uim.mvc;
 class DMissingActionException : DUIMException {
 	override void initialize(DConfigurationValue configSettings = null) {
 		super.initialize(configSettings);
-		this.messageTemplate("Action %s::%s() could not be found, or is not accessible.");
+		this
+			.messageTemplate("Action %s::%s() could not be found, or is not accessible.");
 	}
 }
 auto MissingActionException() { return new DMissingActionException; }

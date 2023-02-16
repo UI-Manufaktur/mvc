@@ -3,8 +3,8 @@ module uim.mvc.controllers.checks.appsessions.account;
 @safe:
 import uim.mvc;
 
-class DControllerCheckAppSessionHasAccount : DControllerCheckAppSessionExists {
-  mixin(ControllerComponentThis!("APPCheckAppSessionHasAccount"));
+class DControllerCheckAppSessionHasAccount : DAppSessionExistsCheck {
+  mixin(ControllerComponentThis!("AppSessionHasAccountCheck"));
 
   override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
@@ -26,4 +26,4 @@ class DControllerCheckAppSessionHasAccount : DControllerCheckAppSessionExists {
     return true;
   }
 }
-mixin(ControllerComponentCalls!("APPCheckAppSessionHasAccount"));
+mixin(ControllerComponentCalls!("AppSessionHasAccountCheck"));

@@ -20,21 +20,22 @@ template ControllerComponentThis(string name) {
   const char[] ControllerComponentThis = controllerComponentThis(name);
 }
 
-string mvcControllerComponentCalls(string shortName, string className) {
+string mvcControllerComponentCalls(string shortName, string className = null) {
+  auto clName = className.length > 0 ? className : "D"~shortName;
   return `
-    auto `~shortName~`() { return new `~className~`; }
-    auto `~shortName~`(DMVCApplication myApplication) { return new `~className~`(myApplication); }
-    auto `~shortName~`(string myName) { return new `~className~`(myName); }
-    auto `~shortName~`(string[string] myParameters) { return new `~className~`(myParameters); }
+    auto `~shortName~`() { return new `~clName~`; }
+    auto `~shortName~`(DMVCApplication myApplication) { return new `~clName~`(myApplication); }
+    auto `~shortName~`(string myName) { return new `~clName~`(myName); }
+    auto `~shortName~`(string[string] myParameters) { return new `~clName~`(myParameters); }
 
-    auto `~shortName~`(string myName, string[string] myParameters) { return new `~className~`(myName, myParameters); }
+    auto `~shortName~`(string myName, string[string] myParameters) { return new `~clName~`(myName, myParameters); }
 
-    auto `~shortName~`(DMVCApplication myApplication, string myName) { return new `~className~`(myApplication, myName); }
-    auto `~shortName~`(DMVCApplication myApplication, string[string] myParameters) { return new `~className~`(myApplication, myParameters); }
+    auto `~shortName~`(DMVCApplication myApplication, string myName) { return new `~clName~`(myApplication, myName); }
+    auto `~shortName~`(DMVCApplication myApplication, string[string] myParameters) { return new `~clName~`(myApplication, myParameters); }
   `;
 }
 
-template ControllerComponentCalls(string shortName, string className) {
+template ControllerComponentCalls(string shortName, string className = null) {
   const char[] ControllerComponentCalls = mvcControllerComponentCalls(shortName, className);
 }
 
