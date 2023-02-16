@@ -12,7 +12,7 @@ string controllerComponentThis(string name) {
   return 
     mvcObjectThis(name)~
   `
-    this(IController myController) { this().controller(myController); }
+    this(DController myController) { this().controller(myController); }
   `;
 }
 

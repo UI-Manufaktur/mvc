@@ -7,7 +7,7 @@ auto viewThis(string name) {
   return 
     mvcObjectThis(name)~
   `
-    this(IController myController) { this().controller(myController); }
+    this(DController myController) { this().controller(myController); }
   `;
 }
 
@@ -19,7 +19,7 @@ string viewCalls(string shortName, string className) {
   return `
     auto `~shortName~`() { return new `~className~`; }
     auto `~shortName~`(DMVCApplication myApplication) { return new `~className~`(myApplication); }
-    auto `~shortName~`(IController myController) { return new `~className~`(myController); }
+    auto `~shortName~`(DController myController) { return new `~className~`(myController); }
     auto `~shortName~`(string myName) { return new `~className~`(myName); }
     auto `~shortName~`(string[string] myParameters) { return new `~className~`(myParameters); }
 

@@ -35,12 +35,12 @@ class DLoginActionController : DSystemActionController {
     // appSession missing, create new one
     debug writeln(moduleName!DLoginActionController~":DLoginActionController::beforeResponse -> Read httpSession");
     auto httpSession = this.response.startSession();
-    appSessions[httpSession.id] = APPSession(httpSession);
+    appSessions[httpSession.id] = new DSession(httpSession);
     options["appSessionId"] = httpSession.id;
 
     debug writeln("2");
     // Create login and session object 
-    this.appSession(appSessions[httpSession.id]);
+    this.session(appSessions[httpSession.id]);
     auto lastAccessedOn = toTimestamp(now());
     debug writeln(moduleName!DLoginActionController~":DLoginActionController("~this.name~")::beforeResponse -> New login entity");
     
@@ -55,8 +55,8 @@ class DLoginActionController : DSystemActionController {
     auto accountName = options.get("accountName", "");
     login["accountName"] = accountName;    
     this.logins.insertOne(login);
-    this.appSession.login = this.logins.findOne(login.id);
-    if (!appSession.login) {
+    this.session.login = this.logins.findOne(login.id);
+    if (!this.session.login) {
       debug writeln("No appSession.login for id ", login.id);
       return; 
     }
@@ -66,11 +66,11 @@ class DLoginActionController : DSystemActionController {
     session.lastAccessedOn = lastAccessedOn;
     session["loginId"] = login.id;    
     this.sessions.insertOne(session);
-    appSession.session = this.sessions.findOne(session.id);
-    if (!appSession.session) // debug writeln("No appSession.session for id ", session.id);
+    this.session.session = this.sessions.findOne(session.id);
+    if (!this.session.session) // debug writeln("No appSession.session for id ", session.id);
 
     debug writeln(moduleName!DLoginActionController~":DLoginActionController::beforeResponse -> Go to login2");
-    options["redirect"] = "/login2?loginId="~appSession.login.id.toString; 
-    debug writeln(appSession.debugInfo); }
+    options["redirect"] = "/login2?loginId="~this.session.login.id.toString; 
+    debug writeln(this.session.debugInfo); }
 }
 mixin(ControllerCalls!("LoginActionController"));

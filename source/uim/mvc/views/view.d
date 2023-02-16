@@ -53,7 +53,7 @@ class DView : DMVCObject, IView {
   }
   
   // #region Properties
-    mixin(OProperty!("IController", "controller"));  
+    mixin(OProperty!("DController", "controller"));  
     mixin(OProperty!("DEntity", "entity"));
     mixin(OProperty!("DEntity[]", "entities"));
     mixin(OProperty!("string", "rootPath"));

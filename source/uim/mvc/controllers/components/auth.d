@@ -8,7 +8,7 @@ module uim.mvc.controllers.components.auth;
 @safe:
 import uim.mvc;
 
-/* class DAuthControllerComponent : DControllerComponent {
+class DAuthControllerComponent : DControllerComponent {
   mixin(ControllerComponentThis!("AuthControllerComponent"));
 
   // The query string key used for remembering the referred page when getting redirected to login.
@@ -16,4 +16,9 @@ import uim.mvc;
 
   // Constant for 'all'
   const string ALL = "all";
-} */
+}
+auto AuthControllerComponent() { return new DAuthControllerComponent; }
+
+version(test_uim_apps) { unittest {
+  assert(AuthControllerComponent);
+}}

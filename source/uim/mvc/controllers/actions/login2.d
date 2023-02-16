@@ -28,9 +28,9 @@ class DLogin2ActionController : DSystemActionController {
     if (hasError || "redirect" in options) { return; }
 
     debug writeln("X3");
-    auto account = this.accounts.findOne(["name":appSession.login["accountName"]]);
+    auto account = this.accounts.findOne(["name":this.session.login["accountName"]]);
     if (!account) { this.error("database_account_missing"); return; }
-    appSession.account = account;
+    this.session.account = account;
 
     debug writeln("X4");
     auto password = this.passwords.findOne(["accountId": account.id.toString]);

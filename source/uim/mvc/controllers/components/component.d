@@ -20,14 +20,20 @@ import uim.mvc;
 class DControllerComponent : DMVCObject, IControllerComponent {
   mixin(ControllerComponentThis!("ControllerComponent"));
 
-  mixin(OProperty!("IController", "controller"));  
-
-  // Component registry class used to lazy load components.
-  mixin(OProperty!("DControllerComponentRegistry", "registry"));
-
   override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
   }
+
+  mixin(OProperty!("DController", "controller"));  
+
+  // A component lookup table used to lazy load component objects.
+  mixin(OProperty!("Json", "componentMap"));
+
+  // Whether the config property has already been configured with defaults
+  mixin(OProperty!("bool", "configInitialized"));
+
+  // Component registry class used to lazy load components.
+  mixin(OProperty!("DControllerComponentRegistry", "registry"));
 }
 mixin(ControllerComponentCalls!("ControllerComponent", "DControllerComponent"));
 
@@ -38,3 +44,39 @@ version(test_uim_mvc) { unittest {
   assert(ControllerComponent.create.name == "ControllerComponent");
   assert(ControllerComponent.clone.name == "ControllerComponent");
 }} 
+
+/* * __debugInfo() public
+Returns an array that can be used to describe the internal state of this object.
+
+__get() public
+Magic method for lazy loading $components.
+
+_configDelete() protected
+Deletes a single config key.
+
+_configRead() protected
+Reads a config key.
+
+_configWrite() protected
+Writes a config key.
+
+configShallow() public
+Merge provided config with existing config. Unlike config() which does a recursive merge for nested keys, this method does a simple merge.
+
+
+getConfigOrFail() public
+Returns the config for this specific key.
+
+getController() public
+Get the controller this component is bound to.
+
+implementedEvents() public
+Get the Controller callbacks this Component is interested in.
+
+initialize() public
+Constructor hook method.
+
+log() public
+Convenience method to write a message to Log. See Log::write() for more information on writing to logs.
+*/ 
+

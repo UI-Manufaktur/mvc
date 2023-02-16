@@ -3,19 +3,19 @@ module uim.mvc.controllers.checks.requests.siteid;
 @safe:
 import uim.mvc;
 
-class DControllerCheckRequestHasSiteId : DControllerCheckDatabaseHasAccounts {
-  mixin(ControllerComponentThis!("APPCheckRequestHasSiteId"));
+class DRequestHasSiteIdCheck : DDatabaseHasAccountsCheck {
+  mixin(ControllerComponentThis!("RequestHasSiteIdCheck"));
 
   override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
 
     this
     .redirectUrl("/login")
-    .addChecks([APPCheckRequestExists]);
+    .addChecks([RequestExistsCheck]);
   }
 
   override bool execute(STRINGAA options = null) {
-    debug writeln(moduleName!DControllerCheckRequestHasSiteId~":DControllerCheckRequestHasSiteId::execute");
+    debug writeln(moduleName!DRequestHasSiteIdCheck~":DRequestHasSiteIdCheck::execute");
     if (!super.execute(options)) { return false; }
 
     if ("siteId" !in options) { // siteId  missing
@@ -28,14 +28,14 @@ class DControllerCheckRequestHasSiteId : DControllerCheckDatabaseHasAccounts {
     return true;
   }
 }
-mixin(ControllerComponentCalls!("APPCheckRequestHasSiteId"));
+mixin(ControllerComponentCalls!("RequestHasSiteIdCheck"));
 
 version(test_uim_apps) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
 
-    assert(new DControllerCheckRequestHasSiteId);
-    assert(APPCheckRequestHasSiteId);
-    assert(new DControllerCheckRequestHasSiteId(Controller));
-    assert(APPCheckRequestHasSiteId(Controller));
+    assert(new DRequestHasSiteIdCheck);
+    assert(RequestHasSiteIdCheck);
+    assert(new DRequestHasSiteIdCheck(Controller));
+    assert(RequestHasSiteIdCheck(Controller));
   }
 }

@@ -3,7 +3,7 @@ module uim.mvc.controllers.checks.requests.request;
 @safe:
 import uim.mvc;
 
-class DControllerCheckRequestExists : DControllerCheck {
+class DRequestExistsCheck : DControllerCheck {
   mixin(ControllerComponentThis!("RequestExistsCheck"));
 
   override void initialize(DConfigurationValue configSettings = null) {
@@ -14,12 +14,12 @@ class DControllerCheckRequestExists : DControllerCheck {
   }
   
   override bool execute(STRINGAA options = null) {
-    debug writeln(moduleName!DControllerCheckRequestExists~":DControllerCheckRequestExists::check");
+    debug writeln(moduleName!DRequestExistsCheck~":DRequestExistsCheck::check");
     if (!super.execute(options)) { return false; }
 
     if (!this.controller || !this.controller.request) { // Request missing 
       this
-      .error("No Request found");
+        .error("No Request found");
       return false;
     }
 
@@ -31,9 +31,9 @@ mixin(ControllerComponentCalls!("RequestExistsCheck"));
 version(test_uim_apps) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
 
-    assert(new DControllerCheckRequestExists);
+    assert(new DRequestExistsCheck);
     assert(RequestExistsCheck);
-    assert(new DControllerCheckRequestExists(Controller));
+    assert(new DRequestExistsCheck(Controller));
     assert(RequestExistsCheck(Controller));
   }
 }
