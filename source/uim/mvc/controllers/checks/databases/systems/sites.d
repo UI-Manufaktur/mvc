@@ -3,7 +3,7 @@ module uim.mvc.controllers.checks.databases.systems.sites;
 @safe:
 import uim.mvc;
 
-class DControllerCheckDatabaseHasSites : DControllerCheckDatabaseHasSystems {
+class DDatabaseHasSitesCheck : DControllerDatabaseHasSystemsCheck {
   mixin(ControllerComponentThis!("DatabaseHasSitesCheck"));
 
   override void initialize(DConfigurationValue configSettings = null) {
@@ -14,7 +14,7 @@ class DControllerCheckDatabaseHasSites : DControllerCheckDatabaseHasSystems {
   }
   
   override bool execute(STRINGAA options = null) {
-    debug writeln(moduleName!DControllerCheckDatabaseHasSites~":DControllerCheckDatabaseHasSites::check");
+    debug writeln(moduleName!DDatabaseHasSitesCheck~":DDatabaseHasSitesCheck::check");
     if (!super.execute(options)) { return false; }
 
     if (!this.database.hasCollection("systems", "system_sites")) { // collection sites missing 
@@ -29,9 +29,9 @@ mixin(ControllerComponentCalls!("DatabaseHasSitesCheck"));
 version(test_uim_apps) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
 
-    assert(new DControllerCheckDatabaseHasSites);
+    assert(new DDatabaseHasSitesCheck);
     assert(DatabaseHasSitesCheck);
-    assert(new DControllerCheckDatabaseHasSites(Controller));
+    assert(new DDatabaseHasSitesCheck(Controller));
     assert(DatabaseHasSitesCheck(Controller));
   }
 }

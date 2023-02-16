@@ -3,7 +3,7 @@ module uim.mvc.controllers.checks.databases.systems.logins;
 @safe:
 import uim.mvc;
 
-class DDatabaseHasLoginsCheck : DControllerCheckDatabaseHasSystems {
+class DDatabaseHasLoginsCheck : DControllerDatabaseHasSystemsCheck {
   mixin(ControllerComponentThis!("DatabaseHasLoginsCheck"));
 
   override void initialize(DConfigurationValue configSettings = null) {

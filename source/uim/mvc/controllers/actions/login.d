@@ -52,12 +52,9 @@ class DLoginActionController : DSystemActionController {
     auto login = this.logins.createFromTemplate;
     login.lastAccessedOn = lastAccessedOn;
     
-    debug writeln("3");
     auto accountName = options.get("accountName", "");
     login["accountName"] = accountName;    
-    debug writeln("xxxx");
     this.logins.insertOne(login);
-    debug writeln("xxxxx");
     this.appSession.login = this.logins.findOne(login.id);
     if (!appSession.login) {
       debug writeln("No appSession.login for id ", login.id);

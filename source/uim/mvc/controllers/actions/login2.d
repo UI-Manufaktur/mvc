@@ -8,8 +8,8 @@ module uim.mvc.controllers.actions.login2;
 @safe:
 import uim.mvc;
 
-class DAPPLogin2ActionController : DSystemActionController {
-  mixin(ControllerThis!("DAPPLogin2ActionController"));
+class DLogin2ActionController : DSystemActionController {
+  mixin(ControllerThis!("DLogin2ActionController"));
 
   override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings); 
@@ -23,7 +23,7 @@ class DAPPLogin2ActionController : DSystemActionController {
   }
   
   override void beforeResponse(STRINGAA options = null) {
-    debug writeln(moduleName!DAPPLogin2ActionController~":DAPPLogin2ActionController("~this.name~")::beforeResponse");
+    debug writeln(moduleName!DLogin2ActionController~":DLogin2ActionController("~this.name~")::beforeResponse");
     super.beforeResponse(options);    
     if (hasError || "redirect" in options) { return; }
 
@@ -39,4 +39,4 @@ class DAPPLogin2ActionController : DSystemActionController {
     options["redirect"] = "/"; 
     debug writeln(getAppSession(options).debugInfo); }
 }
-mixin(ControllerCalls!("APPLogin2ActionController"));
+mixin(ControllerCalls!("Login2ActionController"));

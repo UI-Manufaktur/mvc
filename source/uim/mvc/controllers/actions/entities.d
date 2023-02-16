@@ -8,8 +8,8 @@ module uim.mvc.controllers.actions.entities;
 @safe:
 import uim.mvc;
 
-class DAPPEntitiesActionController : DActionController {
-  mixin(ControllerThis!("APPEntitiesActionController"));
+class DEntitiesActionController : DActionController {
+  mixin(ControllerThis!("EntitiesActionController"));
 
   protected DEntity[] _entities;
   DEntity[] entities() { return _entities; }
@@ -21,12 +21,12 @@ class DAPPEntitiesActionController : DActionController {
     _entities = newEntities;
   }
 }
-mixin(ControllerCalls!("APPEntitiesActionController"));
+mixin(ControllerCalls!("EntitiesActionController"));
 
 version(test_uim_apps) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
-    testController(new APPEntitiesActionController);
+    testController(new EntitiesActionController);
 
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
-    testController(APPEntitiesActionController);
+    testController(EntitiesActionController);
 }}

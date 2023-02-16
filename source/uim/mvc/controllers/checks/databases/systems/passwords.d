@@ -3,7 +3,7 @@ module uim.mvc.controllers.checks.databases.systems.passwords;
 @safe:
 import uim.mvc;
 
-class DDatabaseHasPasswordsCheck : DControllerCheckDatabaseHasSystems {
+class DDatabaseHasPasswordsCheck : DControllerDatabaseHasSystemsCheck {
   mixin(ControllerComponentThis!("DatabaseHasPasswordsCheck"));
 
   override void initialize(DConfigurationValue configSettings = null) {
@@ -25,14 +25,14 @@ class DDatabaseHasPasswordsCheck : DControllerCheckDatabaseHasSystems {
     return true;
   }
 }
-mixin(ControllerComponentCalls!("APPDatabaseHasPasswordsCheck"));
+mixin(ControllerComponentCalls!("DatabaseHasPasswordsCheck"));
 
 version(test_uim_apps) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
 
     assert(new DDatabaseHasPasswordsCheck);
-    assert(APPDatabaseHasPasswordsCheck);
+    assert(DatabaseHasPasswordsCheck);
     assert(new DDatabaseHasPasswordsCheck(Controller));
-    assert(APPDatabaseHasPasswordsCheck(Controller));
+    assert(DatabaseHasPasswordsCheck(Controller));
   }
 }

@@ -3,7 +3,7 @@ module uim.mvc.controllers.checks.databases.systems.sessions;
 @safe:
 import uim.mvc;
 
-class DDatabaseHasSessionsCheck : DControllerCheckDatabaseHasSystems {
+class DDatabaseHasSessionsCheck : DControllerDatabaseHasSystemsCheck {
   mixin(ControllerComponentThis!("DatabaseHasSessionsCheck"));
 
   override void initialize(DConfigurationValue configSettings = null) {

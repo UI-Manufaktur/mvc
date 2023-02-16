@@ -8,13 +8,13 @@ module uim.mvc.controllers.actions.setsite;
 @safe:
 import uim.mvc;
 
-class DAPPSelectSiteActionController : DActionController {
-  mixin(ControllerThis!("APPSelectSiteActionController"));
+class DSelectSiteActionController : DActionController {
+  mixin(ControllerThis!("SelectSiteActionController"));
 
   override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings); 
     
-    this.name = "APPSelectSiteActionController";
+    this.name = "SelectSiteActionController";
     this.checks([
       AppSessionHasSessionCheck, // AppSession Checks
       DatabaseHasSessionsCheck, DatabaseHasSitesCheck, // Database checks 
@@ -23,14 +23,14 @@ class DAPPSelectSiteActionController : DActionController {
   }
   
   override void beforeResponse(STRINGAA options = null) {
-    debug writeln(moduleName!DAPPSelectSiteActionController~":DAPPSelectSiteActionController::request");
+    debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request");
     super.beforeResponse(options);
     if ("redirect" in options) return;
         
-    debug writeln(moduleName!DAPPSelectSiteActionController~":DAPPSelectSiteActionController::request - Working with AppSession");
+    debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request - Working with AppSession");
     auto appSession = getAppSession(options);
     
-    debug writeln(moduleName!DAPPSelectSiteActionController~":DAPPSelectSiteActionController::request - Working with AppSession.session");
+    debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request - Working with AppSession.session");
     auto session = appSession.session; 
     debug writeln(session ? "Found session" : "Missing session");
 
@@ -44,7 +44,7 @@ class DAPPSelectSiteActionController : DActionController {
       session.save;
       appSession.session = session; 
     
-      debug writeln(moduleName!DAPPSelectSiteActionController~":DAPPSelectSiteActionController::request - Working with AppSession.site");
+      debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request - Working with AppSession.site");
       site.lastAccessedOn = session.lastAccessedOn;
       site["lastAccessISO"] = session["lastAccessISO"];
       site.save; 
@@ -52,9 +52,9 @@ class DAPPSelectSiteActionController : DActionController {
       setAppSession(appSession, options); 
     }
 
-    debug writeln(moduleName!DAPPSelectSiteActionController~":DAPPSelectSiteActionController::request - Redirect to /");
+    debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request - Redirect to /");
     options["redirect"] = "/";
     debug writeln(appSession.debugInfo);
 	}
 }
-mixin(ControllerCalls!("APPSelectSiteActionController"));
+mixin(ControllerCalls!("SelectSiteActionController"));
