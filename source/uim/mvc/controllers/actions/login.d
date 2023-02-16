@@ -8,7 +8,7 @@ module uim.mvc.controllers.actions.login;
 @safe:
 import uim.mvc;
 
-class DLoginActionController : DAPPSystemActionController {
+class DLoginActionController : DSystemActionController {
   mixin(ControllerThis!("LoginActionController"));
 
   override void initialize(DConfigurationValue configSettings = null) {
@@ -16,7 +16,7 @@ class DLoginActionController : DAPPSystemActionController {
 
     this
     //.nextUrl("/login2") 
-    .checks([APPCheckDatabaseHasLogins, APPCheckDatabaseHasSessions]); 
+    .checks([DatabaseHasLoginsCheck, DatabaseHasSessionsCheck]); 
   }
 
   override void beforeResponse(STRINGAA options = null) {

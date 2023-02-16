@@ -3,8 +3,8 @@ module uim.mvc.controllers.checks.appsessions.session;
 @safe:
 import uim.mvc;
 
-class DControllerCheckAppSessionHasSession : DAppSessionExistsCheck {
-  mixin(ControllerComponentThis!("APPCheckAppSessionHasSession"));
+class DAppSessionHasSessionCheck : DAppSessionExistsCheck {
+  mixin(ControllerComponentThis!("AppSessionHasSessionCheck"));
 
   override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
@@ -14,7 +14,7 @@ class DControllerCheckAppSessionHasSession : DAppSessionExistsCheck {
   }
   
   override bool execute(STRINGAA options = null) {
-    debug writeln(moduleName!DControllerCheckAppSessionHasSession~":DControllerCheckAppSessionHasSession::check");
+    debug writeln(moduleName!DAppSessionHasSessionCheck~":DAppSessionHasSessionCheck::execute");
     if (!super.execute(options)) { return false; }
 
     auto session = getAppSession(options).session;
@@ -26,4 +26,4 @@ class DControllerCheckAppSessionHasSession : DAppSessionExistsCheck {
     return true;
   }
 }
-mixin(ControllerComponentCalls!("APPCheckAppSessionHasSession"));
+mixin(ControllerComponentCalls!("AppSessionHasSessionCheck"));

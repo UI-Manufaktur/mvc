@@ -3,8 +3,8 @@ module uim.mvc.controllers.checks.databases.systems.logins;
 @safe:
 import uim.mvc;
 
-class DControllerCheckDatabaseHasLogins : DControllerCheckDatabaseHasSystems {
-  mixin(ControllerComponentThis!("APPCheckDatabaseHasLogins"));
+class DDatabaseHasLoginsCheck : DControllerCheckDatabaseHasSystems {
+  mixin(ControllerComponentThis!("DatabaseHasLoginsCheck"));
 
   override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
@@ -14,7 +14,7 @@ class DControllerCheckDatabaseHasLogins : DControllerCheckDatabaseHasSystems {
   }
   
   override bool execute(STRINGAA options = null) {
-    debug writeln(moduleName!DControllerCheckDatabaseHasLogins~":DControllerCheckDatabaseHasLogins::check");
+    debug writeln(moduleName!DDatabaseHasLoginsCheck~":DDatabaseHasLoginsCheck::check");
     if (!super.execute(options)) { return false; }
 
     if (!this.database.hasCollection("systems", "system_logins")) { // collection logins missing 
@@ -24,14 +24,14 @@ class DControllerCheckDatabaseHasLogins : DControllerCheckDatabaseHasSystems {
     return true;
   }
 }
-mixin(ControllerComponentCalls!("APPCheckDatabaseHasLogins"));
+mixin(ControllerComponentCalls!("DatabaseHasLoginsCheck"));
 
 version(test_uim_apps) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
 
-    assert(new DControllerCheckDatabaseHasLogins);
-    assert(APPCheckDatabaseHasLogins);
-    assert(new DControllerCheckDatabaseHasLogins(Controller));
-    assert(APPCheckDatabaseHasLogins(Controller));
+    assert(new DDatabaseHasLoginsCheck);
+    assert(DatabaseHasLoginsCheck);
+    assert(new DDatabaseHasLoginsCheck(Controller));
+    assert(DatabaseHasLoginsCheck(Controller));
   }
 }

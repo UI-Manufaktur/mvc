@@ -3,8 +3,8 @@ module uim.mvc.controllers.checks.appsessions.login;
 @safe:
 import uim.mvc;
 
-class DControllerCheckAppSessionHasLogin : DAppSessionExistsCheck {
-  mixin(ControllerComponentThis!("APPCheckAppSessionHasLogin"));
+class DAppSessionHasLoginCheck : DAppSessionExistsCheck {
+  mixin(ControllerComponentThis!("AppSessionHasLoginCheck"));
 
   override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
@@ -14,7 +14,7 @@ class DControllerCheckAppSessionHasLogin : DAppSessionExistsCheck {
   }
   
   override bool execute(STRINGAA options = null) {
-    debug writeln(moduleName!DControllerCheckAppSessionHasLogin~":DControllerCheckAppSessionHasLogin::check");
+    debug writeln(moduleName!DAppSessionHasLoginCheck~":DAppSessionHasLoginCheck::check");
     if (!super.execute(options)) { return false; }
 
     auto login = getAppSession(options).login;
@@ -23,8 +23,8 @@ class DControllerCheckAppSessionHasLogin : DAppSessionExistsCheck {
       return false; 
     }
 
-    debug writeln(moduleName!DControllerCheckAppSessionHasLogin~":DControllerCheckAppSessionHasLogin::check -> appSession.login found -> ", login.id);
+    debug writeln(moduleName!DAppSessionHasLoginCheck~":DAppSessionHasLoginCheck::check -> appSession.login found -> ", login.id);
     return true;
   }
 }
-mixin(ControllerComponentCalls!("APPCheckAppSessionHasLogin"));
+mixin(ControllerComponentCalls!("AppSessionHasLoginCheck"));

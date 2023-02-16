@@ -3,8 +3,8 @@ module uim.mvc.controllers.checks.appsessions.siteid;
 @safe:
 import uim.mvc;
 
-class DControllerCheckAppSessionHasSiteId : DControllerCheckAppSessionHasSession {
-  mixin(ControllerComponentThis!("APPCheckAppSessionHasSiteId"));
+class DAppSessionHasSiteIdCheck : DAppSessionHasSessionCheck {
+  mixin(ControllerComponentThis!("AppSessionHasSiteIdCheck"));
 
   override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
@@ -14,7 +14,7 @@ class DControllerCheckAppSessionHasSiteId : DControllerCheckAppSessionHasSession
   }
   
   override bool execute(STRINGAA options = null) {
-    debug writeln(moduleName!DControllerCheckAppSessionHasSiteId~":DControllerCheckAppSessionHasSiteId::check");
+    debug writeln(moduleName!DAppSessionHasSiteIdCheck~":DAppSessionHasSiteIdCheck::execute");
     if (!super.execute(options)) { return false; }
 
     auto session = getAppSession(options).session;
@@ -26,4 +26,4 @@ class DControllerCheckAppSessionHasSiteId : DControllerCheckAppSessionHasSession
     return true;
   }
 }
-mixin(ControllerComponentCalls!("APPCheckAppSessionHasSiteId"));
+mixin(ControllerComponentCalls!("AppSessionHasSiteIdCheck"));

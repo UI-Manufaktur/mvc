@@ -8,7 +8,7 @@ module uim.mvc.controllers.actions.login2;
 @safe:
 import uim.mvc;
 
-class DAPPLogin2ActionController : DAPPSystemActionController {
+class DAPPLogin2ActionController : DSystemActionController {
   mixin(ControllerThis!("DAPPLogin2ActionController"));
 
   override void initialize(DConfigurationValue configSettings = null) {
@@ -16,9 +16,9 @@ class DAPPLogin2ActionController : DAPPSystemActionController {
 
     this
       .checks([
-        APPCheckAppSessionHasLogin, // AppSession checks
-        APPCheckRequestHasPassword, // Request checks
-        APPCheckDatabaseHasPasswords
+        AppSessionHasLoginCheck, // AppSession checks
+        RequestHasPasswordCheck, // Request checks
+        APPDatabaseHasPasswordsCheck
       ]);
   }
   

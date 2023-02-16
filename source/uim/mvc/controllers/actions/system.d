@@ -8,8 +8,8 @@ module uim.mvc.controllers.actions.system;
 @safe:
 import uim.mvc;
 
-class DAPPSystemActionController : DActionController {
-  mixin(ControllerThis!("APPSystemActionController"));
+class DSystemActionController : DActionController {
+  mixin(ControllerThis!("SystemActionController"));
 
   mixin(OProperty!("DETBCollection", "logins"));
   mixin(OProperty!("DETBCollection", "sessions"));
@@ -18,7 +18,7 @@ class DAPPSystemActionController : DActionController {
   mixin(OProperty!("DETBCollection", "passwords"));
 
   override void beforeResponse(STRINGAA options = null) {
-    debugMethodCall(moduleName!DAPPSystemActionController~":DAPPSystemActionController("~this.name~")::beforeResponse");
+    debugMethodCall(moduleName!DSystemActionController~":DSystemActionController("~this.name~")::beforeResponse");
     super.beforeResponse(options);
     if (hasError || "redirect" in options) { return; }    
 
@@ -37,12 +37,12 @@ class DAPPSystemActionController : DActionController {
     }  
   }
 }
-mixin(ControllerCalls!("APPSystemActionController"));
+mixin(ControllerCalls!("SystemActionController"));
 
 version(test_uim_apps) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
-    testController(new DAPPSystemActionController);
+    testController(new DSystemActionController);
 
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
-    testController(APPSystemActionController);
+    testController(SystemActionController);
 }}
