@@ -4,7 +4,7 @@ module uim.mvc.controllers.checks.appsessions.site;
 import uim.mvc;
 
 class DAppSessionHasSiteCheck : DAppSessionExistsCheck {
-  mixin(ControllerComponentThis!("APPCheckAppSessionHasSite"));
+  mixin(ControllerComponentThis!("AppSessionHasSiteCheck"));
 
   override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
@@ -27,4 +27,4 @@ class DAppSessionHasSiteCheck : DAppSessionExistsCheck {
     return true;
   }
 }
-mixin(ControllerComponentCalls!("APPCheckAppSessionHasSite"));
+mixin(ControllerComponentCalls!("AppSessionHasSiteCheck"));

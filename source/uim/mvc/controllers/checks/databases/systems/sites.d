@@ -4,7 +4,7 @@ module uim.mvc.controllers.checks.databases.systems.sites;
 import uim.mvc;
 
 class DControllerCheckDatabaseHasSites : DControllerCheckDatabaseHasSystems {
-  mixin(ControllerComponentThis!("APPCheckDatabaseHasSites"));
+  mixin(ControllerComponentThis!("DatabaseHasSitesCheck"));
 
   override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
@@ -24,14 +24,14 @@ class DControllerCheckDatabaseHasSites : DControllerCheckDatabaseHasSystems {
     return true;
   }
 }
-mixin(ControllerComponentCalls!("APPCheckDatabaseHasSites"));
+mixin(ControllerComponentCalls!("DatabaseHasSitesCheck"));
 
 version(test_uim_apps) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
 
     assert(new DControllerCheckDatabaseHasSites);
-    assert(APPCheckDatabaseHasSites);
+    assert(DatabaseHasSitesCheck);
     assert(new DControllerCheckDatabaseHasSites(Controller));
-    assert(APPCheckDatabaseHasSites(Controller));
+    assert(DatabaseHasSitesCheck(Controller));
   }
 }

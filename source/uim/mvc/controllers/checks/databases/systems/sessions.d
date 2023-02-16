@@ -4,7 +4,7 @@ module uim.mvc.controllers.checks.databases.systems.sessions;
 import uim.mvc;
 
 class DControllerCheckDatabaseHasSessions : DControllerCheckDatabaseHasSystems {
-  mixin(ControllerComponentThis!("APPCheckDatabaseHasSessions"));
+  mixin(ControllerComponentThis!("DatabaseHasSessionsCheck"));
 
   override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
@@ -30,14 +30,14 @@ class DControllerCheckDatabaseHasSessions : DControllerCheckDatabaseHasSystems {
     return true;
   }
 }
-mixin(ControllerComponentCalls!("APPCheckDatabaseHasSessions"));
+mixin(ControllerComponentCalls!("DatabaseHasSessionsCheck"));
 
 version(test_uim_apps) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
 
     assert(new DControllerCheckDatabaseHasSessions);
-    assert(APPCheckDatabaseHasSessions);
+    assert(DatabaseHasSessionsCheck);
     assert(new DControllerCheckDatabaseHasSessions(Controller));
-    assert(APPCheckDatabaseHasSessions(Controller));
+    assert(DatabaseHasSessionsCheck(Controller));
   }
 }

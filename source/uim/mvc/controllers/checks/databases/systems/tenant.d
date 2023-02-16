@@ -3,7 +3,7 @@ module uim.mvc.controllers.checks.databases.systems.tenant;
 @safe:
 import uim.mvc;
 
-class DControllerCheckDatabaseHasSystems : DControllerCheckDatabaseExists {
+class DControllerCheckDatabaseHasSystems : DDatabaseExistsCheck {
   mixin(ControllerComponentThis!("APPCheckDatabaseHasSystems"));
 
   override void initialize(DConfigurationValue configSettings = null) {

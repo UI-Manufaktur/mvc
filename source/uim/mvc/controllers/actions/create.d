@@ -8,20 +8,20 @@ module uim.mvc.controllers.actions.create;
 @safe:
 import uim.mvc;
 
-class DAPPCreateActionController : DActionController {
-  mixin(ControllerThis!("APPCreateActionController"));
+class DCreateActionController : DActionController {
+  mixin(ControllerThis!("CreateActionController"));
 
   override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings); 
-    this.name = "APPCreateActionController";
-    this.checks([APPCheckAppSessionExists, APPCheckDatabaseExists, APPCheckAppSessionHasSession, APPCheckAppSessionHasSite]); 
+    this.name = "CreateActionController";
+    this.checks([AppSessionExistsCheck, DatabaseExistsCheck, AppSessionHasSessionCheck, AppSessionHasSiteCheck]); 
   }
 
   mixin(OProperty!("string", "pool"));
   mixin(OProperty!("string", "pgPath"));
   
   override void beforeResponse(STRINGAA options = null) {
-    debug writeln(moduleName!DAPPCreateActionController~":DAPPCreateActionController::beforeResponse");
+    debug writeln(moduleName!DCreateActionController~":DCreateActionController::beforeResponse");
     super.beforeResponse(options);   
     if (hasError || "redirect" in options) { return; }
 
@@ -41,15 +41,15 @@ class DAPPCreateActionController : DActionController {
     options["redirect"] = pgPath~"/view?id="~entity.id.toString; 
   }
 }
-mixin(ControllerCalls!("APPCreateActionController"));
+mixin(ControllerCalls!("CreateActionController"));
 
 version(test_uim_apps) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
 
-    assert(new DAPPCreateActionController);
-  assert(APPCreateActionController);
-  assert(APPCreateActionController.pool("testPool").pool == "testPool");
-  assert(APPCreateActionController.pgPath("testPath").pgPath == "testPath");
-    assert(APPCreateActionController.name == "APPCreateActionController");
+    assert(new DCreateActionController);
+  assert(CreateActionController);
+  assert(CreateActionController.pool("testPool").pool == "testPool");
+  assert(CreateActionController.pgPath("testPath").pgPath == "testPath");
+    assert(CreateActionController.name == "CreateActionController");
   }
 }

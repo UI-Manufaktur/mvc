@@ -3,7 +3,7 @@ module uim.mvc.controllers.checks.databases.tenant_by_name;
 @safe:
 import uim.mvc;
 
-class DControllerCheckDatabaseHasTenant : DControllerCheckDatabaseExists {
+class DControllerCheckDatabaseHasTenant : DDatabaseExistsCheck {
   mixin(ControllerComponentThis!("APPCheckDatabaseHasTenant"));
 
   override void initialize(DConfigurationValue configSettings = null) {

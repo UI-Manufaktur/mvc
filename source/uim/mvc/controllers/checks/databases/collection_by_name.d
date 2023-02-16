@@ -3,7 +3,7 @@ module uim.mvc.controllers.checks.databases.collection_by_name;
 @safe:
 import uim.mvc;
 
-class DControllerCheckDatabaseHasCollection : DControllerCheckDatabaseExists {
+class DControllerCheckDatabaseHasCollection : DDatabaseExistsCheck {
   mixin(ControllerComponentThis!("APPCheckDatabaseHasCollection"));
 
   override void initialize(DConfigurationValue configSettings = null) {
