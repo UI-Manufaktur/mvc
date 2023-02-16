@@ -3,8 +3,8 @@ module uim.mvc.controllers.checks.requests.accountid;
 @safe:
 import uim.mvc;
 
-class DControllerCheckRequestHasAccountId : DControllerCheckDatabaseHasAccounts {
-  mixin(ControllerComponentThis!("APPCheckAccountIdInSession"));
+class DRequestHasAccountIdCheck : DDatabaseHasAccountsCheck {
+  mixin(ControllerComponentThis!("RequestHasAccountIdCheck"));
 
   override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
@@ -14,7 +14,7 @@ class DControllerCheckRequestHasAccountId : DControllerCheckDatabaseHasAccounts 
   }
 
   override bool execute(STRINGAA options = null) {
-    debug writeln(moduleName!APPCheckRequestHasAccountId~":APPCheckRequestHasAccountId::execute");
+    debug writeln(moduleName!RequestHasAccountIdCheck~"::execute");
     if (!super.execute(options)) { return false; }
 
     if ("accountId" !in options) { // Account  missing
@@ -26,4 +26,4 @@ class DControllerCheckRequestHasAccountId : DControllerCheckDatabaseHasAccounts 
     return true;
   }
 }
-mixin(ControllerComponentCalls!("APPCheckRequestHasAccountId"));
+mixin(ControllerComponentCalls!("RequestHasAccountIdCheck"));

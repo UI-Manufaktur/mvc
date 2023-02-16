@@ -3,8 +3,8 @@ module uim.mvc.controllers.checks.requests.password;
 @safe:
 import uim.mvc;
 
-class DControllerCheckRequestHasPassword : DControllerCheck {
-  mixin(ControllerComponentThis!("APPCheckRequestHasPassword"));
+class DRequestHasPasswordCheck : DControllerCheck {
+  mixin(ControllerComponentThis!("RequestHasPasswordCheck"));
 
   override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
@@ -14,7 +14,7 @@ class DControllerCheckRequestHasPassword : DControllerCheck {
   }
 
   override bool execute(STRINGAA options = null) {
-    debug writeln(moduleName!DControllerCheckRequestHasPassword~":DControllerCheckRequestHasPassword::execute");
+    debug writeln(moduleName!DRequestHasPasswordCheck~":DRequestHasPasswordCheck::execute");
     super.execute(options);
 
     if ("loginPW" !in options) { // loginPW  missing
@@ -27,14 +27,14 @@ class DControllerCheckRequestHasPassword : DControllerCheck {
     return true;
   }
 }
-mixin(ControllerComponentCalls!("APPCheckRequestHasPassword"));
+mixin(ControllerComponentCalls!("RequestHasPasswordCheck"));
 
 version(test_uim_apps) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
 
-    assert(new DControllerCheckRequestHasPassword);
-    assert(APPCheckRequestHasPassword);
-    assert(new DControllerCheckRequestHasPassword(Controller));
-    assert(APPCheckRequestHasPassword(Controller));
+    assert(new DRequestHasPasswordCheck);
+    assert(RequestHasPasswordCheck);
+    assert(new DRequestHasPasswordCheck(Controller));
+    assert(RequestHasPasswordCheck(Controller));
   }
 }

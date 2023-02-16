@@ -18,7 +18,7 @@ class DAPPLogin2ActionController : DSystemActionController {
       .checks([
         AppSessionHasLoginCheck, // AppSession checks
         RequestHasPasswordCheck, // Request checks
-        APPDatabaseHasPasswordsCheck
+        DatabaseHasPasswordsCheck
       ]);
   }
   

@@ -3,7 +3,7 @@ module uim.mvc.controllers.checks.requests.accountname;
 @safe:
 import uim.mvc;
 
-class DControllerCheckRequestHasAccountName : DControllerCheckDatabaseHasAccounts {
+class DControllerCheckRequestHasAccountName : DDatabaseHasAccountsCheck {
   mixin(ControllerComponentThis!("APPCheckRequestHasAccountName"));
 
   override void initialize(DConfigurationValue configSettings = null) {

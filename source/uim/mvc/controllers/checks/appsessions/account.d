@@ -14,7 +14,7 @@ class DAppSessionHasAccountCheck : DAppSessionExistsCheck {
   }
 
   override bool execute(STRINGAA options = null) {    
-    debug writeln(moduleName!DAppSessionHasAccountCheck~":DAppSessionHasAccountCheck::check");
+    debug writeln(moduleName!DAppSessionHasAccountCheck~":DAppSessionHasAccountCheck::execute");
     if (!super.execute(options)) { return false; } 
 
     auto appSession = getAppSession(options);

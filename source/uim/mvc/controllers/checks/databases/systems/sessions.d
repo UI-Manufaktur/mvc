@@ -3,7 +3,7 @@ module uim.mvc.controllers.checks.databases.systems.sessions;
 @safe:
 import uim.mvc;
 
-class DControllerCheckDatabaseHasSessions : DControllerCheckDatabaseHasSystems {
+class DDatabaseHasSessionsCheck : DControllerCheckDatabaseHasSystems {
   mixin(ControllerComponentThis!("DatabaseHasSessionsCheck"));
 
   override void initialize(DConfigurationValue configSettings = null) {
@@ -14,7 +14,7 @@ class DControllerCheckDatabaseHasSessions : DControllerCheckDatabaseHasSystems {
   }
   
   override bool execute(STRINGAA options = null) {
-    debug writeln(moduleName!DControllerCheckDatabaseHasSessions~":DControllerCheckDatabaseHasSessions::execute");
+    debug writeln(moduleName!DDatabaseHasSessionsCheck~":DDatabaseHasSessionsCheck::execute");
     if (!super.execute(options)) { return false; }
 
     debug writeln(this.database ? "Database exists" : "Database missing");
@@ -35,9 +35,9 @@ mixin(ControllerComponentCalls!("DatabaseHasSessionsCheck"));
 version(test_uim_apps) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
 
-    assert(new DControllerCheckDatabaseHasSessions);
+    assert(new DDatabaseHasSessionsCheck);
     assert(DatabaseHasSessionsCheck);
-    assert(new DControllerCheckDatabaseHasSessions(Controller));
+    assert(new DDatabaseHasSessionsCheck(Controller));
     assert(DatabaseHasSessionsCheck(Controller));
   }
 }

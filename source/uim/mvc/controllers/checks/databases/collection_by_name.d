@@ -3,8 +3,8 @@ module uim.mvc.controllers.checks.databases.collection_by_name;
 @safe:
 import uim.mvc;
 
-class DControllerCheckDatabaseHasCollection : DDatabaseExistsCheck {
-  mixin(ControllerComponentThis!("APPCheckDatabaseHasCollection"));
+class DDatabaseHasCollectionCheck : DDatabaseExistsCheck {
+  mixin(ControllerComponentThis!("DatabaseHasCollectionCheck"));
 
   override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
@@ -17,7 +17,7 @@ class DControllerCheckDatabaseHasCollection : DDatabaseExistsCheck {
   mixin(OProperty!("string", "collectionName"));
   
   override bool execute(STRINGAA options = null) {
-    debug writeln(moduleName!DControllerCheckDatabaseHasCollection~":DControllerCheckDatabaseHasCollection::check");
+    debug writeln(moduleName!DDatabaseHasCollectionCheck~":DDatabaseHasCollectionCheck::check");
     if (!super.execute(options)) { return false; }
     
     if (!this.database.hasTenant(tenantName) || !this.database[tenantName].hasCollection(collectionName)) {  
@@ -27,4 +27,4 @@ class DControllerCheckDatabaseHasCollection : DDatabaseExistsCheck {
     return true;
   }
 }
-mixin(ControllerComponentCalls!("APPCheckDatabaseHasCollection"));
+mixin(ControllerComponentCalls!("DatabaseHasCollectionCheck"));

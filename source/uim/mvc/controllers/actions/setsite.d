@@ -18,7 +18,7 @@ class DAPPSelectSiteActionController : DActionController {
     this.checks([
       AppSessionHasSessionCheck, // AppSession Checks
       DatabaseHasSessionsCheck, DatabaseHasSitesCheck, // Database checks 
-      APPCheckRequestHasSiteId // Request Checks
+      RequestHasSiteIdCheck // Request Checks
     ]); 
   }
   
