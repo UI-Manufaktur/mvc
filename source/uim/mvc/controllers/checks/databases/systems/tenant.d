@@ -3,7 +3,7 @@ module uim.mvc.controllers.checks.databases.systems.tenant;
 @safe:
 import uim.mvc;
 
-class DControllerDatabaseHasSystemsCheck : DDatabaseExistsCheck {
+class DDatabaseHasSystemsCheck : DDatabaseExistsCheck {
   mixin(ControllerComponentThis!("DatabaseHasSystemsCheck"));
 
   override void initialize(DConfigurationValue configSettings = null) {
@@ -14,7 +14,7 @@ class DControllerDatabaseHasSystemsCheck : DDatabaseExistsCheck {
   }
   
   override bool execute(STRINGAA options = null) {
-    debug writeln(moduleName!DControllerDatabaseHasSystemsCheck~":DControllerDatabaseHasSystemsCheck::execute");
+    debug writeln(moduleName!DDatabaseHasSystemsCheck~":DDatabaseHasSystemsCheck::execute");
     if (!super.execute(options)) { return false; }
 
     debug writeln(this.database ? "Database exists" : "Database missing");

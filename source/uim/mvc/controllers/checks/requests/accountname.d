@@ -3,8 +3,8 @@ module uim.mvc.controllers.checks.requests.accountname;
 @safe:
 import uim.mvc;
 
-class DControllerCheckRequestHasAccountName : DDatabaseHasAccountsCheck {
-  mixin(ControllerComponentThis!("APPCheckRequestHasAccountName"));
+class DRequestHasAccountNameCheck : DDatabaseHasAccountsCheck {
+  mixin(ControllerComponentThis!("RequestHasAccountNameCheck"));
 
   override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
@@ -14,7 +14,7 @@ class DControllerCheckRequestHasAccountName : DDatabaseHasAccountsCheck {
   }
 
   override bool execute(STRINGAA options = null) {
-    debug writeln(moduleName!APPCheckRequestHasAccountName~":APPCheckRequestHasAccountName::execute");
+    debug writeln(moduleName!RequestHasAccountNameCheck~":RequestHasAccountNameCheck::execute");
     if (!super.execute(options)) { return false; }
 
     if ("accountName" !in options) { // Account  missing
@@ -26,14 +26,14 @@ class DControllerCheckRequestHasAccountName : DDatabaseHasAccountsCheck {
     return true;
   }
 }
-mixin(ControllerComponentCalls!("APPCheckRequestHasAccountName"));
+mixin(ControllerComponentCalls!("RequestHasAccountNameCheck"));
 
 version(test_uim_apps) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
 
-    assert(new DControllerCheckRequestHasAccountName);
-    assert(APPCheckRequestHasAccountName);
-    assert(new DControllerCheckRequestHasAccountName(Controller));
-    assert(APPCheckRequestHasAccountName(Controller));
+    assert(new DRequestHasAccountNameCheck);
+    assert(RequestHasAccountNameCheck);
+    assert(new DRequestHasAccountNameCheck(Controller));
+    assert(RequestHasAccountNameCheck(Controller));
   }
 }

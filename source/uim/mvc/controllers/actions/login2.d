@@ -9,7 +9,7 @@ module uim.mvc.controllers.actions.login2;
 import uim.mvc;
 
 class DLogin2ActionController : DSystemActionController {
-  mixin(ControllerThis!("DLogin2ActionController"));
+  mixin(ControllerThis!("Login2ActionController"));
 
   override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings); 

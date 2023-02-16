@@ -3,8 +3,8 @@ module uim.mvc.controllers.checks.databases.tenant_by_name;
 @safe:
 import uim.mvc;
 
-class DControllerCheckDatabaseHasTenant : DDatabaseExistsCheck {
-  mixin(ControllerComponentThis!("APPCheckDatabaseHasTenant"));
+class DDatabaseHasTenantCheck : DDatabaseExistsCheck {
+  mixin(ControllerComponentThis!("DatabaseHasTenantCheck"));
 
   override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
@@ -16,7 +16,7 @@ class DControllerCheckDatabaseHasTenant : DDatabaseExistsCheck {
   mixin(OProperty!("string", "tenantName"));
   
   override bool execute(STRINGAA options = null) {
-    debug writeln(moduleName!DControllerCheckDatabaseHasTenant~":DControllerCheckDatabaseHasTenant::check");
+    debug writeln(moduleName!DDatabaseHasTenantCheck~":DDatabaseHasTenantCheck::check");
     if (!super.execute(options)) { return false; }
 
     if (!this.database.hasTenant(tenantName)) {  
@@ -26,4 +26,4 @@ class DControllerCheckDatabaseHasTenant : DDatabaseExistsCheck {
     return true;
   }
 }
-mixin(ControllerComponentCalls!("APPCheckDatabaseHasTenant"));
+mixin(ControllerComponentCalls!("DatabaseHasTenantCheck"));

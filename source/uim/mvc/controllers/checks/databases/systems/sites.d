@@ -3,7 +3,7 @@ module uim.mvc.controllers.checks.databases.systems.sites;
 @safe:
 import uim.mvc;
 
-class DDatabaseHasSitesCheck : DControllerDatabaseHasSystemsCheck {
+class DDatabaseHasSitesCheck : DDatabaseHasSystemsCheck {
   mixin(ControllerComponentThis!("DatabaseHasSitesCheck"));
 
   override void initialize(DConfigurationValue configSettings = null) {

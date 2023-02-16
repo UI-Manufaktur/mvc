@@ -3,7 +3,7 @@ module uim.mvc.controllers.checks.databases.systems.passwords;
 @safe:
 import uim.mvc;
 
-class DDatabaseHasPasswordsCheck : DControllerDatabaseHasSystemsCheck {
+class DDatabaseHasPasswordsCheck : DDatabaseHasSystemsCheck {
   mixin(ControllerComponentThis!("DatabaseHasPasswordsCheck"));
 
   override void initialize(DConfigurationValue configSettings = null) {

@@ -4,7 +4,7 @@ module uim.mvc.controllers.checks.requests.request;
 import uim.mvc;
 
 class DControllerCheckRequestExists : DControllerCheck {
-  mixin(ControllerComponentThis!("APPCheckRequestExists"));
+  mixin(ControllerComponentThis!("RequestExistsCheck"));
 
   override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
@@ -26,14 +26,14 @@ class DControllerCheckRequestExists : DControllerCheck {
     return true;
   }
 }
-mixin(ControllerComponentCalls!("APPCheckRequestExists"));
+mixin(ControllerComponentCalls!("RequestExistsCheck"));
 
 version(test_uim_apps) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
 
     assert(new DControllerCheckRequestExists);
-    assert(APPCheckRequestExists);
+    assert(RequestExistsCheck);
     assert(new DControllerCheckRequestExists(Controller));
-    assert(APPCheckRequestExists(Controller));
+    assert(RequestExistsCheck(Controller));
   }
 }
