@@ -1,17 +1,17 @@
-module uim.apps.routers.register;
+module uim.mvc.routers.register;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 void uimRegister(HTTPServerRequest req, HTTPServerResponse res) {
   debugMethodCall(moduleName!uimRegister~":uimRegister");
   STRINGAA reqParameters = readRequestParameters(req, null); 
 
-  APPPageController(thisServer).request(req, res);
+  PageController(thisServer).request(req, res);
 }
 
 /* static this() {
-    serverModeller.pages("register", new class DH5APPPageController {
+    serverModeller.pages("register", new class DH5PageController {
       this() { super(); }
 
       override DH5Obj toH5(STRINGAA options = null) { 

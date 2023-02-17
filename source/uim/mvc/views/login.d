@@ -8,16 +8,16 @@ module uim.mvc.views.login;
 @safe:
 import uim.mvc;
 
-class DMVCLoginView : DView {
-  mixin(ViewThis!("MVCLoginView"));
+class DLoginView : DView {
+  mixin(ViewThis!("LoginView"));
   
   override void beforeH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DMVCLoginView~":DMVCLoginView::beforeH5");
+    debugMethodCall(moduleName!DLoginView~":DLoginView::beforeH5");
     this.rootPath(options.get("rootPath", "/"));
   }
 
   override DH5Obj[] toH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DMVCLoginView~":DMVCLoginView::toH5");
+    debugMethodCall(moduleName!DLoginView~":DLoginView::toH5");
     super.toH5(options);
 
     auto message = BS5Row; 
@@ -51,8 +51,8 @@ class DMVCLoginView : DView {
     ].toH5;
   }
 }
-mixin(ViewCalls!("MVCLoginView", "DMVCLoginView"));
+mixin(ViewCalls!("LoginView", "DLoginView"));
 
 version(test_uim_mvc) { unittest {
-  assert(MVCLoginView);
+  assert(LoginView);
 }}

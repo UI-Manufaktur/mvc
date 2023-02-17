@@ -1,12 +1,12 @@
-module uim.apps.routers.sites;
+module uim.mvc.routers.sites;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 void uimSites(HTTPServerRequest req, HTTPServerResponse res) {
   debugMethodCall(moduleName!uimSites~":uimSites");
 
-  APPPageController(thisServer).request(req, res);
+  PageController(thisServer).request(req, res);
 }
 
 void uimSiteSelectAction(HTTPServerRequest req, HTTPServerResponse res) {
@@ -17,7 +17,7 @@ void uimSiteSelectAction(HTTPServerRequest req, HTTPServerResponse res) {
 
 /* 
 static this() {
-  server.pages("sites", new class DAPPPageController {
+  server.pages("sites", new class DPageController {
     this() { 
       super();
       this

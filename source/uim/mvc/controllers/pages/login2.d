@@ -25,7 +25,7 @@ override void initialize(DConfigurationValue configSettings = null) {
   <li class="breadcrumb-item active" aria-current="page"><a href="#">Anmeldung (Passwort)</a></li>
 </ol>`)
       .title("Anmeldung (Passwort)")
-      .view(APPLogin2View(this));
+      .view(Login2View(this));
     
     this.scripts.addLinks(
       "/js/apps/app.js",   
