@@ -1,16 +1,16 @@
-module uim.apps.controllers.creators.account;
+module uim.mvc.controllers.creators.account;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 /* static this() {
   appErrorCodes[appErrorPrefix+201] = "Could not create account";
 }
  */
-class DAPPCreatorAccount : DAPPCreator {
-  mixin(ControllerThis!("APPCreatorAccount"));
+class DMVCCreatorAccount : DMVCCreator {
+  mixin(ControllerThis!("MVCCreatorAccount"));
 
-  override DEntity create(STRINGAA parameters) {
+/*   override DEntity createEntity(STRINGAA parameters) {
     auto entity = createEntities["account"](Json.emptyObject)
       .id(randomUUID)
       .name(parameters.get("account", "account"~to!string(now)));
@@ -18,16 +18,16 @@ class DAPPCreatorAccount : DAPPCreator {
     if (database) database["systems", "system_accounts"].insertOne(entity);        
 
     return entity;
-  }
+  } */
 
   override Json message(Json json, STRINGAA parameters) {    
     auto result = super.message(json, parameters);
 
-    result["results"]["account"] = create(parameters).toJson;
+    result["results"]["account"] = createEntity(parameters).toJson;
     return result;
   }
 }
-mixin(ControllerCalls!("APPCreatorSite"));
+mixin(ControllerCalls!("MVCCreatorAccount"));
 
 
 version(test_uim_apps) { unittest {

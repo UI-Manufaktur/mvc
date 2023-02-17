@@ -1,13 +1,13 @@
-module uim.apps.controllers.creators.creator;
+module uim.mvc.controllers.creators.creator;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
-class DAPPCreator : DController {
-  mixin(ControllerThis!("APPCreator"));
+class DMVCCreator : DController {
+  mixin(ControllerThis!("MVCCreator"));
 
-  DEntity create(STRINGAA parameters) {
+  DEntity createEntity(STRINGAA parameters = null) {
     return null;
   }
 }
-mixin(ControllerCalls!("APPCreator"));
+mixin(ControllerCalls!("MVCCreator"));

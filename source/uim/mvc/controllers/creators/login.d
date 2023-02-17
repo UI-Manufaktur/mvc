@@ -1,12 +1,12 @@
-module uim.apps.controllers.creators.login;
+module uim.mvc.controllers.creators.login;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
-class DAPPCreatorLogin : DAPPCreator {
-  mixin(ControllerThis!("APPCreatorLogin"));
+class DMVCCreatorLogin : DMVCCreator {
+  mixin(ControllerThis!("MVCCreatorLogin"));
 
-  override DEntity create(STRINGAA parameters) {
+/*   override DEntity createEntity(STRINGAA parameters) {
     auto entity = createEntities["login"](Json.emptyObject)
       .id(randomUUID)
       .name(parameters.get("login", "login"~to!string(now)));
@@ -14,14 +14,14 @@ class DAPPCreatorLogin : DAPPCreator {
     if (database) database["systems", "system_logins"].insertOne(entity);        
 
     return entity;
-  }
+  } */
 
   override Json message(Json json, STRINGAA parameters) {    
     auto result = super.message(json, parameters);
 
-    result["results"]["login"] = create(parameters).toJson;
+    result["results"]["login"] = createEntity(parameters).toJson;
     return result;
   }
 }
-mixin(ControllerCalls!("APPCreatorLogin"));
+mixin(ControllerCalls!("MVCCreatorLogin"));
 

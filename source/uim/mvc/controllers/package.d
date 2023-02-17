@@ -9,6 +9,7 @@ public import uim.mvc.controllers.interface_;
 public import uim.mvc.controllers.checks;
 public import uim.mvc.controllers.components;
 public import uim.mvc.controllers.controller;
+public import uim.mvc.controllers.creators;
 public import uim.mvc.controllers.error;
 
 public import uim.mvc.controllers.actions;

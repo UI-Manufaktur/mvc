@@ -1,19 +1,19 @@
-module uim.apps.controllers.creators.site;
+module uim.mvc.controllers.creators.site;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
-class DAPPCreatorSite : DAPPCreator {
-  mixin(ControllerThis!("APPCreatorSite"));
+class DMVCCreatorSite : DMVCCreator {
+  mixin(ControllerThis!("MVCCreatorSite"));
 
-  override DEntity create(STRINGAA options) {
+/*   override DEntity createEntity(STRINGAA options) {
     auto col = database["systems", "system_sites"];
 
     return  col.notNull ? col
       .createFromTemplate
       .name(options.get("site", "site"~to!string(now)))  
       .save : null;
-  }
+  } */
 
   override Json message(STRINGAA options) {
     auto result = Json.emptyObject;
@@ -23,8 +23,8 @@ class DAPPCreatorSite : DAPPCreator {
   override Json message(Json json, STRINGAA options) {    
     auto result = super.message(json, options);
 
-    result["results"]["site"] = create(options).toJson;
+    result["results"]["site"] = createEntity(options).toJson;
     return result;
   }
 }
-mixin(ControllerCalls!("APPCreatorSite"));
+mixin(ControllerCalls!("MVCCreatorSite"));

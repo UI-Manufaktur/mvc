@@ -1,24 +1,24 @@
-module uim.apps.controllers.creators.session;
+module uim.mvc.controllers.creators.session;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
-class DAPPCreatorSession : DAPPCreator {
-  mixin(ControllerThis!("APPCreatorSession"));
+class DMVCCreatorSession : DMVCCreator {
+  mixin(ControllerThis!("MVCCreatorSession"));
 
-  override DEntity create(STRINGAA options) {
+/*   override DEntity createEntity(STRINGAA options) {
     auto entity = createEntities["session"](Json.emptyObject)
       .id(randomUUID)
       .name(options.get("session", "session"~to!string(now)));
     if (database) database["systems", "system_sessions"].insertOne(entity);        
 
     return entity;
-  }
+  } */
 
   override Json message(Json json, STRINGAA options) {    
     auto result = super.message(json, options);
 
-    if (auto session = create(options)) {
+    if (auto session = createEntity(options)) {
       result["results"]["session"] = session.toJson;
     }
     else { // not validation error
@@ -34,7 +34,7 @@ version(test_uim_apps) { unittest {
       /// TODO 
     }}
   }
-mixin(ControllerCalls!("APPCreatorSession"));
+mixin(ControllerCalls!("MVCCreatorSession"));
 
 version(test_uim_apps) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);

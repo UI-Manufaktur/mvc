@@ -1,10 +1,10 @@
-module uim.apps.controllers.creators;
+module uim.mvc.controllers.creators;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
-public import uim.apps.controllers.creators.account;
-public import uim.apps.controllers.creators.creator;
-public import uim.apps.controllers.creators.login;
-public import uim.apps.controllers.creators.session;
-public import uim.apps.controllers.creators.site;
+public import uim.mvc.controllers.creators.account;
+public import uim.mvc.controllers.creators.creator;
+public import uim.mvc.controllers.creators.login;
+public import uim.mvc.controllers.creators.session;
+public import uim.mvc.controllers.creators.site;
