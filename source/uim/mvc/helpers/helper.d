@@ -12,6 +12,6 @@ class DHelper {
 }
 auto Helper() { return new DHelper; }
 
-version(test_uim_apps) { unittest {
+version(test_uim_mvc) { unittest {
   assert(Helper);
 }}

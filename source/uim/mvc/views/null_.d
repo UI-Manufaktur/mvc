@@ -16,7 +16,7 @@ class DAPPNullView : DView {
 }
 mixin(ViewCalls!("APPNullView"));
 
-version(test_uim_apps) { unittest {
+version(test_uim_mvc) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
 
     assert(APPNullView.name == "APPNullView");

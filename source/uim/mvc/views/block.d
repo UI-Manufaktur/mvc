@@ -85,6 +85,6 @@ class DViewBlock {
 auto ViewBlock() { return new DViewBlock; }
 auto ViewBlock(DH5Obj[] content) { return new DViewBlock(content); }
 
-version(test_uim_apps) { unittest {
+version(test_uim_mvc) { unittest {
   assert(ViewBlock);
 }}

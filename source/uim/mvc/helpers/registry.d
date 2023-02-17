@@ -12,6 +12,6 @@ class DHelperRegistry {
 }
 auto HelperRegistry() { return new DHelperRegistry; }
 
-version(test_uim_apps) { unittest {
+version(test_uim_mvc) { unittest {
   assert(HelperRegistry);
 }}

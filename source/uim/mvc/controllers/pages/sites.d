@@ -28,7 +28,7 @@ override void initialize(DConfigurationValue configSettings = null) {
   }
 mixin(ControllerCalls!("APPSitesPage"));
 
-version(test_uim_apps) { unittest {
+version(test_uim_mvc) { unittest {
     writeln("--- Tests in ", __MODULE__, "/", __LINE__);
 		testPageController(new DAPPSitesPage); 
 

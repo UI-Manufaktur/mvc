@@ -63,6 +63,6 @@ class DViewSites : DView {
   mixin(ViewCalls!("ViewSites"));
 
 
-version(test_uim_apps) { unittest {
+version(test_uim_mvc) { unittest {
   assert(ViewSites);
 }}
