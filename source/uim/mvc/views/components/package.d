@@ -12,6 +12,7 @@ public import uim.mvc.views.components.registry;
 public import uim.mvc.views.components.entity;
 public import uim.mvc.views.components.entities;
 public import uim.mvc.views.components.null_;
+public import uim.mvc.views.components.static_;
 
 public import uim.mvc.views.components.accordions;
 public import uim.mvc.views.components.alerts;
@@ -22,6 +23,7 @@ public import uim.mvc.views.components.cards;
 public import uim.mvc.views.components.entitiesx;
 public import uim.mvc.views.components.filters;
 public import uim.mvc.views.components.forms;
+public import uim.mvc.views.components.lists;
 public import uim.mvc.views.components.navbars;
 public import uim.mvc.views.components.pages;
 // public import uim.mvc.views.components.panels;

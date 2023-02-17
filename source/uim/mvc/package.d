@@ -68,6 +68,7 @@ public import uim.mvc.applications;
 public import uim.mvc.authentications;
 public import uim.mvc.caches;
 public import uim.mvc.collections;
+public import uim.mvc.commands;
 public import uim.mvc.consoles;
 public import uim.mvc.containers;
 public import uim.mvc.controllers;

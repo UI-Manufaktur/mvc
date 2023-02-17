@@ -8,7 +8,6 @@ class DAPPCardViewComponent : DEntityViewComponent {
 
 override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
-    super.initialize;
   }
 }
 mixin(ViewComponentCalls!("APPCardViewComponent"));

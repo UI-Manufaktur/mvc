@@ -5,7 +5,7 @@ import uim.mvc;
 
 class DAPPEntitiesListFooter : DAPPListFooter {
   mixin(ViewComponentThis!("APPEntitiesListFooter"));
-  mixin(OProperty!("DEntity[]", "entities"));
+  // mixin(OProperty!("DEntity[]", "entities"));
 
   mixin(OProperty!("bool", "showNumber"));
   mixin(OProperty!("bool", "showSorter"));

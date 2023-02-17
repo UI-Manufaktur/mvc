@@ -5,7 +5,7 @@ import uim.mvc;
 
 class DAPPCommand { // extends SymfonyCommand
     // Application instance
-    mixin(OProperty!("DAPPApplication",  "application"));
+    mixin(OProperty!("DMVCApplication",  "application"));
 
     // Name and signature of the console command.
     protected string _signature;
