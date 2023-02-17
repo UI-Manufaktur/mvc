@@ -1,3 +1,3 @@
-module uim.apps.helpers.outputinterface;
+module uim.mvc.helpers.outputinterface;
 
 interface IHelperOutput {}

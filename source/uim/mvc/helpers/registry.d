@@ -1,7 +1,7 @@
-module uim.apps.helpers.registry;
+module uim.mvc.helpers.registry;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DHelperRegistry {
   this() { initialize; }

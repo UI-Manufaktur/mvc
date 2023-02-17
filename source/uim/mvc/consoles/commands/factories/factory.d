@@ -1,7 +1,7 @@
-module uim.apps.consoles.commands.factories.factory;
+module uim.mvc.consoles.commands.factories.factory;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 // factory for creating Command and Shell instances.
 // This factory can be replaced or extended if you need to customize building your command and shell objects.

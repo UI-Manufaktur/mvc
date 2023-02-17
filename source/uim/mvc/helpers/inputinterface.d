@@ -1,3 +1,3 @@
-module uim.apps.helpers.inputinterface;
+module uim.mvc.helpers.inputinterface;
 
 interface IHelperInput {}

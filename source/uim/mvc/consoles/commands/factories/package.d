@@ -1,8 +1,8 @@
-module uim.apps.consoles.commands.factories;
+module uim.mvc.consoles.commands.factories;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 // Main
-public import uim.apps.consoles.commands.factories.factory;
-public import uim.apps.consoles.commands.factories.interface_;
+public import uim.mvc.consoles.commands.factories.factory;
+public import uim.mvc.consoles.commands.factories.interface_;

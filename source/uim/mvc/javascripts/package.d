@@ -1,7 +1,7 @@
-module uim.apps.javascripts;
+module uim.mvc.javascripts;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 string setSessionStorage(string[] keys) {
   string result; 

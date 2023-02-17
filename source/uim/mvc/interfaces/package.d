@@ -1,7 +1,7 @@
-module uim.apps.interfaces;
+module uim.mvc.interfaces;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 interface IAPPWithEntities {  
   @property DEntity[] entities();

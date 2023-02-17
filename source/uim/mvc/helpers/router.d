@@ -1,4 +1,4 @@
-module uim.apps.helpers.router;
+module uim.mvc.helpers.router;
 
 @safe:
-import uim.apps;
+import uim.mvc;

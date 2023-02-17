@@ -1,7 +1,7 @@
-module uim.apps.helpers.helper;
+module uim.mvc.helpers.helper;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DHelper {
   this() { initialize; }
