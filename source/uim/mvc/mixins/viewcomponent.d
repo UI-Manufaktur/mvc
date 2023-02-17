@@ -7,7 +7,7 @@ string viewComponentThis(string name) {
   return 
     mvcObjectThis(name)~
   `
-    this(IView myView) { this().view(myView); }
+    this(DView myView) { this().view(myView); }
   `;
 }
 

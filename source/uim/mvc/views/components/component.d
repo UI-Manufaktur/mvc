@@ -8,13 +8,35 @@ class DViewComponent : DMVCObject, IViewComponent {
 
   override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
+
+    this
+    .id(this.name)
+    .changed(true)
+    .dynamic(true)
+    .notNull(true);
   }
 
-  mixin(OProperty!("IView", "view"));
   mixin(OProperty!("string", "id"));
 
   mixin(OProperty!("DEntity", "entity"));
   mixin(OProperty!("DEntity[]", "entities"));
+  mixin(MVCParameter!("rootPath"));
+
+  mixin(OProperty!("bool", "showHeader"));
+  mixin(OProperty!("bool", "showFooter"));
+
+  mixin(OProperty!("bool", "dynamic")); 
+  mixin(OProperty!("bool", "isNull")); 
+  mixin(OProperty!("bool", "notNull")); 
+  mixin(OProperty!("STRINGAA", "style")); 
+  mixin(OProperty!("bool", "changed")); 
+  mixin(OProperty!("DView", "view")); // Owning  view
+  mixin(OProperty!("DLayout", "layout")); 
+  mixin(MVCParameter!("jsCode")); 
+  mixin(MVCParameter!("debugPrefix")); 
+
+  mixin(OProperty!("string[]", "classes"));
+  mixin(OProperty!("string[string]", "attributes"));
 
   void beforeH5(STRINGAA options = null) {
     // 

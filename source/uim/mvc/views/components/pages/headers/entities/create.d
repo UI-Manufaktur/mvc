@@ -3,7 +3,7 @@ module uim.mvc.views.components.pages.headers.entities.create;
 @safe:
 import uim.mvc;
 
-class DMVCCreatePageHeaderViewComponent : DMVCPageHeaderViewComponent {
+class DMVCCreatePageHeaderViewComponent : DPageHeaderViewComponent {
   mixin(ViewComponentThis!("MVCCreatePageHeaderViewComponent"));
   
   override void initialize(DConfigurationValue configSettings = null) {

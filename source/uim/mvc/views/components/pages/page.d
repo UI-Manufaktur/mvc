@@ -9,12 +9,12 @@ class DMVCPageViewComponent
   
   override void initialize(DConfigurationValue configSettings = null) {
     this
-      .header(MVCPageHeader)
+      .header(PageHeader)
       .body_(MVCPageBody)
       .footer(MVCPageFooter);
   }
 
-  mixin(OProperty!("DMVCPageHeaderViewComponent", "header"));
+  mixin(OProperty!("DPageHeaderViewComponent", "header"));
   mixin(OProperty!("DMVCPageBodyViewComponent", "body_"));
   mixin(OProperty!("DMVCPageFooterViewComponent", "footer"));
 

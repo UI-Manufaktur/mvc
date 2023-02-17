@@ -33,7 +33,7 @@ class DForm : DViewComponent {
 
     mixin(MVCParameter!("method"));
     mixin(OProperty!("bool", "readonly"));
-    mixin(OProperty!("string", "rootPath"));
+    // mixin(OProperty!("string", "rootPath"));
 
     mixin(OProperty!("CRUDModes", "crudMode"));
 

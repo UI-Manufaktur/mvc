@@ -3,7 +3,7 @@ module uim.mvc.views.components.pages.headers.entities.edit;
 @safe:
 import uim.mvc;
 
-class DMVCEditPageHeaderViewComponent : DMVCPageHeaderViewComponent {
+class DMVCEditPageHeaderViewComponent : DPageHeaderViewComponent {
   mixin(ViewComponentThis!("MVCEditPageHeaderViewComponent"));
   
   override void initialize(DConfigurationValue configSettings = null) {

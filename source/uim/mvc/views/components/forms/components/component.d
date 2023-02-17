@@ -9,7 +9,7 @@ module uim.mvc.views.components.forms.components.component;
 import uim.mvc;
 
 class DFormComponent : DViewComponent {
-  mixin(ViewComponentThis!("MVCFormComponent"));
+  mixin(ViewComponentThis!("FormComponent"));
 
   override void initialize(DConfigurationValue configSettings = null) {
     version(test_uim_mvc) { debugMethodCall(moduleName!DFormComponent~"::DFormComponent("~this.name~"):initialize"); }  
@@ -22,9 +22,9 @@ class DFormComponent : DViewComponent {
   mixin(OProperty!("DForm", "form"));
   mixin(OProperty!("bool", "readonly")); 
   mixin(MVCParameter!("title"));  
-  mixin(MVCParameter!("rootPath"));  
+  // mixin(MVCParameter!("rootPath"));  
 }
-mixin(ViewComponentCalls!("MVCFormComponent", "DFormComponent"));
+mixin(ViewComponentCalls!("FormComponent", "DFormComponent"));
 
 version(test_uim_mvc) { unittest {
   assert(MVCFormComponent);

@@ -3,8 +3,8 @@ module uim.mvc.views.components.pages.headers.header;
 @safe:
 import uim.mvc;
 
-class DMVCPageHeaderViewComponent : DViewComponent {
-  mixin(ViewComponentThis!("MVCPageHeaderViewComponent"));
+class DPageHeaderViewComponent : DViewComponent {
+  mixin(ViewComponentThis!("PageHeaderViewComponent"));
 
   override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
@@ -21,7 +21,7 @@ class DMVCPageHeaderViewComponent : DViewComponent {
   mixin(OProperty!("bool", "printable"));
   mixin(MVCParameter!("mainTitle"));
   mixin(MVCParameter!("subTitle"));
-  mixin(MVCParameter!("rootPath"));
+  // mixin(MVCParameter!("rootPath"));
   mixin(OProperty!("DUIMBreadcrumbControl", "breadcrumbs"));
   mixin(OProperty!("DUIMToolbarControl", "headerToolbar"));
 
@@ -69,5 +69,5 @@ class DMVCPageHeaderViewComponent : DViewComponent {
       ].toH5;
   }
 }
-mixin(ViewComponentCalls!("MVCPageHeaderViewComponent", "DMVCPageHeaderViewComponent"));
-mixin(ViewComponentCalls!("MVCPageHeader", "DMVCPageHeaderViewComponent"));
+mixin(ViewComponentCalls!("PageHeaderViewComponent", "DPageHeaderViewComponent"));
+mixin(ViewComponentCalls!("PageHeader", "DPageHeaderViewComponent"));
