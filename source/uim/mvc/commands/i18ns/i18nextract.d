@@ -12,6 +12,6 @@ class DI18nExtractCommand {
 }
 auto I18nExtractCommand() { return new DI18nExtractCommand; }
 
-version(test_uim_apps) { unittest {
+version(test_uim_mvc) { unittest {
   assert(I18nExtractCommand);
 }}

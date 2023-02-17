@@ -12,6 +12,6 @@ class DCollection {
 }
 auto Collection() { return new DCollection; }
 
-version(test_uim_apps) { unittest {
+version(test_uim_mvc) { unittest {
   assert(Collection);
 }}

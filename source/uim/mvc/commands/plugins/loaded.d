@@ -12,6 +12,6 @@ class DPluginLoadedCommand {
 }
 auto PluginLoadedCommand() { return new DPluginLoadedCommand; }
 
-version(test_uim_apps) { unittest {
+version(test_uim_mvc) { unittest {
   assert(PluginLoadedCommand);
 }}

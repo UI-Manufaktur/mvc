@@ -12,6 +12,6 @@ class DI18nInitCommand {
 }
 auto I18nInitCommand() { return new DI18nInitCommand; }
 
-version(test_uim_apps) { unittest {
+version(test_uim_mvc) { unittest {
   assert(I18nInitCommand);
 }}

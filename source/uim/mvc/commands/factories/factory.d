@@ -15,6 +15,6 @@ class DCommandFactory /* : ICommandFactory */ {
 }
 auto CommandFactory() { return new DCommandFactory; }
 
-version(test_uim_apps) { unittest {
+version(test_uim_mvc) { unittest {
   assert(CommandFactory);
 }}
