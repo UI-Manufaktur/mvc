@@ -18,7 +18,7 @@ override void initialize(DConfigurationValue configSettings = null) {
     this.content(APPEntitiesList.itemTemplate(EntityListItem));
   }
 
-  mixin(OProperty!("DEntity[]", "entities"));
+  // mixin(OProperty!("DEntity[]", "entities"));
 }
 mixin(ViewComponentCalls!("APPEntitiesTabpane"));
 

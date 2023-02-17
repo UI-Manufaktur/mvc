@@ -3,7 +3,7 @@ module uim.mvc.views.components.tabpanes.tabpane;
 @safe:
 import uim.mvc;
 
-class DTabPane : DAPPViewComponent {
+class DTabPane : DViewComponent {
   mixin(ViewComponentThis!("TabPane"));
 
   // this.key("tab"~to!string(uniform(0, 1000))).title("Tab");
@@ -16,9 +16,9 @@ class DTabPane : DAPPViewComponent {
 
   mixin(OProperty!("string[]", "actions"));
 
-  mixin(OProperty!("DAPPViewComponent", "header"));
-  mixin(OProperty!("DAPPViewComponent", "content"));
-  mixin(OProperty!("DAPPViewComponent", "footer"));
+  mixin(OProperty!("DViewComponent", "header"));
+  mixin(OProperty!("DViewComponent", "content"));
+  mixin(OProperty!("DViewComponent", "footer"));
 
   override DH5Obj[] toH5(STRINGAA options = null) { 
     super.toH5(options);

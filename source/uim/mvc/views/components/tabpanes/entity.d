@@ -11,7 +11,7 @@ import uim.mvc;
 class DAPPEntityTabpane : DTabPane {
   mixin(ViewComponentThis!("APPEntityTabpane"));
 
-  mixin(OProperty!("DEntity", "entity"));
+  // mixin(OProperty!("DEntity", "entity"));
 }
 mixin(ViewComponentCalls!("APPEntityTabpane"));
 
