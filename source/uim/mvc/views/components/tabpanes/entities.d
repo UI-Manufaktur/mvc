@@ -13,7 +13,6 @@ class DAPPEntitiesTabpane : DTabPane {
 
 override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
-    super.initialize;
 
     this.content(APPEntitiesList.itemTemplate(EntityListItem));
   }

@@ -15,7 +15,6 @@ class DAPPPackagesPaneViewComponent : DAPPEntitiesTabpane {
 
 override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
-    super.initialize;
 
     this
       .list(

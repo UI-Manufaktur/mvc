@@ -8,7 +8,6 @@ class DAPPAccordionThemes : DAPPAccordion {
 
 override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
-    super.initialize;
     
     this
       .id("accordion-themes"); 

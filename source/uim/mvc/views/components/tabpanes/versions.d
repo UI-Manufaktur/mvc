@@ -8,7 +8,6 @@ class DAPPVersionsPaneViewComponent : DAPPEntitiesTabpane {
 
 override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
-    super.initialize;
   }
 }
 mixin(ViewComponentCalls!("APPVersionsPaneViewComponent"));
