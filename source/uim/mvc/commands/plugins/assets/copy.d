@@ -12,6 +12,6 @@ class DPluginAssetsCopyCommand {
 }
 auto PluginAssetsCopyCommand() { return new DPluginAssetsCopyCommand; }
 
-version(test_uim_apps) { unittest {
+version(test_uim_mvc) { unittest {
   assert(PluginAssetsCopyCommand);
 }}

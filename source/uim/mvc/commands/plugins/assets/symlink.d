@@ -12,6 +12,6 @@ class DPluginAssetsSymlinkCommand {
 }
 auto PluginAssetsSymlinkCommand() { return new DPluginAssetsSymlinkCommand; }
 
-version(test_uim_apps) { unittest {
+version(test_uim_mvc) { unittest {
   assert(PluginAssetsSymlinkCommand);
 }}

@@ -12,6 +12,6 @@ class DPluginAssetsRemoveCommand {
 }
 auto PluginAssetsRemoveCommand() { return new DPluginAssetsRemoveCommand; }
 
-version(test_uim_apps) { unittest {
+version(test_uim_mvc) { unittest {
   assert(PluginAssetsRemoveCommand);
 }}
