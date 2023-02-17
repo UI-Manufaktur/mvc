@@ -4,7 +4,7 @@ module uim.mvc.controllers.pages.lostaccount;
 import uim.mvc;
 
 class DAPPLostAccountPageController : DPageController {
-  mixin(PageControllerThis!("APPLostAccountPageController"));
+  mixin(ControllerThis!("APPLostAccountPageController"));
 
 override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);

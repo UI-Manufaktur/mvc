@@ -4,7 +4,7 @@ module uim.mvc.controllers.pages.login2;
 import uim.mvc;
 
 class DAPPLogin2PageController : DPageController {
-  mixin(PageControllerThis!("APPLogin2PageController"));
+  mixin(ControllerThis!("APPLogin2PageController"));
 
 override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);

@@ -4,7 +4,7 @@ module uim.mvc.controllers.pages.logout;
 import uim.mvc;
 
 class DAPPLogoutPageController : DPageController {  
-  mixin(PageControllerThis!("APPLogoutPageController"));
+  mixin(ControllerThis!("APPLogoutPageController"));
 
 override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings); 

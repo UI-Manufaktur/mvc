@@ -1,10 +1,10 @@
-module uim.apps.controllers.pages.userprofile;
+module uim.mvc.controllers.pages.userprofile;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
-class DAPPUserProfilePageController : DAPPPageController {
-  mixin(APPPageControllerThis!("APPUserProfilePageController"));
+class DAPPUserProfilePageController : DPageController {
+  mixin(ControllerThis!("APPUserProfilePageController"));
 
 override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
@@ -19,7 +19,7 @@ override void initialize(DConfigurationValue configSettings = null) {
       .title("Registrierung");
   }
 }
-mixin(APPPageControllerCalls!("APPUserProfilePageController"));
+mixin(PageControllerCalls!("APPUserProfilePageController"));
 
 version(test_uim_apps) { unittest {
     writeln("--- Tests in ", __MODULE__, "/", __LINE__);

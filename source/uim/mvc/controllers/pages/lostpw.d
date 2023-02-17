@@ -4,7 +4,7 @@ module uim.mvc.controllers.pages.lostpw;
 import uim.mvc;
 
 class DAPPLostPasswordPageController : DPageController {
-  mixin(PageControllerThis!("APPLostPasswordPageController"));
+  mixin(ControllerThis!("APPLostPasswordPageController"));
 
 override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);

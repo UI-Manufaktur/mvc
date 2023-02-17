@@ -4,7 +4,7 @@ module uim.mvc.controllers.pages.error;
 import uim.mvc;
 
 class DAPPErrorPageController : DPageController {
-  mixin(PageControllerThis!("APPErrorPageController"));
+  mixin(ControllerThis!("APPErrorPageController"));
 }
 mixin(PageControllerCalls!("APPErrorPageController"));
 

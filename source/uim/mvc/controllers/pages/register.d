@@ -1,10 +1,10 @@
-module uim.apps.controllers.pages.register;
+module uim.mvc.controllers.pages.register;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
-class DAPPRegisterPageController : DAPPPageController {
-  mixin(APPPageControllerThis!("APPRegisterPageController"));      
+class DAPPRegisterPageController : DPageController {
+  mixin(ControllerThis!("APPRegisterPageController"));      
   
 override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
@@ -19,7 +19,7 @@ override void initialize(DConfigurationValue configSettings = null) {
       .title("Registrierung");
   }
 }
-mixin(APPPageControllerCalls!("APPRegisterPageController"));
+mixin(PageControllerCalls!("APPRegisterPageController"));
 
 version(test_uim_apps) { unittest {
     writeln("--- Tests in ", __MODULE__, "/", __LINE__);

@@ -1,10 +1,10 @@
-module uim.apps.controllers.pages.sites;
+module uim.mvc.controllers.pages.sites;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
-class DAPPSitesPage : DAPPPageController {
-  mixin(APPPageControllerThis!("APPSitesPage"));
+class DAPPSitesPage : DPageController {
+  mixin(ControllerThis!("APPSitesPage"));
 
 override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
@@ -27,7 +27,7 @@ override void initialize(DConfigurationValue configSettings = null) {
       });`);
     }
   }
-mixin(APPPageControllerCalls!("APPSitesPage"));
+mixin(PageControllerCalls!("APPSitesPage"));
 
 version(test_uim_apps) { unittest {
     writeln("--- Tests in ", __MODULE__, "/", __LINE__);
