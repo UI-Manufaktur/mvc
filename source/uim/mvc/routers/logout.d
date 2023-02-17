@@ -1,7 +1,7 @@
-module uim.apps.routers.logout;
+module uim.mvc.routers.logout;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 void uimLogout(HTTPServerRequest req, HTTPServerResponse res) {
   debugMethodCall(moduleName!uimLogout~":uimLogout");

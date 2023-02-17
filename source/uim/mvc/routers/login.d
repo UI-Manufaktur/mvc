@@ -1,7 +1,7 @@
-module uim.apps.routers.login;
+module uim.mvc.routers.login;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 void uimLoginPage(HTTPServerRequest req, HTTPServerResponse res) {
   debugMethodCall(moduleName!uimLoginPage~":uimLoginPage");
