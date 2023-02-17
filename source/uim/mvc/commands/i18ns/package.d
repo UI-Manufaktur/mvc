@@ -1,1 +1,1 @@
-module uim.apps.commands.i18ns;
+module uim.mvc.commands.i18ns;

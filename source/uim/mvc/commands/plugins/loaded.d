@@ -1,7 +1,7 @@
-module uim.apps.commands.plugins.loaded;
+module uim.mvc.commands.plugins.loaded;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DPluginLoadedCommand {
   this() { initialize; }

@@ -1,7 +1,7 @@
-module uim.apps.commands.i18ns.init;
+module uim.mvc.commands.i18ns.init;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DI18nInitCommand {
   this() { initialize; }

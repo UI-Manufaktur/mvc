@@ -1,7 +1,7 @@
-module uim.apps.commands.i18ns.extract;
+module uim.mvc.commands.i18ns.extract;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DI18nExtractCommand {
   this() { initialize; }

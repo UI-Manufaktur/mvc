@@ -1,7 +1,7 @@
-module uim.apps.commands.plugins.load;
+module uim.mvc.commands.plugins.load;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DPluginAssetsRemoveCommand {
   this() { initialize; }

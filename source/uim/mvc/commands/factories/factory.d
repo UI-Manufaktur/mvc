@@ -1,7 +1,7 @@
-module uim.apps.commands.factories.factory;
+module uim.mvc.commands.factories.factory;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DCommandFactory /* : ICommandFactory */ {
   this() { initialize; }

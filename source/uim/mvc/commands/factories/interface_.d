@@ -1,7 +1,7 @@
-module uim.apps.commands.factories.interface_;
+module uim.mvc.commands.factories.interface_;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 interface ICommandFactory {
 }

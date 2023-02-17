@@ -1,4 +1,4 @@
-module uim.apps.commands.factories;
+module uim.mvc.commands.factories;
 
-public import uim.apps.commands.factories.interface_;
-public import uim.apps.commands.factories.factory;
+public import uim.mvc.commands.factories.interface_;
+public import uim.mvc.commands.factories.factory;
