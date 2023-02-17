@@ -1,7 +1,7 @@
-module uim.apps.collections.collection;
+module uim.mvc.collections.collection;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DCollection {
   this() { initialize; }

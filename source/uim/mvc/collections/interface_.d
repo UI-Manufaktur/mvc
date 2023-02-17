@@ -1,4 +1,4 @@
-module uim.apps.collections.interface_;
+module uim.mvc.collections.interface_;
 
 /**
  * Describes the methods a Collection should implement. A collection is an immutable

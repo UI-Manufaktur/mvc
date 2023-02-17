@@ -1,2 +1,2 @@
-module uim.apps.collections;
+module uim.mvc.collections;
 
