@@ -40,7 +40,7 @@ override void initialize(DConfigurationValue configSettings = null) {
     debug writeln("MImeType: ", this.mimetype);
   }
 }
-mixin(PageControllerCalls!("APPLoginPageController"));
+mixin(ControllerCalls!("APPLoginPageController"));
 
 version(test_uim_apps) { unittest {
     writeln("--- Tests in ", __MODULE__, "/", __LINE__);

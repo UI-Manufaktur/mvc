@@ -21,7 +21,7 @@ override void initialize(DConfigurationValue configSettings = null) {
         APPLostAccountView(this));
   }
 }
-mixin(PageControllerCalls!("APPLostAccountPageController"));
+mixin(ControllerCalls!("APPLostAccountPageController"));
 
 version(test_uim_apps) { unittest {
     writeln("--- Tests in ", __MODULE__, "/", __LINE__);

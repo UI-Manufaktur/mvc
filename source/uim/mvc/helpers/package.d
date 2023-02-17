@@ -25,8 +25,8 @@ template AddRoutes(string router, string rootPath, string rootName) {
 `;
 }
 
-template PageControllerCalls(string rootName, string controllerGroupName, string appName) {
-  const char[] PageControllerCalls = `
+template ControllerCalls(string rootName, string controllerGroupName, string appName) {
+  const char[] ControllerCalls = `
 void `~rootName~`Index(HTTPServerRequest req, HTTPServerResponse res) {
   debugMethodCall(moduleName!`~rootName~`Index~":`~rootName~`Index");
 

@@ -19,7 +19,7 @@ override void initialize(DConfigurationValue configSettings = null) {
       .title("Abmeldung");
   }
 }
-mixin(PageControllerCalls!("APPLogoutPageController"));
+mixin(ControllerCalls!("APPLogoutPageController"));
 
 version(test_uim_apps) { unittest {
     writeln("--- Tests in ", __MODULE__, "/", __LINE__);

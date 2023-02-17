@@ -20,7 +20,7 @@ override void initialize(DConfigurationValue configSettings = null) {
       .view(APPLostPasswordView(this));
   }
 }
-mixin(PageControllerCalls!("APPLostPasswordPageController"));
+mixin(ControllerCalls!("APPLostPasswordPageController"));
 
 version(test_uim_apps) { unittest {
     writeln("--- Tests in ", __MODULE__, "/", __LINE__);

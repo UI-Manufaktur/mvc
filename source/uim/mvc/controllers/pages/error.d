@@ -6,7 +6,7 @@ import uim.mvc;
 class DAPPErrorPageController : DPageController {
   mixin(ControllerThis!("APPErrorPageController"));
 }
-mixin(PageControllerCalls!("APPErrorPageController"));
+mixin(ControllerCalls!("APPErrorPageController"));
 
 version(test_uim_apps) { unittest {
     writeln("--- Tests in ", __MODULE__, "/", __LINE__);

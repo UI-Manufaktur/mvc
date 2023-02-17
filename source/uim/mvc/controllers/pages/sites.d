@@ -27,7 +27,7 @@ override void initialize(DConfigurationValue configSettings = null) {
       });`);
     }
   }
-mixin(PageControllerCalls!("APPSitesPage"));
+mixin(ControllerCalls!("APPSitesPage"));
 
 version(test_uim_apps) { unittest {
     writeln("--- Tests in ", __MODULE__, "/", __LINE__);

@@ -32,7 +32,7 @@ override void initialize(DConfigurationValue configSettings = null) {
       "/js/apps/login2.js");   
     }
 }
-mixin(PageControllerCalls!("APPLogin2PageController"));
+mixin(ControllerCalls!("APPLogin2PageController"));
 
 version(test_uim_apps) { unittest {
     writeln("--- Tests in ", __MODULE__, "/", __LINE__);

@@ -19,7 +19,7 @@ override void initialize(DConfigurationValue configSettings = null) {
       .title("Registrierung");
   }
 }
-mixin(PageControllerCalls!("APPUserProfilePageController"));
+mixin(ControllerCalls!("APPUserProfilePageController"));
 
 version(test_uim_apps) { unittest {
     writeln("--- Tests in ", __MODULE__, "/", __LINE__);
