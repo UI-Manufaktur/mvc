@@ -1,7 +1,7 @@
-module uim.apps.views.components.accordions;
+module uim.mvc.views.components.accordions;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 // Main
 public import uim.apps.views.components.accordions.accordion;
