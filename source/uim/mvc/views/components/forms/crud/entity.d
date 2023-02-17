@@ -8,8 +8,8 @@ module uim.mvc.views.components.forms.crud.entity;
 @safe:
 import uim.mvc;
 
-class DMVCEntityForm : DForm {
-  mixin(ViewComponentThis!("MVCEntityForm"));
+class DEntityForm : DForm {
+  mixin(ViewComponentThis!("EntityForm"));
 
   // mixin(OProperty!("DEntity", "entity"));
 
@@ -17,4 +17,4 @@ class DMVCEntityForm : DForm {
     super.initialize(configSettings);
   }
 }
-mixin(ViewComponentCalls!("MVCEntityForm", "DMVCEntityForm"));
+mixin(ViewComponentCalls!("EntityForm", "DEntityForm"));

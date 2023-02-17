@@ -19,7 +19,7 @@ override void initialize(DConfigurationValue configSettings = null) {
         PageHeader(this)
           .actions([["refresh", "create"]]))
       .form(
-        APPEntitiesListForm(this));
+        EntitiesListForm(this));
   }
 
   override DH5Obj[] toH5(STRINGAA options = null) {

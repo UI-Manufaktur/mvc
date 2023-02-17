@@ -9,7 +9,7 @@ class DAPPEntityUpdateView : DEntityCRUDView {
 override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
 
-    if (auto pgHeader = cast(DPageHeader)this.header) {
+    if (auto pgHeader = cast(DPageHeaderViewComponent)this.header) {
       pgHeader.actions([["refresh", "list", "create"]]); }
 
     if (auto frm = cast(DForm)this.form) {

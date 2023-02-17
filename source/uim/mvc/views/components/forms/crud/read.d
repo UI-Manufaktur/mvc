@@ -8,7 +8,7 @@ module uim.mvc.views.components.forms.crud.read;
 @safe:
 import uim.mvc;
 
-class DMVCReadForm : DMVCEntityForm {
+class DMVCReadForm : DEntityForm {
   mixin(ViewComponentThis!("MVCReadForm"));
 
   override void initialize(DConfigurationValue configSettings = null) {

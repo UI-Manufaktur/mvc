@@ -8,7 +8,7 @@ module uim.mvc.views.components.forms.crud.create;
 @safe:
 import uim.mvc;
 
-class DMVCCreateForm : DMVCEntityForm {
+class DMVCCreateForm : DEntityForm {
   mixin(ViewComponentThis!("MVCCreateForm"));
 
   override void initialize(DConfigurationValue configSettings = null) {

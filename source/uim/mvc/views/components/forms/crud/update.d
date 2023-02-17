@@ -8,7 +8,7 @@ module uim.mvc.views.components.forms.crud.update;
 @safe:
 import uim.mvc;
 
-class DMVCUpdateForm : DMVCEntityForm {
+class DMVCUpdateForm : DEntityForm {
   mixin(ViewComponentThis!("MVCUpdateForm"));
 
   override void initialize(DConfigurationValue configSettings = null) {

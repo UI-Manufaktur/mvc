@@ -8,15 +8,15 @@ module uim.mvc.views.components.forms.crud.list;
 @safe:
 import uim.mvc;
 
-class DMVCEntitiesListForm : DMVCEntitiesForm {
-  mixin(ViewComponentThis!("MVCEntitiesListForm"));
+class DEntitiesListForm : DMVCEntitiesForm {
+  mixin(ViewComponentThis!("EntitiesListForm"));
 
   override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
 
     this
       .header(
-        MVCFormHeader //.mainTitle("Blogs").subTitle("Übersicht Blogs").actions([["print", "export"]])
+        FormHeader //.mainTitle("Blogs").subTitle("Übersicht Blogs").actions([["print", "export"]])
       )
       .content(
         MVCEntitiesFormContent      
@@ -28,7 +28,7 @@ class DMVCEntitiesListForm : DMVCEntitiesForm {
   }
 
   override DH5Obj[] toH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DMVCEntitiesListForm~":DMVCEntitiesListForm("~this.name~")::toH5");
+    debugMethodCall(moduleName!DEntitiesListForm~":DEntitiesListForm("~this.name~")::toH5");
     super.toH5(options);
     
     DBS5Col _col = BS5Col(["col-12"]);
@@ -42,12 +42,12 @@ class DMVCEntitiesListForm : DMVCEntitiesForm {
     return [_col].toH5;
   }  
 }
-mixin(ViewComponentCalls!("MVCEntitiesListForm", "DMVCEntitiesListForm"));
+mixin(ViewComponentCalls!("EntitiesListForm", "DEntitiesListForm"));
 
 version(test_uim_mvc) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
     
-    assert(new DMVCEntitiesListForm);
-    assert(MVCEntitiesListForm);
+    assert(new DEntitiesListForm);
+    assert(EntitiesListForm);
   }
 }
