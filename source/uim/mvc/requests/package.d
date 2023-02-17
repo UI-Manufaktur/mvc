@@ -4,11 +4,11 @@ module uim.mvc.requests;
 import uim.mvc;
 
 class DMVCRequestReader {
-  this(DAPPPageController page) {
+  this(DPageController page) {
     _page = page;
   }
 
-  mixin(OProperty!("DAPPPageController", "page"));
+  mixin(OProperty!("DPageController", "page"));
   mixin(OProperty!("STRINGAA", "parameters"));
 
   STRINGAA read(HTTPServerRequest req, STRINGAA reqParameters) {
@@ -17,7 +17,7 @@ class DMVCRequestReader {
     return reqParameters;
   }
 }
-auto APPRequestReader(DAPPPageController page) { return new DMVCRequestReader(page); }
+auto APPRequestReader(DPageController page) { return new DMVCRequestReader(page); }
 
 version(test_uim_apps) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);

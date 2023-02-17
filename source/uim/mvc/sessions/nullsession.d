@@ -3,17 +3,17 @@ module uim.mvc.sessions.nullsession;
 @safe:
 import uim.mvc;
 
-class DAPPNullSession : DAPPSession{
+class DAPPNullSession : DMVCSession{
   this() { super(); }
 
   this(Session httpSession) {
     super(httpSession); }
 
-  this(Session httpSession, DAPPPageController page) {
+  this(Session httpSession, DPageController page) {
     super(httpSession, page); }
 
   override bool isValid(string[] factors, STRINGAA reqParameters) {
-    debug writeln(moduleName!DAPPSession~":DAPPNullSession::beforeResponse -> No appSession => redirect /login");
+    debug writeln(moduleName!DMVCSession~":DAPPNullSession::beforeResponse -> No appSession => redirect /login");
     reqParameters["redirect"] = "/login";
     return false;
   }
@@ -21,5 +21,5 @@ class DAPPNullSession : DAPPSession{
 }
 auto APPNullSession() { return new DAPPNullSession(); }
 auto APPNullSession(Session httpSession) { return new DAPPNullSession(httpSession); }
-auto APPNullSession(Session httpSession, DAPPPageController page) { return new DAPPNullSession(httpSession, page); }
+auto APPNullSession(Session httpSession, DPageController page) { return new DAPPNullSession(httpSession, page); }
 

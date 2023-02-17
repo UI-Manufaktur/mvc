@@ -105,7 +105,7 @@ class DController : DMVCObject, IController  {
   // #endregion HTTPServerResponse response
 
   // https://vibed.org/api/vibe.http.session/
-  mixin(OProperty!("DSession", "session"));
+  mixin(OProperty!("DMVCSession", "session"));
 
   // #region database
     DETBBase _database; 

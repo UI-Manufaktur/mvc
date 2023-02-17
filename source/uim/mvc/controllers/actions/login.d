@@ -35,7 +35,7 @@ class DLoginActionController : DSystemActionController {
     // appSession missing, create new one
     debug writeln(moduleName!DLoginActionController~":DLoginActionController::beforeResponse -> Read httpSession");
     auto httpSession = this.response.startSession();
-    appSessions[httpSession.id] = new DSession(httpSession);
+    appSessions[httpSession.id] = new DMVCSession(httpSession);
     options["appSessionId"] = httpSession.id;
 
     debug writeln("2");

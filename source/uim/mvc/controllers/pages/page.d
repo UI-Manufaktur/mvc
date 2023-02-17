@@ -51,12 +51,12 @@ class DPageController : DController {
   // Required checks for the page flow
   mixin(OProperty!("string[]", "sessionData"));
 
-  mixin(APPParameter!("canonical")); 
-  mixin(APPParameter!("jsPath")); 
-  mixin(APPParameter!("pageTitle"));
-  mixin(APPParameter!("pageBreadcrumbs"));
-  mixin(APPParameter!("pgPath")); 
-  mixin(APPParameter!("title")); 
+  mixin(MVCParameter!("canonical")); 
+  mixin(MVCParameter!("jsPath")); 
+  mixin(MVCParameter!("pageTitle"));
+  mixin(MVCParameter!("pageBreadcrumbs"));
+  mixin(MVCParameter!("pgPath")); 
+  mixin(MVCParameter!("title")); 
 
   DMVCRequestReader requestReader;
   DMVCSessionReader sessionReader;
