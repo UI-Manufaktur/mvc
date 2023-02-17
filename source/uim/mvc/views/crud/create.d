@@ -1,9 +1,9 @@
-module uim.apps.views.crud.create;
+module uim.mvc.views.crud.create;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
-class DAPPEntityCreateView : DAPPEntityCRUDAPPView {
+class DAPPEntityCreateView : DAPPEntityCRUDView {
   mixin(ViewThis!("APPEntityCreateView"));
 
 override void initialize(DConfigurationValue configSettings = null) {

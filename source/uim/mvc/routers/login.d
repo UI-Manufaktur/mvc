@@ -12,5 +12,5 @@ void uimLoginPage(HTTPServerRequest req, HTTPServerResponse res) {
 void uimLoginAction(HTTPServerRequest req, HTTPServerResponse res) {
   debugMethodCall(moduleName!uimLoginAction~":uimLoginAction");
 
-  APPLoginActionController(thisServer).request(req, res);
+  LoginActionController(thisServer).request(req, res);
 }

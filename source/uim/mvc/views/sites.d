@@ -1,14 +1,13 @@
-module uim.apps.views.sites;
+module uim.mvc.views.sites;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
-class DAPPViewSites : DAPPView {
-  this() { super(); }
-  this(DAPPPageController aController) { this().controller(aController); }
+class DViewSites : DView {
+  mixin(ViewThis!("ViewSites"));
 
   override void beforeH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DAPPViewSites~":DAPPViewSites::beforeH5");
+    debugMethodCall(moduleName!DViewSites~":DViewSites::beforeH5");
     super.beforeH5(options);
     if (hasError) { return; }
 
@@ -61,8 +60,8 @@ class DAPPViewSites : DAPPView {
       ))].toH5;       
   }
 }
-auto ViewSites() { return new DAPPViewSites(); }
-auto ViewSites(DAPPPageController aController) { return new DAPPViewSites(aController); }
+  mixin(ViewCalls!("ViewSites"));
+
 
 version(test_uim_apps) { unittest {
   assert(ViewSites);
