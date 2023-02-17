@@ -13,7 +13,7 @@ override void initialize(DConfigurationValue configSettings = null) {
     this.id("accordion-viewcomponent");
   }
 
-  mixin(APPParameter!("title"));
+  mixin(MVCParameter!("title"));
   mixin(OProperty!("DH5Obj[]", "accordionBody"));
 
   override DH5Obj[] toH5(STRINGAA options = null) { 

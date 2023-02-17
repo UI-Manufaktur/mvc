@@ -19,6 +19,7 @@ public import uim.mvc.views.components.avatars;
 public import uim.mvc.views.components.badges;
 public import uim.mvc.views.components.breadcrumbs;
 public import uim.mvc.views.components.cards;
+public import uim.mvc.views.components.entitiesx;
 public import uim.mvc.views.components.filters;
 public import uim.mvc.views.components.forms;
 public import uim.mvc.views.components.navbars;
