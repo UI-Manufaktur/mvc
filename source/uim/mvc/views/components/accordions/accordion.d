@@ -3,7 +3,7 @@ module uim.mvc.views.components.accordions.accordion;
 @safe:
 import uim.mvc;
 
-class DAPPAccordion : DAPPViewComponent {  
+class DAPPAccordion : DViewComponent {  
   mixin(ViewComponentThis!("APPAccordion"));
 
 override void initialize(DConfigurationValue configSettings = null) {

@@ -23,7 +23,7 @@ public import uim.mvc.views.components.filters;
 public import uim.mvc.views.components.forms;
 public import uim.mvc.views.components.navbars;
 public import uim.mvc.views.components.pages;
-public import uim.mvc.views.components.panels;
+// public import uim.mvc.views.components.panels;
 public import uim.mvc.views.components.search;
 public import uim.mvc.views.components.tables;
 public import uim.mvc.views.components.tabpanes;

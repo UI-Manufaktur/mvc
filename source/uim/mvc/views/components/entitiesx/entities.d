@@ -3,7 +3,7 @@ module uim.mvc.views.components.entitiesx.entities;
 @safe:
 import uim.mvc;
 
-/* class DEntitiesViewComponent : DAPPViewComponent {
+/* class DEntitiesViewComponent : DViewComponent {
   mixin(ViewComponentThis!("EntitiesViewComponent", false, true));
 
   mixin(OProperty!("DEntity[]", "entities"));
