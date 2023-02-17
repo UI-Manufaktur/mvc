@@ -17,19 +17,11 @@ template ViewThis(string name) {
 
 string viewCalls(string shortName, string className = null) {
   auto clName = className.length > 0 ? className : "D"~shortName;
-
-  return `
-    auto `~shortName~`() { return new `~clName~`; }
-    auto `~shortName~`(DMVCApplication myApplication) { return new `~clName~`(myApplication); }
-    auto `~shortName~`(DController myController) { return new `~clName~`(myController); }
-    auto `~shortName~`(string myName) { return new `~clName~`(myName); }
-    auto `~shortName~`(string[string] myParameters) { return new `~clName~`(myParameters); }
-
-    auto `~shortName~`(string myName, string[string] myParameters) { return new `~clName~`(myName, myParameters); }
-
-    auto `~shortName~`(DMVCApplication myApplication, string myName) { return new `~clName~`(myApplication, myName); }
-    auto `~shortName~`(DMVCApplication myApplication, string[string] myParameters) { return new `~clName~`(myApplication, myParameters); }
-  `;
+  return
+    mvcObjectCalls(shortName, className)~
+    `
+    auto `~shortName~`(DController aController) { return new `~clName~`().controller(aController); }
+    `;
 }
 
 template ViewCalls(string shortName, string className = null) {

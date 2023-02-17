@@ -58,7 +58,7 @@ class DView : DMVCObject, IView {
     mixin(OProperty!("string", "rootPath"));
 
   mixin(OProperty!("DAPPViewComponents", "components"));
-  mixin(OProperty!("DPageController", "controller")); 
+  mixin(OProperty!("DController", "controller")); 
   // mixin(OProperty!("IEventManager", "eventManager")); 
   mixin(OProperty!("string[]", "leftClasses")); 
   mixin(OProperty!("string[]", "middleClasses")); 

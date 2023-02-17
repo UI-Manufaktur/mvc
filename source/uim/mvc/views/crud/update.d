@@ -3,12 +3,11 @@ module uim.mvc.views.crud.update;
 @safe:
 import uim.mvc;
 
-class DAPPEntityUpdateView : DAPPEntityCRUDView {
+class DAPPEntityUpdateView : DEntityCRUDView {
   mixin(ViewThis!("APPEntityUpdateView"));
 
 override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
-    super.initialize;
 
     if (auto pgHeader = cast(DPageHeader)this.header) {
       pgHeader.actions([["refresh", "list", "create"]]); }
@@ -26,7 +25,7 @@ override void initialize(DConfigurationValue configSettings = null) {
 }
 mixin(ViewCalls!("APPEntityUpdateView"));
 
-version(test_uim_apps) { unittest {
+version(test_uim_mvc) { unittest {
     writeln("--- Tests in ", __MODULE__, "/", __LINE__);
 		testView(new DAPPEntityUpdateView); 
 

@@ -7,9 +7,9 @@ class DAPPViewComponents {
   this() { /* this.name("ViewComponents"); */ }    
   this(DView myParent) { this().parent(myParent); }    
 
-  mixin(OProperty!("DAPPBaseView", "parent"));
+  mixin(OProperty!("DView", "parent"));
 
-  private DAPPViewComponent[string] _components;
+  private DViewComponent[string] _components;
 
   size_t length() { return _components.length; }
   auto all() { return _components.byValue.array; }
@@ -21,7 +21,7 @@ class DAPPViewComponents {
   }
 
   auto get(string anId) {
-    return _components.get(anId, NullComponent);
+    return _components.get(anId, NullViewComponent);
   }
   ref auto opIndex(string anId) {
     return get(anId);

@@ -8,8 +8,8 @@ module uim.mvc.views.components.null_;
 @safe:
 import uim.mvc;
 
-class DMVCNullComponent : DViewComponent {
-  mixin(ViewComponentThis!("MVCNullComponent"));
+class DNullViewComponent : DViewComponent {
+  mixin(ViewComponentThis!("NullViewComponent"));
   
   override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings); 
@@ -27,8 +27,8 @@ class DMVCNullComponent : DViewComponent {
     return null; 
   }
 }
-mixin(ViewComponentCalls!("MVCNullComponent", "DMVCNullComponent"));
+mixin(ViewComponentCalls!("NullViewComponent", "DNullViewComponent"));
 
 version(test_uim_mvc) { unittest {
-  assert(MVCNullComponent);
+  assert(NullViewComponent);
 }}

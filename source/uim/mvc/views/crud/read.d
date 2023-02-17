@@ -8,7 +8,7 @@ class DAPPEntityReadView : DEntityCRUDView { // Default view
 }
 mixin(ViewCalls!("APPEntityReadView"));
 
-version(test_uim_apps) { unittest {
+version(test_uim_mvc) { unittest {
     writeln("--- Tests in ", __MODULE__, "/", __LINE__);
 		testView(new DAPPEntityReadView); 
 

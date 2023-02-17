@@ -12,4 +12,4 @@ class DStaticViewComponent : DViewComponent {
     return this.h5;
   }
 }
-mixin(ViewComponentCalls!("StaticViewComponent"));
+mixin(ViewComponentCalls!("StaticViewComponent", "DStaticViewComponent"));
