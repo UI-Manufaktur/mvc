@@ -8,7 +8,6 @@ class DAPPLogin2PageController : DPageController {
 
 override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
-    super.initialize;
 
     this
     .title("Anmeldung (Passwort)")

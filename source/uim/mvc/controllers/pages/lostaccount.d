@@ -8,7 +8,6 @@ class DAPPLostAccountPageController : DPageController {
 
 override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
-    super.initialize;
     
     this
       .parameter("pageTitle", "Kennung vergessen?")

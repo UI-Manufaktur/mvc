@@ -8,7 +8,6 @@ class DAPPSitesPage : DPageController {
 
 override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
-    super.initialize;
 
     this
     .title("Anmeldung (Kennung)")

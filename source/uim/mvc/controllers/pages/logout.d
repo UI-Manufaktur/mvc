@@ -8,7 +8,6 @@ class DAPPLogoutPageController : DPageController {
 
 override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings); 
-    super.initialize;
 
     this
       .parameter("pageTitle",  "Abmeldung erfolgreich")

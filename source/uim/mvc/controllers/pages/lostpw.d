@@ -8,7 +8,6 @@ class DAPPLostPasswordPageController : DPageController {
 
 override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
-    super.initialize;
 
     this
       .parameter("pageTitle", "Passwort vergessen?")

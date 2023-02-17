@@ -7,9 +7,8 @@ class DLoginPageController : DPageController {
   mixin(ControllerThis!("LoginPageController"));
 
 override void initialize(DConfigurationValue configSettings = null) {
-    super.initialize(configSettings);
     debugMethodCall(moduleName!DLoginPageController~"::DLoginPageController("~this.name~"):initialize");   
-    super.initialize;
+    super.initialize(configSettings);
 
     this
     .title("Anmeldung (Kennung)")
