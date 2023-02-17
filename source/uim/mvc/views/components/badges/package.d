@@ -1,8 +1,8 @@
-module uim.apps.views.components.badges;
+module uim.mvc.views.components.badges;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
-public import uim.apps.views.components.badges.badge;
-public import uim.apps.views.components.badges.entity;
-public import uim.apps.views.components.badges.entities;
+public import uim.mvc.views.components.badges.badge;
+public import uim.mvc.views.components.badges.entity;
+public import uim.mvc.views.components.badges.entities;

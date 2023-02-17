@@ -1,8 +1,8 @@
-module uim.apps.views.components.cards;
+module uim.mvc.views.components.cards;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
-public import uim.apps.views.components.cards.card;
+public import uim.mvc.views.components.cards.card;
 
-public import uim.apps.views.components.cards.masonry;
+public import uim.mvc.views.components.cards.masonry;

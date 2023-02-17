@@ -1,10 +1,10 @@
-module uim.apps.views.components.breadcrumbs;
+module uim.mvc.views.components.breadcrumbs;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
-public import uim.apps.views.components.breadcrumbs.breadcrumb;
-public import uim.apps.views.components.breadcrumbs.entity;
-public import uim.apps.views.components.breadcrumbs.entities;
+public import uim.mvc.views.components.breadcrumbs.breadcrumb;
+public import uim.mvc.views.components.breadcrumbs.entity;
+public import uim.mvc.views.components.breadcrumbs.entities;
 
 

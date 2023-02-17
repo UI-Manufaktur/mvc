@@ -1,7 +1,7 @@
-module uim.apps.views.components.badges.entity;
+module uim.mvc.views.components.badges.entity;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DAPPEntityBadgeViewComponent : DAPPBadgeViewComponent {
   mixin(ViewComponentThis!("APPEntityBadgeViewComponent"));
