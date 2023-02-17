@@ -1,7 +1,7 @@
-module uim.apps.views.components.avatars.avatar;
+module uim.mvc.views.components.avatars.avatar;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DAPPAvatarViewComponent : DAPPViewComponent {
   mixin(ViewComponentThis!("APPAvatarViewComponent"));

@@ -4,7 +4,7 @@ module uim.mvc.views.components.accordions;
 import uim.mvc;
 
 // Main
-public import uim.apps.views.components.accordions.accordion;
+public import uim.mvc.views.components.accordions.accordion;
 
 // Modules
-public import uim.apps.views.components.accordions.themes;
+public import uim.mvc.views.components.accordions.themes;

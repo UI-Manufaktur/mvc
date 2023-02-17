@@ -1,7 +1,7 @@
-module uim.apps.views.components.accordions.accordion;
+module uim.mvc.views.components.accordions.accordion;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DAPPAccordion : DAPPViewComponent {  
   mixin(ViewComponentThis!("APPAccordion"));

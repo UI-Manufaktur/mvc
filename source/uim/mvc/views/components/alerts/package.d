@@ -1,8 +1,8 @@
-module uim.apps.views.components.alerts;
+module uim.mvc.views.components.alerts;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
-public import uim.apps.views.components.alerts.alert;
-public import uim.apps.views.components.alerts.entity;
-public import uim.apps.views.components.alerts.entities;
+public import uim.mvc.views.components.alerts.alert;
+public import uim.mvc.views.components.alerts.entity;
+public import uim.mvc.views.components.alerts.entities;

@@ -1,6 +1,6 @@
-module uim.apps.views.components.avatars;
+module uim.mvc.views.components.avatars;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
-public import uim.apps.views.components.avatars.avatar;
+public import uim.mvc.views.components.avatars.avatar;

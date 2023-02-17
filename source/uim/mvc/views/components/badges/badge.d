@@ -1,7 +1,7 @@
-module uim.apps.views.components.badges.badge;
+module uim.mvc.views.components.badges.badge;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DAPPBadgeViewComponent : DAPPViewComponent {
   mixin(ViewComponentThis!("APPBadgeViewComponent"));
