@@ -1,7 +1,7 @@
-module uim.apps.controllers.pages.login;
+module uim.mvc.controllers.pages.login;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DAPPLoginPageController : DAPPPageController {
   mixin(APPPageControllerThis!("APPLoginPageController"));

@@ -1,7 +1,7 @@
-module uim.apps.controllers.pages.apps;
+module uim.mvc.controllers.pages.apps;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 /* class DAPPPage : DAPPPageController {
   this() { super(); 

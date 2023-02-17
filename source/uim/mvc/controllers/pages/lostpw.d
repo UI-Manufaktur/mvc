@@ -1,7 +1,7 @@
-module uim.apps.controllers.pages.lostpw;
+module uim.mvc.controllers.pages.lostpw;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DAPPLostPasswordPageController : DAPPPageController {
   mixin(APPPageControllerThis!("APPLostPasswordPageController"));

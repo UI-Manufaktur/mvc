@@ -1,7 +1,7 @@
-module uim.apps.controllers.pages.entities;
+module uim.mvc.controllers.pages.entities;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DAPPEntitiesPageController : DAPPPageController {
   mixin(ControllerThis!("APPEntitiesPageController"));

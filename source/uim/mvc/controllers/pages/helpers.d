@@ -1,7 +1,7 @@
-module uim.apps.controllers.pages.helpers;
+module uim.mvc.controllers.pages.helpers;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 /* 
 void initPages(DH5App app) {
   app.pages("login", APPLoginPageController);

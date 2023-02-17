@@ -1,7 +1,7 @@
-module uim.apps.controllers.pages.lostaccount;
+module uim.mvc.controllers.pages.lostaccount;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DAPPLostAccountPageController : DAPPPageController {
   mixin(APPPageControllerThis!("APPLostAccountPageController"));

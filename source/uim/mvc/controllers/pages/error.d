@@ -1,7 +1,7 @@
-module uim.apps.controllers.pages.error;
+module uim.mvc.controllers.pages.error;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DAPPErrorPageController : DAPPPageController {
   mixin(APPPageControllerThis!("APPErrorPageController"));

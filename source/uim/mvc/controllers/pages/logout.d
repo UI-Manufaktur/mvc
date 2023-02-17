@@ -1,7 +1,7 @@
-module uim.apps.controllers.pages.logout;
+module uim.mvc.controllers.pages.logout;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DAPPLogoutPageController : DAPPPageController {  
   mixin(APPPageControllerThis!("APPLogoutPageController"));
