@@ -3,41 +3,41 @@ module uim.mvc.sessions.reader;
 @safe:
 import uim.mvc;
 
-class DAPPSessionReader {
-  this(DAPPPageController page) {
+class DMVCSessionReader {
+  this(DPageController page) {
     this.page(page);
   }
 
-  mixin(OProperty!("DAPPPageController", "page"));
-  mixin(OProperty!("DAPPSession", "appSession"));
+  mixin(OProperty!("DPageController", "page"));
+  mixin(OProperty!("DMVCSession", "appSession"));
 
-  DAPPSession read(HTTPServerRequest req, STRINGAA reqParameters) {
-    debug writeln(moduleName!DAPPSessionReader~":DAPPSessionReader::read");
-    DAPPSession appSession;
+  DMVCSession read(HTTPServerRequest req, STRINGAA reqParameters) {
+    debug writeln(moduleName!DMVCSessionReader~":DMVCSessionReader::read");
+    DMVCSession appSession;
     string reqSessionId;
-    if (!req) debug writeln(moduleName!DAPPSessionReader~":DAPPSessionReader::read - missing request");
-    if (!req.session) { debug writeln(moduleName!DAPPSessionReader~":DAPPSessionReader::read - mising request session"); }
+    if (!req) debug writeln(moduleName!DMVCSessionReader~":DMVCSessionReader::read - missing request");
+    if (!req.session) { debug writeln(moduleName!DMVCSessionReader~":DMVCSessionReader::read - mising request session"); }
     else {
-      debug writeln(moduleName!DAPPSessionReader~":DAPPSessionReader::read - httpSessionId exists");
+      debug writeln(moduleName!DMVCSessionReader~":DMVCSessionReader::read - httpSessionId exists");
       reqSessionId = req.session.id;
       appSession = appSessions.get(reqSessionId, null); // Existing Session?
     }
 
-    if (!appSession) debug writeln(moduleName!DAPPSessionReader~":DAPPSessionReader::read - missing appSession");
+    if (!appSession) debug writeln(moduleName!DMVCSessionReader~":DMVCSessionReader::read - missing appSession");
     
-    debug writeln(moduleName!DAPPSessionReader~":DAPPSessionReader::read - XXXX");
+    debug writeln(moduleName!DMVCSessionReader~":DMVCSessionReader::read - XXXX");
 
     if (reqSessionId.length > 0) 
-      debug writeln(moduleName!DAPPSessionReader~":DAPPSessionReader::read - x1x");
+      debug writeln(moduleName!DMVCSessionReader~":DMVCSessionReader::read - x1x");
     if (appSession is null)  
-      debug writeln(moduleName!DAPPSessionReader~":DAPPSessionReader::read - x2x");
+      debug writeln(moduleName!DMVCSessionReader~":DMVCSessionReader::read - x2x");
 
     if (reqSessionId.length > 0 && appSession is null) { // httpSession exitsts New Session
-      debug writeln(moduleName!DAPPSessionReader~":DAPPSessionReader::read - httpSessionId exists appSession is missing");
-      debug writeln(moduleName!DAPPSessionReader~":DAPPSessionReader::read - Creating new appSession based on httpSession ", reqSessionId);
-      appSession = APPSession(req.session, page);
+      debug writeln(moduleName!DMVCSessionReader~":DMVCSessionReader::read - httpSessionId exists appSession is missing");
+      debug writeln(moduleName!DMVCSessionReader~":DMVCSessionReader::read - Creating new appSession based on httpSession ", reqSessionId);
+      appSession = MVCSession(req.session, page);
 
-      debug writeln(moduleName!DAPPSessionReader~":DAPPSessionReader::read - Reading session entities");      
+      debug writeln(moduleName!DMVCSessionReader~":DMVCSessionReader::read - Reading session entities");      
       if (page && page.database) {
       foreach (name; page.sessionData) {
           switch(name) {
@@ -82,4 +82,4 @@ class DAPPSessionReader {
     return appSession;
   }
 }
-auto APPSessionReader(DAPPPageController page) { return new DAPPSessionReader(page); }
+auto MVCSessionReader(DPageController page) { return new DMVCSessionReader(page); }

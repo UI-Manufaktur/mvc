@@ -17,7 +17,7 @@ class DMVCRequestReader {
     return reqParameters;
   }
 }
-auto APPRequestReader(DPageController page) { return new DMVCRequestReader(page); }
+auto MVCRequestReader(DPageController page) { return new DMVCRequestReader(page); }
 
 version(test_uim_apps) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
