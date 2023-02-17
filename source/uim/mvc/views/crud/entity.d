@@ -3,8 +3,8 @@ module uim.mvc.views.crud.entity;
 @safe:
 import uim.mvc;
 
-class DAPPEntityCRUDView : DEntityView {
-  mixin(ViewThis!("APPEntityCRUDView"));
+class DEntityCRUDView : DEntityView {
+  mixin(ViewThis!("EntityCRUDView"));
 
   mixin(OProperty!("bool", "readonly", "CRUDModes.Read", true, true, "", `
     foreach(component; this.components.all) {
@@ -15,9 +15,8 @@ class DAPPEntityCRUDView : DEntityView {
   mixin(OProperty!("DUIMTabControl", "entityTab"));
 
 override void initialize(DConfigurationValue configSettings = null) {
+    debugMethodCall(moduleName!DEntityCRUDView~"::DEntityCRUDView("~this.name~"):initialize");   
     super.initialize(configSettings);
-    debugMethodCall(moduleName!DAPPEntityCRUDView~"::DAPPEntityCRUDView("~this.name~"):initialize");   
-    super.initialize;
 
     this
       .header(
@@ -54,7 +53,7 @@ override void initialize(DConfigurationValue configSettings = null) {
   }
 
   override void beforeH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DAPPEntityCRUDView~"::DAPPEntityCRUDView("~this.name~"):beforeH5");    
+    debugMethodCall(moduleName!DEntityCRUDView~"::DEntityCRUDView("~this.name~"):beforeH5");    
     super.beforeH5(options);
     if (hasError || "redirect" in options) { return; }
 
@@ -70,7 +69,7 @@ override void initialize(DConfigurationValue configSettings = null) {
   }
 
   override DH5Obj[] toH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DAPPEntityCRUDView~"::DAPPEntityCRUDView("~this.name~"):toH5");    
+    debugMethodCall(moduleName!DEntityCRUDView~"::DEntityCRUDView("~this.name~"):toH5");    
     super.toH5(options);
     if (hasError || "redirect" in options) { return null; }
     
@@ -84,12 +83,12 @@ override void initialize(DConfigurationValue configSettings = null) {
       )].toH5;             
   }
 }
-mixin(ViewCalls!("APPEntityCRUDView"));
+mixin(ViewCalls!("EntityCRUDView"));
 
 version(test_uim_apps) { unittest {
     writeln("--- Tests in ", __MODULE__, "/", __LINE__);
-		testView(new DAPPEntityCRUDView); 
+		testView(new DEntityCRUDView); 
 
     writeln("--- Tests in ", __MODULE__, "/", __LINE__);
-		testView(APPEntityCRUDView); 
+		testView(EntityCRUDView); 
 }}

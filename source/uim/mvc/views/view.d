@@ -53,11 +53,24 @@ class DView : DMVCObject, IView {
   }
   
   // #region Properties
-    mixin(OProperty!("DController", "controller"));  
     mixin(OProperty!("DEntity", "entity"));
     mixin(OProperty!("DEntity[]", "entities"));
     mixin(OProperty!("string", "rootPath"));
 
+  mixin(OProperty!("DAPPViewComponents", "components"));
+  mixin(OProperty!("DPageController", "controller")); 
+  // mixin(OProperty!("IEventManager", "eventManager")); 
+  mixin(OProperty!("string[]", "leftClasses")); 
+  mixin(OProperty!("string[]", "middleClasses")); 
+  mixin(OProperty!("string[]", "rightClasses")); 
+  mixin(OProperty!("STRINGAA", "rightAttributes")); 
+    
+  mixin(OViewComponent!("header"));
+  mixin(OViewComponent!("footer"));
+  mixin(OViewComponent!("left"));
+  mixin(OViewComponent!("middle"));
+  mixin(OViewComponent!("right"));
+  mixin(OViewComponent!("messages"));
     // The name of the layout render the template inside of. 
     mixin(OProperty!("string", "layoutName"));
   // #endregion Properties

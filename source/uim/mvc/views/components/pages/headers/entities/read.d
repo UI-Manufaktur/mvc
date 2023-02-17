@@ -3,7 +3,7 @@ module uim.mvc.views.components.pages.headers.entities.read;
 @safe:
 import uim.mvc;
 
-class DMVCReadPageHeaderViewComponent : DMVCPageHeaderViewComponent {
+class DMVCReadPageHeaderViewComponent : DPageHeaderViewComponent {
   mixin(ViewComponentThis!("MVCReadPageHeaderViewComponent"));
   
   override void initialize(DConfigurationValue configSettings = null) {

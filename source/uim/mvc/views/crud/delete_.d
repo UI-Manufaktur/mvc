@@ -3,12 +3,11 @@ module uim.mvc.views.crud.delete_;
 @safe:
 import uim.mvc;
 
-class DAPPEntityDeleteView : DAPPEntityCRUDView {
+class DAPPEntityDeleteView : DEntityCRUDView {
   mixin(ViewThis!("APPEntityDeleteView"));
 
 override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
-    super.initialize;
 
     this
       .crudMode(CRUDModes.Delete)

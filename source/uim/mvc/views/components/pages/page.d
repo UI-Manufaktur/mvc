@@ -3,9 +3,8 @@ module uim.mvc.views.components.pages.page;
 @safe:
 import uim.mvc;
 
-class DMVCPageViewComponent
- : DViewComponent {
-  mixin(ViewComponentThis!("MVCPageViewComponent"));
+class DPageViewComponent : DViewComponent {
+  mixin(ViewComponentThis!("PageViewComponent"));
   
   override void initialize(DConfigurationValue configSettings = null) {
     this
@@ -15,7 +14,7 @@ class DMVCPageViewComponent
   }
 
   mixin(OProperty!("DPageHeaderViewComponent", "header"));
-  mixin(OProperty!("DMVCPageBodyViewComponent", "body_"));
+  mixin(OProperty!("DPageBodyViewComponent", "body_"));
   mixin(OProperty!("DMVCPageFooterViewComponent", "footer"));
 
   override void _afterSetEntity() {
@@ -30,4 +29,4 @@ class DMVCPageViewComponent
     if (footer)  footer.entities = this.entities;
   }
 }
-mixin(ViewComponentCalls!("MVCPageViewComponent", "DMVCPageViewComponent"));
+mixin(ViewComponentCalls!("PageViewComponent", "DPageViewComponent"));

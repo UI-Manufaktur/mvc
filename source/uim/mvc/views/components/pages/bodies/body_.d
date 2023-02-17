@@ -3,8 +3,8 @@ module uim.mvc.views.components.pages.bodies.body_;
 @safe:
 import uim.mvc;
 
-class DMVCPageBodyViewComponent : DViewComponent {
-  mixin(ViewComponentThis!("MVCPageBodyViewComponent"));
+class DPageBodyViewComponent : DViewComponent {
+  mixin(ViewComponentThis!("PageBodyViewComponent"));
 
   override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
@@ -25,5 +25,5 @@ class DMVCPageBodyViewComponent : DViewComponent {
       ].toH5;
   }
 }
-mixin(ViewComponentCalls!("MVCPageBodyViewComponent", "DMVCPageBodyViewComponent"));
-mixin(ViewComponentCalls!("MVCPageBody", "DMVCPageBodyViewComponent"));
+mixin(ViewComponentCalls!("PageBodyViewComponent", "DPageBodyViewComponent"));
+mixin(ViewComponentCalls!("MVCPageBody", "DPageBodyViewComponent"));

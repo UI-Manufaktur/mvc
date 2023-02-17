@@ -109,7 +109,7 @@ auto listEntities(T:DEntity)(string rootPath, string mainTitle, int numberEntiti
 
 auto listPageHeader(string rootPath, string preTitle, string title, STRINGAA reqParameters) {
   return
-    MVCPageHeader
+    PageHeader
       .rootPath(rootPath)
       .preTitle(preTitle)
       .title(title)

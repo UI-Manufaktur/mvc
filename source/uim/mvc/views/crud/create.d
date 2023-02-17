@@ -3,16 +3,15 @@ module uim.mvc.views.crud.create;
 @safe:
 import uim.mvc;
 
-class DAPPEntityCreateView : DAPPEntityCRUDView {
+class DAPPEntityCreateView : DEntityCRUDView {
   mixin(ViewThis!("APPEntityCreateView"));
 
 override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
-    super.initialize;
 
     debug writeln("In ", __MODULE__, "/", __LINE__); 
 
-    if (auto pgHeader = cast(DPageHeader)this.header) {
+    if (auto pgHeader = cast(DPageHeaderViewComponent)this.header) {
       pgHeader.actions([["refresh", "list"]]); }
 
     if (auto frm = cast(DForm)this.form) {
