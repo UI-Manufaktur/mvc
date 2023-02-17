@@ -1,1 +1,1 @@
-module uim.apps.views.components.modals;
+module uim.mvc.views.components.modals;

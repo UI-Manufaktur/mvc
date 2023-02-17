@@ -1,7 +1,7 @@
-module uim.apps.views.components.lists.items;
+module uim.mvc.views.components.lists.items;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
-public import uim.apps.views.components.lists.items.item;
-public import uim.apps.views.components.lists.items.entity;
+public import uim.mvc.views.components.lists.items.item;
+public import uim.mvc.views.components.lists.items.entity;

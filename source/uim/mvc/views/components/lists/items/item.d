@@ -1,7 +1,7 @@
-module uim.apps.views.components.lists.items.item;
+module uim.mvc.views.components.lists.items.item;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DListItem : DEntityViewComponent {
   mixin(ViewComponentThis!("ListItem"));

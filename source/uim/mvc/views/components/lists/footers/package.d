@@ -1,8 +1,8 @@
-module uim.apps.views.components.lists.footers;
+module uim.mvc.views.components.lists.footers;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
-public import uim.apps.views.components.lists.footers.footer;
+public import uim.mvc.views.components.lists.footers.footer;
 
-public import uim.apps.views.components.lists.footers.entities;
+public import uim.mvc.views.components.lists.footers.entities;

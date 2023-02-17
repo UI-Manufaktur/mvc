@@ -1,4 +1,4 @@
-module uim.apps.views.components.lists.headers;
+module uim.mvc.views.components.lists.headers;
 
 @safe:
-import uim.apps;
+import uim.mvc;

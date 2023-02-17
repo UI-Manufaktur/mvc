@@ -1,7 +1,7 @@
-module uim.apps.views.components.lists.footers.entities;
+module uim.mvc.views.components.lists.footers.entities;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DAPPEntitiesListFooter : DAPPListFooter {
   mixin(ViewComponentThis!("APPEntitiesListFooter"));
