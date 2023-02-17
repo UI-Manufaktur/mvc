@@ -3,10 +3,10 @@ module uim.mvc.controllers.pages.error;
 @safe:
 import uim.mvc;
 
-class DAPPErrorPageController : DAPPPageController {
-  mixin(APPPageControllerThis!("APPErrorPageController"));
+class DAPPErrorPageController : DPageController {
+  mixin(PageControllerThis!("APPErrorPageController"));
 }
-mixin(APPPageControllerCalls!("APPErrorPageController"));
+mixin(PageControllerCalls!("APPErrorPageController"));
 
 version(test_uim_apps) { unittest {
     writeln("--- Tests in ", __MODULE__, "/", __LINE__);

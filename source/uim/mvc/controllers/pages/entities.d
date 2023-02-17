@@ -3,7 +3,7 @@ module uim.mvc.controllers.pages.entities;
 @safe:
 import uim.mvc;
 
-class DAPPEntitiesPageController : DAPPPageController {
+class DAPPEntitiesPageController : DPageController {
   mixin(ControllerThis!("APPEntitiesPageController"));
 
   protected DEntity[] _entities;
@@ -25,7 +25,7 @@ class DAPPEntitiesPageController : DAPPPageController {
   mixin(OProperty!("string", "filterValue"));
 
   override void beforeResponse(STRINGAA options = null) {
-    debugMethodCall(moduleName!DAPPPageController~":DAPPPageController("~this.name~")::beforeResponse");
+    debugMethodCall(moduleName!DPageController~":DPageController("~this.name~")::beforeResponse");
     super.beforeResponse(options);
     if (hasError || "redirect" in options) { return; }
     

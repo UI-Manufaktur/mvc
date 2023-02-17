@@ -3,8 +3,8 @@ module uim.mvc.controllers.pages.lostpw;
 @safe:
 import uim.mvc;
 
-class DAPPLostPasswordPageController : DAPPPageController {
-  mixin(APPPageControllerThis!("APPLostPasswordPageController"));
+class DAPPLostPasswordPageController : DPageController {
+  mixin(PageControllerThis!("APPLostPasswordPageController"));
 
 override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
@@ -20,7 +20,7 @@ override void initialize(DConfigurationValue configSettings = null) {
       .view(APPLostPasswordView(this));
   }
 }
-mixin(APPPageControllerCalls!("APPLostPasswordPageController"));
+mixin(PageControllerCalls!("APPLostPasswordPageController"));
 
 version(test_uim_apps) { unittest {
     writeln("--- Tests in ", __MODULE__, "/", __LINE__);

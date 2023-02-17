@@ -3,8 +3,8 @@ module uim.mvc.controllers.pages.logout;
 @safe:
 import uim.mvc;
 
-class DAPPLogoutPageController : DAPPPageController {  
-  mixin(APPPageControllerThis!("APPLogoutPageController"));
+class DAPPLogoutPageController : DPageController {  
+  mixin(PageControllerThis!("APPLogoutPageController"));
 
 override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings); 
@@ -19,7 +19,7 @@ override void initialize(DConfigurationValue configSettings = null) {
       .title("Abmeldung");
   }
 }
-mixin(APPPageControllerCalls!("APPLogoutPageController"));
+mixin(PageControllerCalls!("APPLogoutPageController"));
 
 version(test_uim_apps) { unittest {
     writeln("--- Tests in ", __MODULE__, "/", __LINE__);

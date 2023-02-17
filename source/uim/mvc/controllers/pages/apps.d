@@ -3,7 +3,7 @@ module uim.mvc.controllers.pages.apps;
 @safe:
 import uim.mvc;
 
-/* class DAPPPage : DAPPPageController {
+/* class DAPPPage : DPageController {
   this() { super(); 
     this
     

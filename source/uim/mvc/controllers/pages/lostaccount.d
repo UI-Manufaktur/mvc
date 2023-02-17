@@ -3,8 +3,8 @@ module uim.mvc.controllers.pages.lostaccount;
 @safe:
 import uim.mvc;
 
-class DAPPLostAccountPageController : DAPPPageController {
-  mixin(APPPageControllerThis!("APPLostAccountPageController"));
+class DAPPLostAccountPageController : DPageController {
+  mixin(PageControllerThis!("APPLostAccountPageController"));
 
 override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
@@ -21,7 +21,7 @@ override void initialize(DConfigurationValue configSettings = null) {
         APPLostAccountView(this));
   }
 }
-mixin(APPPageControllerCalls!("APPLostAccountPageController"));
+mixin(PageControllerCalls!("APPLostAccountPageController"));
 
 version(test_uim_apps) { unittest {
     writeln("--- Tests in ", __MODULE__, "/", __LINE__);

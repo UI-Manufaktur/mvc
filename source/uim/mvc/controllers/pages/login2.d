@@ -3,8 +3,8 @@ module uim.mvc.controllers.pages.login2;
 @safe:
 import uim.mvc;
 
-class DAPPLogin2PageController : DAPPPageController {
-  mixin(APPPageControllerThis!("APPLogin2PageController"));
+class DAPPLogin2PageController : DPageController {
+  mixin(PageControllerThis!("APPLogin2PageController"));
 
 override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
@@ -32,7 +32,7 @@ override void initialize(DConfigurationValue configSettings = null) {
       "/js/apps/login2.js");   
     }
 }
-mixin(APPPageControllerCalls!("APPLogin2PageController"));
+mixin(PageControllerCalls!("APPLogin2PageController"));
 
 version(test_uim_apps) { unittest {
     writeln("--- Tests in ", __MODULE__, "/", __LINE__);

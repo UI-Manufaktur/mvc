@@ -3,8 +3,8 @@ module uim.mvc.controllers.pages.login;
 @safe:
 import uim.mvc;
 
-class DAPPLoginPageController : DAPPPageController {
-  mixin(APPPageControllerThis!("APPLoginPageController"));
+class DAPPLoginPageController : DPageController {
+  mixin(PageControllerThis!("APPLoginPageController"));
 
 override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
@@ -40,7 +40,7 @@ override void initialize(DConfigurationValue configSettings = null) {
     debug writeln("MImeType: ", this.mimetype);
   }
 }
-mixin(APPPageControllerCalls!("APPLoginPageController"));
+mixin(PageControllerCalls!("APPLoginPageController"));
 
 version(test_uim_apps) { unittest {
     writeln("--- Tests in ", __MODULE__, "/", __LINE__);
