@@ -12,15 +12,18 @@ class DPageController : DController {
   mixin(ControllerThis!("PageController"));
 
   override void initialize(DConfigurationValue configSettings = null) {
+    version(test_uim_mvc) { 
+      debugMethodCall(moduleName!DPageController~"::DPageController("~this.name~"):initialize");   
+    }
     super.initialize(configSettings);
 
     this
       .language("en") 
       .mimetype("text/html");
     
-/*     requestReader = MVCRequestReader(this);
+    requestReader = MVCRequestReader(this);
     sessionReader = MVCSessionReader(this);  
- */
+ 
     this
       .links(MVCLinkContainer)
       .metas(MVCMetaContainer) 
@@ -37,6 +40,26 @@ class DPageController : DController {
   mixin(OProperty!("DMVCStyleContainer", "styles"));
 
   mixin(OProperty!("DLayout", "layout"));
+
+  mixin(OProperty!("Session", "globalSession"));
+  mixin(OProperty!("string[]", "pageActions"));
+  mixin(OProperty!("bool", "hasGlobalSession"));
+
+  mixin(OProperty!("DView", "view"));
+  mixin(OProperty!("DView", "errorView"));
+
+  // Required checks for the page flow
+  mixin(OProperty!("string[]", "sessionData"));
+
+  mixin(APPParameter!("canonical")); 
+  mixin(APPParameter!("jsPath")); 
+  mixin(APPParameter!("pageTitle"));
+  mixin(APPParameter!("pageBreadcrumbs"));
+  mixin(APPParameter!("pgPath")); 
+  mixin(APPParameter!("title")); 
+
+  DMVCRequestReader requestReader;
+  DMVCSessionReader sessionReader;
 
   override void beforeResponse(STRINGAA options = null) {
     debugMethodCall(moduleName!DPageController~":DPageController("~this.name~")::beforeResponse");

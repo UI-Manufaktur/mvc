@@ -8,4 +8,11 @@ module uim.mvc.views.json;
 @safe:
 import uim.mvc;
 
-class DJsonView : DView {}
+class DJsonView : DView {
+  mixin(ViewThis!("JsonView"));
+}
+mixin(ViewCalls!("JsonView"));
+
+version(test_uim_mvc) { unittest {
+  assert(MVCLoginView);
+}}
