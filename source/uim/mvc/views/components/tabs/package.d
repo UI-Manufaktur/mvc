@@ -1,9 +1,9 @@
-module uim.apps.views.components.tabs;
+module uim.mvc.views.components.tabs;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
-public import uim.apps.views.components.tabs.tab;
-public import uim.apps.views.components.tabs.tabs;
+public import uim.mvc.views.components.tabs.tab;
+public import uim.mvc.views.components.tabs.tabs;
 
 

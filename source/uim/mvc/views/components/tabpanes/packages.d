@@ -3,10 +3,10 @@
 *	License: Licensed under Apache 2 [https://apache.org/licenses/LICENSE-2.0.txt]                                       *
 *	Authors: UI Manufaktur UG Team, Ozan Nurettin Süel (Sicherheitsschmiede)										                         * 
 ***********************************************************************************************************************/
-module uim.apps.views.components.tabpanes.packages;
+module uim.mvc.views.components.tabpanes.packages;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DAPPPackagesPaneViewComponent : DAPPEntitiesTabpane {
   mixin(ViewComponentThis!("APPPackagesPaneViewComponent"));

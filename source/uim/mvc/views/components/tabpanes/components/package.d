@@ -1,4 +1,4 @@
-module uim.apps.views.components.tabpanes.components;
+module uim.mvc.views.components.tabpanes.components;
 
 @safe:
-import uim.apps;
+import uim.mvc;

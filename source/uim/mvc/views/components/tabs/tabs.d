@@ -1,7 +1,7 @@
-module uim.apps.views.components.tabs.tabs;
+module uim.mvc.views.components.tabs.tabs;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DAPPTabsViewComponent : DAPPViewComponent {
   mixin(ViewComponentThis!("APPTabsViewComponent"));

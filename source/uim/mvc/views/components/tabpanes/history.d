@@ -1,7 +1,7 @@
-module uim.apps.views.components.tabpanes.history;
+module uim.mvc.views.components.tabpanes.history;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DAPPHistoryTabpane : DAPPEntitiesTabpane {
   mixin(ViewComponentThis!("APPHistoryTabpane"));
