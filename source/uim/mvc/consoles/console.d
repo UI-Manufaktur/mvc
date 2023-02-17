@@ -1,6 +1,6 @@
-module uim.apps.consoles.console;
+module uim.mvc.consoles.console;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DAPPConsole {}

@@ -1,6 +1,6 @@
-module uim.apps.consoles.commands.command;
+module uim.mvc.consoles.commands.command;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DAPPCommand {}

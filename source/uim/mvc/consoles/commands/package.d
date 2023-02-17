@@ -1,13 +1,13 @@
-module uim.apps.consoles.commands;
+module uim.mvc.consoles.commands;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 // Main
-public import uim.apps.consoles.commands.command;
-public import uim.apps.consoles.commands.interface_;
+public import uim.mvc.consoles.commands.command;
+public import uim.mvc.consoles.commands.interface_;
 
 // Packages
-public import uim.apps.consoles.commands.factories;
+public import uim.mvc.consoles.commands.factories;
 
 // Modules

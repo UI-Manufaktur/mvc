@@ -1,7 +1,7 @@
-module uim.apps.consoles.input;
+module uim.mvc.consoles.input;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DAPPConsoleInput {
   this() {}

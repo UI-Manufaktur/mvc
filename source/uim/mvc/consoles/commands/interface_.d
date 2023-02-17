@@ -1,7 +1,7 @@
-module uim.apps.consoles.commands.interface_;
+module uim.mvc.consoles.commands.interface_;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 // Describe the interface between a command and the surrounding console libraries.
 interface IAPPCommand {

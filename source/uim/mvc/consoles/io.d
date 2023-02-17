@@ -1,7 +1,7 @@
-module uim.apps.consoles.io;
+module uim.mvc.consoles.io;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DAPPConsoleIO {
     // Output constant making verbose shells.

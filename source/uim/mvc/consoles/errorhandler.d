@@ -1,6 +1,6 @@
-module uim.apps.consoles.errorhandler;
+module uim.mvc.consoles.errorhandler;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DConsoleErrorHandler {}
