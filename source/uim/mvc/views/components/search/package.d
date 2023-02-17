@@ -1,7 +1,7 @@
-module uim.apps.views.components.search;
+module uim.mvc.views.components.search;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DAPPSearchInList : DAPPViewComponent {
   this() { super(); }

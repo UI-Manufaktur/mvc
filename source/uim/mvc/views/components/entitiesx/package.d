@@ -1,12 +1,12 @@
-module uim.apps.views.components.entitiesx;
+module uim.mvc.views.components.entitiesx;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 // Main
-public import uim.apps.views.components.entitiesx.entities;
-public import uim.apps.views.components.entitiesx.entity;
+public import uim.mvc.views.components.entitiesx.entities;
+public import uim.mvc.views.components.entitiesx.entity;
 
 // Additional
-public import uim.apps.views.components.entitiesx.list;
-public import uim.apps.views.components.entitiesx.table;
+public import uim.mvc.views.components.entitiesx.list;
+public import uim.mvc.views.components.entitiesx.table;

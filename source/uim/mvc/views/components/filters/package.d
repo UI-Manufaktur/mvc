@@ -1,7 +1,7 @@
-module uim.apps.views.components.filter;
+module uim.mvc.views.components.filter;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 DH5Obj filterName() {
   return 

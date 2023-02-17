@@ -1,7 +1,7 @@
-module uim.apps.views.components.entitiesx.table;
+module uim.mvc.views.components.entitiesx.table;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 /* class DAPPEntitiesTableViewComponent : DAPPViewComponent {
   mixin(ViewComponentThis!("APPEntitiesTableViewComponent", false, true));
