@@ -1,13 +1,13 @@
-module uim.apps.views.entities;
+module uim.mvc.views.entities;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 // View with entities
-class DEntitiesView : DAPPView {
+class DEntitiesView : DView {
   mixin(ViewThis!("EntitiesView"));
   
-  mixin(OProperty!("DEntity[]", "entities"));
+  // mixin(OProperty!("DEntity[]", "entities"));
 
   override void beforeH5(STRINGAA options = null) {
     debugMethodCall(moduleName!DEntitiesView~":DEntitiesView("~this.name~")::beforeH5");

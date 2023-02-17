@@ -1,13 +1,13 @@
-module uim.apps.views.entity;
+module uim.mvc.views.entity;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 // View with entity
-class DEntityView : DAPPView {
+class DEntityView : DView {
   mixin(ViewThis!("EntityView"));
   
-  mixin(OProperty!("DEntity", "entity"));
+  // mixin(OProperty!("DEntity", "entity"));
   mixin(OProperty!("CRUDModes", "crudMode"));
 
   override void beforeH5(STRINGAA options = null) {
