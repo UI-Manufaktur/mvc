@@ -27,5 +27,5 @@ class DFormComponent : DViewComponent {
 mixin(ViewComponentCalls!("FormComponent", "DFormComponent"));
 
 version(test_uim_mvc) { unittest {
-  assert(MVCFormComponent);
+  assert(FormComponent);
 }}

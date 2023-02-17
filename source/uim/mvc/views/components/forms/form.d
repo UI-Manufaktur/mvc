@@ -9,7 +9,7 @@ module uim.mvc.views.components.forms.form;
 import uim.mvc;
 
 class DForm : DViewComponent {
-  mixin(ViewComponentThis!("MVCForm"));
+  mixin(ViewComponentThis!("Form"));
 
   override void initialize(DConfigurationValue configSettings = null) {
     version(test_uim_mvc) { debugMethodCall(moduleName!DForm~"::DForm("~this.name~"):initialize"); }  
@@ -18,8 +18,8 @@ class DForm : DViewComponent {
  
     this
       .id(name~"_"~to!string(uniform(0, 100_000)))
-      .header(MVCFormHeader)
-      .content(MVCEntityFormContent)
+      .header(FormHeader)
+      .content(EntityFormContent)
       .crudMode(CRUDModes.Read)
       .method("post");
   
@@ -87,14 +87,14 @@ class DForm : DViewComponent {
     return [_col].toH5;
   }  
 }
-mixin(ViewComponentCalls!("MVCForm", "DForm"));
+mixin(ViewComponentCalls!("Form"));
 
 version(test_uim_mvc) { unittest {
-  assert(MVCForm);
+  assert(Form);
 
-  assert(MVCForm.entityName("Test").entityName == "Test");
-  assert(MVCForm.entitiesName("Test").entitiesName == "Test");
-  assert(MVCForm.headerTitle("Test").headerTitle == "Test");
-  assert(MVCForm.contentTitle("Test").contentTitle == "Test");
-  assert(MVCForm.footerTitle("Test").footerTitle == "Test");
+  assert(Form.entityName("Test").entityName == "Test");
+  assert(Form.entitiesName("Test").entitiesName == "Test");
+  assert(Form.headerTitle("Test").headerTitle == "Test");
+  assert(Form.contentTitle("Test").contentTitle == "Test");
+  assert(Form.footerTitle("Test").footerTitle == "Test");
 }}

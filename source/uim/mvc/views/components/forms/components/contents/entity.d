@@ -8,18 +8,18 @@ module uim.mvc.views.components.forms.components.contents.entity;
 @safe:
 import uim.mvc;
 
-class DMVCEntityFormContent : DFormContent {
-  mixin(ViewComponentThis!("MVCEntityFormContent"));
+class DEntityFormContent : DFormContent {
+  mixin(ViewComponentThis!("EntityFormContent"));
 
   override void initialize(DConfigurationValue configSettings = null) {
-    debugMethodCall(moduleName!DMVCEntityFormContent~"::DMVCEntityFormContent("~this.name~"):initialize");   
+    debugMethodCall(moduleName!DEntityFormContent~"::DEntityFormContent("~this.name~"):initialize");   
     super.initialize(configSettings);
 
     this
     .id("FormContent_%s".format(uniform(1, 1_000)))
     .crudMode(CRUDModes.Create)
     .fields(["name", "display", "description"])
-    .inputHandler(MVCFormInputHandler(/* this.form */));   
+    .inputHandler(FormInputHandler(/* this.form */));   
   }
 
   // mixin(OProperty!("DEntity", "entity"));
@@ -35,7 +35,7 @@ class DMVCEntityFormContent : DFormContent {
   mixin(OProperty!("DFormInputHandler", "inputHandler"));
 
   DH5Obj[] formGroups(STRINGAA options = null) {
-    debugMethodCall(moduleName!DMVCEntityFormContent~"::DMVCEntityFormContent:formGroups");    
+    debugMethodCall(moduleName!DEntityFormContent~"::DEntityFormContent:formGroups");    
     DH5Obj[] results;
 
     debug writeln(entity ? "Has entity: "~entity.name : "No entity");
@@ -66,7 +66,7 @@ class DMVCEntityFormContent : DFormContent {
   }  
 
   DH5Obj bodyContent(STRINGAA options = null) {
-    debugMethodCall(moduleName!DMVCEntityFormContent~"::DMVCEntityFormContent:bodyContent");    
+    debugMethodCall(moduleName!DEntityFormContent~"::DEntityFormContent:bodyContent");    
     DH5Obj row = BS5Row();
     
     auto col = BS5Col(["col-12"], 
@@ -88,7 +88,7 @@ class DMVCEntityFormContent : DFormContent {
   } 
 
   override DH5Obj[] toH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DMVCEntityFormContent~"::DMVCEntityFormContent:toH5");    
+    debugMethodCall(moduleName!DEntityFormContent~"::DEntityFormContent:toH5");    
     super.toH5(options);
     if (hasError || "redirect" in options) { return null; }
 
@@ -98,8 +98,8 @@ class DMVCEntityFormContent : DFormContent {
     )].toH5; 
   }
 }
-mixin(ViewComponentCalls!("MVCEntityFormContent", "DMVCEntityFormContent"));
+mixin(ViewComponentCalls!("EntityFormContent", "DEntityFormContent"));
 
 version(test_uim_mvc) { unittest {
-  assert(MVCEntityFormContent);
+  assert(EntityFormContent);
 }}

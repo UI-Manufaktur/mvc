@@ -9,7 +9,7 @@ module uim.mvc.views.components.forms.components.inputs.input;
 import uim.mvc;
 
 class DFormInput : DMVCEntityViewComponent {
-  mixin(ViewComponentThis!("MVCFormInput"));
+  mixin(ViewComponentThis!("FormInput"));
 
   // #region Fields
     // id of label element
@@ -75,9 +75,9 @@ class DFormInput : DMVCEntityViewComponent {
       ];
   }
 }
-mixin(ViewComponentCalls!("MVCFormInput", "DFormInput"));
+mixin(ViewComponentCalls!("FormInput", "DFormInput"));
 
 version(test_uim_mvc) { unittest {
   assert(new DFormInput);
-  assert(MVCFormInput);
+  assert(FormInput);
 }}

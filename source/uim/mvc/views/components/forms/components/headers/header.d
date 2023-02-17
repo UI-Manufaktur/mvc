@@ -4,7 +4,7 @@ module uim.mvc.views.components.forms.components.headers.header;
 import uim.mvc;
 
 class DFormHeader : DFormComponent {
-  mixin(ViewComponentThis!("MVCFormHeader"));
+  mixin(ViewComponentThis!("FormHeader"));
 
   override void initialize(DConfigurationValue configSettings = null) {
     version(test_uim_mvc) { debugMethodCall(moduleName!DFormHeader~"::DFormHeader("~this.name~"):initialize"); }  
@@ -105,8 +105,8 @@ class DFormHeader : DFormComponent {
           H5Span(["d-none d-sm-inline"], buttons)))].toH5;    
   } 
 }
-mixin(ViewComponentCalls!("MVCFormHeader", "DFormHeader"));
+mixin(ViewComponentCalls!("FormHeader", "DFormHeader"));
 
 version(test_uim_mvc) { unittest {
-  assert(MVCFormHeader);
+  assert(FormHeader);
 }}

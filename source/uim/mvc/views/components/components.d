@@ -3,7 +3,7 @@ module uim.mvc.views.components.components;
 @safe:
 import uim.mvc;
 
-class DAPPViewComponents {
+class DViewComponents {
   this() { /* this.name("ViewComponents"); */ }    
   this(DView myParent) { this().parent(myParent); }    
 
@@ -27,30 +27,30 @@ class DAPPViewComponents {
     return get(anId);
   }
 
-  O set(this O)(DAPPViewComponent[] newComponents...) {
+  O set(this O)(DViewComponent[] newComponents...) {
     this.set(newComponents);
     return cast(O)this;     
   }
 
-  O set(this O)(DAPPViewComponent[] newComponents) {
+  O set(this O)(DViewComponent[] newComponents) {
     newComponents.each!(comp => _components[comp.id] = comp); 
     return cast(O)this;     
   }
 
-  O set(this O)(DAPPViewComponent newComponent) {
+  O set(this O)(DViewComponent newComponent) {
     if (newComponent is null) { return cast(O)this; }     
 
     set(newComponent.id, newComponent);
     return cast(O)this;     
   }
 
-  O set(this O)(string anId, DAPPViewComponent newComponent) { 
+  O set(this O)(string anId, DViewComponent newComponent) { 
     if (newComponent is null) { return cast(O)this; }     
     _components[anId] = newComponent.id(anId); 
     return cast(O)this;     
   }
 
-  O opIndexAssign(this O)(DAPPViewComponent newComponent, string anId) {
+  O opIndexAssign(this O)(DViewComponent newComponent, string anId) {
     set(anId, newComponent);
     return cast(O)this;
   }
@@ -100,8 +100,8 @@ protected DEntity _entity;
     return _components.dup;
   }
 }
-auto ViewComponents() { return new DAPPViewComponents; }
-auto ViewComponents(DView myParent) { return new DAPPViewComponents(myParent); }
+auto ViewComponents() { return new DViewComponents; }
+auto ViewComponents(DView myParent) { return new DViewComponents(myParent); }
 
 version(test_uim_mvc) { unittest {
     assert(ViewComponents);

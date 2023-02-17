@@ -3,8 +3,8 @@ module uim.mvc.views.components.forms.components.inputs.handler;
 @safe:
 import uim.mvc;
 
-class DFormInputHandler : DMVCEntityFormContent {
-  mixin(ViewComponentThis!("MVCFormInputHandler"));
+class DFormInputHandler : DEntityFormContent {
+  mixin(ViewComponentThis!("FormInputHandler"));
 
   mixin(OProperty!("DFormInput[string]", "formInputs"));
   O addFormInputs(this O)(DFormInput[string] newFormInputs) {
@@ -53,4 +53,4 @@ class DFormInputHandler : DMVCEntityFormContent {
     return null;
   }
 }  
-mixin(ViewComponentCalls!("MVCFormInputHandler", "DFormInputHandler"));
+mixin(ViewComponentCalls!("FormInputHandler", "DFormInputHandler"));
