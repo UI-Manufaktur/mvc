@@ -1,4 +1,4 @@
-module uim.mvc.views.components.filter;
+module uim.mvc.views.components.filters;
 
 @safe:
 import uim.mvc;
