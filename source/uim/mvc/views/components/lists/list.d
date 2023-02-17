@@ -1,7 +1,7 @@
-module uim.apps.views.components.lists.list;
+module uim.mvc.views.components.lists.list;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DAPPListViewComponent : DEntitiesViewComponent {
   mixin(ViewComponentThis!("APPListViewComponent"));

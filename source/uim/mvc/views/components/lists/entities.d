@@ -1,7 +1,7 @@
-module uim.apps.views.components.lists.entities;
+module uim.mvc.views.components.lists.entities;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DAPPEntitiesList : DAPPListViewComponent {
   mixin(ViewComponentThis!("APPEntitiesList"));

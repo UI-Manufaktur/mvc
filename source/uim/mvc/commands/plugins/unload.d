@@ -1,7 +1,7 @@
-module uim.apps.commands.plugins.unload;
+module uim.mvc.commands.plugins.unload;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DPluginUnloadCommand {
   this() { initialize; }

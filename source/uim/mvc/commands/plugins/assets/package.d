@@ -1,5 +1,5 @@
-module uim.apps.commands.plugins.assets;
+module uim.mvc.commands.plugins.assets;
 
-public import uim.apps.commands.plugins.assets.copy;
-public import uim.apps.commands.plugins.assets.remove;
-public import uim.apps.commands.plugins.assets.symlink;
+public import uim.mvc.commands.plugins.assets.copy;
+public import uim.mvc.commands.plugins.assets.remove;
+public import uim.mvc.commands.plugins.assets.symlink;

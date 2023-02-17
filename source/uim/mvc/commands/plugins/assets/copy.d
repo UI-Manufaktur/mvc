@@ -1,7 +1,7 @@
-module uim.apps.commands.plugins.assets.copy;
+module uim.mvc.commands.plugins.assets.copy;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DPluginAssetsCopyCommand {
   this() { initialize; }

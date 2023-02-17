@@ -1,7 +1,7 @@
-module uim.apps.commands.plugins.assets.symlink;
+module uim.mvc.commands.plugins.assets.symlink;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DPluginAssetsSymlinkCommand {
   this() { initialize; }
