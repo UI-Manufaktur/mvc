@@ -19,6 +19,6 @@ class DAuthControllerComponent : DControllerComponent {
 }
 auto AuthControllerComponent() { return new DAuthControllerComponent; }
 
-version(test_uim_apps) { unittest {
+version(test_uim_mvc) { unittest {
   assert(AuthControllerComponent);
 }}
