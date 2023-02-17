@@ -12,5 +12,5 @@ void uimLogin2Page(HTTPServerRequest req, HTTPServerResponse res) {
 void uimLogin2Action(HTTPServerRequest req, HTTPServerResponse res) {
   debugMethodCall(moduleName!uimLogin2Action~":uimLogin2Action");
 
-  APPLogin2ActionController(thisServer).request(req, res);
+  Login2ActionController(thisServer).request(req, res);
 }

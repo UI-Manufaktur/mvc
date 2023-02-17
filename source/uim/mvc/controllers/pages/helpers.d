@@ -4,7 +4,7 @@ module uim.mvc.controllers.pages.helpers;
 import uim.mvc;
 /* 
 void initPages(DH5App app) {
-  app.pages("login", APPLoginPageController);
+  app.pages("login", LoginPageController);
   app.pages("login2", APPLogin2PageController);
   app.pages("logout", APPLogoutPageController);
   app.pages("lostaccount", APPLostAccountPage);

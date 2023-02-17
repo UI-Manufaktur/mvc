@@ -12,7 +12,7 @@ void uimSites(HTTPServerRequest req, HTTPServerResponse res) {
 void uimSiteSelectAction(HTTPServerRequest req, HTTPServerResponse res) {
   debugMethodCall(moduleName!uimSiteSelectAction~":uimSiteSelectAction");
 
-  APPSelectSiteActionController(thisServer).request(req, res);
+  SelectSiteActionController(thisServer).request(req, res);
 }
 
 /* 

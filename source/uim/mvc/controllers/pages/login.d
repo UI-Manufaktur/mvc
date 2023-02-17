@@ -3,12 +3,12 @@ module uim.mvc.controllers.pages.login;
 @safe:
 import uim.mvc;
 
-class DAPPLoginPageController : DPageController {
-  mixin(ControllerThis!("APPLoginPageController"));
+class DLoginPageController : DPageController {
+  mixin(ControllerThis!("LoginPageController"));
 
 override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
-    debugMethodCall(moduleName!DAPPLoginPageController~"::DAPPLoginPageController("~this.name~"):initialize");   
+    debugMethodCall(moduleName!DLoginPageController~"::DLoginPageController("~this.name~"):initialize");   
     super.initialize;
 
     this
@@ -33,19 +33,19 @@ override void initialize(DConfigurationValue configSettings = null) {
   }
 
   override void beforeResponse(STRINGAA options = null) {
-    debugMethodCall(moduleName!DAPPLoginPageController~":DAPPLoginPageController("~this.name~")::beforeResponse");
+    debugMethodCall(moduleName!DLoginPageController~":DLoginPageController("~this.name~")::beforeResponse");
     super.beforeResponse(options);
     if (hasError || "redirect" in options) { return; }
 
     debug writeln("MImeType: ", this.mimetype);
   }
 }
-mixin(ControllerCalls!("APPLoginPageController"));
+mixin(ControllerCalls!("LoginPageController"));
 
 version(test_uim_apps) { unittest {
     writeln("--- Tests in ", __MODULE__, "/", __LINE__);
-		testPageController(new DAPPLoginPageController); 
+		testPageController(new DLoginPageController); 
 
     writeln("--- Tests in ", __MODULE__, "/", __LINE__);
-		testPageController(APPLoginPageController); 
+		testPageController(LoginPageController); 
 }}

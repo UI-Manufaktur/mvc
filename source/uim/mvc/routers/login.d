@@ -6,7 +6,7 @@ import uim.mvc;
 void uimLoginPage(HTTPServerRequest req, HTTPServerResponse res) {
   debugMethodCall(moduleName!uimLoginPage~":uimLoginPage");
 
-  APPLoginPageController(thisServer).request(req, res);
+  LoginPageController(thisServer).request(req, res);
 }
 
 void uimLoginAction(HTTPServerRequest req, HTTPServerResponse res) {
