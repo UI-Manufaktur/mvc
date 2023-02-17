@@ -1,5 +1,5 @@
-module uim.apps.commands.caches;
+module uim.mvc.commands.caches;
 
-public import uim.apps.commands.caches.clear;
-public import uim.apps.commands.caches.clearall;
-public import uim.apps.commands.caches.list;
+public import uim.mvc.commands.caches.clear;
+public import uim.mvc.commands.caches.clearall;
+public import uim.mvc.commands.caches.list;

@@ -1,1 +1,1 @@
-module uim.apps.commands.caches.list;
+module uim.mvc.commands.caches.list;

@@ -1,11 +1,11 @@
-module uim.apps.commands;
+module uim.mvc.commands;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 // Main
-public import uim.apps.commands.command;
+public import uim.mvc.commands.command;
 
 // Additional
-public import uim.apps.commands.caches;
+public import uim.mvc.commands.caches;
 

@@ -1,7 +1,7 @@
-module uim.apps.commands.interface_;
+module uim.mvc.commands.interface_;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 interface ICommand { 
   // Set the name of this command 

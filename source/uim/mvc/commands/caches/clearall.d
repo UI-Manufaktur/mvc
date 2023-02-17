@@ -1,1 +1,1 @@
-module uim.apps.commands.caches.clearall;
+module uim.mvc.commands.caches.clearall;

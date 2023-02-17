@@ -1,1 +1,1 @@
-module uim.apps.commands.completion;
+module uim.mvc.commands.completion;

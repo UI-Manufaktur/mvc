@@ -1,4 +1,4 @@
-module uim.apps.commands.collection;
+module uim.mvc.commands.collection;
 
 @safe:
-import uim.apps;
+import uim.mvc;

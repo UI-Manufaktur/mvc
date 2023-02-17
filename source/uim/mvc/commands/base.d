@@ -1,7 +1,7 @@
-module uim.apps.commands.base;
+module uim.mvc.commands.base;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DBaseCommand /* : ICommand */ {
   mixin(OProperty!("string", "name"));

@@ -1,7 +1,7 @@
-module uim.apps.commands.command;
+module uim.mvc.commands.command;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DAPPCommand { // extends SymfonyCommand
     // Application instance
