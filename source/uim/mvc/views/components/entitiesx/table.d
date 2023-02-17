@@ -31,7 +31,7 @@ override void initialize(DConfigurationValue configSettings = null) {
 } 
 mixin(ViewComponentCalls!("APPEntitiesTableViewComponent", false, true));
 
-version(test_uim_apps) { unittest {
+version(test_uim_mvc) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
     // TODO
   }

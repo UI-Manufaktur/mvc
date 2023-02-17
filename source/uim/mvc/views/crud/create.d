@@ -27,7 +27,7 @@ override void initialize(DConfigurationValue configSettings = null) {
 }
 mixin(ViewCalls!("APPEntityCreateView"));
 
-version(test_uim_apps) { unittest {
+version(test_uim_mvc) { unittest {
   assert(APPEntityCreateView);
 
   writeln("--- Tests in ", __MODULE__, "/", __LINE__);

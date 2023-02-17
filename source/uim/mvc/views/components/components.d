@@ -1,11 +1,11 @@
-module uim.apps.views.components.components;
+module uim.mvc.views.components.components;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DAPPViewComponents {
   this() { /* this.name("ViewComponents"); */ }    
-  this(DAPPBaseView myParent) { this().parent(myParent); }    
+  this(DView myParent) { this().parent(myParent); }    
 
   mixin(OProperty!("DAPPBaseView", "parent"));
 
@@ -101,9 +101,9 @@ protected DEntity _entity;
   }
 }
 auto ViewComponents() { return new DAPPViewComponents; }
-auto ViewComponents(DAPPBaseView myParent) { return new DAPPViewComponents(myParent); }
+auto ViewComponents(DView myParent) { return new DAPPViewComponents(myParent); }
 
-version(test_uim_apps) { unittest {
+version(test_uim_mvc) { unittest {
     assert(ViewComponents);
     auto components = ViewComponents;
     assert(components.length == 0);

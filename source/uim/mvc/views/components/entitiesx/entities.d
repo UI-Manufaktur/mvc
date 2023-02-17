@@ -18,7 +18,7 @@ class DEntitiesViewComponent : DViewComponent {
 } 
 mixin(ViewComponentCalls!("EntitiesViewComponent")); // , false, true));
 
-version(test_uim_apps) { unittest {
+version(test_uim_mvc) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
     // TODO
   }

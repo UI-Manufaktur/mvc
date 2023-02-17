@@ -22,6 +22,6 @@ class DAPPEntitiesList : DAPPListViewComponent {
 }
 mixin(ViewComponentCalls!("APPEntitiesList"));
 
-version(test_uim_apps) { unittest {
+version(test_uim_mvc) { unittest {
   assert(APPEntitiesList);
 }}

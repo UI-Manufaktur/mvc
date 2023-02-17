@@ -24,7 +24,7 @@ override void initialize(DConfigurationValue configSettings = null) {
 }
 mixin(ViewCalls!("APPEntityDeleteView"));
 
-version(test_uim_apps) { unittest {
+version(test_uim_mvc) { unittest {
     writeln("--- Tests in ", __MODULE__, "/", __LINE__);
 		testView(new DAPPEntityDeleteView); 
 
