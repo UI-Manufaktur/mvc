@@ -1,4 +1,4 @@
-module uim.apps.controllers.restfuls;
+module uim.mvc.controllers.restfuls;
 
 @safe:
-import uim.apps;
+import uim.mvc;

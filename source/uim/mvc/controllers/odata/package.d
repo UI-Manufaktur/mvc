@@ -1,4 +1,4 @@
-module uim.apps.controllers.odata;
+module uim.mvc.controllers.odata;
 
 @safe:
-import uim.apps;
+import uim.mvc;

@@ -1,7 +1,7 @@
-module uim.apps.controllers.scripts;
+module uim.mvc.controllers.scripts;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 // Main
-public import uim.apps.controllers.scripts;
+public import uim.mvc.controllers.scripts;
