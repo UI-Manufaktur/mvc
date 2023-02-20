@@ -6,16 +6,16 @@ import uim.mvc;
 class DAPPEntityCrudPageController : DAPPEntityPageController {
   mixin(ControllerThis!("APPEntityCrudPageController"));
 
-  override void beforeResponse(STRINGAA reqParameters) {
+  override void beforeResponse(STRINGAA requestParameters) {
     debug writeln(moduleName!DAPPEntityCrudPageController~":DAPPEntityCrudPageController::beforeResponse");
-    super.beforeResponse(reqParameters);   
-    if ("redirect" in reqParameters) return;
+    super.beforeResponse(requestParameters);   
+    if ("redirect" in requestParameters) return;
     
-    auto session = getAppSession(reqParameters);
+    auto session = getAppSession(requestParameters);
 
     auto collection = database[session.site, collectionName]; 
     if (!collection) {
-      reqParameters["redirect"] = "/";
+      requestParameters["redirect"] = "/";
       return; }
 
     this.entity(collection.toEntity(Json(null)));
@@ -24,7 +24,7 @@ class DAPPEntityCrudPageController : DAPPEntityPageController {
       
       auto poolId = uniform(1, 1_000_000_000);
       entityPool[poolId] = entity;
-      reqParameters["entityPool"] = to!string(poolId);
+      requestParameters["entityPool"] = to!string(poolId);
     }
   }
 }

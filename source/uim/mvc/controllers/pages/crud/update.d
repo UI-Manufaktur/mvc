@@ -75,10 +75,10 @@ mixin(ControllerCalls!("APPEntityUpdateController"));
         `let editor_text; let editor_summary;`);
     }
 
-/*    override DH5Obj[] toH5(STRINGAA reqParameters) { 
+/*    override DH5Obj[] toH5(STRINGAA requestParameters) { 
       // debug writeln(StyledString("In "~_request.path~"-DAPPUpdatePage:toJson...").setForeground(AnsiColor.green).setBackground(AnsiColor.white));
 
-      auto json = this.app.database.findOne("siteName", "myPool", urlToSelect(reqParameters));
+      auto json = this.app.database.findOne("siteName", "myPool", urlToSelect(requestParameters));
       auto entity = OOPEntity;
 
       auto tabpanes = APPPanes(entity);
@@ -94,20 +94,20 @@ mixin(ControllerCalls!("APPEntityUpdateController"));
         ACAttclassesPane("attclasses", "Attribute Classes", myPath).attclasses(entity.attclasses).actions(["view", "remove"]),
         ACObjclassesPane("objclasses", "Object Classes", myPath).objclasses(entity.objclasses).actions(["view", "remove"]),
         ACVersionsPane("versions", "Versions", myPath)
-          .versions(this.app.database.find("themes", ["id":reqParameters["id"]])),
+          .versions(this.app.database.find("themes", ["id":requestParameters["id"]])),
         ACHistoryPane("history", "History", myPath)
       );
  *
- /      if ("pane" in reqParameters) tabpanes.active(reqParameters["pane"]); else tabpanes.panes[0].active = true;
+ /      if ("pane" in requestParameters) tabpanes.active(requestParameters["pane"]); else tabpanes.panes[0].active = true;
 
       return 
         H5Div(["content"],
           H5Div(["container-xl"], 
             BS5Row("messages", [""]),
             BS5Row(["row-cards"],
-                //CMSThemeForm("update", myPath).panes(tabpanes).entity(entity).toH5(reqParameters)
+                //CMSThemeForm("update", myPath).panes(tabpanes).entity(entity).toH5(requestParameters)
 
-//                editTheme("/themes", entity, tabpanes, reqParameters)
+//                editTheme("/themes", entity, tabpanes, requestParameters)
             )
           )
         );

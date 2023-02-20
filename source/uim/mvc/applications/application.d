@@ -75,7 +75,7 @@ class DMVCApplication : DMVCObject, IMVCApplication {
     request(newRequest, newResponse, null);
   }
   void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse, string[string] options) {
-		debugMethodCall(moduleName!MVCApplication~":MVCApplication("~this.name~")::request(req, res, reqParameters)");
+		debugMethodCall(moduleName!MVCApplication~":MVCApplication("~this.name~")::request(req, res, requestParameters)");
 
     writeln("rootPath = '%s'".format(this.rootPath));
     writeln("newRequest.fullURL = '%s'".format(newRequest.fullURL));

@@ -63,12 +63,12 @@ class DAPPListPage : DAPPPage {
       "/js/apps/"~myJsPath~"/list.js"]);
   }
 
-  override DH5Obj[] toH5(STRINGAA reqParameters) { 
+  override DH5Obj[] toH5(STRINGAA requestParameters) { 
 
-    auto result = super.toH5(reqParameters);
+    auto result = super.toH5(requestParameters);
     if (result == "Error") return result;
 
-  /* reqParameters.addScript(
+  /* requestParameters.addScript(
 
     `window.addEventListener("load", event => `~
       jsBlock("listEntities('"~sessionId~"');")

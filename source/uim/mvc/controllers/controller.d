@@ -187,7 +187,7 @@ class DController : DMVCObject, IController  {
   }
 
   void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse, STRINGAA options) {
-		debugMethodCall(moduleName!DController~":DController("~this.name~")::request(req, res, reqParameters)");
+		debugMethodCall(moduleName!DController~":DController("~this.name~")::request(req, res, requestParameters)");
 
 		this.request = newRequest; this.response = newResponse;
     options = requestParameters(options);

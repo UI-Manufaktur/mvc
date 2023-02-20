@@ -33,13 +33,13 @@ import uim.mvc;
     }
   }
 
-  override string content(STRINGAA reqParameters) { 
-    reqParameters["pageTitle"] = this.pageTitle;
-    reqParameters["pageBreadcrumbs"] = this.pageTitle;
-    reqParameters["pageActions"] = pageActions.map!(a => action(a).toString).array.join();
+  override string content(STRINGAA requestParameters) { 
+    requestParameters["pageTitle"] = this.pageTitle;
+    requestParameters["pageBreadcrumbs"] = this.pageTitle;
+    requestParameters["pageActions"] = pageActions.map!(a => action(a).toString).array.join();
 
     if (this.loginRequired) {
-      auto sessionId = reqParameters.get("sessionId", "");
+      auto sessionId = requestParameters.get("sessionId", "");
       // debug writeln("SessionId = ", sessionId);
 
       auto sessionToken = this.app.database.findOne("central", "sessions", ["id":sessionId]);

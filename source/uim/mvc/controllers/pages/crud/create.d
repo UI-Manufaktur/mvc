@@ -30,16 +30,16 @@ override void initialize(DConfigurationValue configSettings = null) {
       "/js/apps/entities/"~entityName~"/create.js");
   }
 
-  override void beforeResponse(STRINGAA reqParameters) {
+  override void beforeResponse(STRINGAA requestParameters) {
     debug writeln(moduleName!DAPPEntityCreateController~":DAPPEntityCreateController::beforeResponse");
-    super.beforeResponse(reqParameters);   
-    if ("redirect" in reqParameters) return;
+    super.beforeResponse(requestParameters);   
+    if ("redirect" in requestParameters) return;
     
-    auto session = getAppSession(reqParameters);
+    auto session = getAppSession(requestParameters);
 
     auto collection = database[session.site, collectionName]; 
     if (!collection) {
-      reqParameters["redirect"] = "/";
+      requestParameters["redirect"] = "/";
       return; }
 
     this.entity(collection.toEntity(Json(null)));
@@ -48,7 +48,7 @@ override void initialize(DConfigurationValue configSettings = null) {
       
       auto poolId = uniform(1, 1_000_000_000);
       entityPool[poolId] = entity;
-      reqParameters["entityPool"] = to!string(poolId);
+      requestParameters["entityPool"] = to!string(poolId);
     }
   }
 }

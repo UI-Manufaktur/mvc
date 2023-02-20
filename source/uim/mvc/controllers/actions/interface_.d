@@ -12,6 +12,6 @@ interface IActionController : IController {
 /*   string nextUrl();
   string redirectUrl();
 
-  void beforeResponse(STRINGAA reqParameters);
-  void request(HTTPServerRequest req, HTTPServerResponse res, STRINGAA reqParameters); */
+  void beforeResponse(STRINGAA requestParameters);
+  void request(HTTPServerRequest req, HTTPServerResponse res, STRINGAA requestParameters); */
 }

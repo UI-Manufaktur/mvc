@@ -237,8 +237,8 @@ version(test_uim_mvc) { unittest {
     // debug writeln("Head -> ", head);
 
         /* (this.layout ?  
-          this.layout.toString(page.toH5(reqParameters), reqParameters).toString : 
-          page.page.toH5(reqParameters).toString)) * /
+          this.layout.toString(page.toH5(requestParameters), requestParameters).toString : 
+          page.page.toH5(requestParameters).toString)) * /
     // debug writeln("pageBody -> ", pageBody);
 
     auto foot = "footer" in options ? options.get("footer", "") : footer.render(options);
@@ -294,28 +294,28 @@ version(test_uim_mvc) { unittest {
       return BS5NavbarNav(this.navSlots);
     }
 
-    override string toString(DPageController page, string[string] reqParameters) {
-      foreach(k,v; parameters) if (k !in reqParameters) reqParameters[k] = v;
-      foreach(k,v; page.parameters) if (k !in reqParameters) reqParameters[k] = v;
+    override string toString(DPageController page, string[string] requestParameters) {
+      foreach(k,v; parameters) if (k !in requestParameters) requestParameters[k] = v;
+      foreach(k,v; page.parameters) if (k !in requestParameters) requestParameters[k] = v;
       if (auto app = page.app) {
-        foreach(k, v; application.parameters) if (k !in reqParameters) reqParameters[k] = v;
-        reqParameters["rootPath"] = application.rootPath;   }
+        foreach(k, v; application.parameters) if (k !in requestParameters) requestParameters[k] = v;
+        requestParameters["rootPath"] = application.rootPath;   }
 
       return super.toString(page,    
         H5Div(["page mt-md-5"], ["style":"background-color:#ffffff;"], 
-          ("navigation" in reqParameters ? reqParameters["navigation"] : navigation(reqParameters))~ 
+          ("navigation" in requestParameters ? requestParameters["navigation"] : navigation(requestParameters))~ 
           H5Div( 
             H5Main(["style":"margin-top:80px;"], 
-              (this.layout ?  this.layout.toString(page.content(reqParameters), reqParameters) : page.content(reqParameters))).toString~
-            ("footer" in reqParameters ? reqParameters["footer"] : footer(reqParameters))
+              (this.layout ?  this.layout.toString(page.content(requestParameters), requestParameters) : page.content(requestParameters))).toString~
+            ("footer" in requestParameters ? requestParameters["footer"] : footer(requestParameters))
           ).toString
         ).toString, 
-        reqParameters); 
+        requestParameters); 
     }
 }
 
-auto navigation(string[string] reqParameters) {
-  auto rootPath = reqParameters.get("rootPath", "/");
+auto navigation(string[string] requestParameters) {
+  auto rootPath = requestParameters.get("rootPath", "/");
 
   return 
 H5Header(["navbar navbar-expand-md navbar-light d-print-none fixed-top"],
@@ -328,7 +328,7 @@ H5Header(["navbar navbar-expand-md navbar-light d-print-none fixed-top"],
     //   
     H5Div(["navbar-nav flex-row order-md-last"], 
       // Login
-      (reqParameters.get("login", "").empty ?
+      (requestParameters.get("login", "").empty ?
         H5Div(["nav-item d-none d-md-flex me-3"], 
         H5A(["btn btn-outline-info"], ["href":"/login"],
           tablerIcon("login")~"Login")).toString :
@@ -345,8 +345,8 @@ H5Header(["navbar navbar-expand-md navbar-light d-print-none fixed-top"],
           H5A(["nav-link d-flex lh-1 text-reset p-0"], ["href":"#", "data-bs-toggle":"dropdown", "aria-label":"Open user menu"],
             BS5Avatar(["avatar-sm"], ["style":"background-image: url(./static/avatars/000m.jpg)"]),
             H5Div(["d-none d-xl-block ps-2"],
-              H5Div(reqParameters.get("user", "")),
-              H5Div(["mt-1 small text-muted"], reqParameters.get("job", ""))
+              H5Div(requestParameters.get("user", "")),
+              H5Div(["mt-1 small text-muted"], requestParameters.get("job", ""))
             )),
           BS5DropdownMenu(["dropdown-menu-end dropdown-menu-arrow"])
           .link(["href":"/user/status"], "Status")
@@ -402,8 +402,8 @@ H5Div(["navbar-expand-md fixed-top"], ["style":"top:50px;"],
   ))).toString; 
  }
 
-string footer(STRINGAA reqParameters) {
-  auto rootPath = reqParameters.get("rootPath", "/");
+string footer(STRINGAA requestParameters) {
+  auto rootPath = requestParameters.get("rootPath", "/");
 
   return H5Footer(["py-5 bg-dark mt-2"], ["style":"background-color:#14a1b7"], 
     BS5Container.fluid()(
