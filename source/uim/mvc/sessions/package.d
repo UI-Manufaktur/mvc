@@ -9,11 +9,15 @@ public import uim.mvc.sessions.nullsession;
 public import uim.mvc.sessions.session;
 
 DMVCSession getAppSession(STRINGAA options = null) {
-  string appSessionId = options.get("appSessionId", "");
-  if (appSessionId in appSessions) return appSessions[appSessionId]; 
-  else return null;
+  return appSessions
+    .get(
+        options
+          .get("appSessionId", ""), null); 
 }
 
 void setAppSession(DMVCSession appSession, STRINGAA parameters) {
-  if (appSession) appSessions[parameters.get("appSessionId", "")] = appSession; 
+  if (!appSession) { return; }
+  if (auto id = parameters.get("appSessionId", "")) {
+    appSessions[id] = appSession; 
+  }
 }

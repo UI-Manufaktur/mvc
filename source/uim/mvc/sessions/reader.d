@@ -41,7 +41,7 @@ class DMVCSessionReader {
 
     if (requestSessionId.length > 0 && myAppSession is null) { // httpSession exitsts New Session
       debug writeln(moduleName!DMVCSessionReader~":DMVCSessionReader::read - httpSessionId exists appSession is missing");
-      debug writeln(moduleName!DMVCSessionReader~":DMVCSessionReader::read - Creating new appSession based on httpSession ", reqSessionId);
+      debug writeln(moduleName!DMVCSessionReader~":DMVCSessionReader::read - Creating new appSession based on httpSession ", requestSessionId);
       myAppSession = MVCSession(serverRequest.session, page);
 
       debug writeln(moduleName!DMVCSessionReader~":DMVCSessionReader::read - Reading session entities");      

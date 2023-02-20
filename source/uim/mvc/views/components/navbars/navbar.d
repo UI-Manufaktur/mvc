@@ -24,8 +24,8 @@ import uim.mvc;
           H5A(["nav-link d-flex lh-1 text-reset p-0"], ["href":"#", "data-bs-toggle":"dropdown", "aria-label":"Open user menu"],
             BS5Avatar(["avatar-sm"], ["style":"background-image: url(./static/avatars/000m.jpg)"]),
             H5Div(["d-none d-xl-block ps-2"],
-              H5Div(reqParameters.get("user", "")),
-              H5Div(["mt-1 small text-muted"], reqParameters.get("job", ""))
+              H5Div(requestParameters.get("user", "")),
+              H5Div(["mt-1 small text-muted"], requestParameters.get("job", ""))
             )),
           BS5DropdownMenu(["dropdown-menu-end dropdown-menu-arrow"])
           .link(["href":"/user/status"], "Status")
@@ -44,10 +44,10 @@ import uim.mvc;
                     H5H1(["navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3"],
                       H5A(["href":".", "style":"color:skyblue;font-size:1.6em;"],
                           H5Img("uim-logo", ["navbar-brand-image"], ["src":"/img/uim.png", "width":"110", "height":"32", "alt":"UI Manufaktur", "style":"height:48px;"])),
-                      H5Span(["display-6 align-text-bottom"], H5String(reqParameters.get("appTitle", "")))
+                      H5Span(["display-6 align-text-bottom"], H5String(requestParameters.get("appTitle", "")))
                     ),
                     H5Div(["navbar-nav flex-row order-md-last"], 
-                        (reqParameters.get("login", "").empty ? loginMenu : userMenu )
+                        (requestParameters.get("login", "").empty ? loginMenu : userMenu )
                     )
                 )
             );
@@ -68,7 +68,7 @@ class DMVCSecondNavbar : DViewComponent {
 * /        
     container(
       BS5NavbarNav(["me-auto"],
-          slots.map!(a => a.toString(reqParameters)).array.join()
+          slots.map!(a => a.toString(requestParameters)).array.join()
       ));
 
     return
@@ -188,7 +188,7 @@ class DMVCSecondNavbar : DViewComponent {
     auto selNavitem = options.get("selNavitem", "");
     
     /* if (isLogin) {
-      // debug writeln("has sessionId -> ", reqParameters.get("sessionId", ""));
+      // debug writeln("has sessionId -> ", requestParameters.get("sessionId", ""));
 
       foreach(slot; this.leftSlotsWithLogin) {
         if (!slot) { continue; }

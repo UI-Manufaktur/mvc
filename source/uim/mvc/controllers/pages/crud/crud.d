@@ -11,9 +11,9 @@ class DAPPEntityCrudPageController : DAPPEntityPageController {
     super.beforeResponse(requestParameters);   
     if ("redirect" in requestParameters) return;
     
-    auto session = getAppSession(requestParameters);
+    auto myAppSession = getAppSession(requestParameters);
 
-    auto collection = database[session.site, collectionName]; 
+    auto collection = database[myAppSession.site, collectionName]; 
     if (!collection) {
       requestParameters["redirect"] = "/";
       return; }

@@ -28,27 +28,27 @@ class DSelectSiteActionController : DActionController {
     if ("redirect" in options) return;
         
     debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request - Working with AppSession");
-    auto myAppSession = getAppSession(options);
+    DMVCSession myAppSession = getAppSession(options); // DMVCSession[string]
     
     debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request - Working with session.session");
-    auto myHttpSession = myAppSession.session; 
-    debug writeln(myHttpSession ? "Found session" : "Missing session");
+    DEntity mySession = myAppSession.session; 
+    debug writeln(mySession ? "Found session" : "Missing session");
 
-    auto site = database["systems"]["system_sites"].findOne(["id":options.get("siteId", null)]);
-    debug writeln(site ? "Found site" : "Missing site");
+    DEntity mySite = database["systems"]["system_sites"].findOne(["id":options.get("siteId", null)]);
+    debug writeln(mySite ? "Found site" : "Missing site");
 
-    if (myAppSession && site) {
-      myAppSession.lastAccessedOn = toTimestamp(now());
-      myAppSession["lastAccessISO"] = now.toISOString;
-      myAppSession["siteId"] = site.id.toString;
+    if (mySession && mySite) {
+      mySession.lastAccessedOn = toTimestamp(now());
+      mySession["lastAccessISO"] = now.toISOString;
+      mySession["siteId"] = mySite.id.toString;
       // myAppSession.save; // Save to Store
-      myAppSession.session = session; 
+      mySession.session = myAppSession; 
     
       debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request - Working with session.site");
-      site.lastAccessedOn = myAppSession.lastAccessedOn;
-      site["lastAccessISO"] = myAppSession["lastAccessISO"];
-      site.save; 
-      myAppSession.site = site; 
+      mySite.lastAccessedOn = mySession.lastAccessedOn;
+      mySite["lastAccessISO"] = mySession["lastAccessISO"];
+      mySite.save; 
+      mySession.site = mySite; 
       setAppSession(myAppSession, options); 
     }
 

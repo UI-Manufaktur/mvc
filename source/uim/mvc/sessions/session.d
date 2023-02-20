@@ -14,9 +14,9 @@ class DMVCSession {
     this(httpSession);
     this.page(page); }
 
-  mixin(OProperty!("string", "id"));
   Session _httpSession;
 
+  mixin(OProperty!("string", "id"));
   mixin(OProperty!("DPageController", "page"));
   mixin(OProperty!("long", "lastAccessedOn"));
   mixin(OProperty!("DEntity", "login"));
@@ -82,12 +82,14 @@ class DMVCSession {
     switch(key) {
       case "id": this.id = value; break;
       case "lastAccessedOn": this.lastAccessedOn = to!long(value); break;
+      default: break;
     }
   } 
 
   void opIndexAssign(string key, long value) {
     switch(key) {
       case "lastAccessedOn": this.lastAccessedOn = value; break;
+      default: break;
     }
   } 
 
@@ -100,6 +102,7 @@ class DMVCSession {
       case "user": this.user = value; break;
       case "password": this.password = value; break;
       case "entity": this.entity = value; break;
+      default: break;
     }
   } 
 

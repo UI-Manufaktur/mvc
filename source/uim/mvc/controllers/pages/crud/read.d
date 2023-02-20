@@ -38,9 +38,9 @@ class DAPPEntityReadController : DAPPEntityCrudPageController {
       return;
     }
 
-    auto session = getAppSession(options);
+    auto myAppSession = getAppSession(options);
 
-    if (!appSession) {
+    if (!myAppSession) {
       options["redirect"] = "/";
       return; }
 
