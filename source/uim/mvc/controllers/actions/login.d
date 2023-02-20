@@ -57,7 +57,7 @@ class DLoginActionController : DSystemActionController {
     this.logins.insertOne(login);
     this.session.login = this.logins.findOne(login.id);
     if (!this.session.login) {
-      debug writeln("No appSession.login for id ", login.id);
+      debug writeln("No session.login for id ", login.id);
       return; 
     }
 
@@ -67,7 +67,7 @@ class DLoginActionController : DSystemActionController {
     session["loginId"] = login.id;    
     this.sessions.insertOne(session);
     this.session.session = this.sessions.findOne(session.id);
-    if (!this.session.session) // debug writeln("No appSession.session for id ", session.id);
+    if (!this.session.session) // debug writeln("No session.session for id ", session.id);
 
     debug writeln(moduleName!DLoginActionController~":DLoginActionController::beforeResponse -> Go to login2");
     options["redirect"] = "/login2?loginId="~this.session.login.id.toString; 

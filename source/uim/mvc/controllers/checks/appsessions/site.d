@@ -23,7 +23,7 @@ class DAppSessionHasSiteCheck : DAppSessionExistsCheck {
       return false; 
     }
 
-    debug writeln(moduleName!DAppSessionHasSiteCheck~":DAppSessionHasSiteCheck::check -> appSession.site found -> ", site.id);
+    debug writeln(moduleName!DAppSessionHasSiteCheck~":DAppSessionHasSiteCheck::check -> session.site found -> ", site.id);
     return true;
   }
 }

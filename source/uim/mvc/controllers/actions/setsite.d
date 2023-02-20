@@ -30,8 +30,8 @@ class DSelectSiteActionController : DActionController {
     debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request - Working with AppSession");
     auto session = getAppSession(options);
     
-    debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request - Working with AppSession.session");
-    auto session = appSession.session; 
+    debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request - Working with session.session");
+    auto session = session.session; 
     debug writeln(session ? "Found session" : "Missing session");
 
     auto site = database["systems"]["system_sites"].findOne(["id":options.get("siteId", null)]);
@@ -42,19 +42,19 @@ class DSelectSiteActionController : DActionController {
       session["lastAccessISO"] = now.toISOString;
       session["siteId"] = site.id.toString;
       session.save;
-      appSession.session = session; 
+      session.session = session; 
     
-      debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request - Working with AppSession.site");
+      debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request - Working with session.site");
       site.lastAccessedOn = session.lastAccessedOn;
       site["lastAccessISO"] = session["lastAccessISO"];
       site.save; 
-      appSession.site = site; 
+      session.site = site; 
       setAppSession(appSession, options); 
     }
 
     debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request - Redirect to /");
     options["redirect"] = "/";
-    debug writeln(appSession.debugInfo);
+    debug writeln(session.debugInfo);
 	}
 }
 mixin(ControllerCalls!("SelectSiteActionController"));

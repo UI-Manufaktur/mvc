@@ -67,11 +67,11 @@ window.addEventListener('load', (event) => {
       options["redirect"] = "/";
       return; }
 
-    if (!appSession.isValid(["session", "site"], options)) {
+    if (!session.isValid(["session", "site"], options)) {
       options["redirect"] = "/";
       return; }
 
-    this.entity(database[appSession.site, collectionName].findOne(options.toEntitySelect));
+    this.entity(database[session.site, collectionName].findOne(options.toEntitySelect));
     if (!entity) {
       // TODO Errorhandling
       return;

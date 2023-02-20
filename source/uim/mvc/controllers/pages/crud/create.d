@@ -37,7 +37,7 @@ override void initialize(DConfigurationValue configSettings = null) {
     
     auto session = getAppSession(reqParameters);
 
-    auto collection = database[appSession.site, collectionName]; 
+    auto collection = database[session.site, collectionName]; 
     if (!collection) {
       reqParameters["redirect"] = "/";
       return; }

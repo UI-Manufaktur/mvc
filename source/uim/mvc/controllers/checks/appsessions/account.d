@@ -18,7 +18,7 @@ class DAppSessionHasAccountCheck : DAppSessionExistsCheck {
     if (!super.execute(options)) { return false; } 
 
     auto session = getAppSession(options);
-    if (!appSession.account) { // account missing 
+    if (!session.account) { // account missing 
       this.error("Account Missing");
       return false;
     }

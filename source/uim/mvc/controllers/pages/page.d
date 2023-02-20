@@ -87,7 +87,7 @@ class DPageController : DController {
     super.beforeResponse(options);
 
     this.session = getAppSession(options);
-    if (appSession) { this.site(appSession.site); }
+    if (appSession) { this.site(session.site); }
   }    
 
   override string stringResponse(string[string] options = null) {

@@ -23,7 +23,7 @@ class DAppSessionHasLoginCheck : DAppSessionExistsCheck {
       return false; 
     }
 
-    debug writeln(moduleName!DAppSessionHasLoginCheck~":DAppSessionHasLoginCheck::check -> appSession.login found -> ", login.id);
+    debug writeln(moduleName!DAppSessionHasLoginCheck~":DAppSessionHasLoginCheck::check -> session.login found -> ", login.id);
     return true;
   }
 }

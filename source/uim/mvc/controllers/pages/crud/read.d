@@ -38,17 +38,17 @@ class DAPPEntityReadController : DAPPEntityCrudPageController {
       return;
     }
 
-    auto appSession = getAppSession(options);
+    auto session = getAppSession(options);
 
     if (!appSession) {
       options["redirect"] = "/";
       return; }
 
-    if (!appSession.isValid(["session", "site"], options)) return; 
+    if (!session.isValid(["session", "site"], options)) return; 
 
     auto selector = options.toEntitySelect;
     debug writeln(moduleName!DAPPEntityReadController~":DAPPEntityReadController::beforeResponse - Selecting entity with ", selector);
-    this.entity(database[appSession.site, collectionName].findOne(options.toEntitySelect));
+    this.entity(database[session.site, collectionName].findOne(options.toEntitySelect));
     if (!entity) {
       // TODO Errorhandling required
       return;
@@ -68,4 +68,4 @@ version(test_uim_apps) { unittest {
       /// TODO
     }}
 }
-mixin(APPPageControllerCalls!("APPEntityReadController"));
+mixin(ControllerCalls!("APPEntityReadController"));
