@@ -11,6 +11,7 @@ import uim.mvc;
 class DPageController : DController {
   mixin(ControllerThis!("PageController"));
 
+  // Initialization (= hook method)
   override void initialize(DConfigurationValue configSettings = null) {
     version(test_uim_mvc) { 
       debugMethodCall(moduleName!DPageController~"::DPageController("~this.name~"):initialize");   
@@ -37,11 +38,26 @@ class DPageController : DController {
   mixin(OProperty!("DMVCScriptContainer", "scripts"));
   mixin(OProperty!("DMVCStyleContainer", "styles"));
 
-  mixin(OProperty!("DLayout", "layout"));
+	/// layout for page
+	DLayout _layout;
+	O layout(this O)(DLayout newlayout) { 
+    _layout = newlayout; 
+    return cast(O)this; }
+	auto layout() { 
+    if (_layout) return _layout; 
+    if (auto c = cast(DPageController)this.controller) { return c.layout; } 
+    if (this.app) return this.app.layout; 
+    return null; 
+  }
+
+  mixin(OProperty!("DETBCollection", "collection"));
+  mixin(OProperty!("DEntity", "site"));
+  mixin(OProperty!("DETBTenant", "tenant"));
 
   mixin(OProperty!("Session", "globalSession"));
   mixin(OProperty!("string[]", "pageActions"));
   mixin(OProperty!("bool", "hasGlobalSession"));
+  mixin(OProperty!("DForm", "form"));
 
   mixin(OProperty!("DView", "view"));
   mixin(OProperty!("DView", "errorView"));
@@ -59,9 +75,19 @@ class DPageController : DController {
   DMVCRequestReader requestReader;
   DMVCSessionReader sessionReader;
 
+  O pageActions(this O)(string[] actions...) { this.pageActions(actions); return cast(O)this; }
+  O addPageActions(this O)(string[] actions...) { this.addPageActions(actions); return cast(O)this; }
+  O addPageActions(this O)(string[] actions) { this.pageActions(this.pageActions~actions); return cast(O)this; }
+
+  mixin(OProperty!("ViewModes", "viewMode")); // 0 - HTML , 1 - HTML & Javascript, 2 - PWA
+  mixin(OProperty!("DataModes", "dataMode")); // 0 - HTML , 1 - HTML & Javascript, 2 - PWA
+
   override void beforeResponse(STRINGAA options = null) {
     debugMethodCall(moduleName!DPageController~":DPageController("~this.name~")::beforeResponse");
     super.beforeResponse(options);
+
+    this.session = getAppSession(options);
+    if (appSession) { this.site(appSession.site); }
   }    
 
   override string stringResponse(string[string] options = null) {

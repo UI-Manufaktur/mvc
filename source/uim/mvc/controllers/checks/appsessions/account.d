@@ -17,7 +17,7 @@ class DAppSessionHasAccountCheck : DAppSessionExistsCheck {
     debug writeln(moduleName!DAppSessionHasAccountCheck~":DAppSessionHasAccountCheck::execute");
     if (!super.execute(options)) { return false; } 
 
-    auto appSession = getAppSession(options);
+    auto session = getAppSession(options);
     if (!appSession.account) { // account missing 
       this.error("Account Missing");
       return false;

@@ -25,7 +25,7 @@ class DCreateActionController : DActionController {
     super.beforeResponse(options);   
     if (hasError || "redirect" in options) { return; }
 
-    auto appSession = getAppSession(options);
+    auto session = getAppSession(options);
     auto site = appSession.site;
 
     auto collection = database[site, pool];

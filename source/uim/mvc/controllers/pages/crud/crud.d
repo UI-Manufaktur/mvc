@@ -11,7 +11,7 @@ class DAPPEntityCrudPageController : DAPPEntityPageController {
     super.beforeResponse(reqParameters);   
     if ("redirect" in reqParameters) return;
     
-    auto appSession = getAppSession(reqParameters);
+    auto session = getAppSession(reqParameters);
 
     auto collection = database[appSession.site, collectionName]; 
     if (!collection) {
@@ -28,4 +28,4 @@ class DAPPEntityCrudPageController : DAPPEntityPageController {
     }
   }
 }
-mixin(APPPageControllerCalls!("APPEntityCrudPageController"));
+mixin(ControllerCalls!("APPEntityCrudPageController"));

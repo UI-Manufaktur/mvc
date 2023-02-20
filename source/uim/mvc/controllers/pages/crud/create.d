@@ -35,7 +35,7 @@ override void initialize(DConfigurationValue configSettings = null) {
     super.beforeResponse(reqParameters);   
     if ("redirect" in reqParameters) return;
     
-    auto appSession = getAppSession(reqParameters);
+    auto session = getAppSession(reqParameters);
 
     auto collection = database[appSession.site, collectionName]; 
     if (!collection) {
@@ -52,4 +52,4 @@ override void initialize(DConfigurationValue configSettings = null) {
     }
   }
 }
-mixin(APPPageControllerCalls!("APPEntityCreateController"));
+mixin(ControllerCalls!("APPEntityCreateController"));

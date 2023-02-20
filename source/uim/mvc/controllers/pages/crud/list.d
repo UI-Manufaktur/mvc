@@ -44,6 +44,7 @@ class DAPPListPage : DAPPEntitiesPageController {
   mixin(OProperty!("DH5Obj", "columns"));
   mixin(OProperty!("DH5Obj", "filters"));
 }
+mixin(ControllerCalls!("APPListPage"));
 
 /*
 

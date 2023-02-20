@@ -28,7 +28,7 @@ class DSelectSiteActionController : DActionController {
     if ("redirect" in options) return;
         
     debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request - Working with AppSession");
-    auto appSession = getAppSession(options);
+    auto session = getAppSession(options);
     
     debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request - Working with AppSession.session");
     auto session = appSession.session; 

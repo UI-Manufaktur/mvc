@@ -62,7 +62,7 @@ window.addEventListener('load', (event) => {
     }
 
     string appSessionId = options.get("appSessionId", "");
-    auto appSession = getAppSession(options);
+    auto session = getAppSession(options);
     if (!appSession) {
       options["redirect"] = "/";
       return; }
@@ -91,7 +91,7 @@ version(test_uim_apps) { unittest {
       /// TODO
     }}
 }
-mixin(APPPageControllerCalls!("APPEntityDeleteController"));
+mixin(ControllerCalls!("APPEntityDeleteController"));
 
 
 /*

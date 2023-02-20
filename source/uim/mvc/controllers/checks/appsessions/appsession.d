@@ -16,7 +16,7 @@ class DAppSessionExistsCheck : DControllerCheck {
   override bool execute(STRINGAA options = null) {    
     debug writeln(moduleName!DAppSessionExistsCheck~":DAppSessionExistsCheck::check");
 
-    auto appSession = getAppSession(options);
+    auto session = getAppSession(options);
     if (!appSession) { // appsession missing 
       this.error("appsession_missing");
       return false; 
