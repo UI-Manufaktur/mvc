@@ -1,10 +1,10 @@
-module uim.apps.controllers.pages.crud.read;
+module uim.mvc.controllers.pages.crud.read;
 /**************************************************/
 /* This package contains general view page definitions */
 /**************************************************/
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DAPPEntityReadController : DAPPEntityCrudPageController {
   mixin(APPPageControllerThis!("APPEntityReadController"));

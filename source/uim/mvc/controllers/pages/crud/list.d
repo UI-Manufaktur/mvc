@@ -1,10 +1,10 @@
-module uim.apps.controllers.pages.crud.list;
+module uim.mvc.controllers.pages.crud.list;
 /**************************************************/
 /* This package contains general list page definitions */
 /**************************************************/
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DAPPListPage : DAPPEntitiesPageController {
   mixin(APPPageControllerThis!("APPListPage"));
@@ -48,7 +48,7 @@ class DAPPListPage : DAPPEntitiesPageController {
 /*
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 auto myJsPath = "";
 

@@ -1,10 +1,10 @@
-module uim.apps.controllers.pages.crud.create;
+module uim.mvc.controllers.pages.crud.create;
 /**************************************************/
 /* This package contains general create page definitions */
 /**************************************************/
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DAPPEntityCreateController : DAPPEntityCrudPageController {
   mixin(APPPageControllerThis!("APPEntityCreateController"));

@@ -1,7 +1,7 @@
-module uim.apps.security;
+module uim.mvc.security;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DAPPSecurityOptions {
   this() {}

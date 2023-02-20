@@ -1,6 +1,6 @@
-module uim.apps.controllers.pages.components;
+module uim.mvc.controllers.pages.components;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
-public import uim.apps.controllers.pages.components.headers;
+public import uim.mvc.controllers.pages.components.headers;
