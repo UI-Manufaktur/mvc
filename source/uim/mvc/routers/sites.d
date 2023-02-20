@@ -33,10 +33,10 @@ static this() {
 
       DEntity session;
       DEntity site;
-      auto appSession = getAppSession(options);
+      auto session = getAppSession(options);
       if (appSession) {
-        session = appSession.session; 
-        site    = appSession.site; }
+        session = session.session; 
+        site    = session.site; }
       auto sessionId = session ? session.id.toString : "";
   
       auto sites = database ? database["central", "sites"].findMany : null;

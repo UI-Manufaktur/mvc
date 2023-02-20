@@ -44,12 +44,11 @@ class DCreateActionController : DActionController {
 mixin(ControllerCalls!("CreateActionController"));
 
 version(test_uim_mvc) { unittest {
-    writeln("--- Test in ", __MODULE__, "/", __LINE__);
+  writeln("--- Test in ", __MODULE__, "/", __LINE__);
 
-    assert(new DCreateActionController);
+  assert(new DCreateActionController);
   assert(CreateActionController);
   assert(CreateActionController.pool("testPool").pool == "testPool");
   assert(CreateActionController.pgPath("testPath").pgPath == "testPath");
-    assert(CreateActionController.name == "CreateActionController");
-  }
-}
+  assert(CreateActionController.name == "CreateActionController");
+}}

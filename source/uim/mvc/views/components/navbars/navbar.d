@@ -97,8 +97,8 @@ class DMVCFirstNavbar : DViewComponent {
     if (hasError) { return null; }
 
     /* auto isLogin = false;
-    if (auto appSession = getAppSession(options)) {
-      if (appSession.session) {
+    if (auto session = getAppSession(options)) {
+      if (session.session) {
         isLogin = true;
       }
     }
@@ -177,8 +177,8 @@ class DMVCSecondNavbar : DViewComponent {
     if (hasError) { return null; }
 
 /*     auto isLogin = false;
-    if (auto appSession = getAppSession(options)) {
-      if (appSession.session) {
+    if (auto session = getAppSession(options)) {
+      if (session.session) {
         isLogin = true;
       }
     } */

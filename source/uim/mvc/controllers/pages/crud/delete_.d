@@ -62,12 +62,12 @@ window.addEventListener('load', (event) => {
     }
 
     string appSessionId = options.get("appSessionId", "");
-    auto session = getAppSession(options);
-    if (!appSession) {
+    auto myAppSession = getAppSession(options);
+    if (!myAppSession) {
       options["redirect"] = "/";
       return; }
 
-    if (!session.isValid(["session", "site"], options)) {
+    if (!myAppSession.isValid(["session", "site"], options)) {
       options["redirect"] = "/";
       return; }
 
@@ -85,11 +85,11 @@ window.addEventListener('load', (event) => {
       myView.entity(this.entity);
     }  
   }
-version(test_uim_apps) { unittest {
-    writeln("--- Test in ", __MODULE__, "/", __LINE__);
+version(test_uim_mvc) { unittest {
+  writeln("--- Test in ", __MODULE__, "/", __LINE__);
 
-      /// TODO
-    }}
+    /// TODO
+  }}
 }
 mixin(ControllerCalls!("APPEntityDeleteController"));
 

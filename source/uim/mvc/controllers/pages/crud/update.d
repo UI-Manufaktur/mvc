@@ -35,9 +35,9 @@ override void initialize(DConfigurationValue configSettings = null) {
     super.beforeResponse(options);   
     if ("redirect" in options) return;
 
-    auto appSession = getAppSession(options);
+    auto session = getAppSession(options);
 
-    this.entity(database[appSession.site, collectionName].findOne(options.toEntitySelect));
+    this.entity(database[session.site, collectionName].findOne(options.toEntitySelect));
     if (!entity) {
       // TODO Errorhandling
       return;
@@ -62,7 +62,7 @@ override void initialize(DConfigurationValue configSettings = null) {
     }
   }
 }  
-mixin(APPPageControllerCalls!("APPEntityUpdateController"));
+mixin(ControllerCalls!("APPEntityUpdateController"));
 
 /* class DAPPUpdatePage : DAPPPage {
     this() { super(); 

@@ -69,6 +69,40 @@ class DMVCSession {
     }
     return true;
   }
+
+  string opIndex(string key) {
+    switch(key) {
+      case "id": return this.id;
+      case "lastAccessedOn": return to!string(this.lastAccessedOn); 
+      default: return null; 
+    }
+  } 
+
+  void opIndexAssign(string key, string value) {
+    switch(key) {
+      case "id": this.id = value; break;
+      case "lastAccessedOn": this.lastAccessedOn = to!long(value); break;
+    }
+  } 
+
+  void opIndexAssign(string key, long value) {
+    switch(key) {
+      case "lastAccessedOn": this.lastAccessedOn = value; break;
+    }
+  } 
+
+  void opIndexAssign(string key, DEntity value) {
+    switch(key) {
+      case "login": this.login = value; break;
+      case "session": this.session = value; break;
+      case "site": this.site = value; break;
+      case "account": this.account = value; break;
+      case "user": this.user = value; break;
+      case "password": this.password = value; break;
+      case "entity": this.entity = value; break;
+    }
+  } 
+
   string debugInfo() {
     return 
       "\n Id:\t%s".format(id)~

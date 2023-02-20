@@ -15,8 +15,8 @@ class DLogoutView : DView {
     super.beforeH5(options);
     if (hasError || "redirect" in options) { return; }
 
-/*     if (auto appSession = getAppSession(options)) {
-      appSessions.remove(appSession.id);
+/*     if (auto session = getAppSession(options)) {
+      appSessions.remove(session.id);
       options.remove("appSessionId");
     } */
   }
