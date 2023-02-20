@@ -5,7 +5,7 @@ import uim.mvc;
 
 void uimRegister(HTTPServerRequest req, HTTPServerResponse res) {
   debugMethodCall(moduleName!uimRegister~":uimRegister");
-  STRINGAA reqParameters = readRequestParameters(req, null); 
+  STRINGAA requestParameters = readRequestParameters(req, null); 
 
   PageController(thisServer).request(req, res);
 }

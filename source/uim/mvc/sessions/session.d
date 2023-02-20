@@ -27,42 +27,42 @@ class DMVCSession {
   mixin(OProperty!("DEntity", "password"));
   mixin(OProperty!("DEntity", "entity"));
 
-  bool isValid(string[] checks, STRINGAA reqParameters) {
+  bool isValid(string[] checks, STRINGAA requestParameters) {
     foreach (check; checks) {
       debug writeln(moduleName!DMVCSession~":DMVCSession::beforeResponse - Check "~check);
       switch (check) {
         case "login": if (!login) {
           debug writeln(moduleName!DMVCSession~":DMVCSession::beforeResponse -> No login => redirect /login");
-          reqParameters["redirect"] = "/login";
+          requestParameters["redirect"] = "/login";
           return false; } 
           login.lastAccessedOn(toTimestamp(now)).save; break;
         case "session": if (!session) {
           debug writeln(moduleName!DMVCSession~":DMVCSession::beforeResponse -> No session => redirect /login");
-          reqParameters["redirect"] = "/login";
+          requestParameters["redirect"] = "/login";
           return false; } 
           session.lastAccessedOn(toTimestamp(now)).save; break;
         case "site": if (!site) {
           debug writeln(moduleName!DMVCSession~":DMVCSession::beforeResponse -> No site => redirect /");
-          reqParameters["redirect"] = "/";
+          requestParameters["redirect"] = "/";
           return false; }
           site.lastAccessedOn(toTimestamp(now)).save; break;
         case "account": if (!account) {
           debug writeln(moduleName!DMVCSession~":DMVCSession::beforeResponse -> No account => redirect /login");
-          reqParameters["redirect"] = "/login";
+          requestParameters["redirect"] = "/login";
           return false; } break;
         case "password": if (!password) {
           debug writeln(moduleName!DMVCSession~":DMVCSession::beforeResponse -> No password => redirect /login");
-          reqParameters["redirect"] = "/login";
+          requestParameters["redirect"] = "/login";
           return false; } 
           password.lastAccessedOn(toTimestamp(now)).save; break;
         case "user": if (!user) {
           debug writeln(moduleName!DMVCSession~":DMVCSession::beforeResponse -> No user => redirect /login");
-          reqParameters["redirect"] = "/login";
+          requestParameters["redirect"] = "/login";
           return false; } 
           user.lastAccessedOn(toTimestamp(now)).save; break;
         case "database": if (!page && page.database) {
           debug writeln(moduleName!DMVCSession~":DMVCSession::beforeResponse -> No site => redirect /error");
-          reqParameters["redirect"] = "/error?message=database";
+          requestParameters["redirect"] = "/error?message=database";
           return false; } break;
         default: break;
       }      

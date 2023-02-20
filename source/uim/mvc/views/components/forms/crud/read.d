@@ -21,7 +21,7 @@ class DMVCReadForm : DEntityForm {
 mixin(ViewComponentCalls!("MVCReadForm", "DMVCReadForm"));
 
 /* 
-auto viewForm(T:DEntity)(string path, T entity, STRINGAA[] panes, STRINGAA reqParameters) {
+auto viewForm(T:DEntity)(string path, T entity, STRINGAA[] panes, STRINGAA requestParameters) {
 
 
     auto createdOn = (cast(DateTime)fromTimestamp(entity.createdOn)).toISOExtString;
@@ -42,14 +42,14 @@ auto viewForm(T:DEntity)(string path, T entity, STRINGAA[] panes, STRINGAA reqPa
       BS5CardBody(["container-fluid"],
         BS5Row(
           BS5Col(["col-12"], 
-            cardTabs(entity, panes, reqParameters)                       
+            cardTabs(entity, panes, requestParameters)                       
             )
           )
         )
       );
 }
 
-auto viewForm(T:DEntity)(string path, T entity, DMVCPanes panes, STRINGAA reqParameters) {
+auto viewForm(T:DEntity)(string path, T entity, DMVCPanes panes, STRINGAA requestParameters) {
 
     return 
     H5Form(["card"], ["action":path~"/create/action", "method":"post"], 
@@ -65,7 +65,7 @@ auto viewForm(T:DEntity)(string path, T entity, DMVCPanes panes, STRINGAA reqPar
         BS5CardBody(["container-fluid"],
               BS5Row(
                 BS5Col(["col-12"], 
-                  panes.toString(reqParameters)                       
+                  panes.toString(requestParameters)                       
               )
             )
           )

@@ -11,7 +11,7 @@ class DMVCSessionReader {
   mixin(OProperty!("DPageController", "page"));
   mixin(OProperty!("DMVCSession", "appSession"));
 
-  DMVCSession read(HTTPServerRequest serverRequest, STRINGAA serverRequestParameters) {
+  DMVCSession read(HTTPServerRequest serverRequest, STRINGAA requestParameters) {
     debug writeln(moduleName!DMVCSessionReader~":DMVCSessionReader::read");
     
     // serverRequest exists?
@@ -49,19 +49,19 @@ class DMVCSessionReader {
       foreach (name; page.sessionData) {
           switch(name) {
             case "login": 
-              myAppSession.login = page.database["systems", "system_logins"].findOne(["id": reqParameters.get("loginId", "")]);
+              myAppSession.login = page.database["systems", "system_logins"].findOne(["id": requestParameters.get("loginId", "")]);
               break;
             case "session":
-              myAppSession.session = page.database["systems", "system_sessions"].findOne(["id": reqParameters.get("sessionId", "")]);
+              myAppSession.session = page.database["systems", "system_sessions"].findOne(["id": requestParameters.get("sessionId", "")]);
               break;
             case "site": 
-              myAppSession.site = page.database["systems", "system_sites"].findOne(["id": reqParameters.get("siteId", "")]);
+              myAppSession.site = page.database["systems", "system_sites"].findOne(["id": requestParameters.get("siteId", "")]);
               break;
             case "account": 
-              myAppSession.account = page.database["systems", "system_accounts"].findOne(["id": reqParameters.get("accountId", "")]);
+              myAppSession.account = page.database["systems", "system_accounts"].findOne(["id": requestParameters.get("accountId", "")]);
               break;
             case "user": 
-              myAppSession.user = page.database["systems", "system_users"].findOne(["id": reqParameters.get("userId", "")]);
+              myAppSession.user = page.database["systems", "system_users"].findOne(["id": requestParameters.get("userId", "")]);
               break;
             default: break;
           }        

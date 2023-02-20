@@ -21,7 +21,7 @@ class DMVCUpdateForm : DEntityForm {
 mixin(ViewComponentCalls!("MVCUpdateForm", "DMVCUpdateForm"));
 
 /* 
-auto editheader(T:DEntity)(string path, T entity, DMVCPanes panes, STRINGAA reqParameters) {
+auto editheader(T:DEntity)(string path, T entity, DMVCPanes panes, STRINGAA requestParameters) {
   return 
     BS5CardHeader( 
       H5H4(["card-title me-auto"], "ID: "~entity.id.toString), 
@@ -35,7 +35,7 @@ auto editheader(T:DEntity)(string path, T entity, DMVCPanes panes, STRINGAA reqP
     );
 }
 
-auto editbody_(T:DEntity)(string path, T entity, DMVCPanes panes, STRINGAA reqParameters) {
+auto editbody_(T:DEntity)(string path, T entity, DMVCPanes panes, STRINGAA requestParameters) {
   return 
     BS5CardBody(
       BS5Row.col(["col-12"], 
@@ -91,14 +91,14 @@ class DMVCEditbody_ : DMVCbody_ {
     DH5Obj[] results;
 
     foreach(field; fields) {
-      DH5Obj result = formGroup(field, reqParameters); 
+      DH5Obj result = formGroup(field, requestParameters); 
       if (result) results ~= result;
     }
 
     return results;
   } 
 
-  DH5Obj formGroup(string field, STRINGAA reqParameters) {
+  DH5Obj formGroup(string field, STRINGAA requestParameters) {
     switch(field) {
       case "name": return BS5FormGroup(["row", "mb-1"],
         H5Label(["form-label col-2 col-form-label"], "Name"),
@@ -120,7 +120,7 @@ class DMVCEditbody_ : DMVCbody_ {
     return 
       BS5Col(["col-12"], 
         BS5InputHidden("entity_id", ["name":"entity_id"]).value(entity.id)~
-        formGroups(reqParameters)
+        formGroups(requestParameters)
       );
   } 
 }

@@ -25,11 +25,11 @@ static this() {
     }
 
     override DH5Obj toH5(STRINGAA options = null) {
-      super.toH5(reqParameters);
+      super.toH5(requestParameters);
 
       // debug writeln(StyledString("In server.index...").setForeground(AnsiColor.black).setBackground(AnsiColor.white));
-      debug writeln("server.index -> reqParameters = ", reqParameters);
-      debug writeln("server.index -> pageTitle = ", reqParameters.get("pageTitle", ""));
+      debug writeln("server.index -> requestParameters = ", requestParameters);
+      debug writeln("server.index -> pageTitle = ", requestParameters.get("pageTitle", ""));
 
       DEntity session;
       DEntity site;
@@ -58,7 +58,7 @@ static this() {
             BS5Row("messages", [""]),
             BS5Row(["row-deck row-cards"], sitesContent)));
         
-/*         reqParameters["script"] = reqParameters.get("script", "")
+/*         requestParameters["script"] = requestParameters.get("script", "")
         ~"sessionStorage.setItem('sessionId', '%s'); sessionStorage.setItem('siteId', '%s');".format(sessionId, siteId);
  * /
 

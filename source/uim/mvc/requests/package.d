@@ -11,10 +11,10 @@ class DMVCRequestReader {
   mixin(OProperty!("DPageController", "page"));
   mixin(OProperty!("STRINGAA", "parameters"));
 
-  STRINGAA read(HTTPServerRequest req, STRINGAA reqParameters) {
-    if (page) foreach(k, v; page.parameters) if (k !in reqParameters) reqParameters[k] = v;
-    reqParameters["htmlMode"] = to!string(req.method);
-    return reqParameters;
+  STRINGAA read(HTTPServerRequest req, STRINGAA requestParameters) {
+    if (page) foreach(k, v; page.parameters) if (k !in requestParameters) requestParameters[k] = v;
+    requestParameters["htmlMode"] = to!string(req.method);
+    return requestParameters;
   }
 }
 auto MVCRequestReader(DPageController page) { return new DMVCRequestReader(page); }

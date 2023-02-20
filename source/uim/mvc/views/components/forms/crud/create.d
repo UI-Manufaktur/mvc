@@ -38,15 +38,15 @@ auto createPageHeader(string path, string mainTitle, string subTitle) {
     ));
 }
 
-auto createForm(string path, string id, STRINGAA reqParameters) {
+auto createForm(string path, string id, STRINGAA requestParameters) {
   return 
     H5Form("entity_create", ["card"], 
-      createheader(path, id, reqParameters),
-      MVCCreatebody_.path(path).id(id).toH5(reqParameters)
+      createheader(path, id, requestParameters),
+      MVCCreatebody_.path(path).id(id).toH5(requestParameters)
     );
 }
 
-auto createheader(string path, string id, STRINGAA reqParameters) {
+auto createheader(string path, string id, STRINGAA requestParameters) {
   return 
     BS5CardHeader( 
       H5H4(["card-title me-auto"], "ID: "~id),

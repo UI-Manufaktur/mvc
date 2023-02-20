@@ -12,9 +12,9 @@ class DAPPNullSession : DMVCSession{
   this(Session httpSession, DPageController page) {
     super(httpSession, page); }
 
-  override bool isValid(string[] factors, STRINGAA reqParameters) {
+  override bool isValid(string[] factors, STRINGAA requestParameters) {
     debug writeln(moduleName!DMVCSession~":DAPPNullSession::beforeResponse -> No appSession => redirect /login");
-    reqParameters["redirect"] = "/login";
+    requestParameters["redirect"] = "/login";
     return false;
   }
   override string debugInfo() { return "Null appSession"; }

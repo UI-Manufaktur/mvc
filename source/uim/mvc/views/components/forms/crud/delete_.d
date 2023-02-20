@@ -20,7 +20,7 @@ class DMVCDeleteForm : DEntityForm {
 }
 mixin(ViewComponentCalls!("MVCDeleteForm", "DMVCDeleteForm"));
 
-/* auto deleteheader(string path, DEntity entity, DMVCPanes panes, STRINGAA reqParameters) {  
+/* auto deleteheader(string path, DEntity entity, DMVCPanes panes, STRINGAA requestParameters) {  
   return 
     BS5CardHeader( 
       H5H4(["card-title me-auto"], "ID: "~entity.id.toString),
@@ -47,14 +47,14 @@ mixin(ViewComponentCalls!("MVCDeleteForm", "DMVCDeleteForm"));
     DH5Obj[] results;
 
     foreach(field; fields) {
-      DH5Obj result = formGroup(field, reqParameters); 
+      DH5Obj result = formGroup(field, requestParameters); 
       if (result) results ~= result;
     }
 
     return results;
   } 
 
-  DH5Obj formGroup(string field, STRINGAA reqParameters) {
+  DH5Obj formGroup(string field, STRINGAA requestParameters) {
     switch(field) {
       case "name": return BS5FormGroup(["row", "mb-1"],
         H5Label(["form-label col-2 col-form-label"], "Name"),
@@ -76,7 +76,7 @@ mixin(ViewComponentCalls!("MVCDeleteForm", "DMVCDeleteForm"));
     return 
       BS5Col(["col-12"], 
         BS5InputHidden("entity_id", ["name":"entity_id"]).value(entity.id)~
-        formGroups(reqParameters)
+        formGroups(requestParameters)
       );
   } 
 }
