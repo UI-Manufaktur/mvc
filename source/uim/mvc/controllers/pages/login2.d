@@ -6,7 +6,7 @@ import uim.mvc;
 class DAPPLogin2PageController : DPageController {
   mixin(ControllerThis!("APPLogin2PageController"));
 
-override void initialize(DConfigurationValue configSettings = null) {
+  override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
 
     this

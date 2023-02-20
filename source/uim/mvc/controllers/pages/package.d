@@ -8,6 +8,7 @@ module uim.mvc.controllers.pages;
 // Main
 public import uim.mvc.controllers.pages.interface_;
 public import uim.mvc.controllers.pages.page;
+public import uim.mvc.controllers.pages.crud;
 
 // Subclasses
 public import uim.mvc.controllers.pages.apps;

@@ -7,7 +7,7 @@ module uim.mvc.controllers.pages.crud.list;
 import uim.mvc;
 
 class DAPPListPage : DAPPEntitiesPageController {
-  mixin(APPPageControllerThis!("APPListPage"));
+  mixin(ControllerThis!("APPListPage"));
 
   override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);

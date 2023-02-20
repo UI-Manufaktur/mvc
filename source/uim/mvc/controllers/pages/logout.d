@@ -6,7 +6,7 @@ import uim.mvc;
 class DAPPLogoutPageController : DPageController {  
   mixin(ControllerThis!("APPLogoutPageController"));
 
-override void initialize(DConfigurationValue configSettings = null) {
+  override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings); 
 
     this

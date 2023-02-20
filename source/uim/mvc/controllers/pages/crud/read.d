@@ -7,7 +7,7 @@ module uim.mvc.controllers.pages.crud.read;
 import uim.mvc;
 
 class DAPPEntityReadController : DAPPEntityCrudPageController {
-  mixin(APPPageControllerThis!("APPEntityReadController"));
+  mixin(ControllerThis!("APPEntityReadController"));
 
   override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);

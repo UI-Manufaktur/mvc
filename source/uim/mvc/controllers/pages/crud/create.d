@@ -7,7 +7,7 @@ module uim.mvc.controllers.pages.crud.create;
 import uim.mvc;
 
 class DAPPEntityCreateController : DAPPEntityCrudPageController {
-  mixin(APPPageControllerThis!("APPEntityCreateController"));
+  mixin(ControllerThis!("APPEntityCreateController"));
 
 override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);

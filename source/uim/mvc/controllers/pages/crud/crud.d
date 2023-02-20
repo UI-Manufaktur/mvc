@@ -4,7 +4,7 @@ module uim.mvc.controllers.pages.crud.crud;
 import uim.mvc;
 
 class DAPPEntityCrudPageController : DAPPEntityPageController {
-  mixin(APPPageControllerThis!("APPEntityCrudPageController"));
+  mixin(ControllerThis!("APPEntityCrudPageController"));
 
   override void beforeResponse(STRINGAA reqParameters) {
     debug writeln(moduleName!DAPPEntityCrudPageController~":DAPPEntityCrudPageController::beforeResponse");

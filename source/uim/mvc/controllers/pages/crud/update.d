@@ -7,7 +7,7 @@ module uim.mvc.controllers.pages.crud.update;
 import uim.mvc;
 
 class DAPPEntityUpdateController : DAPPEntityCrudPageController {
-  mixin(APPPageControllerThis!("APPEntityUpdateController"));
+  mixin(ControllerThis!("APPEntityUpdateController"));
   
 override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);

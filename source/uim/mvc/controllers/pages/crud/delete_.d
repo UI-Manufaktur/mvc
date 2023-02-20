@@ -7,7 +7,7 @@ module uim.mvc.controllers.pages.crud.delete_;
 import uim.mvc;
 
 class DAPPEntityDeleteController : DAPPEntityCrudPageController {
-  mixin(APPPageControllerThis!("APPEntityDeleteController"));
+  mixin(ControllerThis!("APPEntityDeleteController"));
 
   override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);

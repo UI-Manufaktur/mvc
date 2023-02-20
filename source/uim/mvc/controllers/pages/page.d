@@ -86,3 +86,7 @@ class DPageController : DController {
   }  
 }
 mixin(ControllerCalls!("PageController", "DPageController"));
+
+version(test_uim_mvc) { unittest {
+  assert(PageController);
+}}
