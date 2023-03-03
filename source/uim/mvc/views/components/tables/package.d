@@ -1,3 +1,8 @@
+/*********************************************************************************************************
+	Copyright: © 2015-2023 Ozan Nurettin Süel (Sicherheitsschmiede)                                        
+	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
+	Authors: Ozan Nurettin Süel (Sicherheitsschmiede)                                                      
+**********************************************************************************************************/
 module uim.mvc.views.components.tables;
 
 @safe:
@@ -107,13 +112,13 @@ auto listEntities(T:DEntity)(string rootPath, string mainTitle, int numberEntiti
     );
 }
 
-auto listPageHeader(string rootPath, string preTitle, string title, STRINGAA reqParameters) {
+auto listPageHeader(string rootPath, string preTitle, string title, STRINGAA requestParameters) {
   return
     PageHeader
       .rootPath(rootPath)
       .preTitle(preTitle)
       .title(title)
       .actions([["refresh", "create"]])
-    .toH5(reqParameters);
+    .toH5(requestParameters);
 }
 
