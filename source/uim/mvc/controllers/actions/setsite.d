@@ -42,13 +42,13 @@ class DSelectSiteActionController : DActionController {
       mySession["lastAccessISO"] = now.toISOString;
       mySession["siteId"] = mySite.id.toString;
       // myAppSession.save; // Save to Store
-      mySession.session = myAppSession; 
+      myAppSession.session = mySession; 
     
       debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request - Working with session.site");
       mySite.lastAccessedOn = mySession.lastAccessedOn;
       mySite["lastAccessISO"] = mySession["lastAccessISO"];
       mySite.save; 
-      mySession.site = mySite; 
+      myAppSession.site = mySite; 
       setAppSession(myAppSession, options); 
     }
 

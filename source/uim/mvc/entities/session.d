@@ -9,9 +9,11 @@ module uim.mvc.entities.session;
 import uim.mvc;
 
 class DSessionEntity : DEntity {
-  mixin(EntityThis!("OMOperatingUnitContactEntity"));
+  mixin(EntityThis!("SessionEntity"));
   
-  override void initialize() {
-    super.initialize;
+override void initialize(DConfigurationValue configSettings = null) {
+    version(test_uim_mvc) { debugMethodCall(moduleName!SessionEntity~"::SessionEntity("~this.name~"):initialize"); }  
+    super.initialize(configSettings);
   }
 }
+mixin(EntityCalls!("SessionEntity"));
