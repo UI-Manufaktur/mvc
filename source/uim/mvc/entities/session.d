@@ -11,7 +11,7 @@ import uim.mvc;
 class DSessionEntity : DEntity {
   mixin(EntityThis!("SessionEntity"));
   
-override void initialize(DConfigurationValue configSettings = null) {
+override void initialize(Json configSettings = Json(null)) {
     version(test_uim_mvc) { debugMethodCall(moduleName!SessionEntity~"::SessionEntity("~this.name~"):initialize"); }  
     super.initialize(configSettings);
   }

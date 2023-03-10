@@ -12,16 +12,16 @@ string mvcObjectThis(string name) {
   return `
     this() { super("`~name~`"); }
     this(DConfigurationValue configSettings) { super("`~name~`", configSettings); }
-    this(DMVCApplication myApplication, DConfigurationValue configSettings = null) { this(configSettings).application(myApplication); }
+    this(DMVCApplication myApplication, Json configSettings = Json(null)) { this(configSettings).application(myApplication); }
 
-    this(string myName, DConfigurationValue configSettings = null) { this(configSettings).name(myName); }
-    this(string[string] myParameters, DConfigurationValue configSettings = null) { this(configSettings).parameters(myParameters); }
+    this(string myName, Json configSettings = Json(null)) { this(configSettings).name(myName); }
+    this(string[string] myParameters, Json configSettings = Json(null)) { this(configSettings).parameters(myParameters); }
 
-    this(DMVCApplication myApplication, string myName, DConfigurationValue configSettings = null) { this(myApplication, configSettings).name(myName); }
-    this(DMVCApplication myApplication, string[string] myParameters, DConfigurationValue configSettings = null) { this(myApplication, configSettings).parameters(myParameters); }
+    this(DMVCApplication myApplication, string myName, Json configSettings = Json(null)) { this(myApplication, configSettings).name(myName); }
+    this(DMVCApplication myApplication, string[string] myParameters, Json configSettings = Json(null)) { this(myApplication, configSettings).parameters(myParameters); }
 
-    this(string myName, string[string] myParameters, DConfigurationValue configSettings = null) { this(name, configSettings).parameters(myParameters); }
-    this(DMVCApplication myApplication, string myName, string[string] myParameters, DConfigurationValue configSettings = null) { this(myApplication, name, configSettings).parameters(myParameters); }
+    this(string myName, string[string] myParameters, Json configSettings = Json(null)) { this(name, configSettings).parameters(myParameters); }
+    this(DMVCApplication myApplication, string myName, string[string] myParameters, Json configSettings = Json(null)) { this(myApplication, name, configSettings).parameters(myParameters); }
 
     override DMVCObject create() {
       return `~name~`;

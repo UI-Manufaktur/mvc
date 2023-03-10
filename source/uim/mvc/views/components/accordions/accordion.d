@@ -11,7 +11,7 @@ import uim.mvc;
 class DAPPAccordion : DViewComponent {  
   mixin(ViewComponentThis!("APPAccordion"));
 
-override void initialize(DConfigurationValue configSettings = null) {
+override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
     
     this.id("accordion-viewcomponent");

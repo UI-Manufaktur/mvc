@@ -11,7 +11,7 @@ import uim.mvc;
 class DModel : DMVCObject, IModel { 
   mixin(ModelThis!("Model"));
 
-  override void initialize(DConfigurationValue configSettings = null) {}
+  override void initialize(Json configSettings = Json(null)) {}
 
   mixin(OProperty!("DETBBase", "datasource")); 
 }

@@ -14,7 +14,7 @@ class DRoute : DMVCObject, IRoute {
     this().path(aPath).method(aMethod).controller(aController);
   }
 
-  override void initialize(DConfigurationValue configSettings = null) {
+  override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
   }
 
