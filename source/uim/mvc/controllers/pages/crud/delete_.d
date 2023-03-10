@@ -14,7 +14,7 @@ import uim.mvc;
 class DAPPEntityDeleteController : DAPPEntityCrudPageController {
   mixin(ControllerThis!("APPEntityDeleteController"));
 
-  override void initialize(DConfigurationValue configSettings = null) {
+  override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
 
     this

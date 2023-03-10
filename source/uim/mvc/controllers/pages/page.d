@@ -12,7 +12,7 @@ class DPageController : DController {
   mixin(ControllerThis!("PageController"));
 
   // Initialization (= hook method)
-  override void initialize(DConfigurationValue configSettings = null) {
+  override void initialize(Json configSettings = Json(null)) {
     version(test_uim_mvc) { 
       debugMethodCall(moduleName!DPageController~"::DPageController("~this.name~"):initialize");   
     }

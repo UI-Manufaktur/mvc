@@ -14,7 +14,7 @@ import uim.mvc;
 class DAPPEntityReadController : DAPPEntityCrudPageController {
   mixin(ControllerThis!("APPEntityReadController"));
 
-  override void initialize(DConfigurationValue configSettings = null) {
+  override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
     
     this
