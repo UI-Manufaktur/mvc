@@ -25,7 +25,7 @@ class DMVCApplication : DMVCObject, IApplication {
 
   // Interfaces
   mixin(OProperty!("DETBBase", "database"));
-  mixin(OProperty!("DLayout", "layout"));
+  mixin(OProperty!("ILayout", "layout"));
   mixin(OProperty!("DRoute[HTTPMethod][string]", "routes"));
 
   // Main Containers - Allways first
@@ -62,18 +62,16 @@ class DMVCApplication : DMVCObject, IApplication {
 
       if (auto controller = newRoute.controller) controller.application(this);
     }
-    return cast(O)this;
-  }
+    return cast(O)this; }
 
   O register(this O)(URLRouter router) {
     debug writeln("Link Path '%s'".format(rootPath~"*"));
     router.any(rootPath~"*", &this.request);
-    return cast(O)this;
-  }
+    return cast(O)this; }
 
   void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse) {
-    request(newRequest, newResponse, null);
-  }
+    request(newRequest, newResponse, null); }
+
   void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse, string[string] options) {
 		debugMethodCall(moduleName!MVCApplication~":MVCApplication("~this.name~")::request(req, res, requestParameters)");
 
@@ -82,7 +80,7 @@ class DMVCApplication : DMVCObject, IApplication {
     writeln("newRequest.rootDir = '%s'".format(newRequest.rootDir));
     writeln("newRequest.path    = '%s'".format(newRequest.path));
 
-    if (this.layout) this.layout.application(this);
+    if (auto myLayout = cast(DLayout)this.layout) { myLayout.application(this); }
 
     writeln(routesPaths);
     if (newRequest.path.length >= rootPath.length) {

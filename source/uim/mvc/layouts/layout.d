@@ -93,7 +93,7 @@ class DLayout : DMVCObject, ILayout {
   mixin(OProperty!("string[]", "headClasses"));
   mixin(OProperty!("STRINGAA", "bodyAttributes"));
   mixin(OProperty!("string[]", "bodyClasses"));
-  mixin(OProperty!("DLayout", "layout"));
+  mixin(OProperty!("ILayout", "layout"));
 
   // Containers
   mixin(OProperty!("DMVCLinkContainer", "links"));
@@ -129,8 +129,8 @@ class DLayout : DMVCObject, ILayout {
     if (this.scripts) myScripts ~= this.scripts.toH5;
 	}
 
-	string render(DPageController controller, DView view, STRINGAA options = null) { 
-		debugMethodCall(moduleName!DLayout~":DLayout("~this.name~")::render(DPageController controller, DView view, STRINGAA options = null)");
+	string render(IPageController controller, DView view, STRINGAA options = null) { 
+		debugMethodCall(moduleName!DLayout~":DLayout("~this.name~")::render(IPageController controller, DView view, STRINGAA options = null)");
     if (view) {
       debug writeln("view is -> ", view.name);
 		  return render(controller, view.toH5(options), options);
@@ -141,8 +141,8 @@ class DLayout : DMVCObject, ILayout {
     }
 	}
 
-	string render(DPageController controller, DH5Obj[] h5Objs, STRINGAA options = null) { 
-		debugMethodCall(moduleName!DLayout~":DLayout("~this.name~")::render(DPageController controller, DH5Obj[] h5Objs, STRINGAA options = null)");
+	string render(IPageController controller, DH5Obj[] h5Objs, STRINGAA options = null) { 
+		debugMethodCall(moduleName!DLayout~":DLayout("~this.name~")::render(IPageController controller, DH5Obj[] h5Objs, STRINGAA options = null)");
 		if (h5Objs) {
       return render(controller, h5Objs.map!(h5 => h5.toString).join, options);
     }
@@ -150,8 +150,8 @@ class DLayout : DMVCObject, ILayout {
 	}
 
 
-	string render(DPageController controller, string content, STRINGAA options = null) { 
-		debugMethodCall(moduleName!DLayout~":DLayout("~this.name~")::render(DPageController controller, string content, STRINGAA options = null)");
+	string render(IPageController controller, string content, STRINGAA options = null) { 
+		debugMethodCall(moduleName!DLayout~":DLayout("~this.name~")::render(IPageController controller, string content, STRINGAA options = null)");
 		beforeRender(options);
 
     debug writeln("myMetas = ", myMetas);
@@ -175,7 +175,7 @@ class DLayout : DMVCObject, ILayout {
 			foreach(k,v; application.parameters) if (k !in options) options[k] = v; }
 
 
-		if (auto pageController = cast(DPageController)controller) {
+		if (auto pageController = cast(IPageController)controller) {
       debug writeln("Found pageController");
 
       if (pageController.metas) myMetas ~= pageController.metas.toH5;
@@ -230,7 +230,7 @@ version(test_uim_mvc) { unittest {
   // #endregion render
 }
 
-/*   override string render(DPageController page, DView view, STRINGAA options = null) {
+/*   override string render(IPageController page, DView view, STRINGAA options = null) {
     super.render(page, view, options);
 
     auto head = ("navigation" in options ? options.get("navigation", "") : navigation.render(options));
@@ -294,7 +294,7 @@ version(test_uim_mvc) { unittest {
       return BS5NavbarNav(this.navSlots);
     }
 
-    override string toString(DPageController page, string[string] requestParameters) {
+    override string toString(IPageController page, string[string] requestParameters) {
       foreach(k,v; parameters) if (k !in requestParameters) requestParameters[k] = v;
       foreach(k,v; page.parameters) if (k !in requestParameters) requestParameters[k] = v;
       if (auto app = page.app) {
@@ -465,7 +465,7 @@ auto newNavbar(string[string] Parameters) {
   </nav>`;
 }
 // megamenu2
-auto dropDownItems(string prefix, DPageController[][string] themes) {
+auto dropDownItems(string prefix, IPageController[][string] themes) {
   string result;
   foreach(theme; themes.getKeys(true)) result ~= H5A(["dropdown-item"], ["href":prefix~theme.toLower], theme).toString;
   return result;

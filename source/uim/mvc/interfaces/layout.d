@@ -3,6 +3,16 @@ module uim.mvc.interfaces.layout;
 @safe:
 import uim.mvc;
 
-interface ILayout {
-  string render(DPageController controller, string content, STRINGAA options = null);
+interface ILayout : IMVCObject {
+  string layoutStyle();
+  string title();
+  string language();
+
+  ILayout layout();
+  DMVCLinkContainer links();
+  DMVCMetaContainer metas();
+  DMVCScriptContainer scripts();
+  DMVCStyleContainer styles();
+  
+  string render(IPageController controller, string content, STRINGAA options = null);
 }

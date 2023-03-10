@@ -6,9 +6,13 @@
 module uim.mvc.interfaces;
 
 public {
+  import uim.mvc.interfaces.action;
   import uim.mvc.interfaces.application;
   import uim.mvc.interfaces.authentication;
+  import uim.mvc.interfaces.cache;
+  import uim.mvc.interfaces.collection;
   import uim.mvc.interfaces.command;
+  import uim.mvc.interfaces.console;
   import uim.mvc.interfaces.container;
   import uim.mvc.interfaces.controller;
   import uim.mvc.interfaces.controllercomponent;
@@ -16,9 +20,11 @@ public {
   import uim.mvc.interfaces.layout;
   import uim.mvc.interfaces.model;
   import uim.mvc.interfaces.mvc;
-  import uim.mvc.interfaces.pagecontroller;
+  import uim.mvc.interfaces.page;
+  import uim.mvc.interfaces.request;
   import uim.mvc.interfaces.route;
   import uim.mvc.interfaces.view;
+  import uim.mvc.interfaces.viewcomponent;
 }
 /* interface IAPPWithEntities {  
   @property DEntity[] entities();
