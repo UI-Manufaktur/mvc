@@ -8,7 +8,7 @@ module uim.mvc.controllers.pages.page;
 @safe:
 import uim.mvc;
 
-class DPageController : DController {
+class DPageController : DController, IPageController {
   mixin(ControllerThis!("PageController"));
 
   // Initialization (= hook method)
@@ -39,13 +39,13 @@ class DPageController : DController {
   mixin(OProperty!("DMVCStyleContainer", "styles"));
 
 	/// layout for page
-	DLayout _layout;
-	O layout(this O)(DLayout newlayout) { 
+	ILayout _layout;
+	O layout(this O)(ILayout newlayout) { 
     _layout = newlayout; 
     return cast(O)this; }
 	auto layout() { 
     if (_layout) return _layout; 
-    if (auto c = cast(DPageController)this.controller) { return c.layout; } 
+    if (auto myController = cast(DPageController)this.controller) { return myController.layout; } 
     if (this.app) return this.app.layout; 
     return null; 
   }
@@ -57,13 +57,20 @@ class DPageController : DController {
   mixin(OProperty!("Session", "globalSession"));
   mixin(OProperty!("string[]", "pageActions"));
   mixin(OProperty!("bool", "hasGlobalSession"));
-  mixin(OProperty!("DForm", "form"));
+  mixin(OProperty!("IForm", "form"));
 
-  mixin(OProperty!("DView", "view"));
-  mixin(OProperty!("DView", "errorView"));
+  mixin(OProperty!("IView", "view"));
+  mixin(OProperty!("IView", "errorView"));
 
   // Required checks for the page flow
   mixin(OProperty!("string[]", "sessionData"));
+
+  override DETBBase database() {
+    if (_database) { return _database; } // has his own database
+    if (this.controller && this.controller.database) { return this.controller.database; } // owner has database
+    if (auto myApp = cast(IApplication)app) { return myApp.database; } // Leading app has database
+    return null; // no database found
+  }
 
   mixin(MVCParameter!("canonical")); 
   mixin(MVCParameter!("jsPath")); 
@@ -81,7 +88,7 @@ class DPageController : DController {
 
   mixin(OProperty!("ViewModes", "viewMode")); // 0 - HTML , 1 - HTML & Javascript, 2 - PWA
   mixin(OProperty!("DataModes", "dataMode")); // 0 - HTML , 1 - HTML & Javascript, 2 - PWA
-
+ 
   override void beforeResponse(STRINGAA options = null) {
     debugMethodCall(moduleName!DPageController~":DPageController("~this.name~")::beforeResponse");
     super.beforeResponse(options);

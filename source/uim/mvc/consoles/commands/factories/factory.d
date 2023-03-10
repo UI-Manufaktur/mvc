@@ -11,8 +11,8 @@ import uim.mvc;
 // factory for creating Command and Shell instances.
 // This factory can be replaced or extended if you need to customize building your command and shell objects.
 class DAPPCommandFactory : IAPPCommandFactory {
-    protected IMVCContainer _container;
-    this(IMVCContainer newContainer = null) {
+    protected IContainer _container;
+    this(IContainer newContainer = null) {
         _container = newContainer; }
 
     IAPPCommand create(string className) {

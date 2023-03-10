@@ -12,7 +12,9 @@ import uim.mvc;
 class DMissingComponentException : DUIMException {
 	override void initialize(Json configSettings = Json(null)) {
 		super.initialize(configSettings);
-  	this.messageTemplate("Component class %s could not be found.");
+  	
+		this
+			.messageTemplate("Component class %s could not be found.");
 	}
 }
 auto MissingComponentException() { return new DMissingComponentException; }
