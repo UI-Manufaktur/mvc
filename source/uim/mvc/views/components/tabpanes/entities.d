@@ -11,7 +11,7 @@ import uim.mvc;
 class DAPPEntitiesTabpane : DTabPane {
   mixin(ViewComponentThis!("APPEntitiesTabpane"));
 
-override void initialize(DConfigurationValue configSettings = null) {
+override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
 
     this.content(APPEntitiesList.itemTemplate(EntityListItem));

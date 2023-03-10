@@ -11,7 +11,7 @@ import uim.mvc;
 class DAPPHistoryTabpane : DAPPEntitiesTabpane {
   mixin(ViewComponentThis!("APPHistoryTabpane"));
 
-override void initialize(DConfigurationValue configSettings = null) {
+override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
   }
 }
