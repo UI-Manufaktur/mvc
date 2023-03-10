@@ -14,7 +14,7 @@ class DAPPNullSession : DMVCSession{
   this(Session httpSession) {
     super(httpSession); }
 
-  this(Session httpSession, DPageController page) {
+  this(Session httpSession, IPageController page) {
     super(httpSession, page); }
 
   override bool isValid(string[] factors, STRINGAA requestParameters) {
@@ -26,5 +26,5 @@ class DAPPNullSession : DMVCSession{
 }
 auto APPNullSession() { return new DAPPNullSession(); }
 auto APPNullSession(Session httpSession) { return new DAPPNullSession(httpSession); }
-auto APPNullSession(Session httpSession, DPageController page) { return new DAPPNullSession(httpSession, page); }
+auto APPNullSession(Session httpSession, IPageController page) { return new DAPPNullSession(httpSession, page); }
 

@@ -9,11 +9,11 @@ module uim.mvc.requests;
 import uim.mvc;
 
 class DMVCRequestReader {
-  this(DPageController page) {
+  this(IPageController page) {
     _page = page;
   }
 
-  mixin(OProperty!("DPageController", "page"));
+  mixin(OProperty!("IPageController", "page"));
   mixin(OProperty!("STRINGAA", "parameters"));
 
   STRINGAA read(HTTPServerRequest serverRequest, STRINGAA requestParameters) {
@@ -22,7 +22,7 @@ class DMVCRequestReader {
     return requestParameters;
   }
 }
-auto MVCRequestReader(DPageController page) { return new DMVCRequestReader(page); }
+auto MVCRequestReader(IPageController page) { return new DMVCRequestReader(page); }
 
 version(test_uim_mvc) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
