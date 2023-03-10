@@ -20,7 +20,7 @@ import uim.mvc;
 class DControllerComponent : DMVCObject, IControllerComponent {
   mixin(ControllerComponentThis!("ControllerComponent"));
 
-  override void initialize(DConfigurationValue configSettings = null) {
+  override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
   }
 
