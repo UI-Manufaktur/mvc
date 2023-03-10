@@ -11,7 +11,7 @@ import uim.mvc;
 class DMVCLogin2Form : DForm {
   mixin(ViewComponentThis!("MVCLogin2Form"));
 
-  override void initialize(DConfigurationValue configSettings = null) {
+  override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
   }
   

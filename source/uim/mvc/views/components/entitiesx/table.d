@@ -13,7 +13,7 @@ import uim.mvc;
 
   mixin(OProperty!("DAPPTableViewComponent", "tableComponent"));
 
-override void initialize(DConfigurationValue configSettings = null) {
+override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
 
     this
