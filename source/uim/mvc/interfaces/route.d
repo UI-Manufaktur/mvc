@@ -3,11 +3,10 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel (Sicherheitsschmiede)                                                      
 **********************************************************************************************************/
-module uim.mvc.layouts.interface_;
+module uim.mvc.interfaces.route;
 
 @safe:
 import uim.mvc;
 
-interface ILayout : IMVCObject {
-
+interface IRoute : IMVCObject {
 }

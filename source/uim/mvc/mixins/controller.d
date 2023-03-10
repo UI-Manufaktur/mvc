@@ -21,14 +21,14 @@ string mvcControllerCalls(string shortName, string className = null) {
   string clName = className.length > 0 ? className : "D"~shortName;
   return `
     auto `~shortName~`() { return new `~clName~`; }
-    auto `~shortName~`(DMVCApplication myApplication) { return new `~clName~`(myApplication); }
+    auto `~shortName~`(IApplication myApplication) { return new `~clName~`(myApplication); }
     auto `~shortName~`(string myName) { return new `~clName~`(myName); }
     auto `~shortName~`(string[string] myParameters) { return new `~clName~`(myParameters); }
 
     auto `~shortName~`(string myName, string[string] myParameters) { return new `~clName~`(myName, myParameters); }
 
-    auto `~shortName~`(DMVCApplication myApplication, string myName) { return new `~clName~`(myApplication, myName); }
-    auto `~shortName~`(DMVCApplication myApplication, string[string] myParameters) { return new `~clName~`(myApplication, myParameters); }
+    auto `~shortName~`(IApplication myApplication, string myName) { return new `~clName~`(myApplication, myName); }
+    auto `~shortName~`(IApplication myApplication, string[string] myParameters) { return new `~clName~`(myApplication, myParameters); }
   `;
 }
 

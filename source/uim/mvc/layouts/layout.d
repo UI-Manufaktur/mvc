@@ -10,7 +10,7 @@ import uim.mvc;
 
 enum DataModes { Local, REST }
 
-class DLayout : DMVCObject, ILayout{
+class DLayout : DMVCObject, ILayout {
   this() {
     initialize(); }
 
