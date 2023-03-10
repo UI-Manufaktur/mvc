@@ -40,6 +40,7 @@
 	"importPaths": [
 		"../uim-core",
 		"../uim-oop",
+		"../uim-models",
 		"../uim-css",
 		"../uim-html",
 		"../uim-javascript",
@@ -56,6 +57,7 @@
 	"sourcePaths": [
 		"../uim-core",
 		"../uim-oop",
+		"../uim-models",
 		"../uim-css",
 		"../uim-html",
 		"../uim-javascript",

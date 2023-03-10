@@ -30,6 +30,7 @@ public import std.net.curl; // Networking client functionality as provided by li
 public import std.net.isemail; // Validates an email address according to RFCs 5321, 5322 and others.
 public import std.uri; // Encode and decode Uniform Resource Identifiers (URIs).
 public import std.uuid; // Universally-unique identifiers for resources in distributed systems.
+
 // Numeric
 public import std.bigint; // An arbitrary-precision integer type.
 public import std.complex; // A complex number type.
@@ -37,6 +38,7 @@ public import std.math; // Elementary mathematical functions (powers, roots, tri
 public import std.mathspecial; // Families of transcendental functions.
 public import std.numeric; // Floating point numerics functions.
 public import std.random; // Pseudo-random number generators.
+
 // String manipulation
 public import std.string; // Algorithms that work specifically with strings.
 public import std.array; // Manipulate builtin arrays.

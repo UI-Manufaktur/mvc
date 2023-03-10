@@ -11,7 +11,7 @@ import uim.mvc;
 class DLogin2ActionController : DSystemActionController {
   mixin(ControllerThis!("Login2ActionController"));
 
-  override void initialize(DConfigurationValue configSettings = null) {
+  override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings); 
 
     this

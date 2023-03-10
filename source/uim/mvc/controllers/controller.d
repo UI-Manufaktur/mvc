@@ -21,7 +21,7 @@ class DController : DMVCObject, IController  {
   mixin(OProperty!("string", "plugin"));
 
   // Initialization (= hook method)
-  override void initialize(DConfigurationValue configSettings = null) {
+  override void initialize(Json configSettings = Json(null)) {
     version(test_uim_mvc) { debugMethodCall(moduleName!DController~"::DController("~this.name~"):initialize"); }  
     super.initialize(configSettings);
 

@@ -18,15 +18,15 @@ class DMVCObject : IMVCObject {
   // Constructors for the main properties
   this() { initialize; }
   this(DConfigurationValue configSettings) { this().initialize(configSettings); }
-  this(DMVCApplication newApplication, DConfigurationValue configSettings = null) { this(configSettings).application(newApplication); }
-  this(string newName, DConfigurationValue configSettings = null) { this(configSettings).name(newName); }
-  this(string[string] newParameters, DConfigurationValue configSettings = null) { this(configSettings).parameters(newParameters); }
-  this(DMVCApplication newApplication, string newName, DConfigurationValue configSettings = null) { this(newApplication).name(newName); }
-  this(DMVCApplication newApplication, string[string] newParameters, DConfigurationValue configSettings = null) { this(newApplication,configSettings).parameters(newParameters); }
-  this(string newName, string[string] newParameters, DConfigurationValue configSettings = null) { this(newName, configSettings).parameters(newParameters); }
-  this(DMVCApplication newApplication, string newName, string[string] newParameters, DConfigurationValue configSettings = null) { this(newApplication, newName, configSettings).parameters(newParameters); }
+  this(DMVCApplication newApplication, Json configSettings = Json(null)) { this(configSettings).application(newApplication); }
+  this(string newName, Json configSettings = Json(null)) { this(configSettings).name(newName); }
+  this(string[string] newParameters, Json configSettings = Json(null)) { this(configSettings).parameters(newParameters); }
+  this(DMVCApplication newApplication, string newName, Json configSettings = Json(null)) { this(newApplication).name(newName); }
+  this(DMVCApplication newApplication, string[string] newParameters, Json configSettings = Json(null)) { this(newApplication,configSettings).parameters(newParameters); }
+  this(string newName, string[string] newParameters, Json configSettings = Json(null)) { this(newName, configSettings).parameters(newParameters); }
+  this(DMVCApplication newApplication, string newName, string[string] newParameters, Json configSettings = Json(null)) { this(newApplication, newName, configSettings).parameters(newParameters); }
 
-  void initialize(DConfigurationValue configSettings = null) {
+  void initialize(Json configSettings = Json(null)) {
     // Code for object initialization
     this
       .name("MVCObject")
