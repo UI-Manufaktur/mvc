@@ -9,7 +9,6 @@ module uim.mvc.views.components.forms;
 import uim.mvc;
 
 // Main
-public import uim.mvc.views.components.forms.interface_;
 public import uim.mvc.views.components.forms.form;
 
 // Packages

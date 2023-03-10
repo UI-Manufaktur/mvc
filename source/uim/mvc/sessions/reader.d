@@ -9,11 +9,11 @@ module uim.mvc.sessions.reader;
 import uim.mvc;
 
 class DMVCSessionReader {
-  this(DPageController page) {
+  this(IPageController page) {
     this.page(page);
   }
 
-  mixin(OProperty!("DPageController", "page"));
+  mixin(OProperty!("IPageController", "page"));
   mixin(OProperty!("DMVCSession", "appSession"));
 
   DMVCSession read(HTTPServerRequest serverRequest, STRINGAA requestParameters) {
@@ -94,4 +94,4 @@ class DMVCSessionReader {
     return appSession;
   }
 }
-auto MVCSessionReader(DPageController page) { return new DMVCSessionReader(page); }
+auto MVCSessionReader(IPageController page) { return new DMVCSessionReader(page); }

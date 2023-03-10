@@ -7,7 +7,6 @@ module uim.mvc.views;
 
 public import uim.mvc.views.view;
 
-public import uim.mvc.views.interface_;
 public import uim.mvc.views.components;
 public import uim.mvc.views.registry;
 

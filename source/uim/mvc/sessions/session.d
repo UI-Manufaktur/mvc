@@ -15,14 +15,14 @@ class DMVCSession {
     _httpSession = httpSession;
     this.id(httpSession.id); }
 
-  this(Session httpSession, DPageController page) {
+  this(Session httpSession, IPageController page) {
     this(httpSession);
     this.page(page); }
 
   Session _httpSession;
 
   mixin(OProperty!("string", "id"));
-  mixin(OProperty!("DPageController", "page"));
+  mixin(OProperty!("IPageController", "page"));
   mixin(OProperty!("long", "lastAccessedOn"));
   mixin(OProperty!("DEntity", "login"));
   mixin(OProperty!("DEntity", "session"));
@@ -124,9 +124,9 @@ class DMVCSession {
   }
 }
 auto MVCSession(Session httpSession) { return new DMVCSession(httpSession); }
-auto MVCSession(Session httpSession, DPageController page) { return new DMVCSession(httpSession, page); }
+auto MVCSession(Session httpSession, IPageController page) { return new DMVCSession(httpSession, page); }
 
-/*   mixin(OProperty!("DPageController", "page"));
+/*   mixin(OProperty!("IPageController", "page"));
   mixin(OProperty!("long", "lastAccessedOn"));
   mixin(OProperty!("DEntity", "login"));
   mixin(OProperty!("DEntity", "session"));
