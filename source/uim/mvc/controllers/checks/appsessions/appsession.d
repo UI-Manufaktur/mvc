@@ -16,7 +16,7 @@ import uim.mvc;
 class DAppSessionExistsCheck : DControllerCheck {
   mixin(ControllerComponentThis!("AppSessionExistsCheck"));
 
-  override void initialize(DConfigurationValue configSettings = null) {
+  override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
 
     this

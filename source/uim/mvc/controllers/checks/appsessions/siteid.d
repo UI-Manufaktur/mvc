@@ -11,7 +11,7 @@ import uim.mvc;
 class DAppSessionHasSiteIdCheck : DAppSessionHasSessionCheck {
   mixin(ControllerComponentThis!("AppSessionHasSiteIdCheck"));
 
-  override void initialize(DConfigurationValue configSettings = null) {
+  override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
 
     this
