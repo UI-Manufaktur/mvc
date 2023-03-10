@@ -10,7 +10,7 @@ import uim.mvc;
 
 class DAPPScript : DController {
   this() { initialize; }
-  this(DMVCApplication myApp) { this().app(myApp); }
+  this(IApplication myApp) { this().app(myApp); }
 
   // Initialization (= hook method)
 override void initialize(Json configSettings = Json(null)) {
@@ -21,4 +21,4 @@ override void initialize(Json configSettings = Json(null)) {
   }
 } 
 auto APPScript() { return new DAPPScript; }
-auto APPScript(DMVCApplication myApp) { return new DAPPScript(myApp); }
+auto APPScript(IApplication myApp) { return new DAPPScript(myApp); }
