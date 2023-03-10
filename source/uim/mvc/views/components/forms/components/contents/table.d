@@ -13,7 +13,7 @@ class DTableFormContent : DMVCEntitiesViewComponent {
 
   mixin(OProperty!("DViewComponent", "row"));
 
-  override void initialize(DConfigurationValue configSettings = null) {
+  override void initialize(Json configSettings = Json(null)) {
     debugMethodCall(moduleName!DTableFormContent~"::DTableFormContent("~this.name~"):initialize");   
     super.initialize(configSettings);
   }

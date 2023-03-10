@@ -11,7 +11,7 @@ import uim.mvc;
 class DEntityFormContent : DFormContent {
   mixin(ViewComponentThis!("EntityFormContent"));
 
-  override void initialize(DConfigurationValue configSettings = null) {
+  override void initialize(Json configSettings = Json(null)) {
     debugMethodCall(moduleName!DEntityFormContent~"::DEntityFormContent("~this.name~"):initialize");   
     super.initialize(configSettings);
 

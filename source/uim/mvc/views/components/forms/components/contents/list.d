@@ -13,7 +13,7 @@ class DMVCListFormContent : DMVCEntitiesViewComponent {
 
   mixin(OProperty!("DMVCEntityViewComponent", "templateListItem"));
 
-  override void initialize(DConfigurationValue configSettings = null) {
+  override void initialize(Json configSettings = Json(null)) {
     debugMethodCall(moduleName!DMVCListFormContent~"::DMVCListFormContent("~this.name~"):initialize");   
     super.initialize(configSettings);
   }
