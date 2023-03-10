@@ -13,7 +13,7 @@ class DAPPPackagesPaneViewComponent : DAPPEntitiesTabpane {
 
   mixin(OProperty!("DAPPListViewComponent", "list"));
 
-override void initialize(DConfigurationValue configSettings = null) {
+override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
 
     this

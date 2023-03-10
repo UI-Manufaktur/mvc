@@ -11,7 +11,7 @@ import uim.mvc;
 class DAPPVersionsPaneViewComponent : DAPPEntitiesTabpane {
   mixin(ViewComponentThis!("APPVersionsPaneViewComponent"));
 
-override void initialize(DConfigurationValue configSettings = null) {
+override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
   }
 }

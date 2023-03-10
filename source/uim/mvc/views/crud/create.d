@@ -11,7 +11,7 @@ import uim.mvc;
 class DAPPEntityCreateView : DEntityCRUDView {
   mixin(ViewThis!("APPEntityCreateView"));
 
-override void initialize(DConfigurationValue configSettings = null) {
+override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
 
     debug writeln("In ", __MODULE__, "/", __LINE__); 

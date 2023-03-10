@@ -19,7 +19,7 @@ class DEntityCRUDView : DEntityView {
   mixin(OProperty!("DViewComponent", "form"));
   mixin(OProperty!("DUIMTabControl", "entityTab"));
 
-override void initialize(DConfigurationValue configSettings = null) {
+override void initialize(Json configSettings = Json(null)) {
     debugMethodCall(moduleName!DEntityCRUDView~"::DEntityCRUDView("~this.name~"):initialize");   
     super.initialize(configSettings);
 
