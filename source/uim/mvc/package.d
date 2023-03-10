@@ -56,25 +56,28 @@ public import std.outbuffer; // Serialize data to ubyte arrays.
 // Dub
 public import vibe.d;
 
-// UIM
-public import uim.core;
-public import uim.bootstrap;
-public import uim.javascript;
-public import uim.html;
-public import uim.oop;
-public import uim.controls;
+public { // uim libraries
+  import uim.core;
+  import uim.bootstrap;
+  import uim.javascript;
+  import uim.html;
+  import uim.oop;
+  import uim.models;
+  import uim.controls;
+}
 
 public import uim.mvc.base;
-
-public import uim.mvc.applications;
+public import uim.mvc.applications; 
 public import uim.mvc.authentications;
 public import uim.mvc.caches;
 public import uim.mvc.collections;
 public import uim.mvc.commands;
-public import uim.mvc.consoles;
+public import uim.mvc.consoles; 
 public import uim.mvc.containers;
-public import uim.mvc.controllers;
+public import uim.mvc.controllers; 
 public import uim.mvc.helpers;
+public import uim.mvc.entities;
+public import uim.mvc.interfaces;
 public import uim.mvc.javascripts;
 public import uim.mvc.layouts;
 public import uim.mvc.mixins;
@@ -83,13 +86,9 @@ public import uim.mvc.requests;
 public import uim.mvc.routers;
 public import uim.mvc.routes;
 public import uim.mvc.security;
-public import uim.mvc.sessions;
+public import uim.mvc.sessions; 
 public import uim.mvc.tests;
 public import uim.mvc.views;
-
-// helpers
-public import uim.mvc.mixins;
-public import uim.mvc.tests;
 
 @safe:
 DMVCSession[string] appSessions;
@@ -128,7 +127,7 @@ auto urlToSelect(string[string] data) {
       if (eid.length > 0) result["id"] = eid;
       else if (ename.length > 0) result["name"] = ename;
     }    
- */    
+  */   
     result["id"] = eid;
     if (enumber.length > 0) result["versionNumber"] = to!size_t(enumber);
 
@@ -355,6 +354,5 @@ auto editorText = `const editorText = KothingEditor.create("entity_text", {
 });`;
 
 enum ViewModes { HTML, JS, XML }
-
 
 

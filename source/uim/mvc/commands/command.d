@@ -10,7 +10,7 @@ import uim.mvc;
 
 class DAPPCommand { // extends SymfonyCommand
     // Application instance
-    mixin(OProperty!("DMVCApplication",  "application"));
+    // mixin(OProperty!("DMVCApplication",  "application"));
 
     // Name and signature of the console command.
     protected string _signature;
@@ -113,11 +113,6 @@ class DAPPCommand { // extends SymfonyCommand
     bool isHidden() {
       return _hidden; }
 
-    /**
-     * {@inheritdoc}
-     *
-     * @return static
-     */
     O setHidden(this O)(bool newValue) {
       _hidden = newValue;
       return cast(O)this; }

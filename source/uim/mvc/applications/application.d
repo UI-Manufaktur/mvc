@@ -8,7 +8,7 @@ module uim.mvc.applications.application;
 @safe:
 import uim.mvc;
 
-class DMVCApplication : DMVCObject, IMVCApplication { 
+class DMVCApplication : DMVCObject, IApplication { 
   this() { initialize; }
 
   override void initialize(Json configSettings = Json(null)) {
@@ -38,7 +38,7 @@ class DMVCApplication : DMVCObject, IMVCApplication {
     return _routes.keys; 
   }
 
-  auto routes(string path) {
+  auto routesAtPath(string path) {
     debug writeln("Get routes at '%s'".format(path));
     return _routes.get(path, null); 
   }

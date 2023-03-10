@@ -10,7 +10,6 @@ import uim.mvc;
 
 // Main
 public import uim.mvc.containers.container;
-public import uim.mvc.containers.interface_;
 
 // Modules
 public import uim.mvc.containers.Applicationinterface;

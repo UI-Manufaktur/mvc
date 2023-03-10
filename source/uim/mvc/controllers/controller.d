@@ -53,7 +53,7 @@ class DController : DMVCObject, IController  {
     mixin(MVCParameter!("httpMode"));
     mixin(MVCParameter!("stringRequest"));
     mixin(MVCParameter!("method"));
-    mixin(MVCParameter!("form"));
+    /* mixin(MVCParameter!("form")); */
     mixin(MVCParameter!("peer"));
     mixin(MVCParameter!("host"));
     mixin(MVCParameter!("path"));
@@ -71,7 +71,7 @@ class DController : DMVCObject, IController  {
   // #endregion Properties
 
   /// Owning controller
-  mixin(OProperty!("DMVCApplication", "app"));
+  mixin(OProperty!("IApplication", "app"));
   mixin(OProperty!("DController", "controller"));
 
   mixin(OProperty!("DControllerCheck[]", "checks"));
@@ -116,7 +116,7 @@ class DController : DMVCObject, IController  {
     DETBBase database() {
       if (_database) { return _database; } // has his own database
       if (this.controller && this.controller.database) { return this.controller.database; } // owner has database
-      if (auto myApp = cast(DMVCApplication)app) { return myApp.database; } // Leading app has database
+      if (auto myApp = cast(IApplication)app) { return myApp.database; } // Leading app has database
       return null; // no database found
     }
   // #endregion database
@@ -145,7 +145,7 @@ class DController : DMVCObject, IController  {
       .httpMode((this.request.fullURL.toString.indexOf("https") == 0 ? "https" : "http"))
       .stringRequest(this.request.toString)
       .method(to!string(this.request.method))
-      .form(this.request.form.toString)
+      /* .form(this.request.form.toString) */
       .peer(this.request.peer)
       .host(this.request.host)
       .path(this.request.path)
