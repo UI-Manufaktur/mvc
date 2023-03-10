@@ -11,7 +11,7 @@ import uim.mvc;
 class DMVCCreatePageHeaderViewComponent : DPageHeaderViewComponent {
   mixin(ViewComponentThis!("MVCCreatePageHeaderViewComponent"));
   
-  override void initialize(DConfigurationValue configSettings = null) {
+  override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
     
     this

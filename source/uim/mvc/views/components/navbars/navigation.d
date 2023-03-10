@@ -11,7 +11,7 @@ import uim.mvc;
 class DMVCNavigationViewComponent : DViewComponent {
   mixin(ViewComponentThis!("MVCNavigationViewComponent"));
 
-  override void initialize(DConfigurationValue configSettings = null) {
+  override void initialize(Json configSettings = Json(null)) {
     debugMethodCall(moduleName!DMVCNavigationViewComponent~"::DMVCNavigationViewComponent("~this.name~"):initialize");   
     super.initialize(configSettings);
 
