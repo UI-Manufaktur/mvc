@@ -8,8 +8,9 @@ module uim.mvc.views.components.tables.components;
 @safe:
 import uim.mvc;
 
-// Main
-public import uim.mvc.views.components.tables.components.component;
+public { // Main
+	import uim.mvc.views.components.tables.components.component;
+}
 
 // Packages
 public import uim.mvc.views.components.tables.components.bodies;

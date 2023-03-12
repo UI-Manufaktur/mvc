@@ -5,10 +5,10 @@ import uim.mvc;
 
 class DAPPStyle : DController {
   this() { initialize; }
-  this(DAPPApplication myApp) { this().app(myApp); }
+  this(DApplication myApp) { this().app(myApp); }
 
   // Initialization (= hook method)
-override void initialize(DConfigurationValue configSettings = null) {
+override void initialize(Json configSettings = null) {
     super.initialize(configSettings);
     super.initialize;
 
@@ -17,4 +17,4 @@ override void initialize(DConfigurationValue configSettings = null) {
   }
 } 
 auto APPStyle() { return new DAPPStyle; }
-auto APPStyle(DAPPApplication myApp) { return new DAPPStyle(myApp); }
+auto APPStyle(DApplication myApp) { return new DAPPStyle(myApp); }

@@ -13,7 +13,6 @@ class DTableHeader : DTableComponent {
 
   mixin(OProperty!("STRINGAA[]", "cols"));
 
-  
   override DH5Obj[] toH5(STRINGAA options = null) { // hook
     super.toH5(options);
     if (hasError || "redirect in options") { return null; }
