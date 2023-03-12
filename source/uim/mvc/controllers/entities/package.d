@@ -1,7 +1,7 @@
-module uim.apps.controllers.entities;
+module uim.mvc.controllers.entities;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
-public import uim.apps.controllers.entities.entities;
-public import uim.apps.controllers.entities.entity;
+public import uim.mvc.controllers.entities.entities;
+public import uim.mvc.controllers.entities.entity;

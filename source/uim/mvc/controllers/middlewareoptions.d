@@ -1,7 +1,7 @@
-module uim.apps.controllers.middlewareoptions;
+module uim.mvc.controllers.middlewareoptions;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DControllerMiddlewareOptions {
     // The middleware options.

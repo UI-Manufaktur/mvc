@@ -8,11 +8,12 @@ module uim.mvc.controllers.actions;
 // Main classes
 public import uim.mvc.controllers.actions.action;
 
-// Subclasses
-public import uim.mvc.controllers.actions.create;
-public import uim.mvc.controllers.actions.entities;
-public import uim.mvc.controllers.actions.entity;
-public import uim.mvc.controllers.actions.login;
-public import uim.mvc.controllers.actions.login2;
-public import uim.mvc.controllers.actions.setsite;
-public import uim.mvc.controllers.actions.system;
+public { // Subclasses
+	import uim.mvc.controllers.actions.create;
+	import uim.mvc.controllers.actions.entities;
+	import uim.mvc.controllers.actions.entity;
+	import uim.mvc.controllers.actions.login;
+	import uim.mvc.controllers.actions.login2;
+	import uim.mvc.controllers.actions.setsite;
+	import uim.mvc.controllers.actions.system;
+}

@@ -1,7 +1,7 @@
-module uim.apps.controllers.styles.style;
+module uim.mvc.controllers.styles.style;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DAPPStyle : DController {
   this() { initialize; }

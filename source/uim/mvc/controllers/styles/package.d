@@ -1,7 +1,7 @@
-module uim.apps.controllers.styles;
+module uim.mvc.controllers.styles;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 // Main
-public import uim.apps.controllers.styles;
+public import uim.mvc.controllers.styles;
