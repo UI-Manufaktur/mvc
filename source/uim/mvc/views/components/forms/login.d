@@ -8,8 +8,8 @@ module uim.mvc.views.components.forms.login;
 @safe:
 import uim.mvc;
 
-class DMVCLoginForm : DForm {
-  mixin(ViewComponentThis!("MVCLoginForm"));
+class DLoginForm : DForm {
+  mixin(ViewComponentThis!("LoginForm"));
 
   mixin(OProperty!("bool", "showLostAccount"));
 
@@ -21,7 +21,7 @@ class DMVCLoginForm : DForm {
   
 /*   override DViewComponent copy() {
     return
-      (cast(DMVCLoginForm)copy)
+      (cast(DLoginForm)copy)
       .showLostAccount(this.showLostAccount);
   } */
 
@@ -47,8 +47,8 @@ class DMVCLoginForm : DForm {
     ].toH5;
   }
 }
-mixin(ViewComponentCalls!("MVCLoginForm","DMVCLoginForm"));
+mixin(ViewComponentCalls!("LoginForm","DLoginForm"));
 
 version(test_uim_mvc) { unittest {
-  assert(MVCLoginForm);
+  assert(LoginForm);
 }}

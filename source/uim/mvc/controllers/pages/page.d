@@ -118,10 +118,11 @@ class DPageController : DController, IPageController {
 
   DH5Obj[] pageContent(STRINGAA reqParameters) { 
     debugMethodCall(moduleName!DPageController~":DPageController("~this.name~")::pageContent");
-    auto result = form ? form.toH5(reqParameters) : null;
+    // auto result = form ? form.toH5(reqParameters) : null;
 
     // debug writeln("return result pageContent(STRINGAA reqParameters)");
-    return result; 
+    // return result;
+    return null; 
   }
 
   void jsCode(STRINGAA options = null) {
@@ -143,7 +144,7 @@ class DPageController : DController, IPageController {
   mixin(OProperty!("DAPPSecurityOptions", "securityOptions"));
   O securityOptions(this O)(bool[string] newOptions) { this.securityOptions(APPSecurityOptions(newOptions)); return cast(O)this; }  
  */ 
- 
+
   /*   override DH5Obj[] toH5(STRINGAA reqParameters) { 
     auto loginId = reqParameters.get("loginId", "");
     // debug writeln("...in login2:loginid = ", loginId);

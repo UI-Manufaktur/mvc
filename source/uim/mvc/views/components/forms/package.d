@@ -8,8 +8,9 @@ module uim.mvc.views.components.forms;
 @safe:
 import uim.mvc;
 
-// Main
-public import uim.mvc.views.components.forms.form;
+public { // Main
+	import uim.mvc.views.components.forms.form;
+}
 
 // Packages
 public import uim.mvc.views.components.forms.components;

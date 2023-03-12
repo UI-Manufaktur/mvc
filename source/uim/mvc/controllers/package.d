@@ -18,3 +18,5 @@ public import uim.mvc.controllers.odata;
 public import uim.mvc.controllers.pages;
 public import uim.mvc.controllers.restfuls;
 public import uim.mvc.controllers.scripts;
+public import uim.mvc.controllers.securities;
+public import uim.mvc.controllers.validators;
