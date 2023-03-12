@@ -1,4 +1,4 @@
-module uim.apps.controllers.validators.account;
+module uim.mvc.controllers.validators.account;
 
 @safe:
 import uim.apps;

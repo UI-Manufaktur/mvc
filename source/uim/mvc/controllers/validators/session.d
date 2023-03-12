@@ -1,4 +1,4 @@
-module uim.apps.controllers.validators.session;
+module uim.mvc.controllers.validators.session;
 
 @safe:
 import uim.apps;
