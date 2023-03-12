@@ -12,8 +12,9 @@ public { // Main
 	import uim.mvc.views.components.tables.components.component;
 }
 
-// Packages
-public import uim.mvc.views.components.tables.components.bodies;
-public import uim.mvc.views.components.tables.components.footers;
-public import uim.mvc.views.components.tables.components.headers;
-public import uim.mvc.views.components.tables.components.rows;
+public { // Packages
+	import uim.mvc.views.components.tables.components.bodies;
+	import uim.mvc.views.components.tables.components.footers;
+	import uim.mvc.views.components.tables.components.headers;
+	import uim.mvc.views.components.tables.components.rows;
+}

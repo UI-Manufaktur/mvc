@@ -14,11 +14,12 @@ public import uim.mvc.views.components.tables.table;
 // Packages
 public import uim.mvc.views.components.tables.components;
 
-// Modules
-public import uim.mvc.views.components.tables.filter;
-public import uim.mvc.views.components.tables.history;
-public import uim.mvc.views.components.tables.listheader;
-public import uim.mvc.views.components.tables.versions;
+public { // Modules
+  import uim.mvc.views.components.tables.filter;
+  import uim.mvc.views.components.tables.history;
+  import uim.mvc.views.components.tables.listheader;
+  import uim.mvc.views.components.tables.versions;
+}
 
 auto listEntities(T:DEntity)(string rootPath, string mainTitle, int numberEntities, STRINGAA[] columns, T[] entities, int startPos, int endPos, size_t sumEntities) {
   auto header(string rootPath, STRINGAA[] columns) {

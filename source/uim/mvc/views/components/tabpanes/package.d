@@ -11,14 +11,15 @@ import uim.mvc;
 public import uim.mvc.views.components.tabpanes.entity;
 public import uim.mvc.views.components.tabpanes.entities;
 
-public import uim.mvc.views.components.tabpanes.general;
-public import uim.mvc.views.components.tabpanes.history;
-public import uim.mvc.views.components.tabpanes.packages;
-public import uim.mvc.views.components.tabpanes.tabpane;
-public import uim.mvc.views.components.tabpanes.packages;
-public import uim.mvc.views.components.tabpanes.versions;
-public import uim.mvc.views.components.tabpanes.specific;
-
+public {
+  import uim.mvc.views.components.tabpanes.general;
+  import uim.mvc.views.components.tabpanes.history;
+  import uim.mvc.views.components.tabpanes.packages;
+  import uim.mvc.views.components.tabpanes.tabpane;
+  import uim.mvc.views.components.tabpanes.packages;
+  import uim.mvc.views.components.tabpanes.versions;
+  import uim.mvc.views.components.tabpanes.specific;
+}
 
 /* 
 auto tabpane(T:DEntity)(T entity, STRINGAA Parameters) {
