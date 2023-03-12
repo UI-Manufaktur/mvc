@@ -10,7 +10,9 @@ import uim.mvc;
 
 public import uim.mvc.views.components.pages.page;
 
-public import uim.mvc.views.components.pages.bodies;
-public import uim.mvc.views.components.pages.headers;
-public import uim.mvc.views.components.pages.footers;
-public import uim.mvc.views.components.pages.titles;
+public {
+	import uim.mvc.views.components.pages.bodies;
+	import uim.mvc.views.components.pages.headers;
+	import uim.mvc.views.components.pages.footers;
+	import uim.mvc.views.components.pages.titles;
+}

@@ -30,6 +30,40 @@ class DPageHeaderViewComponent : DViewComponent {
   mixin(OProperty!("DUIMBreadcrumbControl", "breadcrumbs"));
   mixin(OProperty!("DUIMToolbarControl", "headerToolbar"));
 
+DH5Obj actionButton(string action, STRINGAA options = null) {
+    auto id = this.entity ? this.entity.id.toString : UUID().toString;      
+  
+    switch(action) {
+/*       case "refresh": return buttonLinkRefresh(rootPath); 
+      case "create": return buttonLinkCreate(rootPath); 
+      case "list": return buttonLinkList(rootPath);  
+      case "read": 
+      case "view": return buttonLinkView(rootPath, id); 
+      case "edit": 
+      case "update": return buttonLinkEdit(rootPath, id); 
+      case "delete": 
+      case "remove": return buttonLinkDelete(rootPath, id); 
+      case "version":return null; // Working on it 
+      case "lock":return null;  
+      case "unlock":return null; 
+      case "print":return null; 
+      case "export":return null; 
+      case "import":return null;*/ 
+      default: return null; 
+    }
+  } 
+
+  auto actionButtons(STRINGAA options = null) {
+    return actions.join
+      .map!(action => actionButton(action, options)).array;
+  } 
+
+  override string render(STRINGAA options = null) {
+    // debug writeln("DAPPCreatePageHeader/toString");
+    auto h5 = toH5(options);
+    return h5 ? h5.map!(a => a.toString).join : "";
+  }
+
   // #region h5
   override void beforeH5(STRINGAA options = null) {
     super.beforeH5(options);
