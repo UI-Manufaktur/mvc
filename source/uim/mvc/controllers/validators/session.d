@@ -1,7 +1,7 @@
 module uim.mvc.controllers.validators.session;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DAPPValidatorSession : DAPPValidator {
   mixin(ControllerThis!("APPValidatorSession"));

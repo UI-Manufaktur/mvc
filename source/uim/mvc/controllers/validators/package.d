@@ -1,7 +1,7 @@
 module uim.mvc.controllers.validators;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 public import uim.mvc.controllers.validators.account;
 public import uim.mvc.controllers.validators.entity;

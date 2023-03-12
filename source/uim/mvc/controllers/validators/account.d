@@ -1,7 +1,7 @@
 module uim.mvc.controllers.validators.account;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 /* static this() {
   appErrorCodes[appErrorPrefix+100] = "Account id not valid or found";
