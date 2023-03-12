@@ -8,7 +8,7 @@ module uim.mvc.applications.application;
 @safe:
 import uim.mvc;
 
-class DMVCApplication : DMVCObject, IApplication { 
+class DApplication : DMVCObject, IApplication { 
   this() { initialize; }
 
   override void initialize(Json configSettings = Json(null)) {
@@ -73,7 +73,7 @@ class DMVCApplication : DMVCObject, IApplication {
     request(newRequest, newResponse, null); }
 
   void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse, string[string] options) {
-		debugMethodCall(moduleName!MVCApplication~":MVCApplication("~this.name~")::request(req, res, requestParameters)");
+		debugMethodCall(moduleName!Application~":Application("~this.name~")::request(req, res, requestParameters)");
 
     writeln("rootPath = '%s'".format(this.rootPath));
     writeln("newRequest.fullURL = '%s'".format(newRequest.fullURL));
@@ -94,11 +94,11 @@ class DMVCApplication : DMVCObject, IApplication {
     }
   }
 }
-auto MVCApplication() { return new DMVCApplication; }
+auto Application() { return new DApplication; }
 
 version(test_uim_mvc) unittest {
   assert(
-    MVCApplication
+    Application
       .addRoute(Route("ecm/index", HTTPMethod.GET, MVCPageController))
       .addRoute(Route("ecm/documents", HTTPMethod.GET, MVCPageController))
       .addRoute(Route("ecm/folders", HTTPMethod.GET, MVCPageController))

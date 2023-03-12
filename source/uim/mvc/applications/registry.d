@@ -8,20 +8,20 @@ module uim.mvc.applications.registry;
 @safe:
 import uim.mvc;
 
-class DMVCApplicationRegistry : DRegistry!DMVCApplication {
+class DApplicationRegistry : DRegistry!DApplication {
   this() {}  
 
-  static DMVCApplicationRegistry registry; 
+  static DApplicationRegistry registry; 
 }
-auto MVCApplicationRegistry() { 
-  if (!DMVCApplicationRegistry.registry) {
-    DMVCApplicationRegistry.registry = new DMVCApplicationRegistry; 
+auto ApplicationRegistry() { 
+  if (!DApplicationRegistry.registry) {
+    DApplicationRegistry.registry = new DApplicationRegistry; 
   }
   return 
-    DMVCApplicationRegistry.registry;
+    DApplicationRegistry.registry;
 }
 
 version(test_uim_mvc) { unittest {
-  assert(MVCApplicationRegistry.register("mvc/test",  MVCApplication).paths == ["mvc/test"]);
-  assert(MVCApplicationRegistry.register("mvc/test2", MVCApplication).paths.length == 2);
+  assert(ApplicationRegistry.register("mvc/test",  Application).paths == ["mvc/test"]);
+  assert(ApplicationRegistry.register("mvc/test2", Application).paths.length == 2);
 }}

@@ -19,15 +19,26 @@ class DRoute : DMVCObject, IRoute {
   }
 
   mixin(OProperty!("string", "path"));
+  ///
+  unittest {
+    auto route = new DRoute;
+    assert(route.path("this/is/a/path").path == "this/is/a/path");  
+  }
+
   mixin(OProperty!("HTTPMethod", "method"));
+  ///
+  unittest {
+    auto route = new DRoute;
+    assert(route.method(HTTPMethod.GET).method == HTTPMethod.GET);  
+  }
+
   mixin(OProperty!("IController", "controller"));
+  ///
+  unittest {
+    IController controller = new DController("test");
+    auto route = new DRoute;
+    assert(route.controller(controller).controller.name == "test");  
+  }
 }
 auto Route() { return new DRoute; }
 auto Route(string aPath, HTTPMethod aMethod, IController aController) { return new DRoute(aPath, aMethod, aController); }
-
-version(test_uim_mvc) { unittest { 
-  assert(Route);
-  assert(Route("testPath", HTTPMethod.GET, Controller));
-  assert(Route("testPath", HTTPMethod.GET, MVCActionController));
-  assert(Route("testPath", HTTPMethod.GET, MVCPageController));
-}} 

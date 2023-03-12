@@ -95,7 +95,7 @@ DMVCSession[string] appSessions;
 DEntity[size_t] entityPool;
 DEntity[][size_t] entitiesPool;
 
-DMVCApplication thisServer;
+DApplication thisServer;
 
 size_t appErrorPrefix = 100000; 
 string[size_t] appErrorCodes; 

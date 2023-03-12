@@ -9,4 +9,7 @@ module uim.mvc.interfaces.route;
 import uim.mvc;
 
 interface IRoute : IMVCObject {
+	string path();
+  HTTPMethod method();
+  IController controller();
 }
