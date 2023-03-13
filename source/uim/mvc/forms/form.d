@@ -3,7 +3,7 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel (Sicherheitsschmiede)                                                      
 **********************************************************************************************************/
-module uim.mvc.views.forms.form;
+module uim.mvc.forms.form;
 
 @safe:
 import uim.mvc;
@@ -117,14 +117,14 @@ class DForm : DViewComponent {  // : IEventListener, IEventDispatcher, IAPPValid
 
     // #region Schema
         // The schema used by this form.
-        protected DAPPSchema _schema;
+        protected DFormSchema _schema;
         // Set the schema for this form.
-        O setSchema(this O)(DAPPSchema newSchema) {
+        O setSchema(this O)(DFormSchema newSchema) {
             _schema = newSchema;
             return cast(O)this; }
 
         // Get the schema for this form.
-        DAPPSchema getSchema() {
+        DFormSchema getSchema() {
         // all `_buildSchema()` when the schema
         /* * is first built. This hook method lets you configure the
         * schema or load a pre-defined one.
@@ -143,7 +143,7 @@ class DForm : DViewComponent {  // : IEventListener, IEventDispatcher, IAPPValid
         * is first built. This hook method lets you configure the
         * schema or load a pre-defined one.
         */
-        DAPPSchema schema(DAPPSchema schema = null) {
+        DFormSchema schema(DFormSchema schema = null) {
         /*         deprecationWarning("Form::schema() is deprecated. Use setSchema() and getSchema() instead.");
             if ($schema !== null) {
                 $this->setSchema($schema);

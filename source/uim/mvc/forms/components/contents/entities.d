@@ -3,7 +3,7 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel (Sicherheitsschmiede)                                                      
 **********************************************************************************************************/
-module uim.mvc.views.forms.components.contents.entities;
+module uim.mvc.forms.components.contents.entities;
 
 @safe:
 import uim.mvc;

@@ -9,16 +9,17 @@ module uim.mvc.views.forms;
 import uim.mvc;
 
 public { // Main
-	import uim.mvc.views.forms.form;
+	import uim.mvc.forms.form;
 }
 
 // Packages
-public import uim.mvc.views.forms.components;
-public import uim.mvc.views.forms.crud;
+public import uim.mvc.forms.components;
+public import uim.mvc.forms.crud;
+public import uim.mvc.forms.schemas;
 
 // Modules
-public import uim.mvc.views.forms.login;
-public import uim.mvc.views.forms.login2;
+public import uim.mvc.forms.login;
+public import uim.mvc.forms.login2;
 
 
 template FormThis(string name, bool withEntity = false, bool withEntities = false) {
