@@ -1,7 +1,7 @@
-module uim.apps.scripts.entities.delete_;
+module uim.mvc.scripts.entities.delete_;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 auto deleteEntity() {
   string result;

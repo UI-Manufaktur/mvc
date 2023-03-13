@@ -1,7 +1,7 @@
-module uim.apps.scripts.entities.create;
+module uim.mvc.scripts.entities.create;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 auto createEntity() {
   string result;

@@ -1,7 +1,7 @@
-module uim.apps.scripts.entities.edit;
+module uim.mvc.scripts.entities.edit;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 auto editEntity() {
   string result;

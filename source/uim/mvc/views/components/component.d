@@ -81,10 +81,10 @@ version(test_uim_mvc) { unittest {
 
 /*
 
-module uim.apps.views.components.component;
+module uim.mvc.views.components.component;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DViewComponent : DAPPBaseView {
   mixin(ViewComponentThis!"ViewComponent");
