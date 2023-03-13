@@ -1,4 +1,4 @@
-module uim.mvc.forms.schema;
+module uim.mvc.forms.schemas.schema;
 
 @safe:
 import uim.mvc;
