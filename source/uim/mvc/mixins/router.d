@@ -1,7 +1,7 @@
-module uim.apps.mixins.routers;
+module uim.mvc.mixins.router;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 template RouterFunction(string functionName, string controllerName, string appName, string content = "") {
   const char[] RouterFunction = `

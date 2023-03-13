@@ -1,14 +1,14 @@
-module uim.apps.mixins.actions;
+module uim.mvc.mixins.action;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
-string appActionView(string category, string className, string action, string initialize = "", string beforeH5 = "") {
+/* string appActionView(string category, string className, string action, string initialize = "", string beforeH5 = "") {
   string viewName = category~className~action~"View";
 
   return `
 class D`~viewName~` : DAPPEntity`~action~`View {
-  `~appViewThis(viewName, true)~`
+  `~viewThis(viewName, true)~`
 
 override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
@@ -24,9 +24,9 @@ override void initialize(DConfigurationValue configSettings = null) {
     `~beforeH5~`
   }
 }
-`~appViewCalls(viewName, true);
+`~viewCalls(viewName, true);
 }
 
 template APPActionView(string category, string className, string action, string initialize = "", string beforeH5 = "") {
   const char[] APPActionView = appActionView(category, className, action, initialize, beforeH5);
-}
+} */
