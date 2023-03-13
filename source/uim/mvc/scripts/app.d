@@ -1,7 +1,7 @@
-module uim.apps.scripts.app;
+module uim.mvc.scripts.app;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 auto app() {
   string result;

@@ -132,10 +132,10 @@ version(test_uim_mvc) unittest {
 }
 
 /*
-module uim.apps.object_;
+module uim.mvc.object_;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DAPPObject {
   this() {

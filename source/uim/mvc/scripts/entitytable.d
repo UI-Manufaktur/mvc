@@ -1,7 +1,7 @@
-module uim.apps.scripts.entitytable;
+module uim.mvc.scripts.entitytable;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 auto entityTableRow() {
   return 

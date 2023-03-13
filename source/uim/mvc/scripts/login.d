@@ -1,7 +1,7 @@
-module uim.apps.scripts.login;
+module uim.mvc.scripts.login;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 auto login() {
   return 

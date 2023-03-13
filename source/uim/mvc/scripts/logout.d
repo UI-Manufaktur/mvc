@@ -1,7 +1,7 @@
-module uim.apps.scripts.logout;
+module uim.mvc.scripts.logout;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 auto logout() {
   return "

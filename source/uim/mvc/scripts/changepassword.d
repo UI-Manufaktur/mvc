@@ -1,7 +1,7 @@
-module uim.apps.scripts.changepassword;
+module uim.mvc.scripts.changepassword;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 auto changePassword() {
   return 

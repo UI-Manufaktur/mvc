@@ -3,10 +3,10 @@
 *	License: Licensed under Apache 2 [https://apache.org/licenses/LICENSE-2.0.txt]                                       *
 *	Authors: UI Manufaktur UG Team, Ozan Nurettin Süel (Sicherheitsschmiede)										                         * 
 ***********************************************************************************************************************/
-module uim.apps.modules;
+module uim.mvc.modules;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 void modules(HTTPServerRequest req, HTTPServerResponse res) { 
 	string content = `import App from '/`~req.params["source"].replace("_", "/")~`/`~req.params["file"].replace("_", ".")~`';new Vue({render: h => h(App),}).$mount('#app');`;

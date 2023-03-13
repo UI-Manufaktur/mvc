@@ -108,10 +108,10 @@ version(test_uim_mvc) unittest {
 
 /*
 
-module uim.apps.applications.application;
+module uim.mvc.applications.application;
 
 @safe:
-import uim.apps;
+import uim.mvc;
 
 class DAPPApplication {
   this() { 
