@@ -196,5 +196,3 @@ auto APPUIM(string aName) { return APPUIM.name(aName); }
 auto APPUIM(string aName, string aRootPath) { return APPUIM(aName).rootPath(aRootPath); }
 
  */
-
-*/
