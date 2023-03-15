@@ -60,7 +60,8 @@ class DApplication : DMVCObject, IApplication {
 
       _routes[newRoute.path] = routesAtPath;
 
-      if (auto controller = newRoute.controller) controller.application(this);
+      if (auto controller = cast(DController)newRoute.controller) { // Get Controller
+        controller.application(this); } // Set applications
     }
     return cast(O)this; }
 
@@ -96,13 +97,13 @@ class DApplication : DMVCObject, IApplication {
 }
 auto Application() { return new DApplication; }
 
-version(test_uim_mvc) unittest {
+unittest {
   assert(
     Application
-      .addRoute(Route("ecm/index", HTTPMethod.GET, MVCPageController))
-      .addRoute(Route("ecm/documents", HTTPMethod.GET, MVCPageController))
-      .addRoute(Route("ecm/folders", HTTPMethod.GET, MVCPageController))
-      .addRoute(Route("ecm/workspaces", HTTPMethod.GET, MVCPageController))
+      .addRoute(Route("ecm/index", HTTPMethod.GET, PageController))
+      .addRoute(Route("ecm/documents", HTTPMethod.GET, PageController))
+      .addRoute(Route("ecm/folders", HTTPMethod.GET, PageController))
+      .addRoute(Route("ecm/workspaces", HTTPMethod.GET, PageController))
   );
 }
 

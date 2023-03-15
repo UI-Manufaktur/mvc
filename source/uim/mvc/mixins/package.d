@@ -27,3 +27,38 @@ template MVCParameter(string name) {
     }
   `;
 }
+
+mixin template ImportUimBase() {
+  public import uim.core;
+  public import uim.oop;
+  public import uim.models;
+  public import uim.jsonbase;
+  public import uim.entitybase;
+}
+
+template ImportUimMvc() {
+  public import uim.mvc;
+  public import uim.mvc.base;
+  public import uim.mvc.applications; 
+  public import uim.mvc.authentications;
+  public import uim.mvc.caches;
+  public import uim.mvc.collections;
+  public import uim.mvc.commands;
+  public import uim.mvc.consoles; 
+  public import uim.mvc.containers;
+  public import uim.mvc.controllers; 
+  public import uim.mvc.helpers;
+  public import uim.mvc.entities;
+  public import uim.mvc.interfaces;
+  public import uim.mvc.javascripts;
+  public import uim.mvc.layouts;
+  public import uim.mvc.mixins;
+  public import uim.mvc.models;
+  public import uim.mvc.requests;
+  public import uim.mvc.routers;
+  public import uim.mvc.routes;
+  public import uim.mvc.security;
+  public import uim.mvc.sessions; 
+  public import uim.mvc.tests;
+  public import uim.mvc.views;
+}

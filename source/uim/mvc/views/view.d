@@ -68,7 +68,7 @@ class DView : DMVCObject, IView {
   protected string _pluginName;
 
   void beforeH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DAPPBaseView~":DAPPBaseView("~this.name~")::beforeH5");
+    debugMethodCall(moduleName!DView~":DView("~this.name~")::beforeH5");
     // init
     _error = null; // Delete last error
   }
@@ -114,7 +114,7 @@ version(test_uim_mvc) { unittest {
 
 /*
 
-class DView : DAPPBaseView, IEventDispatcher {
+class DView : DView, IEventDispatcher {
   mixin(ViewThis!("View"));
 
   // Initialization (= hook method)
