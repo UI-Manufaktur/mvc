@@ -17,11 +17,6 @@ public import uim.mvc.forms.components;
 public import uim.mvc.forms.crud;
 public import uim.mvc.forms.schemas;
 
-// Modules
-public import uim.mvc.forms.login;
-public import uim.mvc.forms.login2;
-
-
 template FormThis(string name, bool withEntity = false, bool withEntities = false) {
   const char[] FormThis = `
 this() { super(); this.name("`~name~`"); initialize; }

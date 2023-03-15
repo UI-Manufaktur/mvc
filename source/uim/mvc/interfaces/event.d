@@ -4,9 +4,6 @@ module uim.mvc.interfaces.event;
 import uim.mvc;
 
 interface IEvent : IMVCObject {
-  // Returns the name of this event. This is usually used as the event identifier.
-    string name();
-
     // TODO datatype
     // Returns the subject of this event.
     // "auto" getSubject();
