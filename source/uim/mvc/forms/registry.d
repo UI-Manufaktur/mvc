@@ -3,19 +3,25 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel (Sicherheitsschmiede)                                                      
 **********************************************************************************************************/
-module uim.mvc.commands;
+module uim.mvc.forms.registry;
 
 @safe:
 import uim.mvc;
 
-// Main
-public import uim.mvc.commands.collection;
-public import uim.mvc.commands.command;
-public import uim.mvc.commands.registry;
+class DFormRegistry : DRegistry!DForm{
+  this() {}
 
-// Additional
-public import uim.mvc.commands.caches;
-public import uim.mvc.commands.factories;
-public import uim.mvc.commands.i18ns;
-public import uim.mvc.commands.plugins;
+  static DFormRegistry registry; 
+}
+auto FormRegistry() { 
+  if (!DFormRegistry.registry) {
+    DFormRegistry.registry = new DFormRegistry; 
+  }
+  return 
+    DFormRegistry.registry;
+}
 
+version(test_uim_mvc) { unittest {
+  assert(FormRegistry.register("mvc/form",  Form).paths == ["mvc/form"]);
+  assert(FormRegistry.register("mvc/form2", Form).paths.length == 2);
+}}

@@ -3,19 +3,25 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel (Sicherheitsschmiede)                                                      
 **********************************************************************************************************/
-module uim.mvc.commands;
+module uim.mvc.consoles.registry;
 
 @safe:
 import uim.mvc;
 
-// Main
-public import uim.mvc.commands.collection;
-public import uim.mvc.commands.command;
-public import uim.mvc.commands.registry;
+class DConsoleRegistry : DRegistry!DConsole{
+  this() {}
 
-// Additional
-public import uim.mvc.commands.caches;
-public import uim.mvc.commands.factories;
-public import uim.mvc.commands.i18ns;
-public import uim.mvc.commands.plugins;
+  static DConsoleRegistry registry; 
+}
+auto ConsoleRegistry() { 
+  if (!DConsoleRegistry.registry) {
+    DConsoleRegistry.registry = new DConsoleRegistry; 
+  }
+  return 
+    DConsoleRegistry.registry;
+}
 
+version(test_uim_mvc) { unittest {
+  assert(ConsoleRegistry.register("mvc/console",  Console).paths == ["mvc/console"]);
+  assert(ConsoleRegistry.register("mvc/console2", Console).paths.length == 2);
+}}

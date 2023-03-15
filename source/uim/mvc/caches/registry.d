@@ -3,19 +3,25 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel (Sicherheitsschmiede)                                                      
 **********************************************************************************************************/
-module uim.mvc.commands;
+module uim.mvc.caches.registry;
 
 @safe:
 import uim.mvc;
 
-// Main
-public import uim.mvc.commands.collection;
-public import uim.mvc.commands.command;
-public import uim.mvc.commands.registry;
+class DCacheRegistry : DRegistry!DCache{
+  this() {}
 
-// Additional
-public import uim.mvc.commands.caches;
-public import uim.mvc.commands.factories;
-public import uim.mvc.commands.i18ns;
-public import uim.mvc.commands.plugins;
+  static DCacheRegistry registry; 
+}
+auto CacheRegistry() { 
+  if (!DCacheRegistry.registry) {
+    DCacheRegistry.registry = new DCacheRegistry; 
+  }
+  return 
+    DCacheRegistry.registry;
+}
 
+version(test_uim_mvc) { unittest {
+  assert(CacheRegistry.register("mvc/cache",  Cache).paths == ["mvc/cache"]);
+  assert(CacheRegistry.register("mvc/cache2", Cache).paths.length == 2);
+}}

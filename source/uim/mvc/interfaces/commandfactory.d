@@ -1,4 +1,4 @@
-module uim.mvc.interfaces.collection;
+module uim.mvc.interfaces.commandfactory;
 
 @safe:
 import uim.mvc;

@@ -10,6 +10,7 @@ import uim.mvc;
 
 public { // Main
 	import uim.mvc.forms.form;
+	import uim.mvc.forms.registry;
 }
 
 // Packages

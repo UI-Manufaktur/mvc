@@ -6,3 +6,4 @@
 module uim.mvc.caches;
 
 public import uim.mvc.caches.cache;
+public import uim.mvc.caches.registry;
