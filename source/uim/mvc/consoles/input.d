@@ -8,6 +8,6 @@ module uim.mvc.consoles.input;
 @safe:
 import uim.mvc;
 
-class DAPPConsoleInput {
+class DConsoleInput {
   this() {}
 }

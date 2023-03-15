@@ -4,5 +4,5 @@ module uim.mvc.interfaces.cache;
 import uim.mvc;
 
 interface ICache : IMVCObject {
-  
+
 }

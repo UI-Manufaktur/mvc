@@ -34,5 +34,5 @@ interface IAPPCommand {
      * io = The console io
      * return = Exit code or null for success.
      */
-    int run(STRINGAA arguments, DAPPConsoleIO io);
+    int run(STRINGAA arguments, DConsoleIO io);
 }

@@ -9,8 +9,12 @@ module uim.mvc.commands;
 import uim.mvc;
 
 // Main
+public import uim.mvc.commands.collection;
 public import uim.mvc.commands.command;
 
 // Additional
 public import uim.mvc.commands.caches;
+public import uim.mvc.commands.factories;
+public import uim.mvc.commands.i18ns;
+public import uim.mvc.commands.plugins;
 

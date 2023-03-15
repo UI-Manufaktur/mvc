@@ -8,7 +8,7 @@ module uim.mvc.consoles.io;
 @safe:
 import uim.mvc;
 
-class DAPPConsoleIO {
+class DConsoleIO {
     // Output constant making verbose shells.
     static const int VERBOSE = 2;
 
@@ -19,13 +19,13 @@ class DAPPConsoleIO {
     static const int QUIET = 0;
 
     // The output stream
-    protected DAPPConsoleOutput _out;
+    protected DConsoleOutput _out;
 
     // The error stream
-    protected DAPPConsoleOutput _err;
+    protected DConsoleOutput _err;
 
     // The input stream
-    protected DAPPConsoleInput _in;
+    protected DConsoleInput _in;
 
     /**
      * The helper registry.
