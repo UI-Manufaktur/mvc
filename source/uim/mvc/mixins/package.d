@@ -9,6 +9,7 @@ public import uim.mvc.mixins.action;
 public import uim.mvc.mixins.base;
 public import uim.mvc.mixins.controller;
 public import uim.mvc.mixins.controllercomponent;
+public import uim.mvc.mixins.imports;
 public import uim.mvc.mixins.layout;
 public import uim.mvc.mixins.model;
 public import uim.mvc.mixins.page;
