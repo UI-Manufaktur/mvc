@@ -8,6 +8,6 @@ module uim.mvc.caches.cache;
 @safe:
 import uim.mvc;
 
-class DMVCCache {
+class DMVCCache : ICache {
   this() {}
 }

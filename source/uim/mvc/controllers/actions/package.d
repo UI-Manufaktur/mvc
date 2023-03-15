@@ -12,8 +12,6 @@ public { // Subclasses
 	import uim.mvc.controllers.actions.create;
 	import uim.mvc.controllers.actions.entities;
 	import uim.mvc.controllers.actions.entity;
-	import uim.mvc.controllers.actions.login;
-	import uim.mvc.controllers.actions.login2;
 	import uim.mvc.controllers.actions.setsite;
 	import uim.mvc.controllers.actions.system;
 }

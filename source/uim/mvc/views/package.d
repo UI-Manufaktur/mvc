@@ -16,11 +16,6 @@ public import uim.mvc.views.xml;
 public import uim.mvc.views.block;
 public import uim.mvc.views.entities;
 public import uim.mvc.views.entity;
-public import uim.mvc.views.login;
-public import uim.mvc.views.login2;
-public import uim.mvc.views.logout;
-public import uim.mvc.views.lostaccount;
-public import uim.mvc.views.lostpw;
 public import uim.mvc.views.null_;
 public import uim.mvc.views.sites;
 

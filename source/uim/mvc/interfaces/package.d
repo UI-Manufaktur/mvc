@@ -12,6 +12,7 @@ public {
   import uim.mvc.interfaces.cache;
   import uim.mvc.interfaces.collection;
   import uim.mvc.interfaces.command;
+  import uim.mvc.interfaces.commandfactory;
   import uim.mvc.interfaces.console;
   import uim.mvc.interfaces.container;
   import uim.mvc.interfaces.controller;
