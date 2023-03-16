@@ -1,12 +1,13 @@
 /*********************************************************************************************************
 	Copyright: © 2015-2023 Ozan Nurettin Süel (Sicherheitsschmiede)                                        
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
-	Authors: Ozan Nurettin Süel (Sicherheitsschmiede)                                                      
+	Authors: Ozan Nurettin Süel, mailto:ons@sicherheitsschmiede.de                                                      
 **********************************************************************************************************/
 module uim.mvc.mixins;
 
 public import uim.mvc.mixins.action;
 public import uim.mvc.mixins.base;
+public import uim.mvc.mixins.console;
 public import uim.mvc.mixins.controller;
 public import uim.mvc.mixins.controllercomponent;
 public import uim.mvc.mixins.imports;
