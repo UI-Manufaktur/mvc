@@ -327,12 +327,12 @@ class DForm : DViewComponent {  // : IEventListener, IEventDispatcher, IAPPValid
     super.toH5(options);
     
     DBS5Col _col = BS5Col(["col-12"]);
-    _col(
+    /* _col(
       H5Form(this.id, ["card"], ["method":method, "action":action], 
         this.header.toH5(options)~
         this.content.toH5(options)~
         this.footer.toH5(options)
-      ));
+      )); */
     
     return [_col].toH5;
   }  

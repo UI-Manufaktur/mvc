@@ -3,7 +3,10 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel, mailto:ons@sicherheitsschmiede.de                                                      
 **********************************************************************************************************/
-module uim.mvc.routes;
+module uim.mvc.interfaces.widget;
 
-public import uim.mvc.routes.builder;
-public import uim.mvc.routes.route;
+@safe:
+import uim.mvc;
+
+interface isValidalidator {
+}

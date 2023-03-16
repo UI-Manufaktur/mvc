@@ -27,8 +27,11 @@ public {
   import uim.mvc.interfaces.page;
   import uim.mvc.interfaces.request;
   import uim.mvc.interfaces.route;
+  import uim.mvc.interfaces.routebuilder;
+  import uim.mvc.interfaces.validator;
   import uim.mvc.interfaces.view;
   import uim.mvc.interfaces.viewcomponent;
+  import uim.mvc.interfaces.widget;
 }
 /* interface IAPPWithEntities {  
   @property DEntity[] entities();

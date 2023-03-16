@@ -3,7 +3,19 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel, mailto:ons@sicherheitsschmiede.de                                                      
 **********************************************************************************************************/
-module uim.mvc.routes;
+module uim.mvc.interfaces.route;
 
-public import uim.mvc.routes.builder;
-public import uim.mvc.routes.route;
+@safe:
+import uim.mvc;
+
+// Interface for applications that use routing.
+interface IRoutingApplication {
+    /**
+     * Define the routes for an application.
+     *
+     * Use the provided RouteBuilder to define an application"s routing.
+     *
+     * routesBuilder $routes A route builder to add routes into.
+     */
+    void routes(DRouteBuilder routeBuilder);
+}
