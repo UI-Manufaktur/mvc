@@ -1,15 +1,15 @@
 /*********************************************************************************************************
 	Copyright: © 2015-2023 Ozan Nurettin Süel (Sicherheitsschmiede)                                        
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
-	Authors: Ozan Nurettin Süel (Sicherheitsschmiede)                                                      
+	Authors: Ozan Nurettin Süel, mailto:ons@sicherheitsschmiede.de                                                      
 **********************************************************************************************************/
 module uim.mvc.consoles.output;
 
 @safe:
 import uim.mvc;
 
-class DConsoleOutput {
-	mixin(ConsoleThis("ConsoleOutput"));
+class DOutputConsole : DConsole {
+	mixin(ConsoleThis!("OutputConsole"));
 	
 	// Raw output constant - no modification of output text.
   const int RAW = 0;
@@ -32,3 +32,4 @@ class DConsoleOutput {
     "white": 37,
   ];
 }
+mixin(ConsoleCalls!("OutputConsole"));
