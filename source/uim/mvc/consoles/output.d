@@ -20,16 +20,22 @@ class DOutputConsole : DConsole {
   // Color output - Convert known tags in to ANSI color escape codes.
   const int COLOR = 2;
 
-// text colors used in colored output.
-  protected static int[string] _foregroundColors = [
-    "black": 30,
-    "red": 31,
-    "green": 32,
-    "yellow": 33,
-    "blue": 34,
-    "magenta": 35,
-    "cyan": 36,
-    "white": 37,
-  ];
+  // text colors used in colored output.
+  protected static int[string] _foregroundColors;
+    
+  override void initialize(Json configSettings = Json(null)) {
+    super.initialize(configSettings);
+
+    _foregroundColors = [
+      "black": 30,
+      "red": 31,
+      "green": 32,
+      "yellow": 33,
+      "blue": 34,
+      "magenta": 35,
+      "cyan": 36,
+      "white": 37,
+    ];
+  }
 }
 mixin(ConsoleCalls!("OutputConsole"));

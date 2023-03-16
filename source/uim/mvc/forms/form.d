@@ -46,7 +46,7 @@ class DForm : DViewComponent {  // : IEventListener, IEventDispatcher, IAPPValid
     this
       .id(name~"_"~to!string(uniform(0, 100_000)))
       .header(FormHeader)
-      .content(EntityFormContent)
+      .content(FormContent)
       .crudMode(CRUDModes.Read)
       .method("post");
   

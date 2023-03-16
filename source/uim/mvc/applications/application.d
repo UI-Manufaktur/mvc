@@ -9,7 +9,7 @@ module uim.mvc.applications.application;
 import uim.mvc;
 
 class DApplication : DMVCObject, IApplication { 
-  this() { initialize; }
+  this() { super(); }
 
   override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);

@@ -18,7 +18,6 @@ public { // uim libraries
 public import uim.mvc.base;
 public import uim.mvc.applications; 
 public import uim.mvc.authentications;
-public import uim.mvc.caches;
 public import uim.mvc.collections;
 public import uim.mvc.commands;
 public import uim.mvc.consoles; 
