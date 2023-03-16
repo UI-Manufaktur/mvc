@@ -1,14 +1,14 @@
 /*********************************************************************************************************
 	Copyright: © 2015-2023 Ozan Nurettin Süel (Sicherheitsschmiede)                                        
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
-	Authors: Ozan Nurettin Süel (Sicherheitsschmiede)                                                      
+	Authors: Ozan Nurettin Süel, mailto:ons@sicherheitsschmiede.de                                                      
 **********************************************************************************************************/
 module uim.mvc.consoles.io;
 
 @safe:
 import uim.mvc;
 
-class DConsoleIO {
+class DConsoleIo {
     // Output constant making verbose shells.
     static const int VERBOSE = 2;
 
@@ -19,10 +19,10 @@ class DConsoleIO {
     static const int QUIET = 0;
 
     // The output stream
-    protected DConsoleOutput _out;
+    protected DOutputConsole _out;
 
     // The error stream
-    protected DConsoleOutput _err;
+    protected DOutputConsole _err;
 
     // The input stream
     protected DConsoleInput _in;
@@ -51,19 +51,19 @@ class DConsoleIO {
     /**
      * Constructor
      *
-     * @param \Cake\Console\ConsoleOutput|null out A ConsoleOutput object for stdout.
-     * @param \Cake\Console\ConsoleOutput|null err A ConsoleOutput object for stderr.
+     * @param \Cake\Console\OutputConsole|null out A OutputConsole object for stdout.
+     * @param \Cake\Console\OutputConsole|null err A OutputConsole object for stderr.
      * @param \Cake\Console\ConsoleInput|null in A ConsoleInput object for stdin.
      * @param \Cake\Console\HelperRegistry|null helpers A HelperRegistry instance
     * /
     this(
-        ConsoleOutput out = null,
-        ConsoleOutput err = null,
+        OutputConsole out = null,
+        OutputConsole err = null,
         ConsoleInput in = null,
         HelperRegistry helpers = null
     ) {
-/*         _out = out ? out : new ConsoleOutput('php://stdout');
-        _err = err ? err: new ConsoleOutput('php://stderr');
+/*         _out = out ? out : new OutputConsole('php://stdout');
+        _err = err ? err: new OutputConsole('php://stderr');
         _in = in ? in : new ConsoleInput('php://stdin');
         _helpers = helpers ? helpers: new HelperRegistry();
         _helpers->setIo(this);* /
@@ -315,7 +315,7 @@ class DConsoleIO {
     * /
     public function nl(int multiplier = 1): string
     {
-        return str_repeat(ConsoleOutput::LF, multiplier);
+        return str_repeat(OutputConsole::LF, multiplier);
     }
 
     /**
@@ -349,7 +349,7 @@ class DConsoleIO {
      *
      * @param int mode The output mode.
      * @return void
-     * @see \Cake\Console\ConsoleOutput::setOutputAs()
+     * @see \Cake\Console\OutputConsole::setOutputAs()
     * /
     public function setOutputAs(int mode): void
     {
@@ -360,7 +360,7 @@ class DConsoleIO {
      * Gets defined styles.
      *
      * @return array
-     * @see \Cake\Console\ConsoleOutput::styles()
+     * @see \Cake\Console\OutputConsole::styles()
     * /
     public function styles(): array
     {
@@ -372,7 +372,7 @@ class DConsoleIO {
      *
      * @param string style The style to get.
      * @return array
-     * @see \Cake\Console\ConsoleOutput::getStyle()
+     * @see \Cake\Console\OutputConsole::getStyle()
     * /
     public function getStyle(string style): array
     {
@@ -385,7 +385,7 @@ class DConsoleIO {
      * @param string style The style to set.
      * @param array definition The array definition of the style to change or create.
      * @return void
-     * @see \Cake\Console\ConsoleOutput::setStyle()
+     * @see \Cake\Console\OutputConsole::setStyle()
     * /
     public function setStyle(string style, array definition): void
     {
