@@ -232,7 +232,7 @@ auto hasAllKey(Json parameters, string[] keys) {
   return true;
 }
 
-/* DAPPViewRegistry uimViewRegistry;
+/* DViewRegistry uimViewRegistry;
 static this() {
   uimViewRegistry = ViewRegistry;
 } */
