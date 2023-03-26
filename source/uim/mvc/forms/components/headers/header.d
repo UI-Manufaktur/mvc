@@ -12,7 +12,7 @@ class DFormHeader : DFormComponent {
   mixin(ViewComponentThis!("FormHeader"));
 
   override void initialize(Json configSettings = Json(null)) {
-    version(test_uim_mvc) { debugMethodCall(moduleName!DFormHeader~"::DFormHeader("~this.name~"):initialize"); }  
+    version(test_uim_mvc) { debugMethodCall(moduleName!DFormHeader~"::DFormHeader("~this.className~"):initialize"); }  
     super.initialize(configSettings);
     version(test_uim_mvc) { debug writeln("In ", __MODULE__, "/", __LINE__); }
 

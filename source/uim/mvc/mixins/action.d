@@ -12,7 +12,7 @@ class D`~viewName~` : DAPPEntity`~action~`View {
 
 override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
-    debugMethodCall(moduleName!D`~viewName~`~"::D`~viewName~`("~this.name~"):initialize");   
+    debugMethodCall(moduleName!D`~viewName~`~"::D`~viewName~`("~this.className~"):initialize");   
     super.initialize;
     `~initialize~`
   }

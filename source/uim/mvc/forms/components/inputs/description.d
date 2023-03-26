@@ -12,7 +12,7 @@ class DMVCDescriptionFormInput : DMVCTextAreaFormInput {
   mixin(ViewComponentThis!("MVCDescriptionFormInput"));
 
   override void initialize(Json configSettings = Json(null)) {
-    version(test_uim_mvc) { debugMethodCall(moduleName!DMVCDescriptionFormInput~"::DMVCDescriptionFormInput("~this.name~"):initialize"); }
+    version(test_uim_mvc) { debugMethodCall(moduleName!DMVCDescriptionFormInput~"::DMVCDescriptionFormInput("~this.className~"):initialize"); }
     super.initialize(configSettings);
      
     this

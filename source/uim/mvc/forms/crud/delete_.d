@@ -12,7 +12,7 @@ class DMVCDeleteForm : DEntityForm {
   mixin(ViewComponentThis!("MVCDeleteForm"));
 
   override void initialize(Json configSettings = Json(null)) {
-    version(test_uim_mvc) { debugMethodCall(moduleName!DMVCDeleteForm~"::DMVCDeleteForm("~this.name~"):initialize"); }
+    version(test_uim_mvc) { debugMethodCall(moduleName!DMVCDeleteForm~"::DMVCDeleteForm("~this.className~"):initialize"); }
     super.initialize(configSettings);
 
     this
