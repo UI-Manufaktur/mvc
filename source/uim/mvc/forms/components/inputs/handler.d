@@ -8,7 +8,7 @@ module uim.mvc.forms.components.inputs.handler;
 @safe:
 import uim.mvc;
 
-class DFormInputHandler : DEntityFormContent {
+class DFormInputHandler : DFormComponent {
   mixin(ViewComponentThis!("FormInputHandler"));
 
   mixin(OProperty!("DFormInput[string]", "formInputs"));
@@ -18,13 +18,15 @@ class DFormInputHandler : DEntityFormContent {
   }
 
   override void initialize(Json configSettings = Json(null)) {
+    version(test_uim_mvc) { debugMethodCall(moduleName!DFormInputHandler~"::DFormInputHandler("~this.name~"):initialize"); }
     super.initialize(configSettings);
 
     this
       .formInputs([
         "name": MVCNameFormInput, 
         "display": MVCDisplayFormInput, 
-        "description": MVCDescriptionFormInput]);
+        "description": MVCDescriptionFormInput
+      ]);
   } 
 
 /*   override void _afterSetForm() {
@@ -36,8 +38,8 @@ class DFormInputHandler : DEntityFormContent {
   } */
 
   DH5Obj[] group(string field, bool readonly, STRINGAA options = null) {
-    debug writeln(moduleName!DFormInputHandler, ":DFormInputHandler::group");
-    debug writeln("CrudMode:", this.crudMode);
+    version(test_uim_mvc) { debugMethodCall(moduleName!DFormInputHandler, ":DFormInputHandler::group"); }
+    version(test_uim_mvc) { debugMethodCall("--> CrudMode:", this.crudMode); }
 
 /*     foreach(key, formInput; formInputs) {
       if (formInput) formInput.form(this.form);

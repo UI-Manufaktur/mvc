@@ -7,6 +7,7 @@ class DViewComponent : DMVCObject, IViewComponent {
   mixin(ViewComponentThis!("ViewComponent"));
 
   override void initialize(Json configSettings = Json(null)) {
+    debugMethodCall(moduleName!DViewComponent~":DViewComponent("~this.name~")::initialize");
     super.initialize(configSettings);
 
     this
@@ -39,30 +40,34 @@ class DViewComponent : DMVCObject, IViewComponent {
   mixin(OProperty!("string[string]", "attributes"));
 
   void beforeH5(STRINGAA options = null) {
+    version(test_uim_mvc) { debugMethodCall(moduleName!DViewComponent~":DViewComponent("~this.name~")::beforeH5"); }
     // 
   }
 
   void afterH5(STRINGAA options = null) {
-    // 
+    version(test_uim_mvc) { debugMethodCall(moduleName!DViewComponent~":DViewComponent("~this.name~")::beforeH5"); }
   }
 
   DH5Obj[] toH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DView~":DView("~this.name~")::toH5");
+    version(test_uim_mvc) { debugMethodCall(moduleName!DViewComponent~":DViewComponent("~this.name~")::toH5"); }
+
     beforeH5(options);
     DH5Obj[] result;     
     afterH5(options);  
+
     return result;
   }
 
   void beforeRender(STRINGAA options = null) {
-    // 
+    debugMethodCall(moduleName!DViewComponent~":DViewComponent("~this.name~")::beforeRender");
   }
 
   void afterRender(STRINGAA options = null) {
-    // 
+    debugMethodCall(moduleName!DViewComponent~":DViewComponent("~this.name~")::afterRender");
   }
 
   string render(STRINGAA options = null) {
+    debugMethodCall(moduleName!DViewComponent~":DViewComponent("~this.name~")::render");
     beforeRender(options);
     auto result = toH5(options).toString;
     afterRender(options);

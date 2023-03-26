@@ -12,7 +12,7 @@ class DFormComponent : DViewComponent {
   mixin(ViewComponentThis!("FormComponent"));
 
   override void initialize(Json configSettings = Json(null)) {
-    version(test_uim_mvc) { debugMethodCall(moduleName!DFormComponent~"::DFormComponent("~this.name~"):initialize"); }  
+    debugMethodCall(moduleName!DFormComponent~"::DFormComponent("~this.name~"):initialize");  
     super.initialize(configSettings);
 
     debug writeln("In ", __MODULE__, "/", __LINE__);

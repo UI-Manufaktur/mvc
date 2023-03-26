@@ -12,6 +12,7 @@ class DMVCCreateForm : DEntityForm {
   mixin(ViewComponentThis!("MVCCreateForm"));
 
   override void initialize(Json configSettings = Json(null)) {
+    version(test_uim_mvc) { debugMethodCall(moduleName!DMVCCreateForm~"::DMVCCreateForm("~this.name~"):initialize"); }
     super.initialize(configSettings);
 
     this

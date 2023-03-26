@@ -10,7 +10,7 @@ class DMVCEntityViewComponent : DViewComponent {
   mixin(OProperty!("CRUDModes", "crudMode"));
 
   override void beforeH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DMVCEntityViewComponent~":DMVCEntityViewComponent("~this.name~")::beforeH5");
+    version(test_uim_mvc) { debugMethodCall(moduleName!DMVCEntityViewComponent~":DMVCEntityViewComponent("~this.name~")::beforeH5"); }
     super.beforeH5(options);
   }
 }

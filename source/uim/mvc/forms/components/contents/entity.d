@@ -12,14 +12,14 @@ class DEntityFormContent : DFormContent {
   mixin(ViewComponentThis!("EntityFormContent"));
 
   override void initialize(Json configSettings = Json(null)) {
-    debugMethodCall(moduleName!DEntityFormContent~"::DEntityFormContent("~this.name~"):initialize");   
+    version(test_uim_mvc) { debugMethodCall(moduleName!DEntityFormContent~"::DEntityFormContent("~this.name~"):initialize"); }
     super.initialize(configSettings);
 
     this
-    .id("FormContent_%s".format(uniform(1, 1_000)))
-    .crudMode(CRUDModes.Create)
-    .fields(["name", "display", "description"])
-    .inputHandler(FormInputHandler(/* this.form */));   
+      .id("FormContent_%s".format(uniform(1, 1_000)))
+      .crudMode(CRUDModes.Create)
+      .fields(["name", "display", "description"])
+      .inputHandler(FormInputHandler(/* this.form */));
   }
 
   // mixin(OProperty!("DEntity", "entity"));
@@ -100,6 +100,7 @@ class DEntityFormContent : DFormContent {
 }
 mixin(ViewComponentCalls!("EntityFormContent", "DEntityFormContent"));
 
-version(test_uim_mvc) { unittest {
-  assert(EntityFormContent);
-}}
+///
+unittest {
+  auto formContent = new DEntityFormContent;
+}
