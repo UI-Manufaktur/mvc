@@ -12,7 +12,7 @@ class DEntityFormContent : DFormContent {
   mixin(ViewComponentThis!("EntityFormContent"));
 
   override void initialize(Json configSettings = Json(null)) {
-    version(test_uim_mvc) { debugMethodCall(moduleName!DEntityFormContent~"::DEntityFormContent("~this.name~"):initialize"); }
+    version(test_uim_mvc) { debugMethodCall(moduleName!DEntityFormContent~"::DEntityFormContent("~this.className~"):initialize"); }
     super.initialize(configSettings);
 
     this

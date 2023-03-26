@@ -22,7 +22,7 @@ class DController : DMVCObject, IController  {
 
   // Initialization (= hook method)
   override void initialize(Json configSettings = Json(null)) {
-    version(test_uim_mvc) { debugMethodCall(moduleName!DController~"::DController("~this.name~"):initialize"); }  
+    version(test_uim_mvc) { debugMethodCall(moduleName!DController~"::DController("~this.className~"):initialize"); }  
     super.initialize(configSettings);
 
     _autoRender = true;

@@ -14,7 +14,7 @@ class DTableFormContent : DMVCEntitiesViewComponent {
   mixin(OProperty!("DViewComponent", "row"));
 
   override void initialize(Json configSettings = Json(null)) {
-    version(test_uim_mvc) { debugMethodCall(moduleName!DTableFormContent~"::DTableFormContent("~this.name~"):initialize"); }
+    version(test_uim_mvc) { debugMethodCall(moduleName!DTableFormContent~"::DTableFormContent("~this.className~"):initialize"); }
     super.initialize(configSettings);
   }
 }

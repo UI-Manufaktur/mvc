@@ -14,7 +14,7 @@ class DPageController : DController, IPageController {
   // Initialization (= hook method)
   override void initialize(Json configSettings = Json(null)) {
     version(test_uim_mvc) { 
-      debugMethodCall(moduleName!DPageController~"::DPageController("~this.name~"):initialize");   
+      debugMethodCall(moduleName!DPageController~"::DPageController("~this.className~"):initialize");   
     }
     super.initialize(configSettings);
 
