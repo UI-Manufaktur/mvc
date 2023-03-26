@@ -18,7 +18,7 @@ class DRouteBuilder : DMVCObject, IRouteBuilder {
       "index": ["action": "index", "method": "GET", "path": ""],
       "create": ["action": "add", "method": "POST", "path": ""],
       "view": ["action": "view", "method": "GET", "path": "{id}"],
-      "update": ["action": "edit", "method": ["PUT", "PATCH"], "path": "{id}"],
+      "update": ["action": "edit", "method": "PUT,PATCH", "path": "{id}"],
       "delete": ["action": "delete", "method": "DELETE", "path": "{id}"],
     ];
   }

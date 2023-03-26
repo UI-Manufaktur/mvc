@@ -15,6 +15,7 @@ public {
   import uim.mvc.interfaces.commandfactory;
   import uim.mvc.interfaces.console;
   import uim.mvc.interfaces.container;
+  import uim.mvc.interfaces.context;
   import uim.mvc.interfaces.controller;
   import uim.mvc.interfaces.controllercomponent;
   import uim.mvc.interfaces.event;
@@ -28,6 +29,8 @@ public {
   import uim.mvc.interfaces.request;
   import uim.mvc.interfaces.route;
   import uim.mvc.interfaces.routebuilder;
+  import uim.mvc.interfaces.routecollection;
+  import uim.mvc.interfaces.routingapplication;
   import uim.mvc.interfaces.validator;
   import uim.mvc.interfaces.view;
   import uim.mvc.interfaces.viewcomponent;
