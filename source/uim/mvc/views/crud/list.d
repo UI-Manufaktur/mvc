@@ -17,7 +17,7 @@ class DAPPEntitiesListView : DEntitiesView {
   
 override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
-    debugMethodCall(moduleName!DAPPEntitiesListView~"::DAPPEntitiesListView("~this.name~"):initialize");    
+    debugMethodCall(moduleName!DAPPEntitiesListView~"::DAPPEntitiesListView("~this.className~"):initialize");    
 
     this
       .header(

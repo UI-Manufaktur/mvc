@@ -20,7 +20,7 @@ class DEntityCRUDView : DEntityView {
   mixin(OProperty!("DUIMTabControl", "entityTab"));
 
 override void initialize(Json configSettings = Json(null)) {
-    debugMethodCall(moduleName!DEntityCRUDView~"::DEntityCRUDView("~this.name~"):initialize");   
+    debugMethodCall(moduleName!DEntityCRUDView~"::DEntityCRUDView("~this.className~"):initialize");   
     super.initialize(configSettings);
 
     this

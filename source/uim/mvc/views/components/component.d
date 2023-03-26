@@ -1,3 +1,8 @@
+/*********************************************************************************************************
+	Copyright: © 2015-2023 Ozan Nurettin Süel (Sicherheitsschmiede)                                        
+	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
+	Authors: Ozan Nurettin Süel, mailto:ons@sicherheitsschmiede.de                                                      
+**********************************************************************************************************/
 module uim.mvc.views.components.component;
 
 @safe:
@@ -7,7 +12,7 @@ class DViewComponent : DMVCObject, IViewComponent {
   mixin(ViewComponentThis!("ViewComponent"));
 
   override void initialize(Json configSettings = Json(null)) {
-    debugMethodCall(moduleName!DViewComponent~":DViewComponent("~this.name~")::initialize");
+    version(test_uim_mvc) { debugMethodCall(moduleName!DViewComponent~":DViewComponent("~this.name~")::initialize"); }
     super.initialize(configSettings);
 
     this
@@ -59,15 +64,15 @@ class DViewComponent : DMVCObject, IViewComponent {
   }
 
   void beforeRender(STRINGAA options = null) {
-    debugMethodCall(moduleName!DViewComponent~":DViewComponent("~this.name~")::beforeRender");
+    version(test_uim_mvc) { debugMethodCall(moduleName!DViewComponent~":DViewComponent("~this.name~")::beforeRender"); }
   }
 
   void afterRender(STRINGAA options = null) {
-    debugMethodCall(moduleName!DViewComponent~":DViewComponent("~this.name~")::afterRender");
+    version(test_uim_mvc) { debugMethodCall(moduleName!DViewComponent~":DViewComponent("~this.name~")::afterRender"); }
   }
 
   string render(STRINGAA options = null) {
-    debugMethodCall(moduleName!DViewComponent~":DViewComponent("~this.name~")::render");
+    version(test_uim_mvc) { debugMethodCall(moduleName!DViewComponent~":DViewComponent("~this.name~")::render"); }
     beforeRender(options);
     auto result = toH5(options).toString;
     afterRender(options);

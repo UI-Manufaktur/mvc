@@ -120,7 +120,7 @@ class DView : DView, IEventDispatcher {
   // Initialization (= hook method)
 override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
-    debugMethodCall(moduleName!DView~"::DView("~this.name~"):initialize");   
+    debugMethodCall(moduleName!DView~"::DView("~this.className~"):initialize");   
     super.initialize;
 
     this
