@@ -25,6 +25,7 @@ public import uim.mvc.containers;
 public import uim.mvc.controllers; 
 public import uim.mvc.helpers;
 public import uim.mvc.entities;
+public import uim.mvc.i18n;
 public import uim.mvc.interfaces;
 public import uim.mvc.javascripts;
 public import uim.mvc.layouts;

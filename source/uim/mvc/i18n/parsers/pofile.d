@@ -1,17 +1,11 @@
 
-module uim.cake.i18n.parsers;;
+module uim.mvc.i18n.parsers.pofile;
 
-import uim.cake.i18n\Translator;
+@safe:
+import uim.mvc;
 
-/**
- * Parses file in PO format
- *
- * @copyright Copyright (c) 2010, Union of RAD http://union-of-rad.org (http://lithify.me/)
- * @copyright Copyright (c) 2012, Clemens Tolboom
- * @copyright Copyright (c) 2014, Fabien Potencier https://github.com/symfony/Translation/blob/master/LICENSE
- */
-class PoFileParser
-{
+// Parses file in PO format
+class PoFileParser {
     /**
      * Parses portable object (PO) format.
      *
@@ -54,47 +48,78 @@ class PoFileParser
      *
      * @param string $resource The file name to parse
      */
-    array parse(string $resource) {
-        $stream = fopen($resource, "rb");
+    auto parse(string resourceFileName) {
+      auto file = File(resourceFileName); // Open for reading
 
-        $defaults = [
-            "ids": [],
-            "translated": null,
-        ];
+      /* $defaults = [
+          "ids": [],
+          "translated": null,
+      ];
 
-        $messages = null;
-        $item = $defaults;
-        $stage = null;
+      $messages = null;
+      $item = $defaults; */
 
-        while ($line = fgets($stream)) {
-            $line = trim($line);
+      string[][string] translations;
 
-            if ($line == "") {
-                // Whitespace indicated current item is done
-                _addMessage($messages, $item);
-                $item = $defaults;
-                $stage = null;
-            } elseif (substr($line, 0, 7) == "msgid "") {
+      bool translationStart;
+      string translationIdSingular;
+      string translationIdPlural;
+      string[] translation;
+      string[] lines = file.byLine.array;
+
+      while (lines > 0) {
+        auto myLine = trim(lines.shiftFirst);
+/*         if (myLine.length == 0 // Whitespace indicated
+            || myLine.indexOf("#") == 0) { // comment indicated 
+          continue; }
+
+          if myLine.indexOf("msgid \"\"") {
+            multiIdMode = true;
+
+          }
+
+          if (!multiId && myLine.indexOf("msgid \"") == 0) { // translation keyword
+            translationStart = true;
+            translationIdSingular = myLine.replace("msgid").trim;
+            translationIdPlural = null;
+            translation = null;
+          }
+
+          if (myLine.indexOf("msgid_plural \"") == 0) {
+
+          }
+
+          if (myLine.indexOf("msgstr \"") == 0) {
+
+          }
+
+          if (myLine.indexOf("msgctxt \"") == 0) {
+
+          }
+
+
+          
+
                 // We start a new msg so save previous
                 _addMessage($messages, $item);
-                /** @psalm-suppress InvalidArrayOffset */
-                $item["ids"]["singular"] = substr($line, 7, -1);
+                /** @psalm-suppress InvalidArrayOffset * /
+                $item["ids"]["singular"] = substr(myLine, 7, -1);
                 $stage = ["ids", "singular"];
-            } elseif (substr($line, 0, 8) == "msgstr "") {
-                $item["translated"] = substr($line, 8, -1);
+            } elseif (substr(myLine, 0, 8) == "msgstr \"") {
+                $item["translated"] = substr(myLine, 8, -1);
                 $stage = ["translated"];
-            } elseif (substr($line, 0, 9) == "msgctxt "") {
-                $item["context"] = substr($line, 9, -1);
+            } elseif (substr(myLine, 0, 9) == "msgctxt \"") {
+                $item["context"] = substr(myLine, 9, -1);
                 $stage = ["context"];
-            } elseif ($line[0] == """) {
+            } elseif (myLine[0] == """) {
                 switch (count($stage)) {
                     case 2:
                         /**
                          * @psalm-suppress PossiblyUndefinedArrayOffset
                          * @psalm-suppress InvalidArrayOffset
                          * @psalm-suppress PossiblyNullArrayAccess
-                         */
-                        $item[$stage[0]][$stage[1]] ~= substr($line, 1, -1);
+                         * /
+                        $item[$stage[0]][$stage[1]] ~= substr(myLine, 1, -1);
                         break;
 
                     case 1:
@@ -102,19 +127,19 @@ class PoFileParser
                          * @psalm-suppress PossiblyUndefinedArrayOffset
                          * @psalm-suppress PossiblyInvalidOperand
                          * @psalm-suppress PossiblyNullOperand
-                         */
-                        $item[$stage[0]] ~= substr($line, 1, -1);
+                         * /
+                        $item[$stage[0]] ~= substr(myLine, 1, -1);
                         break;
                 }
-            } elseif (substr($line, 0, 14) == "msgid_plural "") {
-                /** @psalm-suppress InvalidArrayOffset */
-                $item["ids"]["plural"] = substr($line, 14, -1);
+            } elseif (substr(myLine, 0, 14) == "msgid_plural "") {
+                /** @psalm-suppress InvalidArrayOffset * /
+                $item["ids"]["plural"] = substr(myLine, 14, -1);
                 $stage = ["ids", "plural"];
-            } elseif (substr($line, 0, 7) == "msgstr[") {
-                /** @var int $size */
-                $size = strpos($line, "]");
-                $row = (int)substr($line, 7, 1);
-                $item["translated"][$row] = substr($line, $size + 3, -1);
+            } elseif (substr(myLine, 0, 7) == "msgstr[") {
+                /** @var int $size * /
+                $size = strpos(myLine, "]");
+                $row = (int)substr(myLine, 7, 1);
+                $item["translated"][$row] = substr(myLine, $size + 3, -1);
                 $stage = ["translated", $row];
             }
         }
@@ -130,7 +155,7 @@ class PoFileParser
      *
      * @param array $messages The messages array being collected from the file
      * @param array $item The current item being inspected
-     */
+     * /
     protected void _addMessage(array &$messages, array $item) {
         if (empty($item["ids"]["singular"]) && empty($item["ids"]["plural"])) {
             return;
@@ -175,5 +200,7 @@ class PoFileParser
                 $messages[Translator::PLURAL_PREFIX~$key]["_context"][""] = $plurals;
             }
         }
-    }
+ */ }   
+    return translations;
+  }
 }

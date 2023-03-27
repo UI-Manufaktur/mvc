@@ -1,9 +1,8 @@
 
-module uim.cake.i18n.parsers;;
+module uim.mvc.i18n.parsers.mofile;
 
 @safe:
-import uim.cake;
-/* use RuntimeException; */
+import uim.mvc;
 
 /**
  * Parses file in MO format
@@ -11,23 +10,20 @@ import uim.cake;
  * @copyright Copyright (c) 2010, Union of RAD http://union-of-rad.org (http://lithify.me/)
  * @copyright Copyright (c) 2014, Fabien Potencier https://github.com/symfony/Translation/blob/master/LICENSE
  */
-class MoFileParser
-{
+class MoFileParser {
     /**
      * Magic used for validating the format of a MO file as well as
      * detecting if the machine used to create that file was little endian.
      *
      * @var int
      */
-    const MO_LITTLE_ENDIAN_MAGIC = 0x950412de;
+    const int MO_LITTLE_ENDIAN_MAGIC = 0x950412de;
 
     /**
      * Magic used for validating the format of a MO file as well as
      * detecting if the machine used to create that file was big endian.
-     *
-     * @var int
      */
-    const MO_BIG_ENDIAN_MAGIC = 0xde120495;
+    const int MO_BIG_ENDIAN_MAGIC = 0xde120495;
 
     // The size of the header of a MO file in bytes.
     const int MO_HEADER_SIZE = 28;
@@ -39,8 +35,8 @@ class MoFileParser
      * @param string $file The file to be parsed.
      * @return array List of messages extracted from the file
      * @throws \RuntimeException If stream content has an invalid format.
-     */
-    array parse($file) {
+     * /
+    auto parse($file) {
         $stream = fopen($file, "rb");
 
         $stat = fstat($stream);
@@ -132,11 +128,11 @@ class MoFileParser
      *
      * @param resource $stream The File being read.
      * @param bool $isBigEndian Whether the current platform is Big Endian
-     */
+     * /
     protected int _readLong($stream, $isBigEndian) {
         $result = unpack($isBigEndian ? "N1" : "V1", fread($stream, 4));
         $result = current($result);
 
         return (int)substr((string)$result, -8);
-    }
+    } */
 }
