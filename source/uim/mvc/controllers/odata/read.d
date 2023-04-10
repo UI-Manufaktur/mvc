@@ -3,7 +3,20 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel, mailto:ons@sicherheitsschmiede.de                                                      
 **********************************************************************************************************/
-module uim.mvc.controllers.odata;
+module uim.mvc.controllers.odata.read;
 
-public import uim.mvc.controllers.odata.index;
-public import uim.mvc.controllers.odata.read;
+@safe:
+import uim.mvc;
+
+class DReadRestController : DController {
+  mixin(ControllerThis!("ReadRestController"));
+}
+mixin(ControllerCalls!("ReadRestController"));
+
+version(test_uim_mvc) { unittest {
+  writeln("--- Tests in ", __MODULE__, "/", __LINE__);
+  testPageController(new DReadRestController); 
+
+  writeln("--- Tests in ", __MODULE__, "/", __LINE__);
+  testPageController(ReadRestController); 
+}}

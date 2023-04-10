@@ -3,7 +3,7 @@ module uim.mvc.base;
 @safe:
 import uim.mvc;
 
-class DMVCObject : IMVCObject {
+class DMVCObject : IMVCObject, IRegisterable {
   // Constructors for the main properties
   this() { initialize; }
   this(Json configSettings) { this().initialize(configSettings); }
@@ -27,6 +27,8 @@ class DMVCObject : IMVCObject {
 
   // The name of a mvc object. Names are plural, named after the model they manipulate.
   mixin(MVCParameter!("name"));
+  mixin(OProperty!("string", "className"));
+  mixin(OProperty!("string", "registerPath"));
 
   /**
     * Default config

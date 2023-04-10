@@ -33,10 +33,11 @@ class DCreateActionController : DActionController {
       options["redirect"] = pgPath~"/view"; 
       return; }
 
-    auto entity = collection
-      .createFromTemplate
-      .fromRequest(options)
-      .save; 
+    auto entity = collection.createFromTemplate;
+    with (entity) {
+      fromRequest(options);
+      save; 
+    }
 
     options["redirect"] = pgPath~"/view?id="~entity.id.toString; 
   }
@@ -52,3 +53,4 @@ version(test_uim_mvc) { unittest {
   assert(CreateActionController.pgPath("testPath").pgPath == "testPath");
   assert(CreateActionController.name == "CreateActionController");
 }}
+

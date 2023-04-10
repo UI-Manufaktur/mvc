@@ -17,6 +17,7 @@ public import uim.mvc.controllers.components;
 public import uim.mvc.controllers.creators;
 public import uim.mvc.controllers.entities;
 public import uim.mvc.controllers.exceptions;
+public import uim.mvc.controllers.data;
 public import uim.mvc.controllers.odata;
 public import uim.mvc.controllers.pages;
 public import uim.mvc.controllers.restfuls;

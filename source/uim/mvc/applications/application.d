@@ -13,6 +13,10 @@ class DApplication : DMVCObject, IApplication {
 
   override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
+
+    this
+      .className("Application")
+      .registerPath(className.toLower);
   }
 
   // #region parameters

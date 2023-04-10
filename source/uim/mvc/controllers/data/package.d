@@ -3,7 +3,6 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel, mailto:ons@sicherheitsschmiede.de                                                      
 **********************************************************************************************************/
-module uim.mvc.controllers.odata;
+module uim.mvc.controllers.data;
 
-public import uim.mvc.controllers.odata.index;
-public import uim.mvc.controllers.odata.read;
+public import uim.mvc.controllers.data.controller;
