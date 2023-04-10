@@ -65,10 +65,10 @@ class PoFileParser {
       string translationIdSingular;
       string translationIdPlural;
       string[] translation;
-      string[] lines = file.byLine.array;
+      string[] lines; // ?? = file.byLine;
 
-      while (lines > 0) {
-        auto myLine = trim(lines.shiftFirst);
+      while (lines.length > 0) {
+        auto myLine = strip(lines.shiftFirst);
 /*         if (myLine.length == 0 // Whitespace indicated
             || myLine.indexOf("#") == 0) { // comment indicated 
           continue; }

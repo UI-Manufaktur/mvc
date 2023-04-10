@@ -12,7 +12,7 @@ class DMVCEntitiesFormContent : DFormContent {
   mixin(ViewComponentThis!("MVCEntitiesFormContent"));
 
   override void initialize(Json configSettings = Json(null)) {
-    debugMethodCall(moduleName!DMVCEntitiesFormContent~"::DMVCEntitiesFormContent("~this.className~"):initialize");   
+    debugMethodCall(moduleName!DMVCEntitiesFormContent~"::DMVCEntitiesFormContent("~this.name~"):initialize");   
     super.initialize(configSettings);
     debug writeln("In ", __MODULE__, "/", __LINE__);
 
