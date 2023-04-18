@@ -11,6 +11,6 @@ interface IApplication : IMVCObject {
 
   DMVCLinkContainer links();
   DMVCMetaContainer metas();
-  DMVCScriptContainer scripts();
+  DScriptContainer scripts();
   DStyleContainer styles();
 }

@@ -35,7 +35,7 @@ class DApplication : DMVCObject, IApplication {
   // Main Containers - Allways first
   mixin(OProperty!("DMVCLinkContainer",   "links"));
   mixin(OProperty!("DMVCMetaContainer",   "metas"));
-  mixin(OProperty!("DMVCScriptContainer", "scripts"));
+  mixin(OProperty!("DScriptContainer", "scripts"));
   mixin(OProperty!("DStyleContainer",  "styles"));
   
   auto routesPaths() {
@@ -124,7 +124,7 @@ class DAPPApplication {
     this
       .links(MVCLinkContainer) 
       .metas(MVCMetaContainer) 
-      .scripts(MVCScriptContainer) 
+      .scripts(ScriptContainer) 
       .styles(StyleContainer); 
   }
 
@@ -144,7 +144,7 @@ class DAPPApplication {
   // Containers
   mixin(OProperty!("DMVCLinkContainer", "links"));
   mixin(OProperty!("DMVCMetaContainer", "metas"));
-  mixin(OProperty!("DMVCScriptContainer", "scripts"));
+  mixin(OProperty!("DScriptContainer", "scripts"));
   mixin(OProperty!("DStyleContainer", "styles"));
 
   mixin(OProperty!("DControllerRegistry", "controllers"));  

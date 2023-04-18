@@ -28,14 +28,14 @@ class DPageController : DController, IPageController {
     this
       .links(MVCLinkContainer)
       .metas(MVCMetaContainer) 
-      .scripts(MVCScriptContainer) 
+      .scripts(ScriptContainer) 
       .styles(StyleContainer); 
   }
 
   // Containers
   mixin(OProperty!("DMVCLinkContainer", "links"));
   mixin(OProperty!("DMVCMetaContainer", "metas"));
-  mixin(OProperty!("DMVCScriptContainer", "scripts"));
+  mixin(OProperty!("DScriptContainer", "scripts"));
   mixin(OProperty!("DStyleContainer", "styles"));
 
 	/// layout for page

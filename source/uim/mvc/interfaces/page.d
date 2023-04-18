@@ -9,6 +9,6 @@ interface IPageController: IController {
 
   DMVCLinkContainer links();
   DMVCMetaContainer metas();
-  DMVCScriptContainer scripts();
+  DScriptContainer scripts();
   DStyleContainer styles();
 }

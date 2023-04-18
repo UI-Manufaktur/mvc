@@ -11,7 +11,7 @@ interface ILayout : IMVCObject {
   ILayout layout();
   DMVCLinkContainer links();
   DMVCMetaContainer metas();
-  DMVCScriptContainer scripts();
+  DScriptContainer scripts();
   DStyleContainer styles();
   
   string render(IPageController controller, string content, STRINGAA options = null);
