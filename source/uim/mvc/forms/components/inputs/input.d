@@ -77,6 +77,38 @@ class DFormInput : DMVCEntityViewComponent {
 }
 mixin(ViewComponentCalls!("FormInput", "DFormInput"));
 
+///
+unittest {
+  auto formInput = new DFormInput;
+
+  auto id = "123";
+  assert(formInput.inputId(id).inputId == id);
+
+  auto name = "nameOfInput";
+  assert(formInput.inputName(name).inputName == name);
+
+  auto name2 = "otherNameOfInput";
+  assert(formInput.fieldName(name2).fieldName == name2);
+
+  auto value = "abc";
+  assert(formInput.fieldValue(value).fieldValue == value);
+
+  auto label = "abc";
+  assert(formInput.label(label).label == label);
+
+  auto pHolder = "type in";
+  assert(formInput.placeholder(pHolder).placeholder == pHolder);
+
+  auto feedback = "Something goes wrong";
+  assert(formInput.invalidFeedback(feedback).invalidFeedback == feedback);
+
+  auto someFields = ["field1", "field2"];
+  assert(formInput.fields(someFields).fields == someFields);
+
+  auto aPath = "/from/here/to/somewhere";
+  assert(formInput.path(aPath).path == aPath);
+}
+
 version(test_uim_mvc) { unittest {
   assert(new DFormInput);
   assert(FormInput);

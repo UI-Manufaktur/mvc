@@ -8,7 +8,7 @@ module uim.mvc.routers.sites;
 @safe:
 import uim.mvc;
 
-void uimSites(HTTPServerRequest req, HTTPServerResponse res) {
+/* void uimSites(HTTPServerRequest req, HTTPServerResponse res) {
   debugMethodCall(moduleName!uimSites~":uimSites");
 
   PageController(thisServer).request(req, res);
@@ -19,7 +19,7 @@ void uimSiteSelectAction(HTTPServerRequest req, HTTPServerResponse res) {
 
   SelectSiteActionController(thisServer).request(req, res);
 }
-
+ */
 /* 
 static this() {
   server.pages("sites", new class DPageController {

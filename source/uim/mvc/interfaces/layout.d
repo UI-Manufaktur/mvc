@@ -12,7 +12,7 @@ interface ILayout : IMVCObject {
   DMVCLinkContainer links();
   DMVCMetaContainer metas();
   DMVCScriptContainer scripts();
-  DMVCStyleContainer styles();
+  DStyleContainer styles();
   
   string render(IPageController controller, string content, STRINGAA options = null);
 }

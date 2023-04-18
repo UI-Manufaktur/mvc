@@ -36,7 +36,7 @@ class DApplication : DMVCObject, IApplication {
   mixin(OProperty!("DMVCLinkContainer",   "links"));
   mixin(OProperty!("DMVCMetaContainer",   "metas"));
   mixin(OProperty!("DMVCScriptContainer", "scripts"));
-  mixin(OProperty!("DMVCStyleContainer",  "styles"));
+  mixin(OProperty!("DStyleContainer",  "styles"));
   
   auto routesPaths() {
     return _routes.keys; 
@@ -89,7 +89,7 @@ class DApplication : DMVCObject, IApplication {
 
     writeln(routesPaths);
     if (newRequest.path.length >= rootPath.length) {
-      auto myPath = newRequest.path[rootPath.length..$];
+      auto myPath = newRequest.path; // [rootPath.length..$];
       writeln("myPath = '%s'".format(myPath));
       if (auto myRoute = route(myPath, newRequest.method)) {
         debug writeln("Found route");
@@ -125,7 +125,7 @@ class DAPPApplication {
       .links(MVCLinkContainer) 
       .metas(MVCMetaContainer) 
       .scripts(MVCScriptContainer) 
-      .styles(MVCStyleContainer); 
+      .styles(StyleContainer); 
   }
 
   this(DAPPLayout mylayout) {
@@ -145,7 +145,7 @@ class DAPPApplication {
   mixin(OProperty!("DMVCLinkContainer", "links"));
   mixin(OProperty!("DMVCMetaContainer", "metas"));
   mixin(OProperty!("DMVCScriptContainer", "scripts"));
-  mixin(OProperty!("DMVCStyleContainer", "styles"));
+  mixin(OProperty!("DStyleContainer", "styles"));
 
   mixin(OProperty!("DControllerRegistry", "controllers"));  
   DController controller(string path) {

@@ -27,7 +27,7 @@ class DLayout : DMVCObject, ILayout {
       .links(MVCLinkContainer) 
       .metas(MVCMetaContainer) 
       .scripts(MVCScriptContainer)
-      .styles(MVCStyleContainer); 
+      .styles(StyleContainer); 
 
     debug writeln("Select Style"); 
     if (layoutStyle == "tabler") {
@@ -100,7 +100,7 @@ class DLayout : DMVCObject, ILayout {
   mixin(OProperty!("DMVCLinkContainer", "links"));
   mixin(OProperty!("DMVCMetaContainer", "metas"));
   mixin(OProperty!("DMVCScriptContainer", "scripts"));
-  mixin(OProperty!("DMVCStyleContainer", "styles"));
+  mixin(OProperty!("DStyleContainer", "styles"));
 
 // #region render
   protected DH5Obj[] myMetas;

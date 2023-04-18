@@ -130,7 +130,7 @@ override void initialize(DConfigurationValue configSettings = null) {
       .links(MVCLinkContainer) 
       .metas(MVCMetaContainer) 
       .scripts(MVCScriptContainer) 
-      .styles(MVCStyleContainer)
+      .styles(StyleContainer)
       .leftClasses(["d-none", "d-md-block", "col-12", "col-sm-6", "col-md-4", "col-lg-3", "col-xl-2"])
       .middleClasses(["col-12", "col-md-8", "col-lg-6", "col-xl-8"]) 
       .rightClasses(["d-none", "d-lg-block", "col-12", "col-sm-6", "col-md-4", "col-lg-3", "col-xl-2"]);
@@ -178,7 +178,7 @@ override void initialize(DConfigurationValue configSettings = null) {
   mixin(OProperty!("DMVCLinkContainer", "links"));
   mixin(OProperty!("DMVCMetaContainer", "metas"));
   mixin(OProperty!("DMVCScriptContainer", "scripts"));
-  mixin(OProperty!("DMVCStyleContainer", "styles"));
+  mixin(OProperty!("DStyleContainer", "styles"));
 
   mixin(OProperty!("STRINGAA", "bindings"));
 

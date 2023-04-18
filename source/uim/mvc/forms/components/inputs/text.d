@@ -8,8 +8,8 @@ module uim.mvc.forms.components.inputs.text;
 @safe:
 import uim.mvc;
 
-class DMVCTextFormInput : DFormInput {
-  mixin(ViewComponentThis!("MVCTextFormInput"));
+class DTextFormInput : DFormInput {
+  mixin(ViewComponentThis!("TextFormInput"));
 
   override DH5Obj[] toH5(STRINGAA options = null) { // hook
     super.toH5(options);
@@ -31,7 +31,7 @@ class DMVCTextFormInput : DFormInput {
     ].toH5;
   }
 }
-mixin(ViewComponentCalls!("MVCTextFormInput", "DMVCTextFormInput"));
+mixin(ViewComponentCalls!("TextFormInput", "DTextFormInput"));
 
 version(test_uim_mvc) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);

@@ -8,8 +8,8 @@ module uim.mvc.forms.components.inputs.display;
 @safe:
 import uim.mvc;
 
-class DMVCDisplayFormInput : DMVCTextFormInput {
-  mixin(ViewComponentThis!("MVCDisplayFormInput"));
+class DDisplayFormInput : DTextFormInput {
+  mixin(ViewComponentThis!("DisplayFormInput"));
 
   override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
@@ -23,10 +23,16 @@ class DMVCDisplayFormInput : DMVCTextFormInput {
     .invalidFeedback("Titel ist nicht korrekt"); 
   }
 }
-mixin(ViewComponentCalls!("MVCDisplayFormInput", "DMVCDisplayFormInput"));
+mixin(ViewComponentCalls!("DisplayFormInput", "DDisplayFormInput"));
 
-version(test_uim_mvc) { unittest {
-    writeln("--- Test in ", __MODULE__, "/", __LINE__);
-    
-    // TODO Add Tests
-}}
+///
+unittest {
+  auto forminput = new DDisplayFormInput;
+
+  assert(forminput.id == "entity_display");
+  assert(forminput.inputName == "entity_display");
+  assert(forminput.fieldName == "display");
+  assert(forminput.label == "Titel");
+  assert(forminput.placeholder == "Titel eingeben");
+  assert(forminput.invalidFeedback == "Titel ist nicht korrekt"); 
+}

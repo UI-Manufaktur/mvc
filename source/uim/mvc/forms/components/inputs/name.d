@@ -8,7 +8,7 @@ module uim.mvc.forms.components.inputs.name;
 @safe:
 import uim.mvc;
 
-class DMVCNameFormInput : DMVCTextFormInput {
+class DMVCNameFormInput : DTextFormInput {
   mixin(ViewComponentThis!("MVCNameFormInput"));
 
   override void initialize(Json configSettings = Json(null)) {
