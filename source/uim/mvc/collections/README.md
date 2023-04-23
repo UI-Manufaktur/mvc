@@ -1,1 +1,1 @@
-# Package uim.mvc.collections
+# Package 📦 uim.mvc.collections
