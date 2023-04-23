@@ -1,1 +1,1 @@
-# Package uim.mvc.javascripts
+# Package 📦 uim.mvc.javascripts
