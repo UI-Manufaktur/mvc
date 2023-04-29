@@ -1,1 +1,1 @@
-#uim.mvc.views.components.tabs
+# Package 📦 uim.mvc.views.components.tabs

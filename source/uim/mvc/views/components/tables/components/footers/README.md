@@ -1,1 +1,1 @@
-#uim.mvc.views.components.tables.components.footers;
+# Package 📦 uim.mvc.views.components.tables.components.footers;

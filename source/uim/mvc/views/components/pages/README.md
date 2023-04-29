@@ -1,1 +1,1 @@
-#uim.mvc.views.components.pages
+# Package 📦 uim.mvc.views.components.pages

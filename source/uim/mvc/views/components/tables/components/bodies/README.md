@@ -1,1 +1,1 @@
-#uim.mvc.views.components.tables.components.bodies;
+# Package 📦 uim.mvc.views.components.tables.components.bodies;
