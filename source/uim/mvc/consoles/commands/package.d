@@ -5,16 +5,13 @@
 **********************************************************************************************************/
 module uim.mvc.consoles.commands;
 
-import uim.mvc;
-@safe:
 
-// Main
-public {
+public { // Main
 	import  uim.mvc.consoles.commands.command;
 	import  uim.mvc.consoles.commands.interface_;
 }
 
-// Packages
-public {
+
+public { // Packages
 	import  uim.mvc.consoles.commands.factories;
 }
