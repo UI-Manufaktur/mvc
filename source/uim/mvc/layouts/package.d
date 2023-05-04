@@ -82,7 +82,7 @@ auto navigation(STRINGAA reqParameters) {
 
   return 
     APPFirstNavbar.toString(reqParameters)~
-    APPSecondNavbar(/* [CTLNavSlot] * /).brand(["link":"/", "title":"ADMIN!Central"]).toString(reqParameters);
+    SecondNavbar(/* [CTLNavSlot] * /).brand(["link":"/", "title":"ADMIN!Central"]).toString(reqParameters);
 }    
 
 string footer(STRINGAA parameters) {

@@ -33,13 +33,14 @@ class DCreateActionController : DActionController {
       options["redirect"] = pgPath~"/view"; 
       return; }
 
-    auto entity = collection.createFromTemplate;
-    with (entity) {
-      fromRequest(options);
-      save; 
-    }
+    if (auto entity = collection.createFromTemplate) {
+      with (entity) {
+        readFromRequest(options);
+        save; 
+      }
 
-    options["redirect"] = pgPath~"/view?id="~entity.id.toString; 
+      options["redirect"] = pgPath~"/view?id="~entity.id.toString; 
+    }
   }
 }
 mixin(ControllerCalls!("CreateActionController"));
