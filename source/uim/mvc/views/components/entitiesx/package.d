@@ -5,15 +5,14 @@
 **********************************************************************************************************/
 module uim.mvc.views.components.entitiesx;
 
-@safe:
-import uim.mvc;
-
 // Main
 public {
 	import  uim.mvc.views.components.entitiesx.entities;
 	import  uim.mvc.views.components.entitiesx.entity;
+}
 
 // Additional
 public {
 	import  uim.mvc.views.components.entitiesx.list;
 	import  uim.mvc.views.components.entitiesx.table;
+}

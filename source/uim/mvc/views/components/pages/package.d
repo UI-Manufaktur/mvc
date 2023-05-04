@@ -10,8 +10,6 @@ import uim.mvc;
 
 public {
 	import  uim.mvc.views.components.pages.page;
-
-public {
 	import uim.mvc.views.components.pages.bodies;
 	import uim.mvc.views.components.pages.headers;
 	import uim.mvc.views.components.pages.footers;

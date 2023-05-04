@@ -5,12 +5,9 @@
 **********************************************************************************************************/
 module uim.mvc.views.components.breadcrumbs;
 
-@safe:
-import uim.mvc;
-
 public {
 	import  uim.mvc.views.components.breadcrumbs.breadcrumb;
 	import  uim.mvc.views.components.breadcrumbs.entity;
 	import  uim.mvc.views.components.breadcrumbs.entities;
-
+}
 

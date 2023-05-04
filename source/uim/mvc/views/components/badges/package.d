@@ -5,10 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.views.components.badges;
 
-@safe:
-import uim.mvc;
-
 public {
 	import  uim.mvc.views.components.badges.badge;
 	import  uim.mvc.views.components.badges.entity;
 	import  uim.mvc.views.components.badges.entities;
+}

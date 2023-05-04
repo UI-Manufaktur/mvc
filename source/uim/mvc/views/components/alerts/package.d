@@ -5,10 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.views.components.alerts;
 
-@safe:
-import uim.mvc;
-
 public {
 	import  uim.mvc.views.components.alerts.alert;
 	import  uim.mvc.views.components.alerts.entity;
 	import  uim.mvc.views.components.alerts.entities;
+}

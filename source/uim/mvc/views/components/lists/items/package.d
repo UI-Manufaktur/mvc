@@ -5,9 +5,7 @@
 **********************************************************************************************************/
 module uim.mvc.views.components.lists.items;
 
-@safe:
-import uim.mvc;
-
 public {
 	import  uim.mvc.views.components.lists.items.item;
 	import  uim.mvc.views.components.lists.items.entity;
+}
