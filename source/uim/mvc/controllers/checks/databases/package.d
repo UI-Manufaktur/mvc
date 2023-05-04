@@ -19,5 +19,7 @@ public {
 // Modules
 public {
 	import  uim.mvc.controllers.checks.databases.collection_by_name;
+}
+
 public {
 	import  uim.mvc.controllers.checks.databases.tenant_by_name;

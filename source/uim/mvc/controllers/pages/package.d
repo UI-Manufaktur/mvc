@@ -8,19 +8,31 @@ module uim.mvc.controllers.pages;
 // Main
 public {
 	import  uim.mvc.controllers.pages.page;
+}
+
 public {
 	import  uim.mvc.controllers.pages.crud;
 
 // Subclasses
 public {
 	import  uim.mvc.controllers.pages.apps;
+}
+
 public {
 	import  uim.mvc.controllers.pages.entities;
+}
+
 public {
 	import  uim.mvc.controllers.pages.entity;
+}
+
 public {
 	import  uim.mvc.controllers.pages.error;
+}
+
 public {
 	import  uim.mvc.controllers.pages.helpers;
+}
+
 public {
 	import  uim.mvc.controllers.pages.sites;

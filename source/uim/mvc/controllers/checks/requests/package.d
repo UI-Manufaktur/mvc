@@ -15,10 +15,16 @@ public {
 // Modules
 public {
 	import  uim.mvc.controllers.checks.requests.accountid;
+}
+
 public {
 	import  uim.mvc.controllers.checks.requests.accountname;
+}
+
 public {
 	import  uim.mvc.controllers.checks.requests.password;
+}
+
 public {
 	import  uim.mvc.controllers.checks.requests.siteid;
 
