@@ -9,14 +9,10 @@ public {
 	import  uim.mvc.views.components.component;
 	import  uim.mvc.views.components.components;
 	import  uim.mvc.views.components.registry;
-
-public {
 	import  uim.mvc.views.components.entity;
 	import  uim.mvc.views.components.entities;
 	import  uim.mvc.views.components.null_;
 	import  uim.mvc.views.components.static_;
-
-public {
 	import  uim.mvc.views.components.accordions;
 	import  uim.mvc.views.components.alerts;
 	import  uim.mvc.views.components.avatars;
@@ -29,12 +25,12 @@ public {
 	import  uim.mvc.views.components.lists;
 	import  uim.mvc.views.components.navbars;
 	import  uim.mvc.views.components.pages;
-// public {
 	import  uim.mvc.views.components.panels;
 	import  uim.mvc.views.components.search;
 	import  uim.mvc.views.components.tables;
 	import  uim.mvc.views.components.tabpanes;
 	import  uim.mvc.views.components.tabs;
+}
 
 DH5Obj viewEntities(uint initValue = 10) {
   return H5Div(["text-muted"], 

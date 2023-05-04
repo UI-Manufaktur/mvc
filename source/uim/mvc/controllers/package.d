@@ -10,8 +10,6 @@ public {
 	import  uim.mvc.controllers.error;
 	import  uim.mvc.controllers.middlewareoptions;
 	import  uim.mvc.controllers.registry;
-
-public {
 	import  uim.mvc.controllers.actions;
 	import  uim.mvc.controllers.buttons;
 	import  uim.mvc.controllers.checks;

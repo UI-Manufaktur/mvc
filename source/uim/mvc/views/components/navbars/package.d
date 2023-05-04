@@ -9,3 +9,4 @@ public {
 	import  uim.mvc.views.components.navbars.navbar;
 	import  uim.mvc.views.components.navbars.navigation;
 	import  uim.mvc.views.components.navbars.slot;
+}
