@@ -5,17 +5,18 @@
 **********************************************************************************************************/
 module uim.mvc.commands;
 
-@safe:
 import uim.mvc;
 
-// Main
-public import uim.mvc.commands.collection;
-public import uim.mvc.commands.command;
-public import uim.mvc.commands.registry;
+public { // Main
+	import uim.mvc.commands.collection;
+	import uim.mvc.commands.command;
+	import uim.mvc.commands.registry;
+}
 
-// Additional
-public import uim.mvc.commands.caches;
-public import uim.mvc.commands.factories;
-public import uim.mvc.commands.i18ns;
-public import uim.mvc.commands.plugins;
 
+public { // Additional
+	import uim.mvc.commands.caches;
+	import uim.mvc.commands.factories;
+	import uim.mvc.commands.i18ns;
+	import uim.mvc.commands.plugins;
+}

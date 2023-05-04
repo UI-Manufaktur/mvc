@@ -1,43 +1,47 @@
 module uim.mvc;
 
-mixin ImportPhobos;
+mixin(ImportPhobos!());
 
 // Dub
-public import vibe.d;
+public {
+	import  vibe.d;
 
 public { // uim libraries
   import uim.core;
   import uim.bootstrap;
-  import uim.javascript;
   import uim.html;
   import uim.oop;
   import uim.models;
   import uim.controls;
+
+  import langs.javascript;
 }
 
-public import uim.mvc.base;
-public import uim.mvc.applications; 
-public import uim.mvc.authentications;
-public import uim.mvc.collections;
-public import uim.mvc.commands;
-public import uim.mvc.consoles; 
-public import uim.mvc.containers;
-public import uim.mvc.controllers; 
-public import uim.mvc.helpers;
-public import uim.mvc.entities;
-public import uim.mvc.i18n;
-public import uim.mvc.interfaces;
-public import uim.mvc.javascripts;
-public import uim.mvc.layouts;
-public import uim.mvc.mixins;
-public import uim.mvc.models;
-public import uim.mvc.requests;
-public import uim.mvc.routers;
-public import uim.mvc.routes;
-public import uim.mvc.security;
-public import uim.mvc.sessions; 
-public import uim.mvc.tests;
-public import uim.mvc.views;
+public {
+  import uim.mvc.base;
+  import uim.mvc.applications; 
+  import uim.mvc.authentications;
+  import uim.mvc.collections;
+  import uim.mvc.commands;
+  import uim.mvc.consoles; 
+  import uim.mvc.containers;
+  import uim.mvc.controllers; 
+  import uim.mvc.helpers;
+  import uim.mvc.entities;
+  import uim.mvc.i18n;
+  import uim.mvc.interfaces;
+  import uim.mvc.javascripts;
+  import uim.mvc.layouts;
+  import uim.mvc.mixins;
+  import uim.mvc.models;
+  import uim.mvc.requests;
+  import uim.mvc.routers;
+  import uim.mvc.routes;
+  import uim.mvc.security;
+  import uim.mvc.sessions; 
+  import uim.mvc.tests;
+  import uim.mvc.views;
+}
 
 @safe:
 DMVCSession[string] appSessions;

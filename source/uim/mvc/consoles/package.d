@@ -9,12 +9,17 @@ module uim.mvc.consoles;
 import uim.mvc;
 
 //Main 
-public import uim.mvc.consoles.console;
+public {
+	import uim.mvc.consoles.console;
 
 // Packages
-public import uim.mvc.consoles.commands;
+public {
+	import  uim.mvc.consoles.commands;
 
 // Modules
-public import uim.mvc.consoles.input;
-public import uim.mvc.consoles.io;
-public import uim.mvc.consoles.output;
+public {
+	import  uim.mvc.consoles.input;
+public {
+	import  uim.mvc.consoles.io;
+public {
+	import  uim.mvc.consoles.output;

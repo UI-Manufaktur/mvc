@@ -9,4 +9,5 @@ module uim.mvc.consoles.commands.factories;
 import uim.mvc;
 
 // Main
-public import uim.mvc.consoles.commands.factories.factory;
+public {
+	import  uim.mvc.consoles.commands.factories.factory;
