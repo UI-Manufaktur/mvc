@@ -5,33 +5,19 @@
 **********************************************************************************************************/
 module uim.mvc.forms.components.contents;
 
-@safe:
-import uim.mvc;
-
 // Main
 public {
 	import  uim.mvc.forms.components.contents.content;
+}
 
-// Modules
-public {
+public { // Modules
 	import  uim.mvc.forms.components.contents.entity;
-}
-
-public {
 	import  uim.mvc.forms.components.contents.entities;
-}
-
-public {
 	import  uim.mvc.forms.components.contents.cards;
-}
-
-public {
 	import  uim.mvc.forms.components.contents.list;
+	import  uim.mvc.forms.components.contents.table;
 }
 
-public {
-	import  uim.mvc.forms.components.contents.table;
-
-// Tests
-public {
+public { // Tests
 	import  uim.mvc.forms.components.contents.tests;
+}

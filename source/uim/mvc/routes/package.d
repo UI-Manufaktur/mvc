@@ -7,7 +7,4 @@ module uim.mvc.routes;
 
 public {
 	import  uim.mvc.routes.builder;
-}
-
-public {
 	import  uim.mvc.routes.route;

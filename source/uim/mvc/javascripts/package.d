@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.javascripts;
 
-@safe:
 import uim.mvc;
+@safe:
 
 string setSessionStorage(string[] keys) {
   string result; 

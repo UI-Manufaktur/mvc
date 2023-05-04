@@ -5,20 +5,13 @@
 **********************************************************************************************************/
 module uim.mvc.helpers;
 
-@safe:
-import uim.mvc;
-
 public {
 	import  uim.mvc.helpers.inputinterface;
-}
-
-public {
 	import  uim.mvc.helpers.outputinterface;
+	import  uim.mvc.helpers.router;
 }
 
-public {
-	import  uim.mvc.helpers.router;
-
+@safe:
 template AddRoutes(string router, string rootPath, string rootName) {
   const char[] AddRoutes = `
 `~router~`
