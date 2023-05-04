@@ -14,9 +14,12 @@ public { // Main
 }
 
 // Packages
-public import uim.mvc.forms.components;
-public import uim.mvc.forms.crud;
-public import uim.mvc.forms.schemas;
+public {
+	import  uim.mvc.forms.components;
+public {
+	import  uim.mvc.forms.crud;
+public {
+	import  uim.mvc.forms.schemas;
 
 template FormThis(string name, bool withEntity = false, bool withEntities = false) {
   const char[] FormThis = `

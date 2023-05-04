@@ -1,3 +1,4 @@
 module uim.mvc.enumerations;
 
-public import uim.mvc.enumerations.datamodes;
+public {
+	import  uim.mvc.enumerations.datamodes;

@@ -9,4 +9,5 @@ module uim.mvc.controllers.scripts;
 import uim.mvc;
 
 // Main
-public import uim.mvc.controllers.scripts;
+public {
+	import  uim.mvc.controllers.scripts;
