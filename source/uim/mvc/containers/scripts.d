@@ -8,7 +8,7 @@ module uim.mvc.containers.scripts;
 @safe:
 import uim.mvc;
 
-class DScriptContainer : DMVCH5Container {
+class DScriptContainer : DH5Container {
 	O entries(this O)(STRINGAA[] newEntries) { 
     this.entries(newEntries.map!(a => H5Script(a)).array); 
     return cast(O)this;

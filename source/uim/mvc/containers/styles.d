@@ -8,7 +8,7 @@ module uim.mvc.containers.styles;
 @safe:
 import uim.mvc;
 
-class DStyleContainer : DMVCH5Container {
+class DStyleContainer : DH5Container {
 	O entries(this O)(STRINGAA[] newEntries) { 
     this.entries(newEntries.map!(a => H5Style(a)).array); 
     return cast(O)this;

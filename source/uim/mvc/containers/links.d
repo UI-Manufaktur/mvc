@@ -8,7 +8,7 @@ module uim.mvc.containers.links;
 @safe:
 import uim.mvc;
 
-class DMVCLinkContainer : DMVCH5Container {
+class DMVCLinkContainer : DH5Container {
 	O entries(this O)(STRINGAA[] newEntries) { 
     this.entries(newEntries.map!(a => H5Link(a)).array); 
     return cast(O)this;

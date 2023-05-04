@@ -63,7 +63,7 @@ auto MVCFirstNavbar() { return new DMVCFirstNavbar; }
 class DMVCSecondNavbar : DViewComponent {
   this() { super(); }
 
-  mixin(OProperty!("DMVCNavbarSlotViewComponent[]", "slots"));
+  mixin(OProperty!("DNavbarSlotViewComponent[]", "slots"));
   mixin(OProperty!("string[string]", "brand"));
 
   override DH5Obj[] toH5(STRINGAA options = null) {
@@ -87,7 +87,7 @@ class DMVCSecondNavbar : DViewComponent {
   }
 }
 auto MVCSecondNavbar() { return new DMVCSecondNavbar; }
-auto MVCSecondNavbar(DMVCNavbarSlotViewComponent[] slots) { return MVCSecondNavbar.slots(slots); }
+auto MVCSecondNavbar(DNavbarSlotViewComponent[] slots) { return MVCSecondNavbar.slots(slots); }
  */
 
 class DMVCFirstNavbar : DViewComponent {
@@ -170,10 +170,10 @@ auto userNavitem(STRINGAA options = null) {
 class DMVCSecondNavbar : DViewComponent {
   mixin(ViewComponentThis!("MVCSecondNavbar"));
 
-  mixin(OProperty!("DMVCNavbarSlotViewComponent[]", "leftSlots"));
-  mixin(OProperty!("DMVCNavbarSlotViewComponent[]", "rightSlots"));
-  mixin(OProperty!("DMVCNavbarSlotViewComponent[]", "leftSlotsWithLogin"));
-  mixin(OProperty!("DMVCNavbarSlotViewComponent[]", "rightSlotsWithLogin"));
+  mixin(OProperty!("DNavbarSlotViewComponent[]", "leftSlots"));
+  mixin(OProperty!("DNavbarSlotViewComponent[]", "rightSlots"));
+  mixin(OProperty!("DNavbarSlotViewComponent[]", "leftSlotsWithLogin"));
+  mixin(OProperty!("DNavbarSlotViewComponent[]", "rightSlotsWithLogin"));
   mixin(OProperty!("string[string]", "brand"));
   mixin(OProperty!("string[string]", "brandWithLogin"));
 
