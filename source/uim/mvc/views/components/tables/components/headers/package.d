@@ -5,9 +5,6 @@
 **********************************************************************************************************/
 module uim.mvc.views.components.tables.components.headers;
 
-@safe:
-import uim.mvc;
-
 public { // Main
 	import uim.mvc.views.components.tables.components.headers.header;
 }
@@ -16,3 +13,4 @@ public { // Main
 public {
 	import  uim.mvc.views.components.tables.components.headers.entities;
 	import  uim.mvc.views.components.tables.components.headers.entity;
+}

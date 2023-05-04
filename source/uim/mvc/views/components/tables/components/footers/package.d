@@ -5,9 +5,6 @@
 **********************************************************************************************************/
 module uim.mvc.views.components.tables.components.footers;
 
-@safe:
-import uim.mvc;
-
 public { // Main
 	import uim.mvc.views.components.tables.components.footers.footer;
 }
@@ -16,3 +13,4 @@ public { // Main
 public {
 	import  uim.mvc.views.components.tables.components.footers.entities;
 	import  uim.mvc.views.components.tables.components.footers.entity;
+}

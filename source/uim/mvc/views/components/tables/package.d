@@ -11,10 +11,12 @@ import uim.mvc;
 // Main
 public {
 	import  uim.mvc.views.components.tables.table;
+}
 
 // Packages
 public {
 	import  uim.mvc.views.components.tables.components;
+}
 
 public { // Modules
   import uim.mvc.views.components.tables.filter;

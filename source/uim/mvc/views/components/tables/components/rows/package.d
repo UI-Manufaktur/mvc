@@ -5,9 +5,7 @@
 **********************************************************************************************************/
 module uim.mvc.views.components.tables.components.rows;
 
-@safe:
-import uim.mvc;
-
 public { // Main
 	import uim.mvc.views.components.tables.components.rows.row;
 	import  uim.mvc.views.components.tables.components.rows.entity;
+}

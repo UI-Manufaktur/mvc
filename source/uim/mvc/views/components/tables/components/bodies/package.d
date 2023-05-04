@@ -5,9 +5,6 @@
 **********************************************************************************************************/
 module uim.mvc.views.components.tables.components.bodies;
 
-@safe:
-import uim.mvc;
-
 public { // Main
 	import uim.mvc.views.components.tables.components.bodies.body_;
 }
@@ -16,3 +13,4 @@ public { // Main
 public {
 	import  uim.mvc.views.components.tables.components.bodies.entities;
 	import  uim.mvc.views.components.tables.components.bodies.entity;
+}

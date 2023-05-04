@@ -5,15 +5,11 @@
 **********************************************************************************************************/
 module uim.mvc.views.crud;
 
-@safe:
-import uim.mvc;
-
 public {
 	import  uim.mvc.views.crud.entity;
 	import  uim.mvc.views.crud.list;
-
-public {
 	import  uim.mvc.views.crud.create;
 	import  uim.mvc.views.crud.read;
 	import  uim.mvc.views.crud.update;
 	import  uim.mvc.views.crud.delete_;
+}

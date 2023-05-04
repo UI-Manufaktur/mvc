@@ -5,11 +5,9 @@
 **********************************************************************************************************/
 module uim.mvc.views.components.tabs;
 
-@safe:
-import uim.mvc;
-
 public {
 	import  uim.mvc.views.components.tabs.tab;
 	import  uim.mvc.views.components.tabs.tabs;
+}
 
 
