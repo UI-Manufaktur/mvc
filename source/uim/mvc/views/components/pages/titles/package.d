@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.views.components.pages.titles;
 
-@safe:
 import uim.mvc;
+@safe:
 
 public { // Modules
 	import uim.mvc.views.components.pages.titles.title;

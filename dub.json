@@ -44,12 +44,13 @@
 		"../uim-models",
 		"../uim-css",
 		"../uim-html",
-		"../uim-javascript",
 		"../uim-bootstrap",
 		"../uim-json",
 		"../uim-jsonbase",
 		"../uim-entitybase",
 		"../uim-controls",
+
+		"../../LANGS/lang-javascript",
 		"../../LAYOUTS/layout-tabler/source/layouts",
 		"./"
 	],
@@ -59,12 +60,12 @@
 		"../uim-models",
 		"../uim-css",
 		"../uim-html",
-		"../uim-javascript",
 		"../uim-bootstrap",
 		"../uim-json",
 		"../uim-jsonbase",
 		"../uim-entitybase",
 		"../uim-controls",
+		"../../LANGS/lang-javascript",
 		"../../LAYOUTS/layout-tabler/source/layouts",
 		"./"
 	]

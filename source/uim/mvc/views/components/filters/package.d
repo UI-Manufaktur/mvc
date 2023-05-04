@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.views.components.filters;
 
-@safe:
 import uim.mvc;
+@safe:
 
 DH5Obj filterName() {
   return 

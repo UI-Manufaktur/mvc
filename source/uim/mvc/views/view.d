@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.views.view;
 
-@safe:
 import uim.mvc;
+@safe:
 
 /**
  * View, the V in the MVC triad. View interacts with Helpers, ViewComponents and view variables passed

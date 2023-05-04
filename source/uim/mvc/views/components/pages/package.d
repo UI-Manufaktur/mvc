@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.views.components.pages;
 
-@safe:
 import uim.mvc;
+@safe:
 
 public {
 	import  uim.mvc.views.components.pages.page;

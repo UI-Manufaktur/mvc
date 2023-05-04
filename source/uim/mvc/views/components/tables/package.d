@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.views.components.tables;
 
-@safe:
 import uim.mvc;
+@safe:
 
 // Main
 public {
