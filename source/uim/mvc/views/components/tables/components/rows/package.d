@@ -12,4 +12,5 @@ public { // Main
 	import uim.mvc.views.components.tables.components.rows.row;
 }
 
-public import uim.mvc.views.components.tables.components.rows.entity;
+public {
+	import  uim.mvc.views.components.tables.components.rows.entity;

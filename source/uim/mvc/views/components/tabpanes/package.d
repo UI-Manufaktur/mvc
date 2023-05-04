@@ -8,8 +8,10 @@ module uim.mvc.views.components.tabpanes;
 @safe:
 import uim.mvc;
 
-public import uim.mvc.views.components.tabpanes.entity;
-public import uim.mvc.views.components.tabpanes.entities;
+public {
+	import  uim.mvc.views.components.tabpanes.entity;
+public {
+	import  uim.mvc.views.components.tabpanes.entities;
 
 public {
   import uim.mvc.views.components.tabpanes.general;

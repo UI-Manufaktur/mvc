@@ -13,5 +13,7 @@ public { // Main
 }
 
 // Module
-public import uim.mvc.views.components.tables.components.footers.entities;
-public import uim.mvc.views.components.tables.components.footers.entity;
+public {
+	import  uim.mvc.views.components.tables.components.footers.entities;
+public {
+	import  uim.mvc.views.components.tables.components.footers.entity;

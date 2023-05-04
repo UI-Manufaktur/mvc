@@ -13,5 +13,7 @@ public { // Main
 }
 
 // Modules
-public import uim.mvc.views.components.tables.components.headers.entities;
-public import uim.mvc.views.components.tables.components.headers.entity;
+public {
+	import  uim.mvc.views.components.tables.components.headers.entities;
+public {
+	import  uim.mvc.views.components.tables.components.headers.entity;
