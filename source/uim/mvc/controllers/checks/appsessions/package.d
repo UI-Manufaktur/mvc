@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.controllers.checks.appsessions;
 
-@safe:
 import uim.mvc;
+@safe:
 
 
 public { // Main

@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.controllers.checks.requests;
 
-@safe:
 import uim.mvc;
+@safe:
 
 // Main
 public {

@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.consoles.commands;
 
-@safe:
 import uim.mvc;
+@safe:
 
 // Main
 public {

@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.security;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DAPPSecurityOptions {
   this() {}

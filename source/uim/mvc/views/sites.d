@@ -1,7 +1,7 @@
 module uim.mvc.views.sites;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DViewSites : DView {
   mixin(ViewThis!("ViewSites"));

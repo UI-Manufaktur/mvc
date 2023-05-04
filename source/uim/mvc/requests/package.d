@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.requests;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DMVCRequestReader {
   this(IPageController page) {

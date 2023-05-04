@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.views.forms;
 
-@safe:
 import uim.mvc;
+@safe:
 
 public { // Main
 	import uim.mvc.forms.form;

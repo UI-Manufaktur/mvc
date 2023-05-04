@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.controllers.checks.databases.systems;
 
-@safe:
 import uim.mvc;
+@safe:
 
 // Main
 public {

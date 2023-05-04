@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.sessions;
 
-@safe:
 import uim.mvc;
+@safe:
 
 public {
 	import  uim.mvc.sessions.reader;
