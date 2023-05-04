@@ -6,7 +6,8 @@
 module uim.mvc.forms.components.inputs.tests;
 
 @safe:
-public import uim.mvc;
+public {
+	import  uim.mvc;
 
 bool test_formGroup(DFormInput aFormGroup) {
 

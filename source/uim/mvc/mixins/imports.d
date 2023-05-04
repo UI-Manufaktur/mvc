@@ -7,8 +7,12 @@ module  uim.mvc.mixins.imports;
 
 template ImportMVC(string prefix) {
   const char[] ImportMVC = 
-  "public import "~prefix~".controllers;"~
-  "public import "~prefix~".forms;"~
-  "public import "~prefix~".routes;"~
-  "public import "~prefix~".views;";
+  "public {
+	import  "~prefix~".controllers;"~
+  "public {
+	import  "~prefix~".forms;"~
+  "public {
+	import  "~prefix~".routes;"~
+  "public {
+	import  "~prefix~".views;";
 }

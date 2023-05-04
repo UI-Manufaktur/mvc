@@ -8,9 +8,12 @@ module uim.mvc.helpers;
 @safe:
 import uim.mvc;
 
-public import uim.mvc.helpers.inputinterface;
-public import uim.mvc.helpers.outputinterface;
-public import uim.mvc.helpers.router;
+public {
+	import  uim.mvc.helpers.inputinterface;
+public {
+	import  uim.mvc.helpers.outputinterface;
+public {
+	import  uim.mvc.helpers.router;
 
 template AddRoutes(string router, string rootPath, string rootName) {
   const char[] AddRoutes = `

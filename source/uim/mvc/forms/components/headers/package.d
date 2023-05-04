@@ -9,4 +9,5 @@ module uim.mvc.forms.components.headers;
 import uim.mvc;
 
 // Main
-public import uim.mvc.forms.components.headers.header;
+public {
+	import  uim.mvc.forms.components.headers.header;

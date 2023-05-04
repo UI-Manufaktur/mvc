@@ -1,3 +1,4 @@
 module uim.mvc.i18n;
 
-public import uim.mvc.i18n.parsers;
+public {
+	import  uim.mvc.i18n.parsers;

@@ -8,4 +8,5 @@ module uim.mvc.routers;
 @safe:
 import uim.mvc;
 
-public import uim.mvc.routers.sites;
+public {
+	import  uim.mvc.routers.sites;
