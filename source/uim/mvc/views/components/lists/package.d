@@ -15,13 +15,7 @@ public {
 // Packages
 public {
 	import  uim.mvc.views.components.lists.items;
-}
-
-public {
 	import  uim.mvc.views.components.lists.headers;
-}
-
-public {
 	import  uim.mvc.views.components.lists.footers;
 
 // Modules

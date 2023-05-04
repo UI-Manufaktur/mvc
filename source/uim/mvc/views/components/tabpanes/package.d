@@ -9,9 +9,6 @@ import uim.mvc;
 
 public {
 	import  uim.mvc.views.components.tabpanes.entity;
-}
-
-public {
 	import  uim.mvc.views.components.tabpanes.entities;
 }
 

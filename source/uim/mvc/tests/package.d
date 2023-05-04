@@ -10,9 +10,6 @@ import uim.mvc;
 
 public {
 	import  uim.mvc.tests.controller;
-}
-
-public {
 	import  uim.mvc.tests.controllercomponent;
 
 public {
@@ -20,7 +17,4 @@ public {
 
 public {
 	import  uim.mvc.tests.view;
-}
-
-public {
 	import  uim.mvc.tests.viewcomponent;

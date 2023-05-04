@@ -10,7 +10,4 @@ import uim.mvc;
 
 public { // Main
 	import uim.mvc.views.components.tables.components.rows.row;
-}
-
-public {
 	import  uim.mvc.views.components.tables.components.rows.entity;
