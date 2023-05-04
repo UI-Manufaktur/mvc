@@ -5,19 +5,30 @@
 **********************************************************************************************************/
 module uim.mvc.views;
 
-public import uim.mvc.views.view;
+public {
+	import  uim.mvc.views.view;
 
-public import uim.mvc.views.components;
-public import uim.mvc.views.registry;
+public {
+	import  uim.mvc.views.components;
+public {
+	import  uim.mvc.views.registry;
 
-public import uim.mvc.views.json;
-public import uim.mvc.views.xml;
+public {
+	import  uim.mvc.views.json;
+public {
+	import  uim.mvc.views.xml;
 
-public import uim.mvc.views.block;
-public import uim.mvc.views.entities;
-public import uim.mvc.views.entity;
-public import uim.mvc.views.null_;
-public import uim.mvc.views.sites;
+public {
+	import  uim.mvc.views.block;
+public {
+	import  uim.mvc.views.entities;
+public {
+	import  uim.mvc.views.entity;
+public {
+	import  uim.mvc.views.null_;
+public {
+	import  uim.mvc.views.sites;
 
-public import uim.mvc.views.crud;
+public {
+	import  uim.mvc.views.crud;
 
