@@ -4,6 +4,3 @@
 	Authors: Ozan Nurettin Süel, mailto:ons@sicherheitsschmiede.de                                                      
 **********************************************************************************************************/
 module uim.mvc.controllers.pages.components.headers;
-
-@safe:
-import uim.mvc;

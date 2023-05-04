@@ -5,9 +5,7 @@
 **********************************************************************************************************/
 module uim.mvc.controllers.scripts;
 
-@safe:
-import uim.mvc;
 
-// Main
-public {
+public { // Main
 	import  uim.mvc.controllers.scripts;
+}
