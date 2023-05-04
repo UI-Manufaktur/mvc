@@ -11,11 +11,12 @@ import uim.mvc;
 // Main
 public {
 	import  uim.mvc.forms.components.component;
+}
 
 // Packages
 public {
 	import  uim.mvc.forms.components.contents; // the content of a form without header and footer
-public {
 	import  uim.mvc.forms.components.inputs;
 	import  uim.mvc.forms.components.headers;
 	import  uim.mvc.forms.components.footers;
+}

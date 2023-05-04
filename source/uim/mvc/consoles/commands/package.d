@@ -12,10 +12,9 @@ import uim.mvc;
 public {
 	import  uim.mvc.consoles.commands.command;
 	import  uim.mvc.consoles.commands.interface_;
+}
 
 // Packages
 public {
 	import  uim.mvc.consoles.commands.factories;
 }
-
-// Modules

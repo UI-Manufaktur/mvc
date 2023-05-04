@@ -5,17 +5,13 @@
 **********************************************************************************************************/
 module uim.mvc.forms.crud;
 
-@safe:
-import uim.mvc;
-
 // Main
 public {
 	import  uim.mvc.forms.crud.element;
 	import  uim.mvc.forms.crud.elements;
-
-public {
 	import  uim.mvc.forms.crud.entity;
 	import  uim.mvc.forms.crud.entities;
+}
 
 // Modules
 public {
@@ -24,3 +20,4 @@ public {
 	import  uim.mvc.forms.crud.update;
 	import  uim.mvc.forms.crud.delete_;
 	import  uim.mvc.forms.crud.list;
+}

@@ -5,9 +5,7 @@
 **********************************************************************************************************/
 module uim.mvc.forms.components.headers;
 
-@safe:
-import uim.mvc;
-
 // Main
 public {
 	import  uim.mvc.forms.components.headers.header;
+}
