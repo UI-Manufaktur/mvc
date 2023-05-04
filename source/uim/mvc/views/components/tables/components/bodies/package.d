@@ -15,5 +15,7 @@ public { // Main
 // Module
 public {
 	import  uim.mvc.views.components.tables.components.bodies.entities;
+}
+
 public {
 	import  uim.mvc.views.components.tables.components.bodies.entity;
