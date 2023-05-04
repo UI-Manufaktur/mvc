@@ -8,3 +8,4 @@ module uim.mvc.controllers.odata;
 public {
 	import  uim.mvc.controllers.odata.index;
 	import  uim.mvc.controllers.odata.read;
+}

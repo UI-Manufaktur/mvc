@@ -13,6 +13,7 @@ public {
 	import  uim.mvc.sessions.manager;
 	import  uim.mvc.sessions.nullsession;
 	import  uim.mvc.sessions.session;
+}
 
 DMVCSession getAppSession(STRINGAA options = null) {
   return appSessions

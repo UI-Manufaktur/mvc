@@ -7,22 +7,15 @@ module uim.mvc.views;
 
 public {
 	import  uim.mvc.views.view;
-
-public {
 	import  uim.mvc.views.components;
 	import  uim.mvc.views.registry;
-
-public {
 	import  uim.mvc.views.json;
 	import  uim.mvc.views.xml;
-
-public {
 	import  uim.mvc.views.block;
 	import  uim.mvc.views.entities;
 	import  uim.mvc.views.entity;
 	import  uim.mvc.views.null_;
 	import  uim.mvc.views.sites;
-
-public {
 	import  uim.mvc.views.crud;
+}
 

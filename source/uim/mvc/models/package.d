@@ -8,3 +8,4 @@ module uim.mvc.models;
 public {
 	import  uim.mvc.models.model;
 	import  uim.mvc.models.registry;
+}
