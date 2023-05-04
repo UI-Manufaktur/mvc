@@ -5,9 +5,6 @@
 **********************************************************************************************************/
 module uim.mvc.consoles.commands.factories;
 
-@safe:
-import uim.mvc;
-
-// Main
-public {
+public { // Main
 	import  uim.mvc.consoles.commands.factories.factory;
+}

@@ -5,8 +5,6 @@
 **********************************************************************************************************/
 module uim.mvc.commands;
 
-import uim.mvc;
-
 public { // Main
 	import uim.mvc.commands.collection;
 	import uim.mvc.commands.command;

@@ -18,12 +18,6 @@ public {
 // Modules
 public {
 	import  uim.mvc.consoles.input;
-}
-
-public {
 	import  uim.mvc.consoles.io;
-}
-
-public {
 	import  uim.mvc.consoles.output;
 }
