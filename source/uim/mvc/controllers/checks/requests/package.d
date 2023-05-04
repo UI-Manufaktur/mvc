@@ -11,6 +11,7 @@ import uim.mvc;
 // Main
 public {
 	import  uim.mvc.controllers.checks.requests.request;
+}
 
 // Modules
 public {
@@ -18,4 +19,5 @@ public {
 	import  uim.mvc.controllers.checks.requests.accountname;
 	import  uim.mvc.controllers.checks.requests.password;
 	import  uim.mvc.controllers.checks.requests.siteid;
+}
 

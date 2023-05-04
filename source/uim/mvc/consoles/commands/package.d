@@ -16,5 +16,6 @@ public {
 // Packages
 public {
 	import  uim.mvc.consoles.commands.factories;
+}
 
 // Modules

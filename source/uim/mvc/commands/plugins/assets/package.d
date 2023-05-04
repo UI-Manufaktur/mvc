@@ -9,3 +9,4 @@ public {
 	import  uim.mvc.commands.plugins.assets.copy;
 	import  uim.mvc.commands.plugins.assets.remove;
 	import  uim.mvc.commands.plugins.assets.symlink;
+}

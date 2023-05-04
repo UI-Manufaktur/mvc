@@ -11,6 +11,7 @@ import uim.mvc;
 // Main
 public {
 	import  uim.mvc.controllers.checks.databases.systems.tenant;
+}
 
 // Module
 public {
@@ -19,3 +20,4 @@ public {
 	import  uim.mvc.controllers.checks.databases.systems.passwords;
 	import  uim.mvc.controllers.checks.databases.systems.sites;
 	import  uim.mvc.controllers.checks.databases.systems.sessions;
+}

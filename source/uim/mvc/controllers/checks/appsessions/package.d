@@ -8,15 +8,16 @@ module uim.mvc.controllers.checks.appsessions;
 @safe:
 import uim.mvc;
 
-// Main
-public {
-	import  uim.mvc.controllers.checks.appsessions.appsession;
 
-// Modules
-public {
+public { // Main
+	import  uim.mvc.controllers.checks.appsessions.appsession;
+}
+
+public { // Modules
 	import  uim.mvc.controllers.checks.appsessions.account;
 	import  uim.mvc.controllers.checks.appsessions.login;
 	import  uim.mvc.controllers.checks.appsessions.session;
 	import  uim.mvc.controllers.checks.appsessions.site;
 	import  uim.mvc.controllers.checks.appsessions.siteid;
+}
 

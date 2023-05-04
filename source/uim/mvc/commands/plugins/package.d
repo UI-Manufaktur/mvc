@@ -7,8 +7,10 @@ module uim.mvc.commands.plugins;
 
 public {
 	import  uim.mvc.commands.plugins.assets;
+}
 
 public {
 	import  uim.mvc.commands.plugins.load;
 	import  uim.mvc.commands.plugins.loaded;
 	import  uim.mvc.commands.plugins.unload;
+}
