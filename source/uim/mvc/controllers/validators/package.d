@@ -1,8 +1,5 @@
 module uim.mvc.controllers.validators;
 
-@safe:
-import uim.mvc;
-
 public {
 	import  uim.mvc.controllers.validators.account;
 	import  uim.mvc.controllers.validators.entity;
@@ -10,4 +7,5 @@ public {
 	import  uim.mvc.controllers.validators.session;
 	import  uim.mvc.controllers.validators.site;
 	import  uim.mvc.controllers.validators.validator;
+}
 

@@ -8,7 +8,6 @@ module uim.mvc.controllers.components;
 public {
 	import  uim.mvc.controllers.components.component;
 	import  uim.mvc.controllers.components.registry;
-
-public {
 	import  uim.mvc.controllers.components.auth;
 	import  uim.mvc.controllers.components.flash;
+}

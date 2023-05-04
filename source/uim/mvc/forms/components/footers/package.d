@@ -8,3 +8,4 @@ module uim.mvc.forms.components.footers;
 // Main 
 public {
 	import  uim.mvc.forms.components.footers.footer;
+}

@@ -9,6 +9,7 @@ module uim.mvc.controllers.pages;
 public {
 	import  uim.mvc.controllers.pages.page;
 	import  uim.mvc.controllers.pages.crud;
+}
 
 // Subclasses
 public {
@@ -18,3 +19,4 @@ public {
 	import  uim.mvc.controllers.pages.error;
 	import  uim.mvc.controllers.pages.helpers;
 	import  uim.mvc.controllers.pages.sites;
+}

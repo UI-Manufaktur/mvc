@@ -5,12 +5,10 @@
 **********************************************************************************************************/
 module uim.mvc.controllers.creators;
 
-@safe:
-import uim.mvc;
-
 public {
 	import  uim.mvc.controllers.creators.account;
 	import  uim.mvc.controllers.creators.creator;
 	import  uim.mvc.controllers.creators.login;
 	import  uim.mvc.controllers.creators.session;
 	import  uim.mvc.controllers.creators.site;
+}
