@@ -10,22 +10,34 @@ public {
 
 public {
 	import  uim.mvc.views.components;
+}
+
 public {
 	import  uim.mvc.views.registry;
 
 public {
 	import  uim.mvc.views.json;
+}
+
 public {
 	import  uim.mvc.views.xml;
 
 public {
 	import  uim.mvc.views.block;
+}
+
 public {
 	import  uim.mvc.views.entities;
+}
+
 public {
 	import  uim.mvc.views.entity;
+}
+
 public {
 	import  uim.mvc.views.null_;
+}
+
 public {
 	import  uim.mvc.views.sites;
 
