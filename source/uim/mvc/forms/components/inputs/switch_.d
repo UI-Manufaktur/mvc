@@ -8,8 +8,8 @@ module uim.mvc.forms.components.inputs.switch_;
 @safe:
 import uim.mvc;
 
-class DMVCSwitchFormInput : DFormInput {
-  mixin(ViewComponentThis!("MVCSwitchFormInput"));
+class DSwitchFormInput : DFormInput {
+  mixin(ViewComponentThis!("SwitchFormInput"));
 
   override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
@@ -21,7 +21,7 @@ class DMVCSwitchFormInput : DFormInput {
   mixin(OProperty!("bool", "checked"));
  
   override DH5Obj h5Input(STRINGAA options = null) {
-    debugMethodCall(moduleName!DMVCSwitchFormInput~":DMVCSwitchFormInput::h5Input");
+    debugMethodCall(moduleName!DSwitchFormInput~":DSwitchFormInput::h5Input");
     super.h5Input(options);
     
     auto input = H5Input(name, ["form-check-input me-1"], ["type":"checkbox", "name":inputName]);
@@ -46,4 +46,4 @@ class DMVCSwitchFormInput : DFormInput {
           h5Input(options), H5Span(["form-check-label"], label))));
   }
 }
-mixin(ViewComponentCalls!("MVCSwitchFormInput", "DMVCSwitchFormInput"));
+mixin(ViewComponentCalls!("SwitchFormInput", "DSwitchFormInput"));

@@ -8,13 +8,13 @@ module uim.mvc.forms.components.contents.list;
 @safe:
 import uim.mvc;
 
-class DMVCListFormContent : DMVCEntitiesViewComponent {
-  mixin(ViewComponentThis!("MVCListFormContent"));
+class DListFormContent : DMVCEntitiesViewComponent {
+  mixin(ViewComponentThis!("ListFormContent"));
 
   mixin(OProperty!("DMVCEntityViewComponent", "templateListItem"));
 
   override void initialize(Json configSettings = Json(null)) {
-    debugMethodCall(moduleName!DMVCListFormContent~"::DMVCListFormContent("~this.className~"):initialize");   
+    debugMethodCall(moduleName!DListFormContent~"::DListFormContent("~this.className~"):initialize");   
     super.initialize(configSettings);
   }
 
@@ -31,8 +31,8 @@ class DMVCListFormContent : DMVCEntitiesViewComponent {
     ].toH5;
   } 
 }
-mixin(ViewComponentCalls!("MVCListFormContent", "DMVCListFormContent"));
+mixin(ViewComponentCalls!("ListFormContent", "DListFormContent"));
 
 version(test_uim_mvc) { unittest {
-  assert(MVCListFormContent);
+  assert(ListFormContent);
 }}

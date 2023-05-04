@@ -25,7 +25,7 @@ class DFormInputHandler : DFormComponent {
       .formInputs([
         "name": MVCNameFormInput, 
         "display": DisplayFormInput, 
-        "description": MVCDescriptionFormInput
+        "description": DescriptionFormInput
       ]);
   } 
 

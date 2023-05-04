@@ -8,11 +8,11 @@ module uim.mvc.forms.components.inputs.description;
 @safe:
 import uim.mvc;
 
-class DMVCDescriptionFormInput : DMVCTextAreaFormInput {
-  mixin(ViewComponentThis!("MVCDescriptionFormInput"));
+class DDescriptionFormInput : DTextAreaFormInput {
+  mixin(ViewComponentThis!("DescriptionFormInput"));
 
   override void initialize(Json configSettings = Json(null)) {
-    version(test_uim_mvc) { debugMethodCall(moduleName!DMVCDescriptionFormInput~"::DMVCDescriptionFormInput("~this.className~"):initialize"); }
+    version(test_uim_mvc) { debugMethodCall(moduleName!DDescriptionFormInput~"::DDescriptionFormInput("~this.className~"):initialize"); }
     super.initialize(configSettings);
      
     this
@@ -23,8 +23,8 @@ class DMVCDescriptionFormInput : DMVCTextAreaFormInput {
       .placeholder("Beschreibung eingeben"); 
   }
 }
-mixin(ViewComponentCalls!("MVCDescriptionFormInput", "DMVCDescriptionFormInput"));
+mixin(ViewComponentCalls!("DescriptionFormInput", "DDescriptionFormInput"));
 
 version(test_uim_mvc) { unittest {
-  assert(MVCDescriptionFormInput);
+  assert(DescriptionFormInput);
 }}
