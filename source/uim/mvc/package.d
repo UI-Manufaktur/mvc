@@ -5,6 +5,7 @@ mixin(ImportPhobos!());
 // Dub
 public {
 	import  vibe.d;
+}
 
 public { // uim libraries
   import uim.core;
