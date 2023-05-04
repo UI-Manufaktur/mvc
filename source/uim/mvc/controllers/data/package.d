@@ -5,4 +5,5 @@
 **********************************************************************************************************/
 module uim.mvc.controllers.data;
 
-public import uim.mvc.controllers.data.controller;
+public {
+	import  uim.mvc.controllers.data.controller;

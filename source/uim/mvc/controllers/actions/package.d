@@ -6,7 +6,8 @@
 module uim.mvc.controllers.actions;
 
 // Main classes
-public import uim.mvc.controllers.actions.action;
+public {
+	import  uim.mvc.controllers.actions.action;
 
 public { // Subclasses
 	import uim.mvc.controllers.actions.create;
