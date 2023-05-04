@@ -15,12 +15,20 @@ public {
 // Modules
 public {
 	import  uim.mvc.forms.components.contents.entity;
+}
+
 public {
 	import  uim.mvc.forms.components.contents.entities;
+}
+
 public {
 	import  uim.mvc.forms.components.contents.cards;
+}
+
 public {
 	import  uim.mvc.forms.components.contents.list;
+}
+
 public {
 	import  uim.mvc.forms.components.contents.table;
 

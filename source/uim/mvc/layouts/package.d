@@ -7,6 +7,8 @@ module uim.mvc.layouts;
 
 public {
 	import  uim.mvc.layouts.layout;
+}
+
 public {
 	import  uim.mvc.layouts.registry;
 
