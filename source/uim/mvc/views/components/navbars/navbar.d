@@ -60,7 +60,7 @@ import uim.mvc;
 }
 auto MVCFirstNavbar() { return new DMVCFirstNavbar; }
 
-class DMVCSecondNavbar : DViewComponent {
+class DSecondNavbar : DViewComponent {
   this() { super(); }
 
   mixin(OProperty!("DNavbarSlotViewComponent[]", "slots"));
@@ -86,8 +86,8 @@ class DMVCSecondNavbar : DViewComponent {
       ); 
   }
 }
-auto MVCSecondNavbar() { return new DMVCSecondNavbar; }
-auto MVCSecondNavbar(DNavbarSlotViewComponent[] slots) { return MVCSecondNavbar.slots(slots); }
+auto SecondNavbar() { return new DSecondNavbar; }
+auto SecondNavbar(DNavbarSlotViewComponent[] slots) { return SecondNavbar.slots(slots); }
  */
 
 class DMVCFirstNavbar : DViewComponent {
@@ -167,8 +167,8 @@ auto userNavitem(STRINGAA options = null) {
     );
 }
 
-class DMVCSecondNavbar : DViewComponent {
-  mixin(ViewComponentThis!("MVCSecondNavbar"));
+class DSecondNavbar : DViewComponent {
+  mixin(ViewComponentThis!("SecondNavbar"));
 
   mixin(OProperty!("DNavbarSlotViewComponent[]", "leftSlots"));
   mixin(OProperty!("DNavbarSlotViewComponent[]", "rightSlots"));
@@ -247,7 +247,7 @@ class DMVCSecondNavbar : DViewComponent {
       )].toH5;
   }
 }
-mixin(ViewComponentCalls!("MVCSecondNavbar", "DMVCSecondNavbar"));
+mixin(ViewComponentCalls!("SecondNavbar", "DSecondNavbar"));
 
 /*
 BS5NavItem(["active"], 

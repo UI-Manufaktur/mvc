@@ -21,7 +21,7 @@ class DMVCNavigationViewComponent : DViewComponent {
 
     debug writeln("Add Second Nav");
     this
-      .secondNavbar(MVCSecondNavbar);
+      .secondNavbar(SecondNavbar);
   }
 
   mixin(OProperty!("DViewComponent", "firstNavbar"));
@@ -40,7 +40,7 @@ class DMVCNavigationViewComponent : DViewComponent {
                                             : null;
     debug writeln(firstNavbar ? "Has firstNavbar" : "Missing firstNavbar");
     debug writeln("firstNavbar -> ", firstNavbarH5);
-    auto secNavbar = cast(DMVCSecondNavbar)this.secondNavbar;
+    auto secNavbar = cast(DSecondNavbar)this.secondNavbar;
     debug writeln(secondNavbar ? "Has secondNavbar" : "Missing secondNavbar");
     auto secondNavbarH5 = secNavbar ? secNavbar.brand(["link":rootPath, "title":options.get("appTitle", "")]).toH5(options) 
                                           : null;
