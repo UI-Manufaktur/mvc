@@ -8,11 +8,11 @@ module uim.mvc.forms.components.contents.entities;
 @safe:
 import uim.mvc;
 
-class DMVCEntitiesFormContent : DFormContent {
-  mixin(ViewComponentThis!("MVCEntitiesFormContent"));
+class DEntitiesFormContent : DFormContent {
+  mixin(ViewComponentThis!("EntitiesFormContent"));
 
   override void initialize(Json configSettings = Json(null)) {
-    debugMethodCall(moduleName!DMVCEntitiesFormContent~"::DMVCEntitiesFormContent("~this.name~"):initialize");   
+    debugMethodCall(moduleName!DEntitiesFormContent~"::DEntitiesFormContent("~this.name~"):initialize");   
     super.initialize(configSettings);
     debug writeln("In ", __MODULE__, "/", __LINE__);
 
@@ -26,11 +26,11 @@ class DMVCEntitiesFormContent : DFormContent {
   // mixin(OProperty!("DEntity[]", "entities"));
   
   override void beforeH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DMVCEntitiesFormContent~"DMVCEntitiesFormContent::beforeH5");
+    debugMethodCall(moduleName!DEntitiesFormContent~"DEntitiesFormContent::beforeH5");
     super.beforeH5(options);
     if (hasError || "redirect" in options) { return; }
 
-    debug writeln("in DMVCEntitiesEntitiesForm "~(this.entities ? "Has %s entities".format(this.entities.length) : "No entities"));
+    debug writeln("in DEntitiesEntitiesForm "~(this.entities ? "Has %s entities".format(this.entities.length) : "No entities"));
 
     debug writeln("Before RootPath = ", this.rootPath);
     /* if (owner) { // ???
@@ -47,7 +47,7 @@ class DMVCEntitiesFormContent : DFormContent {
   }
 
   override DH5Obj[] toH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DMVCEntitiesFormContent~"DMVCEntitiesFormContent("~this.name~")::toH5");
+    debugMethodCall(moduleName!DEntitiesFormContent~"DEntitiesFormContent("~this.name~")::toH5");
     super.toH5(options);
 
     debug writeln("RootPath = ", this.rootPath);
@@ -110,13 +110,13 @@ class DMVCEntitiesFormContent : DFormContent {
       ].toH5;
   } 
 }
-mixin(ViewComponentCalls!("MVCEntitiesFormContent", "DMVCEntitiesFormContent"));
+mixin(ViewComponentCalls!("EntitiesFormContent", "DEntitiesFormContent"));
 
 version(test_uim_mvc) { unittest {
   writeln("--- Test in ", __MODULE__, "/", __LINE__);
   
-  assert(new DMVCEntitiesFormContent);
-  assert(MVCEntitiesFormContent);
-  assert(new DMVCEntitiesFormContent(Form));
-  assert(MVCEntitiesFormContent(Form)); 
+  assert(new DEntitiesFormContent);
+  assert(EntitiesFormContent);
+  assert(new DEntitiesFormContent(Form));
+  assert(EntitiesFormContent(Form)); 
 }}

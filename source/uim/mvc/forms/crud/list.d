@@ -19,7 +19,7 @@ class DEntitiesListForm : DMVCEntitiesForm {
         FormHeader //.mainTitle("Blogs").subTitle("Übersicht Blogs").actions([["print", "export"]])
       )
       .content(
-        MVCEntitiesFormContent      
+        EntitiesFormContent      
       );
     /*       .form
         .header(MVCEntitiesheader(this.form).rootPath("/cms/blogs").mainTitle("Blogs").subTitle("Blogs anzeigen").actions([["print", "export"]]))

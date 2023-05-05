@@ -5,11 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.forms.components;
 
-import uim.mvc;
-@safe:
 
-// Main
-public {
+public { // Main
 	import  uim.mvc.forms.components.component;
 }
 
