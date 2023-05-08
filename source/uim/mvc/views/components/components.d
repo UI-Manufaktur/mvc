@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.views.components.components;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DViewComponents {
   this() { /* this.name("ViewComponents"); */ }    

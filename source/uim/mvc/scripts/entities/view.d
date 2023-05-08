@@ -1,7 +1,7 @@
 module uim.mvc.scripts.entities.view;
 
-@safe:
 import uim.mvc;
+@safe:
 
 auto viewEntity() {
   string result;

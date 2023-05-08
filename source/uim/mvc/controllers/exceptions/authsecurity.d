@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.controllers.exceptions.authsecurity;
 
-@safe:
 import uim.mvc;
+@safe:
 
 // Auth Security exception - used when SecurityComponent detects any issue with the current request
 class DAuthSecurityException : DSecurityException {

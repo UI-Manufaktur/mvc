@@ -1,7 +1,7 @@
 module uim.mvc.interfaces.layout;
 
-@safe:
 import uim.mvc;
+@safe:
 
 interface ILayout : IMVCObject {
   string layoutStyle();

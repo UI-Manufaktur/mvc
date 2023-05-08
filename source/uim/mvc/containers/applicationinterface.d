@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.containers.Applicationinterface;
 
-@safe:
 import uim.mvc;
+@safe:
 
 // Interface for Applications that configure and use a dependency injection container.
 interface IContainerApplication {

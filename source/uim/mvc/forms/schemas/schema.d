@@ -1,7 +1,7 @@
 module uim.mvc.forms.schemas.schema;
 
-@safe:
 import uim.mvc;
+@safe:
 
 // Contains the schema information for Form instances.
 class DFormSchema {

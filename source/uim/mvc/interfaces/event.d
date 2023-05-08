@@ -1,7 +1,7 @@
 module uim.mvc.interfaces.event;
 
-@safe:
 import uim.mvc;
+@safe:
 
 interface IEvent : IMVCObject {
     // TODO datatype

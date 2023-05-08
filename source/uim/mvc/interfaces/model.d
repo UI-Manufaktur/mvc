@@ -5,7 +5,7 @@
 **********************************************************************************************************/
 module uim.mvc.interfaces.model;
 
-@safe:
 import uim.mvc;
+@safe:
 
 interface IModel {}

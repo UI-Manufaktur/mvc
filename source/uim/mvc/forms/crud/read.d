@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.forms.crud.read;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DMVCReadForm : DEntityForm {
   mixin(ViewComponentThis!("MVCReadForm"));

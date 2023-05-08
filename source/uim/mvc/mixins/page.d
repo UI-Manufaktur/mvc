@@ -1,7 +1,7 @@
 module uim.mvc.mixins.page;
 
-@safe:
 import uim.mvc;
+@safe:
 
 string appPageControllerThis(string controllerName, bool withEntity = false, bool withEntities = false) {
 	return `

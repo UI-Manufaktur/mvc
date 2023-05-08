@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.forms.components.inputs.checkbox;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DMVCCheckboxFormInput : DFormInput {
   mixin(ViewComponentThis!("MVCCheckboxFormInput"));

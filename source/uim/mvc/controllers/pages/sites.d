@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.controllers.pages.sites;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DAPPSitesPage : DPageController {
   mixin(ControllerThis!("APPSitesPage"));

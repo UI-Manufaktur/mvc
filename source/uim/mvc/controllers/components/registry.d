@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.controllers.components.registry;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DControllerComponentRegistry : DRegistry!DControllerComponent{
   this() {}

@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.views.components.accordions.accordion;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DAPPAccordion : DViewComponent {  
   mixin(ViewComponentThis!("APPAccordion"));

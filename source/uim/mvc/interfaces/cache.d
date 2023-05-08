@@ -1,7 +1,7 @@
 module uim.mvc.interfaces.cache;
 
-@safe:
 import uim.mvc;
+@safe:
 
 interface ICache : IMVCObject {
 

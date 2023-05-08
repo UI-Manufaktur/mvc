@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.controllers.checks.requests.accountname;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DRequestHasAccountNameCheck : DDatabaseHasAccountsCheck {
   mixin(ControllerComponentThis!("RequestHasAccountNameCheck"));

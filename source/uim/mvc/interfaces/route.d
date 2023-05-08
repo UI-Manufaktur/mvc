@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.interfaces.route;
 
-@safe:
 import uim.mvc;
+@safe:
 
 interface IRoute : IMVCObject {
 	string path();

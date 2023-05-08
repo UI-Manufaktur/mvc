@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.controllers.exceptions.missingaction;
 
-@safe:
 import uim.mvc;
+@safe:
 
 /**
  * Missing Action exception - used when a controller action

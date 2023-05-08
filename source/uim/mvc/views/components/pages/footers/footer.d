@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.views.components.pages.footers.footer;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DMVCPageFooterViewComponent : DViewComponent {
   mixin(ViewComponentThis!("MVCPageFooterViewComponent"));

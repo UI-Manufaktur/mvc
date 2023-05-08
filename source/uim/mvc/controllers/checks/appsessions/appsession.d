@@ -10,8 +10,8 @@
 **********************************************************************************************************/
 module uim.mvc.controllers.checks.appsessions.appsession;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DAppSessionExistsCheck : DControllerCheck {
   mixin(ControllerComponentThis!("AppSessionExistsCheck"));

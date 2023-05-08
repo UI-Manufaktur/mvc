@@ -1,7 +1,7 @@
 module uim.mvc.interfaces.eventmanager;
 
-@safe:
 import uim.mvc;
+@safe:
 
 interface IEventManager {
     /**

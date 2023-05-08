@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.tests.viewcomponent;
 
-@safe:
 import uim.mvc;
+@safe:
 
 void testViewComponent(DViewComponent aViewComponent, string viewcomponentName) { 
   assert(aViewComponent, "ViewComponent "~viewcomponentName~" does not exist");

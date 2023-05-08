@@ -1,7 +1,7 @@
 module uim.mvc.scripts.register;
 
-@safe:
 import uim.mvc;
+@safe:
 
 auto registerUser() {
   return 

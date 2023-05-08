@@ -1,7 +1,7 @@
 module uim.mvc.interfaces.controller;
 
-@safe:
 import uim.mvc;
+@safe:
 
 interface IController : IMVCObject  {
   string rootPath(); 

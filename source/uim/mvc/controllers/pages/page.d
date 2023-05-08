@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.controllers.pages.page;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DPageController : DController, IPageController {
   mixin(ControllerThis!("PageController"));

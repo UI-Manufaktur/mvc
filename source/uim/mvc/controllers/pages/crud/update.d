@@ -8,8 +8,8 @@ module uim.mvc.controllers.pages.crud.update;
 /* This package contains general edit page definitions */
 /**************************************************/
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DAPPEntityUpdateController : DAPPEntityCrudPageController {
   mixin(ControllerThis!("APPEntityUpdateController"));

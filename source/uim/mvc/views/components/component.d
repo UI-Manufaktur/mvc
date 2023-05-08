@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.views.components.component;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DViewComponent : DMVCObject, IViewComponent {
   mixin(ViewComponentThis!("ViewComponent"));
@@ -93,8 +93,8 @@ version(test_uim_mvc) { unittest {
 
 module uim.mvc.views.components.component;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DViewComponent : DAPPBaseView {
   mixin(ViewComponentThis!"ViewComponent");

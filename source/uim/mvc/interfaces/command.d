@@ -1,7 +1,7 @@
 module uim.mvc.interfaces.command;
 
-@safe:
 import uim.mvc;
+@safe:
 
 interface ICommand { 
   // Run the command.

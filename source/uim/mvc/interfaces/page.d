@@ -1,7 +1,7 @@
 module uim.mvc.interfaces.page;
 
-@safe:
 import uim.mvc;
+@safe:
 
 interface IPageController: IController {
   DETBBase database();

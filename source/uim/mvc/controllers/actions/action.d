@@ -10,8 +10,8 @@
 **********************************************************************************************************/
 module uim.mvc.controllers.actions.action;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DActionController : DController, IActionController {
   mixin(ControllerThis!("ActionController"));

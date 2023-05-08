@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.routes.builder;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DRouteBuilder : DMVCObject, IRouteBuilder {
 

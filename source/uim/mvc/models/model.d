@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.models.model;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DModel : DMVCObject, IModel { 
   mixin(ModelThis!("Model"));

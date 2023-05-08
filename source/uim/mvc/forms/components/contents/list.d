@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.forms.components.contents.list;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DListFormContent : DMVCEntitiesViewComponent {
   mixin(ViewComponentThis!("ListFormContent"));

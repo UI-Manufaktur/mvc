@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.views.components.pages.page;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DPageViewComponent : DViewComponent {
   mixin(ViewComponentThis!("PageViewComponent"));

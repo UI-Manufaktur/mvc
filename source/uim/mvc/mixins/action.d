@@ -1,7 +1,7 @@
 module uim.mvc.mixins.action;
 
-@safe:
 import uim.mvc;
+@safe:
 
 /* string appActionView(string category, string className, string action, string initialize = "", string beforeH5 = "") {
   string viewName = category~className~action~"View";

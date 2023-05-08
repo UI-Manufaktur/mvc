@@ -1,6 +1,6 @@
 module uim.mvc.interfaces.context;
 
-@safe:
 import uim.mvc;
+@safe:
 
 interface IContext : IMVCObject {}

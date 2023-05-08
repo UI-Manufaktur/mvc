@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.controllers.exceptions.security;
 
-@safe:
 import uim.mvc;
+@safe:
 
 // Security exception - used when SecurityComponent detects any issue with the current request
 class DSecurityException : DUIMException { // BadRequestException {

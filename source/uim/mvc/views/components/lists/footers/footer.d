@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.views.components.lists.footers.footer;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DAPPListFooter : DViewComponent {
   mixin(ViewComponentThis!("APPListFooter"));

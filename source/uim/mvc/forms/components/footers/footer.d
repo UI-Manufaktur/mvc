@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.forms.components.footers.footer;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DFormFooter : DFormComponent {
   mixin(ViewComponentThis!("FormFooter"));

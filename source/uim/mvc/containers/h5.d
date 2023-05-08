@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.containers.h5;
 
-@safe:
 import uim.mvc;
+@safe:
 
 // Container for H5 data
 class DH5Container {

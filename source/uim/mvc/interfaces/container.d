@@ -1,6 +1,6 @@
 module uim.mvc.interfaces.container;
 
-@safe:
 import uim.mvc;
+@safe:
 
 interface IContainer : IMVCObject {}

@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.routes.route;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DRoute : DMVCObject, IRoute {
   this() { super(); }

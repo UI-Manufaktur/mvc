@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.forms.crud.list;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DEntitiesListForm : DMVCEntitiesForm {
   mixin(ViewComponentThis!("EntitiesListForm"));

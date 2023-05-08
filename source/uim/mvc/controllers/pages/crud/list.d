@@ -8,8 +8,8 @@ module uim.mvc.controllers.pages.crud.list;
 /* This package contains general list page definitions */
 /**************************************************/
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DAPPListPage : DAPPEntitiesPageController {
   mixin(ControllerThis!("APPListPage"));
@@ -53,8 +53,8 @@ mixin(ControllerCalls!("APPListPage"));
 
 /*
 
-@safe:
 import uim.mvc;
+@safe:
 
 auto myJsPath = "";
 

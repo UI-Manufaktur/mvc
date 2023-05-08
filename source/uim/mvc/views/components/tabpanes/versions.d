@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.views.components.tabpanes.versions;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DAPPVersionsPaneViewComponent : DAPPEntitiesTabpane {
   mixin(ViewComponentThis!("APPVersionsPaneViewComponent"));

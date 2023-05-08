@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.views.components.pages.bodies.body_;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DPageBodyViewComponent : DViewComponent {
   mixin(ViewComponentThis!("PageBodyViewComponent"));

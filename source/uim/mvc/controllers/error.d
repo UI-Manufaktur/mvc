@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.controllers.error;
 
-@safe:
 import uim.mvc;
+@safe:
 
 /**
  * Error Handling Controller

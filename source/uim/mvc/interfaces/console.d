@@ -1,6 +1,6 @@
 module uim.mvc.interfaces.console;
 
-@safe:
 import uim.mvc;
+@safe:
 
 interface IConsole : IMVCObject {}

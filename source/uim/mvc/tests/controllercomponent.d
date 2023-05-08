@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.tests.controllercomponent;
 
-@safe:
 import uim.mvc;
+@safe:
 
 void testControllerComponent(DControllerComponent aControllerComponent, string controllercomponentName) { 
   assert(aControllerComponent, "ControllerComponent "~controllercomponentName~" does not exist");

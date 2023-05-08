@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.controllers.creators.account;
 
-@safe:
 import uim.mvc;
+@safe:
 
 /* static this() {
   appErrorCodes[appErrorPrefix+201] = "Could not create account";

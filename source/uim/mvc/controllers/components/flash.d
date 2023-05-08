@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.controllers.components.flash;
 
-@safe:
 import uim.mvc;
+@safe:
 
 /**
  * The UIM FlashComponent provides a way for you to write a flash variable

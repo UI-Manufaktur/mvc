@@ -1,7 +1,7 @@
 module uim.mvc.controllers.securities.security;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DAPPSecurityController : DController {
   mixin(ControllerThis!("APPSecurityController"));

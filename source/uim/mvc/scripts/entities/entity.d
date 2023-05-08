@@ -1,7 +1,7 @@
 module uim.mvc.scripts.entities.entity;
 
-@safe:
 import uim.mvc;
+@safe:
 
 auto entity() {
   string result;

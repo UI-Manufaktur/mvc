@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.views.components.tables.versions;
 
-@safe:
 import uim.mvc;
+@safe:
 
 /* class DTableVersions : DMVCEntitiesTableHeader {
   mixin(ViewComponentThis!("MVCTableVersions"));

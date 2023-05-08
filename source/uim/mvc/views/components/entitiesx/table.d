@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.views.components.entitiesx.table;
 
-@safe:
 import uim.mvc;
+@safe:
 
 /* class DAPPEntitiesTableViewComponent : DViewComponent {
   mixin(ViewComponentThis!("APPEntitiesTableViewComponent", false, true));

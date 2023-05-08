@@ -1,7 +1,7 @@
 module uim.mvc.scripts.entities.list;
 
-@safe:
 import uim.mvc;
+@safe:
 
 private:
 auto myApi = "/api/v1/grundschutz/informations";

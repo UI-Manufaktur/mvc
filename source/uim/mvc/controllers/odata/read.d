@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.controllers.odata.read;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DReadRestController : DController {
   mixin(ControllerThis!("ReadRestController"));

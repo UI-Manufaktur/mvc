@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.views.components.tables.table;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DTableViewComponent : DViewComponent {
   mixin(ViewComponentThis!("MVCTableViewComponent"));

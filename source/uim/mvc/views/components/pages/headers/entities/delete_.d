@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.views.components.pages.headers.entities.delete_;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DMVCDeletePageHeaderViewComponent : DPageHeaderViewComponent {
   mixin(ViewComponentThis!("MVCDeletePageHeaderViewComponent"));

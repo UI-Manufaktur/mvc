@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.controllers.actions.create;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DCreateActionController : DActionController {
   mixin(ControllerThis!("CreateActionController"));

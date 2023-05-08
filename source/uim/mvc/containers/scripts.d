@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.containers.scripts;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DScriptContainer : DH5Container {
 	O entries(this O)(STRINGAA[] newEntries) { 

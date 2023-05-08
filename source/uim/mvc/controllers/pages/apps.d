@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.controllers.pages.apps;
 
-@safe:
 import uim.mvc;
+@safe:
 
 /* class DAPPPage : DPageController {
   this() { super(); 

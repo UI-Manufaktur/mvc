@@ -1,7 +1,7 @@
 module uim.mvc.scripts.logout;
 
-@safe:
 import uim.mvc;
+@safe:
 
 auto logout() {
   return "

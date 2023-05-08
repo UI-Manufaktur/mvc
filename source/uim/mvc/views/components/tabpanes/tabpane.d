@@ -1,7 +1,7 @@
 module uim.mvc.views.components.tabpanes.tabpane;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DTabPane : DViewComponent {
   mixin(ViewComponentThis!("TabPane"));

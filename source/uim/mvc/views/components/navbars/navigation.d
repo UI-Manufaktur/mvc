@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.views.components.navbars.navigation;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DMVCNavigationViewComponent : DViewComponent {
   mixin(ViewComponentThis!("MVCNavigationViewComponent"));

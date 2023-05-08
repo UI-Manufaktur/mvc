@@ -1,7 +1,7 @@
 module uim.mvc.interfaces.consoleapplication;
 
-@safe:
 import uim.mvc;
+@safe:
 
 // An interface defining the methods that the console runner depend on.
 interface IConsoleApplications {

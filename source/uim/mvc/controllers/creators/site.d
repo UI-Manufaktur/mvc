@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.controllers.creators.site;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DMVCCreatorSite : DMVCCreator {
   mixin(ControllerThis!("MVCCreatorSite"));

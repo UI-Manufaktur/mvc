@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.views.components.null_;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DNullViewComponent : DViewComponent {
   mixin(ViewComponentThis!("NullViewComponent"));

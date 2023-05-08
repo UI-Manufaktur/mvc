@@ -1,7 +1,7 @@
 module uim.mvc.interfaces.formatter;
 
-@safe:
 import uim.mvc;
+@safe:
 
 interface IFormatter : IMVCObject {
   /**

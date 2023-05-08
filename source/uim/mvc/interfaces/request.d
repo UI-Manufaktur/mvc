@@ -1,6 +1,6 @@
 module uim.mvc.interfaces.request;
 
-@safe:
 import uim.mvc;
+@safe:
 
 interface IRequest : IMVCObject {}

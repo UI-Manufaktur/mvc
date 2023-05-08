@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.controllers.pages.error;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DAPPErrorPageController : DPageController {
   mixin(ControllerThis!("APPErrorPageController"));

@@ -1,6 +1,6 @@
 module uim.mvc.interfaces.collection;
 
-@safe:
 import uim.mvc;
+@safe:
 
 interface ICollection : IMVCObject {}

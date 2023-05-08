@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.forms.crud.update;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DMVCUpdateForm : DEntityForm {
   mixin(ViewComponentThis!("MVCUpdateForm"));

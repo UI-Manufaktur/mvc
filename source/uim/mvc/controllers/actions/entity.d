@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.controllers.actions.entity;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DAPPEntityActionController : DActionController {
   mixin(ControllerThis!("APPEntityActionController"));

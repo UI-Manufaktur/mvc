@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.controllers.checks.appsessions.login;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DAppSessionHasLoginCheck : DAppSessionExistsCheck {
   mixin(ControllerComponentThis!("AppSessionHasLoginCheck"));

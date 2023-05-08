@@ -1,7 +1,7 @@
 module uim.mvc.mixins.console;
 
-@safe:
 import uim.mvc;
+@safe:
 
 auto consoleThis(string name) {
   return 

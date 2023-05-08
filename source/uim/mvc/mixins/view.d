@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.mixins.view;
 
-@safe:
 import uim.mvc;
+@safe:
 
 auto viewThis(string name) {
   return 

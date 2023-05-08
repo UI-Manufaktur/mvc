@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.sessions.session;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DMVCSession {
   this() {}

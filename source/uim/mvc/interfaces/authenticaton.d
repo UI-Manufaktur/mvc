@@ -1,7 +1,7 @@
 module uim.mvc.interfaces.authentication;
 
-@safe:
 import uim.mvc;
+@safe:
 
 /* interface IAuthentication {
 } */

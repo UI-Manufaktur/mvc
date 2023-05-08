@@ -1,6 +1,6 @@
 module uim.mvc.views.xml;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DXMLView : DView {}

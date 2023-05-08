@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.views.components.pages.headers.entities.edit;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DMVCEditPageHeaderViewComponent : DPageHeaderViewComponent {
   mixin(ViewComponentThis!("MVCEditPageHeaderViewComponent"));

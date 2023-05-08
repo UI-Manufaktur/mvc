@@ -1,7 +1,7 @@
 module uim.mvc.controllers.validators.login;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DAPPValidatorLogin : DAPPValidator {
   mixin(ControllerThis!("APPValidatorLogin"));

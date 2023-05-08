@@ -5,5 +5,5 @@
 **********************************************************************************************************/
 module uim.mvc.forms.components.contents.tests;
 
-@safe:
 import uim.mvc;
+@safe:

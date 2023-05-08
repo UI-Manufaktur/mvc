@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.views.components.navbars.navbar;
 
-@safe:
 import uim.mvc;
+@safe:
 
 /* class DMVCFirstNavbar : DViewComponent {
     this() { super(); }

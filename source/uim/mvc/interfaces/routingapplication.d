@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.interfaces.routingapplication;
 
-@safe:
 import uim.mvc;
+@safe:
 
 // Interface for applications that use routing.
 interface IRoutingApplication {

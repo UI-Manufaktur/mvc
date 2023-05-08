@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.consoles.commands.command;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DCommand : DMVCObject, ICommand{
 	  // Default error code

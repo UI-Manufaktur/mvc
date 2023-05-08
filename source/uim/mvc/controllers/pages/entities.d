@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.controllers.pages.entities;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DAPPEntitiesPageController : DPageController {
   mixin(ControllerThis!("APPEntitiesPageController"));

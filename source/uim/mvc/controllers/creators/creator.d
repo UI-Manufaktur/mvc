@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.controllers.creators.creator;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DMVCCreator : DController {
   mixin(ControllerThis!("MVCCreator"));

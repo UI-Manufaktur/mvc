@@ -1,7 +1,7 @@
 module uim.mvc.interfaces.eventlistener;
 
-@safe:
 import uim.mvc;
+@safe:
 
 /**
  * Objects implementing this interface should declare the `implementedEvents()` method

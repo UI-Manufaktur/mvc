@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.views.crud.create;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DAPPEntityCreateView : DEntityCRUDView {
   mixin(ViewThis!("APPEntityCreateView"));

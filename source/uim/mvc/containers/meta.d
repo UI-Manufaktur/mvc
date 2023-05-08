@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.containers.metas;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DMVCMetaContainer : DH5Container {
 	O entries(this O)(STRINGAA[] newEntries) { 

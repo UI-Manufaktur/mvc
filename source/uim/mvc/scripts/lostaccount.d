@@ -1,7 +1,7 @@
 module uim.mvc.scripts.lostaccount;
 
-@safe:
 import uim.mvc;
+@safe:
 
 auto lostAccount() {
   string result;

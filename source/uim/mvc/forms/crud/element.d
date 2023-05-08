@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.forms.crud.element;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DMVCElementForm : DForm {
   mixin(ViewComponentThis!("MVCElementForm"));

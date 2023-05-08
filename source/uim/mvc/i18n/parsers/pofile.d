@@ -1,8 +1,8 @@
 
 module uim.mvc.i18n.parsers.pofile;
 
-@safe:
 import uim.mvc;
+@safe:
 
 // Parses file in PO format
 class PoFileParser {

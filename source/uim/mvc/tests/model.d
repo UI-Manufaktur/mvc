@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.tests.model;
 
-@safe:
 import uim.mvc;
+@safe:
 
 void testModel(DModel aModel, string modelName) { 
   assert(aModel, "Model "~modelName~" does not exist");

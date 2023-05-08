@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.forms.form;
 
-@safe:
 import uim.mvc;
+@safe:
 
 /**
  * Form abstraction used to create forms not tied to ORM backed models,

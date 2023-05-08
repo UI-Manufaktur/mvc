@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.sessions.reader;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DMVCSessionReader {
   this(IPageController page) {

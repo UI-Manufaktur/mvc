@@ -1,7 +1,7 @@
 module uim.mvc.interfaces.view;
 
-@safe:
 import uim.mvc;
+@safe:
 
 interface IView : IMVCObject {
   IController controller();

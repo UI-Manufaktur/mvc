@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.views.crud.update;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DAPPEntityUpdateView : DEntityCRUDView {
   mixin(ViewThis!("APPEntityUpdateView"));

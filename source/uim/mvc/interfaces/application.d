@@ -1,7 +1,7 @@
 module uim.mvc.interfaces.application;
 
-@safe:
 import uim.mvc;
+@safe:
 
 interface IApplication : IMVCObject {
   DETBBase database();

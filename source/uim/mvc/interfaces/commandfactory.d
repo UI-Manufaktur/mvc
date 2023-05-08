@@ -1,7 +1,7 @@
 module uim.mvc.interfaces.commandfactory;
 
-@safe:
 import uim.mvc;
+@safe:
 
 // An interface for abstracting creation of command and shell instances.
 interface ICommandFactory {

@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.controllers.exceptions.invalidparameter;
 
-@safe:
 import uim.mvc;
+@safe:
 /* use Throwable; */
 
 // Used when a passed parameter or action parameter type declaration is missing or invalid.

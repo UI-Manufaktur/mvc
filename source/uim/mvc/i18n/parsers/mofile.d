@@ -1,8 +1,8 @@
 
 module uim.mvc.i18n.parsers.mofile;
 
-@safe:
 import uim.mvc;
+@safe:
 
 /**
  * Parses file in MO format

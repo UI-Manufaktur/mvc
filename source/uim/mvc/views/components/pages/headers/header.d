@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.views.components.pages.headers.header;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DPageHeaderViewComponent : DViewComponent {
   mixin(ViewComponentThis!("PageHeaderViewComponent"));

@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.forms.components.inputs.startenddate;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DMVCStartEndDateFormInput : DFormInput {
   mixin(ViewComponentThis!("MVCStartEndDateFormInput"));

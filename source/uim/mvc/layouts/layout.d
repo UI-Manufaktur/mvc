@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.layouts.layout;
 
-@safe:
 import uim.mvc;
+@safe:
 
 enum DataModes { Local, REST }
 

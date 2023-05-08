@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.controllers.checks.appsessions.siteid;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DAppSessionHasSiteIdCheck : DAppSessionHasSessionCheck {
   mixin(ControllerComponentThis!("AppSessionHasSiteIdCheck"));

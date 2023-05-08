@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.routers.sites;
 
-@safe:
 import uim.mvc;
+@safe:
 
 /* void uimSites(HTTPServerRequest req, HTTPServerResponse res) {
   debugMethodCall(moduleName!uimSites~":uimSites");

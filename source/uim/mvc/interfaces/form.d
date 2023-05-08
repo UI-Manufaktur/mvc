@@ -1,6 +1,6 @@
 module uim.mvc.interfaces.form;
 
-@safe:
 import uim.mvc;
+@safe:
 
 interface IForm : IMVCObject {}

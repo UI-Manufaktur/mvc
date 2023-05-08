@@ -1,7 +1,7 @@
 module uim.mvc.views.null_;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DAPPNullView : DView {
   mixin(ViewThis!("APPNullView"));

@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.entities.session;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DSessionEntity : DEntity {
   mixin(EntityThis!("SessionEntity"));

@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.interfaces.widget;
 
-@safe:
 import uim.mvc;
+@safe:
 
 // Interface for input widgets.
 interface IWidget {

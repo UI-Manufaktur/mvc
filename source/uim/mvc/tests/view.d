@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.tests.view;
 
-@safe:
 import uim.mvc;
+@safe:
 
 void testView(DView aView, string viewName) { 
   assert(aView, "View "~viewName~" does not exist");

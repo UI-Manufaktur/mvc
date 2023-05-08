@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.sessions.nullsession;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DAPPNullSession : DMVCSession{
   this() { super(); }

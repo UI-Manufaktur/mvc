@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.views.components.static_;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DStaticViewComponent : DViewComponent {
   mixin(ViewComponentThis!("StaticViewComponent"));

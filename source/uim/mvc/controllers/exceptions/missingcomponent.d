@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.controllers.exceptions.missingcomponent;
 
-@safe:
 import uim.mvc;
+@safe:
 
 // Used when a component cannot be found.
 class DMissingComponentException : DUIMException {

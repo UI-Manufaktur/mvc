@@ -1,7 +1,7 @@
 module uim.mvc.interfaces.registerable;
 
-@safe:
 import uim.mvc;
+@safe:
 
 interface IRegisterable {
   // Gets the registerPath

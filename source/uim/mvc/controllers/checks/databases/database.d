@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.controllers.checks.databases.database;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DDatabaseExistsCheck : DControllerCheck {
   mixin(ControllerComponentThis!("DatabaseExistsCheck"));

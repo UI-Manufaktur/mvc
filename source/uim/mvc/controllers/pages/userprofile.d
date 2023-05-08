@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.controllers.pages.userprofile;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DAPPUserProfilePageController : DPageController {
   mixin(ControllerThis!("APPUserProfilePageController"));

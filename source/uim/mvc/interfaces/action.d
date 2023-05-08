@@ -1,7 +1,7 @@
 module uim.mvc.interfaces.action;
 
-@safe:
 import uim.mvc;
+@safe:
 
 interface IActionController : IController {
 /*   string nextUrl();

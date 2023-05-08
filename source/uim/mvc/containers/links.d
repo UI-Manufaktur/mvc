@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.containers.links;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DMVCLinkContainer : DH5Container {
 	O entries(this O)(STRINGAA[] newEntries) { 

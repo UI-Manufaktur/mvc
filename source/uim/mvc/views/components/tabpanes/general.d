@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.views.components.tabpanes.general;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DAPPGeneralPaneViewComponent : DAPPEntityTabpane {
   mixin(ViewComponentThis!("APPGeneralPaneViewComponent"));

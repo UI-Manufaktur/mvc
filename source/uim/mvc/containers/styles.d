@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.containers.styles;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DStyleContainer : DH5Container {
 	O entries(this O)(STRINGAA[] newEntries) { 

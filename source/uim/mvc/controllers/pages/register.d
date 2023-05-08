@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.controllers.pages.register;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DAPPRegisterPageController : DPageController {
   mixin(ControllerThis!("APPRegisterPageController"));      

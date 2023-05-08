@@ -1,7 +1,7 @@
 module uim.mvc.scripts.login2;
 
-@safe:
 import uim.mvc;
+@safe:
 
 auto login2() {
   return 

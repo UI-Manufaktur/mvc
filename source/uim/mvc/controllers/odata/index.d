@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.controllers.odata.index;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DIndexRestController : DController {
   mixin(ControllerThis!("IndexRestController"));

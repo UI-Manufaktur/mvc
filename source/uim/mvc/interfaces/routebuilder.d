@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.interfaces.routebuilder;
 
-@safe:
 import uim.mvc;
+@safe:
 
 interface IRouteBuilder : IMVCObject {
 }

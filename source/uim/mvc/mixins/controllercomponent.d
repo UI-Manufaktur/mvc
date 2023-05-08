@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.mixins.controllercomponent;
 
-@safe:
 import uim.mvc;
+@safe:
 
 string controllerComponentThis(string name) {
   return 

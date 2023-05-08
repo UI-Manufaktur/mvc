@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.mixins.viewcomponent;
 
-@safe:
 import uim.mvc;
+@safe:
 
 string viewComponentThis(string name) {
   return 

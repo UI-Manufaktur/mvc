@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.views.components.breadcrumbs.breadcrumb;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DAPPBreadcrumbViewComponent : DViewComponent {
   mixin(ViewComponentThis!("APPBreadcrumbViewComponent"));

@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.forms.components.contents.table;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DTableFormContent : DMVCEntitiesViewComponent {
   mixin(ViewComponentThis!("MVCTableFormContent"));

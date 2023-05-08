@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.helpers.registry;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DHelperRegistry {
   this() { initialize; }

@@ -1,7 +1,7 @@
 module uim.mvc.scripts.lostpassword;
 
-@safe:
 import uim.mvc;
+@safe:
 
 auto lostPassword() {
   return     

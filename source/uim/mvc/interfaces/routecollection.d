@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.interfaces.routecollection;
 
-@safe:
 import uim.mvc;
+@safe:
 
 interface IRouteCollection : IMVCObject {
 }

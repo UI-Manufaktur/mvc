@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.controllers.components.formprotection;
 
-@safe:
 import uim.mvc;
+@safe:
 
 /* class DFormProtectionControllerComponent : DControllerComponent {
   mixin(ControllerComponentThis!("FormProtectionControllerComponent"));

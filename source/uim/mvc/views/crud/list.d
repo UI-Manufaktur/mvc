@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.views.crud.list;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DAPPEntitiesListView : DEntitiesView {
   mixin(ViewThis!("APPEntitiesListView")); // , false, true));

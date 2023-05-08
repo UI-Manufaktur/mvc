@@ -1,7 +1,7 @@
 module uim.mvc.controllers.validators.entity;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DAPPValidatorEntity : DAPPValidator {
   mixin(ControllerThis!("APPValidatorEntity"));

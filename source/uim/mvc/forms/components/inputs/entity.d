@@ -5,6 +5,6 @@
 **********************************************************************************************************/
 module uim.mvc.forms.components.inputs.entity;
 
-@safe:
 import uim.mvc;
+@safe:
 

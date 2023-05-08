@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.views.crud.delete_;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DAPPEntityDeleteView : DEntityCRUDView {
   mixin(ViewThis!("APPEntityDeleteView"));

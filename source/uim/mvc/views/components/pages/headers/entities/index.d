@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.views.components.pages.headers.entities.index;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DMVCIndexPageHeaderViewComponent : DPageHeaderViewComponent {
   mixin(ViewComponentThis!("MVCIndexPageHeaderViewComponent"));

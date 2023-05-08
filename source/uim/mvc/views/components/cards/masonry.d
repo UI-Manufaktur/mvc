@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.views.components.cards.masonry;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DAPPMasonaryCardsComponent : DViewComponent {
   mixin(ViewComponentThis!("APPMasonaryCardsComponent"));

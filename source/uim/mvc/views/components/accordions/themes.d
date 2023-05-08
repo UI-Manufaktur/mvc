@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.views.components.accordions.themes;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DAPPAccordionThemes : DAPPAccordion {
   mixin(ViewComponentThis!("APPAccordionThemes"));

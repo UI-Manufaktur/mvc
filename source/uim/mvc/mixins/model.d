@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.mixins.model;
 
-@safe:
 import uim.mvc;
+@safe:
 
 string mvcModelThis(string name) {
   return

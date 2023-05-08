@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.models.registry;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DModelRegistry : DRegistry!DModel{
   this() {}

@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.views.components.tables.components.headers.entities;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DMVCEntitiesTableHeader : DTableHeader {
   mixin(ViewComponentThis!("MVCEntitiesTableHeader"));

@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.views.components.tables.history;
 
-@safe:
 import uim.mvc;
+@safe:
 
 /* class DTableHistory : DMVCEntitiesTableHeader {
   this() { super(); }

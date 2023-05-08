@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.controllers.checks.databases.systems.passwords;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DDatabaseHasPasswordsCheck : DDatabaseHasSystemsCheck {
   mixin(ControllerComponentThis!("DatabaseHasPasswordsCheck"));

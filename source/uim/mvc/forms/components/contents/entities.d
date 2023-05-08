@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.forms.components.contents.entities;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DEntitiesFormContent : DFormContent {
   mixin(ViewComponentThis!("EntitiesFormContent"));

@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.forms.components.contents.content;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DFormContent : DFormComponent {
   mixin(ViewComponentThis!("FormContent"));

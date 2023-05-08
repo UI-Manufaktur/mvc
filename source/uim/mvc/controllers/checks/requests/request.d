@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.controllers.checks.requests.request;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DRequestExistsCheck : DControllerCheck {
   mixin(ControllerComponentThis!("RequestExistsCheck"));

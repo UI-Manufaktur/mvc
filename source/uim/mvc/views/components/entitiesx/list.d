@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.views.components.entitiesx.list;
 
-@safe:
 import uim.mvc;
+@safe:
 
 /* class DAPPEntitiesListViewComponent : DViewComponent {
   mixin(ViewComponentThis!("APPEntitiesListViewComponent", false, true));

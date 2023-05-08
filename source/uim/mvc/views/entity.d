@@ -1,7 +1,7 @@
 module uim.mvc.views.entity;
 
-@safe:
 import uim.mvc;
+@safe:
 
 // View with entity
 class DEntityView : DView {

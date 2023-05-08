@@ -1,7 +1,7 @@
 module uim.mvc.interfaces.mvc;
 
-@safe:
 import uim.mvc;
+@safe:
 
 interface IMVCObject {
   IApplication application();
