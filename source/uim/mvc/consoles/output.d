@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.consoles.output;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DOutputConsole : DConsole {
 	mixin(ConsoleThis!("OutputConsole"));

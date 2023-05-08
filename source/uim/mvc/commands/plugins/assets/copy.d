@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.commands.plugins.assets.copy;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DPluginAssetsCopyCommand {
   this() { initialize; }

@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.consoles.input;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DConsoleInput {
   this() {}

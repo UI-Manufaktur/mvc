@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.commands.command;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DAPPCommand { // extends SymfonyCommand
     // Application instance

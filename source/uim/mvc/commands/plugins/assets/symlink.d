@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.commands.plugins.assets.symlink;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DPluginAssetsSymlinkCommand {
   this() { initialize; }

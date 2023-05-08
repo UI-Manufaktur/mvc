@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.applications.registry;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DApplicationRegistry : DRegistry!DApplication {
   this() {}  

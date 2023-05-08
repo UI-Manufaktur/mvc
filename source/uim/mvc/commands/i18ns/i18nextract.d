@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.commands.i18ns.extract;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DI18nExtractCommand {
   this() { initialize; }

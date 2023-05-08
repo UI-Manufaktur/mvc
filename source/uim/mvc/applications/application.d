@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.applications.application;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DApplication : DMVCObject, IApplication { 
   this() { super(); }
@@ -115,8 +115,8 @@ unittest {
 
 module uim.mvc.applications.application;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DAPPApplication {
   this() { 

@@ -1,7 +1,7 @@
 module uim.mvc.base;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DMVCObject : IMVCObject, IRegisterable {
   // Constructors for the main properties
@@ -136,8 +136,8 @@ version(test_uim_mvc) unittest {
 /*
 module uim.mvc.object_;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DAPPObject {
   this() {

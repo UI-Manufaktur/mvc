@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.commands.plugins.unload;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DPluginUnloadCommand {
   this() { initialize; }

@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.commands.factories.factory;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DCommandFactory /* : ICommandFactory */ {
   this() { initialize; }

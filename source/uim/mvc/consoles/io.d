@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.consoles.io;
 
-@safe:
 import uim.mvc;
+@safe:
 
 class DConsoleIo {
     // Output constant making verbose shells.
