@@ -71,7 +71,7 @@ class DController : DMVCObject, IController  {
   // #endregion Properties
 
   /// Owning controller
-  mixin(OProperty!("IApplication", "app"));
+  // mixin(OProperty!("IApplication", "app"));
   mixin(OProperty!("DController", "controller"));
 
   mixin(OProperty!("DControllerCheck[]", "checks"));
@@ -129,7 +129,7 @@ class DController : DMVCObject, IController  {
     DETBBase database() {
       if (_database) { return _database; } // has his own database
       if (this.controller && this.controller.database) { return this.controller.database; } // owner has database
-      if (auto myApp = cast(IApplication)app) { return myApp.database; } // Leading app has database
+      // if (auto myApp = cast(IApplication)app) { return myApp.database; } // Leading app has database
       return null; // no database found
     }
   // #endregion database

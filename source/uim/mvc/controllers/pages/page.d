@@ -45,13 +45,8 @@ class DPageController : DController, IPageController {
       return cast(O)this; 
     }
 
-    @property auto layout() { 
-      return _layout 
-        ? _layout
-        : (this.app 
-          ? this.app.layout 
-          : null)
-        ; 
+    @property ILayout layout() { 
+      return _layout; 
     }
 	// #endregion Layout
 
@@ -73,7 +68,7 @@ class DPageController : DController, IPageController {
   override DETBBase database() {
     if (_database) { return _database; } // has his own database
     if (this.controller && this.controller.database) { return this.controller.database; } // owner has database
-    if (auto myApp = cast(IApplication)app) { return myApp.database; } // Leading app has database
+    // if (auto myApp = cast(IApplication)app) { return myApp.database; } // Leading app has database
     return null; // no database found
   }
 
