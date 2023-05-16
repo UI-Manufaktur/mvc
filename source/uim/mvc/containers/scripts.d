@@ -15,37 +15,37 @@ class DScriptContainer : DH5Container {
   }
 
 	O entries(this O)(DH5Script[] newEntries...) { 
-    this.entries(newEntries); 
+    this.entries(newEntries.dup); 
     return cast(O)this;
   }
 
 	O addLinks(this O)(string[] newLinks...) { 
-    this.addLinks(newLinks); 
+    this.addLinks(newLinks.dup); 
     return cast(O)this;
   }
 	
   O addLinks(this O)(string[] newLinks) { 
-    this.add(newLinks.map!(link => H5Script(["src":link])).array); 
+    this.add(newLinks.map!(l => H5Script(["src":l])).array); 
     return cast(O)this;
   }
 
 	O addContents(this O)(string[] newContents...) { 
-    this.addContents(newContents); 
+    this.addContents(newContents.dup); 
     return cast(O)this;
   }
 	
   O addContents(this O)(string[] newContents) { 
-    this.add(newContents.map!(content => H5Script(content)).array); 
+    this.add(newContents.map!(c => H5Script(c)).array); 
     return cast(O)this;
   }
 
 	O addLinks(this O)(STRINGAA[] newLinks...) { 
-    this.addLinks(newLinks); 
+    this.addLinks(newLinks.dup); 
     return cast(O)this;
   }
 	
   O addLinks(this O)(STRINGAA[] newLinks) { 
-    this.add(newLinks.map!(link => H5Script(link)).array); 
+    this.add(newLinks.map!(l => H5Script(l)).array); 
     return cast(O)this;
   }
 }

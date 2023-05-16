@@ -15,7 +15,7 @@ class DMVCMetaContainer : DH5Container {
   }
 
   O add(this O)(STRINGAA[] newEntries...) { 
-    this.add(newEntries); 
+    this.add(newEntries.dup); 
     return cast(O)this;
   }
 

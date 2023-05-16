@@ -38,17 +38,22 @@ class DPageController : DController, IPageController {
   mixin(OProperty!("DScriptContainer", "scripts"));
   mixin(OProperty!("DStyleContainer", "styles"));
 
-	/// layout for page
-	ILayout _layout;
-	O layout(this O)(ILayout newlayout) { 
-    _layout = newlayout; 
-    return cast(O)this; }
-	auto layout() { 
-    if (_layout) return _layout; 
-    if (auto myController = cast(DPageController)this.controller) { return myController.layout; } 
-    if (this.app) return this.app.layout; 
-    return null; 
-  }
+	// #region Layout
+    protected ILayout _layout;
+    @property O layout(this O)(ILayout newlayout) { 
+      _layout = newlayout; 
+      return cast(O)this; 
+    }
+
+    @property auto layout() { 
+      return _layout 
+        ? _layout
+        : (this.app 
+          ? this.app.layout 
+          : null)
+        ; 
+    }
+	// #endregion Layout
 
   mixin(OProperty!("DETBCollection", "collection"));
   mixin(OProperty!("DEntity", "site"));
@@ -99,21 +104,14 @@ class DPageController : DController, IPageController {
   }    
 
   override string stringResponse(string[string] options = null) {
-    debugMethodCall(moduleName!DController~":DController::stringResponse");
+    debugMethodCall(moduleName!DPageController~":DPageController("~name~")::stringResponse");
     super.stringResponse(options);
     // if (hasError) { return null; }
 
-    string result = "";
-    if (view) { result = view.render(options); }
-    if (auto myLayout = this.layout) {
-      result = myLayout.render(this, result);  
-    } else {
-      result = this.application && this.application.layout 
-        ? this.application.layout.render(this, result) 
-        : result;  
-    }
-
-    return result;
+    string myRenderedView = view ? view.render(options) : "";
+    return this.layout 
+      ? this.layout.render(this, myRenderedView)  
+      : myRenderedView;  
   }
 
   DH5Obj[] pageContent(STRINGAA reqParameters) { 
@@ -258,7 +256,7 @@ class DPageController : DController, IPageController {
     return result;
   } */
 }
-mixin(ControllerCalls!("PageController", "DPageController"));
+mixin(ControllerCalls!("PageController"));
 
 version(test_uim_mvc) { unittest {
   assert(PageController);

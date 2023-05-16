@@ -112,8 +112,10 @@ auto readTranslations(string file) {
   string[string] results;
 
   if (file.exists) {
+    import std.datetime;
+    import std.datetime.stopwatch : benchmark, StopWatch, AutoStart;
     logInfo("INFO: Found translation file '"~file~"'");
-    auto sw = std.datetime.stopwatch.StopWatch(std.datetime.stopwatch.AutoStart.yes);
+    // auto sw = /* std.datetime.stopwatch. */StopWatch(AutoStart.yes);
     try {
       auto text = readText(file);
       foreach(line; text.lineSplitter.array) {
@@ -122,9 +124,9 @@ auto readTranslations(string file) {
           results[line[0..pos]] = line[pos+1..$];
         }
       }
-      sw.stop();
+/*       sw.stop();
       logInfo("INFO: Finished reading translation file after "~to!string(sw.peek.total!"usecs")~" usecs -> Read "~to!string(results.length)~" entries");
-    }
+ */    }
     catch(Exception e) {
       logError("ERROR: "~e.msg);
     }
@@ -159,7 +161,7 @@ struct Config {
     if (file.exists) {
       logInfo("INFO: Found translation file '"~file~"'");
       try {
-        auto sw = std.datetime.stopwatch.StopWatch(std.datetime.stopwatch.AutoStart.yes);
+//        auto sw = std.datetime.stopwatch.StopWatch(std.datetime.stopwatch.AutoStart.yes);
         appConfig = parseJsonString(readText(file)); 
 
         foreach(kv; appConfig.byKeyValue) {
@@ -185,9 +187,9 @@ struct Config {
             default: break;
           }
         }
-        sw.stop();
+/*         sw.stop();
         logInfo("INFO: Finished reading config file after "~to!string(sw.peek.total!"usecs")~ " usecs" );
-      }
+ */      }
       catch(Exception e) {
         logError("ERROR: "~e.msg);
       }

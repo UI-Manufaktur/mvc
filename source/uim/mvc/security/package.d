@@ -11,14 +11,14 @@ import uim.mvc;
 class DAPPSecurityOptions {
   this() {}
   this(bool[string] initOptions) { this(); _options = initOptions; }
-  this(string[] requiredOptions...) { this(); requiredOptions.each!(a => _options[a] = true); }
+  this(string[] requiredOptions...) { this(); requiredOptions.dup.each!(a => _options[a] = true); }
   this(string[] requiredOptions) { this(); requiredOptions.each!(a => _options[a] = true); }
 
   private bool[string] _options;
   private bool[string] _values;
   bool required(string option) { return _options.get(option, false); }
   O required(this O)(string option, bool isRequired) { _options[option] = isRequired; return cast(O)this; }
-  O required(this O)(string[] options...) { this.required(options); return cast(O)this; }
+  O required(this O)(string[] options...) { this.required(options.dup); return cast(O)this; }
   O required(this O)(string[] options) { options.each!(a => _options[a] = true); return cast(O)this; }
 
   DAPPSecurityOptions copy() {

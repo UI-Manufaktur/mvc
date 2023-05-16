@@ -8,7 +8,7 @@ module uim.mvc.applications.application;
 import uim.mvc;
 @safe:
 
-class DApplication : DMVCObject, IApplication { 
+class DApplication : DMVCObject/* , IApplication */ { 
   this() { super(); }
 
   override void initialize(Json configSettings = Json(null)) {
@@ -19,62 +19,14 @@ class DApplication : DMVCObject, IApplication {
       .registerPath(className.toLower);
   }
 
-  // #region parameters
-    mixin(MVCParameter!("rootPath"));
-  // #endregion parameters
-
-  // Application data 
-  mixin(OProperty!("UUID", "id"));
-  mixin(OProperty!("size_t", "versionNumber"));
-
-  // Interfaces
-  mixin(OProperty!("DETBBase", "database"));
-  mixin(OProperty!("ILayout", "layout"));
-  mixin(OProperty!("DRoute[HTTPMethod][string]", "routes"));
-
-  // Main Containers - Allways first
-  mixin(OProperty!("DMVCLinkContainer",   "links"));
-  mixin(OProperty!("DMVCMetaContainer",   "metas"));
-  mixin(OProperty!("DScriptContainer", "scripts"));
-  mixin(OProperty!("DStyleContainer",  "styles"));
   
-  auto routesPaths() {
-    return _routes.keys; 
-  }
-
-  auto routesAtPath(string path) {
-    debug writeln("Get routes at '%s'".format(path));
-    return _routes.get(path, null); 
-  }
-
-  auto route(string path, HTTPMethod method) {
-    debug writeln("Get route at '%s' and '%s'".format(path, method));
-    if (auto routesAtPath = _routes.get(path, null)) {
-      return routesAtPath.get(method, null);
-    } 
-    return null;
-  }
-
-  O addRoute(this O)(DRoute newRoute) {
-    debug writeln("Adding route at '%s'".format(newRoute.path));
-    if (newRoute) {
-      newRoute.application(this);
-      DRoute[HTTPMethod] routesAtPath = _routes.get(newRoute.path, null);
-      routesAtPath[newRoute.method] = newRoute;
-
-      _routes[newRoute.path] = routesAtPath;
-
-      if (auto controller = cast(DController)newRoute.controller) { // Get Controller
-        controller.application(this); } // Set applications
-    }
-    return cast(O)this; }
 
   O register(this O)(URLRouter router) {
     debug writeln("Link Path '%s'".format(rootPath~"*"));
     router.any(rootPath~"*", &this.request);
     return cast(O)this; }
 
-  void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse) {
+  /* void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse) {
     request(newRequest, newResponse, null); }
 
   void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse, string[string] options) {
@@ -97,19 +49,9 @@ class DApplication : DMVCObject, IApplication {
         myRoute.controller.request(newRequest, newResponse, options);
       }
     }
-  }
+  } */
 }
 auto Application() { return new DApplication; }
-
-unittest {
-  assert(
-    Application
-      .addRoute(Route("ecm/index", HTTPMethod.GET, PageController))
-      .addRoute(Route("ecm/documents", HTTPMethod.GET, PageController))
-      .addRoute(Route("ecm/folders", HTTPMethod.GET, PageController))
-      .addRoute(Route("ecm/workspaces", HTTPMethod.GET, PageController))
-  );
-}
 
 /*
 

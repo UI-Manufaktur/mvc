@@ -28,6 +28,7 @@ public {
   import uim.mvc.interfaces.page;
   import uim.mvc.interfaces.registerable;
   import uim.mvc.interfaces.request;
+  import uim.mvc.interfaces.requesthandler;
   import uim.mvc.interfaces.route;
   import uim.mvc.interfaces.routebuilder;
   import uim.mvc.interfaces.routecollection;

@@ -16,7 +16,7 @@ class DStyleContainer : DH5Container {
 
   // #region addLinks
     O addLinks(this O)(string[] newLinks...) { 
-      this.addLinks(newLinks); 
+      this.addLinks(newLinks.dup); 
       return cast(O)this;
     }
     
@@ -26,7 +26,7 @@ class DStyleContainer : DH5Container {
     }
 
     O addLinks(this O)(STRINGAA[] newEntries...) { 
-      this.add(newEntries); 
+      this.add(newEntries.dup); 
       return cast(O)this;
     }
     O addLinks(this O)(STRINGAA[] newEntries) { 
@@ -37,7 +37,7 @@ class DStyleContainer : DH5Container {
 
   // #region addContent
     O addContent(this O)(string[] newEntries...) { 
-      this.addContent(newEntries); 
+      this.addContent(newEntries.dup); 
       return cast(O)this;
     }
     
