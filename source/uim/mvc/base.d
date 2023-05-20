@@ -83,7 +83,6 @@ class DMVCObject : IMVCObject, IRegisterable {
 
   DMVCObject clone() {
     DMVCObject result = create;
-    result.application(this.application);
     return result.fromJson(this.toJson);
   }
 

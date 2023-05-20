@@ -10,7 +10,7 @@ import uim.mvc;
 
 string mvcObjectThis(string name) {
   return `
-    this() { super("`~name~`"); }
+    this() { super("`~name~`"); this.className("`~name~`"); }
     this(Json configSettings) { super("`~name~`", configSettings); }
     this(IApplication myApplication, Json configSettings = Json(null)) { this(configSettings).application(myApplication); }
 

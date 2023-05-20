@@ -3,8 +3,12 @@ module uim.mvc.views.null_;
 import uim.mvc;
 @safe:
 
-class DAPPNullView : DView {
-  mixin(ViewThis!("APPNullView"));
+class DNullView : DView {
+  mixin(ViewThis!("NullView"));
+
+  override bool isNull() {
+    return true;
+  }
 
   override DH5Obj[] toH5(STRINGAA options = null) {
     return null;
@@ -14,11 +18,11 @@ class DAPPNullView : DView {
     return null;
   }
 }
-mixin(ViewCalls!("APPNullView"));
+mixin(ViewCalls!("NullView"));
 
 version(test_uim_mvc) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
 
-    assert(APPNullView.name == "APPNullView");
-    assert(APPNullView.name("newView").name == "newView");
+    assert(NullView.name == "NullView");
+    assert(NullView.name("newView").name == "newView");
 }}

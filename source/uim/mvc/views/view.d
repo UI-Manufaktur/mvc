@@ -35,6 +35,10 @@ class DView : DMVCObject, IView {
 
   }
   
+  bool isNull() {
+    return false;
+  }
+
   // #region Properties
     mixin(OProperty!("DEntity", "entity"));
     mixin(OProperty!("DEntity[]", "entities"));
@@ -98,6 +102,12 @@ class DView : DMVCObject, IView {
     auto result = toH5(options).toString;
     afterRender(options);
     return result;
+  }
+
+  override DMVCObject clone() {
+    auto result = create;
+    if (auto myView = cast(DView)result) { myView.controller(this.controller); }
+    return result.fromJson(this.toJson);
   }
 }
 mixin(ViewCalls!("View", "DView"));
