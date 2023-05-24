@@ -1,8 +1,9 @@
-JWT¶
+## JWT¶
 
 The JWT authenticator gets the JWT token from the header or query param and either returns the payload directly or passes it to the identifiers to verify them against another datasource for example.
 
--header: The header line to check for the token. The default is Authorization.
+- header: The header line to check for the token. The default is Authorization.
+
 
 - queryParam: The query param to check for the token. The default is token.
 
