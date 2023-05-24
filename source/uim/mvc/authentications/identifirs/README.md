@@ -8,7 +8,7 @@ The password identifier checks the passed credentials against a datasource.
 
 Configuration options:
 
-fields: The fields for the lookup. Default is ['username' => 'username', 'password' => 'password']. You can also set the username to an array. For e.g. using ['username' => ['username', 'email'], 'password' => 'password'] will allow you to match value of either username or email columns.
+fields: The fields for the lookup. Default is ['username': 'username', 'password': 'password']. You can also set the username to an array. For e.g. using ['username' => ['username', 'email'], 'password': 'password'] will allow you to match value of either username or email columns.
 
 resolver: The identity resolver. 
 
