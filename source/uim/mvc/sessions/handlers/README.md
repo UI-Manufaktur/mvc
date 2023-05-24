@@ -7,3 +7,7 @@ database - Use the built-in database sessions. S
 
 
 cache Manage sesins in cache
+
+## Cache Sessions
+
+The Cache class can be used to store sessions. This allow to store sessions in memory.
