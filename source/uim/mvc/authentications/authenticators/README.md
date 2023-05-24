@@ -13,6 +13,6 @@ The JWT authenticator gets the JWT token from the header or query param and eith
 
 - returnPayload: To return or not return the token payload directly without going through the identifiers. Default is true.
 
-- secretKey: Default is null but you’re required to pass a secret key if you’re not in the context of a CakePHP application that provides it through Security::salt().
+- secretKey: Default is null but you’re required to pass a secret key if you’re not in the context of an application that provides it through Security::salt().
 
 - jwks: Default is null. Associative array with a 'keys' key. If provided will be used instead of the secret key.
