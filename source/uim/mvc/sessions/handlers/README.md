@@ -7,6 +7,9 @@ database - Use the built-in database sessions. S
 
 
 cache Manage sesins in cache
+## Database Sessions
+
+If you need to use a database to store your session data
 
 ## Cache Sessions
 
