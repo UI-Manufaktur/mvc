@@ -10,4 +10,6 @@ import uim.mvc;
 
 // Null Controller - Following the Null Pattern
 class DNullController : DController {
+  mixin(ControllerThis!("NullController"));
 }
+mixin(ControllerCalls!("NullController"));
