@@ -13,7 +13,7 @@ public { // uim libraries
   import uim.html;
   import uim.oop;
   import uim.models;
-  import uim.controls;
+  import web.controls;
 
   import langs.javascript;
 }

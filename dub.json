@@ -47,7 +47,7 @@
 		"../uim-bootstrap",
 		"../uim-jsonbase",
 		"../uim-entitybase",
-		"../uim-controls",
+		"../../WEBS/web-controls",
 
 		"../../LANGS/lang-javascript",
 		"../../LAYOUTS/layout-tabler/source/layouts",
@@ -62,7 +62,7 @@
 		"../uim-bootstrap",
 		"../uim-jsonbase",
 		"../uim-entitybase",
-		"../uim-controls",
+		"../../WEBS/web-controls",
 		"../../LANGS/lang-javascript",
 		"../../LAYOUTS/layout-tabler/source/layouts",
 		"./"
