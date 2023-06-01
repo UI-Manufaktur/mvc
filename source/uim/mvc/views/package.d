@@ -8,6 +8,7 @@ module uim.mvc.views;
 public {
 	import  uim.mvc.views.view;
 	import  uim.mvc.views.components;
+	import  uim.mvc.views.container;
 	import  uim.mvc.views.registry;
 	import  uim.mvc.views.json;
 	import  uim.mvc.views.xml;
