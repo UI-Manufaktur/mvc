@@ -72,8 +72,8 @@ class DController : DMVCObject, IController  {
 
   // #endregion Properties
 
-  // Owning Server or app
-  // INHERITED mixin(OProperty!("DApplication", "application"));
+  // Controller Owner
+  mixin(OProperty!("IControllerManager", "controllerManager");
 
   /// Owning controller
   mixin(OProperty!("DController", "controller"));
