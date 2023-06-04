@@ -14,8 +14,7 @@ class DController : DMVCObject, IController  {
   // Set to true to automatically render the view after action logic.
   mixin(OProperty!("bool", "autoRender"));
 
-  // Instance of ComponentRegistry used to create Components
-  mixin(OProperty!("DControllerComponentRegistry", "components"));
+
 
   // Automatically set to the name of a plugin.
   mixin(OProperty!("string", "plugin"));
