@@ -31,6 +31,7 @@ class DLayout : DMVCObject, ILayout {
 
     debug writeln("Select Style"); 
     if (layoutStyle == "tabler") {
+      auto myLayout = 
       this.styles.addLinks(
         "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css",
         "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap",
@@ -163,18 +164,18 @@ class DLayout : DMVCObject, ILayout {
 		// 1. page parameters to options
     if (controller) {
       debug writeln("controller is -> ", controller.name);
-		  foreach(k,v; controller.parameters) options[k] = v; 
+		  controller.parameters.byKeyValue.each!(kv => options[kv.key] = kv.value); 
     }
     else { debug writeln("No controller"); }
 
 		// 2. layout parameters to options
-		foreach(k,v; parameters) if (k !in options) options[k] = v;
+		foreach(kv; parameters.byKeyValue) if (kv.key !in options) options[kv.key] = kv.value;
 		// 3. app parameters to options
 		
 		if (application) {
 			options["rootPath"] = application.rootPath;      
-			foreach(k,v; application.parameters) if (k !in options) options[k] = v; }
-
+			foreach(kv; application.parameters.byKeyValue) if (kv.key !in options) options[kv.key] = kv.value;
+    }
 
 		if (auto pageController = cast(IPageController)controller) {
       debug writeln("Found pageController");

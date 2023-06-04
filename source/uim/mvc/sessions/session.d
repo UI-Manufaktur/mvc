@@ -31,6 +31,12 @@ class DMVCSession {
   mixin(OProperty!("DEntity", "user"));
   mixin(OProperty!("DEntity", "password"));
   mixin(OProperty!("DEntity", "entity"));
+  mixin(OProperty!("bool", "isNull"));
+
+  void initialize(Json configSettings = Json(null)) {
+    this
+      .isNull(false);
+  }
 
   bool isValid(string[] checks, STRINGAA requestParameters) {
     foreach (check; checks) {

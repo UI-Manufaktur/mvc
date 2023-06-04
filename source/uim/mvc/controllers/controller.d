@@ -68,10 +68,14 @@ class DController : DMVCObject, IController  {
     mixin(MVCParameter!("timeCreated"));
     mixin(MVCParameter!("persistent"));
     mixin(MVCParameter!("redirect"));
+    mixin(MVCParameter!("viewName"));
+
   // #endregion Properties
 
+  // Owning Server or app
+  // INHERITED mixin(OProperty!("DApplication", "application"));
+
   /// Owning controller
-  // mixin(OProperty!("IApplication", "app"));
   mixin(OProperty!("DController", "controller"));
 
   mixin(OProperty!("DControllerCheck[]", "checks"));
@@ -79,7 +83,6 @@ class DController : DMVCObject, IController  {
     this.checks(this.checks~newChecks);
     return cast(O)this;
   } 
-
 
 /*   // controller components
   mixin(OProperty!("DBaseController[string]", "components")); 

@@ -3,17 +3,17 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel, mailto:ons@sicherheitsschmiede.de                                                      
 **********************************************************************************************************/
-module uim.mvc.controllers.actions.create;
+module uim.mvc.controllers.actions.update;
 
 import uim.mvc;
 @safe:
 
-class DCreateActionController : DActionController {
-  mixin(ControllerThis!("CreateActionController"));
+class DUpdateActionController : DActionController {
+  mixin(ControllerThis!("UpdateActionController"));
 
   override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings); 
-    this.name = "CreateActionController";
+    this.name = "UpdateActionController";
     this.checks([AppSessionExistsCheck, DatabaseExistsCheck, AppSessionHasSessionCheck, AppSessionHasSiteCheck]); 
   }
 
@@ -21,32 +21,15 @@ class DCreateActionController : DActionController {
   mixin(OProperty!("string", "pgPath"));
   
   override void beforeResponse(STRINGAA options = null) {
-    debug writeln(moduleName!DCreateActionController~":DCreateActionController::beforeResponse");
+    debug writeln(moduleName!DUpdateActionController~":DUpdateActionController::beforeResponse");
     super.beforeResponse(options);   
-    if (hasError || "redirect" in options) return; 
+    if (hasError || "redirect" in options) { return; }
 
-    auto mySession = getAppSession(options);
-    if (mySession.isNull) {
-      options["redirect"] = "/login"; 
-      return; // TODO: Redirect to login 
-    }
+    auto session = getAppSession(options);
+    auto site = session.site;
 
-    auto mySite = mySession.site;
-    if (mySite.isNull) { 
-      options["redirect"] = "/sites"; 
-      return; // TODO: Redirect to login 
-    }
-
-    if (application.isNull) return; 
-
-    auto myDatabase = application.database;
-    if (myDatabase.isNull) return;
-
-    auto myTenant = myDatabase[mySite];
-    if (myTenant.isNull) return; // TODO: Redirect ?
-
-    auto collection = myTenant[pool];
-    if (collection.isNull) {
+    auto collection = database[site, pool];
+    if (!collection) {
       options["redirect"] = pgPath~"/view"; 
       return; }
 
@@ -60,15 +43,15 @@ class DCreateActionController : DActionController {
     }
   }
 }
-mixin(ControllerCalls!("CreateActionController"));
+mixin(ControllerCalls!("UpdateActionController"));
 
 version(test_uim_mvc) { unittest {
   writeln("--- Test in ", __MODULE__, "/", __LINE__);
 
-  assert(new DCreateActionController);
-  assert(CreateActionController);
-  assert(CreateActionController.pool("testPool").pool == "testPool");
-  assert(CreateActionController.pgPath("testPath").pgPath == "testPath");
-  assert(CreateActionController.name == "CreateActionController");
+  assert(new DUpdateActionController);
+  assert(UpdateActionController);
+  assert(UpdateActionController.pool("testPool").pool == "testPool");
+  assert(UpdateActionController.pgPath("testPath").pgPath == "testPath");
+  assert(UpdateActionController.name == "UpdateActionController");
 }}
 

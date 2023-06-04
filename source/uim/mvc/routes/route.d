@@ -39,6 +39,13 @@ class DRoute : DMVCObject, IRoute {
     auto route = new DRoute;
     assert(route.controller(controller).controller.name == "test");  
   }
+
+  mixin(OProperty!("string", "controllerName"));
+  ///
+  unittest {
+    auto route = new DRoute;
+    assert(route.controllerName("testName").controllerName == "testName");  
+  }
 }
 auto Route() { return new DRoute; }
 auto Route(string aPath, HTTPMethod aMethod, IController aController) { return new DRoute(aPath, aMethod, aController); }

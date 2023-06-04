@@ -7,7 +7,6 @@ class DControllerContainer {
   this() {}
 
   DController[string] _items;
-  mixin(OProperty!("IApp", "owningApp"));
 
   DController byName(string controllerName) {
     return _items.get(controllerName, null);

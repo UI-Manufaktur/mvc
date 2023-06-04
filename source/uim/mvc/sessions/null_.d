@@ -3,12 +3,12 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel, mailto:ons@sicherheitsschmiede.de                                                      
 **********************************************************************************************************/
-module uim.mvc.sessions.nullsession;
+module uim.mvc.sessions.null_;
 
 import uim.mvc;
 @safe:
 
-class DAPPNullSession : DMVCSession{
+class DNullSession : DMVCSession{
   this() { super(); }
 
   this(Session httpSession) {
@@ -16,6 +16,14 @@ class DAPPNullSession : DMVCSession{
 
   this(Session httpSession, IPageController page) {
     super(httpSession, page); }
+
+  override void initialize(Json configSettings = Json(null)) {
+    super.initialize(configSettings);
+
+    this
+      .isNull(true);
+
+  }
 
   override bool isValid(string[] factors, STRINGAA requestParameters) {
     debug writeln(moduleName!DMVCSession~":DAPPNullSession::beforeResponse -> No appSession => redirect /login");

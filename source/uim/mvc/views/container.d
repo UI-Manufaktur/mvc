@@ -7,7 +7,6 @@ class DViewContainer {
   this() {}
 
   DView[string] _items;
-  mixin(OProperty!("IApp", "owningApp"));
 
   DView byName(string viewName) {
     return _items.get(viewName, null);

@@ -11,7 +11,7 @@ import uim.mvc;
 public {
 	import  uim.mvc.sessions.reader;
 	import  uim.mvc.sessions.manager;
-	import  uim.mvc.sessions.nullsession;
+	import  uim.mvc.sessions.null_;
 	import  uim.mvc.sessions.session;
 }
 
