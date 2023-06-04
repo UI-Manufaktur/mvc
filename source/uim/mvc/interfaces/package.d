@@ -18,6 +18,7 @@ public {
   import uim.mvc.interfaces.context;
   import uim.mvc.interfaces.controller;
   import uim.mvc.interfaces.controllercomponent;
+	import uim.mvc.interfaces.controllermanager;
   import uim.mvc.interfaces.event;
   import uim.mvc.interfaces.eventlistener;
   import uim.mvc.interfaces.eventmanager;
@@ -36,7 +37,8 @@ public {
   import uim.mvc.interfaces.validator;
   import uim.mvc.interfaces.view;
   import uim.mvc.interfaces.viewcomponent;
-  import uim.mvc.interfaces.widget;
+  import uim.mvc.interfaces.viewmanager;
+	import uim.mvc.interfaces.widget;
 }
 /* interface IAPPWithEntities {  
   @property DEntity[] entities();
