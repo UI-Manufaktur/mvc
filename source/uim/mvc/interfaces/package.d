@@ -37,7 +37,8 @@ public {
   import uim.mvc.interfaces.validator;
   import uim.mvc.interfaces.view;
   import uim.mvc.interfaces.viewcomponent;
-  import uim.mvc.interfaces.widget;
+  import uim.mvc.interfaces.viewmanager;
+	import uim.mvc.interfaces.widget;
 }
 /* interface IAPPWithEntities {  
   @property DEntity[] entities();
