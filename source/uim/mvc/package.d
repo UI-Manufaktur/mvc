@@ -20,6 +20,7 @@ public { // uim libraries
 
 public {
   import uim.mvc.base;
+  import uim.mvc.classes;
   import uim.mvc.applications; 
   import uim.mvc.authentications;
   import uim.mvc.collections;
