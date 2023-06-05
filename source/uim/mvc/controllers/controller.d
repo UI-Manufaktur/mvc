@@ -72,7 +72,7 @@ class DController : DMVCObject, IController  {
   // #endregion Properties
 
   // Controller Owner
-  mixin(OProperty!("IControllerManager", "controllerManager");
+  mixin(OProperty!("IControllerManager", "controllerManager"));
 
   /// Owning controller
   mixin(OProperty!("DController", "controller"));
