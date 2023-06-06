@@ -32,7 +32,11 @@ class DPageController : DController, IPageController {
       .styles(StyleContainer); 
   }
 
+  // inherited
+  override DETBBase database() { return super.database; }
+
   // Containers
+  
   mixin(OProperty!("DMVCLinkContainer", "links"));
   mixin(OProperty!("DMVCMetaContainer", "metas"));
   mixin(OProperty!("DScriptContainer", "scripts"));
@@ -64,13 +68,6 @@ class DPageController : DController, IPageController {
 
   // Required checks for the page flow
   mixin(OProperty!("string[]", "sessionData"));
-
-  override DETBBase database() {
-    if (_database) { return _database; } // has his own database
-    if (this.controller && this.controller.database) { return this.controller.database; } // owner has database
-    // if (auto myApp = cast(IApplication)app) { return myApp.database; } // Leading app has database
-    return null; // no database found
-  }
 
   mixin(MVCParameter!("canonical")); 
   mixin(MVCParameter!("jsPath")); 

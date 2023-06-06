@@ -35,7 +35,6 @@ public {
   import uim.mvc.javascripts;
   import uim.mvc.layouts;
   import uim.mvc.mixins;
-  import uim.mvc.models;
   import uim.mvc.requests;
   import uim.mvc.routers;
   import uim.mvc.routes;

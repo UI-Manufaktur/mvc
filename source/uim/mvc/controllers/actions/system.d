@@ -21,19 +21,20 @@ class DSystemActionController : DActionController {
     debugMethodCall(moduleName!DSystemActionController~":DSystemActionController("~this.name~")::beforeResponse");
     super.beforeResponse(options);
     if (hasError || "redirect" in options) { return; }    
-
-    this.tenant(ETBNullTenant).collection(ETBNullCollection); // Clear
+    
+    // this.tenant(ETBNullTenant).collection(ETBNullCollection); // Clear
     debug writeln("-0-");
 
-    if (this.database) {
+    if (auto myDatabase = (manager ? manager.database : null)) {
       debug writeln("Found database"); 
-
-      this.tenant(database["systems"]);
-      this.logins(this.tenant["system_logins"]);
-      this.sessions(this.tenant["system_sessions"]);
-      this.accounts(this.tenant["system_accounts"]);
-      this.sites(this.tenant["system_sites"]);
-      this.passwords(this.tenant["system_passwords"]);
+      if (auto myTenant = myDatabase["systems"]) {
+        // this.tenant(myTenant);
+        this.logins(myTenant["system_logins"]);
+        this.sessions(myTenant["system_sessions"]);
+        this.accounts(myTenant["system_accounts"]);
+        this.sites(myTenant["system_sites"]);
+        this.passwords(myTenant["system_passwords"]);
+      }
     }  
   }
 }

@@ -26,7 +26,7 @@ public {
   import uim.mvc.interfaces.layout;
   import uim.mvc.interfaces.model;
   import uim.mvc.interfaces.mvc;
-  import uim.mvc.interfaces.page;
+  import uim.mvc.interfaces.pagecontroller;
   import uim.mvc.interfaces.registerable;
   import uim.mvc.interfaces.request;
   import uim.mvc.interfaces.requesthandler;

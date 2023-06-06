@@ -26,13 +26,13 @@ class DNullSession : DMVCSession{
   }
 
   override bool isValid(string[] factors, STRINGAA requestParameters) {
-    debug writeln(moduleName!DMVCSession~":DAPPNullSession::beforeResponse -> No appSession => redirect /login");
+    debug writeln(moduleName!DMVCSession~":DNullSession::beforeResponse -> No appSession => redirect /login");
     requestParameters["redirect"] = "/login";
     return false;
   }
   override string debugInfo() { return "Null appSession"; }
 }
-auto APPNullSession() { return new DAPPNullSession(); }
-auto APPNullSession(Session httpSession) { return new DAPPNullSession(httpSession); }
-auto APPNullSession(Session httpSession, IPageController page) { return new DAPPNullSession(httpSession, page); }
+auto NullSession() { return new DNullSession(); }
+auto NullSession(Session httpSession) { return new DNullSession(httpSession); }
+auto NullSession(Session httpSession, IPageController page) { return new DNullSession(httpSession, page); }
 

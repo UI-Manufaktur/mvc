@@ -3,21 +3,16 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel, mailto:ons@sicherheitsschmiede.de                                                      
 **********************************************************************************************************/
-module uim.mvc.models.model;
+module uim.mvc.helpers.controllermanager;
 
 import uim.mvc;
 @safe:
 
-class DModel : DMVCObject, IModel { 
-  mixin(ModelThis!("Model"));
-
-  override void initialize(Json configSettings = Json(null)) {}
-
-  mixin(OProperty!("DETBBase", "datasource")); 
+bool isNull(IControllerManager aManager) {
+  return (aManager is null ? true : false);
 }
-mixin(ModelCalls!("Model", "DModel"));
+unittest {
+  IControllerManager manager;
+  assert(manager.isNull); 
+}
 
-version(test_uim_mvc) { unittest { 
-  assert(Model);
-  assert(Model.name == "Model");
-}} 

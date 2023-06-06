@@ -6,6 +6,7 @@
 module uim.mvc.helpers;
 
 public {
+	import  uim.mvc.helpers.controllermanager;
 	import  uim.mvc.helpers.inputinterface;
 	import  uim.mvc.helpers.outputinterface;
 	import  uim.mvc.helpers.router;

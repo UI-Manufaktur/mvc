@@ -37,27 +37,24 @@ class DCreateActionController : DActionController {
       return; // TODO: Redirect to login 
     }
 
-    if (application.isNull) return; 
+    if (manager.isNull) return; 
 
-    auto myDatabase = application.database;
-    if (myDatabase.isNull) return;
+    if (auto myDatabase = manager.database) {
+      if (auto myTenant = myDatabase[mySite]) {
+        if (auto collection = myTenant[pool]) {
+          if (auto entity = collection.createFromTemplate) {
+            with (entity) {
+              readFromRequest(options);
+              save; 
+            }
 
-    auto myTenant = myDatabase[mySite];
-    if (myTenant.isNull) return; // TODO: Redirect ?
-
-    auto collection = myTenant[pool];
-    if (collection.isNull) {
-      options["redirect"] = pgPath~"/view"; 
-      return; }
-
-    if (auto entity = collection.createFromTemplate) {
-      with (entity) {
-        readFromRequest(options);
-        save; 
+            options["redirect"] = pgPath~"/view?id="~entity.id.toString; 
+            return;
+          }
+        }
       }
-
-      options["redirect"] = pgPath~"/view?id="~entity.id.toString; 
     }
+    options["redirect"] = pgPath~"/view"; 
   }
 }
 mixin(ControllerCalls!("CreateActionController"));

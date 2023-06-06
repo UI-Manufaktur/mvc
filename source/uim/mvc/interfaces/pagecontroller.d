@@ -1,4 +1,4 @@
-module uim.mvc.interfaces.page;
+module uim.mvc.interfaces.pagecontroller;
 
 import uim.mvc;
 @safe:

@@ -72,7 +72,7 @@ class DController : DMVCObject, IController  {
   // #endregion Properties
 
   // Controller Owner
-  mixin(OProperty!("IControllerManager", "controllerManager"));
+  mixin(OProperty!("IControllerManager", "manager"));
 
   /// Owning controller
   mixin(OProperty!("DController", "controller"));
@@ -123,16 +123,8 @@ class DController : DMVCObject, IController  {
   mixin(OProperty!("DMVCSession", "session"));
 
   // #region database
-    DETBBase _database; 
-    O database(this O)(DETBBase aDatabase) { 
-      _database = aDatabase; 
-      return cast(O)this; }
-
     DETBBase database() {
-      if (_database) { return _database; } // has his own database
-      if (this.controller && this.controller.database) { return this.controller.database; } // owner has database
-      // if (auto myApp = cast(IApplication)app) { return myApp.database; } // Leading app has database
-      return null; // no database found
+      return (this.manager ? this.manager.database : null);
     }
   // #endregion database
   
