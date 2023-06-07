@@ -37,14 +37,14 @@ class DAPPListPage : DAPPEntitiesPageController {
         "/js/apps/entities/list.js");
   }
 
-  this(string newEntityName) {
+/*   this(string newEntityName) {
     this()
     .entityName(newEntityName)
     .scripts.addLinks(
       "/js/apps/entities/"~entityName~"/entity.js", 
       "/js/apps/entities/"~entityName~"/entities.js", 
       "/js/apps/entities/"~entityName~"/list.js");
-  }
+  } */
 
   mixin(OProperty!("DH5Obj", "columns"));
   mixin(OProperty!("DH5Obj", "filters"));

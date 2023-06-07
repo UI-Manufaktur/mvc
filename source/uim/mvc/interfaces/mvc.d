@@ -4,8 +4,6 @@ import uim.mvc;
 @safe:
 
 interface IMVCObject {
-  IApplication application();
-
   string name();
   Json defaultConfig();
   Json config();

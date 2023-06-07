@@ -26,14 +26,14 @@ override void initialize(Json configSettings = Json(null)) {
           "/js/apps/entities/update.js");
   }
 
-  this(string newEntityName) {
+/*   this(string newEntityName) {
     this()
     .entityName(newEntityName)
     .scripts.addLinks(
       "/js/apps/entities/"~entityName~"/entity.js", 
       "/js/apps/entities/"~entityName~"/edit.js", // deprecated
       "/js/apps/entities/"~entityName~"/update.js");
-  }
+  } */
 
   override void beforeResponse(STRINGAA options = null) {
     debug writeln(moduleName!DAPPEntityUpdateController~":DAPPEntityUpdateController::beforeResponse");

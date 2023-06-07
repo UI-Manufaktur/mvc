@@ -12,8 +12,10 @@ public {
 
 public { // Subclasses
 	import uim.mvc.controllers.actions.create;
+	import uim.mvc.controllers.actions.delete_;
 	import uim.mvc.controllers.actions.entities;
 	import uim.mvc.controllers.actions.entity;
 	import uim.mvc.controllers.actions.setsite;
 	import uim.mvc.controllers.actions.system;
+	import uim.mvc.controllers.actions.update;
 }

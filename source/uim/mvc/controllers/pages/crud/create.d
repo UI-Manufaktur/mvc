@@ -27,13 +27,13 @@ override void initialize(Json configSettings = Json(null)) {
           "/js/apps/entities/create.js");
   }
 
-  this(string newEntityName) {
+/*   this(string newEntityName) {
     this()
     .entityName(newEntityName)
     .scripts.addLinks(
       "/js/apps/entities/"~entityName~"/entity.js",
       "/js/apps/entities/"~entityName~"/create.js");
-  }
+  } */
 
   override void beforeResponse(STRINGAA requestParameters) {
     debug writeln(moduleName!DAPPEntityCreateController~":DAPPEntityCreateController::beforeResponse");

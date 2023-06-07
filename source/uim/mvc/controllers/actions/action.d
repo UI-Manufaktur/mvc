@@ -23,4 +23,4 @@ class DActionController : DController, IActionController {
 
   }
 }
-mixin(ControllerCalls!("ActionController", "DActionController"));
+mixin(ControllerCalls!("ActionController"));

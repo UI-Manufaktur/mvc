@@ -26,14 +26,14 @@ class DAPPEntityReadController : DAPPEntityCrudPageController {
         "/js/apps/entities/read.js");
   }
 
-  this(string newEntityName) {
+/*   this(string newEntityName) {
     this()
     .entityName(newEntityName)
     .scripts.addLinks(
       "/js/apps/entities/"~entityName~"/entity.js", 
       "/js/apps/entities/"~entityName~"/view.js", // deprecated
       "/js/apps/entities/"~entityName~"/read.js");
-  }
+  } */
 
   override void beforeResponse(STRINGAA options = null) {
     debug writeln(moduleName!DAPPEntityReadController~":DAPPEntityReadController::beforeResponse");

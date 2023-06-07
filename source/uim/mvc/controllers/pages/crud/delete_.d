@@ -24,13 +24,13 @@ class DAPPEntityDeleteController : DAPPEntityCrudPageController {
         "/js/apps/entities/delete.js"); 
   }
 
-  this(string newEntityName) {
+/*   this(string newEntityName) {
     this()
     .entityName(newEntityName)
     .scripts.addLinks(
       "/js/apps/entities/"~entityName~"/entity.js", 
       "/js/apps/entities/"~entityName~"/delete.js");
-  }
+  } */
 
     /* override void jsCode(STRINGAA requestParameters) {
     super.jsCode(requestParameters);
