@@ -17,7 +17,7 @@ import uim.mvc;
 * you should consider creating your own component to contain the functionality. 
 * Creating components keeps controller code clean and allows you to reuse code between different controllers.
 **/
-class DControllerComponent : DMVCObject, IControllerComponent {
+class DControllerComponent : DMVCObject, IControllerComponent, IControllerComponentManager {
   mixin(ControllerComponentThis!("ControllerComponent"));
 
   override void initialize(Json configSettings = Json(null)) {
@@ -33,7 +33,7 @@ class DControllerComponent : DMVCObject, IControllerComponent {
   mixin(OProperty!("bool", "configInitialized"));
 
   // Component registry class used to lazy load components.
-  mixin(OProperty!("DControllerComponentRegistry", "registry"));
+  // mixin(OProperty!("DControllerComponentContainer", "components"));
 }
 mixin(ControllerComponentCalls!("ControllerComponent", "DControllerComponent"));
 

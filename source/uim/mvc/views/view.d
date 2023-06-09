@@ -24,7 +24,7 @@ import uim.mvc;
  *  this.viewBuilder().setTheme("SuperHot");
  * }
  */
-class DView : DMVCObject, IView { 
+class DView : DMVCObject, IView, IViewComponentManager { 
   mixin(ViewThis!("View"));
 
   override void initialize(Json configSettings = Json(null)) {

@@ -20,11 +20,15 @@ class DDatabaseExistsCheck : DControllerCheck {
   
   // Secure shortcut to this.database
   auto database() {
-    if (auto myController = cast(DController)this.manager) {
+    if (!this.manager) return null;
+
+    if (auto myController = cast(DController)this.manager) { // 1 Level
       return myController.manager ? myController.manager.database : null;
     }
-    if (auto myControllerComponent = cast(DControllerComponent)this.manager) {
-      return myControllerComponent.manager ? myControllerComponent.manager.database : null;
+    if (auto myControllerComponent = cast(DControllerComponent)this.manager) { // 2 Level
+      if (auto myController = cast(DController)myControllerComponent.manager) {
+        return myController.manager ? myController.manager.database : null;
+      }
     }
     return null;
   }

@@ -8,7 +8,7 @@ module uim.mvc.controllers.controller;
 import uim.mvc;
 @safe:
 
-class DController : DMVCObject, IController  {
+class DController : DMVCObject, IController, IControllerComponentManager  {
   mixin(ControllerThis!("Controller"));
 
   // Set to true to automatically render the view after action logic.
