@@ -12,7 +12,7 @@ string viewComponentThis(string name) {
   return 
     mvcObjectThis(name)~
   `
-    this(DView myView) { this().view(myView); }
+    this(IViewComponentManager aManager) { this().manager(aManager); }
   `;
 }
 
@@ -24,7 +24,7 @@ string viewComponentCalls(string shortName, string className = null) {
   auto clName = className.length > 0 ? className : "D"~shortName;
   return
     mvcObjectCalls(shortName, className)~
-    `auto `~shortName~`(DView aView) { return new `~clName~`(aView); }`;
+    `auto `~shortName~`(IViewComponentManager aManager) { return new `~clName~`(aManager); }`;
 }
 
 template ViewComponentCalls(string shortName, string className = null) {

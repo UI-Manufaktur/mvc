@@ -4,6 +4,6 @@ import uim.mvc;
 @safe:
 
 interface IControllerComponent : IMVCObject {
-  IController controller();
+  IControllerComponentManager manager();
   O controller(this O)(IController newController);
 }

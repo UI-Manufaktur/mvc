@@ -110,7 +110,7 @@ class DFormHeader : DFormComponent {
           H5Span(["d-none d-sm-inline"], buttons)))].toH5;    
   } 
 }
-mixin(ViewComponentCalls!("FormHeader", "DFormHeader"));
+mixin(ViewComponentCalls!("FormHeader"));
 
 version(test_uim_mvc) { unittest {
   assert(FormHeader);

@@ -4,6 +4,8 @@ import uim.mvc;
 @safe:
 
 interface IController : IMVCObject  {
+  IControllerManager manager();
+
   string rootPath(); 
 
   string mimetype();
