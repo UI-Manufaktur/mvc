@@ -27,7 +27,7 @@ class DControllerCheck : DControllerComponent {
 
   bool execute(STRINGAA options = null) {
     foreach(check; checks) {
-      if (!check.controller(this.controller).execute(options)) {
+      if (!check.manager(this.controller).execute(options)) {
         this
         .error(check.error)
         .redirectUrl(check.redirectUrl);

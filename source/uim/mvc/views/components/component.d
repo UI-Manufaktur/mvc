@@ -23,6 +23,7 @@ class DViewComponent : DMVCObject, IViewComponent {
   }
 
   mixin(OProperty!("string", "id"));
+  mixin(OProperty!("IViewComponentManager", "manager"));
 
   mixin(OProperty!("DEntity", "entity"));
   mixin(OProperty!("DEntity[]", "entities"));

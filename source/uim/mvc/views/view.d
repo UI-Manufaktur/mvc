@@ -35,6 +35,8 @@ class DView : DMVCObject, IView {
 
   }
   
+  mixin(OProperty!("IViewManager", "manager"));
+  
   bool isNull() {
     return false;
   }

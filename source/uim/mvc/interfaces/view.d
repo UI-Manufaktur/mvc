@@ -4,7 +4,7 @@ import uim.mvc;
 @safe:
 
 interface IView : IMVCObject {
-  IViewManager manager;
+  IViewManager manager();
 
   bool isNull();
   DH5Obj[] toH5(STRINGAA options = null);

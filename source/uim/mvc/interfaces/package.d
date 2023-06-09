@@ -18,6 +18,7 @@ public {
   import uim.mvc.interfaces.context;
   import uim.mvc.interfaces.controller;
   import uim.mvc.interfaces.controllercomponent;
+  import uim.mvc.interfaces.controllercomponentmanager;
 	import uim.mvc.interfaces.controllermanager;
   import uim.mvc.interfaces.event;
   import uim.mvc.interfaces.eventlistener;
@@ -33,6 +34,7 @@ public {
   import uim.mvc.interfaces.route;
   import uim.mvc.interfaces.routebuilder;
   import uim.mvc.interfaces.routecollection;
+  import uim.mvc.interfaces.routemanager;
   import uim.mvc.interfaces.routingapplication;
   import uim.mvc.interfaces.validator;
   import uim.mvc.interfaces.view;

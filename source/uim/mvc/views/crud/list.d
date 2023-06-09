@@ -8,8 +8,8 @@ module uim.mvc.views.crud.list;
 import uim.mvc;
 @safe:
 
-class DAPPEntitiesListView : DEntitiesView {
-  mixin(ViewThis!("APPEntitiesListView")); // , false, true));
+class DEntitiesListView : DEntitiesView {
+  mixin(ViewThis!("EntitiesListView")); // , false, true));
 
   mixin(OProperty!("CRUDModes", "crudMode"));
   mixin(OProperty!("bool", "readonly"));
@@ -17,7 +17,7 @@ class DAPPEntitiesListView : DEntitiesView {
   
 override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
-    debugMethodCall(moduleName!DAPPEntitiesListView~"::DAPPEntitiesListView("~this.className~"):initialize");    
+    debugMethodCall(moduleName!DEntitiesListView~"::DEntitiesListView("~this.className~"):initialize");    
 
     this
       .header(
@@ -28,7 +28,7 @@ override void initialize(Json configSettings = Json(null)) {
   }
 
   override DH5Obj[] toH5(STRINGAA options = null) {
-    debugMethodCall(moduleName!DAPPEntitiesListView~"::DAPPEntitiesListView("~this.name~"):toH5");    
+    debugMethodCall(moduleName!DEntitiesListView~"::DEntitiesListView("~this.name~"):toH5");    
     super.toH5(options);
     if (hasError || "redirect" in options) { return null; }
 
@@ -41,12 +41,12 @@ override void initialize(Json configSettings = Json(null)) {
       )].toH5;             
   }
 }
-mixin(ViewCalls!("APPEntitiesListView"));
+mixin(ViewCalls!("EntitiesListView"));
 
 version(test_uim_mvc) { unittest {
     writeln("--- Tests in ", __MODULE__, "/", __LINE__);
-		testView(new DAPPEntitiesListView); 
+		testView(new DEntitiesListView); 
 
     writeln("--- Tests in ", __MODULE__, "/", __LINE__);
-		testView(APPEntitiesListView); 
+		testView(EntitiesListView); 
 }}

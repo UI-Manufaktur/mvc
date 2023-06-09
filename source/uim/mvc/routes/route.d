@@ -19,6 +19,8 @@ class DRoute : DMVCObject, IRoute {
   }
 
   mixin(OProperty!("string", "path"));
+  mixin(OProperty!("IRouteManager", "manager"));
+  
   ///
   unittest {
     auto route = new DRoute;

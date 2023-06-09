@@ -20,14 +20,14 @@ class DDatabaseExistsCheck : DControllerCheck {
   
   // Secure shortcut to this.database
   auto database() {
-    return this.controller ? this.controller.database : null;
+    return this.manager ? this.manager.database : null;
   }
 
   override bool execute(STRINGAA options = null) {
     debug writeln(moduleName!DDatabaseExistsCheck~":DDatabaseExistsCheck::execute");
     if (!super.execute(options)) { return false; }
 
-    if (!this.controller) debug writeln("Controller missing");
+    if (!this.manager) debug writeln("Controller missing");
         
     if (!this.database) { // database missing 
       this.error("database_missing");

@@ -24,7 +24,7 @@ class DControllerComponent : DMVCObject, IControllerComponent {
     super.initialize(configSettings);
   }
 
-  mixin(OProperty!("DController", "controller"));  
+  mixin(OProperty!("IControllerComponentManager", "manager"));
 
   // A component lookup table used to lazy load component objects.
   mixin(OProperty!("Json", "componentMap"));
