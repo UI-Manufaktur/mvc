@@ -34,4 +34,4 @@ class DPageViewComponent : DViewComponent {
     if (footer)  footer.entities = this.entities;
   }
 }
-mixin(ViewComponentCalls!("PageViewComponent", "DPageViewComponent"));
+mixin(ViewComponentCalls!("PageViewComponent"));

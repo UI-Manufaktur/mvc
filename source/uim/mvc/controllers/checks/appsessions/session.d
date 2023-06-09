@@ -15,7 +15,7 @@ class DAppSessionHasSessionCheck : DAppSessionExistsCheck {
     super.initialize(configSettings);
 
     this
-    .redirectUrl("/login");
+      .redirectUrl("/login");
   }
   
   override bool execute(STRINGAA options = null) {

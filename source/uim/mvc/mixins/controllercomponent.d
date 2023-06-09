@@ -12,7 +12,10 @@ string controllerComponentThis(string name) {
   return 
     mvcObjectThis(name)~
   `
-    this(DController myController) { this().controller(myController); }
+    this(IControllerComponentManager aManager) { this().manager(aManager); }
+    this(IControllerComponentManager aManager, string aName) { this(aManager).name(aName); }
+    this(IControllerComponentManager aManager, string[string] someParameters) { this(aManager).parameters(someParameters); }
+    this(IControllerComponentManager aManager, string aName, string[string] someParameters) { this(aManager, aName).parameters(someParameters); }
   `;
 }
 
@@ -24,14 +27,14 @@ string mvcControllerComponentCalls(string shortName, string className = null) {
   auto clName = className.length > 0 ? className : "D"~shortName;
   return `
     auto `~shortName~`() { return new `~clName~`; }
-    auto `~shortName~`(IApplication myApplication) { return new `~clName~`(myApplication); }
-    auto `~shortName~`(string myName) { return new `~clName~`(myName); }
-    auto `~shortName~`(string[string] myParameters) { return new `~clName~`(myParameters); }
+    auto `~shortName~`(IControllerComponentManager aManager) { return new `~clName~`(aManager); }
+    auto `~shortName~`(string aName) { return new `~clName~`(aName); }
+    auto `~shortName~`(string[string] someParameters) { return new `~clName~`(someParameters); }
 
-    auto `~shortName~`(string myName, string[string] myParameters) { return new `~clName~`(myName, myParameters); }
+    auto `~shortName~`(string aName, string[string] someParameters) { return new `~clName~`(aName, someParameters); }
 
-    auto `~shortName~`(IApplication myApplication, string myName) { return new `~clName~`(myApplication, myName); }
-    auto `~shortName~`(IApplication myApplication, string[string] myParameters) { return new `~clName~`(myApplication, myParameters); }
+    auto `~shortName~`(IControllerComponentManager aManager, string aName) { return new `~clName~`(aManager, aName); }
+    auto `~shortName~`(IControllerComponentManager aManager, string[string] someParameters) { return new `~clName~`(aManager, someParameters); }
   `;
 }
 

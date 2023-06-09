@@ -5,5 +5,4 @@ import uim.mvc;
 
 interface IControllerComponent : IMVCObject {
   IControllerComponentManager manager();
-  O controller(this O)(IController newController);
 }

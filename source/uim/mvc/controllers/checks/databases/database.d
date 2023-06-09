@@ -20,14 +20,20 @@ class DDatabaseExistsCheck : DControllerCheck {
   
   // Secure shortcut to this.database
   auto database() {
-    return this.manager ? this.manager.database : null;
+    if (auto myController = cast(DController)this.manager) {
+      return myController.manager ? myController.manager.database : null;
+    }
+    if (auto myControllerComponent = cast(DControllerComponent)this.manager) {
+      return myControllerComponent.manager ? myControllerComponent.manager.database : null;
+    }
+    return null;
   }
 
   override bool execute(STRINGAA options = null) {
     debug writeln(moduleName!DDatabaseExistsCheck~":DDatabaseExistsCheck::execute");
     if (!super.execute(options)) { return false; }
 
-    if (!this.manager) debug writeln("Controller missing");
+    if (!this.manager) debug writeln("Manager missing");
         
     if (!this.database) { // database missing 
       this.error("database_missing");

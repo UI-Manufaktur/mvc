@@ -15,7 +15,7 @@ class DControllerCheck : DControllerComponent {
     super.initialize(configSettings);
 
     this
-    .name("ControllerCheck");
+      .name("ControllerCheck");
   }
 
   mixin(OProperty!("string", "redirectUrl"));
@@ -29,8 +29,8 @@ class DControllerCheck : DControllerComponent {
     foreach(check; checks) {
       if (!check.manager(this.controller).execute(options)) {
         this
-        .error(check.error)
-        .redirectUrl(check.redirectUrl);
+          .error(check.error)
+          .redirectUrl(check.redirectUrl);
         return false;
       }
     }

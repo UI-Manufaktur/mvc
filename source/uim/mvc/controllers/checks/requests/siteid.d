@@ -15,8 +15,8 @@ class DRequestHasSiteIdCheck : DDatabaseHasAccountsCheck {
     super.initialize(configSettings);
 
     this
-    .redirectUrl("/login")
-    .addChecks([RequestExistsCheck]);
+      .redirectUrl("/login")
+      .addChecks([RequestExistsCheck]);
   }
 
   override bool execute(STRINGAA options = null) {
