@@ -30,7 +30,7 @@ class DMVCLinkContainer : DH5Container {
   }
 
 	O add(this O)(STRINGAA[] newEntries...) { 
-    _entries ~= newEntries.map!(entry => cast(DH5Obj)H5Link(entry)).array; 
+    this.add(newEntries.dub);
     return cast(O)this;
   }
 	
