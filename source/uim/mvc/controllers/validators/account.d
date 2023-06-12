@@ -12,7 +12,7 @@ class DAPPValidatorAccount : DAPPValidator {
 
   override DEntity validate(STRINGAA reqParameters) {
     string internalSessionId = reqParameters.get("internalSessionId", "");
-    auto internalSession = getInternalSession(reqParameters);
+    auto internalSession = sessionManager.session(reqParameters);
 
     // Looking for a accountId
     if (internalSession) {

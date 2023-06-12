@@ -11,7 +11,7 @@ class DAPPValidatorSite : DAPPValidator {
   override DEntity validate(STRINGAA reqParameters) {
     // Looking for a siteId
     string internalSessionId = reqParameters.get("internalSessionId", "");
-    auto internalSession = getInternalSession(reqParameters);
+    auto internalSession = sessionManager.session(reqParameters);
 
     if (internalSession) { // internalSession exist
       auto site = internalSession.site;

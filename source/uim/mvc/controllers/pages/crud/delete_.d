@@ -67,7 +67,7 @@ window.addEventListener('load', (event) => {
     }
 
     string internalSessionId = options.get("internalSessionId", "");
-    auto myInternalSession = getInternalSession(options);
+    auto myInternalSession = sessionManager.session(options);
     if (!myInternalSession) {
       options["redirect"] = "/";
       return; }

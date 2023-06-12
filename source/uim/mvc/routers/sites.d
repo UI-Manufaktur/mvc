@@ -38,7 +38,7 @@ static this() {
 
       DEntity session;
       DEntity site;
-      auto session = getInternalSession(options);
+      auto session = sessionManager.session(options);
       if (internalSession) {
         session = session.session; 
         site    = session.site; }

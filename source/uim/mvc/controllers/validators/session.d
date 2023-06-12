@@ -9,7 +9,7 @@ class DAPPValidatorSession : DAPPValidator {
   override DEntity validate(STRINGAA reqParameters) {
     // Looking for a sessionId
     string internalSessionId = reqParameters.get("internalSessionId", "");
-    auto internalSession = getInternalSession(reqParameters);
+    auto internalSession = sessionManager.session(reqParameters);
 
     auto session = internalSession.session;
     if (!session) { // No session. Try to read from reqParameters

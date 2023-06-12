@@ -40,7 +40,7 @@ override void initialize(Json configSettings = Json(null)) {
     super.beforeResponse(options);   
     if ("redirect" in options) return;
 
-    auto session = getInternalSession(options);
+    auto session = sessionManager.session(options);
 
     this.entity(database[session.site, collectionName].findOne(options.toEntitySelect));
     if (!entity) {
