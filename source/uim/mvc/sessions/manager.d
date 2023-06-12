@@ -15,7 +15,7 @@ class DSessionManager : ISessionManager {
 
 	protected ISession[string] _sessions;
 
-	void addSession(DInternalSession aSession) {
+	void addSession(ISession aSession) {
 		_sessions[aSession.httpSessionId] = aSession;
 	}
 	ISession session(string httpSessionId) {

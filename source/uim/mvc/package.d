@@ -9,7 +9,8 @@ mixin(ImportPhobos!());
 
 // Dub
 public {
-	import  vibe.d;
+	import vibe.d;
+  import vibe.http.session : HttpSession = Session;
 }
 
 public { // uim libraries

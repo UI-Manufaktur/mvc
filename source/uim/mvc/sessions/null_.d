@@ -8,14 +8,11 @@ module uim.mvc.sessions.null_;
 import uim.mvc;
 @safe:
 
-class DNullSession : DInternalSession{
-  this() { super(); }
+class DNullSession : DInternalSession {
+  mixin(EntityThis!("NullSession"));
 
   this(Session httpSession) {
     super(httpSession); }
-
-  this(Session httpSession, IPageController page) {
-    super(httpSession, page); }
 
   override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
@@ -30,9 +27,13 @@ class DNullSession : DInternalSession{
     requestParameters["redirect"] = "/login";
     return false;
   }
+  
+  alias opIndexAssign = DElement.opIndexAssign;
+  alias opIndexAssign = DEntity.opIndexAssign;
+  alias opIndexAssign = DInternalSession.opIndexAssign;
+
   override string debugInfo() { return "Null internalSession"; }
 }
-auto NullSession() { return new DNullSession(); }
+mixin(EntityCalls!("NullSession"));
 auto NullSession(Session httpSession) { return new DNullSession(httpSession); }
-auto NullSession(Session httpSession, IPageController page) { return new DNullSession(httpSession, page); }
 

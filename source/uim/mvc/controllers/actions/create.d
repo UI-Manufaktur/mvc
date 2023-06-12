@@ -25,7 +25,7 @@ class DCreateActionController : DActionController {
     super.beforeResponse(options);   
     if (hasError || "redirect" in options) return; 
 
-    auto mySession = getInternalSession(options);
+    auto mySession = sessionManager.session(options);
     if (mySession.isNull) {
       options["redirect"] = "/login"; 
       return; // TODO: Redirect to login 

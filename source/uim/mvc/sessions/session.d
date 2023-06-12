@@ -9,31 +9,26 @@ import uim.mvc;
 @safe:
 
 class DInternalSession : DEntity {
-  mixin(EntityThis!("SessionEntity"));
+  mixin(EntityThis!("InternalSession"));
 
-  this(Session httpSession) {
-    _httpSession = httpSession;
-    this.id(httpSession.id); }
-
-  this(Session httpSession, IPageController page) {
-    this(httpSession);
-    this.page(page); }
-
-  Session _httpSession;
+  this(HttpSession httpSession) {
+    this().httpSessionId(httpSession.id);
+  }
 
   mixin(OProperty!("string", "httpSessionId"));
   mixin(OProperty!("IPageController", "page"));
-  mixin(OProperty!("long", "lastAccessedOn"));
   mixin(OProperty!("DEntity", "login"));
   mixin(OProperty!("DEntity", "session"));
   mixin(OProperty!("DEntity", "site"));
   mixin(OProperty!("DEntity", "account"));
   mixin(OProperty!("DEntity", "user"));
-  mixin(OProperty!("DEntity", "password"));
+  mixin(OProperty!("DEntity", "password")); // ! Ugly
   mixin(OProperty!("DEntity", "entity"));
   mixin(OProperty!("bool", "isNull"));
 
-  void initialize(Json configSettings = Json(null)) {
+  override void initialize(Json configSettings = Json(null)) {
+    super.initialize(configSettings);
+
     this
       .isNull(false);
   }
@@ -81,15 +76,20 @@ class DInternalSession : DEntity {
     return true;
   }
 
-  string opIndex(string key) {
+  override string opIndex(string key) {
     switch(key) {
-      case "id": return this.id;
+      case "id": return this.id.toString;
       case "lastAccessedOn": return to!string(this.lastAccessedOn); 
       default: return null; 
     }
   } 
 
-  void opIndexAssign(string key, string value) {
+  alias opIndexAssign = DElement.opIndexAssign;
+  alias opIndexAssign = DEntity.opIndexAssign;
+  
+  override void opIndexAssign(string key, string value) {
+    super(key, value);
+
     switch(key) {
       case "id": this.id = value; break;
       case "lastAccessedOn": this.lastAccessedOn = to!long(value); break;
@@ -98,6 +98,8 @@ class DInternalSession : DEntity {
   } 
 
   void opIndexAssign(string key, long value) {
+    super(key, value);
+
     switch(key) {
       case "lastAccessedOn": this.lastAccessedOn = value; break;
       default: break;
@@ -105,6 +107,8 @@ class DInternalSession : DEntity {
   } 
 
   void opIndexAssign(string key, DEntity value) {
+    super(key, value);
+    
     switch(key) {
       case "login": this.login = value; break;
       case "session": this.session = value; break;
@@ -129,15 +133,5 @@ class DInternalSession : DEntity {
       "\n User:\t"~(user ? "id:%s".format(user.id) : "null");
   }
 }
-auto InternalSession(Session httpSession) { return new DInternalSession(httpSession); }
-auto InternalSession(Session httpSession, IPageController page) { return new DInternalSession(httpSession, page); }
-
-/*   mixin(OProperty!("IPageController", "page"));
-  mixin(OProperty!("long", "lastAccessedOn"));
-  mixin(OProperty!("DEntity", "login"));
-  mixin(OProperty!("DEntity", "session"));
-  mixin(OProperty!("DEntity", "site"));
-  mixin(OProperty!("DEntity", "account"));
-  mixin(OProperty!("DEntity", "user"));
-  mixin(OProperty!("DEntity", "password"));
-  mixin(OProperty!("DEntity", "entity")); */
+mixin(EntityCalls!("InternalSession"));
+auto InternalSession(HttpSession httpSession) { return new DInternalSession(httpSession); }

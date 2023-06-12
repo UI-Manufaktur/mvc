@@ -47,7 +47,7 @@ class DInternalSessionReader {
     if (requestSessionId.length > 0 && myInternalSession is null) { // httpSession exitsts New Session
       debug writeln(moduleName!DInternalSessionReader~":DInternalSessionReader::read - httpSessionId exists internalSession is missing");
       debug writeln(moduleName!DInternalSessionReader~":DInternalSessionReader::read - Creating new internalSession based on httpSession ", requestSessionId);
-      myInternalSession = InternalSession(serverRequest.session, page);
+      myInternalSession = InternalSession(serverRequest.session);
 
       debug writeln(moduleName!DInternalSessionReader~":DInternalSessionReader::read - Reading session entities");      
       if (page && page.database) {

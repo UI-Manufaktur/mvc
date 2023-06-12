@@ -4,5 +4,15 @@ import uim.mvc;
 @safe:
 
 interface ISession {
-  UUID id();
+  string httpSessionId();
+
+  // IPageController page();
+  DEntity login();
+  DEntity session();
+  DEntity site();
+  DEntity account();
+  DEntity user();
+  DEntity password();
+  DEntity entity();
+  bool isNull();
 }
