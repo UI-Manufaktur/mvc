@@ -22,7 +22,7 @@ class DInternalSessionHasSessionCheck : DInternalSessionExistsCheck {
     debug writeln(moduleName!DInternalSessionHasSessionCheck~":DInternalSessionHasSessionCheck::execute");
     if (!super.execute(options)) { return false; }
 
-    auto session = getInternalSession(options).session;
+    auto session = sessionManager.session(options).session;
     if (!session) { // session missing 
       this.error("internalsession_session_missing");
       return false; 

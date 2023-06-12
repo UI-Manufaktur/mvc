@@ -22,7 +22,7 @@ class DInternalSessionHasSiteCheck : DInternalSessionExistsCheck {
     debug writeln(moduleName!DInternalSessionHasSiteCheck~":DInternalSessionHasSiteCheck::check");
     if (!super.execute(options)) { return false; }
 
-    auto site = getInternalSession(options).site;
+    auto site = sessionManager.session(options).site;
     if (!site) { 
       this.error("internalsession_site_missing");
       return false; 

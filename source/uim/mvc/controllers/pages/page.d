@@ -98,7 +98,7 @@ class DPageController : DController, IPageController {
   void jsCode(STRINGAA options = null) {
     debugMethodCall(moduleName!DPageController~":DPageController::jsCode");
     string internalSessionId = _request && _request.session ? _request.session.id : options.get("internalSessionId", "");
-    auto internalSession = getInternalSession(options);
+    auto internalSession = sessionManager.session(options);
 
     if (internalSession && viewMode == ViewModes.JS) 
       addToPageScript(options, 
@@ -233,7 +233,7 @@ class DPageController : DController, IPageController {
       debugMethodCall(moduleName!DPageController~":DPageController("~this.name~")::beforeResponse");
       super.beforeResponse(options);
 
-      this.session = getInternalSession(options);
+      this.session = sessionManager.session(options);
       // ?? TODO if (internalSession) { this.site(session.site); }
       //     if (hasError || "redirect" in options) { return; }
     }    

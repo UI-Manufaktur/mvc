@@ -17,7 +17,7 @@ class DInternalSessionHasAccountCheck : DInternalSessionExistsCheck {
     debug writeln(moduleName!DInternalSessionHasAccountCheck~":DInternalSessionHasAccountCheck::execute");
     if (!super.execute(options)) { return false; } 
 
-    auto session = getInternalSession(options);
+    auto session = sessionManager.session(options);
     if (!session.account) { // account missing 
       this.error("Account Missing");
       return false;

@@ -22,7 +22,7 @@ class DInternalSessionHasLoginCheck : DInternalSessionExistsCheck {
     debug writeln(moduleName!DInternalSessionHasLoginCheck~":DInternalSessionHasLoginCheck::check");
     if (!super.execute(options)) { return false; }
 
-    auto login = getInternalSession(options).login;
+    auto login = sessionManager.session(options).login;
     if (!login) { // login missing 
       this.error("internalsession_login_missing");
       return false; 

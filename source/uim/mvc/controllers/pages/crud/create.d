@@ -40,7 +40,7 @@ override void initialize(Json configSettings = Json(null)) {
     super.beforeResponse(requestParameters);   
     if ("redirect" in requestParameters) return;
     
-    auto session = getInternalSession(requestParameters);
+    auto session = sessionManager.session(requestParameters);
 
     auto collection = database[session.site, collectionName]; 
     if (!collection) {

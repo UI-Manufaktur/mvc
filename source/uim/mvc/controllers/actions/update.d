@@ -25,7 +25,7 @@ class DUpdateActionController : DActionController {
     super.beforeResponse(options);   
     if (hasError || "redirect" in options) { return; }
 
-    auto session = getInternalSession(options);
+    auto session = sessionManager.session(options);
     auto site = session.site;
 
     auto collection = database[site, pool];

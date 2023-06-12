@@ -16,7 +16,7 @@ class DAPPEntityCrudPageController : DAPPEntityPageController {
     super.beforeResponse(requestParameters);   
     if ("redirect" in requestParameters) return;
     
-    auto myInternalSession = getInternalSession(requestParameters);
+    auto myInternalSession = sessionManager.session(requestParameters);
 
     auto collection = database[myInternalSession.site, collectionName]; 
     if (!collection) {
