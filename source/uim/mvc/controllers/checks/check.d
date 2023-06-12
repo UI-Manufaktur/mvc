@@ -18,7 +18,6 @@ class DControllerCheck : DControllerComponent {
       .name("ControllerCheck");
   }
 
-  mixin(OProperty!("string", "redirectUrl"));
   mixin(OProperty!("DControllerCheck[]", "checks"));
   O addChecks(this O)(DControllerCheck[] newChecks) {
     this.checks(this.checks~newChecks);

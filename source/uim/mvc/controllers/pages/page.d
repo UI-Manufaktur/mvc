@@ -30,6 +30,8 @@ class DPageController : DController, IPageController {
       .metas(MVCMetaContainer) 
       .scripts(ScriptContainer) 
       .styles(StyleContainer); 
+
+    this.addChecks();
   }
 
   // inherited
@@ -86,26 +88,6 @@ class DPageController : DController, IPageController {
   mixin(OProperty!("ViewModes", "viewMode")); // 0 - HTML , 1 - HTML & Javascript, 2 - PWA
   mixin(OProperty!("DataModes", "dataMode")); // 0 - HTML , 1 - HTML & Javascript, 2 - PWA
  
-  override void beforeResponse(STRINGAA options = null) {
-    debugMethodCall(moduleName!DPageController~":DPageController("~this.name~")::beforeResponse");
-    super.beforeResponse(options);
-
-    this.session = getAppSession(options);
-    // ?? TODO if (appSession) { this.site(session.site); }
-    //     if (hasError || "redirect" in options) { return; }
-  }    
-
-  override string stringResponse(string[string] options = null) {
-    debugMethodCall(moduleName!DPageController~":DPageController("~name~")::stringResponse");
-    super.stringResponse(options);
-    // if (hasError) { return null; }
-
-    string myRenderedView = view ? view.render(options) : "";
-    return this.layout 
-      ? this.layout.render(this, myRenderedView)  
-      : myRenderedView;  
-  }
-
   DH5Obj[] pageContent(STRINGAA reqParameters) { 
     debugMethodCall(moduleName!DPageController~":DPageController("~this.name~")::pageContent");
     // auto result = form ? form.toH5(reqParameters) : null;
@@ -247,6 +229,28 @@ class DPageController : DController, IPageController {
  * /
     return result;
   } */
+
+  // #region Response
+    override void beforeResponse(STRINGAA options = null) {
+      debugMethodCall(moduleName!DPageController~":DPageController("~this.name~")::beforeResponse");
+      super.beforeResponse(options);
+
+      this.session = getAppSession(options);
+      // ?? TODO if (appSession) { this.site(session.site); }
+      //     if (hasError || "redirect" in options) { return; }
+    }    
+
+    override string stringResponse(string[string] options = null) {
+      debugMethodCall(moduleName!DPageController~":DPageController("~name~")::stringResponse");
+      super.stringResponse(options);
+      // if (hasError) { return null; }
+
+      string myRenderedView = view ? view.render(options) : "";
+      return this.layout 
+        ? this.layout.render(this, myRenderedView)  
+        : myRenderedView;  
+    }
+  // #endregion Response
 }
 mixin(ControllerCalls!("PageController"));
 

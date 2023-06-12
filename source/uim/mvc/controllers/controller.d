@@ -14,8 +14,6 @@ class DController : DMVCObject, IController, IControllerComponentManager  {
   // Set to true to automatically render the view after action logic.
   mixin(OProperty!("bool", "autoRender"));
 
-
-
   // Automatically set to the name of a plugin.
   mixin(OProperty!("string", "plugin"));
 
@@ -66,7 +64,7 @@ class DController : DMVCObject, IController, IControllerComponentManager  {
     mixin(MVCParameter!("contentTypeParameters"));
     mixin(MVCParameter!("timeCreated"));
     mixin(MVCParameter!("persistent"));
-    mixin(MVCParameter!("redirect"));
+    mixin(MVCParameter!("redirectUrl"));
     mixin(MVCParameter!("viewName"));
 
   // #endregion Properties
@@ -77,8 +75,9 @@ class DController : DMVCObject, IController, IControllerComponentManager  {
   /// Owning controller
   mixin(OProperty!("DController", "controller"));
 
-  mixin(OProperty!("DControllerCheck[]", "checks"));
+  mixin(OProperty!("DControllerCheck[]", "checks")); 
   O addChecks(this O)(DControllerCheck[] newChecks) {
+    newCheck.manager(this);
     this.checks(this.checks~newChecks);
     return cast(O)this;
   } 
@@ -129,7 +128,7 @@ class DController : DMVCObject, IController, IControllerComponentManager  {
   // #endregion database
   
   bool hasRedirect() {
-    return (this.redirect.length > 0);
+    return (this.redirectUrl.length > 0);
   }
   
   Json message(string[string] options) {
@@ -176,47 +175,60 @@ class DController : DMVCObject, IController, IControllerComponentManager  {
     return result;
   }
 
-  void beforeResponse(string[string] options = null) {
-    debugMethodCall(moduleName!DController~":DController("~this.name~")::beforeResponse");
-  }    
+  // #region Response
+    void beforeResponse(string[string] options = null) { // Hook
+      debugMethodCall(moduleName!DController~":DController("~this.name~")::beforeResponse");
 
-  void afterResponse(string[string] options = null) {
-    debugMethodCall(moduleName!DController~":DController::afterResponse");
-  }
+      foreach(myCheck; this.checks) {
+        myCheck.execute(options);
+        if (myCheck.hasError) {
+          this.error = myCheck.error;
+          this.redirectUrl = myCheck.redirectUrl;
+          return; // Strict - An error requires an error reaction or handling
+        }
+      }
+    }    
 
-  string stringResponse(string[string] options = null) {
-    debugMethodCall(moduleName!DController~":DController::stringResponse");
-    return "";
-  }
+    void afterResponse(string[string] options = null) { // Hook
+      debugMethodCall(moduleName!DController~":DController::afterResponse");
 
-  void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse) {
-		debugMethodCall(moduleName!DController~":DController("~this.name~")::request(req, res)");
-  }
-
-  void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse, STRINGAA options) {
-		debugMethodCall(moduleName!DController~":DController("~this.name~")::request(req, res, requestParameters)");
-
-		this.request = newRequest; this.response = newResponse;
-    options = requestParameters(options);
-		beforeResponse(options);
-
-    if (hasError) {
-      debug writeln("Found error -> ", this.error);
-      options["redirect"] = "/error";
+      this.error = "";
+      this.redirectUrl = "";
     }
 
-		if ("redirect" in options) {
-      debug writeln("Found redirect to ", options["redirect"]);
-      auto redirect = options["redirect"]; 
-      options.remove("redirect");
-      newResponse.redirect(redirect);
-    } 
+    string stringResponse(string[string] options = null) { // Hook
+      debugMethodCall(moduleName!DController~":DController::stringResponse");
+      return "";
+    }
 
-    auto result = stringResponse(options);
-    afterResponse(options);
-    
-		this.response.writeBody(result, this.mimetype); 
-  }
+    void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse) { // Required to link vibe.d router
+      debugMethodCall(moduleName!DController~":DController("~this.name~")::request(req, res)");
+    }
+
+    void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse, STRINGAA options) {
+      debugMethodCall(moduleName!DController~":DController("~this.name~")::request(req, res, requestParameters)");
+
+      this.request = newRequest; this.response = newResponse;
+      options = requestParameters(options);
+      beforeResponse(options); // Hook
+
+      if (hasError) {
+        debug writeln("Found error -> ", this.error);
+        options["redirect"] = "/error";
+      }
+
+      if (auto myRedirectUrl = options.get("redirect", null)) {
+        debug writeln("Found redirect to ", myRedirectUrl);
+        options.remove("redirect");
+        newResponse.redirect(myRedirectUrl);
+      } 
+
+      auto result = stringResponse(options); // Hook, only if necessary
+      afterResponse(options); // Hook
+      
+      this.response.writeBody(result, this.mimetype); 
+    }
+  // #endregion Response
 }
 mixin(ControllerCalls!("Controller", "DController"));
 
@@ -232,9 +244,3 @@ unittest {
   assert(Controller.defaultConfig["redirect"] == "Auth.redirect");
 }
 
-template ControllerProperty(string dataType, string name) {
-  const char[] ControllerProperty = `
-  `~dataType~` `~name~`() { return cast(`~dataType~`)this.component("`~name~`"); }
-  O `~name~`(this O)(`~dataType~` newComponent) { this.component("`~name~`", newComponent); return cast(O)this; }
-  `;
-}

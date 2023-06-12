@@ -25,6 +25,7 @@ class DControllerComponent : DMVCObject, IControllerComponent, IControllerCompon
   }
 
   mixin(OProperty!("IControllerComponentManager", "manager"));
+  mixin(OProperty!("string", "redirectUrl"));
 
   // A component lookup table used to lazy load component objects.
   mixin(OProperty!("Json", "componentMap"));

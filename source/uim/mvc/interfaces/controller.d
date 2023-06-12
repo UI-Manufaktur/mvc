@@ -29,7 +29,7 @@ interface IController : IMVCObject  {
   string contentTypeParameters();
   string timeCreated();
   string persistent();
-  string redirect();
+  string redirectUrl(); // Url in case of an redirect
 
   void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse, string[string] options = null);
 }

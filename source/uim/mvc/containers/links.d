@@ -30,7 +30,7 @@ class DMVCLinkContainer : DH5Container {
   }
 
 	O add(this O)(STRINGAA[] newEntries...) { 
-    this.add(newEntries.dub);
+    this.add(newEntries.dup);
     return cast(O)this;
   }
 	

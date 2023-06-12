@@ -5,4 +5,5 @@ import uim.mvc;
 
 interface IControllerComponent : IMVCObject {
   IControllerComponentManager manager();
+  string redirectUrl();
 }
