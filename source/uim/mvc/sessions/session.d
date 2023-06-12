@@ -8,8 +8,8 @@ module uim.mvc.sessions.session;
 import uim.mvc;
 @safe:
 
-class DInternalSession {
-  this() {}
+class DInternalSession : DEntity {
+  mixin(EntityThis!("SessionEntity"));
 
   this(Session httpSession) {
     _httpSession = httpSession;
@@ -21,7 +21,7 @@ class DInternalSession {
 
   Session _httpSession;
 
-  mixin(OProperty!("string", "id"));
+  mixin(OProperty!("string", "httpSessionId"));
   mixin(OProperty!("IPageController", "page"));
   mixin(OProperty!("long", "lastAccessedOn"));
   mixin(OProperty!("DEntity", "login"));

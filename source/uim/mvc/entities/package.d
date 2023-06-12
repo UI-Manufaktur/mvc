@@ -4,7 +4,3 @@
 	Authors: Ozan Nurettin Süel, mailto:ons@sicherheitsschmiede.de                                                      
 **********************************************************************************************************/
 module uim.mvc.entities;
-
-public {
-	import  uim.mvc.entities.session;
-}

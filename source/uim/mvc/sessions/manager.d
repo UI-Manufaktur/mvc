@@ -9,3 +9,17 @@ import uim.mvc;
 @safe:
 
 DInternalSession[string] sessions;
+
+class DSessionManager : ISessionManager {
+	this() {}
+
+	protected ISession[string] _sessions;
+
+	void addSession(DInternalSession aSession) {
+		_sessions[aSession.httpSessionId] = aSession;
+	}
+	ISession session(string httpSessionId) {
+		return _sessions.get(httpSessionId, null);
+	}
+}
+auto SessionManager() { return new DSessionManager(); }

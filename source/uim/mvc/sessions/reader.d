@@ -54,19 +54,29 @@ class DInternalSessionReader {
       foreach (name; page.sessionData) {
           switch(name) {
             case "login": 
-              myInternalSession.login = page.database["systems", "system_logins"].findOne(["id": requestParameters.get("loginId", "")]);
+              if (auto myDatabase = page.database["systems", "system_logins"]) {
+                myInternalSession.login = myDatabase.findOne(["id": requestParameters.get("loginId", "")]);
+              }
               break;
             case "session":
-              myInternalSession.session = page.database["systems", "system_sessions"].findOne(["id": requestParameters.get("sessionId", "")]);
+              if (auto myDatabase = page.database["systems", "system_sessions"]) {
+                myInternalSession.session = myDatabase.findOne(["id": requestParameters.get("sessionId", "")]);
+              }
               break;
             case "site": 
-              myInternalSession.site = page.database["systems", "system_sites"].findOne(["id": requestParameters.get("siteId", "")]);
+              if (auto myDatabase = page.database["systems", "system_sites"]) {
+                myInternalSession.site = myDatabase.findOne(["id": requestParameters.get("siteId", "")]);
+              }
               break;
             case "account": 
-              myInternalSession.account = page.database["systems", "system_accounts"].findOne(["id": requestParameters.get("accountId", "")]);
+              if (auto myDatabase = page.database["systems", "system_accounts"]) {
+                myInternalSession.account = myDatabase.findOne(["id": requestParameters.get("accountId", "")]);
+              }
               break;
             case "user": 
-              myInternalSession.user = page.database["systems", "system_users"].findOne(["id": requestParameters.get("userId", "")]);
+              if (auto myDatabase = page.database["systems", "system_users"]) {
+                myInternalSession.user = myDatabase.findOne(["id": requestParameters.get("userId", "")]);
+              }
               break;
             default: break;
           }        

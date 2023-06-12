@@ -30,8 +30,6 @@ class DPageController : DController, IPageController {
       .metas(MVCMetaContainer) 
       .scripts(ScriptContainer) 
       .styles(StyleContainer); 
-
-    this.addChecks();
   }
 
   // inherited

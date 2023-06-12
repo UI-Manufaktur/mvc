@@ -69,8 +69,21 @@ class DController : DMVCObject, IController, IControllerComponentManager  {
 
   // #endregion Properties
 
-  // Controller Owner
+  // #region Managers
   mixin(OProperty!("IControllerManager", "manager"));
+
+  // Link to the sessionManager. 
+  protected ISessionManager _sessionManager; 
+  O sessionManager(this O)(ISessionManager aSessionManager) {
+    _sessionManager = aSessionManager;
+  }
+  ISessionManager sessionManager() {
+    if (_sessionManager) return _sessionManager;
+
+    return manager.sessionManager;
+  }
+  // #endregion Managers
+
 
   /// Owning controller
   mixin(OProperty!("DController", "controller"));
