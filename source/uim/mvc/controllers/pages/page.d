@@ -77,7 +77,7 @@ class DPageController : DController, IPageController {
   mixin(MVCParameter!("title")); 
 
   DMVCRequestReader requestReader;
-  DInternalSessionReader sessionReader;
+  DSessionReader sessionReader;
 
   O pageActions(this O)(string[] actions...) { this.pageActions(actions); return cast(O)this; }
   O addPageActions(this O)(string[] actions...) { this.addPageActions(actions); return cast(O)this; }

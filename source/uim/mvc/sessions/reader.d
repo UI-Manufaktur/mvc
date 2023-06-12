@@ -8,7 +8,7 @@ module uim.mvc.sessions.reader;
 import uim.mvc;
 @safe:
 
-class DInternalSessionReader {
+class DSessionReader {
   this(IPageController page) {
     this.page(page);
   }
@@ -17,39 +17,39 @@ class DInternalSessionReader {
   mixin(OProperty!("DInternalSession", "internalSession"));
 
   DInternalSession read(HTTPServerRequest serverRequest, STRINGAA requestParameters) {
-    debug writeln(moduleName!DInternalSessionReader~":DInternalSessionReader::read");
+    debug writeln(moduleName!DSessionReader~":DSessionReader::read");
     
     // serverRequest exists?
-    if (!serverRequest) { debug writeln(moduleName!DInternalSessionReader~":DInternalSessionReader::read - missing request"); }
+    if (!serverRequest) { debug writeln(moduleName!DSessionReader~":DSessionReader::read - missing request"); }
 
     // serverRequest has session
     string requestSessionId;
     DInternalSession myInternalSession;
     if (!serverRequest.session) { // no session
-      debug writeln(moduleName!DInternalSessionReader~":DInternalSessionReader::read - missing request session"); }
+      debug writeln(moduleName!DSessionReader~":DSessionReader::read - missing request session"); }
     else { // has sesion
-      debug writeln(moduleName!DInternalSessionReader~":DInternalSessionReader::read - httpSessionId exists");
+      debug writeln(moduleName!DSessionReader~":DSessionReader::read - httpSessionId exists");
       
       // read session Id
       requestSessionId = serverRequest.session.id;
       myInternalSession = internalSessions.get(requestSessionId, null); // Existing Session?
     }
 
-    if (!myInternalSession) debug writeln(moduleName!DInternalSessionReader~":DInternalSessionReader::read - missing internalSession");
+    if (!myInternalSession) debug writeln(moduleName!DSessionReader~":DSessionReader::read - missing internalSession");
     
-    debug writeln(moduleName!DInternalSessionReader~":DInternalSessionReader::read - XXXX");
+    debug writeln(moduleName!DSessionReader~":DSessionReader::read - XXXX");
 
     if (requestSessionId.length > 0) 
-      debug writeln(moduleName!DInternalSessionReader~":DInternalSessionReader::read - x1x");
+      debug writeln(moduleName!DSessionReader~":DSessionReader::read - x1x");
     if (internalSession is null)  
-      debug writeln(moduleName!DInternalSessionReader~":DInternalSessionReader::read - x2x");
+      debug writeln(moduleName!DSessionReader~":DSessionReader::read - x2x");
 
     if (requestSessionId.length > 0 && myInternalSession is null) { // httpSession exitsts New Session
-      debug writeln(moduleName!DInternalSessionReader~":DInternalSessionReader::read - httpSessionId exists internalSession is missing");
-      debug writeln(moduleName!DInternalSessionReader~":DInternalSessionReader::read - Creating new internalSession based on httpSession ", requestSessionId);
+      debug writeln(moduleName!DSessionReader~":DSessionReader::read - httpSessionId exists internalSession is missing");
+      debug writeln(moduleName!DSessionReader~":DSessionReader::read - Creating new internalSession based on httpSession ", requestSessionId);
       myInternalSession = InternalSession(serverRequest.session);
 
-      debug writeln(moduleName!DInternalSessionReader~":DInternalSessionReader::read - Reading session entities");      
+      debug writeln(moduleName!DSessionReader~":DSessionReader::read - Reading session entities");      
       if (page && page.database) {
       foreach (name; page.sessionData) {
           switch(name) {
@@ -104,4 +104,83 @@ class DInternalSessionReader {
     return internalSession;
   }
 }
-auto InternalSessionReader(IPageController page) { return new DInternalSessionReader(page); }
+auto SessionReader(IPageController page) { return new DSessionReader(page); }
+
+
+/* class DSRVSessionReader {
+  this(DSRVApi api) { _api = api; }
+
+  mixin(OProperty!("DSRVApi", "api"));
+  mixin(OProperty!("DSRVSession", "servSession"));
+
+  DSRVSession read(HTTPServerRequest req, STRINGAA reqParameters) {
+    debug writeln(moduleName!DSRVSessionReader~":DSRVSessionReader::read");
+    DSRVSession srvSession;
+    string reqSessionId;
+    if (!req) debug writeln(moduleName!DSRVSessionReader~":DSRVSessionReader::read - missing request");
+    if (!req.session) { debug writeln(moduleName!DSRVSessionReader~":DSRVSessionReader::read - mising request session"); }
+    else {
+      debug writeln(moduleName!DSRVSessionReader~":DSRVSessionReader::read - httpSessionId exists");
+      reqSessionId = req.session.id;
+      srvSession = srvSessions.get(reqSessionId, null); // Existing Session?
+    }
+
+    if (!srvSession) debug writeln(moduleName!DSRVSessionReader~":DSRVSessionReader::read - missing srvSession");
+    
+    debug writeln(moduleName!DSRVSessionReader~":DSRVSessionReader::read - XXXX");
+
+    if (reqSessionId.length > 0) 
+      debug writeln(moduleName!DSRVSessionReader~":DSRVSessionReader::read - x1x");
+    if (srvSession is null)  
+      debug writeln(moduleName!DSRVSessionReader~":DSRVSessionReader::read - x2x");
+
+    if (reqSessionId.length > 0 && srvSession is null) { // httpSession exitsts New Session
+      debug writeln(moduleName!DSRVSessionReader~":DSRVSessionReader::read - httpSessionId exists srvSession is missing");
+      debug writeln(moduleName!DSRVSessionReader~":DSRVSessionReader::read - Creating new srvSession based on httpSession ", reqSessionId);
+      srvSession = SRVSession(req.session);
+
+      debug writeln(moduleName!DSRVSessionReader~":DSRVSessionReader::read - Reading session entities");      
+      if (api && api.database) {
+        foreach (required; api.requiredChecks) {
+          switch(required) {
+            case "login": 
+              srvSession.login = api.database["central", "logins"].findOne(["id": reqParameters.get("loginId", "")]);
+              break;
+            case "session":
+              srvSession.session = api.database["central", "sessions"].findOne(["id": reqParameters.get("sessionId", "")]);
+              break;
+            case "site": 
+              srvSession.site = api.database["central", "sites"].findOne(["id": reqParameters.get("siteId", "")]);
+              break;
+            case "account": 
+              srvSession.account = api.database["central", "accounts"].findOne(["id": reqParameters.get("accountId", "")]);
+              break;
+            case "user": 
+              srvSession.user = api.database["central", "users"].findOne(["id": reqParameters.get("userId", "")]);
+              break;
+            default: break;
+          }        
+        }
+      }
+    }
+
+    debug writeln("----------------------------------------------------------------------------------------------"); 
+    if (srvSession) {
+      debug writeln("LoginId = %s\tSessionId = %s\tSiteId = %s".format(
+      srvSession.login ? srvSession.login.id.toString : "", 
+      srvSession.session ? srvSession.session.id.toString : "", 
+      srvSession.site ? srvSession.site.id.toString : ""));
+
+      srvSession.lastAccessedOn = toTimestamp(now);
+      reqParameters["reqSessionId"] = reqSessionId;
+      srvSessions[reqSessionId] = srvSession;
+    }
+    else {
+      debug writeln("No srvSession");
+    } 
+    debug writeln("----------------------------------------------------------------------------------------------"); 
+
+    return srvSession;
+  }
+}
+auto SRVSessionReader(DSRVApi api) { return new DSRVSessionReader(api); } */

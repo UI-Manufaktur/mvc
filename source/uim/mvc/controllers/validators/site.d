@@ -3,7 +3,7 @@ module uim.mvc.controllers.validators.site;
 import uim.mvc;
 @safe:
 
-class DAPPValidatorSite : DAPPValidator {
+class DValidatorSite : DValidator {
   mixin(ControllerThis!("APPValidatorSite"));
   
   bool siteIdValid(string siteId) { return siteId.isUUID && UUID(siteId) != UUID(); }

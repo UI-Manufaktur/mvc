@@ -7,8 +7,8 @@ import uim.mvc;
   appErrorCodes[appErrorPrefix+100] = "Account id not valid or found";
 } */
 
-class DAPPValidatorAccount : DAPPValidator {
-  mixin(ControllerThis!("APPValidatorAccount"));
+class DValidatorAccount : DValidator {
+  mixin(ControllerThis!("ValidatorAccount"));
 
   override DEntity validate(STRINGAA reqParameters) {
     string internalSessionId = reqParameters.get("internalSessionId", "");
@@ -66,5 +66,5 @@ version(test_uim_apps) { unittest {
       /// TODO 
     }}
 }
-mixin(ControllerCalls!("APPValidatorAccount"));
+mixin(ControllerCalls!("ValidatorAccount"));
 

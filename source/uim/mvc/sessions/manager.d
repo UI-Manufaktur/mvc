@@ -19,6 +19,7 @@ class DSessionManager : ISessionManager {
 		protected ISession[string] _sessions;
 
 		void addSession(ISession aSession) {
+			aSesssion.manager(this);
 			_sessions[aSession.httpSessionId] = aSession;
 		}
 
@@ -33,10 +34,13 @@ class DSessionManager : ISessionManager {
 	// #endregion Sessions
 
 	void initialize(Json configSettings = Json(null)) {
-    super.initialize(configSettings);
 
     this
       .isNull(true);
   }
+
+	bool update(ISession) {
+		// ToDo
+	}
 }
 auto SessionManager() { return new DSessionManager(); }

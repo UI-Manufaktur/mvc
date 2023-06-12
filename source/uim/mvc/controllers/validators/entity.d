@@ -3,8 +3,8 @@ module uim.mvc.controllers.validators.entity;
 import uim.mvc;
 @safe:
 
-class DAPPValidatorEntity : DAPPValidator {
-  mixin(ControllerThis!("APPValidatorEntity"));
+class DValidatorEntity : DValidator {
+  mixin(ControllerThis!("ValidatorEntity"));
  
   override DEntity validate(STRINGAA reqParameters) {
     string internalSessionId = reqParameters.get("internalSessionId", "");
@@ -59,4 +59,4 @@ version(test_uim_apps) { unittest {
       /// TODO 
     }}
 }
-mixin(ControllerCalls!("APPValidatorEntity"));
+mixin(ControllerCalls!("ValidatorEntity"));

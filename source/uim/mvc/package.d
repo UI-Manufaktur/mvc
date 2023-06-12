@@ -101,7 +101,6 @@ auto entityToData(DEntity entity) {
  */        "versionNumber": to!string(entity.versionNumber)];
 }
 
-
 string entityToUrl(DEntity entity) {
     return "id=%s&name=%s&number=%s".format(entity.id, entity.name, entity.versionNumber);
 }

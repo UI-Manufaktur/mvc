@@ -3,7 +3,7 @@ module uim.mvc.controllers.validators.login;
 import uim.mvc;
 @safe:
 
-class DAPPValidatorLogin : DAPPValidator {
+class DValidatorLogin : DValidator {
   mixin(ControllerThis!("APPValidatorLogin"));
 
   override DEntity validate(STRINGAA reqParameters) {

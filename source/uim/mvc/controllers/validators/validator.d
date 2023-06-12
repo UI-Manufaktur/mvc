@@ -3,7 +3,7 @@ module uim.mvc.controllers.validators.validator;
 import uim.mvc;
 @safe:
 
-class DAPPValidator : DController {
+class DValidator : DController {
   mixin(ControllerThis!("APPValidator"));
 
   /// Main function of Controller

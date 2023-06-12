@@ -15,6 +15,7 @@ class DInternalSession : DEntity {
     this().httpSessionId(httpSession.id);
   }
 
+  mixin(OProperty!("ISessionManager", "manager"));
   mixin(OProperty!("string", "httpSessionId"));
   mixin(OProperty!("IPageController", "page"));
   mixin(OProperty!("DEntity", "login"));
@@ -33,7 +34,7 @@ class DInternalSession : DEntity {
       .isNull(false);
   }
 
-  bool isValid(string[] checks, STRINGAA requestParameters) {
+  bool isValid(string[] checks, STRINGAA requestParameters = null) {
     foreach (check; checks) {
       debug writeln(moduleName!DInternalSession~":DInternalSession::beforeResponse - Check "~check);
       switch (check) {
@@ -88,7 +89,7 @@ class DInternalSession : DEntity {
   alias opIndexAssign = DEntity.opIndexAssign;
   
   override void opIndexAssign(string key, string value) {
-    super(key, value);
+    super.opIndexAssign(key, value);
 
     switch(key) {
       case "id": this.id = value; break;
@@ -98,7 +99,7 @@ class DInternalSession : DEntity {
   } 
 
   void opIndexAssign(string key, long value) {
-    super(key, value);
+    super.opIndexAssign(key, value);
 
     switch(key) {
       case "lastAccessedOn": this.lastAccessedOn = value; break;
@@ -107,7 +108,7 @@ class DInternalSession : DEntity {
   } 
 
   void opIndexAssign(string key, DEntity value) {
-    super(key, value);
+    super.opIndexAssign(key, value);
     
     switch(key) {
       case "login": this.login = value; break;
@@ -120,6 +121,15 @@ class DInternalSession : DEntity {
       default: break;
     }
   } 
+
+  void save() {
+    // this["lastAccessISO"] = lastAccessedOn.toISOString;
+    if (site) this["siteId"] = site.id;
+
+    if (manager) {
+      manager.update(this);
+    }
+  }
 
   string debugInfo() {
     return 
@@ -135,3 +145,4 @@ class DInternalSession : DEntity {
 }
 mixin(EntityCalls!("InternalSession"));
 auto InternalSession(HttpSession httpSession) { return new DInternalSession(httpSession); }
+

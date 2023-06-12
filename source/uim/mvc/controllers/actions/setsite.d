@@ -28,28 +28,20 @@ class DSelectSiteActionController : DActionController {
     if ("redirect" in options) return;
         
     debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request - Working with InternalSession");
-    ISession mySession = sessionManager.session(options); // DInternalSession[string]
+    DInternalSession mySession = cast(DInternalSession)sessionManager.session(options); // DInternalSession[string]
     
     debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request - Working with session.session");
-    HTTPSession myHttpSession = myInternalSession.session; 
+    // HttpSession myHttpSession = mySession.session; 
     debug writeln(mySession ? "Found session" : "Missing session");
 
     DEntity mySite = database["systems"]["system_sites"].findOne(["id":options.get("siteId", null)]);
     debug writeln(mySite ? "Found site" : "Missing site");
 
     if (mySession && mySite) {
-      mySession.lastAccessedOn = toTimestamp(now());
-      mySession["lastAccessISO"] = now.toISOString;
-      mySession["siteId"] = mySite.id.toString;
-      // myInternalSession.save; // Save to Store
-      myInternalSession.session = mySession; 
-    
-      debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request - Working with session.site");
-      mySite.lastAccessedOn = mySession.lastAccessedOn;
-      mySite["lastAccessISO"] = mySession["lastAccessISO"];
-      mySite.save; 
-      myInternalSession.site = mySite; 
-      setInternalSession(myInternalSession, options); 
+      mySession
+        .lastAccessedOn(toTimestamp(now()))
+        .site(mySite)
+        .save();
     }
 
     debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request - Redirect to /");

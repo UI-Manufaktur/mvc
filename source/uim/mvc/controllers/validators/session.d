@@ -3,7 +3,7 @@ module uim.mvc.controllers.validators.session;
 import uim.mvc;
 @safe:
 
-class DAPPValidatorSession : DAPPValidator {
+class DValidatorSession : DValidator {
   mixin(ControllerThis!("APPValidatorSession"));
   
   override DEntity validate(STRINGAA reqParameters) {
