@@ -8,4 +8,4 @@ module uim.mvc.sessions.manager;
 import uim.mvc;
 @safe:
 
-DMVCSession[string] sessions;
+DInternalSession[string] sessions;

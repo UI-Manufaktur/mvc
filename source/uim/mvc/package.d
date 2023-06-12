@@ -50,7 +50,7 @@ public {
 }
 
 @safe:
-DMVCSession[string] internalSessions;
+DInternalSession[string] internalSessions;
 DEntity[size_t] entityPool;
 DEntity[][size_t] entitiesPool;
 

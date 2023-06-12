@@ -8,7 +8,7 @@ module uim.mvc.sessions.null_;
 import uim.mvc;
 @safe:
 
-class DNullSession : DMVCSession{
+class DNullSession : DInternalSession{
   this() { super(); }
 
   this(Session httpSession) {
@@ -26,7 +26,7 @@ class DNullSession : DMVCSession{
   }
 
   override bool isValid(string[] factors, STRINGAA requestParameters) {
-    debug writeln(moduleName!DMVCSession~":DNullSession::beforeResponse -> No internalSession => redirect /login");
+    debug writeln(moduleName!DInternalSession~":DNullSession::beforeResponse -> No internalSession => redirect /login");
     requestParameters["redirect"] = "/login";
     return false;
   }

@@ -8,7 +8,7 @@ module uim.mvc.sessions.session;
 import uim.mvc;
 @safe:
 
-class DMVCSession {
+class DInternalSession {
   this() {}
 
   this(Session httpSession) {
@@ -40,39 +40,39 @@ class DMVCSession {
 
   bool isValid(string[] checks, STRINGAA requestParameters) {
     foreach (check; checks) {
-      debug writeln(moduleName!DMVCSession~":DMVCSession::beforeResponse - Check "~check);
+      debug writeln(moduleName!DInternalSession~":DInternalSession::beforeResponse - Check "~check);
       switch (check) {
         case "login": if (!login) {
-          debug writeln(moduleName!DMVCSession~":DMVCSession::beforeResponse -> No login => redirect /login");
+          debug writeln(moduleName!DInternalSession~":DInternalSession::beforeResponse -> No login => redirect /login");
           requestParameters["redirect"] = "/login";
           return false; } 
           login.lastAccessedOn(toTimestamp(now)).save; break;
         case "session": if (!session) {
-          debug writeln(moduleName!DMVCSession~":DMVCSession::beforeResponse -> No session => redirect /login");
+          debug writeln(moduleName!DInternalSession~":DInternalSession::beforeResponse -> No session => redirect /login");
           requestParameters["redirect"] = "/login";
           return false; } 
           session.lastAccessedOn(toTimestamp(now)).save; break;
         case "site": if (!site) {
-          debug writeln(moduleName!DMVCSession~":DMVCSession::beforeResponse -> No site => redirect /");
+          debug writeln(moduleName!DInternalSession~":DInternalSession::beforeResponse -> No site => redirect /");
           requestParameters["redirect"] = "/";
           return false; }
           site.lastAccessedOn(toTimestamp(now)).save; break;
         case "account": if (!account) {
-          debug writeln(moduleName!DMVCSession~":DMVCSession::beforeResponse -> No account => redirect /login");
+          debug writeln(moduleName!DInternalSession~":DInternalSession::beforeResponse -> No account => redirect /login");
           requestParameters["redirect"] = "/login";
           return false; } break;
         case "password": if (!password) {
-          debug writeln(moduleName!DMVCSession~":DMVCSession::beforeResponse -> No password => redirect /login");
+          debug writeln(moduleName!DInternalSession~":DInternalSession::beforeResponse -> No password => redirect /login");
           requestParameters["redirect"] = "/login";
           return false; } 
           password.lastAccessedOn(toTimestamp(now)).save; break;
         case "user": if (!user) {
-          debug writeln(moduleName!DMVCSession~":DMVCSession::beforeResponse -> No user => redirect /login");
+          debug writeln(moduleName!DInternalSession~":DInternalSession::beforeResponse -> No user => redirect /login");
           requestParameters["redirect"] = "/login";
           return false; } 
           user.lastAccessedOn(toTimestamp(now)).save; break;
         case "database": if (!page && page.database) {
-          debug writeln(moduleName!DMVCSession~":DMVCSession::beforeResponse -> No site => redirect /error");
+          debug writeln(moduleName!DInternalSession~":DInternalSession::beforeResponse -> No site => redirect /error");
           requestParameters["redirect"] = "/error?message=database";
           return false; } break;
         default: break;
@@ -129,8 +129,8 @@ class DMVCSession {
       "\n User:\t"~(user ? "id:%s".format(user.id) : "null");
   }
 }
-auto MVCSession(Session httpSession) { return new DMVCSession(httpSession); }
-auto MVCSession(Session httpSession, IPageController page) { return new DMVCSession(httpSession, page); }
+auto InternalSession(Session httpSession) { return new DInternalSession(httpSession); }
+auto InternalSession(Session httpSession, IPageController page) { return new DInternalSession(httpSession, page); }
 
 /*   mixin(OProperty!("IPageController", "page"));
   mixin(OProperty!("long", "lastAccessedOn"));

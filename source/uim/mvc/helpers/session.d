@@ -8,14 +8,14 @@ module uim.mvc.helpers.session;
 import uim.mvc;
 @safe:
 
-DMVCSession getInternalSession(STRINGAA options = null) {
+DInternalSession getInternalSession(STRINGAA options = null) {
   return internalSessions
     .get(
         options
           .get("internalSessionId", ""), null); 
 }
 
-void setInternalSession(DMVCSession internalSession, STRINGAA parameters) {
+void setInternalSession(DInternalSession internalSession, STRINGAA parameters) {
   if (!internalSession) { return; }
   if (auto id = parameters.get("internalSessionId", "")) {
     internalSessions[id] = internalSession; 

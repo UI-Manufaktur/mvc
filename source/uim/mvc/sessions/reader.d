@@ -8,48 +8,48 @@ module uim.mvc.sessions.reader;
 import uim.mvc;
 @safe:
 
-class DMVCSessionReader {
+class DInternalSessionReader {
   this(IPageController page) {
     this.page(page);
   }
 
   mixin(OProperty!("IPageController", "page"));
-  mixin(OProperty!("DMVCSession", "internalSession"));
+  mixin(OProperty!("DInternalSession", "internalSession"));
 
-  DMVCSession read(HTTPServerRequest serverRequest, STRINGAA requestParameters) {
-    debug writeln(moduleName!DMVCSessionReader~":DMVCSessionReader::read");
+  DInternalSession read(HTTPServerRequest serverRequest, STRINGAA requestParameters) {
+    debug writeln(moduleName!DInternalSessionReader~":DInternalSessionReader::read");
     
     // serverRequest exists?
-    if (!serverRequest) { debug writeln(moduleName!DMVCSessionReader~":DMVCSessionReader::read - missing request"); }
+    if (!serverRequest) { debug writeln(moduleName!DInternalSessionReader~":DInternalSessionReader::read - missing request"); }
 
     // serverRequest has session
     string requestSessionId;
-    DMVCSession myInternalSession;
+    DInternalSession myInternalSession;
     if (!serverRequest.session) { // no session
-      debug writeln(moduleName!DMVCSessionReader~":DMVCSessionReader::read - missing request session"); }
+      debug writeln(moduleName!DInternalSessionReader~":DInternalSessionReader::read - missing request session"); }
     else { // has sesion
-      debug writeln(moduleName!DMVCSessionReader~":DMVCSessionReader::read - httpSessionId exists");
+      debug writeln(moduleName!DInternalSessionReader~":DInternalSessionReader::read - httpSessionId exists");
       
       // read session Id
       requestSessionId = serverRequest.session.id;
       myInternalSession = internalSessions.get(requestSessionId, null); // Existing Session?
     }
 
-    if (!myInternalSession) debug writeln(moduleName!DMVCSessionReader~":DMVCSessionReader::read - missing internalSession");
+    if (!myInternalSession) debug writeln(moduleName!DInternalSessionReader~":DInternalSessionReader::read - missing internalSession");
     
-    debug writeln(moduleName!DMVCSessionReader~":DMVCSessionReader::read - XXXX");
+    debug writeln(moduleName!DInternalSessionReader~":DInternalSessionReader::read - XXXX");
 
     if (requestSessionId.length > 0) 
-      debug writeln(moduleName!DMVCSessionReader~":DMVCSessionReader::read - x1x");
+      debug writeln(moduleName!DInternalSessionReader~":DInternalSessionReader::read - x1x");
     if (internalSession is null)  
-      debug writeln(moduleName!DMVCSessionReader~":DMVCSessionReader::read - x2x");
+      debug writeln(moduleName!DInternalSessionReader~":DInternalSessionReader::read - x2x");
 
     if (requestSessionId.length > 0 && myInternalSession is null) { // httpSession exitsts New Session
-      debug writeln(moduleName!DMVCSessionReader~":DMVCSessionReader::read - httpSessionId exists internalSession is missing");
-      debug writeln(moduleName!DMVCSessionReader~":DMVCSessionReader::read - Creating new internalSession based on httpSession ", requestSessionId);
-      myInternalSession = MVCSession(serverRequest.session, page);
+      debug writeln(moduleName!DInternalSessionReader~":DInternalSessionReader::read - httpSessionId exists internalSession is missing");
+      debug writeln(moduleName!DInternalSessionReader~":DInternalSessionReader::read - Creating new internalSession based on httpSession ", requestSessionId);
+      myInternalSession = InternalSession(serverRequest.session, page);
 
-      debug writeln(moduleName!DMVCSessionReader~":DMVCSessionReader::read - Reading session entities");      
+      debug writeln(moduleName!DInternalSessionReader~":DInternalSessionReader::read - Reading session entities");      
       if (page && page.database) {
       foreach (name; page.sessionData) {
           switch(name) {
@@ -94,4 +94,4 @@ class DMVCSessionReader {
     return internalSession;
   }
 }
-auto MVCSessionReader(IPageController page) { return new DMVCSessionReader(page); }
+auto InternalSessionReader(IPageController page) { return new DInternalSessionReader(page); }
