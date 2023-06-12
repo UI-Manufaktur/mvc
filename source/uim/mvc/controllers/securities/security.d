@@ -17,20 +17,20 @@ class DAPPSecurityController : DController {
       /// login required ?
       auto jsonResults = json["results"];
       if (page.securityOptions.required("login")) {
-        auto jsLogin = APPValidatorLogin(page, database).message(json, reqParameters);
+        auto jsLogin = ValidatorLogin(page, database).message(json, reqParameters);
         if (jsLogin != Json(null))
           internalSession.login = createEntities["login"](jsLogin);
       }
 
       if (page.securityOptions.required("session")) {
-        auto jsSession = APPValidatorSession(page, database).message(json, reqParameters);
+        auto jsSession = ValidatorSession(page, database).message(json, reqParameters);
         // debug writeln("-> with session: ", jsSession);
         if (jsSession != Json(null))
           internalSession.session = createEntities["session"](jsSession);
       }
 
       if (page.securityOptions.required("site")) {        
-        auto jsSite = APPValidatorSite(page, database).message(json, reqParameters);
+        auto jsSite = ValidatorSite(page, database).message(json, reqParameters);
         // debug writeln("-> with site: ", jsSite);
         if (jsSite != Json(null)) 
           internalSession.site = createEntities["site"](jsSite);

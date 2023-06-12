@@ -4,7 +4,7 @@ import uim.mvc;
 @safe:
 
 class DValidatorSession : DValidator {
-  mixin(ControllerThis!("APPValidatorSession"));
+  mixin(ControllerThis!("ValidatorSession"));
   
   override DEntity validate(STRINGAA reqParameters) {
     // Looking for a sessionId
@@ -50,6 +50,6 @@ class DValidatorSession : DValidator {
     return result;
   }
 }
-mixin(ControllerCalls!("APPValidatorSession"));
+mixin(ControllerCalls!("ValidatorSession"));
 
 

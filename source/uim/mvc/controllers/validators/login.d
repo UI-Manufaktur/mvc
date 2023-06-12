@@ -4,7 +4,7 @@ import uim.mvc;
 @safe:
 
 class DValidatorLogin : DValidator {
-  mixin(ControllerThis!("APPValidatorLogin"));
+  mixin(ControllerThis!("ValidatorLogin"));
 
   override DEntity validate(STRINGAA reqParameters) {
     string internalSessionId = reqParameters.get("internalSessionId", "");
@@ -64,5 +64,5 @@ version(test_uim_apps) { unittest {
       /// TODO 
     }}
 }
-mixin(ControllerCalls!("APPValidatorLogin"));
+mixin(ControllerCalls!("ValidatorLogin"));
 

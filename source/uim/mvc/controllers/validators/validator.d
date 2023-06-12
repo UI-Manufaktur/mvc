@@ -4,7 +4,7 @@ import uim.mvc;
 @safe:
 
 class DValidator : DController {
-  mixin(ControllerThis!("APPValidator"));
+  mixin(ControllerThis!("Validator"));
 
   /// Main function of Controller
   DEntity validate(STRINGAA parameters) {
@@ -38,7 +38,7 @@ version(test_uim_apps) { unittest {
       /// TODO 
     }}
     
-mixin(ControllerCalls!("APPValidator"));
+mixin(ControllerCalls!("Validator"));
 version(test_uim_apps) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
 

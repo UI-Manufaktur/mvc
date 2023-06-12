@@ -4,7 +4,7 @@ import uim.mvc;
 @safe:
 
 class DValidatorSite : DValidator {
-  mixin(ControllerThis!("APPValidatorSite"));
+  mixin(ControllerThis!("ValidatorSite"));
   
   bool siteIdValid(string siteId) { return siteId.isUUID && UUID(siteId) != UUID(); }
 
@@ -58,5 +58,5 @@ class DValidatorSite : DValidator {
     return result;
   }
 }
-mixin(ControllerCalls!("APPValidatorSite"));
+mixin(ControllerCalls!("ValidatorSite"));
 
