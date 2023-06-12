@@ -7,11 +7,11 @@ class DAPPValidatorEntity : DAPPValidator {
   mixin(ControllerThis!("APPValidatorEntity"));
  
   override DEntity validate(STRINGAA reqParameters) {
-    string appSessionId = reqParameters.get("appSessionId", "");
-    auto appSession = getAppSession(reqParameters);
+    string internalSessionId = reqParameters.get("internalSessionId", "");
+    auto internalSession = getInternalSession(reqParameters);
 
     // Looking for a entityId
-    auto entity = appSession.entity;
+    auto entity = internalSession.entity;
     if (!entity) { // No entity. Try to read from reqParameters
       auto entityIdParameter = "";
       if (!reqParameters.get("entityId", "").isUUID) // No valid loginId
@@ -25,7 +25,7 @@ class DAPPValidatorEntity : DAPPValidator {
           dbEntity.lastAccessedOn = toTimestamp(now);
           dbEntity.save; // Update
 
-          if (appSession) appSession.entity = dbEntity;
+          if (internalSession) internalSession.entity = dbEntity;
           return dbEntity;
         }        
       }

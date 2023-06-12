@@ -10,17 +10,17 @@ class DAPPValidatorSite : DAPPValidator {
 
   override DEntity validate(STRINGAA reqParameters) {
     // Looking for a siteId
-    string appSessionId = reqParameters.get("appSessionId", "");
-    auto appSession = getAppSession(reqParameters);
+    string internalSessionId = reqParameters.get("internalSessionId", "");
+    auto internalSession = getInternalSession(reqParameters);
 
-    if (appSession) { // appSession exist
-      auto site = appSession.site;
+    if (internalSession) { // internalSession exist
+      auto site = internalSession.site;
       if (!site) { // No site. Try to read from reqParameters
         auto siteIdParameter = "";
         siteIdParameter = reqParameters.get("siteId", "");
         
-        if (!siteIdParameter.isUUID && appSession.session) { // not valid Id
-          siteIdParameter = appSession.session["siteId"]; }
+        if (!siteIdParameter.isUUID && internalSession.session) { // not valid Id
+          siteIdParameter = internalSession.session["siteId"]; }
 
         if (!siteIdParameter.isUUID) // No site id found
           return null;
@@ -32,7 +32,7 @@ class DAPPValidatorSite : DAPPValidator {
             dbSite.lastAccessedOn = toTimestamp(now);
             dbSite.save; // Update
 
-            appSession.site = site;
+            internalSession.site = site;
             return site;
           }        
         }

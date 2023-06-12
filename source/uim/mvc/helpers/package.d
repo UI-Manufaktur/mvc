@@ -10,6 +10,7 @@ public {
 	import  uim.mvc.helpers.inputinterface;
 	import  uim.mvc.helpers.outputinterface;
 	import  uim.mvc.helpers.router;
+	import  uim.mvc.helpers.session;
 }
 
 @safe:

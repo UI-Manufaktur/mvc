@@ -7,16 +7,16 @@ class DAPPValidatorLogin : DAPPValidator {
   mixin(ControllerThis!("APPValidatorLogin"));
 
   override DEntity validate(STRINGAA reqParameters) {
-    string appSessionId = reqParameters.get("appSessionId", "");
-    auto appSession = getAppSession(reqParameters);
+    string internalSessionId = reqParameters.get("internalSessionId", "");
+    auto internalSession = getInternalSession(reqParameters);
 
     // Looking for a loginId
-    auto login = appSession.login;
+    auto login = internalSession.login;
     if (login) { // No login. Try to read from reqParameters
       auto loginIdParameter = reqParameters.get("loginId", "");      
 
-      if (!loginIdParameter.isUUID && appSession.session) { // No valid loginId, maybe in session
-        loginIdParameter = appSession.session["loginId"]; }
+      if (!loginIdParameter.isUUID && internalSession.session) { // No valid loginId, maybe in session
+        loginIdParameter = internalSession.session["loginId"]; }
 
       if (!loginIdParameter.isUUID) // No valid loginId
         return null; // :-(
@@ -29,7 +29,7 @@ class DAPPValidatorLogin : DAPPValidator {
           dbLogin.lastAccessedOn = toTimestamp(now);
           dbLogin.save;
         
-          appSession.login = dbLogin;
+          internalSession.login = dbLogin;
           return dbLogin;
         }        
       }

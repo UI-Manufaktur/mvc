@@ -66,13 +66,13 @@ window.addEventListener('load', (event) => {
       return;
     }
 
-    string appSessionId = options.get("appSessionId", "");
-    auto myAppSession = getAppSession(options);
-    if (!myAppSession) {
+    string internalSessionId = options.get("internalSessionId", "");
+    auto myInternalSession = getInternalSession(options);
+    if (!myInternalSession) {
       options["redirect"] = "/";
       return; }
 
-    if (!myAppSession.isValid(["session", "site"], options)) {
+    if (!myInternalSession.isValid(["session", "site"], options)) {
       options["redirect"] = "/";
       return; }
 

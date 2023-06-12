@@ -102,7 +102,7 @@ class DMVCFirstNavbar : DViewComponent {
     if (hasError) { return null; }
 
     /* auto isLogin = false;
-    if (auto session = getAppSession(options)) {
+    if (auto session = getInternalSession(options)) {
       if (session.session) {
         isLogin = true;
       }
@@ -182,7 +182,7 @@ class DSecondNavbar : DViewComponent {
     if (hasError) { return null; }
 
 /*     auto isLogin = false;
-    if (auto session = getAppSession(options)) {
+    if (auto session = getInternalSession(options)) {
       if (session.session) {
         isLogin = true;
       }

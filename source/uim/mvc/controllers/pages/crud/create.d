@@ -19,7 +19,7 @@ override void initialize(Json configSettings = Json(null)) {
 
     this
       // Checks to run for page request
-      .checks([AppSessionExistsCheck, AppSessionHasSessionCheck, AppSessionHasSiteCheck])
+      .checks([InternalSessionExistsCheck, InternalSessionHasSessionCheck, InternalSessionHasSiteCheck])
       .view(APPEntityCreateView)
       .scripts
         .addLinks(
@@ -40,7 +40,7 @@ override void initialize(Json configSettings = Json(null)) {
     super.beforeResponse(requestParameters);   
     if ("redirect" in requestParameters) return;
     
-    auto session = getAppSession(requestParameters);
+    auto session = getInternalSession(requestParameters);
 
     auto collection = database[session.site, collectionName]; 
     if (!collection) {

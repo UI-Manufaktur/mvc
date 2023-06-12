@@ -3,15 +3,21 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel, mailto:ons@sicherheitsschmiede.de                                                      
 **********************************************************************************************************/
-module uim.mvc.sessions;
+module uim.mvc.helpers.session;
 
 import uim.mvc;
 @safe:
 
-public {
-	import  uim.mvc.sessions.reader;
-	import  uim.mvc.sessions.manager;
-	import  uim.mvc.sessions.null_;
-	import  uim.mvc.sessions.session;
+DMVCSession getInternalSession(STRINGAA options = null) {
+  return internalSessions
+    .get(
+        options
+          .get("internalSessionId", ""), null); 
 }
 
+void setInternalSession(DMVCSession internalSession, STRINGAA parameters) {
+  if (!internalSession) { return; }
+  if (auto id = parameters.get("internalSessionId", "")) {
+    internalSessions[id] = internalSession; 
+  }
+}

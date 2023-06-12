@@ -14,7 +14,7 @@ class DMVCSessionReader {
   }
 
   mixin(OProperty!("IPageController", "page"));
-  mixin(OProperty!("DMVCSession", "appSession"));
+  mixin(OProperty!("DMVCSession", "internalSession"));
 
   DMVCSession read(HTTPServerRequest serverRequest, STRINGAA requestParameters) {
     debug writeln(moduleName!DMVCSessionReader~":DMVCSessionReader::read");
@@ -24,7 +24,7 @@ class DMVCSessionReader {
 
     // serverRequest has session
     string requestSessionId;
-    DMVCSession myAppSession;
+    DMVCSession myInternalSession;
     if (!serverRequest.session) { // no session
       debug writeln(moduleName!DMVCSessionReader~":DMVCSessionReader::read - missing request session"); }
     else { // has sesion
@@ -32,41 +32,41 @@ class DMVCSessionReader {
       
       // read session Id
       requestSessionId = serverRequest.session.id;
-      myAppSession = appSessions.get(requestSessionId, null); // Existing Session?
+      myInternalSession = internalSessions.get(requestSessionId, null); // Existing Session?
     }
 
-    if (!myAppSession) debug writeln(moduleName!DMVCSessionReader~":DMVCSessionReader::read - missing appSession");
+    if (!myInternalSession) debug writeln(moduleName!DMVCSessionReader~":DMVCSessionReader::read - missing internalSession");
     
     debug writeln(moduleName!DMVCSessionReader~":DMVCSessionReader::read - XXXX");
 
     if (requestSessionId.length > 0) 
       debug writeln(moduleName!DMVCSessionReader~":DMVCSessionReader::read - x1x");
-    if (appSession is null)  
+    if (internalSession is null)  
       debug writeln(moduleName!DMVCSessionReader~":DMVCSessionReader::read - x2x");
 
-    if (requestSessionId.length > 0 && myAppSession is null) { // httpSession exitsts New Session
-      debug writeln(moduleName!DMVCSessionReader~":DMVCSessionReader::read - httpSessionId exists appSession is missing");
-      debug writeln(moduleName!DMVCSessionReader~":DMVCSessionReader::read - Creating new appSession based on httpSession ", requestSessionId);
-      myAppSession = MVCSession(serverRequest.session, page);
+    if (requestSessionId.length > 0 && myInternalSession is null) { // httpSession exitsts New Session
+      debug writeln(moduleName!DMVCSessionReader~":DMVCSessionReader::read - httpSessionId exists internalSession is missing");
+      debug writeln(moduleName!DMVCSessionReader~":DMVCSessionReader::read - Creating new internalSession based on httpSession ", requestSessionId);
+      myInternalSession = MVCSession(serverRequest.session, page);
 
       debug writeln(moduleName!DMVCSessionReader~":DMVCSessionReader::read - Reading session entities");      
       if (page && page.database) {
       foreach (name; page.sessionData) {
           switch(name) {
             case "login": 
-              myAppSession.login = page.database["systems", "system_logins"].findOne(["id": requestParameters.get("loginId", "")]);
+              myInternalSession.login = page.database["systems", "system_logins"].findOne(["id": requestParameters.get("loginId", "")]);
               break;
             case "session":
-              myAppSession.session = page.database["systems", "system_sessions"].findOne(["id": requestParameters.get("sessionId", "")]);
+              myInternalSession.session = page.database["systems", "system_sessions"].findOne(["id": requestParameters.get("sessionId", "")]);
               break;
             case "site": 
-              myAppSession.site = page.database["systems", "system_sites"].findOne(["id": requestParameters.get("siteId", "")]);
+              myInternalSession.site = page.database["systems", "system_sites"].findOne(["id": requestParameters.get("siteId", "")]);
               break;
             case "account": 
-              myAppSession.account = page.database["systems", "system_accounts"].findOne(["id": requestParameters.get("accountId", "")]);
+              myInternalSession.account = page.database["systems", "system_accounts"].findOne(["id": requestParameters.get("accountId", "")]);
               break;
             case "user": 
-              myAppSession.user = page.database["systems", "system_users"].findOne(["id": requestParameters.get("userId", "")]);
+              myInternalSession.user = page.database["systems", "system_users"].findOne(["id": requestParameters.get("userId", "")]);
               break;
             default: break;
           }        
@@ -75,23 +75,23 @@ class DMVCSessionReader {
     }
 
     // debug writeln("----------------------------------------------------------------------------------------------"); 
-    if (myAppSession) {
+    if (myInternalSession) {
       debug writeln("LoginId = %s\tSessionId = %s\tSiteId = %s".format(
-        myAppSession.login ? myAppSession.login.id.toString : "", 
-        myAppSession.session ? myAppSession.session.id.toString : "", 
-        myAppSession.site ? myAppSession.site.id.toString : "")
+        myInternalSession.login ? myInternalSession.login.id.toString : "", 
+        myInternalSession.session ? myInternalSession.session.id.toString : "", 
+        myInternalSession.site ? myInternalSession.site.id.toString : "")
       );
 
-      myAppSession.lastAccessedOn = toTimestamp(now); // Update time
+      myInternalSession.lastAccessedOn = toTimestamp(now); // Update time
       requestParameters["reqSessionId"] = requestSessionId; // Update request parameters
-      appSessions[requestSessionId] = myAppSession; // Return to session store
+      internalSessions[requestSessionId] = myInternalSession; // Return to session store
     }
     else {
-      // debug writeln("No appSession");
+      // debug writeln("No internalSession");
     } 
     // debug writeln("----------------------------------------------------------------------------------------------"); 
 
-    return appSession;
+    return internalSession;
   }
 }
 auto MVCSessionReader(IPageController page) { return new DMVCSessionReader(page); }

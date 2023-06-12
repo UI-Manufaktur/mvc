@@ -26,11 +26,11 @@ class DNullSession : DMVCSession{
   }
 
   override bool isValid(string[] factors, STRINGAA requestParameters) {
-    debug writeln(moduleName!DMVCSession~":DNullSession::beforeResponse -> No appSession => redirect /login");
+    debug writeln(moduleName!DMVCSession~":DNullSession::beforeResponse -> No internalSession => redirect /login");
     requestParameters["redirect"] = "/login";
     return false;
   }
-  override string debugInfo() { return "Null appSession"; }
+  override string debugInfo() { return "Null internalSession"; }
 }
 auto NullSession() { return new DNullSession(); }
 auto NullSession(Session httpSession) { return new DNullSession(httpSession); }

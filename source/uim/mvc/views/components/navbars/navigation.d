@@ -34,7 +34,7 @@ class DMVCNavigationViewComponent : DViewComponent {
 
     debug writeln(moduleName!DMVCNavigationViewComponent~":DMVCNavigationViewComponent::toH5");
     auto rootPath = options.get("rootPath", "/");
-    debug writeln(moduleName!DMVCNavigationViewComponent~":DMVCNavigationViewComponent::toH5 -> appSessionId = ", options.get("appSessionId", ""));
+    debug writeln(moduleName!DMVCNavigationViewComponent~":DMVCNavigationViewComponent::toH5 -> internalSessionId = ", options.get("internalSessionId", ""));
 
     auto firstNavbarH5 = this.firstNavbar   ? this.firstNavbar.toH5(options) 
                                             : null;

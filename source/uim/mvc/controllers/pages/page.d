@@ -99,12 +99,12 @@ class DPageController : DController, IPageController {
 
   void jsCode(STRINGAA options = null) {
     debugMethodCall(moduleName!DPageController~":DPageController::jsCode");
-    string appSessionId = _request && _request.session ? _request.session.id : options.get("appSessionId", "");
-    auto appSession = getAppSession(options);
+    string internalSessionId = _request && _request.session ? _request.session.id : options.get("internalSessionId", "");
+    auto internalSession = getInternalSession(options);
 
-    if (appSession && viewMode == ViewModes.JS) 
+    if (internalSession && viewMode == ViewModes.JS) 
       addToPageScript(options, 
-        setSessionStorage(["sessionId": (appSession.session ? appSession.session.id.toString : ""), "siteId": (appSession.site ? appSession.site.id.toString : "")]));
+        setSessionStorage(["sessionId": (internalSession.session ? internalSession.session.id.toString : ""), "siteId": (internalSession.site ? internalSession.site.id.toString : "")]));
   }
 
   override void afterResponse(STRINGAA options = null) {
@@ -235,8 +235,8 @@ class DPageController : DController, IPageController {
       debugMethodCall(moduleName!DPageController~":DPageController("~this.name~")::beforeResponse");
       super.beforeResponse(options);
 
-      this.session = getAppSession(options);
-      // ?? TODO if (appSession) { this.site(session.site); }
+      this.session = getInternalSession(options);
+      // ?? TODO if (internalSession) { this.site(session.site); }
       //     if (hasError || "redirect" in options) { return; }
     }    
 

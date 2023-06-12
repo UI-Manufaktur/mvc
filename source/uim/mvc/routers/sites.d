@@ -26,7 +26,7 @@ static this() {
     this() { 
       super();
       this
-      .checks([APPCheckAppSession, APPCheckSession]);
+      .checks([APPCheckInternalSession, APPCheckSession]);
     }
 
     override DH5Obj toH5(STRINGAA options = null) {
@@ -38,8 +38,8 @@ static this() {
 
       DEntity session;
       DEntity site;
-      auto session = getAppSession(options);
-      if (appSession) {
+      auto session = getInternalSession(options);
+      if (internalSession) {
         session = session.session; 
         site    = session.site; }
       auto sessionId = session ? session.id.toString : "";

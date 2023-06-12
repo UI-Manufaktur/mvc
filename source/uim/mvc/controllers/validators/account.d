@@ -11,12 +11,12 @@ class DAPPValidatorAccount : DAPPValidator {
   mixin(ControllerThis!("APPValidatorAccount"));
 
   override DEntity validate(STRINGAA reqParameters) {
-    string appSessionId = reqParameters.get("appSessionId", "");
-    auto appSession = getAppSession(reqParameters);
+    string internalSessionId = reqParameters.get("internalSessionId", "");
+    auto internalSession = getInternalSession(reqParameters);
 
     // Looking for a accountId
-    if (appSession) {
-      auto account = appSession.account;
+    if (internalSession) {
+      auto account = internalSession.account;
       if (!account) { // No account. Try to read from reqParameters
         auto accountIdParameter = "";
         if (!reqParameters.get("accountId", "").isUUID) // No valid loginId
@@ -30,7 +30,7 @@ class DAPPValidatorAccount : DAPPValidator {
             dbAccount.lastAccessedOn = toTimestamp(now);
             dbAccount.save; // Update
 
-            appSession.account = dbAccount;
+            internalSession.account = dbAccount;
             return account;
           }        
         }
