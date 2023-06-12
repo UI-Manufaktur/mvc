@@ -5,5 +5,7 @@ import uim.mvc;
 
 interface ISessionManager {
   void addSession(ISession aSession); 
-	ISession session(string httpSessionId); 
+	ISession session(string httpSessionId, string[string] options = null); 
+	ISession session(string[string] options); 
+  bool isNull();
 }

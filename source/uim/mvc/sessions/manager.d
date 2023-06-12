@@ -13,13 +13,30 @@ DInternalSession[string] sessions;
 class DSessionManager : ISessionManager {
 	this() {}
 
-	protected ISession[string] _sessions;
+  mixin(OProperty!("bool", "isNull"));
 
-	void addSession(ISession aSession) {
-		_sessions[aSession.httpSessionId] = aSession;
-	}
-	ISession session(string httpSessionId) {
-		return _sessions.get(httpSessionId, null);
-	}
+	// #region Sessions
+		protected ISession[string] _sessions;
+
+		void addSession(ISession aSession) {
+			_sessions[aSession.httpSessionId] = aSession;
+		}
+
+		ISession session(string httpSessionId, string[string] options = null) {
+			return _sessions.get(httpSessionId, null);
+		}
+		ISession session(string[string] options) {
+			return _sessions.get(
+				options.get(["httpSessionId"], null), 
+			null);
+		}
+	// #endregion Sessions
+
+	void initialize(Json configSettings = Json(null)) {
+    super.initialize(configSettings);
+
+    this
+      .isNull(true);
+  }
 }
 auto SessionManager() { return new DSessionManager(); }

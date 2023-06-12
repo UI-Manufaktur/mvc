@@ -19,7 +19,6 @@ class DNullSession : DInternalSession {
 
     this
       .isNull(true);
-
   }
 
   override bool isValid(string[] factors, STRINGAA requestParameters) {

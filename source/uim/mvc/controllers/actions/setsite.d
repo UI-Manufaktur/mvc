@@ -28,10 +28,10 @@ class DSelectSiteActionController : DActionController {
     if ("redirect" in options) return;
         
     debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request - Working with InternalSession");
-    DInternalSession myInternalSession = sessionManager.session(options); // DInternalSession[string]
+    ISession mySession = sessionManager.session(options); // DInternalSession[string]
     
     debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request - Working with session.session");
-    DEntity mySession = myInternalSession.session; 
+    HTTPSession myHttpSession = myInternalSession.session; 
     debug writeln(mySession ? "Found session" : "Missing session");
 
     DEntity mySite = database["systems"]["system_sites"].findOne(["id":options.get("siteId", null)]);

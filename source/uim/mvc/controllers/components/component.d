@@ -24,7 +24,13 @@ class DControllerComponent : DMVCObject, IControllerComponent, IControllerCompon
     super.initialize(configSettings);
   }
 
-  mixin(OProperty!("IControllerComponentManager", "manager"));
+  // #region Managers
+    mixin(OProperty!("IControllerComponentManager", "manager"));
+    ISessionManager sessionManager() { // Pass through
+      return manager.sessionManager;
+    }
+  // #endregion Managers
+
   mixin(OProperty!("string", "redirectUrl"));
 
   // A component lookup table used to lazy load component objects.
