@@ -14,7 +14,7 @@ class DDeleteActionController : DActionController {
   override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings); 
     this.name = "DeleteActionController";
-    this.checks([AppSessionExistsCheck, DatabaseExistsCheck, AppSessionHasSessionCheck, AppSessionHasSiteCheck]); 
+    this.checks([InternalSessionExistsCheck, DatabaseExistsCheck, InternalSessionHasSessionCheck, InternalSessionHasSiteCheck]); 
   }
 
   mixin(OProperty!("string", "pool"));
@@ -25,7 +25,7 @@ class DDeleteActionController : DActionController {
     super.beforeResponse(options);   
     if (hasError || "redirect" in options) { return; }
 
-    auto session = getAppSession(options);
+    auto session = getInternalSession(options);
     auto site = session.site;
 
     auto collection = database[site, pool];

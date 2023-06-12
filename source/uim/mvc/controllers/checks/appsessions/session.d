@@ -3,13 +3,13 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel, mailto:ons@sicherheitsschmiede.de                                                      
 **********************************************************************************************************/
-module uim.mvc.controllers.checks.appsessions.session;
+module uim.mvc.controllers.checks.internalsessions.session;
 
 import uim.mvc;
 @safe:
 
-class DAppSessionHasSessionCheck : DAppSessionExistsCheck {
-  mixin(ControllerComponentThis!("AppSessionHasSessionCheck"));
+class DInternalSessionHasSessionCheck : DInternalSessionExistsCheck {
+  mixin(ControllerComponentThis!("InternalSessionHasSessionCheck"));
 
   override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
@@ -19,16 +19,16 @@ class DAppSessionHasSessionCheck : DAppSessionExistsCheck {
   }
   
   override bool execute(STRINGAA options = null) {
-    debug writeln(moduleName!DAppSessionHasSessionCheck~":DAppSessionHasSessionCheck::execute");
+    debug writeln(moduleName!DInternalSessionHasSessionCheck~":DInternalSessionHasSessionCheck::execute");
     if (!super.execute(options)) { return false; }
 
-    auto session = getAppSession(options).session;
+    auto session = getInternalSession(options).session;
     if (!session) { // session missing 
-      this.error("appsession_session_missing");
+      this.error("internalsession_session_missing");
       return false; 
     }
 
     return true;
   }
 }
-mixin(ControllerComponentCalls!("AppSessionHasSessionCheck"));
+mixin(ControllerComponentCalls!("InternalSessionHasSessionCheck"));

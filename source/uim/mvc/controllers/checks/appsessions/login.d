@@ -3,13 +3,13 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel, mailto:ons@sicherheitsschmiede.de                                                      
 **********************************************************************************************************/
-module uim.mvc.controllers.checks.appsessions.login;
+module uim.mvc.controllers.checks.internalsessions.login;
 
 import uim.mvc;
 @safe:
 
-class DAppSessionHasLoginCheck : DAppSessionExistsCheck {
-  mixin(ControllerComponentThis!("AppSessionHasLoginCheck"));
+class DInternalSessionHasLoginCheck : DInternalSessionExistsCheck {
+  mixin(ControllerComponentThis!("InternalSessionHasLoginCheck"));
 
   override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
@@ -19,17 +19,17 @@ class DAppSessionHasLoginCheck : DAppSessionExistsCheck {
   }
   
   override bool execute(STRINGAA options = null) {
-    debug writeln(moduleName!DAppSessionHasLoginCheck~":DAppSessionHasLoginCheck::check");
+    debug writeln(moduleName!DInternalSessionHasLoginCheck~":DInternalSessionHasLoginCheck::check");
     if (!super.execute(options)) { return false; }
 
-    auto login = getAppSession(options).login;
+    auto login = getInternalSession(options).login;
     if (!login) { // login missing 
-      this.error("appsession_login_missing");
+      this.error("internalsession_login_missing");
       return false; 
     }
 
-    debug writeln(moduleName!DAppSessionHasLoginCheck~":DAppSessionHasLoginCheck::check -> session.login found -> ", login.id);
+    debug writeln(moduleName!DInternalSessionHasLoginCheck~":DInternalSessionHasLoginCheck::check -> session.login found -> ", login.id);
     return true;
   }
 }
-mixin(ControllerComponentCalls!("AppSessionHasLoginCheck"));
+mixin(ControllerComponentCalls!("InternalSessionHasLoginCheck"));

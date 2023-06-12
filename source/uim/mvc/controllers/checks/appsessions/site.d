@@ -3,13 +3,13 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel, mailto:ons@sicherheitsschmiede.de                                                      
 **********************************************************************************************************/
-module uim.mvc.controllers.checks.appsessions.site;
+module uim.mvc.controllers.checks.internalsessions.site;
 
 import uim.mvc;
 @safe:
 
-class DAppSessionHasSiteCheck : DAppSessionExistsCheck {
-  mixin(ControllerComponentThis!("AppSessionHasSiteCheck"));
+class DInternalSessionHasSiteCheck : DInternalSessionExistsCheck {
+  mixin(ControllerComponentThis!("InternalSessionHasSiteCheck"));
 
   override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
@@ -19,17 +19,17 @@ class DAppSessionHasSiteCheck : DAppSessionExistsCheck {
   }
   
   override bool execute(STRINGAA options = null) {
-    debug writeln(moduleName!DAppSessionHasSiteCheck~":DAppSessionHasSiteCheck::check");
+    debug writeln(moduleName!DInternalSessionHasSiteCheck~":DInternalSessionHasSiteCheck::check");
     if (!super.execute(options)) { return false; }
 
-    auto site = getAppSession(options).site;
+    auto site = getInternalSession(options).site;
     if (!site) { 
-      this.error("appsession_site_missing");
+      this.error("internalsession_site_missing");
       return false; 
     }
 
-    debug writeln(moduleName!DAppSessionHasSiteCheck~":DAppSessionHasSiteCheck::check -> session.site found -> ", site.id);
+    debug writeln(moduleName!DInternalSessionHasSiteCheck~":DInternalSessionHasSiteCheck::check -> session.site found -> ", site.id);
     return true;
   }
 }
-mixin(ControllerComponentCalls!("AppSessionHasSiteCheck"));
+mixin(ControllerComponentCalls!("InternalSessionHasSiteCheck"));

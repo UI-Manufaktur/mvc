@@ -3,13 +3,13 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel, mailto:ons@sicherheitsschmiede.de                                                      
 **********************************************************************************************************/
-module uim.mvc.controllers.checks.appsessions.siteid;
+module uim.mvc.controllers.checks.internalsessions.siteid;
 
 import uim.mvc;
 @safe:
 
-class DAppSessionHasSiteIdCheck : DAppSessionHasSessionCheck {
-  mixin(ControllerComponentThis!("AppSessionHasSiteIdCheck"));
+class DInternalSessionHasSiteIdCheck : DInternalSessionHasSessionCheck {
+  mixin(ControllerComponentThis!("InternalSessionHasSiteIdCheck"));
 
   override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
@@ -19,16 +19,16 @@ class DAppSessionHasSiteIdCheck : DAppSessionHasSessionCheck {
   }
   
   override bool execute(STRINGAA options = null) {
-    debug writeln(moduleName!DAppSessionHasSiteIdCheck~":DAppSessionHasSiteIdCheck::execute");
+    debug writeln(moduleName!DInternalSessionHasSiteIdCheck~":DInternalSessionHasSiteIdCheck::execute");
     if (!super.execute(options)) { return false; }
 
-    auto session = getAppSession(options).session;
+    auto session = getInternalSession(options).session;
     if (!session["siteId"]) { // site id in session missing 
-      this.error("appsession_siteid_missing");
+      this.error("internalsession_siteid_missing");
       return false; 
     }
 
     return true;
   }
 }
-mixin(ControllerComponentCalls!("AppSessionHasSiteIdCheck"));
+mixin(ControllerComponentCalls!("InternalSessionHasSiteIdCheck"));

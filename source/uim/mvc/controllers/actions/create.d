@@ -14,7 +14,7 @@ class DCreateActionController : DActionController {
   override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings); 
     this.name = "CreateActionController";
-    this.checks([AppSessionExistsCheck, DatabaseExistsCheck, AppSessionHasSessionCheck, AppSessionHasSiteCheck]); 
+    this.checks([InternalSessionExistsCheck, DatabaseExistsCheck, InternalSessionHasSessionCheck, InternalSessionHasSiteCheck]); 
   }
 
   mixin(OProperty!("string", "pool"));
@@ -25,7 +25,7 @@ class DCreateActionController : DActionController {
     super.beforeResponse(options);   
     if (hasError || "redirect" in options) return; 
 
-    auto mySession = getAppSession(options);
+    auto mySession = getInternalSession(options);
     if (mySession.isNull) {
       options["redirect"] = "/login"; 
       return; // TODO: Redirect to login 

@@ -1,10 +1,10 @@
-module uim.mvc.controllers.checks.appsessions.account;
+module uim.mvc.controllers.checks.internalsessions.account;
 
 import uim.mvc;
 @safe:
 
-class DAppSessionHasAccountCheck : DAppSessionExistsCheck {
-  mixin(ControllerComponentThis!("AppSessionHasAccountCheck"));
+class DInternalSessionHasAccountCheck : DInternalSessionExistsCheck {
+  mixin(ControllerComponentThis!("InternalSessionHasAccountCheck"));
 
   override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
@@ -14,10 +14,10 @@ class DAppSessionHasAccountCheck : DAppSessionExistsCheck {
   }
 
   override bool execute(STRINGAA options = null) {    
-    debug writeln(moduleName!DAppSessionHasAccountCheck~":DAppSessionHasAccountCheck::execute");
+    debug writeln(moduleName!DInternalSessionHasAccountCheck~":DInternalSessionHasAccountCheck::execute");
     if (!super.execute(options)) { return false; } 
 
-    auto session = getAppSession(options);
+    auto session = getInternalSession(options);
     if (!session.account) { // account missing 
       this.error("Account Missing");
       return false;
@@ -26,4 +26,4 @@ class DAppSessionHasAccountCheck : DAppSessionExistsCheck {
     return true;
   }
 }
-mixin(ControllerComponentCalls!("AppSessionHasAccountCheck"));
+mixin(ControllerComponentCalls!("InternalSessionHasAccountCheck"));

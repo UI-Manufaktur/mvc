@@ -8,13 +8,13 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel, mailto:ons@sicherheitsschmiede.de                                                      
 **********************************************************************************************************/
-module uim.mvc.controllers.checks.appsessions.appsession;
+module uim.mvc.controllers.checks.internalsessions.internalsession;
 
 import uim.mvc;
 @safe:
 
-class DAppSessionExistsCheck : DControllerCheck {
-  mixin(ControllerComponentThis!("AppSessionExistsCheck"));
+class DInternalSessionExistsCheck : DControllerCheck {
+  mixin(ControllerComponentThis!("InternalSessionExistsCheck"));
 
   override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
@@ -24,20 +24,20 @@ class DAppSessionExistsCheck : DControllerCheck {
   }
 
   override bool execute(STRINGAA options = null) {    
-    debug writeln(moduleName!DAppSessionExistsCheck~":DAppSessionExistsCheck::check");
+    debug writeln(moduleName!DInternalSessionExistsCheck~":DInternalSessionExistsCheck::check");
 
-    if (auto appSession = getAppSession(options)) {
+    if (auto internalSession = getInternalSession(options)) {
       return true;
-    } else { // appsession missing 
-      this.error("appsession_missing");
+    } else { // internalsession missing 
+      this.error("internalsession_missing");
       return false; 
     }
   }
 }
-mixin(ControllerComponentCalls!("AppSessionExistsCheck"));
+mixin(ControllerComponentCalls!("InternalSessionExistsCheck"));
 
 ///
 unittest {
-  auto check = new DAppSessionExistsCheck;
-  assert(check.name == "AppSessionExistsCheck");
+  auto check = new DInternalSessionExistsCheck;
+  assert(check.name == "InternalSessionExistsCheck");
 }

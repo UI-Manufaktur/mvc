@@ -16,7 +16,7 @@ class DSelectSiteActionController : DActionController {
     
     this.name = "SelectSiteActionController";
     this.checks([
-      AppSessionHasSessionCheck, // AppSession Checks
+      InternalSessionHasSessionCheck, // InternalSession Checks
       DatabaseHasSessionsCheck, DatabaseHasSitesCheck, // Database checks 
       RequestHasSiteIdCheck // Request Checks
     ]); 
@@ -27,11 +27,11 @@ class DSelectSiteActionController : DActionController {
     super.beforeResponse(options);
     if ("redirect" in options) return;
         
-    debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request - Working with AppSession");
-    DMVCSession myAppSession = getAppSession(options); // DMVCSession[string]
+    debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request - Working with InternalSession");
+    DMVCSession myInternalSession = getInternalSession(options); // DMVCSession[string]
     
     debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request - Working with session.session");
-    DEntity mySession = myAppSession.session; 
+    DEntity mySession = myInternalSession.session; 
     debug writeln(mySession ? "Found session" : "Missing session");
 
     DEntity mySite = database["systems"]["system_sites"].findOne(["id":options.get("siteId", null)]);
@@ -41,15 +41,15 @@ class DSelectSiteActionController : DActionController {
       mySession.lastAccessedOn = toTimestamp(now());
       mySession["lastAccessISO"] = now.toISOString;
       mySession["siteId"] = mySite.id.toString;
-      // myAppSession.save; // Save to Store
-      myAppSession.session = mySession; 
+      // myInternalSession.save; // Save to Store
+      myInternalSession.session = mySession; 
     
       debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request - Working with session.site");
       mySite.lastAccessedOn = mySession.lastAccessedOn;
       mySite["lastAccessISO"] = mySession["lastAccessISO"];
       mySite.save; 
-      myAppSession.site = mySite; 
-      setAppSession(myAppSession, options); 
+      myInternalSession.site = mySite; 
+      setInternalSession(myInternalSession, options); 
     }
 
     debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request - Redirect to /");
