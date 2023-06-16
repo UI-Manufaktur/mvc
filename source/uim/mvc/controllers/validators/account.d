@@ -1,3 +1,8 @@
+/*********************************************************************************************************
+	Copyright: © 2015-2023 Ozan Nurettin Süel (Sicherheitsschmiede)                                        
+	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
+	Authors: Ozan Nurettin Süel, mailto:ons@sicherheitsschmiede.de                                                      
+**********************************************************************************************************/
 module uim.mvc.controllers.validators.account;
 
 import uim.mvc;
@@ -11,12 +16,12 @@ class DValidatorAccount : DValidator {
   mixin(ControllerThis!("ValidatorAccount"));
 
   override DEntity validate(STRINGAA reqParameters) {
-    string internalSessionId = reqParameters.get("internalSessionId", "");
-    auto internalSession = sessionManager.session(reqParameters);
+    string mySessionId = reqParameters.get("mySessionId", "");
+    auto mySession = sessionManager.session(reqParameters);
 
     // Looking for a accountId
-    if (internalSession) {
-      auto account = internalSession.account;
+    if (mySession) {
+      auto account = mySession.account;
       if (!account) { // No account. Try to read from reqParameters
         auto accountIdParameter = "";
         if (!reqParameters.get("accountId", "").isUUID) // No valid loginId
@@ -30,7 +35,7 @@ class DValidatorAccount : DValidator {
             dbAccount.lastAccessedOn = toTimestamp(now);
             dbAccount.save; // Update
 
-            internalSession.account = dbAccount;
+            mySession.account = dbAccount;
             return account;
           }        
         }

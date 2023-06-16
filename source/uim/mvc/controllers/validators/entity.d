@@ -1,3 +1,8 @@
+/*********************************************************************************************************
+	Copyright: © 2015-2023 Ozan Nurettin Süel (Sicherheitsschmiede)                                        
+	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
+	Authors: Ozan Nurettin Süel, mailto:ons@sicherheitsschmiede.de                                                      
+**********************************************************************************************************/
 module uim.mvc.controllers.validators.entity;
 
 import uim.mvc;
@@ -42,14 +47,14 @@ version(test_uim_apps) { unittest {
   override Json message(Json json, STRINGAA parameters) {
     auto result = super.message(json, parameters);
 
-    auto entity = validate(parameters);
-    if (entity) { // Error
+    auto myEntity = validate(parameters);
+    if (myEntity) { // Error
       auto error = Json.emptyObject;
       error["id"] = "007";
       error["message"] = "EntityId not found";
       json["results"]["errors"] ~= error;
     }
-    else result["results"]["entity"] = entity.toJson;
+    else result["results"]["entity"] = myEntity.toJson;
    
     return result;
   }

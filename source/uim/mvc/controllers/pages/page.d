@@ -23,7 +23,7 @@ class DPageController : DController, IPageController {
       .mimetype("text/html");
     
     requestReader = MVCRequestReader(this);
-    sessionReader = InternalSessionReader(this);  
+    sessionReader = SessionReader(this);  
  
     this
       .links(MVCLinkContainer)
@@ -31,9 +31,6 @@ class DPageController : DController, IPageController {
       .scripts(ScriptContainer) 
       .styles(StyleContainer); 
   }
-
-  // inherited
-  override DETBBase database() { return super.database; }
 
   // Containers
   
