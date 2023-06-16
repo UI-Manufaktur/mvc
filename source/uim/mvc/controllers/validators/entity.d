@@ -12,11 +12,11 @@ class DValidatorEntity : DValidator {
   mixin(ControllerThis!("ValidatorEntity"));
  
   override DEntity validate(STRINGAA reqParameters) {
-    string internalSessionId = reqParameters.get("internalSessionId", "");
-    auto internalSession = sessionManager.session(reqParameters);
+    string mySessionId = reqParameters.get("internalSessionId", "");
+    auto mySession = sessionManager.session(reqParameters);
 
     // Looking for a entityId
-    auto entity = internalSession.entity;
+    auto entity = mySession.entity;
     if (!entity) { // No entity. Try to read from reqParameters
       auto entityIdParameter = "";
       if (!reqParameters.get("entityId", "").isUUID) // No valid loginId
@@ -30,7 +30,7 @@ class DValidatorEntity : DValidator {
           dbEntity.lastAccessedOn = toTimestamp(now);
           dbEntity.save; // Update
 
-          if (internalSession) internalSession.entity = dbEntity;
+          if (auto ses = cast(DSession)mySession) ses.entity = dbEntity;
           return dbEntity;
         }        
       }

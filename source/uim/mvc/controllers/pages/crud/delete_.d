@@ -71,10 +71,10 @@ window.addEventListener('load', (event) => {
     if (!myInternalSession) {
       options["redirect"] = "/";
       return; }
-
+/* 
     if (!myInternalSession.isValid(["session", "site"], options)) {
       options["redirect"] = "/";
-      return; }
+      return; } */
 
     this.entity(database[session.site, collectionName].findOne(options.toEntitySelect));
     if (!entity) {

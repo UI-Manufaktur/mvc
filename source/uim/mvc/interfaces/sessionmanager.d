@@ -8,4 +8,6 @@ interface ISessionManager {
 	ISession session(string httpSessionId, string[string] options = null); 
 	ISession session(string[string] options); 
   bool isNull();
+
+  bool update(ISession aSession);
 }

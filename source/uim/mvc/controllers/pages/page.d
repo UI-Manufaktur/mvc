@@ -32,6 +32,9 @@ class DPageController : DController, IPageController {
       .styles(StyleContainer); 
   }
 
+  // inherited
+  override DETBBase database() { return super.database; }
+
   // Containers
   
   mixin(OProperty!("DMVCLinkContainer", "links"));

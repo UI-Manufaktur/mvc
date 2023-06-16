@@ -39,8 +39,8 @@ class DSessionManager : ISessionManager {
       .isNull(true);
   }
 
-	bool update(ISession) {
-		// ToDo
+	bool update(ISession aSession) {
+		return false;
 	}
 }
 auto SessionManager() { return new DSessionManager(); }
