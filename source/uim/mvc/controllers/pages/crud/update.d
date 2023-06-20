@@ -37,15 +37,14 @@ override void initialize(Json configSettings = Json(null)) {
 
   override bool beforeResponse(STRINGAA options = null) {
     debug writeln(moduleName!DAPPEntityUpdateController~":DAPPEntityUpdateController::beforeResponse");
-    super.beforeResponse(options);   
-    if ("redirect" in options) return;
+    if (!super.beforeResponse(options) || "redirect" in options) return false;
 
     auto session = sessionManager.session(options);
 
     this.entity(database[session.site, collectionName].findOne(options.toEntitySelect));
     if (!entity) {
       // TODO Errorhandling
-      return;
+      return false;
     }
 
     auto poolId = uniform(1, 1_000_000_000);
@@ -65,6 +64,8 @@ override void initialize(Json configSettings = Json(null)) {
   })
 });`;
     }
+
+    return true;
   }
 }  
 mixin(ControllerCalls!("APPEntityUpdateController"));

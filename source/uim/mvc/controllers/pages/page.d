@@ -236,6 +236,8 @@ class DPageController : DController, IPageController {
       auto mySession = sessionManager.session(options);
       // ?? TODO if (internalSession) { this.site(session.site); }
       //     if (hasError || "redirect" in options) { return; }
+
+      return true;
     }    
 
     override string stringResponse(string[string] options = null) {

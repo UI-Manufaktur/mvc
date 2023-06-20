@@ -37,15 +37,14 @@ override void initialize(Json configSettings = Json(null)) {
 
   override bool beforeResponse(STRINGAA requestParameters) {
     debug writeln(moduleName!DAPPEntityCreateController~":DAPPEntityCreateController::beforeResponse");
-    super.beforeResponse(requestParameters);   
-    if ("redirect" in requestParameters) return;
+    if (!super.beforeResponse(requestParameters) || "redirect" in requestParameters) return false;
     
-    auto session = sessionManager.session(requestParameters);
+    auto mySession = sessionManager.session(requestParameters);
 
-    auto collection = database[session.site, collectionName]; 
+    auto collection = database[mySession.site, collectionName]; 
     if (!collection) {
       requestParameters["redirect"] = "/";
-      return; }
+      return false; }
 
     this.entity(collection.toEntity(Json(null)));
     if (auto myView = cast(DEntityView)this.view) {
@@ -55,6 +54,8 @@ override void initialize(Json configSettings = Json(null)) {
       entityPool[poolId] = entity;
       requestParameters["entityPool"] = to!string(poolId);
     }
+
+    return true;
   }
 }
 mixin(ControllerCalls!("APPEntityCreateController"));

@@ -22,8 +22,7 @@ class DDeleteActionController : DActionController {
   
   override bool beforeResponse(STRINGAA options = null) {
     debug writeln(moduleName!DDeleteActionController~":DDeleteActionController::beforeResponse");
-    super.beforeResponse(options);   
-    if (hasError || "redirect" in options) { return; }
+    if (!super.beforeResponse(options) || hasError || "redirect" in options) { return false; }
 
     auto session = sessionManager.session(options);
     auto site = session.site;
@@ -31,7 +30,7 @@ class DDeleteActionController : DActionController {
     auto collection = database[site, pool];
     if (!collection) {
       options["redirect"] = pgPath~"/view"; 
-      return; }
+      return false; }
 
     if (auto entity = collection.createFromTemplate) {
       with (entity) {

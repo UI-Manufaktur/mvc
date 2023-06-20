@@ -24,8 +24,7 @@ class DSelectSiteActionController : DActionController {
   
   override bool beforeResponse(STRINGAA options = null) {
     debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request");
-    super.beforeResponse(options);
-    if ("redirect" in options) return;
+    if (!super.beforeResponse(options) || "redirect" in options) return false;
         
     debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request - Working with InternalSession");
     DSession mySession = cast(DSession)sessionManager.session(options); // DSession[string]
@@ -47,6 +46,8 @@ class DSelectSiteActionController : DActionController {
     debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request - Redirect to /");
     options["redirect"] = "/";
     debug writeln(session.debugInfo);
+
+    return true;
 	}
 }
 mixin(ControllerCalls!("SelectSiteActionController"));

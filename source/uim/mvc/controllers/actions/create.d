@@ -22,22 +22,21 @@ class DCreateActionController : DActionController {
   
   override bool beforeResponse(STRINGAA options = null) {
     debug writeln(moduleName!DCreateActionController~":DCreateActionController::beforeResponse");
-    super.beforeResponse(options);   
-    if (hasError || "redirect" in options) return; 
+    if (!super.beforeResponse(options) || hasError || "redirect" in options) return false; 
 
     auto mySession = sessionManager.session(options);
     if (mySession.isNull) {
       options["redirect"] = "/login"; 
-      return; // TODO: Redirect to login 
+      return false; // TODO: Redirect to login 
     }
 
     auto mySite = mySession.site;
     if (mySite.isNull) { 
       options["redirect"] = "/sites"; 
-      return; // TODO: Redirect to login 
+      return false; // TODO: Redirect to login 
     }
 
-    if (manager.isNull) return; 
+    if (manager.isNull) return false; 
 
     if (auto myDatabase = manager.database) {
       if (auto myTenant = myDatabase[mySite]) {
@@ -49,12 +48,14 @@ class DCreateActionController : DActionController {
             }
 
             options["redirect"] = pgPath~"/view?id="~entity.id.toString; 
-            return;
+            return false;
           }
         }
       }
     }
     options["redirect"] = pgPath~"/view"; 
+
+    return true;
   }
 }
 mixin(ControllerCalls!("CreateActionController"));

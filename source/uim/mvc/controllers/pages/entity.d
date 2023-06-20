@@ -29,10 +29,11 @@ class DAPPEntityPageController : DPageController {
 
   override bool beforeResponse(STRINGAA options = null) {
     debugMethodCall(moduleName!DPageController~":DPageController("~this.name~")::beforeResponse");
-    super.beforeResponse(options);
-    if (hasError || "redirect" in options) { return; }
+    if (!super.beforeResponse(options) || hasError || "redirect" in options) { return false; }
     
     this.entityName = options.get("entityName", null);
+
+    return true;
   }
 }
 mixin(ControllerCalls!("APPEntityPageController"));

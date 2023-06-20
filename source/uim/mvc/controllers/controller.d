@@ -197,9 +197,11 @@ class DController : DMVCObject, IController, IControllerComponentManager  {
         if (myCheck.hasError) {
           this.error = myCheck.error;
           this.redirectUrl = myCheck.redirectUrl;
-          return; // Strict - An error requires an error reaction or handling
+          return false; // Strict - An error requires an error reaction or handling
         }
       }
+
+      return true;
     }    
 
     void afterResponse(string[string] options = null) { // Hook
