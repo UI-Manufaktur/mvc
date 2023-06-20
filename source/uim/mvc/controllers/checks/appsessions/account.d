@@ -3,7 +3,7 @@ module uim.mvc.controllers.checks.internalsessions.account;
 import uim.mvc;
 @safe:
 
-class DSessionHasAccountCheck : DInternalSessionExistsCheck {
+class DSessionHasAccountCheck : DSessionExistsCheck {
   mixin(ControllerComponentThis!("SessionHasAccountCheck"));
 
   override void initialize(Json configSettings = Json(null)) {

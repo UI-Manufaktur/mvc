@@ -28,7 +28,7 @@ class DSelectSiteActionController : DActionController {
     if ("redirect" in options) return;
         
     debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request - Working with InternalSession");
-    DInternalSession mySession = cast(DInternalSession)sessionManager.session(options); // DInternalSession[string]
+    DSession mySession = cast(DSession)sessionManager.session(options); // DSession[string]
     
     debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request - Working with session.session");
     // HttpSession myHttpSession = mySession.session; 

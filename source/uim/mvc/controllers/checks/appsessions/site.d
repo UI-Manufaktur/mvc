@@ -8,7 +8,7 @@ module uim.mvc.controllers.checks.internalsessions.site;
 import uim.mvc;
 @safe:
 
-class DSessionHasSiteCheck : DInternalSessionExistsCheck {
+class DSessionHasSiteCheck : DSessionExistsCheck {
   mixin(ControllerComponentThis!("SessionHasSiteCheck"));
 
   override void initialize(Json configSettings = Json(null)) {

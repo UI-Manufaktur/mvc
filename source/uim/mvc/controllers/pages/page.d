@@ -233,7 +233,7 @@ class DPageController : DController, IPageController {
       debugMethodCall(moduleName!DPageController~":DPageController("~this.name~")::beforeResponse");
       super.beforeResponse(options);
 
-      this.session = sessionManager.session(options);
+      auto mySession = sessionManager.session(options);
       // ?? TODO if (internalSession) { this.site(session.site); }
       //     if (hasError || "redirect" in options) { return; }
     }    

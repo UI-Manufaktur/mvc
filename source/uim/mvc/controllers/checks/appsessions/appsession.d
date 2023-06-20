@@ -13,7 +13,7 @@ module uim.mvc.controllers.checks.internalsessions.internalsession;
 import uim.mvc;
 @safe:
 
-class DInternalSessionExistsCheck : DControllerCheck {
+class DSessionExistsCheck : DControllerCheck {
   mixin(ControllerComponentThis!("InternalSessionExistsCheck"));
 
   override void initialize(Json configSettings = Json(null)) {
@@ -24,7 +24,7 @@ class DInternalSessionExistsCheck : DControllerCheck {
   }
 
   override bool execute(STRINGAA options = null) {    
-    debug writeln(moduleName!DInternalSessionExistsCheck~":DInternalSessionExistsCheck::check");
+    debug writeln(moduleName!DSessionExistsCheck~":DSessionExistsCheck::check");
 
     if (auto internalSession = sessionManager.session(options)) {
       return true;
@@ -38,6 +38,6 @@ mixin(ControllerComponentCalls!("InternalSessionExistsCheck"));
 
 ///
 unittest {
-  auto check = new DInternalSessionExistsCheck;
+  auto check = new DSessionExistsCheck;
   assert(check.name == "InternalSessionExistsCheck");
 }

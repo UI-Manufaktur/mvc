@@ -51,7 +51,7 @@ public {
 }
 
 @safe:
-DInternalSession[string] internalSessions;
+DSession[string] internalSessions;
 DEntity[size_t] entityPool;
 DEntity[][size_t] entitiesPool;
 
