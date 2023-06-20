@@ -8,8 +8,8 @@ module uim.mvc.controllers.checks.internalsessions.site;
 import uim.mvc;
 @safe:
 
-class DInternalSessionHasSiteCheck : DInternalSessionExistsCheck {
-  mixin(ControllerComponentThis!("InternalSessionHasSiteCheck"));
+class DSessionHasSiteCheck : DInternalSessionExistsCheck {
+  mixin(ControllerComponentThis!("SessionHasSiteCheck"));
 
   override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
@@ -19,7 +19,7 @@ class DInternalSessionHasSiteCheck : DInternalSessionExistsCheck {
   }
   
   override bool execute(STRINGAA options = null) {
-    debug writeln(moduleName!DInternalSessionHasSiteCheck~":DInternalSessionHasSiteCheck::check");
+    debug writeln(moduleName!DSessionHasSiteCheck~":DSessionHasSiteCheck::check");
     if (!super.execute(options)) { return false; }
 
     auto site = sessionManager.session(options).site;
@@ -28,8 +28,8 @@ class DInternalSessionHasSiteCheck : DInternalSessionExistsCheck {
       return false; 
     }
 
-    debug writeln(moduleName!DInternalSessionHasSiteCheck~":DInternalSessionHasSiteCheck::check -> session.site found -> ", site.id);
+    debug writeln(moduleName!DSessionHasSiteCheck~":DSessionHasSiteCheck::check -> session.site found -> ", site.id);
     return true;
   }
 }
-mixin(ControllerComponentCalls!("InternalSessionHasSiteCheck"));
+mixin(ControllerComponentCalls!("SessionHasSiteCheck"));

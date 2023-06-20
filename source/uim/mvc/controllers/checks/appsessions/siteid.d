@@ -8,8 +8,8 @@ module uim.mvc.controllers.checks.internalsessions.siteid;
 import uim.mvc;
 @safe:
 
-class DInternalSessionHasSiteIdCheck : DInternalSessionHasSessionCheck {
-  mixin(ControllerComponentThis!("InternalSessionHasSiteIdCheck"));
+class DSessionHasSiteIdCheck : DSessionHasHTTPSessionCheck {
+  mixin(ControllerComponentThis!("SessionHasSiteIdCheck"));
 
   override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
@@ -19,7 +19,7 @@ class DInternalSessionHasSiteIdCheck : DInternalSessionHasSessionCheck {
   }
   
   override bool execute(STRINGAA options = null) {
-    debug writeln(moduleName!DInternalSessionHasSiteIdCheck~":DInternalSessionHasSiteIdCheck::execute");
+    debug writeln(moduleName!DSessionHasSiteIdCheck~":DSessionHasSiteIdCheck::execute");
     if (!super.execute(options)) { return false; }
 
     auto session = sessionManager.session(options).session;
@@ -31,4 +31,4 @@ class DInternalSessionHasSiteIdCheck : DInternalSessionHasSessionCheck {
     return true;
   }
 }
-mixin(ControllerComponentCalls!("InternalSessionHasSiteIdCheck"));
+mixin(ControllerComponentCalls!("SessionHasSiteIdCheck"));

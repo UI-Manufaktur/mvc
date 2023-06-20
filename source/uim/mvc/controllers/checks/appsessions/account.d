@@ -3,8 +3,8 @@ module uim.mvc.controllers.checks.internalsessions.account;
 import uim.mvc;
 @safe:
 
-class DInternalSessionHasAccountCheck : DInternalSessionExistsCheck {
-  mixin(ControllerComponentThis!("InternalSessionHasAccountCheck"));
+class DSessionHasAccountCheck : DInternalSessionExistsCheck {
+  mixin(ControllerComponentThis!("SessionHasAccountCheck"));
 
   override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
@@ -14,7 +14,7 @@ class DInternalSessionHasAccountCheck : DInternalSessionExistsCheck {
   }
 
   override bool execute(STRINGAA options = null) {    
-    debug writeln(moduleName!DInternalSessionHasAccountCheck~":DInternalSessionHasAccountCheck::execute");
+    debug writeln(moduleName!DSessionHasAccountCheck~":DSessionHasAccountCheck::execute");
     if (!super.execute(options)) { return false; } 
 
     auto session = sessionManager.session(options);
@@ -26,4 +26,4 @@ class DInternalSessionHasAccountCheck : DInternalSessionExistsCheck {
     return true;
   }
 }
-mixin(ControllerComponentCalls!("InternalSessionHasAccountCheck"));
+mixin(ControllerComponentCalls!("SessionHasAccountCheck"));

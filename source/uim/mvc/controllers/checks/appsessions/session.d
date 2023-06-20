@@ -8,8 +8,8 @@ module uim.mvc.controllers.checks.internalsessions.session;
 import uim.mvc;
 @safe:
 
-class DInternalSessionHasSessionCheck : DInternalSessionExistsCheck {
-  mixin(ControllerComponentThis!("InternalSessionHasSessionCheck"));
+class DSessionHasHTTPSessionCheck : DInternalSessionExistsCheck {
+  mixin(ControllerComponentThis!("SessionHasHTTPSessionCheck"));
 
   override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
@@ -19,7 +19,7 @@ class DInternalSessionHasSessionCheck : DInternalSessionExistsCheck {
   }
   
   override bool execute(STRINGAA options = null) {
-    debug writeln(moduleName!DInternalSessionHasSessionCheck~":DInternalSessionHasSessionCheck::execute");
+    debug writeln(moduleName!DSessionHasHTTPSessionCheck~":DSessionHasHTTPSessionCheck::execute");
     if (!super.execute(options)) { return false; }
 
     auto session = sessionManager.session(options).session;
@@ -31,4 +31,4 @@ class DInternalSessionHasSessionCheck : DInternalSessionExistsCheck {
     return true;
   }
 }
-mixin(ControllerComponentCalls!("InternalSessionHasSessionCheck"));
+mixin(ControllerComponentCalls!("SessionHasHTTPSessionCheck"));

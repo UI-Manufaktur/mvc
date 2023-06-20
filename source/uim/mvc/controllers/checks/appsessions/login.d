@@ -8,8 +8,8 @@ module uim.mvc.controllers.checks.internalsessions.login;
 import uim.mvc;
 @safe:
 
-class DInternalSessionHasLoginCheck : DInternalSessionExistsCheck {
-  mixin(ControllerComponentThis!("InternalSessionHasLoginCheck"));
+class DSessionHasLoginCheck : DInternalSessionExistsCheck {
+  mixin(ControllerComponentThis!("SessionHasLoginCheck"));
 
   override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
@@ -19,7 +19,7 @@ class DInternalSessionHasLoginCheck : DInternalSessionExistsCheck {
   }
   
   override bool execute(STRINGAA options = null) {
-    debug writeln(moduleName!DInternalSessionHasLoginCheck~":DInternalSessionHasLoginCheck::check");
+    debug writeln(moduleName!DSessionHasLoginCheck~":DSessionHasLoginCheck::check");
     if (!super.execute(options)) { return false; }
 
     auto login = sessionManager.session(options).login;
@@ -28,8 +28,8 @@ class DInternalSessionHasLoginCheck : DInternalSessionExistsCheck {
       return false; 
     }
 
-    debug writeln(moduleName!DInternalSessionHasLoginCheck~":DInternalSessionHasLoginCheck::check -> session.login found -> ", login.id);
+    debug writeln(moduleName!DSessionHasLoginCheck~":DSessionHasLoginCheck::check -> session.login found -> ", login.id);
     return true;
   }
 }
-mixin(ControllerComponentCalls!("InternalSessionHasLoginCheck"));
+mixin(ControllerComponentCalls!("SessionHasLoginCheck"));
