@@ -63,14 +63,14 @@ window.addEventListener('load', (event) => {
     super.beforeResponse(options);   
     if ("redirect" in options) {
       // debug writeln("Redirect to "~options["redirect"]);
-      return;
+      return false;
     }
 
     string internalSessionId = options.get("internalSessionId", "");
     auto myInternalSession = sessionManager.session(options);
     if (!myInternalSession) {
       options["redirect"] = "/";
-      return; }
+      return false; }
 /* 
     if (!myInternalSession.isValid(["session", "site"], options)) {
       options["redirect"] = "/";
@@ -79,7 +79,7 @@ window.addEventListener('load', (event) => {
     this.entity(database[session.site, collectionName].findOne(options.toEntitySelect));
     if (!entity) {
       // TODO Errorhandling
-      return;
+      return false;
     }
 
     auto poolId = uniform(1, 1_000_000_000);
@@ -89,6 +89,8 @@ window.addEventListener('load', (event) => {
     if (auto myView = cast(DEntityView)this.view) {
       myView.entity(this.entity);
     }  
+
+    return true;
   }
 version(test_uim_mvc) { unittest {
   writeln("--- Test in ", __MODULE__, "/", __LINE__);

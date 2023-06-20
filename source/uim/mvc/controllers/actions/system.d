@@ -19,8 +19,7 @@ class DSystemActionController : DActionController {
 
   override bool beforeResponse(STRINGAA options = null) {
     debugMethodCall(moduleName!DSystemActionController~":DSystemActionController("~this.name~")::beforeResponse");
-    super.beforeResponse(options);
-    if (hasError || "redirect" in options) { return; }    
+    if (!super.beforeResponse(options) || hasError || "redirect" in options) { return false; }    
     
     // this.tenant(ETBNullTenant).collection(ETBNullCollection); // Clear
     debug writeln("-0-");
@@ -35,8 +34,10 @@ class DSystemActionController : DActionController {
         this.sites(myTenant["system_sites"]);
         this.passwords(myTenant["system_passwords"]);
       }
-    }  
-  }
+    }
+
+    return true;  
+  }  
 }
 mixin(ControllerCalls!("SystemActionController"));
 

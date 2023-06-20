@@ -90,7 +90,7 @@ class DController : DMVCObject, IController, IControllerComponentManager  {
 
   mixin(OProperty!("DControllerCheck[]", "checks")); 
   O addChecks(this O)(DControllerCheck[] newChecks) {
-    newCheck.manager(this);
+    newChecks.each!(check => check.manager(this));
     this.checks(this.checks~newChecks);
     return cast(O)this;
   } 

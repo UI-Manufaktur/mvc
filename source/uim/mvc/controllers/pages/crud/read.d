@@ -40,23 +40,23 @@ class DAPPEntityReadController : DAPPEntityCrudPageController {
     super.beforeResponse(options);   
     if ("redirect" in options) {
       // debug writeln("Redirect to "~options["redirect"]);
-      return;
+      return false;
     }
 
-    auto myInternalSession = sessionManager.session(options);
-
-    if (!myInternalSession) {
+    auto mySession = sessionManager.session(options);
+    if (mySession.isNull) { 
       options["redirect"] = "/";
-      return; }
+      return false; 
+    }
 
-    if (!session.isValid(["session", "site"], options)) return; 
+    if (!session.isValid(["session", "site"], options)) return false; 
 
     auto selector = options.toEntitySelect;
     debug writeln(moduleName!DAPPEntityReadController~":DAPPEntityReadController::beforeResponse - Selecting entity with ", selector);
     this.entity(database[session.site, collectionName].findOne(options.toEntitySelect));
     if (!entity) {
       // TODO Errorhandling required
-      return;
+      return false;
     }
 
     auto poolId = uniform(1, 1_000_000_000);
@@ -66,6 +66,8 @@ class DAPPEntityReadController : DAPPEntityCrudPageController {
     if (auto myView = cast(DEntityView)this.view) {
       myView.entity(this.entity);
     }
+
+    return true;
   }
 version(test_uim_mvc) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);

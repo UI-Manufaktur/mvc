@@ -31,8 +31,7 @@ class DAPPEntitiesPageController : DPageController {
 
   override bool beforeResponse(STRINGAA options = null) {
     debugMethodCall(moduleName!DPageController~":DPageController("~this.name~")::beforeResponse");
-    super.beforeResponse(options);
-    if (hasError || "redirect" in options) { return; }
+    if (!super.beforeResponse(options) || hasError || "redirect" in options) { return false; }
     
     this.entityName = options.get("entityName", null);
     this.sortBy = options.get("sortBy", null);
@@ -41,6 +40,8 @@ class DAPPEntitiesPageController : DPageController {
     this.entries = options.get("entries", null);
     this.filterBy = options.get("filterBy", null);
     this.filterValue = options.get("filterValue", null);
+
+    return true;
   }
 }
 mixin(ControllerCalls!("APPEntitiesPageController"));

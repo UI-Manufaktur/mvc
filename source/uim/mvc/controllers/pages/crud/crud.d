@@ -13,15 +13,15 @@ class DAPPEntityCrudPageController : DAPPEntityPageController {
 
   override bool beforeResponse(STRINGAA requestParameters) {
     debug writeln(moduleName!DAPPEntityCrudPageController~":DAPPEntityCrudPageController::beforeResponse");
-    super.beforeResponse(requestParameters);   
-    if ("redirect" in requestParameters) return;
+    if (!super.beforeResponse(requestParameters) || ("redirect" in requestParameters)) return false;
     
     auto myInternalSession = sessionManager.session(requestParameters);
 
     auto collection = database[myInternalSession.site, collectionName]; 
     if (!collection) {
       requestParameters["redirect"] = "/";
-      return; }
+      return false; 
+    }
 
     this.entity(collection.toEntity(Json(null)));
     if (auto myView = cast(DEntityView)this.view) {
@@ -31,6 +31,8 @@ class DAPPEntityCrudPageController : DAPPEntityPageController {
       entityPool[poolId] = entity;
       requestParameters["entityPool"] = to!string(poolId);
     }
+
+    return true;
   }
 }
 mixin(ControllerCalls!("APPEntityCrudPageController"));

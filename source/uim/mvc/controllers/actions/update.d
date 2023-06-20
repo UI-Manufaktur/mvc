@@ -23,7 +23,7 @@ class DUpdateActionController : DActionController {
   override bool beforeResponse(STRINGAA options = null) {
     debug writeln(moduleName!DUpdateActionController~":DUpdateActionController::beforeResponse");
     super.beforeResponse(options);   
-    if (hasError || "redirect" in options) { return; }
+    if (hasError || "redirect" in options) { return false; }
 
     auto session = sessionManager.session(options);
     auto site = session.site;
@@ -31,7 +31,7 @@ class DUpdateActionController : DActionController {
     auto collection = database[site, pool];
     if (!collection) {
       options["redirect"] = pgPath~"/view"; 
-      return; }
+      return false; }
 
     if (auto entity = collection.createFromTemplate) {
       with (entity) {
@@ -41,6 +41,8 @@ class DUpdateActionController : DActionController {
 
       options["redirect"] = pgPath~"/view?id="~entity.id.toString; 
     }
+
+    return true;
   }
 }
 mixin(ControllerCalls!("UpdateActionController"));
