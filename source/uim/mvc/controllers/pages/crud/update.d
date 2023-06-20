@@ -35,7 +35,7 @@ override void initialize(Json configSettings = Json(null)) {
       "/js/apps/entities/"~entityName~"/update.js");
   } */
 
-  override void beforeResponse(STRINGAA options = null) {
+  override bool beforeResponse(STRINGAA options = null) {
     debug writeln(moduleName!DAPPEntityUpdateController~":DAPPEntityUpdateController::beforeResponse");
     super.beforeResponse(options);   
     if ("redirect" in options) return;

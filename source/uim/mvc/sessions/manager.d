@@ -24,11 +24,11 @@ class DSessionManager : ISessionManager {
 		}
 
 		DSession session(string httpSessionId, string[string] options = null) {
-			return _sessions.get(httpSessionId, null);
+			return _sessions.get(httpSessionId, NullSession);
 		}
 		DSession session(string[string] options) {
 			return _sessions.get(
-				options.get("httpSessionId", null), null);
+				options.get("sessionId", null), NullSession);
 		}
 	// #endregion Sessions
 

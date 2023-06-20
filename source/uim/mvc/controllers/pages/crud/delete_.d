@@ -58,7 +58,7 @@ window.addEventListener('load', (event) => {
       /// TODO
     }}
  */
-  override void beforeResponse(STRINGAA options = null) {
+  override bool beforeResponse(STRINGAA options = null) {
     debug writeln(moduleName!DAPPEntityDeleteController~":DAPPEntityDeleteController::beforeResponse");
     super.beforeResponse(options);   
     if ("redirect" in options) {

@@ -22,7 +22,7 @@ class DSelectSiteActionController : DActionController {
     ]); 
   }
   
-  override void beforeResponse(STRINGAA options = null) {
+  override bool beforeResponse(STRINGAA options = null) {
     debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request");
     super.beforeResponse(options);
     if ("redirect" in options) return;

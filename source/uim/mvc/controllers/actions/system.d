@@ -17,7 +17,7 @@ class DSystemActionController : DActionController {
   mixin(OProperty!("DETBCollection", "sites"));
   mixin(OProperty!("DETBCollection", "passwords"));
 
-  override void beforeResponse(STRINGAA options = null) {
+  override bool beforeResponse(STRINGAA options = null) {
     debugMethodCall(moduleName!DSystemActionController~":DSystemActionController("~this.name~")::beforeResponse");
     super.beforeResponse(options);
     if (hasError || "redirect" in options) { return; }    

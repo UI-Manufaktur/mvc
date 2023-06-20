@@ -7,6 +7,6 @@ interface IActionController : IController {
 /*   string nextUrl();
   string redirectUrl();
 
-  void beforeResponse(STRINGAA requestParameters);
+  bool beforeResponse(STRINGAA requestParameters);
   void request(HTTPServerRequest req, HTTPServerResponse res, STRINGAA requestParameters); */
 }

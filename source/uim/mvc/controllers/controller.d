@@ -189,7 +189,7 @@ class DController : DMVCObject, IController, IControllerComponentManager  {
   }
 
   // #region Response
-    void beforeResponse(string[string] options = null) { // Hook
+    bool beforeResponse(string[string] options = null) { // Hook
       debugMethodCall(moduleName!DController~":DController("~this.name~")::beforeResponse");
 
       foreach(myCheck; this.checks) {

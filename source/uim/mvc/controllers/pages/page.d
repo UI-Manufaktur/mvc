@@ -229,7 +229,7 @@ class DPageController : DController, IPageController {
   } */
 
   // #region Response
-    override void beforeResponse(STRINGAA options = null) {
+    override bool beforeResponse(STRINGAA options = null) {
       debugMethodCall(moduleName!DPageController~":DPageController("~this.name~")::beforeResponse");
       super.beforeResponse(options);
 

@@ -16,7 +16,7 @@ import uim.mvc;
 class DActionController : DController, IActionController {
   mixin(ControllerThis!("ActionController"));
 
-  override void beforeResponse(STRINGAA options = null) {
+  override bool beforeResponse(STRINGAA options = null) {
     debugMethodCall(moduleName!DActionController~":DActionController("~this.name~")::beforeResponse");
     super.beforeResponse(options);
     if (hasError || "redirect" in options) { return; }    

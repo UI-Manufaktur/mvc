@@ -11,7 +11,7 @@ import uim.mvc;
 class DAPPEntityCrudPageController : DAPPEntityPageController {
   mixin(ControllerThis!("APPEntityCrudPageController"));
 
-  override void beforeResponse(STRINGAA requestParameters) {
+  override bool beforeResponse(STRINGAA requestParameters) {
     debug writeln(moduleName!DAPPEntityCrudPageController~":DAPPEntityCrudPageController::beforeResponse");
     super.beforeResponse(requestParameters);   
     if ("redirect" in requestParameters) return;

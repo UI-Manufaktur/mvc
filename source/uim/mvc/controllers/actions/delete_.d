@@ -20,7 +20,7 @@ class DDeleteActionController : DActionController {
   mixin(OProperty!("string", "pool"));
   mixin(OProperty!("string", "pgPath"));
   
-  override void beforeResponse(STRINGAA options = null) {
+  override bool beforeResponse(STRINGAA options = null) {
     debug writeln(moduleName!DDeleteActionController~":DDeleteActionController::beforeResponse");
     super.beforeResponse(options);   
     if (hasError || "redirect" in options) { return; }

@@ -35,7 +35,7 @@ override void initialize(Json configSettings = Json(null)) {
       "/js/apps/entities/"~entityName~"/create.js");
   } */
 
-  override void beforeResponse(STRINGAA requestParameters) {
+  override bool beforeResponse(STRINGAA requestParameters) {
     debug writeln(moduleName!DAPPEntityCreateController~":DAPPEntityCreateController::beforeResponse");
     super.beforeResponse(requestParameters);   
     if ("redirect" in requestParameters) return;
