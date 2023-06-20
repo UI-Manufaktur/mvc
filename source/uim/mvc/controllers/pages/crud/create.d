@@ -19,7 +19,7 @@ override void initialize(Json configSettings = Json(null)) {
 
     this
       // Checks to run for page request
-      .checks([InternalSessionExistsCheck, SessionHasHTTPSessionCheck, SessionHasSiteCheck])
+      .checks([SessionExistsCheck, SessionHasHTTPSessionCheck, SessionHasSiteCheck])
       .view(APPEntityCreateView)
       .scripts
         .addLinks(

@@ -1,4 +1,4 @@
-module uim.mvc.controllers.checks.internalsessions.account;
+module uim.mvc.controllers.checks.sessions.account;
 
 import uim.mvc;
 @safe:

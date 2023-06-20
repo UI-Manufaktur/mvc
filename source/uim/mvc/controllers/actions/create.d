@@ -14,7 +14,7 @@ class DCreateActionController : DActionController {
   override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings); 
     this.name = "CreateActionController";
-    this.checks([InternalSessionExistsCheck, DatabaseExistsCheck, SessionHasHTTPSessionCheck, SessionHasSiteCheck]); 
+    this.checks([SessionExistsCheck, DatabaseExistsCheck, SessionHasHTTPSessionCheck, SessionHasSiteCheck]); 
   }
 
   mixin(OProperty!("string", "pool"));
