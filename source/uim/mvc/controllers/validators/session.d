@@ -49,6 +49,8 @@ class DValidatorSession : DValidator {
     }
     return result;
   }
+
+  alias save = DEntity.save;
 }
 mixin(ControllerCalls!("ValidatorSession"));
 

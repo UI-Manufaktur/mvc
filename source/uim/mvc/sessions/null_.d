@@ -31,6 +31,9 @@ class DNullSession : DSession {
   alias opIndexAssign = DEntity.opIndexAssign;
   alias opIndexAssign = DSession.opIndexAssign;
 
+  alias save = DEntity.save;
+  alias save = DSession.save;
+
   override string debugInfo() { return "Null internalSession"; }
 }
 mixin(EntityCalls!("NullSession"));

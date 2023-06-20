@@ -14,7 +14,7 @@ class DSessionReader {
   }
 
   mixin(OProperty!("IPageController", "page"));
-  mixin(OProperty!("DSession", "internalSession"));
+  mixin(OProperty!("DSession", "session"));
 
   DSession read(HTTPServerRequest serverRequest, STRINGAA requestParameters) {
     debug writeln(moduleName!DSessionReader~":DSessionReader::read");
@@ -24,7 +24,7 @@ class DSessionReader {
 
     // serverRequest has session
     string requestSessionId;
-    DSession myInternalSession;
+    DSession mySession;
     if (!serverRequest.session) { // no session
       debug writeln(moduleName!DSessionReader~":DSessionReader::read - missing request session"); }
     else { // has sesion
@@ -32,22 +32,22 @@ class DSessionReader {
       
       // read session Id
       requestSessionId = serverRequest.session.id;
-      myInternalSession = internalSessions.get(requestSessionId, null); // Existing Session?
+      mySession = sessions.get(requestSessionId, null); // Existing Session?
     }
 
-    if (!myInternalSession) debug writeln(moduleName!DSessionReader~":DSessionReader::read - missing internalSession");
+    if (!mySession) debug writeln(moduleName!DSessionReader~":DSessionReader::read - missing session");
     
     debug writeln(moduleName!DSessionReader~":DSessionReader::read - XXXX");
 
     if (requestSessionId.length > 0) 
       debug writeln(moduleName!DSessionReader~":DSessionReader::read - x1x");
-    if (internalSession is null)  
+    if (session is null || session.isNull)  
       debug writeln(moduleName!DSessionReader~":DSessionReader::read - x2x");
 
-    if (requestSessionId.length > 0 && myInternalSession is null) { // httpSession exitsts New Session
-      debug writeln(moduleName!DSessionReader~":DSessionReader::read - httpSessionId exists internalSession is missing");
-      debug writeln(moduleName!DSessionReader~":DSessionReader::read - Creating new internalSession based on httpSession ", requestSessionId);
-      myInternalSession = InternalSession(serverRequest.session);
+    if (requestSessionId.length > 0 && mySession is null) { // httpSession exitsts New Session
+      debug writeln(moduleName!DSessionReader~":DSessionReader::read - httpSessionId exists session is missing");
+      debug writeln(moduleName!DSessionReader~":DSessionReader::read - Creating new session based on httpSession ", requestSessionId);
+      // mySession = Session(serverRequest.session);
 
       debug writeln(moduleName!DSessionReader~":DSessionReader::read - Reading session entities");      
       if (page && page.database) {
@@ -55,27 +55,27 @@ class DSessionReader {
           switch(name) {
             case "login": 
               if (auto myDatabase = page.database["systems", "system_logins"]) {
-                myInternalSession.login = myDatabase.findOne(["id": requestParameters.get("loginId", "")]);
+                mySession.login = myDatabase.findOne(["id": requestParameters.get("loginId", "")]);
               }
               break;
             case "session":
               if (auto myDatabase = page.database["systems", "system_sessions"]) {
-                myInternalSession.session = myDatabase.findOne(["id": requestParameters.get("sessionId", "")]);
+                mySession.session = myDatabase.findOne(["id": requestParameters.get("sessionId", "")]);
               }
               break;
             case "site": 
               if (auto myDatabase = page.database["systems", "system_sites"]) {
-                myInternalSession.site = myDatabase.findOne(["id": requestParameters.get("siteId", "")]);
+                mySession.site = myDatabase.findOne(["id": requestParameters.get("siteId", "")]);
               }
               break;
             case "account": 
               if (auto myDatabase = page.database["systems", "system_accounts"]) {
-                myInternalSession.account = myDatabase.findOne(["id": requestParameters.get("accountId", "")]);
+                mySession.account = myDatabase.findOne(["id": requestParameters.get("accountId", "")]);
               }
               break;
             case "user": 
               if (auto myDatabase = page.database["systems", "system_users"]) {
-                myInternalSession.user = myDatabase.findOne(["id": requestParameters.get("userId", "")]);
+                mySession.user = myDatabase.findOne(["id": requestParameters.get("userId", "")]);
               }
               break;
             default: break;
@@ -85,23 +85,23 @@ class DSessionReader {
     }
 
     // debug writeln("----------------------------------------------------------------------------------------------"); 
-    if (myInternalSession) {
+    if (mySession) {
       debug writeln("LoginId = %s\tSessionId = %s\tSiteId = %s".format(
-        myInternalSession.login ? myInternalSession.login.id.toString : "", 
-        myInternalSession.session ? myInternalSession.session.id.toString : "", 
-        myInternalSession.site ? myInternalSession.site.id.toString : "")
+        mySession.login ? mySession.login.id.toString : "", 
+        mySession.session ? mySession.session.id.toString : "", 
+        mySession.site ? mySession.site.id.toString : "")
       );
 
-      myInternalSession.lastAccessedOn = toTimestamp(now); // Update time
+      mySession.lastAccessedOn = toTimestamp(now); // Update time
       requestParameters["reqSessionId"] = requestSessionId; // Update request parameters
-      internalSessions[requestSessionId] = myInternalSession; // Return to session store
+      sessions[requestSessionId] = mySession; // Return to session store
     }
     else {
-      // debug writeln("No internalSession");
+      // debug writeln("No session");
     } 
     // debug writeln("----------------------------------------------------------------------------------------------"); 
 
-    return internalSession;
+    return session;
   }
 }
 auto SessionReader(IPageController page) { return new DSessionReader(page); }

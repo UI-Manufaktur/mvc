@@ -9,7 +9,7 @@ import uim.mvc;
 @safe:
 
 class DSession : DEntity {
-  mixin(EntityThis!("Session"));
+  mixin(EntityThis!("Session", "DSession"));
 
   this(HttpSession httpSession) {
     this().httpSessionId(httpSession.id);
@@ -99,7 +99,7 @@ class DSession : DEntity {
   } 
 
   void opIndexAssign(string key, long value) {
-    super.opIndexAssign(key, value);
+    // super.opIndexAssign(key, value);
 
     switch(key) {
       case "lastAccessedOn": this.lastAccessedOn = value; break;
@@ -108,7 +108,7 @@ class DSession : DEntity {
   } 
 
   void opIndexAssign(string key, DEntity value) {
-    super.opIndexAssign(key, value);
+    // super.opIndexAssign(key, value);
     
     switch(key) {
       case "login": this.login = value; break;
@@ -122,6 +122,7 @@ class DSession : DEntity {
     }
   } 
 
+  alias save = DEntity.save;
   void save() {
     // this["lastAccessISO"] = lastAccessedOn.toISOString;
     if (site) this["siteId"] = site.id;

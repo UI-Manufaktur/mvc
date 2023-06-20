@@ -19,7 +19,7 @@ class DSessionManager : ISessionManager {
 		protected DSession[string] _sessions;
 
 		void addSession(DSession aSession) {
-			aSesssion.manager(this);
+			aSession.manager(this);
 			_sessions[aSession.httpSessionId] = aSession;
 		}
 
@@ -28,8 +28,7 @@ class DSessionManager : ISessionManager {
 		}
 		DSession session(string[string] options) {
 			return _sessions.get(
-				options.get(["httpSessionId"], null), 
-			null);
+				options.get("httpSessionId", null), null);
 		}
 	// #endregion Sessions
 
