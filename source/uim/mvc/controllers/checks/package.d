@@ -12,7 +12,7 @@ public {
 
 // Subclasses
 public {
-	import  uim.mvc.controllers.checks.internalsessions;
+	import  uim.mvc.controllers.checks.sessions;
 	import  uim.mvc.controllers.checks.databases;
 	import  uim.mvc.controllers.checks.requests;
 }
