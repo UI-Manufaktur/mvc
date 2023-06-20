@@ -8,7 +8,7 @@ module uim.mvc.sessions.null_;
 import uim.mvc;
 @safe:
 
-class DNullSession : DInternalSession {
+class DNullSession : DSession {
   mixin(EntityThis!("NullSession"));
 
   this(Session httpSession) {
@@ -22,14 +22,14 @@ class DNullSession : DInternalSession {
   }
 
   override bool isValid(string[] factors, STRINGAA requestParameters) {
-    debug writeln(moduleName!DInternalSession~":DNullSession::beforeResponse -> No internalSession => redirect /login");
+    debug writeln(moduleName!DSession~":DNullSession::beforeResponse -> No internalSession => redirect /login");
     requestParameters["redirect"] = "/login";
     return false;
   }
   
   alias opIndexAssign = DElement.opIndexAssign;
   alias opIndexAssign = DEntity.opIndexAssign;
-  alias opIndexAssign = DInternalSession.opIndexAssign;
+  alias opIndexAssign = DSession.opIndexAssign;
 
   override string debugInfo() { return "Null internalSession"; }
 }

@@ -71,7 +71,7 @@ string mvcControllerCalls(string shortName, string className = null) {
   `;
 }
 
-template ControllerCalls(string shortName, string className = "") {
+template ControllerCalls(string shortName, string className = null) {
   const char[] ControllerCalls = mvcControllerCalls(shortName, className);
 }
 

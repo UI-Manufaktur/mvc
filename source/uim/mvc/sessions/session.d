@@ -8,8 +8,8 @@ module uim.mvc.sessions.session;
 import uim.mvc;
 @safe:
 
-class DInternalSession : DEntity {
-  mixin(EntityThis!("InternalSession"));
+class DSession : DEntity {
+  mixin(EntityThis!("Session"));
 
   this(HttpSession httpSession) {
     this().httpSessionId(httpSession.id);
@@ -19,7 +19,7 @@ class DInternalSession : DEntity {
   mixin(OProperty!("string", "httpSessionId"));
   mixin(OProperty!("IPageController", "page"));
   mixin(OProperty!("DEntity", "login"));
-  mixin(OProperty!("DEntity", "session"));
+  mixin(OProperty!("DEntity", "session")); // ?? Required
   mixin(OProperty!("DEntity", "site"));
   mixin(OProperty!("DEntity", "account"));
   mixin(OProperty!("DEntity", "user"));
@@ -36,39 +36,39 @@ class DInternalSession : DEntity {
 
   bool isValid(string[] checks, STRINGAA requestParameters = null) {
     foreach (check; checks) {
-      debug writeln(moduleName!DInternalSession~":DInternalSession::beforeResponse - Check "~check);
+      debug writeln(moduleName!DSession~":DSession::beforeResponse - Check "~check);
       switch (check) {
         case "login": if (!login) {
-          debug writeln(moduleName!DInternalSession~":DInternalSession::beforeResponse -> No login => redirect /login");
+          debug writeln(moduleName!DSession~":DSession::beforeResponse -> No login => redirect /login");
           requestParameters["redirect"] = "/login";
           return false; } 
           login.lastAccessedOn(toTimestamp(now)).save; break;
         case "session": if (!session) {
-          debug writeln(moduleName!DInternalSession~":DInternalSession::beforeResponse -> No session => redirect /login");
+          debug writeln(moduleName!DSession~":DSession::beforeResponse -> No session => redirect /login");
           requestParameters["redirect"] = "/login";
           return false; } 
           session.lastAccessedOn(toTimestamp(now)).save; break;
         case "site": if (!site) {
-          debug writeln(moduleName!DInternalSession~":DInternalSession::beforeResponse -> No site => redirect /");
+          debug writeln(moduleName!DSession~":DSession::beforeResponse -> No site => redirect /");
           requestParameters["redirect"] = "/";
           return false; }
           site.lastAccessedOn(toTimestamp(now)).save; break;
         case "account": if (!account) {
-          debug writeln(moduleName!DInternalSession~":DInternalSession::beforeResponse -> No account => redirect /login");
+          debug writeln(moduleName!DSession~":DSession::beforeResponse -> No account => redirect /login");
           requestParameters["redirect"] = "/login";
           return false; } break;
         case "password": if (!password) {
-          debug writeln(moduleName!DInternalSession~":DInternalSession::beforeResponse -> No password => redirect /login");
+          debug writeln(moduleName!DSession~":DSession::beforeResponse -> No password => redirect /login");
           requestParameters["redirect"] = "/login";
           return false; } 
           password.lastAccessedOn(toTimestamp(now)).save; break;
         case "user": if (!user) {
-          debug writeln(moduleName!DInternalSession~":DInternalSession::beforeResponse -> No user => redirect /login");
+          debug writeln(moduleName!DSession~":DSession::beforeResponse -> No user => redirect /login");
           requestParameters["redirect"] = "/login";
           return false; } 
           user.lastAccessedOn(toTimestamp(now)).save; break;
         case "database": if (!page && page.database) {
-          debug writeln(moduleName!DInternalSession~":DInternalSession::beforeResponse -> No site => redirect /error");
+          debug writeln(moduleName!DSession~":DSession::beforeResponse -> No site => redirect /error");
           requestParameters["redirect"] = "/error?message=database";
           return false; } break;
         default: break;
@@ -143,6 +143,6 @@ class DInternalSession : DEntity {
       "\n User:\t"~(user ? "id:%s".format(user.id) : "null");
   }
 }
-mixin(EntityCalls!("InternalSession"));
-auto InternalSession(HttpSession httpSession) { return new DInternalSession(httpSession); }
+mixin(EntityCalls!("APPSession", "DSession"));
+auto APPSession(HttpSession httpSession) { return new DSession(httpSession); }
 

@@ -14,9 +14,9 @@ class DSessionReader {
   }
 
   mixin(OProperty!("IPageController", "page"));
-  mixin(OProperty!("DInternalSession", "internalSession"));
+  mixin(OProperty!("DSession", "internalSession"));
 
-  DInternalSession read(HTTPServerRequest serverRequest, STRINGAA requestParameters) {
+  DSession read(HTTPServerRequest serverRequest, STRINGAA requestParameters) {
     debug writeln(moduleName!DSessionReader~":DSessionReader::read");
     
     // serverRequest exists?
@@ -24,7 +24,7 @@ class DSessionReader {
 
     // serverRequest has session
     string requestSessionId;
-    DInternalSession myInternalSession;
+    DSession myInternalSession;
     if (!serverRequest.session) { // no session
       debug writeln(moduleName!DSessionReader~":DSessionReader::read - missing request session"); }
     else { // has sesion

@@ -8,7 +8,7 @@ module uim.mvc.sessions.manager;
 import uim.mvc;
 @safe:
 
-DInternalSession[string] sessions;
+DSession[string] sessions;
 
 class DSessionManager : ISessionManager {
 	this() {}
@@ -16,17 +16,17 @@ class DSessionManager : ISessionManager {
   mixin(OProperty!("bool", "isNull"));
 
 	// #region Sessions
-		protected ISession[string] _sessions;
+		protected DSession[string] _sessions;
 
-		void addSession(ISession aSession) {
+		void addSession(DSession aSession) {
 			aSesssion.manager(this);
 			_sessions[aSession.httpSessionId] = aSession;
 		}
 
-		ISession session(string httpSessionId, string[string] options = null) {
+		DSession session(string httpSessionId, string[string] options = null) {
 			return _sessions.get(httpSessionId, null);
 		}
-		ISession session(string[string] options) {
+		DSession session(string[string] options) {
 			return _sessions.get(
 				options.get(["httpSessionId"], null), 
 			null);
@@ -39,7 +39,7 @@ class DSessionManager : ISessionManager {
       .isNull(true);
   }
 
-	bool update(ISession aSession) {
+	bool update(DSession aSession) {
 		return false;
 	}
 }
