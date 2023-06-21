@@ -17,7 +17,7 @@ class DValidatorAccount : DValidator {
 
   override DEntity validate(STRINGAA reqParameters) {
     string mySessionId = reqParameters.get("mySessionId", "");
-    auto mySession = sessionManager.session(reqParameters); 
+    auto mySession = cast(DSession)sessionManager.session(reqParameters); 
 
     // Looking for a accountId
     if (mySession) {

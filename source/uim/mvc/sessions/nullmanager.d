@@ -19,10 +19,10 @@ class DNullSessionManager : DSessionManager {
   }
 
 	override ISession session(string httpSessionId, string[string] options = null) {
-		return NullSession;
+		return null; // NullSession;
 	}
 	override ISession session(string[string] options) {
-		return NullSession;
+		return null; // NullSession;
 	}
 }
 auto NullSessionManager() { return new DNullSessionManager(); }

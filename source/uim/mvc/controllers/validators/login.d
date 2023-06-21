@@ -12,16 +12,16 @@ class DValidatorLogin : DValidator {
   mixin(ControllerThis!("ValidatorLogin"));
 
   override DEntity validate(STRINGAA reqParameters) {
-    string internalSessionId = reqParameters.get("internalSessionId", "");
-    auto internalSession = sessionManager.session(reqParameters);
+    string mySessionId = reqParameters.get("SessionId", "");
+    auto mySession = cast(DSession)sessionManager.session(reqParameters);
 
     // Looking for a loginId
-    auto login = internalSession.login;
+    auto login = mySession.login;
     if (login) { // No login. Try to read from reqParameters
       auto loginIdParameter = reqParameters.get("loginId", "");      
 
-      if (!loginIdParameter.isUUID && internalSession.session) { // No valid loginId, maybe in session
-        loginIdParameter = internalSession.session["loginId"]; }
+      if (!loginIdParameter.isUUID && mySession.session) { // No valid loginId, maybe in session
+        loginIdParameter = mySession.session["loginId"]; }
 
       if (!loginIdParameter.isUUID) // No valid loginId
         return null; // :-(
@@ -34,7 +34,7 @@ class DValidatorLogin : DValidator {
           dbLogin.lastAccessedOn = toTimestamp(now);
           dbLogin.save;
         
-          internalSession.login = dbLogin;
+          mySession.login = dbLogin;
           return dbLogin;
         }        
       }
