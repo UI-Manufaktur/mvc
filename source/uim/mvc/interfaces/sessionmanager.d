@@ -9,5 +9,7 @@ interface ISessionManager {
 	DSession session(string[string] options); 
   bool isNull();
 
+  ISession[] sessions();
+
   bool update(DSession aSession);
 }

@@ -40,6 +40,8 @@ class DDeleteActionController : DActionController {
 
       options["redirect"] = pgPath~"/view?id="~entity.id.toString; 
     }
+    
+    return true;
   }
 }
 mixin(ControllerCalls!("DeleteActionController"));

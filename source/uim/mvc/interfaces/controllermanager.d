@@ -6,4 +6,6 @@ import uim.mvc;
 interface IControllerManager {
   DETBBase database();
   ISessionManager sessionManager();
+
+  IController[] controllers();
 }

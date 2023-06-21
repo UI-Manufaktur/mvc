@@ -11,4 +11,6 @@ interface IPageController: IController {
   DMVCMetaContainer metas();
   DScriptContainer scripts();
   DStyleContainer styles();
+
+  ILayout layout();
 }

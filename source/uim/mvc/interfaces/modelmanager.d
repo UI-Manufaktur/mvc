@@ -3,11 +3,11 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel, mailto:ons@sicherheitsschmiede.de                                                      
 **********************************************************************************************************/
-module uim.mvc.interfaces.model;
+module uim.mvc.interfaces.modelmanager;
 
 import uim.mvc;
 @safe:
 
-interface IModel {
-	
+interface IModelManager {
+	IModel[] models();
 }

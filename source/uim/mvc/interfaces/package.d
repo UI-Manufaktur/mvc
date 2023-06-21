@@ -26,6 +26,7 @@ public {
   import uim.mvc.interfaces.form;
   import uim.mvc.interfaces.layout;
   import uim.mvc.interfaces.model;
+  import uim.mvc.interfaces.modelmanager;
   import uim.mvc.interfaces.mvc;
   import uim.mvc.interfaces.pagecontroller;
   import uim.mvc.interfaces.registerable;
