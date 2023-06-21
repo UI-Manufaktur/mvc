@@ -15,6 +15,7 @@ public {
 	import  uim.mvc.mixins.form;
 	import  uim.mvc.mixins.imports;
 	import  uim.mvc.mixins.layout;
+	import  uim.mvc.mixins.layoutmanager;
 	import  uim.mvc.mixins.model;
 	import  uim.mvc.mixins.page;
 	import  uim.mvc.mixins.router;

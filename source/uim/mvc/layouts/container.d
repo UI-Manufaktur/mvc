@@ -3,12 +3,12 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel, mailto:ons@sicherheitsschmiede.de                                                      
 **********************************************************************************************************/
-module uim.mvc.layouts.handler;
+module uim.mvc.layouts.container;
 
 import uim.mvc;
 @safe:
 
-class DLayoutHandler {
+class DLayoutContainer : ILayoutContainer {
   this() { }
 
   protected ILayout[string] _layouts;
@@ -20,10 +20,10 @@ class DLayoutHandler {
     return _layouts[name] = newLayout;    
   }
 }
-auto LayoutHandler() { return new DLayoutHandler; }
+auto LayoutContainer() { return new DLayoutContainer; }
 
 ///
 unittest {
-  auto handler = new DLayoutHandler;
+  auto container = new DLayoutContainer;
   auto layout = new DLayout;
 }
