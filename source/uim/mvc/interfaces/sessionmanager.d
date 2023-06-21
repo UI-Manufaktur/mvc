@@ -4,12 +4,12 @@ import uim.mvc;
 @safe:
 
 interface ISessionManager {
-  void addSession(DSession aSession); 
-	DSession session(string httpSessionId, string[string] options = null); 
-	DSession session(string[string] options); 
+  void addSession(ISession aSession); 
+	ISession session(string httpSessionId, string[string] options = null); 
+	ISession session(string[string] options); 
   bool isNull();
 
   ISession[] sessions();
 
-  bool update(DSession aSession);
+  bool update(ISession aSession);
 }

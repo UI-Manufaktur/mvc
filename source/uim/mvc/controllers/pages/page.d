@@ -51,8 +51,8 @@ class DPageController : DController, IPageController {
 
     @property ILayout layout() { 
       if (_layout) return _layout;
-      
-       
+
+      return _layout; 
     }
 	// #endregion Layout
 

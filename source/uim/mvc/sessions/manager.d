@@ -16,17 +16,19 @@ class DSessionManager : ISessionManager {
   mixin(OProperty!("bool", "isNull"));
 
 	// #region Sessions
-		protected DSession[string] _sessions;
+		protected ISession[string] _sessions;
 
-		void addSession(DSession aSession) {
+		ISession[] sessions() { return _sessions.values; }
+
+		void addSession(ISession aSession) {
 			aSession.manager(this);
 			_sessions[aSession.httpSessionId] = aSession;
 		}
 
-		DSession session(string httpSessionId, string[string] options = null) {
+		ISession session(string httpSessionId, string[string] options = null) {
 			return _sessions.get(httpSessionId, NullSession);
 		}
-		DSession session(string[string] options) {
+		ISession session(string[string] options) {
 			return _sessions.get(
 				options.get("sessionId", null), NullSession);
 		}
@@ -38,7 +40,7 @@ class DSessionManager : ISessionManager {
       .isNull(true);
   }
 
-	bool update(DSession aSession) {
+	bool update(ISession aSession) {
 		return false;
 	}
 }

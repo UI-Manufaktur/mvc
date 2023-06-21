@@ -11,6 +11,7 @@ import uim.mvc;
 // Main
 public {
 	import  uim.mvc.containers.container;
+	import  uim.mvc.containers.mvc;
 }
 
 // Modules

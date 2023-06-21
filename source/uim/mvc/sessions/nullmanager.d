@@ -18,10 +18,10 @@ class DNullSessionManager : DSessionManager {
       .isNull(true);
   }
 
-	override DSession session(string httpSessionId, string[string] options = null) {
+	override ISession session(string httpSessionId, string[string] options = null) {
 		return NullSession;
 	}
-	override DSession session(string[string] options) {
+	override ISession session(string[string] options) {
 		return NullSession;
 	}
 }

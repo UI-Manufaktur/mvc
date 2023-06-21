@@ -9,7 +9,7 @@ import uim.mvc;
 @safe:
 
 template LayoutManagerTemplate() {
-  protected ILayoutContainer _layouts;
+  protected DLayoutContainer _layouts;
   protected string _defaultLayoutName;
 
   void defaultLayout(ILayout aLayout) {
