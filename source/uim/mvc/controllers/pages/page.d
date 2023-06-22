@@ -23,8 +23,8 @@ class DPageController : DController, IPageController {
       .mimetype("text/html");
     
     requestReader = MVCRequestReader(this);
-    sessionReader = SessionReader(this);  
- 
+    /* sessionReader = SessionReader(this);  
+  */
     this
       .links(MVCLinkContainer)
       .metas(MVCMetaContainer) 
@@ -79,8 +79,8 @@ class DPageController : DController, IPageController {
   mixin(MVCParameter!("title")); 
 
   DMVCRequestReader requestReader;
-  DSessionReader sessionReader;
-
+/*   DSessionReader sessionReader;
+ */
   O pageActions(this O)(string[] actions...) { this.pageActions(actions); return cast(O)this; }
   O addPageActions(this O)(string[] actions...) { this.addPageActions(actions); return cast(O)this; }
   O addPageActions(this O)(string[] actions) { this.pageActions(this.pageActions~actions); return cast(O)this; }

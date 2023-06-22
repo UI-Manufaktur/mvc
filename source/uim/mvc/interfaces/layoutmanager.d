@@ -4,8 +4,23 @@ import uim.mvc;
 @safe:
 
 interface ILayoutManager {
-  ILayout[] layouts();
-  ILayout layoutByName(string aName);
+  void layouts(DLayoutContainer aContainer);
+  DLayoutContainer layouts();
+
+  void defaultLayout(ILayout aLayout);
+  void defaultLayout(string aName, ILayout aLayout);
+
+  void defaultLayoutName(string aName);
+  string defaultLayoutName();
+
+  ILayout defaultLayout();
+
+  ILayout layout(string aName = null);
+
+  void addLayouts(ILayout[] someLayouts...);
+  void addLayouts(ILayout[] someLayouts);
+
+  void addLayouts(ILayout[string] someLayouts);
 
   void addLayout(ILayout aLayout);
   void addLayout(string aName, ILayout aLayout);
