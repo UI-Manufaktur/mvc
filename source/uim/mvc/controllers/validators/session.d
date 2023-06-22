@@ -9,9 +9,9 @@ class DValidatorSession : DValidator {
   override DEntity validate(STRINGAA reqParameters) {
     // Looking for a sessionId
     string internalSessionId = reqParameters.get("internalSessionId", "");
-    auto internalSession = sessionManager.session(reqParameters);
+    auto mySession = sessionManager.session(reqParameters);
 
-    auto session = internalSession.session;
+/*     auto mySession = internalSession.session;
     if (!session) { // No session. Try to read from reqParameters
       auto sessionIdParameter = "";
       if (!reqParameters.get("sessionId", "").isUUID) // No valid loginId
@@ -30,7 +30,7 @@ class DValidatorSession : DValidator {
         }        
       }
     }
-    
+ */    
     return null; // Not valid ;
   }
 

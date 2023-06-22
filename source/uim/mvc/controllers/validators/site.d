@@ -11,9 +11,9 @@ class DValidatorSite : DValidator {
   override DEntity validate(STRINGAA reqParameters) {
     // Looking for a siteId
     string internalSessionId = reqParameters.get("internalSessionId", "");
-    auto internalSession = sessionManager.session(reqParameters);
+    auto mySession = cast(DSession)sessionManager.session(reqParameters);
 
-    if (internalSession) { // internalSession exist
+/*     if (internalSession) { // internalSession exist
       auto site = internalSession.site;
       if (!site) { // No site. Try to read from reqParameters
         auto siteIdParameter = "";
@@ -38,7 +38,7 @@ class DValidatorSite : DValidator {
         }
       }
     }
-    
+ */    
     return null; // Not valid ;
   }
 

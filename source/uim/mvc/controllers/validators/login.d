@@ -12,7 +12,7 @@ class DValidatorLogin : DValidator {
   mixin(ControllerThis!("ValidatorLogin"));
 
   override DEntity validate(STRINGAA reqParameters) {
-    string mySessionId = reqParameters.get("SessionId", "");
+    string mySessionId = reqParameters.get("sessionId", "");
     auto mySession = cast(DSession)sessionManager.session(reqParameters);
 
     // Looking for a loginId
