@@ -8,7 +8,7 @@ module uim.mvc.sessions.manager;
 import uim.mvc;
 @safe:
 
-DSession[string] sessions;
+/* DSession[string] sessions;
 
 class DSessionManager : ISessionManager {
 	this() {}
@@ -45,3 +45,4 @@ class DSessionManager : ISessionManager {
 	}
 }
 auto SessionManager() { return new DSessionManager(); }
+ */

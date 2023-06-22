@@ -19,7 +19,7 @@ public {
 	import  uim.mvc.mixins.model;
 	import  uim.mvc.mixins.page;
 	import  uim.mvc.mixins.router;
-	import  uim.mvc.mixins.sessionmanager;
+	import  uim.mvc.mixins.session;
 	import  uim.mvc.mixins.sessionmanager;
 	import  uim.mvc.mixins.view;
 	import  uim.mvc.mixins.viewcomponent;

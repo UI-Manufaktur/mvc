@@ -7,7 +7,7 @@ module uim.mvc.sessions.reader;
 
 import uim.mvc;
 @safe:
-
+/* 
 class DSessionReader {
   this(IPageController page) {
     this.page(page);
@@ -106,7 +106,7 @@ class DSessionReader {
 }
 auto SessionReader(IPageController page) { return new DSessionReader(page); }
 
-
+ */
 /* class DSRVSessionReader {
   this(DSRVApi api) { _api = api; }
 

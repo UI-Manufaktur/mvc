@@ -1,4 +1,4 @@
-  /*********************************************************************************************************
+/*********************************************************************************************************
 	Copyright: © 2015-2023 Ozan Nurettin Süel (Sicherheitsschmiede)                                        
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel, mailto:ons@sicherheitsschmiede.de                                                      
@@ -8,26 +8,35 @@ module  uim.mvc.mixins.sessionmanager;
 import uim.mvc;
 @safe:
 
-template SessionManagerTemplate() {
+mixin template SessionManagerTemplate() {
   protected DSessionContainer _sessions;
 
-  ISession session(string aName = null) {
-    if (aName) return _sessions[aName, NullSession];
-    return _sessions[_defaultSession];
+  ISession session(string[string] options) {
+    return sessions(options.get("httpSessionId", null));
+  }  
+  ISession session(string httpSessionId) {
+    return _sessions[httpSessionId, NullSession];
+  }
+
+  bool existsSession(string httpSessionId) {
+    return (httpSessionId in _sessions ? true : false);
   }
 
   void addSession(ISession aSession) {
-    addSession(aSession.name, aSession);
+    if (aSession) addSession(aSession.name, aSession);
   }
-  void addSession(string aName, ISession aSession) {
-    _sessions.add(aName, aSession);
-  }
-
-  void updateSession(string aName, ISession aSession) {
-    _sessions.update(aName, aSession);
+  void addSession(string httpSessionId, ISession aSession) {
+    if (aSession) _sessions.add(httpSessionId, aSession);
   }
 
-  void removeSession(string aName) {
-    _sessions.remove(aName);
+  void updateSession(string httpSessionId, ISession aSession) {
+    if (aSession && httpSessionId in _session) _sessions.update(httpSessionId, aSession);
+  }
+  void updateSession(ISession aSession) {
+    if (aSession && aSession.httpSessionId in _session) _sessions.update(httpSessionId, aSession);
+  }
+
+  void removeSession(string httpSessionId) {
+    if (existsSession(httpSessionId)) _sessions.remove(httpSessionId);
   }
 }

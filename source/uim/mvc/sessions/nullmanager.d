@@ -8,7 +8,8 @@ module uim.mvc.sessions.nullmanager;
 import uim.mvc;
 @safe:
 
-class DNullSessionManager : DSessionManager {
+
+/* class DNullSessionManager : DSessionManager {
 	this() { super(); this.initialize; }
 
 	override void initialize(Json configSettings = Json(null)) {
@@ -26,3 +27,4 @@ class DNullSessionManager : DSessionManager {
 	}
 }
 auto NullSessionManager() { return new DNullSessionManager(); }
+ */

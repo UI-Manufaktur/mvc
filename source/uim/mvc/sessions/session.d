@@ -8,7 +8,7 @@ module uim.mvc.sessions.session;
 import uim.mvc;
 @safe:
 
-class DSession : DEntity {
+class DSession : DEntity, ISession {
   mixin(EntityThis!("Session", "DSession"));
 
   this(HttpSession httpSession) {
@@ -128,7 +128,7 @@ class DSession : DEntity {
     if (site) this["siteId"] = site.id;
 
     if (manager) {
-      manager.update(this);
+      manager.updateSession(this);
     }
   }
 
