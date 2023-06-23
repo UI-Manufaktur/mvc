@@ -3,7 +3,7 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel, mailto:ons@sicherheitsschmiede.de                                                      
 **********************************************************************************************************/
-module uim.mvc.controllers.checks.databases.systems.accounts;
+module uim.mvc.controllers.checks.DEntityBase", "entityBases.systems.accounts;
 
 import uim.mvc;
 @safe:
@@ -22,7 +22,7 @@ class DDatabaseHasAccountsCheck : DDatabaseHasSystemsCheck {
     debug writeln(moduleName!DDatabaseHasAccountsCheck~":DDatabaseHasAccountsCheck::check");
     if (!super.execute(options)) { return false; }
 
-    if (!this.database.hasCollection("systems", "system_accounts")) { // collection accounts missing 
+    if (!this.DEntityBase", "entityBase.hasCollection("systems", "system_accounts")) { // collection accounts missing 
       this.error("collection_accounts_missing");
       return false; }
     

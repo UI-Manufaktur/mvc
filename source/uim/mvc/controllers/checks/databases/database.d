@@ -3,7 +3,7 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel, mailto:ons@sicherheitsschmiede.de                                                      
 **********************************************************************************************************/
-module uim.mvc.controllers.checks.databases.database;
+module uim.mvc.controllers.checks.DEntityBase", "entityBases.DEntityBase", "entityBase;
 
 import uim.mvc;
 @safe:
@@ -15,19 +15,19 @@ class DDatabaseExistsCheck : DControllerCheck {
     super.initialize(configSettings);
 
     this
-    .redirectUrl("/error?message=database_missing");
+    .redirectUrl("/error?message=DEntityBase", "entityBase_missing");
   }
   
-  // Secure shortcut to this.database
-  auto database() {
+  // Secure shortcut to this.DEntityBase", "entityBase
+  auto DEntityBase", "entityBase() {
     if (!this.manager) return null;
 
     if (auto myController = cast(DController)this.manager) { // 1 Level
-      return myController.manager ? myController.manager.database : null;
+      return myController.manager ? myController.manager.DEntityBase", "entityBase : null;
     }
     if (auto myControllerComponent = cast(DControllerComponent)this.manager) { // 2 Level
       if (auto myController = cast(DController)myControllerComponent.manager) {
-        return myController.manager ? myController.manager.database : null;
+        return myController.manager ? myController.manager.DEntityBase", "entityBase : null;
       }
     }
     return null;
@@ -39,8 +39,8 @@ class DDatabaseExistsCheck : DControllerCheck {
 
     if (!this.manager) debug writeln("Manager missing");
         
-    if (!this.database) { // database missing 
-      this.error("database_missing");
+    if (!this.DEntityBase", "entityBase) { // DEntityBase", "entityBase missing 
+      this.error("DEntityBase", "entityBase_missing");
       return false;
     }
     return true;

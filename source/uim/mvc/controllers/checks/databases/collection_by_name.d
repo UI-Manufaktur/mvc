@@ -3,7 +3,7 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel, mailto:ons@sicherheitsschmiede.de                                                      
 **********************************************************************************************************/
-module uim.mvc.controllers.checks.databases.collection_by_name;
+module uim.mvc.controllers.checks.DEntityBase", "entityBases.collection_by_name;
 
 import uim.mvc;
 @safe:
@@ -25,7 +25,7 @@ class DDatabaseHasCollectionCheck : DDatabaseExistsCheck {
     debug writeln(moduleName!DDatabaseHasCollectionCheck~":DDatabaseHasCollectionCheck::check");
     if (!super.execute(options)) { return false; }
     
-    if (!this.database.hasTenant(tenantName) || !this.database[tenantName].hasCollection(collectionName)) {  
+    if (!this.DEntityBase", "entityBase.hasTenant(tenantName) || !this.DEntityBase", "entityBase[tenantName].hasCollection(collectionName)) {  
       this.error("collection_("~tenantName~","~collectionName~")_missing");
       return false; }
 
