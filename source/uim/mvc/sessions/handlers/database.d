@@ -1,2 +1,2 @@
-module uim.mvc.sessions.handlers.DEntityBase", "entityBase;
+module uim.mvc.sessions.handlers.entitybase;
 

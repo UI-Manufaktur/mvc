@@ -67,7 +67,7 @@ class DSession : DEntity, ISession {
           requestParameters["redirect"] = "/login";
           return false; } 
           user.lastAccessedOn(toTimestamp(now)).save; break;
-        case "DEntityBase", "entityBase": if (!page && page.DEntityBase", "entityBase) {
+        case "entitybase": if (!page && page.entityBase) {
           debug writeln(moduleName!DSession~":DSession::beforeResponse -> No site => redirect /error");
           requestParameters["redirect"] = "/error?message=DEntityBase", "entityBase";
           return false; } break;

@@ -3,14 +3,14 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel, mailto:ons@sicherheitsschmiede.de                                                      
 **********************************************************************************************************/
-module uim.mvc.interfaces.DEntityBase", "entityBasemanager;
+module uim.mvc.interfaces.entitybasemanager;
 
 import uim.mvc;
 @safe:
 
 interface IEntityBaseManager {
-  void DEntityBase", "entityBases(DDatabaseContainer aContainer);
-  DDatabaseContainer DEntityBase", "entityBases();
+  void entityBases(DDatabaseContainer aContainer);
+  DDatabaseContainer entityBases();
 
   void defaultDatabase(IEntityBase aDatabase);
   void defaultDatabase(string aName, IEntityBase aDatabase);
@@ -20,7 +20,7 @@ interface IEntityBaseManager {
 
   IEntityBase defaultDatabase();
 
-  IEntityBase DEntityBase", "entityBase(string aName = null);
+  IEntityBase entityBase(string aName = null);
 
   void addDatabases(IEntityBase[] someDatabases...);
   void addDatabases(IEntityBase[] someDatabases);

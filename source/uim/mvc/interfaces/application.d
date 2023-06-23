@@ -9,7 +9,7 @@ import uim.mvc;
 @safe:
 
 interface IApplication : IMVCObject {
-  DEntityBase DEntityBase", "entityBase();
+  DEntityBase entityBase();
   ILayout layout();
   DRoute[HTTPMethod][string] routes();
   string rootPath();

@@ -4,7 +4,7 @@ import uim.mvc;
 @safe:
 
 interface IPageController: IController {
-  DEntityBase DEntityBase", "entityBase();
+  DEntityBase entityBase();
   string[] sessionData();
 
   DMVCLinkContainer links();
