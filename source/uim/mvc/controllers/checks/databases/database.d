@@ -3,7 +3,7 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel, mailto:ons@sicherheitsschmiede.de                                                      
 **********************************************************************************************************/
-module uim.mvc.controllers.checks.DEntityBase", "entityBases.DEntityBase", "entityBase;
+module uim.mvc.controllers.checks.entitybases.DEntityBase", "entityBase;
 
 import uim.mvc;
 @safe:
@@ -19,15 +19,15 @@ class DDatabaseExistsCheck : DControllerCheck {
   }
   
   // Secure shortcut to this.DEntityBase", "entityBase
-  auto DEntityBase", "entityBase() {
+  auto entityBase() {
     if (!this.manager) return null;
 
     if (auto myController = cast(DController)this.manager) { // 1 Level
-      return myController.manager ? myController.manager.DEntityBase", "entityBase : null;
+      return myController.manager ? myController.manager.entityBase : null;
     }
     if (auto myControllerComponent = cast(DControllerComponent)this.manager) { // 2 Level
       if (auto myController = cast(DController)myControllerComponent.manager) {
-        return myController.manager ? myController.manager.DEntityBase", "entityBase : null;
+        return myController.manager ? myController.manager.entityBase : null;
       }
     }
     return null;

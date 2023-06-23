@@ -54,28 +54,28 @@ class DSessionReader {
       foreach (name; page.sessionData) {
           switch(name) {
             case "login": 
-              if (auto myDatabase = page.DEntityBase", "entityBase["systems", "system_logins"]) {
-                mySession.login = myDatabase.findOne(["id": requestParameters.get("loginId", "")]);
+              if (auto myEntityBase = page.DEntityBase", "entityBase["systems", "system_logins"]) {
+                mySession.login = myEntityBase.findOne(["id": requestParameters.get("loginId", "")]);
               }
               break;
             case "session":
-              if (auto myDatabase = page.DEntityBase", "entityBase["systems", "system_sessions"]) {
-                mySession.session = myDatabase.findOne(["id": requestParameters.get("sessionId", "")]);
+              if (auto myEntityBase = page.DEntityBase", "entityBase["systems", "system_sessions"]) {
+                mySession.session = myEntityBase.findOne(["id": requestParameters.get("sessionId", "")]);
               }
               break;
             case "site": 
-              if (auto myDatabase = page.DEntityBase", "entityBase["systems", "system_sites"]) {
-                mySession.site = myDatabase.findOne(["id": requestParameters.get("siteId", "")]);
+              if (auto myEntityBase = page.DEntityBase", "entityBase["systems", "system_sites"]) {
+                mySession.site = myEntityBase.findOne(["id": requestParameters.get("siteId", "")]);
               }
               break;
             case "account": 
-              if (auto myDatabase = page.DEntityBase", "entityBase["systems", "system_accounts"]) {
-                mySession.account = myDatabase.findOne(["id": requestParameters.get("accountId", "")]);
+              if (auto myEntityBase = page.DEntityBase", "entityBase["systems", "system_accounts"]) {
+                mySession.account = myEntityBase.findOne(["id": requestParameters.get("accountId", "")]);
               }
               break;
             case "user": 
-              if (auto myDatabase = page.DEntityBase", "entityBase["systems", "system_users"]) {
-                mySession.user = myDatabase.findOne(["id": requestParameters.get("userId", "")]);
+              if (auto myEntityBase = page.DEntityBase", "entityBase["systems", "system_users"]) {
+                mySession.user = myEntityBase.findOne(["id": requestParameters.get("userId", "")]);
               }
               break;
             default: break;

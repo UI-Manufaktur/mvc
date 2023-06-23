@@ -23,19 +23,19 @@ class DSystemActionController : DActionController {
     
     // this.tenant(ETBNullTenant).collection(ETBNullCollection); // Clear
 
-    if (!DEntityBase", "entityBaseManager) {
-      debug writeln("No DEntityBase", "entityBase manager");
+    if (!manager) {
+      debug writeln("No manager");
       return false;
     }
 
-    auto myDatabase = DEntityBase", "entityBaseManager.DEntityBase", "entityBase;
-    if (!myDatabase) {
-      debug writeln("No DEntityBase", "entityBase manager");
+    auto myEntityBase = manager.entityBase;
+    if (!myEntityBase) {
+      debug writeln("No manager");
       return false;
     }
 
     debug writeln("Found DEntityBase", "entityBase"); 
-    if (auto myTenant = myDatabase["systems"]) {
+    if (auto myTenant = myEntityBase["systems"]) {
       // this.tenant(myTenant);
       this.logins(myTenant["system_logins"]);
       this.sessions(myTenant["system_sessions"]);

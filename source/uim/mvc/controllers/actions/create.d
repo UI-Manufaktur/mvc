@@ -38,18 +38,18 @@ class DCreateActionController : DActionController {
 
     if (manager.isNull) return false; 
 
-    if (!DEntityBase", "entityBaseManager) {
-      debug writeln("No DEntityBase", "entityBase manager");
+    if (!entityBaseManager) {
+      debug writeln("No manager");
       return false;
     }
 
-    auto myDatabase = DEntityBase", "entityBaseManager.DEntityBase", "entityBase;
-    if (!myDatabase) {
-      debug writeln("No DEntityBase", "entityBase manager");
+    auto myEntityBase = manager.entityBase;
+    if (!myEntityBase) {
+      debug writeln("No manager");
       return false;
     }
       
-    if (auto myTenant = myDatabase[mySite]) {
+    if (auto myTenant = myEntityBase[mySite]) {
       if (auto collection = myTenant[pool]) {
         if (auto entity = collection.createFromTemplate) {
           with (entity) {

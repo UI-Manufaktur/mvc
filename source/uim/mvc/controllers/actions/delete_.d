@@ -27,12 +27,12 @@ class DDeleteActionController : DActionController {
     auto session = sessionManager.session(options);
     auto site = session.site;
 
-    auto collection = DEntityBase", "entityBase[site, pool];
-    if (!collection) {
+    auto myCollection = manager.entityBase[site, pool];
+    if (!myCollection) {
       options["redirect"] = pgPath~"/view"; 
       return false; }
 
-    if (auto entity = collection.createFromTemplate) {
+    if (auto entity = myCollection.createFromTemplate) {
       with (entity) {
         readFromRequest(options);
         save; 

@@ -136,7 +136,7 @@ class DController : DMVCObject, IController, IControllerComponentManager  {
 
   // #region DEntityBase", "entityBase
     DEntityBase entityBase() {
-      return (this.manager ? this.manager.DEntityBase", "entityBase : null);
+      return (this.manager ? this.manager.entityBase : null);
     }
   // #endregion DEntityBase", "entityBase
   

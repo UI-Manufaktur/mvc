@@ -3,7 +3,7 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel, mailto:ons@sicherheitsschmiede.de                                                      
 **********************************************************************************************************/
-module uim.mvc.controllers.checks.DEntityBase", "entityBases.systems.sites;
+module uim.mvc.controllers.checks.entitybases.systems.sites;
 
 import uim.mvc;
 @safe:
