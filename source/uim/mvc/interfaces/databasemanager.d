@@ -3,34 +3,34 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel, mailto:ons@sicherheitsschmiede.de                                                      
 **********************************************************************************************************/
-module uim.mvc.interfaces.databasemanager;
+module uim.mvc.interfaces.DEntityBase", "entityBasemanager;
 
 import uim.mvc;
 @safe:
 
-interface IDatabaseManager {
-  void databases(DDatabaseContainer aContainer);
-  DDatabaseContainer databases();
+interface IEntityBaseManager {
+  void DEntityBase", "entityBases(DDatabaseContainer aContainer);
+  DDatabaseContainer DEntityBase", "entityBases();
 
-  void defaultDatabase(IDatabase aDatabase);
-  void defaultDatabase(string aName, IDatabase aDatabase);
+  void defaultDatabase(IEntityBase aDatabase);
+  void defaultDatabase(string aName, IEntityBase aDatabase);
 
   void defaultDatabaseName(string aName);
   string defaultDatabaseName();
 
-  IDatabase defaultDatabase();
+  IEntityBase defaultDatabase();
 
-  IDatabase database(string aName = null);
+  IEntityBase DEntityBase", "entityBase(string aName = null);
 
-  void addDatabases(IDatabase[] someDatabases...);
-  void addDatabases(IDatabase[] someDatabases);
+  void addDatabases(IEntityBase[] someDatabases...);
+  void addDatabases(IEntityBase[] someDatabases);
 
-  void addDatabases(IDatabase[string] someDatabases);
+  void addDatabases(IEntityBase[string] someDatabases);
 
-  void addDatabase(IDatabase aDatabase);
-  void addDatabase(string aName, IDatabase aDatabase);
+  void addDatabase(IEntityBase aDatabase);
+  void addDatabase(string aName, IEntityBase aDatabase);
 
-  void updateDatabase(string aName, IDatabase aDatabase);
+  void updateDatabase(string aName, IEntityBase aDatabase);
 
   void removeDatabase(string aName);
 }

@@ -50,31 +50,31 @@ class DSessionReader {
       // mySession = Session(serverRequest.session);
 
       debug writeln(moduleName!DSessionReader~":DSessionReader::read - Reading session entities");      
-      if (page && page.database) {
+      if (page && page.DEntityBase", "entityBase) {
       foreach (name; page.sessionData) {
           switch(name) {
             case "login": 
-              if (auto myDatabase = page.database["systems", "system_logins"]) {
+              if (auto myDatabase = page.DEntityBase", "entityBase["systems", "system_logins"]) {
                 mySession.login = myDatabase.findOne(["id": requestParameters.get("loginId", "")]);
               }
               break;
             case "session":
-              if (auto myDatabase = page.database["systems", "system_sessions"]) {
+              if (auto myDatabase = page.DEntityBase", "entityBase["systems", "system_sessions"]) {
                 mySession.session = myDatabase.findOne(["id": requestParameters.get("sessionId", "")]);
               }
               break;
             case "site": 
-              if (auto myDatabase = page.database["systems", "system_sites"]) {
+              if (auto myDatabase = page.DEntityBase", "entityBase["systems", "system_sites"]) {
                 mySession.site = myDatabase.findOne(["id": requestParameters.get("siteId", "")]);
               }
               break;
             case "account": 
-              if (auto myDatabase = page.database["systems", "system_accounts"]) {
+              if (auto myDatabase = page.DEntityBase", "entityBase["systems", "system_accounts"]) {
                 mySession.account = myDatabase.findOne(["id": requestParameters.get("accountId", "")]);
               }
               break;
             case "user": 
-              if (auto myDatabase = page.database["systems", "system_users"]) {
+              if (auto myDatabase = page.DEntityBase", "entityBase["systems", "system_users"]) {
                 mySession.user = myDatabase.findOne(["id": requestParameters.get("userId", "")]);
               }
               break;
@@ -140,23 +140,23 @@ auto SessionReader(IPageController page) { return new DSessionReader(page); }
       srvSession = SRVSession(req.session);
 
       debug writeln(moduleName!DSRVSessionReader~":DSRVSessionReader::read - Reading session entities");      
-      if (api && api.database) {
+      if (api && api.DEntityBase", "entityBase) {
         foreach (required; api.requiredChecks) {
           switch(required) {
             case "login": 
-              srvSession.login = api.database["central", "logins"].findOne(["id": reqParameters.get("loginId", "")]);
+              srvSession.login = api.DEntityBase", "entityBase["central", "logins"].findOne(["id": reqParameters.get("loginId", "")]);
               break;
             case "session":
-              srvSession.session = api.database["central", "sessions"].findOne(["id": reqParameters.get("sessionId", "")]);
+              srvSession.session = api.DEntityBase", "entityBase["central", "sessions"].findOne(["id": reqParameters.get("sessionId", "")]);
               break;
             case "site": 
-              srvSession.site = api.database["central", "sites"].findOne(["id": reqParameters.get("siteId", "")]);
+              srvSession.site = api.DEntityBase", "entityBase["central", "sites"].findOne(["id": reqParameters.get("siteId", "")]);
               break;
             case "account": 
-              srvSession.account = api.database["central", "accounts"].findOne(["id": reqParameters.get("accountId", "")]);
+              srvSession.account = api.DEntityBase", "entityBase["central", "accounts"].findOne(["id": reqParameters.get("accountId", "")]);
               break;
             case "user": 
-              srvSession.user = api.database["central", "users"].findOne(["id": reqParameters.get("userId", "")]);
+              srvSession.user = api.DEntityBase", "entityBase["central", "users"].findOne(["id": reqParameters.get("userId", "")]);
               break;
             default: break;
           }        

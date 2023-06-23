@@ -163,15 +163,15 @@ override void initialize(DConfigurationValue configSettings = null) {
   mixin(OViewComponent!("right"));
   mixin(OViewComponent!("messages"));
 
-/*   DETBBase _database; 
-  O database(this O)(DETBBase aDatabase) { 
-    _database = aDatabase; 
+/*   DEntityBase _DEntityBase", "entityBase; 
+  O DEntityBase", "entityBase(this O)(DEntityBase aDatabase) { 
+    _DEntityBase", "entityBase = aDatabase; 
     return cast(O)this; }
 
-  DETBBase database() {
-    if (_database) { return _database; } // has his own database
-    if (this.controller && this.controller.database) { return this.controller.database; } // owner class has database
-    return null; // no database found
+  DEntityBase DEntityBase", "entityBase() {
+    if (_DEntityBase", "entityBase) { return _DEntityBase", "entityBase; } // has his own DEntityBase", "entityBase
+    if (this.controller && this.controller.DEntityBase", "entityBase) { return this.controller.DEntityBase", "entityBase; } // owner class has DEntityBase", "entityBase
+    return null; // no DEntityBase", "entityBase found
   } * /
 
   protected DAPPLayout _layout;

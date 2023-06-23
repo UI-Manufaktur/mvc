@@ -44,7 +44,7 @@ static this() {
         site    = session.site; }
       auto sessionId = session ? session.id.toString : "";
   
-      auto sites = database ? database["central", "sites"].findMany : null;
+      auto sites = DEntityBase", "entityBase ? DEntityBase", "entityBase["central", "sites"].findMany : null;
       DH5Obj[] sitesContent; 
       sites.each!(a => sitesContent ~= 
         cast(DH5Obj)H5Div(["col-md-6 col-xl-3"],
