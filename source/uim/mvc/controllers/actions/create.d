@@ -38,18 +38,27 @@ class DCreateActionController : DActionController {
 
     if (manager.isNull) return false; 
 
-    if (auto myDatabase = manager.database) {
-      if (auto myTenant = myDatabase[mySite]) {
-        if (auto collection = myTenant[pool]) {
-          if (auto entity = collection.createFromTemplate) {
-            with (entity) {
-              readFromRequest(options);
-              save; 
-            }
+    if (!databaseManager) {
+      debug writeln("No database manager");
+      return false;
+    }
 
-            options["redirect"] = pgPath~"/view?id="~entity.id.toString; 
-            return false;
+    auto myDatabase = databaseManager.database;
+    if (!myDatabase) {
+      debug writeln("No database manager");
+      return false;
+    }
+      
+    if (auto myTenant = myDatabase[mySite]) {
+      if (auto collection = myTenant[pool]) {
+        if (auto entity = collection.createFromTemplate) {
+          with (entity) {
+            readFromRequest(options);
+            save; 
           }
+
+          options["redirect"] = pgPath~"/view?id="~entity.id.toString; 
+          return false;
         }
       }
     }

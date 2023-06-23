@@ -8,7 +8,7 @@ module uim.mvc.controllers.pages.page;
 import uim.mvc;
 @safe:
 
-class DPageController : DController, IPageController {
+class DPageController : DController, IPageController, IViewManager {
   mixin(ControllerThis!("PageController"));
 
   // Initialization (= hook method)
@@ -67,6 +67,8 @@ class DPageController : DController, IPageController {
 
   mixin(OProperty!("IView", "view"));
   mixin(OProperty!("IView", "errorView"));
+
+  mixin ViewManagerTemplate;
 
   // Required checks for the page flow
   mixin(OProperty!("string[]", "sessionData"));

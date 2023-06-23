@@ -4,6 +4,10 @@ import uim.mvc;
 @safe:
 
 interface IControllerManager {
+  IDatabaseManager databaseManager();
+  ILayoutManager layoutManager();
+  ISessionManager sessionManager();
+
   void controllers(DControllerContainer aContainer); 
   DControllerContainer controllers(); 
 

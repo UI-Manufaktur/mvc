@@ -22,18 +22,26 @@ class DSystemActionController : DActionController {
     if (!super.beforeResponse(options) || hasError || "redirect" in options) { return false; }    
     
     // this.tenant(ETBNullTenant).collection(ETBNullCollection); // Clear
-    debug writeln("-0-");
 
-    if (auto myDatabase = (manager ? manager.database : null)) {
-      debug writeln("Found database"); 
-      if (auto myTenant = myDatabase["systems"]) {
-        // this.tenant(myTenant);
-        this.logins(myTenant["system_logins"]);
-        this.sessions(myTenant["system_sessions"]);
-        this.accounts(myTenant["system_accounts"]);
-        this.sites(myTenant["system_sites"]);
-        this.passwords(myTenant["system_passwords"]);
-      }
+    if (!databaseManager) {
+      debug writeln("No database manager");
+      return false;
+    }
+
+    auto myDatabase = databaseManager.database;
+    if (!myDatabase) {
+      debug writeln("No database manager");
+      return false;
+    }
+
+    debug writeln("Found database"); 
+    if (auto myTenant = myDatabase["systems"]) {
+      // this.tenant(myTenant);
+      this.logins(myTenant["system_logins"]);
+      this.sessions(myTenant["system_sessions"]);
+      this.accounts(myTenant["system_accounts"]);
+      this.sites(myTenant["system_sites"]);
+      this.passwords(myTenant["system_passwords"]);
     }
 
     return true;  

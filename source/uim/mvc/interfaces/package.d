@@ -20,6 +20,7 @@ public {
   import uim.mvc.interfaces.controllercomponent;
   import uim.mvc.interfaces.controllercomponentmanager;
 	import uim.mvc.interfaces.controllermanager;
+	import uim.mvc.interfaces.databasemanager;
   import uim.mvc.interfaces.event;
   import uim.mvc.interfaces.eventlistener;
   import uim.mvc.interfaces.eventmanager;
