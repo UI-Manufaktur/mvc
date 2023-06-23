@@ -9,34 +9,50 @@ import uim.mvc;
 @safe:
 
 mixin template SessionManagerTemplate() {
-  protected DSessionContainer _sessions;
+  protected DSessionContainer _sessionContainer;
+
+  void sessions(DSessionContainer aContainer) {
+    _sessionContainer = aContainer;
+  }
+  DSessionContainer sessions() {
+    return _sessionContainer; 
+  }
 
   ISession session(string[string] options) {
     return sessions(options.get("httpSessionId", null));
   }  
   ISession session(string httpSessionId) {
-    return _sessions[httpSessionId, NullSession];
+    if (_sessionContainer) return _sessionContainer[httpSessionId, NullSession];
+    return null;
   }
 
+  bool existsSession(ISession aSession) {
+    return existsSession(aSession.httpSessionId);
+  }
   bool existsSession(string httpSessionId) {
-    return (httpSessionId in _sessions ? true : false);
+    if (_sessionContainer) return (httpSessionId in _sessionContainer ? true : false);
+    retur false;
   }
 
   void addSession(ISession aSession) {
-    if (aSession) addSession(aSession.name, aSession);
+    if (aSession) addSession(aSession.httpSessionId, aSession);
   }
   void addSession(string httpSessionId, ISession aSession) {
-    if (aSession) _sessions.add(httpSessionId, aSession);
-  }
-
-  void updateSession(string httpSessionId, ISession aSession) {
-    if (aSession && httpSessionId in _session) _sessions.update(httpSessionId, aSession);
-  }
+    if (_sessionContainer && aSession) _sessionContainer.add(httpSessionId, aSession);
+  
+  // Update existing session
   void updateSession(ISession aSession) {
-    if (aSession && aSession.httpSessionId in _session) _sessions.update(httpSessionId, aSession);
+    if (aSession) updateSession(aSession.httpSessionId);
+  }
+  void updateSession(string httpSessionId, ISession aSession) {
+    if (_sessionContainer && existsSession(httpSessionId)) _sessionContainer.update(httpSessionId, aSession);
   }
 
+  // Remove existing session
+  void removeSession(ISession aSession) {
+    if (aSession) removeSession(aSession.httpSessionId);
+  }
   void removeSession(string httpSessionId) {
-    if (existsSession(httpSessionId)) _sessions.remove(httpSessionId);
+    if (_sessionContainer && existsSession(httpSessionId)) _sessionContainer.remove(httpSessionId);
   }
 }
