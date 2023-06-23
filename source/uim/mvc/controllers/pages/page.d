@@ -33,7 +33,9 @@ class DPageController : DController, IPageController, IViewManager {
   }
 
   // inherited
-  override DEntityBase DEntityBase", "entityBase() { return super.DEntityBase", "entityBase; }
+  override DEntityBase entityBase() { 
+    return super.entityBase(); // Pass through
+  }
 
   // Containers
   

@@ -22,7 +22,18 @@ class DDatabaseHasPasswordsCheck : DDatabaseHasSystemsCheck {
     debug writeln(moduleName!DDatabaseHasPasswordsCheck~":DDatabaseHasPasswordsCheck::check");
     if (!super.execute(options)) { return false; }
 
-    if (!this.DEntityBase", "entityBase.hasCollection("systems", "system_passwords")) { // collection passwords missing 
+    if (!manager) {
+      this.error("manager_missing");
+      return false; 
+    }
+
+    auto myEntityBase = manager.entityBase;
+    if (!myEntityBase) {
+      this.error("entitybase_missing");
+      return false; 
+    }
+
+    if (!myEntityBase.hasCollection("systems", "system_passwords")) { // collection passwords missing 
       this.error("collection_passwords_missing");
       return false; 
     }

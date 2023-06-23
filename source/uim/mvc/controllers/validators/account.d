@@ -19,6 +19,17 @@ class DValidatorAccount : DValidator {
     string mySessionId = reqParameters.get("mySessionId", "");
     auto mySession = cast(DSession)sessionManager.session(reqParameters); 
 
+    if (!manager) {
+      this.error("manager_missing");
+      return false; 
+    }
+
+    auto myEntityBase = manager.entityBase;
+    if (!myEntityBase) {
+      this.error("entitybase_missing");
+      return false; 
+    }
+    
     // Looking for a accountId
     if (mySession) {
       auto account = mySession.account;
@@ -28,8 +39,8 @@ class DValidatorAccount : DValidator {
           return null; // :-(
 
         accountIdParameter = reqParameters["accountId"];
-        if (DEntityBase", "entityBase) { // Look into DEntityBase", "entityBase
-          auto dbAccount = DEntityBase", "entityBase["systems", "system_accounts"].findOne(UUID(accountIdParameter));
+        if (myEntityBase) { // Look into DEntityBase", "entityBase
+          auto dbAccount = myEntityBase["systems", "system_accounts"].findOne(UUID(accountIdParameter));
           if (dbAccount) {
             // found account :-)
             dbAccount.lastAccessedOn = toTimestamp(now);

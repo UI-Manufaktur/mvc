@@ -17,7 +17,18 @@ class DAPPEntityCrudPageController : DAPPEntityPageController {
     
     auto myInternalSession = sessionManager.session(requestParameters);
 
-    auto collection = DEntityBase", "entityBase[myInternalSession.site, collectionName]; 
+    if (!manager) {
+      this.error("manager_missing");
+      return false; 
+    }
+
+    auto myEntityBase = manager.entityBase;
+    if (!myEntityBase) {
+      this.error("entitybase_missing");
+      return false; 
+    }
+
+    auto collection = myEntityBase[myInternalSession.site, collectionName]; 
     if (!collection) {
       requestParameters["redirect"] = "/";
       return false; 

@@ -15,6 +15,17 @@ class DValidatorLogin : DValidator {
     string mySessionId = reqParameters.get("sessionId", "");
     auto mySession = cast(DSession)sessionManager.session(reqParameters);
 
+    if (!manager) {
+      this.error("manager_missing");
+      return null; 
+    }
+
+    auto myEntityBase = manager.entityBase;
+    if (!myEntityBase) {
+      this.error("entitybase_missing");
+      return null; 
+    }
+
     // Looking for a loginId
     auto login = mySession.login;
     if (login) { // No login. Try to read from reqParameters
@@ -27,8 +38,8 @@ class DValidatorLogin : DValidator {
         return null; // :-(
 
       loginIdParameter = reqParameters["loginId"];
-      if (DEntityBase", "entityBase) { // Look into DEntityBase", "entityBase
-        auto dbLogin = DEntityBase", "entityBase["systems", "system_logins"].findOne(UUID(loginIdParameter));
+      if (myEntityBase) { // Look into DEntityBase", "entityBase
+        auto dbLogin = myEntityBase["systems", "system_logins"].findOne(UUID(loginIdParameter));
         if (dbLogin) {
           // found login :-)
           dbLogin.lastAccessedOn = toTimestamp(now);

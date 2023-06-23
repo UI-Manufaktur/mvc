@@ -41,7 +41,18 @@ override void initialize(Json configSettings = Json(null)) {
 
     auto session = sessionManager.session(options);
 
-    this.entity(DEntityBase", "entityBase[session.site, collectionName].findOne(options.toEntitySelect));
+    if (!manager) {
+      this.error("manager_missing");
+      return false; 
+    }
+
+    auto myEntityBase = manager.entityBase;
+    if (!myEntityBase) {
+      this.error("entitybase_missing");
+      return false; 
+    }
+
+    this.entity(myEntityBase[session.site, collectionName].findOne(options.toEntitySelect));
     if (!entity) {
       // TODO Errorhandling
       return false;

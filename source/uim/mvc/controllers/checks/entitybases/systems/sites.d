@@ -22,7 +22,18 @@ class DDatabaseHasSitesCheck : DDatabaseHasSystemsCheck {
     debug writeln(moduleName!DDatabaseHasSitesCheck~":DDatabaseHasSitesCheck::check");
     if (!super.execute(options)) { return false; }
 
-    if (!this.DEntityBase", "entityBase.hasCollection("systems", "system_sites")) { // collection sites missing 
+    if (!manager) {
+      this.error("manager_missing");
+      return false; 
+    }
+
+    auto myEntityBase = manager.entityBase;
+    if (!myEntityBase) {
+      this.error("entitybase_missing");
+      return false; 
+    }
+    
+    if (!myEntityBase.hasCollection("systems", "system_sites")) { // collection sites missing 
       this.error("collection_sites_missing");
       return false; }
     
