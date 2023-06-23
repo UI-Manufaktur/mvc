@@ -4,7 +4,7 @@ import uim.mvc;
 @safe:
 
 interface IControllerManager {
-  IDatabaseManager databaseManager();
+  IDatabase database();
   ILayoutManager layoutManager();
   ISessionManager sessionManager();
 

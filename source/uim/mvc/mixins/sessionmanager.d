@@ -31,7 +31,7 @@ mixin template SessionManagerTemplate() {
   }
   bool existsSession(string httpSessionId) {
     if (_sessionContainer) return (httpSessionId in _sessionContainer ? true : false);
-    retur false;
+    return false;
   }
 
   void addSession(ISession aSession) {
@@ -39,7 +39,7 @@ mixin template SessionManagerTemplate() {
   }
   void addSession(string httpSessionId, ISession aSession) {
     if (_sessionContainer && aSession) _sessionContainer.add(httpSessionId, aSession);
-  
+  }
   // Update existing session
   void updateSession(ISession aSession) {
     if (aSession) updateSession(aSession.httpSessionId);

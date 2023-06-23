@@ -23,6 +23,7 @@ public {
 	import  uim.mvc.mixins.sessionmanager;
 	import  uim.mvc.mixins.view;
 	import  uim.mvc.mixins.viewcomponent;
+	import  uim.mvc.mixins.viewmanager;
 	import  uim.mvc.mixins.widget;
 }
 
