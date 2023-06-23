@@ -28,7 +28,7 @@ class DUpdateActionController : DActionController {
     auto session = sessionManager.session(options);
     auto site = session.site;
 
-    auto collection = database[site, pool];
+    auto collection = DEntityBase", "entityBase[site, pool];
     if (!collection) {
       options["redirect"] = pgPath~"/view"; 
       return false; }

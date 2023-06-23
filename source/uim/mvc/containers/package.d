@@ -15,7 +15,7 @@ public {
 
 // Modules
 public {
-	import  uim.mvc.containers.Applicationinterface;
+	import  uim.mvc.containers.applicationinterface;
 	import  uim.mvc.containers.h5;
 	import  uim.mvc.containers.links;
 	import  uim.mvc.containers.metas;

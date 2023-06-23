@@ -134,11 +134,11 @@ class DController : DMVCObject, IController, IControllerComponentManager  {
   // https://vibed.org/api/vibe.http.session/
   mixin(OProperty!("DSession", "session"));
 
-  // #region database
-    DETBBase database() {
-      return (this.manager ? this.manager.database : null);
+  // #region DEntityBase", "entityBase
+    DEntityBase entityBase() {
+      return (this.manager ? this.manager.DEntityBase", "entityBase : null);
     }
-  // #endregion database
+  // #endregion DEntityBase", "entityBase
   
   bool hasRedirect() {
     return (this.redirectUrl.length > 0);

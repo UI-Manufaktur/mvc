@@ -1094,7 +1094,7 @@ interface IAPPCollection { //} extends Iterator, JsonSerializable
      * That is, you may not be able to get elements out of it, or to iterate on it anymore.
      *
      * Specifically any collection wrapping a Generator (a function with a yield statement)
-     * or a unbuffered database cursor will not accept any other function calls after calling
+     * or a unbuffered DEntityBase", "entityBase cursor will not accept any other function calls after calling
      * `count()` on it.
      *
      * Create a new collection with `buffered()` method to overcome this problem.

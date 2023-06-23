@@ -11,11 +11,11 @@ import uim.mvc;
 class DSystemActionController : DActionController {
   mixin(ControllerThis!("SystemActionController"));
 
-  mixin(OProperty!("DETBCollection", "logins"));
-  mixin(OProperty!("DETBCollection", "sessions"));
-  mixin(OProperty!("DETBCollection", "accounts"));
-  mixin(OProperty!("DETBCollection", "sites"));
-  mixin(OProperty!("DETBCollection", "passwords"));
+  mixin(OProperty!("DEntityCollection", "logins"));
+  mixin(OProperty!("DEntityCollection", "sessions"));
+  mixin(OProperty!("DEntityCollection", "accounts"));
+  mixin(OProperty!("DEntityCollection", "sites"));
+  mixin(OProperty!("DEntityCollection", "passwords"));
 
   override bool beforeResponse(STRINGAA options = null) {
     debugMethodCall(moduleName!DSystemActionController~":DSystemActionController("~this.name~")::beforeResponse");
@@ -23,18 +23,18 @@ class DSystemActionController : DActionController {
     
     // this.tenant(ETBNullTenant).collection(ETBNullCollection); // Clear
 
-    if (!databaseManager) {
-      debug writeln("No database manager");
+    if (!DEntityBase", "entityBaseManager) {
+      debug writeln("No DEntityBase", "entityBase manager");
       return false;
     }
 
-    auto myDatabase = databaseManager.database;
+    auto myDatabase = DEntityBase", "entityBaseManager.DEntityBase", "entityBase;
     if (!myDatabase) {
-      debug writeln("No database manager");
+      debug writeln("No DEntityBase", "entityBase manager");
       return false;
     }
 
-    debug writeln("Found database"); 
+    debug writeln("Found DEntityBase", "entityBase"); 
     if (auto myTenant = myDatabase["systems"]) {
       // this.tenant(myTenant);
       this.logins(myTenant["system_logins"]);

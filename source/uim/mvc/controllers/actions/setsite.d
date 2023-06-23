@@ -33,7 +33,7 @@ class DSelectSiteActionController : DActionController {
     // HttpSession myHttpSession = mySession.session; 
     debug writeln(mySession ? "Found session" : "Missing session");
 
-    DEntity mySite = database["systems"]["system_sites"].findOne(["id":options.get("siteId", null)]);
+    DEntity mySite = DEntityBase", "entityBase["systems"]["system_sites"].findOne(["id":options.get("siteId", null)]);
     debug writeln(mySite ? "Found site" : "Missing site");
 
     if (mySession && mySite) {

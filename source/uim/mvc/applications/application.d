@@ -78,7 +78,7 @@ class DAPPApplication {
   mixin(OProperty!("string", "name"));
   mixin(OProperty!("string", "rootPath"));
   mixin(OProperty!("size_t", "versionNumber"));
-  mixin(OProperty!("DETBBase", "database"));
+  mixin(OProperty!("DEntityBase", "DEntityBase", "entityBase"));
   mixin(OProperty!("DAPPLayout", "layout"));
   mixin(OProperty!("STRINGAA", "parameters"));
   mixin(OProperty!("Json", "config"));
@@ -122,7 +122,7 @@ version(test_uim_apps) { unittest {
 /* class DAPPApplication  {
 	this() { super(); }
 
-	mixin(OProperty!("DETBBase", "database"));
+	mixin(OProperty!("DEntityBase", "DEntityBase", "entityBase"));
 
 /*   mixin(OProperty!("DAPPSecurityController", "securityController")); 
   mixin(OProperty!("DAPPSecurityOptions", "securityOptions"));

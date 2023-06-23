@@ -38,14 +38,14 @@ class DCreateActionController : DActionController {
 
     if (manager.isNull) return false; 
 
-    if (!databaseManager) {
-      debug writeln("No database manager");
+    if (!DEntityBase", "entityBaseManager) {
+      debug writeln("No DEntityBase", "entityBase manager");
       return false;
     }
 
-    auto myDatabase = databaseManager.database;
+    auto myDatabase = DEntityBase", "entityBaseManager.DEntityBase", "entityBase;
     if (!myDatabase) {
-      debug writeln("No database manager");
+      debug writeln("No DEntityBase", "entityBase manager");
       return false;
     }
       
