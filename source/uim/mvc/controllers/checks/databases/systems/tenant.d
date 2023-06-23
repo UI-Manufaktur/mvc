@@ -22,9 +22,18 @@ class DDatabaseHasSystemsCheck : DDatabaseExistsCheck {
     debug writeln(moduleName!DDatabaseHasSystemsCheck~":DDatabaseHasSystemsCheck::execute");
     if (!super.execute(options)) { return false; }
 
-    debug writeln(this.DEntityBase", "entityBase ? "Database exists" : "Database missing");
+    if (!manager) {
+      this.error("manager_missing");
+      return false; 
+    }
 
-    if (!this.DEntityBase", "entityBase.hasTenant("systems")) {  
+    auto myEntityBase = manager.entityBase;
+    if (!myEntityBase) {
+      this.error("entitybase_missing");
+      return false; 
+    }
+
+    if (!myEntityBase.hasTenant("systems")) {  
       this.error("tenant_systems_missing");
       return false; }
 

@@ -24,7 +24,18 @@ class DDatabaseHasTenantCheck : DDatabaseExistsCheck {
     debug writeln(moduleName!DDatabaseHasTenantCheck~":DDatabaseHasTenantCheck::check");
     if (!super.execute(options)) { return false; }
 
-    if (!this.DEntityBase", "entityBase.hasTenant(tenantName)) {  
+    if (!manager) {
+      this.error("manager_missing");
+      return false; 
+    }
+
+    auto myEntityBase = manager.entityBase;
+    if (!myEntityBase) {
+      this.error("entitybase_missing");
+      return false; 
+    }
+
+    if (!myEntityBase.hasTenant(tenantName)) {  
       this.error("collection_("~tenantName~")_missing");
       return false; }
 

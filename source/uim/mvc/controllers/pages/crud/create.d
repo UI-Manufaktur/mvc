@@ -41,7 +41,18 @@ override void initialize(Json configSettings = Json(null)) {
     
     auto mySession = sessionManager.session(requestParameters);
 
-    auto collection = DEntityBase", "entityBase[mySession.site, collectionName]; 
+    if (!manager) {
+      this.error("manager_missing");
+      return false; 
+    }
+
+    auto myEntityBase = manager.entityBase;
+    if (!myEntityBase) {
+      this.error("entitybase_missing");
+      return false; 
+    }
+    
+    auto collection = myEntityBase[mySession.site, collectionName]; 
     if (!collection) {
       requestParameters["redirect"] = "/";
       return false; }

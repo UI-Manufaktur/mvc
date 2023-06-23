@@ -22,9 +22,21 @@ class DDatabaseHasAccountsCheck : DDatabaseHasSystemsCheck {
     debug writeln(moduleName!DDatabaseHasAccountsCheck~":DDatabaseHasAccountsCheck::check");
     if (!super.execute(options)) { return false; }
 
-    if (!this.DEntityBase", "entityBase.hasCollection("systems", "system_accounts")) { // collection accounts missing 
+    if (!manager) {
+      this.error("manager_missing");
+      return false; 
+    }
+
+    auto myEntityBase = manager.entityBase;
+    if (!myEntityBase) {
+      this.error("entitybase_missing");
+      return false; 
+    }
+
+    if (!myEntityBase.hasCollection("systems", "system_accounts")) { // collection accounts missing 
       this.error("collection_accounts_missing");
-      return false; }
+      return false; 
+    }
     
     return true;
   }

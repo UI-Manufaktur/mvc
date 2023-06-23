@@ -22,13 +22,21 @@ class DDatabaseHasSessionsCheck : DDatabaseHasSystemsCheck {
     debug writeln(moduleName!DDatabaseHasSessionsCheck~":DDatabaseHasSessionsCheck::execute");
     if (!super.execute(options)) { return false; }
 
-    debug writeln(this.DEntityBase", "entityBase ? "Database exists" : "Database missing");
-    if (this.DEntityBase", "entityBase) debug writeln(this.DEntityBase", "entityBase.hasTenant("systems") ? "Tenant 'systems' exists" : "Tenant 'systems' missing");
+    if (!manager) {
+      this.error("manager_missing");
+      return false; 
+    }
 
-    if (!this.DEntityBase", "entityBase.hasTenant("systems")) {
+    auto myEntityBase = manager.entityBase;
+    if (!myEntityBase) {
+      this.error("entitybase_missing");
+      return false; 
+    }
+
+    if (!myEntityBase.hasTenant("systems")) {
       debug writeln("tenant systsms missing"); }
 
-    if (!this.DEntityBase", "entityBase["systems"].hasCollection("system_sessions")) { // collection sessions missing 
+    if (!myEntityBase["systems"].hasCollection("system_sessions")) { // collection sessions missing 
       this.error("collection_sessions_missing");
       return false; }
     

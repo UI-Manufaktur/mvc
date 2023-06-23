@@ -76,7 +76,18 @@ window.addEventListener('load', (event) => {
       options["redirect"] = "/";
       return; } */
 
-    this.entity(DEntityBase", "entityBase[session.site, collectionName].findOne(options.toEntitySelect));
+    if (!manager) {
+      this.error("manager_missing");
+      return false; 
+    }
+
+    auto myEntityBase = manager.entityBase;
+    if (!myEntityBase) {
+      this.error("entitybase_missing");
+      return false; 
+    }
+
+    this.entity(myEntityBase[session.site, collectionName].findOne(options.toEntitySelect));
     if (!entity) {
       // TODO Errorhandling
       return false;

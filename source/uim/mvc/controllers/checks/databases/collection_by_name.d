@@ -25,7 +25,18 @@ class DDatabaseHasCollectionCheck : DDatabaseExistsCheck {
     debug writeln(moduleName!DDatabaseHasCollectionCheck~":DDatabaseHasCollectionCheck::check");
     if (!super.execute(options)) { return false; }
     
-    if (!this.DEntityBase", "entityBase.hasTenant(tenantName) || !this.DEntityBase", "entityBase[tenantName].hasCollection(collectionName)) {  
+    if (!manager) {
+      this.error("manager_missing");
+      return false; 
+    }
+
+    auto myEntityBase = manager.entityBase;
+    if (!myEntityBase) {
+      this.error("entitybase_missing");
+      return false; 
+    }
+
+    if (!myEntityBase.hasTenant(tenantName) || !myEntityBase[tenantName].hasCollection(collectionName)) {  
       this.error("collection_("~tenantName~","~collectionName~")_missing");
       return false; }
 

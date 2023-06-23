@@ -3,7 +3,7 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel, mailto:ons@sicherheitsschmiede.de                                                      
 **********************************************************************************************************/
-module uim.mvc.controllers.checks.entitybases.DEntityBase", "entityBase;
+module uim.mvc.controllers.checks.entitybases.entitybase;
 
 import uim.mvc;
 @safe:
@@ -37,12 +37,17 @@ class DDatabaseExistsCheck : DControllerCheck {
     debug writeln(moduleName!DDatabaseExistsCheck~":DDatabaseExistsCheck::execute");
     if (!super.execute(options)) { return false; }
 
-    if (!this.manager) debug writeln("Manager missing");
-        
-    if (!this.DEntityBase", "entityBase) { // DEntityBase", "entityBase missing 
-      this.error("DEntityBase", "entityBase_missing");
-      return false;
+    if (!manager) {
+      this.error("manager_missing");
+      return false; 
     }
+
+    auto myEntityBase = manager.entityBase;
+    if (!myEntityBase) {
+      this.error("entitybase_missing");
+      return false; 
+    }
+        
     return true;
   }
 }

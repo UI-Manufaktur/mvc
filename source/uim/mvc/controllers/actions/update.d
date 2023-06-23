@@ -28,18 +28,29 @@ class DUpdateActionController : DActionController {
     auto session = sessionManager.session(options);
     auto site = session.site;
 
-    auto collection = DEntityBase", "entityBase[site, pool];
-    if (!collection) {
+    if (!manager) {
+      this.error("manager_missing");
+      return false; 
+    }
+
+    auto myEntityBase = manager.entityBase;
+    if (!myEntityBase) {
+      this.error("entitybase_missing");
+      return false; 
+    }
+
+    auto myCollection = myEntityBase[site, pool];
+    if (!myCollection) {
       options["redirect"] = pgPath~"/view"; 
       return false; }
 
-    if (auto entity = collection.createFromTemplate) {
-      with (entity) {
+    if (auto myEntity = myCollection.createFromTemplate) {
+      with (myEntity) {
         readFromRequest(options);
         save; 
       }
 
-      options["redirect"] = pgPath~"/view?id="~entity.id.toString; 
+      options["redirect"] = pgPath~"/view?id="~myEntity.id.toString; 
     }
 
     return true;

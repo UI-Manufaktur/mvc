@@ -22,7 +22,18 @@ class DDatabaseHasLoginsCheck : DDatabaseHasSystemsCheck {
     debug writeln(moduleName!DDatabaseHasLoginsCheck~":DDatabaseHasLoginsCheck::check");
     if (!super.execute(options)) { return false; }
 
-    if (!this.DEntityBase", "entityBase.hasCollection("systems", "system_logins")) { // collection logins missing 
+    if (!manager) {
+      this.error("manager_missing");
+      return false; 
+    }
+
+    auto myEntityBase = manager.entityBase;
+    if (!myEntityBase) {
+      this.error("entitybase_missing");
+      return false; 
+    }
+
+    if (!myEntityBase.hasCollection("systems", "system_logins")) { // collection logins missing 
       this.error("collection_logins_missing");
       return false; }
     
