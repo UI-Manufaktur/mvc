@@ -23,8 +23,8 @@ class DValidatorEntity : DValidator {
         return null; // :-(
 
       entityIdParameter = reqParameters["entityId"];
-      if (database) { // Look into database
-        auto dbEntity = database["systems", "entitys"].findOne(UUID(entityIdParameter));
+      if (DEntityBase", "entityBase) { // Look into DEntityBase", "entityBase
+        auto dbEntity = DEntityBase", "entityBase["systems", "entitys"].findOne(UUID(entityIdParameter));
         if (dbEntity) {
           // found entity :-)
           dbEntity.lastAccessedOn = toTimestamp(now);

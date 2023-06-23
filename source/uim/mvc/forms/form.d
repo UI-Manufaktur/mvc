@@ -83,15 +83,15 @@ class DForm : DViewComponent, IViewComponentManager {  // : IEventListener, IEve
     mixin(OProperty!("DFormFooter", "footer"));
   // #endregion Properties
 
-/*   DETBBase _database; 
-  O database(this O)(DETBBase aDatabase) { 
-    _database = aDatabase; 
+/*   DEntityBase _DEntityBase", "entityBase; 
+  O DEntityBase", "entityBase(this O)(DEntityBase aDatabase) { 
+    _DEntityBase", "entityBase = aDatabase; 
     return cast(O)this; }
 
-  DETBBase database() {
-    if (_database) { return _database; } // has his own database
-    if (this.view && this.view.database) { return this.view.database; } // owner class has database
-    return null; // no database found
+  DEntityBase DEntityBase", "entityBase() {
+    if (_DEntityBase", "entityBase) { return _DEntityBase", "entityBase; } // has his own DEntityBase", "entityBase
+    if (this.view && this.view.DEntityBase", "entityBase) { return this.view.DEntityBase", "entityBase; } // owner class has DEntityBase", "entityBase
+    return null; // no DEntityBase", "entityBase found
   } */
 
   /**

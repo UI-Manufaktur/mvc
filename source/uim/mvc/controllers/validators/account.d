@@ -28,8 +28,8 @@ class DValidatorAccount : DValidator {
           return null; // :-(
 
         accountIdParameter = reqParameters["accountId"];
-        if (database) { // Look into database
-          auto dbAccount = database["systems", "system_accounts"].findOne(UUID(accountIdParameter));
+        if (DEntityBase", "entityBase) { // Look into DEntityBase", "entityBase
+          auto dbAccount = DEntityBase", "entityBase["systems", "system_accounts"].findOne(UUID(accountIdParameter));
           if (dbAccount) {
             // found account :-)
             dbAccount.lastAccessedOn = toTimestamp(now);

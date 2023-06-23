@@ -41,7 +41,7 @@ override void initialize(Json configSettings = Json(null)) {
 
     auto session = sessionManager.session(options);
 
-    this.entity(database[session.site, collectionName].findOne(options.toEntitySelect));
+    this.entity(DEntityBase", "entityBase[session.site, collectionName].findOne(options.toEntitySelect));
     if (!entity) {
       // TODO Errorhandling
       return false;
@@ -84,7 +84,7 @@ mixin(ControllerCalls!("APPEntityUpdateController"));
 /*    override DH5Obj[] toH5(STRINGAA requestParameters) { 
       // debug writeln(StyledString("In "~_request.path~"-DAPPUpdatePage:toJson...").setForeground(AnsiColor.green).setBackground(AnsiColor.white));
 
-      auto json = this.app.database.findOne("siteName", "myPool", urlToSelect(requestParameters));
+      auto json = this.app.DEntityBase", "entityBase.findOne("siteName", "myPool", urlToSelect(requestParameters));
       auto entity = OOPEntity;
 
       auto tabpanes = APPPanes(entity);
@@ -100,7 +100,7 @@ mixin(ControllerCalls!("APPEntityUpdateController"));
         ACAttclassesPane("attclasses", "Attribute Classes", myPath).attclasses(entity.attclasses).actions(["view", "remove"]),
         ACObjclassesPane("objclasses", "Object Classes", myPath).objclasses(entity.objclasses).actions(["view", "remove"]),
         ACVersionsPane("versions", "Versions", myPath)
-          .versions(this.app.database.find("themes", ["id":requestParameters["id"]])),
+          .versions(this.app.DEntityBase", "entityBase.find("themes", ["id":requestParameters["id"]])),
         ACHistoryPane("history", "History", myPath)
       );
  *

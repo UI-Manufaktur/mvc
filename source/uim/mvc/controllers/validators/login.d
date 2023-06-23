@@ -27,8 +27,8 @@ class DValidatorLogin : DValidator {
         return null; // :-(
 
       loginIdParameter = reqParameters["loginId"];
-      if (database) { // Look into database
-        auto dbLogin = database["systems", "system_logins"].findOne(UUID(loginIdParameter));
+      if (DEntityBase", "entityBase) { // Look into DEntityBase", "entityBase
+        auto dbLogin = DEntityBase", "entityBase["systems", "system_logins"].findOne(UUID(loginIdParameter));
         if (dbLogin) {
           // found login :-)
           dbLogin.lastAccessedOn = toTimestamp(now);

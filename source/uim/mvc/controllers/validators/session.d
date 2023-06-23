@@ -18,8 +18,8 @@ class DValidatorSession : DValidator {
         return null; // :-(
 
       sessionIdParameter = reqParameters["sessionId"];
-      if (database) { // Look into database
-        auto dbSession = database["systems", "system_sessions"].findOne(UUID(sessionIdParameter));
+      if (DEntityBase", "entityBase) { // Look into DEntityBase", "entityBase
+        auto dbSession = DEntityBase", "entityBase["systems", "system_sessions"].findOne(UUID(sessionIdParameter));
         if (dbSession) {
           // found session :-)
           dbSession.lastAccessedOn = toTimestamp(now);

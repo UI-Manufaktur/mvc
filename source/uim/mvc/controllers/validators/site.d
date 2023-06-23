@@ -25,8 +25,8 @@ class DValidatorSite : DValidator {
         if (!siteIdParameter.isUUID) // No site id found
           return null;
         
-        if (database) { // Look into database, site exists?
-          auto dbSite = database["systems", "system_sites"].findOne(UUID(siteIdParameter));
+        if (DEntityBase", "entityBase) { // Look into DEntityBase", "entityBase, site exists?
+          auto dbSite = DEntityBase", "entityBase["systems", "system_sites"].findOne(UUID(siteIdParameter));
           if (dbSite) {
             // found site :-)
             dbSite.lastAccessedOn = toTimestamp(now);
