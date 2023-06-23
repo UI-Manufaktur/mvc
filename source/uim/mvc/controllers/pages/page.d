@@ -33,7 +33,7 @@ class DPageController : DController, IPageController, IViewManager {
   }
 
   // inherited
-  override DETBBase database() { return super.database; }
+  override DEntityBase DEntityBase", "entityBase() { return super.DEntityBase", "entityBase; }
 
   // Containers
   
@@ -56,7 +56,7 @@ class DPageController : DController, IPageController, IViewManager {
     }
 	// #endregion Layout
 
-  mixin(OProperty!("DETBCollection", "collection"));
+  mixin(OProperty!("DEntityCollection", "collection"));
   mixin(OProperty!("DEntity", "site"));
   mixin(OProperty!("DETBTenant", "tenant"));
 
@@ -186,7 +186,7 @@ class DPageController : DController, IPageController, IViewManager {
       }
       _session.remove("_id");
       _session["lastAccess"] = toTimestamp(now());
-      this.app.database.update("central", "sessions", ["id":sessionId], session); 
+      this.app.DEntityBase", "entityBase.update("central", "sessions", ["id":sessionId], session); 
     }
     result["session"] = this.session; 
 /*     reqParameters.addScript(
@@ -223,7 +223,7 @@ class DPageController : DController, IPageController, IViewManager {
       }
       _site.remove("_id");
       _site["lastAccess"] = toTimestamp(now());
-      this.app.database.update("central", "sites", ["id":siteId], site); 
+      this.app.DEntityBase", "entityBase.update("central", "sites", ["id":siteId], site); 
     }
     result["site"] = this.site; 
 /*     reqParameters.addScript(

@@ -20,7 +20,7 @@ class DMVCCreatorAccount : DMVCCreator {
       .id(randomUUID)
       .name(parameters.get("account", "account"~to!string(now)));
     entity["peer"] = parameters.get("peer", "");
-    if (database) database["systems", "system_accounts"].insertOne(entity);        
+    if (DEntityBase", "entityBase) DEntityBase", "entityBase["systems", "system_accounts"].insertOne(entity);        
 
     return entity;
   } */

@@ -47,7 +47,7 @@ import uim.mvc;
       auto sessionId = requestParameters.get("sessionId", "");
       // debug writeln("SessionId = ", sessionId);
 
-      auto sessionToken = this.app.database.findOne("central", "sessions", ["id":sessionId]);
+      auto sessionToken = this.app.DEntityBase", "entityBase.findOne("central", "sessions", ["id":sessionId]);
       if (sessionToken == Json(null)) {
         // debug writeln("SessionId not found in central.sessions -> ");
         _response.redirect("/login"); return ""; }

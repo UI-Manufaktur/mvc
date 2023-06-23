@@ -17,7 +17,7 @@ class DAPPEntityCrudPageController : DAPPEntityPageController {
     
     auto myInternalSession = sessionManager.session(requestParameters);
 
-    auto collection = database[myInternalSession.site, collectionName]; 
+    auto collection = DEntityBase", "entityBase[myInternalSession.site, collectionName]; 
     if (!collection) {
       requestParameters["redirect"] = "/";
       return false; 

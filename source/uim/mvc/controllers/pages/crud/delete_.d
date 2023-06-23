@@ -76,7 +76,7 @@ window.addEventListener('load', (event) => {
       options["redirect"] = "/";
       return; } */
 
-    this.entity(database[session.site, collectionName].findOne(options.toEntitySelect));
+    this.entity(DEntityBase", "entityBase[session.site, collectionName].findOne(options.toEntitySelect));
     if (!entity) {
       // TODO Errorhandling
       return false;
@@ -131,7 +131,7 @@ class DAPPDeletePage(T:DEntity) : DAPPPage {
       // debug writeln(StyledString("In "~_request.path~"-DAPPDeletePage:toJson...").setForeground(AnsiColor.green).setBackground(AnsiColor.white));
 
       // debug writeln("Looking for entity in ->", siteName~"."~"myPool");
-      auto json = this.app.database.findOne("siteName", "myPool", urlToSelect(requestParameters));
+      auto json = this.app.DEntityBase", "entityBase.findOne("siteName", "myPool", urlToSelect(requestParameters));
       auto entity = new T(json);
 
 
@@ -148,7 +148,7 @@ class DAPPDeletePage(T:DEntity) : DAPPPage {
         ACAttclassesPane("attclasses", "Attribute Classes", myPath).attclasses(entity.attclasses).actions(["view"]),
         ACObjclassesPane("objclasses", "Object Classes", myPath).objclasses(entity.objclasses).actions(["view"]),
         ACVersionsPane("versions", "Versions", myPath)
-          .versions(this.app.database.find("themes", ["id":requestParameters["id"]])),
+          .versions(this.app.DEntityBase", "entityBase.find("themes", ["id":requestParameters["id"]])),
         ACHistoryPane("history", "History", myPath)
       );
  *      

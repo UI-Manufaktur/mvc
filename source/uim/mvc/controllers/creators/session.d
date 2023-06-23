@@ -15,7 +15,7 @@ class DMVCCreatorSession : DMVCCreator {
     auto entity = createEntities["session"](Json.emptyObject)
       .id(randomUUID)
       .name(options.get("session", "session"~to!string(now)));
-    if (database) database["systems", "system_sessions"].insertOne(entity);        
+    if (DEntityBase", "entityBase) DEntityBase", "entityBase["systems", "system_sessions"].insertOne(entity);        
 
     return entity;
   } */

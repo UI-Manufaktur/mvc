@@ -12,7 +12,7 @@ class DMVCCreatorSite : DMVCCreator {
   mixin(ControllerThis!("MVCCreatorSite"));
 
 /*   override DEntity createEntity(STRINGAA options) {
-    auto col = database["systems", "system_sites"];
+    auto col = DEntityBase", "entityBase["systems", "system_sites"];
 
     return  col.notNull ? col
       .createFromTemplate
