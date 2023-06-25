@@ -41,6 +41,18 @@ class DControllerComponent : DMVCObject, IControllerComponent, IControllerCompon
 
   // Component registry class used to lazy load components.
   // mixin(OProperty!("DControllerComponentContainer", "components"));
+
+  protected IEntityBase _entityBase;
+  void entityBase(IEntityBase anEntityBase) {
+    _entityBase = anEntityBase;
+  }
+  IEntityBase entityBase() {
+    if (_entityBase) return _entityBase;
+
+    if (manager) return manager.entityBase;
+
+    return null;
+  }
 }
 mixin(ControllerComponentCalls!("ControllerComponent", "DControllerComponent"));
 

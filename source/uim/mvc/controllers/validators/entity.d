@@ -17,13 +17,13 @@ class DValidatorEntity : DValidator {
 
     if (!manager) {
       this.error("manager_missing");
-      return false; 
+      return null; 
     }
 
     auto myEntityBase = manager.entityBase;
     if (!myEntityBase) {
       this.error("entitybase_missing");
-      return false; 
+      return null; 
     }
 
     // Looking for a entityId

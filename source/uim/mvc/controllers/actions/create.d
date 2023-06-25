@@ -38,7 +38,7 @@ class DCreateActionController : DActionController {
 
     if (manager.isNull) return false; 
 
-    if (!entityBaseManager) {
+    if (!manager) {
       debug writeln("No manager");
       return false;
     }
@@ -50,8 +50,8 @@ class DCreateActionController : DActionController {
     }
       
     if (auto myTenant = myEntityBase[mySite]) {
-      if (auto collection = myTenant[pool]) {
-        if (auto entity = collection.createFromTemplate) {
+      if (auto myCollection = myTenant[pool]) {
+        if (auto entity = myCollection.createFromTemplate) {
           with (entity) {
             readFromRequest(options);
             save; 

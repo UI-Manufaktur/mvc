@@ -21,7 +21,7 @@ mixin template ViewManagerTemplate() {
   void defaultView(IView aView) {
     addView("default", aView);
   }
-  void defaultView() {
+  IView defaultView() {
     return view("default");
   }
   void errorView(IView aView) {
@@ -54,7 +54,7 @@ mixin template ViewManagerTemplate() {
 
   // Update existing view
   void updateView(IView aView) {
-     if (aView) updateView(aView.aName, aView);
+     if (aView) updateView(aView.name, aView);
   }
   void updateView(string aName, IView aView) {
     if (aView && existsView(aName)) _viewContainer.update(aName, aView);
@@ -62,7 +62,7 @@ mixin template ViewManagerTemplate() {
 
   // Remove existing view
   void removeView(IView aView) {
-    if (aView) removeView(aView.aName);
+    if (aView) removeView(aView.name);
   }
   void removeView(string aName) {
     if (_viewContainer && existsView(aName)) _viewContainer.remove(aName);

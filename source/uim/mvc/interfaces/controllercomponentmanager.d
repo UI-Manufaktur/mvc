@@ -4,5 +4,6 @@ import uim.mvc;
 @safe:
 
 interface IControllerComponentManager {
-  ISessionManager sessionManager();
+  ISessionManager sessionManager();  
+  IEntityBase entityBase();
 }

@@ -11,11 +11,11 @@ import uim.mvc;
 class DSystemActionController : DActionController {
   mixin(ControllerThis!("SystemActionController"));
 
-  mixin(OProperty!("DEntityCollection", "logins"));
-  mixin(OProperty!("DEntityCollection", "sessions"));
-  mixin(OProperty!("DEntityCollection", "accounts"));
-  mixin(OProperty!("DEntityCollection", "sites"));
-  mixin(OProperty!("DEntityCollection", "passwords"));
+  mixin(OProperty!("IEntityCollection", "logins"));
+  mixin(OProperty!("IEntityCollection", "sessions"));
+  mixin(OProperty!("IEntityCollection", "accounts"));
+  mixin(OProperty!("IEntityCollection", "sites"));
+  mixin(OProperty!("IEntityCollection", "passwords"));
 
   override bool beforeResponse(STRINGAA options = null) {
     debugMethodCall(moduleName!DSystemActionController~":DSystemActionController("~this.name~")::beforeResponse");

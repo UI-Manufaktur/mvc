@@ -32,8 +32,19 @@ class DSelectSiteActionController : DActionController {
     debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request - Working with session.session");
     // HttpSession myHttpSession = mySession.session; 
     debug writeln(mySession ? "Found session" : "Missing session");
+    
+    if (!manager) {
+      debug writeln("No manager");
+      return false;
+    }
 
-    DEntity mySite = manager.entityBase["systems"]["system_sites"].findOne(["id":options.get("siteId", null)]);
+    auto myEntityBase = manager.entityBase;
+    if (!myEntityBase) {
+      debug writeln("No manager");
+      return false;
+    }
+    
+    DEntity mySite = myEntityBase["systems"]["system_sites"].findOne(["id":options.get("siteId", null)]);
     debug writeln(mySite ? "Found site" : "Missing site");
 
     if (mySession && mySite) {

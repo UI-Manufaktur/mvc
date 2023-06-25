@@ -72,6 +72,18 @@ class DController : DMVCObject, IController, IControllerComponentManager  {
   // #region Managers
   mixin(OProperty!("IControllerManager", "manager"));
 
+  protected IEntityBase _entityBase;
+  void entityBase(IEntityBase anEntityBase) {
+    _entityBase = anEntityBase;
+  }
+  IEntityBase entityBase() {
+    if (_entityBase) return _entityBase;
+
+    if (manager) return manager.entityBase;
+
+    return null;
+  }
+
   // Link to the sessionManager. 
   protected ISessionManager _sessionManager; 
   O sessionManager(this O)(ISessionManager aSessionManager) {
@@ -133,12 +145,6 @@ class DController : DMVCObject, IController, IControllerComponentManager  {
 
   // https://vibed.org/api/vibe.http.session/
   mixin(OProperty!("DSession", "session"));
-
-  // #region DEntityBase", "entityBase
-    DEntityBase entityBase() {
-      return (this.manager ? this.manager.entityBase : null);
-    }
-  // #endregion DEntityBase", "entityBase
   
   bool hasRedirect() {
     return (this.redirectUrl.length > 0);

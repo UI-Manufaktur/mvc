@@ -17,21 +17,6 @@ class DDatabaseExistsCheck : DControllerCheck {
     this
     .redirectUrl("/error?message=DEntityBase", "entityBase_missing");
   }
-  
-  // Secure shortcut to this.DEntityBase", "entityBase
-  auto entityBase() {
-    if (!this.manager) return null;
-
-    if (auto myController = cast(DController)this.manager) { // 1 Level
-      return myController.manager ? myController.manager.entityBase : null;
-    }
-    if (auto myControllerComponent = cast(DControllerComponent)this.manager) { // 2 Level
-      if (auto myController = cast(DController)myControllerComponent.manager) {
-        return myController.manager ? myController.manager.entityBase : null;
-      }
-    }
-    return null;
-  }
 
   override bool execute(STRINGAA options = null) {
     debug writeln(moduleName!DDatabaseExistsCheck~":DDatabaseExistsCheck::execute");

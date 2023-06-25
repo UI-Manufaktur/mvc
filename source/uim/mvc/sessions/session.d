@@ -69,7 +69,7 @@ class DSession : DEntity, ISession {
           user.lastAccessedOn(toTimestamp(now)).save; break;
         case "entitybase": if (!page && page.entityBase) {
           debug writeln(moduleName!DSession~":DSession::beforeResponse -> No site => redirect /error");
-          requestParameters["redirect"] = "/error?message=DEntityBase", "entityBase";
+          requestParameters["redirect"] = "/error?message=entityBase";
           return false; } break;
         default: break;
       }      

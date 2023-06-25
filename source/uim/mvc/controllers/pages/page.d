@@ -33,7 +33,7 @@ class DPageController : DController, IPageController, IViewManager {
   }
 
   // inherited
-  override DEntityBase entityBase() { 
+  override IEntityBase entityBase() { 
     return super.entityBase(); // Pass through
   }
 
@@ -60,7 +60,7 @@ class DPageController : DController, IPageController, IViewManager {
 
   mixin(OProperty!("DEntityCollection", "collection"));
   mixin(OProperty!("DEntity", "site"));
-  mixin(OProperty!("DETBTenant", "tenant"));
+  mixin(OProperty!("DEntityTenant", "tenant"));
 
   mixin(OProperty!("Session", "globalSession"));
   mixin(OProperty!("string[]", "pageActions"));
