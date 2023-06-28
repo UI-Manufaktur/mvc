@@ -10,3 +10,4 @@ import uim.mvc;
 
 class DSessionContainer : DNamedContainer!ISession {
 }
+auto SessionContainer() { return new DSessionContainer(); }
