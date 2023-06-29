@@ -54,38 +54,38 @@ mixin template ControllerManagerTemplate() {
     }
   // #endregion controller
   
- override IController controller(string aName) {
+ IController controller(string aName) {
     return (_controllerContainer ? _controllerContainer[aName] : null);
   }
-  override void controller(string aName, IController aController) {
+  void controller(string aName, IController aController) {
     if (_controllerContainer) _controllerContainer[aName] = aController;
   }
 
-  override bool existsController(string aName) {
+  bool hasController(string aName) {
     return (_controllerContainer ? !(_controllerContainer[aName] is null) : false);
   }
 
   // Add controller if not exitst
-  override void addController(IController aController) {
+  void addController(IController aController) {
     if (aController) addController(aController.name, aController);
   }
-  override void addController(string aName, IController aController) {
-    if (_controllerContainer && aController && !existsController(aName)) _controllerContainer.add(aName, aController);
+  void addController(string aName, IController aController) {
+    if (_controllerContainer && aController && !hasController(aName)) _controllerContainer.add(aName, aController);
   }
 
   // Update existing controller
-  override void updateController(IController aController) {
+  void updateController(IController aController) {
      if (aController) updateController(aController.name, aController);
   }
-  override void updateController(string aName, IController aController) {
-    if (aController && existsController(aName)) _controllerContainer.update(aName, aController);
+  void updateController(string aName, IController aController) {
+    if (aController && hasController(aName)) _controllerContainer.update(aName, aController);
   }
 
   // Remove existing controller
-  override void removeController(IController aController) {
+  void removeController(IController aController) {
     if (aController) removeController(aController.name);
   }
-  override void removeController(string aName) {
-    if (_controllerContainer && existsController(aName)) _controllerContainer.remove(aName);
+  void removeController(string aName) {
+    if (_controllerContainer && hasController(aName)) _controllerContainer.remove(aName);
   }
 }

@@ -9,9 +9,6 @@ import uim.mvc;
 @safe:
 
 interface IViewManager {
-  void viewContainer(DViewContainer aContainer);
-  DViewContainer viewContainer();
-
   void views(IView[string] someViews);
   void views(IView[] someViews);
   IView[] views();

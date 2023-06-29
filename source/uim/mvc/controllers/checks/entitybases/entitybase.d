@@ -22,11 +22,6 @@ class DDatabaseExistsCheck : DControllerCheck {
     debug writeln(moduleName!DDatabaseExistsCheck~":DDatabaseExistsCheck::execute");
     if (!super.execute(options)) { return false; }
 
-    if (!manager) {
-      this.error("manager_missing");
-      return false; 
-    }
-
     auto myEntityBase = manager.entityBase;
     if (!myEntityBase) {
       this.error("entitybase_missing");

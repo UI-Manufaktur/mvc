@@ -9,7 +9,7 @@ import uim.mvc;
 @safe:
 
 interface IController : IMVCObject, ICheckManager, IControllerComponentManager {
-  IManager manager();
+  IControllerManager manager();
 
   string rootPath(); 
 
