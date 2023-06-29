@@ -27,26 +27,28 @@ mixin template ControllerManagerTemplate() {
       someControllers.byKeyValue.each!(kv => controller(kv.key, kv.value));
     }
 
+    void controllers(IController[] someControllers...) {
+      this.controllers(someControllers.dup);
+    }
+
     void controllers(IController[] someControllers) {
       someControllers.each!(col => controller(col));
     }
 
     IController[] controllers() { 
-      if (controllerContainer) return controllerContainer.values;
-      return null; 
+      return (controllerContainer ? controllerContainer.values : null); 
     }
     string[] controllerNames() {
-      if (controllerContainer) return controllerContainer.keys;
-      return null;
+      return (controllerContainer ? controllerContainer.keys : null);
     }
   // #endregion controllers
 
   // #region controller
     IController controller(string aName = null) {
-      if (_controllerContainer is null) return null;
-
-      return (aName ? _controllerContainer[aName, NullController] : _controllerContainer[_defaultController]);
-    }
+      return (controllerContainer ? 
+        (aName ? controllerContainer[aName, NullController] : controllerContainer[_defaultController])
+        : null);
+    }   
 
     void controller(IController aController) {
       if (aController) controller(aController.name, aController);
@@ -56,15 +58,11 @@ mixin template ControllerManagerTemplate() {
     }
   // #endregion controller
   
- IController controller(string aName) {
-    return (_controllerContainer ? _controllerContainer[aName] : null);
+  bool hasController(IController aController) {
+    return (aController ? hasController(aController.name) : false);
   }
-  void controller(string aName, IController aController) {
-    if (_controllerContainer) _controllerContainer[aName] = aController;
-  }
-
   bool hasController(string aName) {
-    return (_controllerContainer ? !(_controllerContainer[aName] is null) : false);
+    return (controllerContainer ? !(controllerContainer[aName] is null) : false);
   }
 
   // Add controller if not exitst
@@ -72,7 +70,7 @@ mixin template ControllerManagerTemplate() {
     if (aController) addController(aController.name, aController);
   }
   void addController(string aName, IController aController) {
-    if (_controllerContainer && aController && !hasController(aName)) _controllerContainer.add(aName, aController);
+    if (controllerContainer && aController && !hasController(aName)) controllerContainer.add(aName, aController);
   }
 
   // Update existing controller
@@ -80,7 +78,7 @@ mixin template ControllerManagerTemplate() {
      if (aController) updateController(aController.name, aController);
   }
   void updateController(string aName, IController aController) {
-    if (aController && hasController(aName)) _controllerContainer.update(aName, aController);
+    if (aController && hasController(aName)) controllerContainer.update(aName, aController);
   }
 
   // Remove existing controller
@@ -88,6 +86,6 @@ mixin template ControllerManagerTemplate() {
     if (aController) removeController(aController.name);
   }
   void removeController(string aName) {
-    if (_controllerContainer && hasController(aName)) _controllerContainer.remove(aName);
+    if (controllerContainer && hasController(aName)) controllerContainer.remove(aName);
   }
 }

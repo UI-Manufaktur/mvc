@@ -13,7 +13,7 @@ class DController : DMVCObject, IController, IControllerComponentManager, ISessi
 
   mixin(OProperty!("IControllerManager", "manager"));
 
-  mixin SessionManagerContainerTemplate;
+  mixin SessionContainerTemplate;
   mixin SessionManagerTemplate; 
 
   mixin(TProperty!("IControllerComponent[]", "components"));

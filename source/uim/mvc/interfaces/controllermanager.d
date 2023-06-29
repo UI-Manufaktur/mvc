@@ -21,7 +21,7 @@ interface IControllerManager : ISessionManager {
   void controller(IController aController);
   void controller(string aName, IController aController);
 
-  void hasController(string aName); 
+  bool hasController(string aName); 
 
   void addController(IController aController); 
   void addController(string aName, IController aController);

@@ -15,6 +15,7 @@ public {
 	import  uim.mvc.mixins.controllercomponent;
 	import  uim.mvc.mixins.controllercomponentmanager;
 	import  uim.mvc.mixins.controllermanager;
+	import  uim.mvc.mixins.entitybase;
 	import  uim.mvc.mixins.form;
 	import  uim.mvc.mixins.imports;
 	import  uim.mvc.mixins.layout;

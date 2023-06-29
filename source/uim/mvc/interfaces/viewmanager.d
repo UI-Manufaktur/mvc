@@ -24,7 +24,7 @@ interface IViewManager {
   void errorView(IView aView);
   IView errorView();
 
-  bool hasView(string aName);
+  bool hasView(IView aView);
   bool hasView(string aName);
 
   // Add view if not exitst
