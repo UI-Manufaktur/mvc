@@ -6,8 +6,8 @@
 module uim.mvc.views.components.avatars.avatar;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DAPPAvatarViewComponent : DViewComponent {
   mixin(ViewComponentThis!("APPAvatarViewComponent"));
 }

@@ -6,8 +6,8 @@
 module uim.mvc.views.components.alerts.entities;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DAPPEntitiesAlertViewComponent : DAPPAlertViewComponent {
   mixin(ViewComponentThis!("APPEntitiesAlertViewComponent"));
 }

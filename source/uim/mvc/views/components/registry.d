@@ -6,8 +6,8 @@
 module uim.mvc.views.components.registry;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DViewComponentRegistry : DRegistry!DViewComponent{
   this() {}
 
