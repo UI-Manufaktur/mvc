@@ -6,8 +6,8 @@
 module uim.mvc.layouts.registry;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DLayoutRegistry : DRegistry!DLayout{
   this() {}
 

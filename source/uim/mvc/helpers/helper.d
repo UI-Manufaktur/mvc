@@ -6,8 +6,8 @@
 module uim.mvc.helpers.helper;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DHelper {
   this() { initialize; }
 

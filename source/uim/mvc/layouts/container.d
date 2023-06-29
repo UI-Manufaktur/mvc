@@ -6,8 +6,8 @@
 module uim.mvc.layouts.container;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DLayoutContainer : DNamedContainer!ILayout {
 }
 auto LayoutContainer() { return new DLayoutContainer; }

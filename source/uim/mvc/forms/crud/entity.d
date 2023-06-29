@@ -6,8 +6,8 @@
 module uim.mvc.forms.crud.entity;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DEntityForm : DForm {
   mixin(ViewComponentThis!("EntityForm"));
 
