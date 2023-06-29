@@ -8,11 +8,11 @@ module uim.mvc.controllers.pages.crud.crud;
 import uim.mvc;
 
 @safe:
-class DAPPEntityCrudPageController : DAPPEntityPageController {
-  mixin(ControllerThis!("APPEntityCrudPageController"));
+class DEntityCrudPageController : DEntityPageController {
+  mixin(ControllerThis!("EntityCrudPageController"));
 
   override bool beforeResponse(STRINGAA requestParameters) {
-    debug writeln(moduleName!DAPPEntityCrudPageController~":DAPPEntityCrudPageController::beforeResponse");
+    debug writeln(moduleName!DEntityCrudPageController~":DEntityCrudPageController::beforeResponse");
     if (!super.beforeResponse(requestParameters) || ("redirect" in requestParameters)) return false;
     
     auto myInternalSession = manager.session(requestParameters);
@@ -46,4 +46,4 @@ class DAPPEntityCrudPageController : DAPPEntityPageController {
     return true;
   }
 }
-mixin(ControllerCalls!("APPEntityCrudPageController"));
+mixin(ControllerCalls!("EntityCrudPageController"));

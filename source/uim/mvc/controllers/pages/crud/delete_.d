@@ -11,8 +11,8 @@ module uim.mvc.controllers.pages.crud.delete_;
 import uim.mvc;
 
 @safe:
-class DAPPEntityDeleteController : DAPPEntityCrudPageController {
-  mixin(ControllerThis!("APPEntityDeleteController"));
+class DEntityDeleteController : DEntityCrudPageController {
+  mixin(ControllerThis!("EntityDeleteController"));
 
   override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
@@ -59,7 +59,7 @@ window.addEventListener('load', (event) => {
     }}
  */
   override bool beforeResponse(STRINGAA options = null) {
-    debug writeln(moduleName!DAPPEntityDeleteController~":DAPPEntityDeleteController::beforeResponse");
+    debug writeln(moduleName!DEntityDeleteController~":DEntityDeleteController::beforeResponse");
     super.beforeResponse(options);   
     if ("redirect" in options) {
       // debug writeln("Redirect to "~options["redirect"]);
@@ -109,7 +109,7 @@ version(test_uim_mvc) { unittest {
     /// TODO
   }}
 }
-mixin(ControllerCalls!("APPEntityDeleteController"));
+mixin(ControllerCalls!("EntityDeleteController"));
 
 
 /*

@@ -8,8 +8,8 @@ module uim.mvc.controllers.pages.entity;
 import uim.mvc;
 
 @safe:
-class DAPPEntityPageController : DPageController {
-  mixin(ControllerThis!("APPEntityPageController"));
+class DEntityPageController : DPageController {
+  mixin(ControllerThis!("EntityPageController"));
 
   protected DEntity _entity;
   DEntity entity() { 
@@ -36,12 +36,12 @@ class DAPPEntityPageController : DPageController {
     return true;
   }
 }
-mixin(ControllerCalls!("APPEntityPageController"));
+mixin(ControllerCalls!("EntityPageController"));
 
 version(test_uim_mvc) { unittest {
     writeln("--- Tests in ", __MODULE__, "/", __LINE__);
-		testPageController(new DAPPEntityPageController); 
+		testPageController(new DEntityPageController); 
 
     writeln("--- Tests in ", __MODULE__, "/", __LINE__);
-		testPageController(APPEntityPageController); 
+		testPageController(EntityPageController); 
 }}

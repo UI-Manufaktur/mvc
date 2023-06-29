@@ -11,14 +11,14 @@ module uim.mvc.controllers.pages.crud.read;
 import uim.mvc;
 
 @safe:
-class DAPPEntityReadController : DAPPEntityCrudPageController {
-  mixin(ControllerThis!("APPEntityReadController"));
+class DEntityReadController : DEntityCrudPageController {
+  mixin(ControllerThis!("EntityReadController"));
 
   override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
     
     this
-    .view(APPEntityReadView)
+    .view(EntityReadView)
     .scripts
       .addLinks(
         "/js/apps/entities/entity.js", 
@@ -36,7 +36,7 @@ class DAPPEntityReadController : DAPPEntityCrudPageController {
   } */
 
   override bool beforeResponse(STRINGAA options = null) {
-    debug writeln(moduleName!DAPPEntityReadController~":DAPPEntityReadController::beforeResponse");
+    debug writeln(moduleName!DEntityReadController~":DEntityReadController::beforeResponse");
     super.beforeResponse(options);   
     if ("redirect" in options) {
       // debug writeln("Redirect to "~options["redirect"]);
@@ -63,7 +63,7 @@ class DAPPEntityReadController : DAPPEntityCrudPageController {
     }
 
     auto selector = options.toEntitySelect;
-    debug writeln(moduleName!DAPPEntityReadController~":DAPPEntityReadController::beforeResponse - Selecting entity with ", selector);
+    debug writeln(moduleName!DEntityReadController~":DEntityReadController::beforeResponse - Selecting entity with ", selector);
     this.entity(myEntityBase[session.site, collectionName].findOne(options.toEntitySelect));
     if (!entity) {
       // TODO Errorhandling required
@@ -86,4 +86,4 @@ version(test_uim_mvc) { unittest {
       /// TODO
     }}
 }
-mixin(ControllerCalls!("APPEntityReadController"));
+mixin(ControllerCalls!("EntityReadController"));

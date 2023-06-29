@@ -11,14 +11,14 @@ module uim.mvc.controllers.pages.crud.update;
 import uim.mvc;
 
 @safe:
-class DAPPEntityUpdateController : DAPPEntityCrudPageController {
-  mixin(ControllerThis!("APPEntityUpdateController"));
+class DEntityUpdateController : DEntityCrudPageController {
+  mixin(ControllerThis!("EntityUpdateController"));
   
 override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
   
     this
-      .view(APPEntityUpdateView)
+      .view(EntityUpdateView)
       .scripts
         .addLinks(         
           "/js/apps/entities/entity.js", 
@@ -36,7 +36,7 @@ override void initialize(Json configSettings = Json(null)) {
   } */
 
   override bool beforeResponse(STRINGAA options = null) {
-    debug writeln(moduleName!DAPPEntityUpdateController~":DAPPEntityUpdateController::beforeResponse");
+    debug writeln(moduleName!DEntityUpdateController~":DEntityUpdateController::beforeResponse");
     if (!super.beforeResponse(options) || "redirect" in options) return false;
 
     auto session = manager.session(options);
@@ -79,7 +79,7 @@ override void initialize(Json configSettings = Json(null)) {
     return true;
   }
 }  
-mixin(ControllerCalls!("APPEntityUpdateController"));
+mixin(ControllerCalls!("EntityUpdateController"));
 
 /* class DAPPUpdatePage : DAPPPage {
     this() { super(); 

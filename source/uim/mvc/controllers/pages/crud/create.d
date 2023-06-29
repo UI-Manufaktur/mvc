@@ -11,8 +11,8 @@ module uim.mvc.controllers.pages.crud.create;
 import uim.mvc;
 
 @safe:
-class DAPPEntityCreateController : DAPPEntityCrudPageController {
-  mixin(ControllerThis!("APPEntityCreateController"));
+class DEntityCreateController : DEntityCrudPageController {
+  mixin(ControllerThis!("EntityCreateController"));
 
 override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
@@ -35,7 +35,7 @@ override void initialize(Json configSettings = Json(null)) {
   } */
 
   override bool beforeResponse(STRINGAA requestParameters) {
-    debug writeln(moduleName!DAPPEntityCreateController~":DAPPEntityCreateController::beforeResponse");
+    debug writeln(moduleName!DEntityCreateController~":DEntityCreateController::beforeResponse");
     if (!super.beforeResponse(requestParameters) || "redirect" in requestParameters) return false;
     
     auto mySession = manager.session(requestParameters);
@@ -68,4 +68,4 @@ override void initialize(Json configSettings = Json(null)) {
     return true;
   }
 }
-mixin(ControllerCalls!("APPEntityCreateController"));
+mixin(ControllerCalls!("EntityCreateController"));

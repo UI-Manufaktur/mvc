@@ -120,6 +120,10 @@ class DMVCObject : IMVCObject, IRegisterable {
   override string toString() {
     return toJson.toString;
   }
+
+  string debugInfo() {
+    return "";
+  }
 }
 auto MVCObject() { return new DMVCObject; }
 

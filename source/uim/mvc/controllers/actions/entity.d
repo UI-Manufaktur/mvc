@@ -8,17 +8,17 @@ module uim.mvc.controllers.actions.entity;
 import uim.mvc;
 
 @safe:
-class DAPPEntityActionController : DActionController {
-  mixin(ControllerThis!("APPEntityActionController"));
+class DEntityActionController : DActionController {
+  mixin(ControllerThis!("EntityActionController"));
 
   mixin(OProperty!("DEntity", "entity"));
 }
-mixin(ControllerCalls!("APPEntityActionController"));
+mixin(ControllerCalls!("EntityActionController"));
 
 version(test_uim_mvc) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
-    testController(new DAPPEntityActionController);
+    testController(new DEntityActionController);
 
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
-    testController(APPEntityActionController);
+    testController(EntityActionController);
 }}
