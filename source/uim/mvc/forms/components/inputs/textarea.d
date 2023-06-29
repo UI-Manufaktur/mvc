@@ -6,8 +6,8 @@
 module uim.mvc.forms.components.inputs.textarea;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DTextAreaFormInput : DFormInput {
   mixin(ViewComponentThis!("TextAreaFormInput"));
 

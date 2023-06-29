@@ -6,8 +6,8 @@
 module uim.mvc.forms.crud.delete_;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DMVCDeleteForm : DEntityForm {
   mixin(ViewComponentThis!("MVCDeleteForm"));
 

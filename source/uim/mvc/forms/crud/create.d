@@ -6,8 +6,8 @@
 module uim.mvc.forms.crud.create;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DMVCCreateForm : DEntityForm {
   mixin(ViewComponentThis!("MVCCreateForm"));
 

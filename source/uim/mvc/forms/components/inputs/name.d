@@ -6,8 +6,8 @@
 module uim.mvc.forms.components.inputs.name;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DMVCNameFormInput : DTextFormInput {
   mixin(ViewComponentThis!("MVCNameFormInput"));
 

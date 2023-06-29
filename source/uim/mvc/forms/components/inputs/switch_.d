@@ -6,8 +6,8 @@
 module uim.mvc.forms.components.inputs.switch_;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DSwitchFormInput : DFormInput {
   mixin(ViewComponentThis!("SwitchFormInput"));
 
