@@ -13,7 +13,7 @@ module uim.mvc.controllers.actions.action;
 import uim.mvc;
 @safe:
 
-class DActionController : DController, IActionController {
+class DActionController : DController/* , IActionController */ {
   mixin(ControllerThis!("ActionController"));
 
   override void initialize(Json configSettings = Json(null)) {

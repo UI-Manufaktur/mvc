@@ -16,7 +16,7 @@ class DController : DMVCObject, IController, IControllerComponentManager  {
   mixin(OProperty!("DControllerComponentContainer", "controllerComponentContainer"));
   mixin ControllerComponentManagerTemplate;
 
-  mixin(OProperty!("DCheckContainer", "checkContainer"));
+  mixin(OProperty!("ICheck[]", "checks"));  
   mixin CheckManagerTemplate;
 
   // Set to true to automatically render the view after action logic.
@@ -47,7 +47,7 @@ class DController : DMVCObject, IController, IControllerComponentManager  {
       .name("Controller"); 
 
     controllerComponentContainer(ControllerComponentContainer);
-    checkContainer(CheckContainer);
+    checks(null);
   }
   
   // #region Properties
@@ -89,13 +89,6 @@ class DController : DMVCObject, IController, IControllerComponentManager  {
 
     return (manager ? manager.entityBase : null);
   }
-
-  mixin(OProperty!("DControllerCheck[]", "checks")); 
-  O addChecks(this O)(DControllerCheck[] newChecks) {
-    newChecks.each!(check => check.manager(this));
-    this.checks(this.checks~newChecks);
-    return cast(O)this;
-  } 
 
   // #region HTTPServerRequest _request
     /**

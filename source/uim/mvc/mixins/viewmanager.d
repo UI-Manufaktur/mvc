@@ -54,45 +54,45 @@ mixin template ViewManagerTemplate() {
     }
   // #endregion viewView
 
-  override void defaultView(IView aView) {
+  void defaultView(IView aView) {
     addView("default", aView);
   }
-  override IView defaultView() {
+  IView defaultView() {
     return view("default");
   }
-  override void errorView(IView aView) {
+  void errorView(IView aView) {
     addView("error", aView);
   }
-  override IView errorView() {
+  IView errorView() {
     return view("error");
   }
 
-  override bool existsView(string aName) {
+  bool existsView(string aName) {
     if (_viewContainer) return (!(_viewContainer[aName] is null));
     return false;
   }
 
   // Add view if not exitst
-  override void addView(IView aView) {
+  void addView(IView aView) {
     if (aView) addView(aView.name, aView);
   }
-  override void addView(string aName, IView aView) {
+  void addView(string aName, IView aView) {
     if (_viewContainer && aView && !existsView(aName)) _viewContainer.add(aName, aView);
   }
 
   // Update existing view
-  override void updateView(IView aView) {
+  void updateView(IView aView) {
      if (aView) updateView(aView.name, aView);
   }
-  override void updateView(string aName, IView aView) {
+  void updateView(string aName, IView aView) {
     if (aView && existsView(aName)) _viewContainer.update(aName, aView);
   }
 
   // Remove existing view
-  override void removeView(IView aView) {
+  void removeView(IView aView) {
     if (aView) removeView(aView.name);
   }
-  override void removeView(string aName) {
+  void removeView(string aName) {
     if (_viewContainer && existsView(aName)) _viewContainer.remove(aName);
   }
 }

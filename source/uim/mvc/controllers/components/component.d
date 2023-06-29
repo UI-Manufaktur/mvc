@@ -28,9 +28,6 @@ class DControllerComponent : DMVCObject, IControllerComponent, IControllerCompon
 
   // #region Managers
     mixin(OProperty!("IControllerComponentManager", "manager"));
-    ISessionManager sessionManager() { // Pass through
-      return manager.sessionManager;
-    }
   // #endregion Managers
 
   mixin(OProperty!("string", "redirectUrl"));

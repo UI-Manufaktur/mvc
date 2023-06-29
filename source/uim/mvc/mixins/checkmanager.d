@@ -9,15 +9,6 @@ import uim.mvc;
 @safe:
 
 mixin template CheckManagerTemplate() {
-  protected ICheck[] _checks;
-  ICheck[] checks() {
-    return _checks;
-  }
-
-  void checks(ICheck[] someChecks) {
-    _checks = someChecks;
-  }
-
   void addChecks(ICheck[] someChecks) {
     _checks ~= someChecks;
   }

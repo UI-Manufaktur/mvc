@@ -18,15 +18,13 @@ class DControllerCheck : DControllerComponent, ICheck, ICheckManager {
       .name("ControllerCheck");
   }
 
-  mixin(OProperty!("DControllerCheck[]", "checks"));
-  O addChecks(this O)(DControllerCheck[] newChecks) {
-    this.checks(this.checks~newChecks);
-    return cast(O)this;
-  }
+  mixin(TProperty!("ICheck[]", "checks"));  
+  mixin CheckManagerTemplate;
 
   bool execute(STRINGAA options = null) {
     if (!manager) {
       this.error("manager_missing");
+      debug writeln("In ControllerCheck -> manager_missing");
       return false; 
     }
 
