@@ -12,7 +12,7 @@ auto viewThis(string name) {
   return 
     mvcObjectThis(name)~
   `
-    this(IViewManager aManager) { this().controller(aManager); }
+    this(IViewManager aManager) { this(); manager(aManager); }
   `;
 }
 

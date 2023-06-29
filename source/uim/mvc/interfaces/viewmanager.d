@@ -10,6 +10,7 @@ import uim.mvc;
 
 interface IViewManager {
   void views(IView[string] someViews);
+  void views(IView[] someViews...);
   void views(IView[] someViews);
   IView[] views();
   string[] viewNames();
@@ -23,7 +24,8 @@ interface IViewManager {
   void errorView(IView aView);
   IView errorView();
 
-  bool existsView(string aName);
+  bool hasView(string aName);
+  bool hasView(string aName);
 
   // Add view if not exitst
   void addView(IView aView);

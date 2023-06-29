@@ -35,7 +35,7 @@ class DPageController : DController, IPageController, IViewManager {
       .styles(StyleContainer); 
 
     this
-      .views(ViewContainer);
+      .viewContainer(ViewContainer);
   }
 
   // inherited

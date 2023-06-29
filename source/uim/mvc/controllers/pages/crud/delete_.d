@@ -18,7 +18,7 @@ class DAPPEntityDeleteController : DAPPEntityCrudPageController {
     super.initialize(configSettings);
 
     this
-      .view(APPEntityDeleteView)
+      .view(EntityDeleteView)
       .scripts.addLinks(
         "/js/apps/entities/entity.js", 
         "/js/apps/entities/delete.js"); 

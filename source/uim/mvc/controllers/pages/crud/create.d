@@ -18,7 +18,7 @@ override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
 
     checks([SessionExistsCheck, SessionHasHTTPSessionCheck, SessionHasSiteCheck]);
-    addView(APPEntityCreateView);
+    addView(EntityCreateView);
     scripts
       .addLinks(
         "/js/apps/entities/entity.js", 

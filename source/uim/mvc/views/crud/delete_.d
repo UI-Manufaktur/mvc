@@ -8,33 +8,31 @@ module uim.mvc.views.crud.delete_;
 import uim.mvc;
 
 @safe:
-class DAPPEntityDeleteView : DEntityCRUDView {
-  mixin(ViewThis!("APPEntityDeleteView"));
+class DEntityDeleteView : DEntityCRUDView {
+  mixin(ViewThis!("EntityDeleteView"));
 
 override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
 
-    this
-      .crudMode(CRUDModes.Delete)
-      .header(
-        PageHeader(this)
-          .actions([["refresh", "list", "create"]]));
+    crudMode(CRUDModes.Delete);
+    header(
+      PageHeader(this)
+        .actions([["refresh", "list", "create"]]));
 
-    this
-      .form(
-        Form(this)
-          .crudMode(CRUDModes.Delete)
-          .header(
-            FormHeader
-              .actions([["cancel2root", "finalDelete"], ["view", "version", "edit"], ["print", "export"]])));
+    form(
+      Form(this)
+        .crudMode(CRUDModes.Delete)
+        .header(
+          FormHeader
+            .actions([["cancel2root", "finalDelete"], ["view", "version", "edit"], ["print", "export"]])));
   }
 }
-mixin(ViewCalls!("APPEntityDeleteView"));
+mixin(ViewCalls!("EntityDeleteView"));
 
 version(test_uim_mvc) { unittest {
   writeln("--- Tests in ", __MODULE__, "/", __LINE__);
-  testView(new DAPPEntityDeleteView); 
+  testView(new DEntityDeleteView); 
 
   writeln("--- Tests in ", __MODULE__, "/", __LINE__);
-  testView(APPEntityDeleteView); 
+  testView(EntityDeleteView); 
 }}

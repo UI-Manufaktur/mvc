@@ -10,7 +10,7 @@ import uim.mvc;
 
 mixin template ViewComponentManagerTemplate() {
   // #region components
-    protected IViewComponent[] _viewComponents();
+    protected IViewComponent[] _viewComponents;
 
     IViewComponent[] components() {
       return _viewComponents;

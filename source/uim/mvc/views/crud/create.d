@@ -8,8 +8,8 @@ module uim.mvc.views.crud.create;
 import uim.mvc;
 
 @safe:
-class DAPPEntityCreateView : DEntityCRUDView {
-  mixin(ViewThis!("APPEntityCreateView"));
+class DEntityCreateView : DEntityCRUDView {
+  mixin(ViewThis!("EntityCreateView"));
 
 override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
@@ -30,14 +30,14 @@ override void initialize(Json configSettings = Json(null)) {
     this.crudMode(CRUDModes.Create);
   }
 }
-mixin(ViewCalls!("APPEntityCreateView"));
+mixin(ViewCalls!("EntityCreateView"));
 
 version(test_uim_mvc) { unittest {
-  assert(APPEntityCreateView);
+  assert(EntityCreateView);
 
   writeln("--- Tests in ", __MODULE__, "/", __LINE__);
-  testView(new DAPPEntityCreateView); 
+  testView(new DEntityCreateView); 
 
   writeln("--- Tests in ", __MODULE__, "/", __LINE__);
-  testView(APPEntityCreateView); 
+  testView(EntityCreateView); 
 }}

@@ -16,6 +16,7 @@ class DEntityCRUDView : DEntityView {
       if (auto frm = cast(DForm)component) {
         frm.readonly(this.readonly); }}`));
 
+  mixin(OProperty!("CRUDModes", "crudMode"));
   mixin(OProperty!("DViewComponent", "form"));
   mixin(OProperty!("DUIMTabControl", "entityTab"));
 
@@ -62,7 +63,7 @@ override void initialize(Json configSettings = Json(null)) {
     super.beforeH5(options);
     if (hasError || "redirect" in options) { return; }
 
-    debug writeln(this.entity ? "Has entity "~this.entity.name : "ENtity missing");
+    debug writeln(this.entity ? "Has entity "~this.entity.name : "Entity missing");
     if (auto myForm = cast(DEntityForm)this.form) {
       debug writeln("Found DForm");
       myForm.entity(this.entity);
