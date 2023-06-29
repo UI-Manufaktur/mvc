@@ -22,7 +22,7 @@ class DSessionHasHTTPSessionCheck : DSessionExistsCheck {
     debug writeln(moduleName!DSessionHasHTTPSessionCheck~":DSessionHasHTTPSessionCheck::execute");
     if (!super.execute(options)) { return false; }
 
-    auto session = sessionManager.session(options).session;
+    auto session = manager.session(options).session;
     if (!session) { // session missing 
       this.error("internalsession_session_missing");
       return false; 

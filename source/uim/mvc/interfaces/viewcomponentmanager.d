@@ -5,7 +5,10 @@ import uim.mvc;
 
 interface IViewComponentManager {
   IViewComponent[] components();
+  void components(IViewComponent[] someComponents...);
   void components(IViewComponent[] someComponents);
+
+  void addComponents(IViewComponent[] someComponents...);
   void addComponents(IViewComponent[] someComponents);
   void addComponent(IViewComponent aComponent);
 }

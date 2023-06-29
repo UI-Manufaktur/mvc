@@ -22,7 +22,7 @@ class DSessionHasLoginCheck : DSessionExistsCheck {
     debug writeln(moduleName!DSessionHasLoginCheck~":DSessionHasLoginCheck::check");
     if (!super.execute(options)) { return false; }
 
-    auto login = sessionManager.session(options).login;
+    auto login = manager.session(options).login;
     if (!login) { // login missing 
       this.error("internalsession_login_missing");
       return false; 

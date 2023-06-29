@@ -17,7 +17,7 @@ class DSessionHasAccountCheck : DSessionExistsCheck {
     debug writeln(moduleName!DSessionHasAccountCheck~":DSessionHasAccountCheck::execute");
     if (!super.execute(options)) { return false; } 
 
-    auto session = sessionManager.session(options);
+    auto session = manager.session(options);
     if (!session.account) { // account missing 
       this.error("Account Missing");
       return false;

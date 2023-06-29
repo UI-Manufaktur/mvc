@@ -26,7 +26,7 @@ class DSessionExistsCheck : DControllerCheck {
   override bool execute(STRINGAA options = null) {    
     debug writeln(moduleName!DSessionExistsCheck~":DSessionExistsCheck::check");
 
-    if (auto internalSession = sessionManager.session(options)) {
+    if (auto internalSession = manager.session(options)) {
       return true;
     } else { // internalsession missing 
       this.error("internalsession_missing");

@@ -3,12 +3,16 @@ module uim.mvc.interfaces.controllermanager;
 import uim.mvc;
 @safe:
 
-interface IControllerManager {
+interface IControllerManager : ISessionManager {
+  IEntityBase entityBase();
+
   void controllerContainer(DControllerContainer aContainer);
   DControllerContainer controllerContainer();
 
   void controllers(IController[string] someControllers);
+  void controllers(IController[] someControllers...);
   void controllers(IController[] someControllers);
+  
   IController[] controllers();
   string[] controllerNames();
 

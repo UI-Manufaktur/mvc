@@ -28,11 +28,12 @@ class DControllerCheck : DControllerComponent, ICheck, ICheckManager {
       return false; 
     }
 
-    foreach(check; checks) {
-      if (!check.manager(this.manager).execute(options)) {
+    foreach(myCheck; checks) {
+      myCheck.manager(this.manager);
+      if (!myCheck.execute(options)) {
         this
-          .error(check.error)
-          .redirectUrl(check.redirectUrl);
+          .error(myCheck.error)
+          .redirectUrl(myCheck.redirectUrl);
         return false;
       }
     }
