@@ -1,8 +1,8 @@
 module uim.mvc.views.null_;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DNullView : DView {
   mixin(ViewThis!("NullView"));
 

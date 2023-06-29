@@ -6,8 +6,8 @@
 module uim.mvc.views.components.entity;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DMVCEntityViewComponent : DViewComponent {
   mixin(ViewComponentThis!("MVCEntityViewComponent"));
 

@@ -6,8 +6,8 @@
 module uim.mvc.views.sites;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DViewSites : DView {
   mixin(ViewThis!("ViewSites"));
 

@@ -6,8 +6,8 @@
 module uim.mvc.views.registry;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DViewRegistry : DRegistry!DView{
   this() {}
 
