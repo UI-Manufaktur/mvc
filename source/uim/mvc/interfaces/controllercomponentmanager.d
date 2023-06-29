@@ -9,34 +9,8 @@ import uim.mvc;
 @safe:
 
 interface IControllerComponentManager {
-  void controllerComponentContainer(DControllerComponentContainer aContainer);
-  DControllerComponentContainer controllerComponentContainer();
-
-  void controllerComponents(IControllercomponent[string] someControllerComponents);
-  void controllerComponents(IControllerComponent[] someControllerComponents);
-  IControllerComponent[] controllerComponents();
-  string[] controllerComponentNames();
-
-  // set & get controllerComponent
-  IControllerComponent controllerComponent(string aName);
-  void controllerComponent(IControllerComponent aControllerComponent);
-  void controllerComponent(string aName, IControllerComponent aControllerComponent);
-
-  // Check existing controllerComponent
-  bool hasControllerComponent(IControllerComponent aControllerComponent);
-  bool hasControllerComponent(string aName);
-
-  IControllerComponent controllerComponent(string aName = null);
-
-  void addControllerComponentss(IControllerComponent[] somecontrollerComponents...);
-  void addControllerComponentss(IControllerComponent[] somecontrollerComponents);
-
-  void addControllerComponentss(IControllerComponent[string] somecontrollerComponents);
-
-  void addControllerComponents(IControllerComponent aControllerComponent);
-  void addControllerComponents(string aName, IControllerComponent aControllerComponent);
-
-  void updatecontrollerComponent(string aName, IControllerComponent aControllerComponent);
-
-  void removecontrollerComponent(string aName);
+  IControllerComponent[] components();
+  void components(IControllerComponent[] someComponents);
+  void addComponents(IControllerComponent[] someComponents);
+  void addComponent(IControllerComponent aComponent);
 }

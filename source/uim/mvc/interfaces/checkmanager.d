@@ -3,11 +3,15 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel, mailto:ons@sicherheitsschmiede.de                                                      
 **********************************************************************************************************/
-module uim.mvc.interfaces.check;
+module uim.mvc.interfaces.checkmanager;
 
 import uim.mvc;
 @safe:
 
-interface ICheck { 
-	bool execute(STRINGAA options = null);    
+interface ICheckManager { 
+	ICheck[] checks();
+  void checks(ICheck[] someChecks);
+  
+	void addChecks(ICheck[] someChecks);
+  void addCheck(ICheck aCheck);
 }

@@ -8,7 +8,7 @@ module uim.mvc.controllers.checks.check;
 import uim.mvc;
 @safe:
 
-class DControllerCheck : DControllerComponent {
+class DControllerCheck : DControllerComponent, ICheck {
   mixin(ControllerComponentThis!("ControllerCheck"));
 
   override void initialize(Json configSettings = Json(null)) {

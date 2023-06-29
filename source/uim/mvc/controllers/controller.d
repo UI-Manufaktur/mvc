@@ -11,6 +11,9 @@ import uim.mvc;
 class DController : DMVCObject, IController, IControllerComponentManager  {
   mixin(ControllerThis!("Controller"));
 
+  mixin ControllerComponentManagerTemplate;
+  mixin CheckManagerTemplate;
+
   // Set to true to automatically render the view after action logic.
   mixin(OProperty!("bool", "autoRender"));
 
