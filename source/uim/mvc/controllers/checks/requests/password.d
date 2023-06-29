@@ -6,8 +6,8 @@
 module uim.mvc.controllers.checks.requests.password;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DRequestHasPasswordCheck : DControllerCheck {
   mixin(ControllerComponentThis!("RequestHasPasswordCheck"));
 

@@ -1,8 +1,8 @@
 module uim.mvc.controllers.checks.sessions.account;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DSessionHasAccountCheck : DSessionExistsCheck {
   mixin(ControllerComponentThis!("SessionHasAccountCheck"));
 

@@ -6,8 +6,8 @@
 module uim.mvc.controllers.checks.requests.siteid;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DRequestHasSiteIdCheck : DDatabaseHasAccountsCheck {
   mixin(ControllerComponentThis!("RequestHasSiteIdCheck"));
 

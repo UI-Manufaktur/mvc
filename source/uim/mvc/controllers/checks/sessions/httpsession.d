@@ -6,8 +6,8 @@
 module uim.mvc.controllers.checks.sessions.httpsession;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DSessionHasHTTPSessionCheck : DSessionExistsCheck {
   mixin(ControllerComponentThis!("SessionHasHTTPSessionCheck"));
 
