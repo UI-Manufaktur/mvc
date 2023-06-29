@@ -1,8 +1,8 @@
 module uim.mvc.controllers.validators.session;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DValidatorSession : DValidator {
   mixin(ControllerThis!("ValidatorSession"));
   

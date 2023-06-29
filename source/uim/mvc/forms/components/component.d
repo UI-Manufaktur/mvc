@@ -6,8 +6,8 @@
 module uim.mvc.forms.components.component;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DFormComponent : DViewComponent {
   mixin(ViewComponentThis!("FormComponent"));
 

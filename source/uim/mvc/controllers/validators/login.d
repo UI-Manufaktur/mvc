@@ -6,8 +6,8 @@
 module uim.mvc.controllers.validators.login;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DValidatorLogin : DValidator {
   mixin(ControllerThis!("ValidatorLogin"));
 

@@ -6,8 +6,8 @@
 module uim.mvc.forms.components.contents.cards;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DMVCCardsFormContent : DMVCEntitiesViewComponent {
   mixin(ViewComponentThis!("MVCCardsFormContent"));
 

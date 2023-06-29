@@ -6,8 +6,8 @@
 module uim.mvc.forms.registry;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DFormRegistry : DRegistry!DForm{
   this() {}
 

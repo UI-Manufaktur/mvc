@@ -1,8 +1,8 @@
 module uim.mvc.controllers.validators.site;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DValidatorSite : DValidator {
   mixin(ControllerThis!("ValidatorSite"));
   
