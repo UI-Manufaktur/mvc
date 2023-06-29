@@ -66,13 +66,13 @@ window.addEventListener('load', (event) => {
       return false;
     }
 
-    string internalSessionId = options.get("internalSessionId", "");
-    auto myInternalSession = sessionManager.session(options);
-    if (!myInternalSession) {
+    string mySessionId = options.get("internalSessionId", "");
+    auto mySession = manager.session(options);
+    if (!mySession) {
       options["redirect"] = "/";
       return false; }
 /* 
-    if (!myInternalSession.isValid(["session", "site"], options)) {
+    if (!mySession.isValid(["session", "site"], options)) {
       options["redirect"] = "/";
       return; } */
 

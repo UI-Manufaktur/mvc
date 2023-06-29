@@ -43,7 +43,7 @@ class DAPPEntityReadController : DAPPEntityCrudPageController {
       return false;
     }
 
-    auto mySession = sessionManager.session(options);
+    auto mySession = manager.session(options);
     if (mySession.isNull) { 
       options["redirect"] = "/";
       return false; 

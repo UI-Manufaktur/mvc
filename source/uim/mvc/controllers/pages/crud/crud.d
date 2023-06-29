@@ -15,7 +15,7 @@ class DAPPEntityCrudPageController : DAPPEntityPageController {
     debug writeln(moduleName!DAPPEntityCrudPageController~":DAPPEntityCrudPageController::beforeResponse");
     if (!super.beforeResponse(requestParameters) || ("redirect" in requestParameters)) return false;
     
-    auto myInternalSession = sessionManager.session(requestParameters);
+    auto myInternalSession = manager.session(requestParameters);
 
     if (!manager) {
       this.error("manager_missing");

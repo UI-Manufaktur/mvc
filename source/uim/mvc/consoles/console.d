@@ -10,5 +10,7 @@ import uim.mvc;
 @safe:
 class DConsole : DMVCObject, IConsole {
 	mixin(ConsoleThis!("Console"));
+
+	mixin(TProperty!("IConsoleManager", "manager"));
 }
 mixin(ConsoleCalls!("Console"));

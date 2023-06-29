@@ -39,7 +39,7 @@ override void initialize(Json configSettings = Json(null)) {
     debug writeln(moduleName!DAPPEntityUpdateController~":DAPPEntityUpdateController::beforeResponse");
     if (!super.beforeResponse(options) || "redirect" in options) return false;
 
-    auto session = sessionManager.session(options);
+    auto session = manager.session(options);
 
     if (!manager) {
       this.error("manager_missing");

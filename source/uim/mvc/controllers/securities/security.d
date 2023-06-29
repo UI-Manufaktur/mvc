@@ -11,7 +11,7 @@ class DAPPSecurityController : DController {
     auto json = super.message(options);
    
     string internalSessionId = options.get("internalSessionId", "");
-    auto internalSession = sessionManager.session(options);
+    auto internalSession = manager.session(options);
 
     /* if (internalSession) {
       /// login required ?

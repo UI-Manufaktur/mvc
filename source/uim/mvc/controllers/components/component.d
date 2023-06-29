@@ -17,15 +17,21 @@ import uim.mvc;
 * you should consider creating your own component to contain the functionality. 
 * Creating components keeps controller code clean and allows you to reuse code between different controllers.
 **/
-class DControllerComponent : DMVCObject, IControllerComponent, IControllerComponentManager {
+class DControllerComponent : DMVCObject, IControllerComponent, IControllerComponentManager, ISessionManager {
   mixin(ControllerComponentThis!("ControllerComponent"));
 
   mixin(TProperty!("IControllerComponentManager", "manager"));
+
+  mixin(TProperty!("IControllerComponent[]", "components"));
   mixin ControllerComponentManagerTemplate;
   
+  mixin SessionManagerContainer;
+  mixin SessionManagerTemplate; 
+
   override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
   }
+
 
   mixin(OProperty!("string", "redirectUrl"));
 
@@ -38,17 +44,19 @@ class DControllerComponent : DMVCObject, IControllerComponent, IControllerCompon
   // Component registry class used to lazy load components.
   // mixin(OProperty!("DControllerComponentContainer", "components"));
 
-  protected IEntityBase _entityBase;
-  void entityBase(IEntityBase anEntityBase) {
-    _entityBase = anEntityBase;
-  }
-  IEntityBase entityBase() {
-    if (_entityBase) return _entityBase;
+  // #region entityBase
+    protected IEntityBase _entityBase;
+    void entityBase(IEntityBase anEntityBase) {
+      _entityBase = anEntityBase;
+    }
+    IEntityBase entityBase() {
+      if (_entityBase) return _entityBase;
 
-    if (manager) return manager.entityBase;
+      if (manager) return manager.entityBase;
 
-    return null;
-  }
+      return null;
+    }
+  // #endregion entityBase
 }
 mixin(ControllerComponentCalls!("ControllerComponent", "DControllerComponent"));
 

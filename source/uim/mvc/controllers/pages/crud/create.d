@@ -17,14 +17,12 @@ class DAPPEntityCreateController : DAPPEntityCrudPageController {
 override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
 
-    this
-      // Checks to run for page request
-      .checks([SessionExistsCheck, SessionHasHTTPSessionCheck, SessionHasSiteCheck])
-      .view(APPEntityCreateView)
-      .scripts
-        .addLinks(
-          "/js/apps/entities/entity.js", 
-          "/js/apps/entities/create.js");
+    checks([SessionExistsCheck, SessionHasHTTPSessionCheck, SessionHasSiteCheck]);
+    view(APPEntityCreateView);
+    scripts
+      .addLinks(
+        "/js/apps/entities/entity.js", 
+        "/js/apps/entities/create.js");
   }
 
 /*   this(string newEntityName) {
@@ -39,7 +37,7 @@ override void initialize(Json configSettings = Json(null)) {
     debug writeln(moduleName!DAPPEntityCreateController~":DAPPEntityCreateController::beforeResponse");
     if (!super.beforeResponse(requestParameters) || "redirect" in requestParameters) return false;
     
-    auto mySession = sessionManager.session(requestParameters);
+    auto mySession = manager.session(requestParameters);
 
     if (!manager) {
       this.error("manager_missing");
