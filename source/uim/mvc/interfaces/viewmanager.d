@@ -13,7 +13,7 @@ interface IViewManager {
   DViewContainer views();
 
   void defaultView(IView aView);
-  void defaultView();
+  IView defaultView();
 
   void errorView(IView aView);
   IView errorView();

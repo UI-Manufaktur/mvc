@@ -3,8 +3,8 @@ module uim.mvc.interfaces.pagecontroller;
 import uim.mvc;
 @safe:
 
-interface IPageController: IController {
-  DEntityBase entityBase();
+interface IPageController : IController {
+  IEntityBase entityBase();
   string[] sessionData();
 
   DMVCLinkContainer links();

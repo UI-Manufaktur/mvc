@@ -164,17 +164,17 @@ class DLayout : DMVCObject, ILayout {
 		// 1. page parameters to options
     if (controller) {
       debug writeln("controller is -> ", controller.name);
-		  controller.parameters.byKeyValue.each!(kv => options[kv.key] = kv.value); 
+      options = options.merge(controller.parameters, false);
     }
     else { debug writeln("No controller"); }
 
 		// 2. layout parameters to options
-		foreach(kv; parameters.byKeyValue) if (kv.key !in options) options[kv.key] = kv.value;
+    options.merge(parameters, false);
 		// 3. app parameters to options
 		
 		if (application) {
-			options["rootPath"] = application.rootPath;      
-			foreach(kv; application.parameters.byKeyValue) if (kv.key !in options) options[kv.key] = kv.value;
+			options["rootPath"] = application.rootPath;   
+      options.merge(application.parameters, false);
     }
 
 		if (auto pageController = cast(IPageController)controller) {

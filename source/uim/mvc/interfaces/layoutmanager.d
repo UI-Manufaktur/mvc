@@ -9,8 +9,22 @@ import uim.mvc;
 @safe:
 
 interface ILayoutManager {
-  void layouts(DLayoutContainer aContainer);
-  DLayoutContainer layouts();
+  void layoutContainer(DLayoutContainer aContainer);
+  DLayoutContainer layoutContainer();
+
+  void layouts(ILayout[string] someLayouts);
+  void layouts(ILayout[] someLayouts);
+  ILayout[] layouts();
+  string[] layoutNames();
+
+  // set & get layout
+  ILayout layout(string aName);
+  void layout(ILayout aLayout);
+  void layout(string aName, ILayout aLayout);
+
+  // Check existing layout
+  bool hasLayout(ILayout aLayout);
+  bool hasLayout(string aName);
 
   void defaultLayout(ILayout aLayout);
   void defaultLayout(string aName, ILayout aLayout);

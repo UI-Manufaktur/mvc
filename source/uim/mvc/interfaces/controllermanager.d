@@ -4,16 +4,18 @@ import uim.mvc;
 @safe:
 
 interface IControllerManager {
-  IEntityBase entityBase();
-  ILayoutManager layoutManager();
-  ISessionManager sessionManager();
+  void controllerContainer(DControllerContainer aContainer);
+  DControllerContainer controllerContainer();
 
-  void controllers(DControllerContainer aContainer); 
-  DControllerContainer controllers(); 
+  void controllers(IController[string] someControllers);
+  void controllers(IController[] someControllers);
+  IController[] controllers();
+  string[] controllerNames();
 
-  IController controller(string aName); 
-  void controller(IController aController); 
-  void controller(string aName, IController aController); 
+  // set & get controller
+  IController controller(string aName);
+  void controller(IController aController);
+  void controller(string aName, IController aController);
 
   void hasController(string aName); 
 

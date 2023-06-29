@@ -10,6 +10,7 @@ public {
   import uim.mvc.interfaces.application;
   import uim.mvc.interfaces.authentication;
   import uim.mvc.interfaces.cache;
+  import uim.mvc.interfaces.check;
   import uim.mvc.interfaces.collection;
   import uim.mvc.interfaces.command;
   import uim.mvc.interfaces.commandfactory;
@@ -26,6 +27,7 @@ public {
   import uim.mvc.interfaces.form;
   import uim.mvc.interfaces.layout;
   import uim.mvc.interfaces.layoutmanager;
+  import uim.mvc.interfaces.manager;
   import uim.mvc.interfaces.model;
   import uim.mvc.interfaces.modelmanager;
   import uim.mvc.interfaces.mvc;
