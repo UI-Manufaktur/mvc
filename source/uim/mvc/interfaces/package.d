@@ -11,6 +11,7 @@ public {
   import uim.mvc.interfaces.authentication;
   import uim.mvc.interfaces.cache;
   import uim.mvc.interfaces.check;
+  import uim.mvc.interfaces.checkmanager;
   import uim.mvc.interfaces.collection;
   import uim.mvc.interfaces.command;
   import uim.mvc.interfaces.commandfactory;

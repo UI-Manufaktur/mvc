@@ -17,7 +17,7 @@ class DMVCRequestReader {
   mixin(OProperty!("STRINGAA", "parameters"));
 
   STRINGAA read(HTTPServerRequest serverRequest, STRINGAA requestParameters) {
-    if (page) foreach(k, v; page.parameters) if (k !in requestParameters) requestParameters[k] = v;
+    if (page) requestParameters = requestParameters.merge(page.parameters, false);
     requestParameters["htmlMode"] = to!string(serverRequest.method);
     return requestParameters;
   }

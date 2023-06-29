@@ -9,44 +9,77 @@ import uim.mvc;
 @safe:
 
 mixin template LayoutManagerTemplate() {
-  protected DLayoutContainer _layouts;
-  protected string _defaultLayoutName;
+  // #region layoutContainer
+    protected DLayoutContainer _layoutContainer;
 
-  void layouts(DLayoutContainer aContainer) {
-    _layouts = aContainer;
-  }
+    void layoutContainer(DLayoutContainer aContainer) {
+      _layoutContainer = aContainer;
+    }
+    DLayoutContainer layoutContainer() { 
+      return layoutContainer; 
+    }
+  // #endregion layoutContainer
 
-  DLayoutContainer layouts() {    
-    return _layouts;
-  }
+  // #region layouts
 
-  void defaultLayoutName(string aName) {
-    _defaultLayoutName = aName;
-  }
-  string defaultLayoutName() {
-    return _defaultLayoutName;
-  }
+    void layouts(ILayout[string] someLayouts) {
+      someLayouts.byKeyValue.each!(kv => layout(kv.key, kv.value));
+    }
 
-  void defaultLayout(ILayout aLayout) {
-    defaultLayout(aLayout.name, aLayout);
-  }
-  void defaultLayout(string aName, ILayout aLayout) {
-    if (_layouts is null) return;
+    void layouts(ILayout[] someLayouts) {
+      someLayouts.each!(col => layout(col));
+    }
 
-    _defaultLayoutName = aName;
-    _layouts.add(aName, aLayout);
-  }
+    ILayout[] layouts() { 
+      if (layoutContainer) return layoutContainer.values;
+      return null; 
+    }
+    string[] layoutNames() {
+      if (layoutContainer) return layoutContainer.keys;
+      return null;
+    }
+  // #endregion layouts
 
-  ILayout defaultLayout() {
-    return layout(null);
-  }
+  // #region layout
+    ILayout layout(string aName = null) {
+      if (_layoutcontainer is null) return null;
 
-  ILayout layout(string aName = null) {
-    if (_layouts is null) return null;
+      if (aName) return _layoutcontainer[aName, NullLayout];
+      return _layoutcontainer[_defaultLayout];
+    }
 
-    if (aName) return _layouts[aName, NullLayout];
-    return _layouts[_defaultLayout];
-  }
+    void layout(ILayout aLayout) {
+      if (aLayout) layout(aLayout.name, aLayout);
+    }
+    void layout(string aName, ILayout aLayout) {
+      if (layoutContainer) layoutContainer[aName] = aLayout;
+    }
+  // #endregion layout
+
+  // #region defaultLayout
+    protected string _defaultLayoutName;
+    
+    void defaultLayoutName(string aName) {
+      _defaultLayoutName = aName;
+    }
+    string defaultLayoutName() {
+      return _defaultLayoutName;
+    }
+
+    void defaultLayout(ILayout aLayout) {
+      defaultLayout(aLayout.name, aLayout);
+    }
+    void defaultLayout(string aName, ILayout aLayout) {
+      if (_layoutcontainer is null) return;
+
+      _defaultLayoutName = aName;
+      _layoutcontainer.add(aName, aLayout);
+    }
+
+    ILayout defaultLayout() {
+      return layout(null);
+    }
+  // #endregion defaultLayout
 
   void addLayouts(ILayout[] someLayouts...) {
     addLayouts(someLayouts.dup);
@@ -63,20 +96,20 @@ mixin template LayoutManagerTemplate() {
     addLayout(aLayout.name, aLayout);
   }
   void addLayout(string aName, ILayout aLayout) {
-    if (_layouts is null) return;
+    if (_layoutcontainer is null) return;
 
-    _layouts.add(aName, aLayout);
+    _layoutcontainer.add(aName, aLayout);
   }
 
   void updateLayout(string aName, ILayout aLayout) {
-    if (_layouts is null) return;
+    if (_layoutcontainer is null) return;
 
-    _layouts.update(aName, aLayout);
+    _layoutcontainer.update(aName, aLayout);
   }
 
   void removeLayout(string aName) {
-    if (_layouts is null) return;
+    if (_layoutcontainer is null) return;
 
-    _layouts.remove(aName);
+    _layoutcontainer.remove(aName);
   }
 }

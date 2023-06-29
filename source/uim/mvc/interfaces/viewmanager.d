@@ -9,17 +9,22 @@ import uim.mvc;
 @safe:
 
 interface IViewManager {
-  void views(DViewContainer aContainer); 
-  DViewContainer views();
+  void viewContainer(DViewContainer aContainer);
+  DViewContainer viewContainer();
+
+  void views(IView[string] someViews);
+  void views(IView[] someViews);
+  IView[] views();
+  string[] viewNames();
+
+  IView view(string aName);
+  void view(string aName, IView aView);
 
   void defaultView(IView aView);
   IView defaultView();
 
   void errorView(IView aView);
   IView errorView();
-
-  IView view(string aName);
-  void view(string aName, IView aView);
 
   bool existsView(string aName);
 

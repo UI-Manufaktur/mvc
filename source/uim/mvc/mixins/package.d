@@ -8,10 +8,13 @@ module uim.mvc.mixins;
 public {
 	import  uim.mvc.mixins.action;
 	import  uim.mvc.mixins.base;
+	import  uim.mvc.mixins.checkmanager;
 	import  uim.mvc.mixins.command;
 	import  uim.mvc.mixins.console;
 	import  uim.mvc.mixins.controller;
 	import  uim.mvc.mixins.controllercomponent;
+	import  uim.mvc.mixins.controllercomponentmanager;
+	import  uim.mvc.mixins.controllermanager;
 	import  uim.mvc.mixins.form;
 	import  uim.mvc.mixins.imports;
 	import  uim.mvc.mixins.layout;
