@@ -1,8 +1,8 @@
 module uim.mvc.controllers.entities.entity;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DAPPEntityController : DController {
   mixin(ControllerThis!("APPEntityController"));
 
