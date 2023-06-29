@@ -6,8 +6,8 @@
 module uim.mvc.views.components.tables.filter;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DMVCEntitiesTableFilter : DViewComponent {
   this() { super(); this.visibleEntities(10); }
   this(DView myView) { this().view(myView); }

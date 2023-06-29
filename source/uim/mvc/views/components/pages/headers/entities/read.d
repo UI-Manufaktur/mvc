@@ -6,8 +6,8 @@
 module uim.mvc.views.components.pages.headers.entities.read;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DMVCReadPageHeaderViewComponent : DPageHeaderViewComponent {
   mixin(ViewComponentThis!("MVCReadPageHeaderViewComponent"));
   

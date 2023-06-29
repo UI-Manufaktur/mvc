@@ -6,8 +6,8 @@
 module uim.mvc.views.components.pages.titles.title;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DMVCPageTitleViewComponent : DViewComponent { 
   mixin(ViewComponentThis!("MVCPageTitleViewComponent"));
 

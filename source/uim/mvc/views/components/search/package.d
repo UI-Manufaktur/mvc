@@ -6,8 +6,8 @@
 module uim.mvc.views.components.search;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DAPPSearchInList : DViewComponent {
   this() { super(); }
 

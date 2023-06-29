@@ -6,8 +6,8 @@
 module uim.mvc.views.components.tables.listheader;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DMVCListTableHeader : DViewComponent {
   this() { super(); }
   this(DView myView) { this(); this.view(myView); }
