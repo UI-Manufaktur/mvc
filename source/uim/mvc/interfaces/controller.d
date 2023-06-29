@@ -9,7 +9,7 @@ import uim.mvc;
 @safe:
 
 interface IController : IMVCObject  {
-  IControllerManager manager();
+  IManager manager();
 
   string rootPath(); 
 
@@ -35,6 +35,16 @@ interface IController : IMVCObject  {
   string timeCreated();
   string persistent();
   string redirectUrl(); // Url in case of an redirect
+
+  IControllerComponent[] components();
+  void components(IControllerComponent[] someComponents);
+  void addComponents(IControllerComponent[] someComponents);
+  void addComponent(IControllerComponent aComponent);
+
+  IControllerCheck[] checks();
+  void checks(IControllerCheck[] someChecks);
+  void addChecks(IControllerCheck[] someChecks);
+  void addCheck(IControllerCheck aCheck);
 
   void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse, string[string] options = null);
 }

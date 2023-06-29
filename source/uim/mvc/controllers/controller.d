@@ -70,7 +70,7 @@ class DController : DMVCObject, IController, IControllerComponentManager  {
   // #endregion Properties
 
   // #region Managers
-  mixin(OProperty!("IControllerManager", "manager"));
+  mixin(OProperty!("IManager", "manager"));
 
   protected IEntityBase _entityBase;
   void entityBase(IEntityBase anEntityBase) {
@@ -79,26 +79,8 @@ class DController : DMVCObject, IController, IControllerComponentManager  {
   IEntityBase entityBase() {
     if (_entityBase) return _entityBase;
 
-    if (manager) return manager.entityBase;
-
-    return null;
+    return (manager ? manager.entityBase : null);
   }
-
-  // Link to the sessionManager. 
-  protected ISessionManager _sessionManager; 
-  O sessionManager(this O)(ISessionManager aSessionManager) {
-    _sessionManager = aSessionManager;
-  }
-  ISessionManager sessionManager() {
-    if (_sessionManager) return _sessionManager;
-
-    return manager.sessionManager;
-  }
-  // #endregion Managers
-
-
-  /// Owning controller
-  mixin(OProperty!("DController", "controller"));
 
   mixin(OProperty!("DControllerCheck[]", "checks")); 
   O addChecks(this O)(DControllerCheck[] newChecks) {
@@ -106,19 +88,6 @@ class DController : DMVCObject, IController, IControllerComponentManager  {
     this.checks(this.checks~newChecks);
     return cast(O)this;
   } 
-
-/*   // controller components
-  mixin(OProperty!("DBaseController[string]", "components")); 
-  bool hasComponent(string key) {
-    return (this.component(key) !is null);
-  }
-  DBaseController component(string key) {
-    return this.components.get(key, null);
-  }
-  O component(this O)(string key, DBaseController newComponent) {
-    components[key] = newComponent;
-    return cast(O)this;
-  } */
 
   // #region HTTPServerRequest _request
     /**

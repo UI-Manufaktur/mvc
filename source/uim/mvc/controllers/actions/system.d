@@ -33,16 +33,21 @@ class DSystemActionController : DActionController {
       debug writeln("No manager");
       return false;
     }
+    debug writeln("Found entityBase"); 
 
-    debug writeln("Found DEntityBase", "entityBase"); 
-    if (auto myTenant = myEntityBase["systems"]) {
-      // this.tenant(myTenant);
-      this.logins(myTenant["system_logins"]);
-      this.sessions(myTenant["system_sessions"]);
-      this.accounts(myTenant["system_accounts"]);
-      this.sites(myTenant["system_sites"]);
-      this.passwords(myTenant["system_passwords"]);
+    auto myTenant = myEntityBase.tenant("systems");
+    if (!myTenant) {
+      debug writeln("No tenant");
+      return false;
     }
+    debug writeln("Found tenant"); 
+
+    // this.tenant(myTenant);
+    this.logins(myTenant.collection("system_logins"));
+    this.sessions(myTenant.collection("system_sessions"));
+    this.accounts(myTenant.collection("system_accounts"));
+    this.sites(myTenant.collection("system_sites"));
+    this.passwords(myTenant.collection("system_passwords"));
 
     return true;  
   }  

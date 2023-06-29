@@ -36,13 +36,13 @@ class DDatabaseHasCollectionCheck : DDatabaseExistsCheck {
       return false; 
     }
 
-    auto mytenant = myEntityBase.entityTenant(tenantName);
+    auto myTenant = myEntityBase.tenant(tenantName);
     if (!myTenant) {
       this.error("entitytenant_missing");
       return false; 
     }
     
-    auto myCollection = myTenant.entityCollection(collectionName);
+    auto myCollection = myTenant.collection(collectionName);
     if (!myTenant) {
       this.error("entitycollection_missing");
       return false; 

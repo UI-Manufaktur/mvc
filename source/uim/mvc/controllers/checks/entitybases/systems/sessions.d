@@ -33,12 +33,17 @@ class DDatabaseHasSessionsCheck : DDatabaseHasSystemsCheck {
       return false; 
     }
 
-    if (!myEntityBase.hasTenant("systems")) {
-      debug writeln("tenant systsms missing"); }
+    auto myTenant = myEntityBase.tenant("systems");
+    if (myTenant is null) {
+      this.error("tenant systems missing"); 
+      return false;
+    }
 
-    if (!myEntityBase["systems"].hasCollection("system_sessions")) { // collection sessions missing 
+    auto myCollection = myTenant.collection("system_sessions");
+    if (myCollection is null) { // collection sessions missing 
       this.error("collection_sessions_missing");
-      return false; }
+      return false; 
+    }
     
     return true;
   }

@@ -15,7 +15,7 @@ class DDatabaseExistsCheck : DControllerCheck {
     super.initialize(configSettings);
 
     this
-    .redirectUrl("/error?message=DEntityBase", "entityBase_missing");
+      .redirectUrl("/error?message=entityBase_missing");
   }
 
   override bool execute(STRINGAA options = null) {

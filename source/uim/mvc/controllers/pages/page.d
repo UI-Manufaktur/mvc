@@ -11,6 +11,8 @@ import uim.mvc;
 class DPageController : DController, IPageController, IViewManager {
   mixin(ControllerThis!("PageController"));
 
+  mixin ViewManagerTemplate;
+
   // Initialization (= hook method)
   override void initialize(Json configSettings = Json(null)) {
     version(test_uim_mvc) { 
@@ -30,6 +32,9 @@ class DPageController : DController, IPageController, IViewManager {
       .metas(MVCMetaContainer) 
       .scripts(ScriptContainer) 
       .styles(StyleContainer); 
+
+    this
+      .views(ViewContainer);
   }
 
   // inherited
@@ -70,7 +75,6 @@ class DPageController : DController, IPageController, IViewManager {
   mixin(OProperty!("IView", "view"));
   mixin(OProperty!("IView", "errorView"));
 
-  mixin ViewManagerTemplate;
 
   // Required checks for the page flow
   mixin(OProperty!("string[]", "sessionData"));

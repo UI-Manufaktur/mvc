@@ -49,18 +49,24 @@ class DCreateActionController : DActionController {
       return false;
     }
       
-    if (auto myTenant = myEntityBase[mySite]) {
-      if (auto myCollection = myTenant[pool]) {
-        if (auto entity = myCollection.createFromTemplate) {
-          with (entity) {
-            readFromRequest(options);
-            save; 
-          }
+    auto myTenant = myEntityBase.tenant(mySite.name);
+    if (myTenant is null) {
+      return false;
+    }
 
-          options["redirect"] = pgPath~"/view?id="~entity.id.toString; 
-          return false;
-        }
+    auto myCollection = myTenant.collection(pool);
+    if (myCollection is null) {
+      return false;
+    }
+    
+    if (auto myEntity = myCollection.createFromTemplate) {
+      with (myEntity) {
+        readFromRequest(options);
+        save; 
       }
+
+      options["redirect"] = pgPath~"/view?id="~myEntity.id.toString; 
+      return false;
     }
     options["redirect"] = pgPath~"/view"; 
 
