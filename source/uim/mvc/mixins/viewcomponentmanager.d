@@ -25,6 +25,21 @@ mixin template ViewComponentManagerTemplate() {
     }
   // #endregion components
 
+  // #region components
+    IViewComponent component(string name) {
+      foreach(myComponent; components) if (myComponent.name() == name) return myComponent;
+      return null; 
+    }
+
+    void component(string name, IViewComponent aComponent) {
+      foreach(ref myComponent; components) {
+        if (myComponent.name == name) myComponent = aComponent;
+        return;
+      }
+      addComponent(name, aComponent);
+    }
+  // #endregion components
+
   // #region addComponents
     void addComponents(IViewComponent[] someComponents...) {
       this.addComponents(someComponents.dup);
@@ -33,6 +48,14 @@ mixin template ViewComponentManagerTemplate() {
       components(components~someComponents);
     }
   // #endregion addComponents
+
+  void addComponent(string aName, IViewComponent aComponent) {
+    if (aComponent) {
+      aComponent.name = aName;
+    }
+
+    addComponent(aComponent);
+  }
 
   void addComponent(IViewComponent aComponent) {
     components(components~aComponent);

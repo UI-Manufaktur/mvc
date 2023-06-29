@@ -5,6 +5,8 @@ import uim.mvc;
 
 interface IMVCObject {
   string name();
+  void name(string aName);
+  
   Json defaultConfig();
   Json config();
 

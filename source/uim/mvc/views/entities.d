@@ -15,7 +15,7 @@ class DEntitiesView : DView {
 
     debug writeln("In DEntitiesView -> %s entities".format(this.entities.length));
     this
-      .components.all
+      .components()
         .filter!(comp => cast(DEntitiesViewComponent)comp)
         .each!(comp => (cast(DEntitiesViewComponent)comp).entities(this.entities));
   }

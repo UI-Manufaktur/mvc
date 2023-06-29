@@ -23,7 +23,9 @@ class DMVCObject : IMVCObject, IRegisterable {
   void initialize(Json configSettings = Json(null)) {
     // Code for object initialization
     this
-      .name("MVCObject")
+      .name("MVCObject");
+    
+    this
       .defaultConfig(Json.emptyObject)
       .config(Json.emptyObject);
   }
@@ -31,7 +33,7 @@ class DMVCObject : IMVCObject, IRegisterable {
   mixin(OProperty!("IApplication", "application"));
 
   // The name of a mvc object. Names are plural, named after the model they manipulate.
-  mixin(MVCParameter!("name"));
+  mixin(TProperty!("string", "name"));
   mixin(OProperty!("string", "className"));
   mixin(OProperty!("string", "registerPath"));
 

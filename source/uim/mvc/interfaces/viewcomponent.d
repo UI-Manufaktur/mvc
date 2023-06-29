@@ -8,7 +8,7 @@ module uim.mvc.interfaces.viewcomponent;
 import uim.mvc;
 @safe:
 
-interface IViewComponent {
+interface IViewComponent : IMVCObject {
   IViewComponentManager manager();
 
   DH5Obj[] toH5(STRINGAA options = null);

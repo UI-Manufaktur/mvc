@@ -33,10 +33,10 @@ template ViewComponentCalls(string shortName, string className = null) {
 
 template OViewComponent(string id) {
   const char[] OViewComponent = `
-    DViewComponent `~id~`() { return this.components["`~id~`"]; }
+    DViewComponent `~id~`() { return this.components("`~id~`"); }
     O `~id~`(this O)(DViewComponent newComponent) { 
       _beforeSet`~id.capitalize~`;
-      this.components.set("`~id~`", newComponent);
+      this.component("`~id~`", newComponent);
       _afterSet`~id.capitalize~`; 
       return cast(O)this; }
     void _beforeSet`~id.capitalize~`() {}
