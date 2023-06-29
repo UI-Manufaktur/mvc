@@ -6,8 +6,8 @@
 module uim.mvc.commands.collection;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DCommandCollection {
 
 }

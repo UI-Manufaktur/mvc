@@ -6,8 +6,8 @@
 module uim.mvc.base;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DMVCObject : IMVCObject, IRegisterable {
   // Constructors for the main properties
   this() { initialize; }
@@ -141,8 +141,8 @@ version(test_uim_mvc) unittest {
 module uim.mvc.object_;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DAPPObject {
   this() {
     this.name = "APPObject";

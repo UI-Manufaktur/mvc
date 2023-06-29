@@ -6,8 +6,8 @@
 module uim.mvc.commands.i18ns.i18n;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DI18nCommand {
   this() { initialize; }
 

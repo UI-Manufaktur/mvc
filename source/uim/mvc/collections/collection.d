@@ -6,8 +6,8 @@
 module uim.mvc.collections.collection;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DCollection {
   this() { initialize; }
 

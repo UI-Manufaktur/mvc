@@ -6,8 +6,8 @@
 module uim.mvc.applications.application;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DApplication : DMVCObject/* , IApplication */ { 
   this() { super(); }
 
@@ -58,8 +58,8 @@ auto Application() { return new DApplication; }
 module uim.mvc.applications.application;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DAPPApplication {
   this() { 
     debug writeln("this()");
