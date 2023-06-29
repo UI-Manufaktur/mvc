@@ -10,16 +10,16 @@ import uim.mvc;
 @safe:
 class DEntityDeleteView : DEntityCRUDView {
   mixin(ViewThis!("EntityDeleteView"));
-
+  
 override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
 
-    crudMode(CRUDModes.Delete);
-    header(
+    this.crudMode(CRUDModes.Delete);
+    this.header(
       PageHeader(this)
         .actions([["refresh", "list", "create"]]));
 
-    form(
+    this.form(
       Form(this)
         .crudMode(CRUDModes.Delete)
         .header(

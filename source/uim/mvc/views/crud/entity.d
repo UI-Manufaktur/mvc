@@ -12,11 +12,10 @@ class DEntityCRUDView : DEntityView {
   mixin(ViewThis!("EntityCRUDView"));
 
   mixin(OProperty!("bool", "readonly", "CRUDModes.Read", true, true, "", `
-    foreach(component; this.components.all) {
+    foreach(component; this.components()) {
       if (auto frm = cast(DForm)component) {
         frm.readonly(this.readonly); }}`));
 
-  mixin(OProperty!("CRUDModes", "crudMode"));
   mixin(OProperty!("DViewComponent", "form"));
   mixin(OProperty!("DUIMTabControl", "entityTab"));
 
@@ -82,7 +81,7 @@ override void initialize(Json configSettings = Json(null)) {
     return [
       H5Div(["container-xl"],
         (this.header ? this.header.toH5(options) : null)~ 
-        (this.components["messages"].notNull ? BS5Row("messages", ["mb-2"], this.components["messages"].toH5(options)) : null)~
+        ((cast(DViewComponent)this.component("messages")) ? BS5Row("messages", ["mb-2"], (cast(DViewComponent)this.component("messages")).toH5(options)) : null)~
         BS5Row(["row-deck row-cards mb-2"], form.toH5(options))~
         BS5Row(["row-deck row-cards mb-2"], H5Div(["col-12"], entityTab))~
         (this.footer ? this.footer.toH5(options) : null)

@@ -8,7 +8,7 @@ module uim.mvc.mixins.sessionmanager;
 import uim.mvc;
 @safe:
 
-mixin template SessionManagerContainerTemplate() {
+mixin template SessionContainerTemplate() {
   // #region sessionContainer
   protected DSessionContainer _sessionContainer;  
   DSessionContainer sessionContainer() {

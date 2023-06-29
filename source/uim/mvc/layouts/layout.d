@@ -20,7 +20,9 @@ class DLayout : DMVCObject, ILayout {
  
     // Default settings
     this
-      .name("Layout")
+      .name("Layout");
+
+    this
       .title("Layout")
       .layoutStyle("tabler")
       //.bodyAttributes(["style": "background-color: #ffffff;"])

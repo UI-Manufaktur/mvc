@@ -19,12 +19,12 @@ override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
     debugMethodCall(moduleName!DEntitiesListView~"::DEntitiesListView("~this.className~"):initialize");    
 
-    this
-      .header(
-        PageHeader(this)
-          .actions([["refresh", "create"]]))
-      .form(
-        EntitiesListForm(this));
+    this.header(
+      PageHeader(this)
+        .actions([["refresh", "create"]]));
+    
+    this.form(
+      EntitiesListForm(this));
   }
 
   override DH5Obj[] toH5(STRINGAA options = null) {
@@ -32,12 +32,17 @@ override void initialize(Json configSettings = Json(null)) {
     super.toH5(options);
     if (hasError || "redirect" in options) { return null; }
 
+    DViewComponent myHeader = cast(DViewComponent)this.header;
+    DViewComponent myMessages = cast(DViewComponent)this.messages;
+    DViewComponent myForm = cast(DViewComponent)this.form;
+    DViewComponent myFooter = cast(DViewComponent)this.footer;
+
     return [
       H5Div(["container-xl"],
-        this.header.toH5(options)~ 
-        BS5Row("messages", ["mb-2"], this.messages.toH5(options))~
-        BS5Row(["row-deck row-cards mb-2"], this.form.toH5(options))~
-        this.footer.toH5(options)
+        myHeader.toH5(options)~ 
+        BS5Row("messages", ["mb-2"], myMessages.toH5(options))~
+        BS5Row(["row-deck row-cards mb-2"], myForm.toH5(options))~
+        myFooter.toH5(options)
       )].toH5;             
   }
 }

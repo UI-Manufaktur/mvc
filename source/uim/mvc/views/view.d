@@ -109,7 +109,7 @@ class DView : DMVCObject, IView, IViewComponentManager {
 
   override DMVCObject clone() {
     auto result = create;
-    if (auto myView = cast(DView)result) { myView.controller(this.controller); }
+    if (auto myView = cast(DView)result) { myView.manager(this.manager); }
     return result.fromJson(this.toJson);
   }
 }
@@ -225,9 +225,9 @@ override void initialize(DConfigurationValue configSettings = null) {
     beforeH5(options);
 
     auto container = BS5Container.fluid();
-    if (this.components["messages"].notNull) {
+    if (this.(cast(DViewComponent)this.component("messages"))) {
       container
-        .row("messages", ["section"], this.components["messages"].toH5(options));
+        .row("messages", ["section"], (cast(DViewComponent)this.component("messages")).toH5(options));
     }
 
     return [
