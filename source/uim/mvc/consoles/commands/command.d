@@ -6,8 +6,8 @@
 module uim.mvc.consoles.commands.command;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DCommand : DMVCObject, ICommand{
 	  // Default error code
   const int CODE_ERROR = 1;

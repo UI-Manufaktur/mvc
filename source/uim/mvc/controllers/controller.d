@@ -6,8 +6,8 @@
 module uim.mvc.controllers.controller;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DController : DMVCObject, IController, IControllerComponentManager  {
   mixin(ControllerThis!("Controller"));
 

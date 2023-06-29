@@ -6,8 +6,8 @@
 module uim.mvc.consoles.registry;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DConsoleRegistry : DRegistry!DConsole{
   this() {}
 

@@ -6,8 +6,8 @@
 module uim.mvc.containers.metas;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DMVCMetaContainer : DH5Container {
 	O entries(this O)(STRINGAA[] newEntries) { 
     this.entries(newEntries.map!(a => H5Meta(a)).array); 

@@ -6,8 +6,8 @@
 module uim.mvc.consoles.io;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DConsoleIo {
     // Output constant making verbose shells.
     static const int VERBOSE = 2;

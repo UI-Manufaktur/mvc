@@ -6,8 +6,8 @@
 module uim.mvc.containers.mvc;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DMVCContainer { // implements ArrayAccess, ContainerContract
     // The current globally available container (if any).
     // protected static $instance;
