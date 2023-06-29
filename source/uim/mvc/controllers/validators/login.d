@@ -13,7 +13,7 @@ class DValidatorLogin : DValidator {
 
   override DEntity validate(STRINGAA reqParameters) {
     string mySessionId = reqParameters.get("sessionId", "");
-    auto mySession = cast(DSession)sessionManager.session(reqParameters);
+    auto mySession = cast(DSession)mySession.session(reqParameters);
 
     if (!manager) {
       this.error("manager_missing");

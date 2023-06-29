@@ -27,14 +27,17 @@ import uim.mvc;
 class DView : DMVCObject, IView, IViewComponentManager { 
   mixin(ViewThis!("View"));
 
-  mixin(OProperty!("IViewManager", "manager"));
+  mixin(TProperty!("IViewManager", "manager"));
+
+  mixin(TProperty!("DViewContainer", "viewContainer"));
   mixin ViewComponentManagerTemplate;
 
   override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
 
     this
-      .layoutName("default");
+      .layoutName("default")
+      .viewContainer(ViewContainer);
   }
   
   bool isNull() {

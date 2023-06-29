@@ -8,18 +8,20 @@ module uim.mvc.mixins.viewmanager;
 import uim.mvc;
 @safe:
 
-mixin template ViewManagerTemplate() {
+mixin template ViewManagerContainerTemplate() {
   // #region viewContainer
-    protected DViewContainer _viewContainer;
-
-    void viewContainer(DViewContainer aContainer) {
-      _viewContainer = aContainer;
-    }
-    DViewContainer viewContainer() { 
-      return viewContainer; 
-    }
+  protected DViewContainer _viewContainer;  
+  DViewContainer viewContainer() {
+    if (_viewContainer) return _viewContainer;
+    return (_manager ? manager.viewContainer : null); 
+  }  
+  void viewContainer(DViewContainer aViewContainer) {    
+    _viewContainer = aViewContainer;
+  }  
   // #endregion viewContainer
+}
 
+mixin template ViewManagerTemplate() {
   // #region views
     void views(IView[string] someViews) {
       someViews.byKeyValue.each!(kv => view(kv.key, kv.value));
@@ -41,9 +43,9 @@ mixin template ViewManagerTemplate() {
 
   // #region view
     IView view(string aName = null) {
-      if (_viewContainer is null) return null;
+      if (viewContainer is null) return null;
 
-      return (aName ? _viewContainer[aName, NullView] : _viewContainer[_defaultView]);
+      return (aName ? viewContainer[aName] : viewContainer[_defaultView]);
     }
 
     void view(IView aView) {
@@ -68,7 +70,7 @@ mixin template ViewManagerTemplate() {
   }
 
   bool existsView(string aName) {
-    if (_viewContainer) return (!(_viewContainer[aName] is null));
+    if (viewContainer) return (!(viewContainer[aName] is null));
     return false;
   }
 
@@ -77,7 +79,7 @@ mixin template ViewManagerTemplate() {
     if (aView) addView(aView.name, aView);
   }
   void addView(string aName, IView aView) {
-    if (_viewContainer && aView && !existsView(aName)) _viewContainer.add(aName, aView);
+    if (viewContainer && aView && !existsView(aName)) _viewContainer.add(aName, aView);
   }
 
   // Update existing view
@@ -85,7 +87,7 @@ mixin template ViewManagerTemplate() {
      if (aView) updateView(aView.name, aView);
   }
   void updateView(string aName, IView aView) {
-    if (aView && existsView(aName)) _viewContainer.update(aName, aView);
+    if (aView && existsView(aName)) viewContainer.update(aName, aView);
   }
 
   // Remove existing view
@@ -93,6 +95,6 @@ mixin template ViewManagerTemplate() {
     if (aView) removeView(aView.name);
   }
   void removeView(string aName) {
-    if (_viewContainer && existsView(aName)) _viewContainer.remove(aName);
+    if (viewContainer && existsView(aName)) viewContainer.remove(aName);
   }
 }

@@ -8,10 +8,8 @@ module uim.mvc.controllers.pages.page;
 import uim.mvc;
 
 @safe:
-class DPageController : DController, IPageController, IViewManager {
+class DPageController : DController, IPageController {
   mixin(ControllerThis!("PageController"));
-
-  mixin ViewManagerTemplate;
 
   // Initialization (= hook method)
   override void initialize(Json configSettings = Json(null)) {
@@ -108,11 +106,11 @@ class DPageController : DController, IPageController, IViewManager {
   void jsCode(STRINGAA options = null) {
     debugMethodCall(moduleName!DPageController~":DPageController::jsCode");
     string internalSessionId = _request && _request.session ? _request.session.id : options.get("internalSessionId", "");
-    auto internalSession = sessionManager.session(options);
+    auto mySession = manager.session(options);
 
-    if (internalSession && viewMode == ViewModes.JS) 
+    if (mySession && viewMode == ViewModes.JS) 
       addToPageScript(options, 
-        setSessionStorage(["sessionId": (internalSession.session ? internalSession.session.id.toString : ""), "siteId": (internalSession.site ? internalSession.site.id.toString : "")]));
+        setSessionStorage(["sessionId": (mySession.session ? mySession.session.id.toString : ""), "siteId": (internalSession.site ? internalSession.site.id.toString : "")]));
   }
 
   override void afterResponse(STRINGAA options = null) {

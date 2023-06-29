@@ -13,7 +13,7 @@ class DController : DMVCObject, IController, IControllerComponentManager, ISessi
 
   mixin(OProperty!("IControllerManager", "manager"));
 
-  mixin SessionManagerContainer;
+  mixin SessionManagerContainerTemplate;
   mixin SessionManagerTemplate; 
 
   mixin(TProperty!("IControllerComponent[]", "components"));
@@ -173,9 +173,9 @@ class DController : DMVCObject, IController, IControllerComponentManager, ISessi
 
       foreach(myCheck; this.checks) {
         myCheck.execute(options);
-        if (myCheck.hasError) {
-          this.error = myCheck.error;
-          this.redirectUrl = myCheck.redirectUrl;
+        if ((cast(DControllerCheck)myCheck).hasError) {
+          this.error = (cast(DControllerCheck)myCheck).error;
+          this.redirectUrl = (cast(DControllerCheck)myCheck).redirectUrl;
           return false; // Strict - An error requires an error reaction or handling
         }
       }

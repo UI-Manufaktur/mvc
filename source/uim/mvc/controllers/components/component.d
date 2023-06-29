@@ -25,7 +25,7 @@ class DControllerComponent : DMVCObject, IControllerComponent, IControllerCompon
   mixin(TProperty!("IControllerComponent[]", "components"));
   mixin ControllerComponentManagerTemplate;
   
-  mixin SessionManagerContainer;
+  mixin SessionManagerContainerTemplate;
   mixin SessionManagerTemplate; 
 
   override void initialize(Json configSettings = Json(null)) {

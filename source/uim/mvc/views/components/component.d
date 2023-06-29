@@ -11,7 +11,9 @@ import uim.mvc;
 class DViewComponent : DMVCObject, IViewComponent, IViewComponentManager {
   mixin(ViewComponentThis!("ViewComponent"));
 
-  mixin(OProperty!("IViewComponentManager", "manager"));
+  mixin(TProperty!("IViewComponentManager", "manager"));
+
+  mixin(TProperty!("IViewComponent[]", "components"));
   mixin ViewComponentManagerTemplate;
 
   override void initialize(Json configSettings = Json(null)) {
@@ -24,7 +26,7 @@ class DViewComponent : DMVCObject, IViewComponent, IViewComponentManager {
     .dynamic(true)
     .notNull(true);
 
-    viewComponents(null);
+    components(null);
   }
 
   mixin(OProperty!("string", "id"));
