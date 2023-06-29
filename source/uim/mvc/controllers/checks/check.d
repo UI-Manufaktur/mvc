@@ -18,7 +18,6 @@ class DControllerCheck : DControllerComponent, ICheck, ICheckManager {
       .name("ControllerCheck");
   }
 
-  mixin(TProperty!("ICheck[]", "checks"));  
   mixin CheckManagerTemplate;
 
   bool execute(STRINGAA options = null) {
@@ -28,8 +27,9 @@ class DControllerCheck : DControllerComponent, ICheck, ICheckManager {
       return false; 
     }
 
+    IControllerComponentManager myManager = this.manager;  
     foreach(myCheck; checks) {
-      myCheck.manager(this.manager);
+      myCheck.manager(myManager);
       if (!myCheck.execute(options)) {
         this
           .error(myCheck.error)

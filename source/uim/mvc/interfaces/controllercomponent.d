@@ -4,6 +4,8 @@ import uim.mvc;
 @safe:
 
 interface IControllerComponent : IMVCObject {
-  IControllerComponentManager manager();
+	IControllerComponentManager manager();
+	void manager(IControllerComponentManager aManager);
+  
   string redirectUrl();
 }

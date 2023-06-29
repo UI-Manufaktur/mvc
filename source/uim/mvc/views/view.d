@@ -27,15 +27,15 @@ import uim.mvc;
 class DView : DMVCObject, IView, IViewComponentManager { 
   mixin(ViewThis!("View"));
 
+  mixin(OProperty!("IViewManager", "manager"));
+  mixin ViewComponentManagerTemplate;
+
   override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
 
     this
       .layoutName("default");
-
   }
-  
-  mixin(OProperty!("IViewManager", "manager"));
   
   bool isNull() {
     return false;
@@ -46,20 +46,18 @@ class DView : DMVCObject, IView, IViewComponentManager {
     mixin(OProperty!("DEntity[]", "entities"));
     mixin(OProperty!("string", "rootPath"));
 
-  mixin(OProperty!("DViewComponents", "components"));
-  mixin(OProperty!("DController", "controller")); 
-  // mixin(OProperty!("IEventManager", "eventManager")); 
-  mixin(OProperty!("string[]", "leftClasses")); 
-  mixin(OProperty!("string[]", "middleClasses")); 
-  mixin(OProperty!("string[]", "rightClasses")); 
-  mixin(OProperty!("STRINGAA", "rightAttributes")); 
-    
-  mixin(OViewComponent!("header"));
-  mixin(OViewComponent!("footer"));
-  mixin(OViewComponent!("left"));
-  mixin(OViewComponent!("middle"));
-  mixin(OViewComponent!("right"));
-  mixin(OViewComponent!("messages"));
+    // mixin(OProperty!("IEventManager", "eventManager")); 
+    mixin(OProperty!("string[]", "leftClasses")); 
+    mixin(OProperty!("string[]", "middleClasses")); 
+    mixin(OProperty!("string[]", "rightClasses")); 
+    mixin(OProperty!("STRINGAA", "rightAttributes")); 
+      
+    mixin(OViewComponent!("header"));
+    mixin(OViewComponent!("footer"));
+    mixin(OViewComponent!("left"));
+    mixin(OViewComponent!("middle"));
+    mixin(OViewComponent!("right"));
+    mixin(OViewComponent!("messages"));
     // The name of the layout render the template inside of. 
     mixin(OProperty!("string", "layoutName"));
   // #endregion Properties

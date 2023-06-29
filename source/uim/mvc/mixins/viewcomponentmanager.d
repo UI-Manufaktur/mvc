@@ -10,14 +10,24 @@ import uim.mvc;
 
 mixin template ViewComponentManagerTemplate() {
   // #region components
+    protected IViewComponent[] _viewComponents();
+
+    IViewComponent[] components() {
+      return _viewComponents;
+    }
+
     void components(IViewComponent[] someComponents...) {
-      components(someComponents.dup);
+      this.components(someComponents.dup);
+    }
+
+    void components(IViewComponent[] someComponents) {
+      _viewComponents = someComponents;
     }
   // #endregion components
 
   // #region addComponents
     void addComponents(IViewComponent[] someComponents...) {
-      addComponents(someComponents.dup);
+      this.addComponents(someComponents.dup);
     }
     void addComponents(IViewComponent[] someComponents) {
       _viewComponents ~= someComponents;

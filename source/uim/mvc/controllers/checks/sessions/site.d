@@ -22,7 +22,8 @@ class DSessionHasSiteCheck : DSessionExistsCheck {
     debug writeln(moduleName!DSessionHasSiteCheck~":DSessionHasSiteCheck::check");
     if (!super.execute(options)) { return false; }
 
-    auto site = sessionManager.session(options).site;
+    auto mySession = manager.session(options);
+    auto site = mySession.site;
     if (!site) { 
       this.error("internalsession_site_missing");
       return false; 

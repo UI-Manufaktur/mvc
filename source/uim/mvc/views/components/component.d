@@ -8,8 +8,11 @@ module uim.mvc.views.components.component;
 import uim.mvc;
 @safe:
 
-class DViewComponent : DMVCObject, IViewComponent {
+class DViewComponent : DMVCObject, IViewComponent, IViewComponentManager {
   mixin(ViewComponentThis!("ViewComponent"));
+
+  mixin(OProperty!("IViewComponentManager", "manager"));
+  mixin ViewComponentManagerTemplate;
 
   override void initialize(Json configSettings = Json(null)) {
     version(test_uim_mvc) { debugMethodCall(moduleName!DViewComponent~":DViewComponent("~this.name~")::initialize"); }
@@ -20,10 +23,11 @@ class DViewComponent : DMVCObject, IViewComponent {
     .changed(true)
     .dynamic(true)
     .notNull(true);
+
+    viewComponents(null);
   }
 
   mixin(OProperty!("string", "id"));
-  mixin(OProperty!("IViewComponentManager", "manager"));
 
   mixin(OProperty!("DEntity", "entity"));
   mixin(OProperty!("DEntity[]", "entities"));

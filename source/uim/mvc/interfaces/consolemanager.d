@@ -3,38 +3,11 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel, mailto:ons@sicherheitsschmiede.de                                                      
 **********************************************************************************************************/
-module uim.mvc.mixins.checkmanager;
+module uim.mvc.interfaces.consolemanager;
 
 import uim.mvc;
-
 @safe:
-mixin template CheckManagerTemplate() {
-  // #region checks
-    protected ICheck[] _checks;
 
-    ICheck[] checks() {
-      return _checks;
-    }
+interface IConsoleManager {
 
-    void checks(ICheck[] someChecks...) {
-      this.checks(someChecks.dup);
-    }
-
-    void checks(ICheck[] someChecks) {
-      _checks = someChecks;
-    }
-  // #endregion checks
-
-
-  void addChecks(ICheck[] someChecks...) {
-    _checks ~= someChecks;
-  }
-
-  void addChecks(ICheck[] someChecks) {
-    _checks ~= someChecks;
-  }
-
-  void addCheck(ICheck aCheck) {
-    _checks ~= aCheck;
-  }
 }
