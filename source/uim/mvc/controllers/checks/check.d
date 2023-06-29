@@ -29,11 +29,11 @@ class DControllerCheck : DControllerComponent, ICheck, ICheckManager {
 
     IControllerComponentManager myManager = this.manager;  
     foreach(myCheck; checks) {
-      myCheck.manager(myManager);
+      (cast(DControllerCheck)myCheck).manager(myManager);
       if (!myCheck.execute(options)) {
-        this
-          .error(myCheck.error)
-          .redirectUrl(myCheck.redirectUrl);
+        string myError = (cast(DControllerCheck)myCheck).error;
+        this.error(myError);
+        this.redirectUrl((cast(DControllerCheck)myCheck).redirectUrl);
         return false;
       }
     }

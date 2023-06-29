@@ -20,15 +20,12 @@ import uim.mvc;
 class DControllerComponent : DMVCObject, IControllerComponent, IControllerComponentManager {
   mixin(ControllerComponentThis!("ControllerComponent"));
 
+  mixin(TProperty!("IControllerComponentManager", "manager"));
   mixin ControllerComponentManagerTemplate;
   
   override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
   }
-
-  // #region Managers
-    mixin(OProperty!("IControllerComponentManager", "manager"));
-  // #endregion Managers
 
   mixin(OProperty!("string", "redirectUrl"));
 

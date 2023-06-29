@@ -5,7 +5,7 @@
 **********************************************************************************************************/
 module uim.mvc.authentications.authentication;
 
-class DMVCAuthentication {
+class DAuthentication {
   this() {}
 }
 

@@ -9,5 +9,5 @@ import uim.mvc;
 @safe:
 
 interface IModel {
-	
+	IModelManager manager();
 }

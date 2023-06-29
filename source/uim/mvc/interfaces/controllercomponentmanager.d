@@ -9,6 +9,8 @@ import uim.mvc;
 @safe:
 
 interface IControllerComponentManager {
+  IEntityBase entityBase();
+
   IControllerComponent[] components();
   void components(IControllerComponent[] someComponents);
   void addComponents(IControllerComponent[] someComponents);

@@ -10,12 +10,14 @@ public {
   import uim.mvc.interfaces.application;
   import uim.mvc.interfaces.authentication;
   import uim.mvc.interfaces.cache;
+  import uim.mvc.interfaces.cachemanager;
   import uim.mvc.interfaces.check;
   import uim.mvc.interfaces.checkmanager;
   import uim.mvc.interfaces.collection;
   import uim.mvc.interfaces.command;
   import uim.mvc.interfaces.commandfactory;
   import uim.mvc.interfaces.console;
+  import uim.mvc.interfaces.consolemanager;
   import uim.mvc.interfaces.container;
   import uim.mvc.interfaces.context;
   import uim.mvc.interfaces.controller;
