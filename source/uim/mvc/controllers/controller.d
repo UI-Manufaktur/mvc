@@ -11,7 +11,12 @@ import uim.mvc;
 class DController : DMVCObject, IController, IControllerComponentManager  {
   mixin(ControllerThis!("Controller"));
 
+  mixin(OProperty!("IControllerManager", "manager"));
+
+  mixin(OProperty!("DControllerComponentContainer", "controllerComponentContainer"));
   mixin ControllerComponentManagerTemplate;
+
+  mixin(OProperty!("DCheckContainer", "checkContainer"));
   mixin CheckManagerTemplate;
 
   // Set to true to automatically render the view after action logic.
@@ -40,6 +45,9 @@ class DController : DMVCObject, IController, IControllerComponentManager  {
 
     this
       .name("Controller"); 
+
+    controllerComponentContainer(ControllerComponentContainer);
+    checkContainer(CheckContainer);
   }
   
   // #region Properties
@@ -71,9 +79,6 @@ class DController : DMVCObject, IController, IControllerComponentManager  {
     mixin(MVCParameter!("viewName"));
 
   // #endregion Properties
-
-  // #region Managers
-  mixin(OProperty!("IManager", "manager"));
 
   protected IEntityBase _entityBase;
   void entityBase(IEntityBase anEntityBase) {

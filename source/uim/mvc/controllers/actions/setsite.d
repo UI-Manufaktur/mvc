@@ -27,17 +27,12 @@ class DSelectSiteActionController : DActionController {
     if (!super.beforeResponse(options) || "redirect" in options) return false;
         
     debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request - Working with InternalSession");
-    DSession mySession = cast(DSession)sessionManager.session(options); // DSession[string]
+    DSession mySession = cast(DSession)manager.session(options); // DSession[string]
     
     debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request - Working with session.session");
     // HttpSession myHttpSession = mySession.session; 
     debug writeln(mySession ? "Found session" : "Missing session");
     
-    if (!manager) {
-      debug writeln("No manager");
-      return false;
-    }
-
     auto myEntityBase = manager.entityBase;
     if (!myEntityBase) {
       debug writeln("No manager");

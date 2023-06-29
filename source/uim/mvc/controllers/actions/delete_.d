@@ -24,7 +24,7 @@ class DDeleteActionController : DActionController {
     debug writeln(moduleName!DDeleteActionController~":DDeleteActionController::beforeResponse");
     if (!super.beforeResponse(options) || hasError || "redirect" in options) { return false; }
 
-    auto session = sessionManager.session(options);
+    auto session = manager.session(options);
     auto site = session.site;
 
     auto myCollection = manager.entityBase[site, pool];

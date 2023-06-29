@@ -8,7 +8,7 @@ module uim.mvc.controllers.checks.check;
 import uim.mvc;
 @safe:
 
-class DControllerCheck : DControllerComponent, ICheck {
+class DControllerCheck : DControllerComponent, ICheck, ICheckManager {
   mixin(ControllerComponentThis!("ControllerCheck"));
 
   override void initialize(Json configSettings = Json(null)) {
@@ -25,6 +25,11 @@ class DControllerCheck : DControllerComponent, ICheck {
   }
 
   bool execute(STRINGAA options = null) {
+    if (!manager) {
+      this.error("manager_missing");
+      return false; 
+    }
+
     foreach(check; checks) {
       if (!check.manager(this.manager).execute(options)) {
         this

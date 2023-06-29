@@ -25,7 +25,7 @@ class DUpdateActionController : DActionController {
     super.beforeResponse(options);   
     if (hasError || "redirect" in options) { return false; }
 
-    auto session = sessionManager.session(options);
+    auto session = manager.session(options);
     auto site = session.site;
 
     if (!manager) {
