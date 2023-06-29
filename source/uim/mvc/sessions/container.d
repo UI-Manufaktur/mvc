@@ -6,8 +6,8 @@
 module uim.mvc.sessions.container;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DSessionContainer : DNamedContainer!ISession {
 }
 auto SessionContainer() { return new DSessionContainer(); }

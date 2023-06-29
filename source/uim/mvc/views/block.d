@@ -6,8 +6,8 @@
 module uim.mvc.views.block;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DViewBlock {
   this() {}
   this(DH5Obj[] content) { this(); this.content(content); }

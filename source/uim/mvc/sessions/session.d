@@ -6,8 +6,8 @@
 module uim.mvc.sessions.session;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DSession : DEntity, ISession {
   mixin(EntityThis!("Session", "DSession"));
 

@@ -6,8 +6,8 @@
 module uim.mvc.views.json;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DJsonView : DView {
   mixin(ViewThis!("JsonView"));
 }

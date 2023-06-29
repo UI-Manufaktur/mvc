@@ -6,8 +6,8 @@
 module uim.mvc.routes.collection;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DRouteCollection : DMVCObject, IRouteCollection {
 
   override void initialize(Json configSettings = Json(null)) {

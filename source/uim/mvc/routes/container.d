@@ -6,8 +6,8 @@
 module uim.mvc.routes.container;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DRouteContainer : DNamedContainer!IRoute {
 }
 auto RouteContainer() { return new DRouteContainer; }

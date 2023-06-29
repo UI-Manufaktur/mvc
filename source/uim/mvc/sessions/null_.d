@@ -6,8 +6,8 @@
 module uim.mvc.sessions.null_;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DNullSession : DSession {
   mixin(EntityThis!("NullSession"));
 

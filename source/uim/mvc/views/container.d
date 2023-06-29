@@ -1,8 +1,8 @@
 module uim.mvc.views.container;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DViewContainer : DNamedContainer!IView {
 }
 auto ViewContainer() { return new DViewContainer; }
