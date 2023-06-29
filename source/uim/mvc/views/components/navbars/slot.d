@@ -6,8 +6,8 @@
 module uim.mvc.views.components.navbars.slot;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DNavbarSlotViewComponent : DViewComponent {
     mixin(ViewComponentThis!("NavbarSlotViewComponent"));
 

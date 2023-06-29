@@ -6,8 +6,8 @@
 module uim.mvc.views.components.pages.headers.entities.create;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DMVCCreatePageHeaderViewComponent : DPageHeaderViewComponent {
   mixin(ViewComponentThis!("MVCCreatePageHeaderViewComponent"));
   

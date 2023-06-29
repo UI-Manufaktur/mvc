@@ -6,8 +6,8 @@
 module uim.mvc.views.components.lists.items.item;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DListItem : DEntityViewComponent {
   mixin(ViewComponentThis!("ListItem"));
 }
