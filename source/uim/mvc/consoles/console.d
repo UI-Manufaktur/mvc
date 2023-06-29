@@ -6,8 +6,8 @@
 module uim.mvc.consoles.console;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DConsole : DMVCObject, IConsole {
 	mixin(ConsoleThis!("Console"));
 }

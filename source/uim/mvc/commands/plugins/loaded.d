@@ -6,8 +6,8 @@
 module uim.mvc.commands.plugins.loaded;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DPluginLoadedCommand {
   this() { initialize; }
 
