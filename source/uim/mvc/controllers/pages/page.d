@@ -8,8 +8,11 @@ module uim.mvc.controllers.pages.page;
 import uim.mvc;
 
 @safe:
-class DPageController : DController, IPageController {
+class DPageController : DController, IPageController, IViewManager {
   mixin(ControllerThis!("PageController"));
+
+  mixin(TProperty!("DViewContainer", "viewContainer"));
+  mixin ViewManagerTemplate;
 
   // Initialization (= hook method)
   override void initialize(Json configSettings = Json(null)) {
@@ -110,7 +113,7 @@ class DPageController : DController, IPageController {
 
     if (mySession && viewMode == ViewModes.JS) 
       addToPageScript(options, 
-        setSessionStorage(["sessionId": (mySession.session ? mySession.session.id.toString : ""), "siteId": (internalSession.site ? internalSession.site.id.toString : "")]));
+        setSessionStorage(["sessionId": (mySession.session ? mySession.session.id.toString : ""), "siteId": (mySession.site ? mySession.site.id.toString : "")]));
   }
 
   override void afterResponse(STRINGAA options = null) {
@@ -241,7 +244,7 @@ class DPageController : DController, IPageController {
       debugMethodCall(moduleName!DPageController~":DPageController("~this.name~")::beforeResponse");
       super.beforeResponse(options);
 
-      auto mySession = sessionManager.session(options);
+      auto mySession = manager.session(options);
       // ?? TODO if (internalSession) { this.site(session.site); }
       //     if (hasError || "redirect" in options) { return; }
 

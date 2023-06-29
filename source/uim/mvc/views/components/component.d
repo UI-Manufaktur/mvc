@@ -21,10 +21,10 @@ class DViewComponent : DMVCObject, IViewComponent, IViewComponentManager {
     super.initialize(configSettings);
 
     this
-    .id(this.name)
-    .changed(true)
-    .dynamic(true)
-    .notNull(true);
+      .id(this.name)
+      .changed(true)
+      .dynamic(true)
+      .notNull(true);
 
     components(null);
   }

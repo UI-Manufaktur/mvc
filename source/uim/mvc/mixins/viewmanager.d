@@ -12,8 +12,7 @@ mixin template ViewManagerContainerTemplate() {
   // #region viewContainer
   protected DViewContainer _viewContainer;  
   DViewContainer viewContainer() {
-    if (_viewContainer) return _viewContainer;
-    return (_manager ? manager.viewContainer : null); 
+    return (_viewContainer ? _viewContainer : (_manager ? manager.viewContainer : null)); 
   }  
   void viewContainer(DViewContainer aViewContainer) {    
     _viewContainer = aViewContainer;
@@ -24,20 +23,22 @@ mixin template ViewManagerContainerTemplate() {
 mixin template ViewManagerTemplate() {
   // #region views
     void views(IView[string] someViews) {
-      someViews.byKeyValue.each!(kv => view(kv.key, kv.value));
+      foreach(myName, myView; someViews) {
+        addView(myName, myView);
+      }
     }
 
     void views(IView[] someViews) {
-      someViews.each!(col => view(col));
+      foreach(myView; someViews) {
+        addView(myView);
+      }
     }
 
     IView[] views() { 
-      if (viewContainer) return viewContainer.values;
-      return null; 
+      return (viewContainer ? viewContainer.values : null); 
     }
     string[] viewNames() {
-      if (viewContainer) return viewContainer.keys;
-      return null;
+      return (viewContainer ? viewContainer.keys : null);
     }
   // #endregion views
 
@@ -69,9 +70,11 @@ mixin template ViewManagerTemplate() {
     return view("error");
   }
 
-  bool existsView(string aName) {
-    if (viewContainer) return (!(viewContainer[aName] is null));
-    return false;
+  bool hasView(IView aView) {
+    return (aView ? hasView(aView.name) : false);
+  }
+  bool hasView(string aName) {
+    return (viewContainer ? (!(viewContainer[aName] is null)) : false);
   }
 
   // Add view if not exitst
@@ -79,7 +82,7 @@ mixin template ViewManagerTemplate() {
     if (aView) addView(aView.name, aView);
   }
   void addView(string aName, IView aView) {
-    if (viewContainer && aView && !existsView(aName)) _viewContainer.add(aName, aView);
+    if (viewContainer && aView && !hasView(aName)) _viewContainer.add(aName, aView);
   }
 
   // Update existing view
@@ -87,7 +90,7 @@ mixin template ViewManagerTemplate() {
      if (aView) updateView(aView.name, aView);
   }
   void updateView(string aName, IView aView) {
-    if (aView && existsView(aName)) viewContainer.update(aName, aView);
+    if (aView && hasView(aName)) viewContainer.update(aName, aView);
   }
 
   // Remove existing view
@@ -95,6 +98,6 @@ mixin template ViewManagerTemplate() {
     if (aView) removeView(aView.name);
   }
   void removeView(string aName) {
-    if (viewContainer && existsView(aName)) viewContainer.remove(aName);
+    if (viewContainer && hasView(aName)) viewContainer.remove(aName);
   }
 }

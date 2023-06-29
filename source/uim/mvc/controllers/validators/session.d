@@ -8,8 +8,8 @@ class DValidatorSession : DValidator {
   
   override DEntity validate(STRINGAA reqParameters) {
     // Looking for a sessionId
-    string internalSessionId = reqParameters.get("internalSessionId", "");
-    auto mySession = sessionManager.session(reqParameters);
+    string mySessionId = reqParameters.get("internalSessionId", "");
+    auto mySession = manager.session(reqParameters);
 
 /*     auto mySession = internalSession.session;
     if (!session) { // No session. Try to read from reqParameters

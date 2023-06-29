@@ -18,7 +18,9 @@ override void initialize(Json configSettings = Json(null)) {
       .crudMode(CRUDModes.Delete)
       .header(
         PageHeader(this)
-          .actions([["refresh", "list", "create"]]))
+          .actions([["refresh", "list", "create"]]));
+
+    this
       .form(
         Form(this)
           .crudMode(CRUDModes.Delete)
@@ -30,9 +32,9 @@ override void initialize(Json configSettings = Json(null)) {
 mixin(ViewCalls!("APPEntityDeleteView"));
 
 version(test_uim_mvc) { unittest {
-    writeln("--- Tests in ", __MODULE__, "/", __LINE__);
-		testView(new DAPPEntityDeleteView); 
+  writeln("--- Tests in ", __MODULE__, "/", __LINE__);
+  testView(new DAPPEntityDeleteView); 
 
-    writeln("--- Tests in ", __MODULE__, "/", __LINE__);
-		testView(APPEntityDeleteView); 
+  writeln("--- Tests in ", __MODULE__, "/", __LINE__);
+  testView(APPEntityDeleteView); 
 }}

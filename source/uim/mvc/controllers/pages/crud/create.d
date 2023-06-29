@@ -18,11 +18,12 @@ override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
 
     checks([SessionExistsCheck, SessionHasHTTPSessionCheck, SessionHasSiteCheck]);
-    view(APPEntityCreateView);
+    addView(APPEntityCreateView);
     scripts
       .addLinks(
         "/js/apps/entities/entity.js", 
-        "/js/apps/entities/create.js");
+        "/js/apps/entities/create.js"
+      );
   }
 
 /*   this(string newEntityName) {

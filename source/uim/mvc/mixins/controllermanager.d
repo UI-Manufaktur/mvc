@@ -8,18 +8,20 @@ module uim.mvc.mixins.controllermanager;
 import uim.mvc;
 @safe:
 
-mixin template ControllerManagerTemplate() {
+mixin template ControllerContainerTemplate() {
   // #region controllerContainer
-    protected DControllerContainer _controllerContainer;
-
-    void controllerContainer(DControllerContainer aContainer) {
-      _controllerContainer = aContainer;
-    }
-    DControllerContainer controllerContainer() { 
-      return controllerContainer; 
-    }
+  protected DControllerContainer _controllerContainer;  
+  DControllerContainer controllerContainer() {
+    if (_controllerContainer) return _controllerContainer;
+    return (_manager ? manager.controllerContainer : null); 
+  }  
+  void controllerContainer(DControllerContainer aControllerContainer) {    
+    _controllerContainer = aControllerContainer;
+  }  
   // #endregion controllerContainer
+}
 
+mixin template ControllerManagerTemplate() {
   // #region controllers
     void controllers(IController[string] someControllers) {
       someControllers.byKeyValue.each!(kv => controller(kv.key, kv.value));

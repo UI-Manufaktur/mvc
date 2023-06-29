@@ -10,8 +10,8 @@ class DValidatorSite : DValidator {
 
   override DEntity validate(STRINGAA reqParameters) {
     // Looking for a siteId
-    string internalSessionId = reqParameters.get("internalSessionId", "");
-    auto mySession = cast(DSession)mySession.session(reqParameters);
+    string mySessionId = reqParameters.get("httpSessionId", "");
+    auto mySession = cast(DSession)manager.session(reqParameters);
 
 /*     if (internalSession) { // internalSession exist
       auto site = internalSession.site;

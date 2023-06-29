@@ -91,9 +91,9 @@ override void initialize(Json configSettings = Json(null)) {
 mixin(ViewCalls!("EntityCRUDView"));
 
 version(test_uim_mvc) { unittest {
-    writeln("--- Tests in ", __MODULE__, "/", __LINE__);
-		testView(new DEntityCRUDView); 
+  writeln("--- Tests in ", __MODULE__, "/", __LINE__);
+  testView(new DEntityCRUDView); 
 
-    writeln("--- Tests in ", __MODULE__, "/", __LINE__);
-		testView(EntityCRUDView); 
+  writeln("--- Tests in ", __MODULE__, "/", __LINE__);
+  testView(EntityCRUDView); 
 }}
