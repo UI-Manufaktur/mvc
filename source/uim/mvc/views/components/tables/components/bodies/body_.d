@@ -6,8 +6,8 @@
 module uim.mvc.views.components.tables.components.bodies.body_;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DTableBody : DTableComponent {
   mixin(ViewComponentThis!("MVCTableBody"));
 }

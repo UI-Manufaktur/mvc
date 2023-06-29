@@ -6,8 +6,8 @@
 module uim.mvc.views.components.tables.components.footers.entity;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DMVCEntityTableFooter : DTableFooter {
   mixin(ViewComponentThis!("MVCEntityTableFooter"));
 }

@@ -6,8 +6,8 @@
 module uim.mvc.views.components.tables.components.footers.footer;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DTableFooter : DTableComponent {
   mixin(ViewComponentThis!("MVCTableFooter"));
 }

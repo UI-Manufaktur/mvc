@@ -6,8 +6,8 @@
 module uim.mvc.views.components.tables.components.headers.header;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DTableHeader : DTableComponent {
   mixin(ViewComponentThis!("MVCTableHeader"));
 
