@@ -6,8 +6,8 @@
 module uim.mvc.controllers.actions.setsite;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DSelectSiteActionController : DActionController {
   mixin(ControllerThis!("SelectSiteActionController"));
 

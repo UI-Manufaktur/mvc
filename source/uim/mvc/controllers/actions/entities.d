@@ -6,8 +6,8 @@
 module uim.mvc.controllers.actions.entities;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DEntitiesActionController : DActionController {
   mixin(ControllerThis!("EntitiesActionController"));
 

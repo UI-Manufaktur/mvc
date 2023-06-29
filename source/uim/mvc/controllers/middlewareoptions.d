@@ -6,8 +6,8 @@
 module uim.mvc.controllers.middlewareoptions;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DControllerMiddlewareOptions {
     // The middleware options.
     protected STRINGAA _options;

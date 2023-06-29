@@ -6,8 +6,8 @@
 module uim.mvc.controllers.actions.delete_;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DDeleteActionController : DActionController {
   mixin(ControllerThis!("DeleteActionController"));
 

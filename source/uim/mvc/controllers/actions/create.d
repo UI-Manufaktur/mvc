@@ -6,8 +6,8 @@
 module uim.mvc.controllers.actions.create;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DCreateActionController : DActionController {
   mixin(ControllerThis!("CreateActionController"));
 

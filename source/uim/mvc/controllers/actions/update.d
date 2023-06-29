@@ -6,8 +6,8 @@
 module uim.mvc.controllers.actions.update;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DUpdateActionController : DActionController {
   mixin(ControllerThis!("UpdateActionController"));
 

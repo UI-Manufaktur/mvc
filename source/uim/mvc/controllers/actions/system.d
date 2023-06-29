@@ -6,8 +6,8 @@
 module uim.mvc.controllers.actions.system;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DSystemActionController : DActionController {
   mixin(ControllerThis!("SystemActionController"));
 
