@@ -6,8 +6,8 @@
 module uim.mvc.views.crud.read;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DAPPEntityReadView : DEntityCRUDView { // Default view
   mixin(ViewThis!("APPEntityReadView"));
 }

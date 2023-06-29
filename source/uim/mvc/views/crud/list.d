@@ -6,8 +6,8 @@
 module uim.mvc.views.crud.list;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DEntitiesListView : DEntitiesView {
   mixin(ViewThis!("EntitiesListView")); // , false, true));
 

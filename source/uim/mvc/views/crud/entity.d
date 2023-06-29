@@ -6,8 +6,8 @@
 module uim.mvc.views.crud.entity;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DEntityCRUDView : DEntityView {
   mixin(ViewThis!("EntityCRUDView"));
 
