@@ -6,8 +6,8 @@
 module uim.mvc.controllers.checks.entitybases.collection_by_name;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DDatabaseHasCollectionCheck : DDatabaseExistsCheck {
   mixin(ControllerComponentThis!("DatabaseHasCollectionCheck"));
 

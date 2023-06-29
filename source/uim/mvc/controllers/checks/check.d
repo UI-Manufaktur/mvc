@@ -6,8 +6,8 @@
 module uim.mvc.controllers.checks.check;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DControllerCheck : DControllerComponent, ICheck, ICheckManager {
   mixin(ControllerComponentThis!("ControllerCheck"));
 

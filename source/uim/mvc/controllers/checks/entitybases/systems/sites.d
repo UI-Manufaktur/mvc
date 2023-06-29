@@ -6,8 +6,8 @@
 module uim.mvc.controllers.checks.entitybases.systems.sites;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DDatabaseHasSitesCheck : DDatabaseHasSystemsCheck {
   mixin(ControllerComponentThis!("DatabaseHasSitesCheck"));
 

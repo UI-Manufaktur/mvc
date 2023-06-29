@@ -6,8 +6,8 @@
 module uim.mvc.controllers.checks.entitybases.systems.logins;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DDatabaseHasLoginsCheck : DDatabaseHasSystemsCheck {
   mixin(ControllerComponentThis!("DatabaseHasLoginsCheck"));
 
