@@ -6,7 +6,7 @@ import uim.mvc;
 auto entity() {
   string result;
 
-  result ~= jsClass("APPEntity", [
+  result ~= jsClass("Entity", [
     jsMethod("constructor", ["data"], 
       jsForIn("key", "data", "this[key] = data[key];")
     )

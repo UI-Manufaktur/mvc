@@ -8,10 +8,10 @@ module uim.mvc.views.components.tabpanes.entity;
 import uim.mvc;
 
 @safe:
-class DAPPEntityTabpane : DTabPane {
-  mixin(ViewComponentThis!("APPEntityTabpane"));
+class DEntityTabpane : DTabPane {
+  mixin(ViewComponentThis!("EntityTabpane"));
 
   // mixin(OProperty!("DEntity", "entity"));
 }
-mixin(ViewComponentCalls!("APPEntityTabpane"));
+mixin(ViewComponentCalls!("EntityTabpane"));
 

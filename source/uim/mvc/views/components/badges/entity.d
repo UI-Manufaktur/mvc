@@ -8,8 +8,8 @@ module uim.mvc.views.components.badges.entity;
 import uim.mvc;
 
 @safe:
-class DAPPEntityBadgeViewComponent : DAPPBadgeViewComponent {
-  mixin(ViewComponentThis!("APPEntityBadgeViewComponent"));
+class DEntityBadgeViewComponent : DAPPBadgeViewComponent {
+  mixin(ViewComponentThis!("EntityBadgeViewComponent"));
 
 }
-mixin(ViewComponentCalls!("APPEntityBadgeViewComponent"));
+mixin(ViewComponentCalls!("EntityBadgeViewComponent"));

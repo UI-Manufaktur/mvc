@@ -39,11 +39,11 @@ mixin template ViewManagerTemplate() {
     }
 
     IView[] views() { 
-      return (viewContainer ? viewContainer.values : null); 
+      return (this.viewContainer() ? viewContainer.values : null); 
     }
 
     string[] viewNames() {
-      return (viewContainer ? viewContainer.keys : null);
+      return (this.viewContainer() ? viewContainer.keys : null);
     }
   // #endregion views
 
@@ -51,14 +51,14 @@ mixin template ViewManagerTemplate() {
     IView view(string aName = null) {
       if (viewContainer is null) return null;
 
-      return (aName ? viewContainer[aName] : viewContainer["default"]);
+      return (aName ? this.viewContainer[aName] : this.viewContainer["default"]);
     }
 
     void view(IView aView) {
       if (aView) view(aView.name, aView);
     }
     void view(string aName, IView aView) {
-      if (viewContainer) viewContainer[aName] = aView;
+      if (this.viewContainer()) this.viewContainer[aName] = aView;
     }
   // #endregion viewView
 
@@ -85,7 +85,7 @@ mixin template ViewManagerTemplate() {
       return (aView ? hasView(aView.name) : false);
     }
     bool hasView(string aName) {
-      return (viewContainer ? (!(viewContainer[aName] is null)) : false);
+      return (this.viewContainer() ? (!(this.viewContainer[aName] is null)) : false);
     }
   // #endregion hasView
 
@@ -94,7 +94,7 @@ mixin template ViewManagerTemplate() {
     if (aView) addView(aView.name, aView);
   }
   void addView(string aName, IView aView) {
-    if (viewContainer && aView && !hasView(aName)) _viewContainer.add(aName, aView);
+    if (this.viewContainer() && aView && !hasView(aName)) this.viewContainer().add(aName, aView);
   }
 
   // Update existing view
@@ -102,7 +102,7 @@ mixin template ViewManagerTemplate() {
      if (aView) updateView(aView.name, aView);
   }
   void updateView(string aName, IView aView) {
-    if (aView && hasView(aName)) viewContainer.update(aName, aView);
+    if (aView && hasView(aName)) this.viewContainer().update(aName, aView);
   }
 
   // Remove existing view
@@ -110,6 +110,6 @@ mixin template ViewManagerTemplate() {
     if (aView) removeView(aView.name);
   }
   void removeView(string aName) {
-    if (viewContainer && hasView(aName)) viewContainer.remove(aName);
+    if (this.viewContainer() && hasView(aName)) this.viewContainer().remove(aName);
   }
 }

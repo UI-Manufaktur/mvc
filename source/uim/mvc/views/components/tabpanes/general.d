@@ -8,7 +8,7 @@ module uim.mvc.views.components.tabpanes.general;
 import uim.mvc;
 
 @safe:
-class DAPPGeneralPaneViewComponent : DAPPEntityTabpane {
+class DAPPGeneralPaneViewComponent : DEntityTabpane {
   mixin(ViewComponentThis!("APPGeneralPaneViewComponent"));
 
 override void initialize(Json configSettings = Json(null)) {

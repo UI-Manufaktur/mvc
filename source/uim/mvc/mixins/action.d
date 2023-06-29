@@ -7,7 +7,7 @@ import uim.mvc;
   string viewName = category~className~action~"View";
 
   return `
-class D`~viewName~` : DAPPEntity`~action~`View {
+class D`~viewName~` : DEntity`~action~`View {
   `~viewThis(viewName, true)~`
 
 override void initialize(DConfigurationValue configSettings = null) {

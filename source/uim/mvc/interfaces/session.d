@@ -15,4 +15,6 @@ interface ISession {
   DEntity password();
   DEntity entity();
   bool isNull();
+
+  string debugInfo();
 }

@@ -45,9 +45,7 @@ mixin template ControllerManagerTemplate() {
 
   // #region controller
     IController controller(string aName = null) {
-      return (controllerContainer ? 
-        (aName ? controllerContainer[aName, NullController] : controllerContainer[_defaultController])
-        : null);
+      return (controllerContainer ? (aName ? controllerContainer[aName] : null) : null);
     }   
 
     void controller(IController aController) {
