@@ -6,8 +6,8 @@
 module uim.mvc.controllers.scripts.script;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DAPPScript : DController {
   this() { initialize; }
   /* this(IApplication myApp) { this().app(myApp); } */

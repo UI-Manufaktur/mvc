@@ -9,8 +9,8 @@ module uim.mvc.controllers.pages.crud.delete_;
 /**************************************************/
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DAPPEntityDeleteController : DAPPEntityCrudPageController {
   mixin(ControllerThis!("APPEntityDeleteController"));
 

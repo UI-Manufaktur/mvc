@@ -9,8 +9,8 @@ module uim.mvc.controllers.pages.crud.update;
 /**************************************************/
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DAPPEntityUpdateController : DAPPEntityCrudPageController {
   mixin(ControllerThis!("APPEntityUpdateController"));
   

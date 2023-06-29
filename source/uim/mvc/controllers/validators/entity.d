@@ -6,8 +6,8 @@
 module uim.mvc.controllers.validators.entity;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DValidatorEntity : DValidator {
   mixin(ControllerThis!("ValidatorEntity"));
  

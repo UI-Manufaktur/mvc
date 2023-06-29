@@ -1,8 +1,8 @@
 module uim.mvc.controllers.styles.style;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DAPPStyle : DController {
   this() { initialize; }
   /* this(DApplication myApp) { this().app(myApp); } */

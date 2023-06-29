@@ -9,8 +9,8 @@ module uim.mvc.controllers.pages.crud.read;
 /**************************************************/
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DAPPEntityReadController : DAPPEntityCrudPageController {
   mixin(ControllerThis!("APPEntityReadController"));
 

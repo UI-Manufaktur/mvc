@@ -9,8 +9,8 @@ module uim.mvc.controllers.pages.crud.list;
 /**************************************************/
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DAPPListPage : DAPPEntitiesPageController {
   mixin(ControllerThis!("APPListPage"));
 

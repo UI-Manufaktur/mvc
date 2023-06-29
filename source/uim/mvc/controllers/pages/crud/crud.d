@@ -6,8 +6,8 @@
 module uim.mvc.controllers.pages.crud.crud;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DAPPEntityCrudPageController : DAPPEntityPageController {
   mixin(ControllerThis!("APPEntityCrudPageController"));
 
