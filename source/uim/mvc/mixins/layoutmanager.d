@@ -8,20 +8,21 @@ module uim.mvc.mixins.layoutmanager;
 import uim.mvc;
 @safe:
 
-mixin template LayoutManagerTemplate() {
+mixin template LayoutManagerContainer() {
   // #region layoutContainer
-    protected DLayoutContainer _layoutContainer;
-
-    void layoutContainer(DLayoutContainer aContainer) {
-      _layoutContainer = aContainer;
-    }
-    DLayoutContainer layoutContainer() { 
-      return layoutContainer; 
-    }
+  protected DLayoutContainer _layoutContainer;  
+  DLayoutContainer layoutContainer() {
+    if (_layoutContainer) return _layoutContainer;
+    return (_manager ? manager.layoutContainer : null); 
+  }  
+  void layoutContainer(DLayoutContainer aLayoutContainer) {    
+    _layoutContainer = aLayoutContainer;
+  }  
   // #endregion layoutContainer
+}
 
+mixin template LayoutManagerTemplate() {
   // #region layouts
-
     void layouts(ILayout[string] someLayouts) {
       someLayouts.byKeyValue.each!(kv => layout(kv.key, kv.value));
     }
@@ -42,10 +43,9 @@ mixin template LayoutManagerTemplate() {
 
   // #region layout
     ILayout layout(string aName = null) {
-      if (_layoutcontainer is null) return null;
+      if (layoutcontainer is null) return null;
 
-      if (aName) return _layoutcontainer[aName, NullLayout];
-      return _layoutcontainer[_defaultLayout];
+      return (aName ? layoutContainer[aName, NullLayout] : layoutContainer[_defaultLayout]);
     }
 
     void layout(ILayout aLayout) {
@@ -70,10 +70,10 @@ mixin template LayoutManagerTemplate() {
       defaultLayout(aLayout.name, aLayout);
     }
     void defaultLayout(string aName, ILayout aLayout) {
-      if (_layoutcontainer is null) return;
+      if (layoutcontainer is null) return;
 
       _defaultLayoutName = aName;
-      _layoutcontainer.add(aName, aLayout);
+      layoutcontainer.add(aName, aLayout);
     }
 
     ILayout defaultLayout() {
@@ -96,20 +96,20 @@ mixin template LayoutManagerTemplate() {
     addLayout(aLayout.name, aLayout);
   }
   void addLayout(string aName, ILayout aLayout) {
-    if (_layoutcontainer is null) return;
+    if (layoutcontainer is null) return;
 
-    _layoutcontainer.add(aName, aLayout);
+    layoutcontainer.add(aName, aLayout);
   }
 
   void updateLayout(string aName, ILayout aLayout) {
-    if (_layoutcontainer is null) return;
+    if (layoutcontainer is null) return;
 
-    _layoutcontainer.update(aName, aLayout);
+    layoutcontainer.update(aName, aLayout);
   }
 
   void removeLayout(string aName) {
-    if (_layoutcontainer is null) return;
+    if (layoutcontainer is null) return;
 
-    _layoutcontainer.remove(aName);
+    layoutcontainer.remove(aName);
   }
 }

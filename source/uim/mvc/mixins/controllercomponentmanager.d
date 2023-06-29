@@ -10,17 +10,8 @@ import uim.mvc;
 
 mixin template ControllerComponentManagerTemplate() {
   // #region components
-    protected IControllerComponent[] _controllerComponents;
-
-    IControllerComponent[] components() {
-      return _controllerComponents;
-    }
-
     void components(IControllerComponent[] someComponents...) {
-      components(someComponents.dup);
-    }
-    void components(IControllerComponent[] someComponents) {
-      _controllerComponents = someComponents;
+      this.components(someComponents.dup);
     }
   // #endregion components
 
@@ -29,11 +20,11 @@ mixin template ControllerComponentManagerTemplate() {
       addComponents(someComponents.dup);
     }
     void addComponents(IControllerComponent[] someComponents) {
-      _controllerComponents ~= someComponents;
+      this.components(this.components~someComponents);
     }
   // #endregion addComponents
 
   void addComponent(IControllerComponent aComponent) {
-    _controllerComponents ~= aComponent;
+    this.components(this.components~aComponent);
   }
 }

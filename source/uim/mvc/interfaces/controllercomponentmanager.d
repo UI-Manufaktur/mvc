@@ -8,7 +8,7 @@ module uim.mvc.interfaces.controllercomponentmanager;
 import uim.mvc;
 @safe:
 
-interface IControllerComponentManager {
+interface IControllerComponentManager : ISessionManager {
   IEntityBase entityBase();
 
   IControllerComponent[] components();

@@ -30,11 +30,11 @@ mixin template ViewComponentManagerTemplate() {
       this.addComponents(someComponents.dup);
     }
     void addComponents(IViewComponent[] someComponents) {
-      _viewComponents ~= someComponents;
+      components(components~someComponents);
     }
   // #endregion addComponents
 
   void addComponent(IViewComponent aComponent) {
-    _viewComponents ~= aComponent;
+    components(components~aComponent);
   }
 }

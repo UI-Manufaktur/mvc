@@ -8,15 +8,18 @@ module uim.mvc.controllers.controller;
 import uim.mvc;
 
 @safe:
-class DController : DMVCObject, IController, IControllerComponentManager  {
+class DController : DMVCObject, IController, IControllerComponentManager, ISessionManager  {
   mixin(ControllerThis!("Controller"));
 
   mixin(OProperty!("IControllerManager", "manager"));
 
-  mixin(OProperty!("DControllerComponentContainer", "controllerComponentContainer"));
+  mixin SessionManagerContainer;
+  mixin SessionManagerTemplate; 
+
+  mixin(TProperty!("IControllerComponent[]", "components"));
   mixin ControllerComponentManagerTemplate;
 
-  mixin(OProperty!("ICheck[]", "checks"));  
+  mixin(TProperty!("ICheck[]", "checks"));  
   mixin CheckManagerTemplate;
 
   // Set to true to automatically render the view after action logic.
@@ -46,7 +49,7 @@ class DController : DMVCObject, IController, IControllerComponentManager  {
     this
       .name("Controller"); 
 
-    controllerComponentContainer(ControllerComponentContainer);
+    components(null);
     checks(null);
   }
   
