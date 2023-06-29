@@ -6,8 +6,8 @@
 module uim.mvc.views.components.tabpanes.specific;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DAPPSpecificPaneViewComponent : DAPPEntityTabpane {
   mixin(ViewComponentThis!("APPSpecificPaneViewComponent"));
 

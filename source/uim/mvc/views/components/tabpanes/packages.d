@@ -6,8 +6,8 @@
 module uim.mvc.views.components.tabpanes.packages;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DAPPPackagesPaneViewComponent : DAPPEntitiesTabpane {
   mixin(ViewComponentThis!("APPPackagesPaneViewComponent"));
 

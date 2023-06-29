@@ -6,8 +6,8 @@
 module uim.mvc.views.components.tabs.tab;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DAPPTabViewComponent : DViewComponent {
   mixin(ViewComponentThis!("APPTabViewComponent"));
 
