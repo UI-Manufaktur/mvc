@@ -6,8 +6,8 @@
 module uim.mvc.controllers.components.auth;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DAuthControllerComponent : DControllerComponent {
   mixin(ControllerComponentThis!("AuthControllerComponent"));
 

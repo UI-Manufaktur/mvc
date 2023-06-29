@@ -6,8 +6,8 @@
 module uim.mvc.controllers.checks.sessions.siteid;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DSessionHasSiteIdCheck : DSessionHasHTTPSessionCheck {
   mixin(ControllerComponentThis!("SessionHasSiteIdCheck"));
 

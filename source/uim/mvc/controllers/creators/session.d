@@ -6,8 +6,8 @@
 module uim.mvc.controllers.creators.session;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DMVCCreatorSession : DMVCCreator {
   mixin(ControllerThis!("MVCCreatorSession"));
 

@@ -6,8 +6,8 @@
 module uim.mvc.controllers.data.controller;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DDataController : DController {
   mixin(ControllerThis!("DataController"));
 

@@ -6,8 +6,8 @@
 module uim.mvc.controllers.creators.site;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DMVCCreatorSite : DMVCCreator {
   mixin(ControllerThis!("MVCCreatorSite"));
 

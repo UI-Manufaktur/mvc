@@ -6,8 +6,8 @@
 module uim.mvc.controllers.creators.login;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DMVCCreatorLogin : DMVCCreator {
   mixin(ControllerThis!("MVCCreatorLogin"));
 
