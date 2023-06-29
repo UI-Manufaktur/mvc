@@ -8,8 +8,8 @@ module uim.mvc.views.crud.update;
 import uim.mvc;
 
 @safe:
-class DAPPEntityUpdateView : DEntityCRUDView {
-  mixin(ViewThis!("APPEntityUpdateView"));
+class DEntityUpdateView : DEntityCRUDView {
+  mixin(ViewThis!("EntityUpdateView"));
 
 override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
@@ -28,12 +28,12 @@ override void initialize(Json configSettings = Json(null)) {
     this.crudMode(CRUDModes.Update);
   }
 }
-mixin(ViewCalls!("APPEntityUpdateView"));
+mixin(ViewCalls!("EntityUpdateView"));
 
 version(test_uim_mvc) { unittest {
     writeln("--- Tests in ", __MODULE__, "/", __LINE__);
-		testView(new DAPPEntityUpdateView); 
+		testView(new DEntityUpdateView); 
 
     writeln("--- Tests in ", __MODULE__, "/", __LINE__);
-		testView(APPEntityUpdateView); 
+		testView(EntityUpdateView); 
 }}

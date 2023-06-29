@@ -84,7 +84,7 @@ class DAPPPanes {
     auto tabContent = BS5TabContent;
 
     foreach(pane; panes) {   
-      if (auto entityPane = cast(DAPPEntityTabpane)pane) entityPane.entity(_entity);
+      if (auto entityPane = cast(DEntityTabpane)pane) entityPane.entity(_entity);
 
       if (pane.disabled) {
         navTabs.item(

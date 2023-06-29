@@ -8,15 +8,15 @@ module uim.mvc.views.crud.read;
 import uim.mvc;
 
 @safe:
-class DAPPEntityReadView : DEntityCRUDView { // Default view
-  mixin(ViewThis!("APPEntityReadView"));
+class DEntityReadView : DEntityCRUDView { // Default view
+  mixin(ViewThis!("EntityReadView"));
 }
-mixin(ViewCalls!("APPEntityReadView"));
+mixin(ViewCalls!("EntityReadView"));
 
 version(test_uim_mvc) { unittest {
     writeln("--- Tests in ", __MODULE__, "/", __LINE__);
-		testView(new DAPPEntityReadView); 
+		testView(new DEntityReadView); 
 
     writeln("--- Tests in ", __MODULE__, "/", __LINE__);
-		testView(APPEntityReadView); 
+		testView(EntityReadView); 
 }}
