@@ -6,8 +6,8 @@
 module uim.mvc.views.components.cards.card;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DAPPCardViewComponent : DEntityViewComponent {
   mixin(ViewComponentThis!("APPCardViewComponent"));
 

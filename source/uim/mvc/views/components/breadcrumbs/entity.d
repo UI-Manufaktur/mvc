@@ -6,8 +6,8 @@
 module uim.mvc.views.components.breadcrumbs.entity;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DAPPEntityBreadcrumbViewComponent : DAPPBreadcrumbViewComponent {
   mixin(ViewComponentThis!("APPEntityBreadcrumbViewComponent"));
 

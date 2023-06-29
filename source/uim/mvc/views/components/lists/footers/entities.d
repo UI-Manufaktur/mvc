@@ -6,8 +6,8 @@
 module uim.mvc.views.components.lists.footers.entities;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DAPPEntitiesListFooter : DAPPListFooter {
   mixin(ViewComponentThis!("APPEntitiesListFooter"));
   // mixin(OProperty!("DEntity[]", "entities"));
