@@ -6,8 +6,8 @@
 module uim.mvc.forms.components.inputs.description;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DDescriptionFormInput : DTextAreaFormInput {
   mixin(ViewComponentThis!("DescriptionFormInput"));
 

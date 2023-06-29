@@ -6,8 +6,8 @@
 module uim.mvc.forms.components.headers.header;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DFormHeader : DFormComponent {
   mixin(ViewComponentThis!("FormHeader"));
 

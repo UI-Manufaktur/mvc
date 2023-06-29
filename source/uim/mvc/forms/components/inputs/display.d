@@ -6,8 +6,8 @@
 module uim.mvc.forms.components.inputs.display;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DDisplayFormInput : DTextFormInput {
   mixin(ViewComponentThis!("DisplayFormInput"));
 

@@ -6,8 +6,8 @@
 module uim.mvc.forms.components.inputs.handler;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DFormInputHandler : DFormComponent {
   mixin(ViewComponentThis!("FormInputHandler"));
 

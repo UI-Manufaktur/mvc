@@ -6,8 +6,8 @@
 module uim.mvc.forms.components.inputs.date;
 
 import uim.mvc;
-@safe:
 
+@safe:
 class DMVCDateFormInput : DFormInput {
   mixin(ViewComponentThis!("MVCDateFormInput"));
 
