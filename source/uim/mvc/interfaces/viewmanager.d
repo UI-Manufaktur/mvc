@@ -9,6 +9,8 @@ import uim.mvc;
 @safe:
 
 interface IViewManager {
+  IEntityBase entityBase();
+
   void views(IView[string] someViews);
   void views(IView[] someViews...);
   void views(IView[] someViews);
