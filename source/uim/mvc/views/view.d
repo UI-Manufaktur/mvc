@@ -14,15 +14,7 @@ import uim.mvc;
  * but can also take the form of JSON, XML, PDF"s or streaming files.
  *
  * UIM uses a two-step-view pattern. This means that the template content is rendered first,
- * and then inserted into the selected layout. This also means you can pass data from the template to the
- * layout using `this.set()`
- *
- * View class supports using plugins as themes. You can set
- *
- * ```
- * void beforeRender(IEvent myEvent) {
- *  this.viewBuilder().setTheme("SuperHot");
- * }
+ * and then inserted into the selected layout. This also means you can pass data from the template to the layout.
  */
 class DView : DMVCObject, IView, IViewComponentManager { 
   mixin(ViewThis!("View"));
