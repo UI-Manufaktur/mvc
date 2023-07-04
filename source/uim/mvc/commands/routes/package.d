@@ -1,2 +1,2 @@
-module.uim.mvc.commands.routes;
+module uim.mvc.commands.routes;
 

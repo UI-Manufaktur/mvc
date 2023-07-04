@@ -25,7 +25,7 @@ class DPageController : DController, IPageController, IViewManager {
       .language("en") 
       .mimetype("text/html");
     
-    requestReader = MVCRequestReader(this);
+    requestReader = RequestReader(this);
     /* sessionReader = SessionReader(this);  
   */
     this
@@ -87,7 +87,7 @@ class DPageController : DController, IPageController, IViewManager {
   mixin(MVCParameter!("pgPath")); 
   mixin(MVCParameter!("title")); 
 
-  DMVCRequestReader requestReader;
+  DRequestReader requestReader;
 /*   DSessionReader sessionReader;
  */
   O pageActions(this O)(string[] actions...) { this.pageActions(actions); return cast(O)this; }
