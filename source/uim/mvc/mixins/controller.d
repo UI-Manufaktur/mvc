@@ -75,3 +75,34 @@ template ControllerCalls(string shortName, string className = null) {
   const char[] ControllerCalls = mvcControllerCalls(shortName, className);
 }
 
+/* template ControllerCalls(string rootName, string controllerGroupName, string appName) {
+  const char[] ControllerCalls = `
+void `~rootName~`Index(HTTPServerRequest req, HTTPServerResponse res) {
+  debugMethodCall(moduleName!`~rootName~`Index~":`~rootName~`Index");
+
+  `~controllerGroupName~`IndexPageController(`~appName~`).request(req, res);
+}
+
+void `~rootName~`Create(HTTPServerRequest req, HTTPServerResponse res) {
+  debugMethodCall(moduleName!`~rootName~`Create~":`~rootName~`Create");
+
+  `~controllerGroupName~`CreatePageController(`~appName~`).request(req, res);
+}
+
+void `~rootName~`View(HTTPServerRequest req, HTTPServerResponse res) {
+  debugMethodCall(moduleName!`~rootName~`View~":`~rootName~`View");
+
+  `~controllerGroupName~`ReadPageController(`~appName~`).request(req, res);
+}
+
+void `~rootName~`Edit(HTTPServerRequest req, HTTPServerResponse res) {
+  debugMethodCall(moduleName!`~rootName~`Edit~":`~rootName~`Edit");
+
+  `~controllerGroupName~`UpdatePageController(`~appName~`).request(req, res);
+}
+void `~rootName~`Delete(HTTPServerRequest req, HTTPServerResponse res) {
+  debugMethodCall(moduleName!`~rootName~`Delete~":`~rootName~`Delete");
+
+  `~controllerGroupName~`DeletePageController(`~appName~`).request(req, res);
+}`;
+} */

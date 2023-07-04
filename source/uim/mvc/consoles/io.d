@@ -27,26 +27,22 @@ class DConsoleIo {
     // The input stream
     protected DConsoleInput _in;
 
-    /**
-     * The helper registry.
-     * @var \Cake\Console\HelperRegistry
-    * /
-    protected _helpers;
+    // The helper registry.
+    protected DHelperRegistry _helpers;
 
+    // Whether files should be overwritten
+    protected bool forceOverwrite = false;
+
+    // The number of bytes last written to the output stream used when overwriting the previous message.
+    protected int _lastWritten = 0;
+
+    protected bool interactive = true;
     /**
      * The current output level.
      *
      * @var int
     * /
     protected _level = self::NORMAL;
-
-    // The number of bytes last written to the output stream used when overwriting the previous message.
-    protected int _lastWritten = 0;
-
-    // Whether files should be overwritten
-    protected bool forceOverwrite = false;
-
-    protected bool interactive = true;
 
     /**
      * Constructor

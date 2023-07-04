@@ -8,9 +8,7 @@ module uim.mvc.consoles.commands;
 
 public { // Main
 	import  uim.mvc.consoles.commands.command;
-	import  uim.mvc.consoles.commands.interface_;
 }
-
 
 public { // Packages
 	import  uim.mvc.consoles.commands.factories;
