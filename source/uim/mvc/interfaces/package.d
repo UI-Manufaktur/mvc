@@ -42,6 +42,8 @@ public {
   import uim.mvc.interfaces.routingapplication;
   import uim.mvc.interfaces.session;
   import uim.mvc.interfaces.sessionmanager;
+  import uim.mvc.interfaces.storage;
+  import uim.mvc.interfaces.user;
   import uim.mvc.interfaces.validator;
   import uim.mvc.interfaces.view;
   import uim.mvc.interfaces.viewcomponent;
