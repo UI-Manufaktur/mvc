@@ -9,7 +9,7 @@ interface IPlugin {
   const string[] VALID_HOOKS = ["bootstrap", "console", "middleware", "routes", "services"];
 
   // Get the name of this plugin.
-  string getName();
+  string geame();
 
   // Get the filesystem path to this plugin
   string getPath();

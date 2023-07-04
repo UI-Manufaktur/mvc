@@ -41,7 +41,7 @@ class DCommand { // extends SymfonyCommand
         // Once we have constructed the command, we'll set the description and other
         // related properties of the command. If a signature wasn't used to build
         // the command we'll set the arguments and the options on this command.
-/*         $this->setDescription((string) $this->description);
+/*         $this->description((string) $this->description);
 
         $this->setHelp((string) $this->help);
 
