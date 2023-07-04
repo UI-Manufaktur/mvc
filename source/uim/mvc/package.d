@@ -28,6 +28,7 @@ public {
   import uim.mvc.base;
   import uim.mvc.classes;
   import uim.mvc.applications; 
+  import uim.mvc.authenticates;
   import uim.mvc.authentications;
   import uim.mvc.collections;
   import uim.mvc.commands;
