@@ -40,7 +40,7 @@ class DCacheClearCommand : DCommand {
         this.abort();
     } */ 
 
-    return static::CODE_SUCCESS;
+    return CODE_SUCCESS;
   }
 }
 auto CacheClearCommand() { return new DCacheClearCommand; }

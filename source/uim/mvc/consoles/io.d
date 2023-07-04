@@ -400,9 +400,9 @@ class DConsoleIo {
     {
         if (is_string(options)) {
             if (strpos(options, ',')) {
-                options = explode(',', options);
+                options = options.split(',');
             } elseif (strpos(options, '/')) {
-                options = explode('/', options);
+                options = options.explode('/');
             } else {
                 options = [options];
             }
