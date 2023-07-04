@@ -9,19 +9,19 @@ interface I18nDateTime : IChronos, JsonSerializable {
      *
      * @return string|null The default locale string to be used or null.
      */
-    static string defaultLocale();
+    string defaultLocale();
 
     /**
      * Sets the default locale.
      *
      * @param string|null $locale The default locale string to be used or null.
      */
-    static void defaultLocale(string aLocale);
+    void defaultLocale(string aLocale);
 
     /**
      * Returns a nicely formatted date string for this object.
      *
-     * The format to be used is stored in the static property `Time::niceFormat`.
+     * The format to be used is stored in the property `Time::niceFormat`.
      *
      * @param \DateTimeZone|string|null $timezone Timezone string or DateTimeZone object
      * in which the date will be displayed. The timezone stored for this object will not
@@ -55,7 +55,7 @@ interface I18nDateTime : IChronos, JsonSerializable {
      * ```
      *
      * If you wish to control the default format to be used for this method, you can alter
-     * the value of the static `Time::$defaultLocale` variable and set it to one of the
+     * the value of the `Time::$defaultLocale` variable and set it to one of the
      * possible formats accepted by this function.
      *
      * You can read about the available IntlDateFormatter constants at
@@ -76,7 +76,7 @@ interface I18nDateTime : IChronos, JsonSerializable {
      * $time.i18nFormat(\IntlDateFormatter::FULL, "Europe/Berlin", "de-DE");
      * ```
      *
-     * You can control the default locale to be used by setting the static variable
+     * You can control the default locale to be used by setting the variable
      * `Time::$defaultLocale` to a valid locale string. If empty, the default will be
      * taken from the `intl.default_locale` ini config.
      *
@@ -87,16 +87,16 @@ interface I18nDateTime : IChronos, JsonSerializable {
      * @param string|null $locale The locale name in which the date should be displayed (e.g. pt-BR)
      * @return string|int Formatted and translated date string
      */
-    string i18nFormat($format = null, $timezone = null, $locale = null);
+    string i18nFormat(string format = null, string aTimezone = null, string aLocale = null);
 
     // Resets the format used to the default when converting an instance of this type to a string
-    static void resetToStringFormat();
+    void resetToStringFormat();
 
     /**
      * Sets the default format used when type converting instances of this type to string
      * @param array<int>|string|int $format Format.
      */
-    static void setToStringFormat(string format);
+    void setToStringFormat(string format);
 
     /**
      * Sets the default format used when converting this object to JSON
@@ -115,7 +115,7 @@ interface I18nDateTime : IChronos, JsonSerializable {
      * @see uim.cake.i18n\Time::i18nFormat()
      * @param \Closure|array|string|int $format Format.
      */
-    static void setJsonEncodeFormat(string format);
+    void setJsonEncodeFormat(string format);
 
     /**
      * Returns a new Time object after parsing the provided time string based on
@@ -141,7 +141,7 @@ interface I18nDateTime : IChronos, JsonSerializable {
      * @return static|null
      * @throws \InvalidArgumentException If $format is a single int instead of array of constants
      */
-    static void parseDateTime(string aTtime, string aFormat = null, DateTimeZone timezone = null);
+    void parseDateTime(string aTtime, string aFormat = null, DateTimeZone timezone = null);
 
     /**
      * Returns a new Time object after parsing the provided $date string based on
@@ -165,7 +165,7 @@ interface I18nDateTime : IChronos, JsonSerializable {
      * @param array|string|int|null $format Any format accepted by IntlDateFormatter.
      * @return static|null
      */
-    static void parseDate(string $date, $format = null);
+    void parseDate(string aDateString, string aFormat = null);
 
     /**
      * Returns a new Time object after parsing the provided $time string based on
@@ -187,18 +187,18 @@ interface I18nDateTime : IChronos, JsonSerializable {
      * @param string|int|null $format Any format accepted by IntlDateFormatter.
      * @return static|null
      */
-    static void parseTime(string $time, $format = null);
+    void parseTime(string aTimeString, string aFormat = null);
 
     /**
      * Get the difference formatter instance.
      *
      * @return uim.cake.Chronos\DifferenceIFormatter The formatter instance.
      */
-    static DifferenceIFormatter getDiffFormatter();
+    DifferenceIFormatter getDiffFormatter();
 
     /**
      * Set the difference formatter instance.
      * aFormatter - The formatter instance when setting.
      */
-    static void setDiffFormatter(DifferenceIFormatter aFormatter);
+    void setDiffFormatter(DifferenceIFormatter aFormatter);
 }
