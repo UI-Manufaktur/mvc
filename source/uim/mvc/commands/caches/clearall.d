@@ -6,7 +6,7 @@
 module uim.mvc.commands.caches.clearall;
 
 // CacheClearall command.
-class CacheClearallCommand : DCommand {
+class DCacheClearallCommand : DCommand {
   //  Get the command name.
   static string defaultName() {
     return "cache clear_all";
@@ -19,12 +19,12 @@ class CacheClearallCommand : DCommand {
     * anParser - The parser to be defined
     * @return uim.cake.consoles.ConsoleOptionParser The built parser.
     */
-  ConsoleOptionParser buildOptionParser(ConsoleOptionParser anParser) {
+/*   ConsoleOptionParser buildOptionParser(ConsoleOptionParser anParser) {
     auto myParser = super.buildOptionParser(anParser);
     myParser.description("Clear all data in all configured cache engines.");
 
     return myParser;
-  }
+  } */
 
   /**
     * Implement this method with your command"s logic.
@@ -33,12 +33,12 @@ class CacheClearallCommand : DCommand {
     * @param uim.cake.consoles.ConsoleIo aConsoleIo The console io
     * @return int|null The exit code or null for success
     */
-  int execute(Arguments someArguments, ConsoleIo aConsoleIo) {
-    auto myEngines = Cache::configured();
+/*   int execute(Arguments someArguments, ConsoleIo aConsoleIo) {
+/*     auto myEngines = Cache::configured();
     foreach (myEngine; myEngines) {
         this.executeCommand(CacheClearCommand, [myEngine], aConsoleIo);
-    }
+    } * /
 
     return CODE_SUCCESS;
-  }
+  } */
 }

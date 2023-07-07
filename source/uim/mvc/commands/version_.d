@@ -4,16 +4,16 @@ import uim.mvc;
 
 @safe:
 // Print out the version of UIM in use.
-class VersionCommand : DCommand {
+class DVersionCommand : DCommand {
   /**
     * Print out the version of UIM in use.
     *
     * someArguments - The command arguments.
     * aConsoleIo - The console io
     */
-  int execute(Arguments someArguments, ConsoleIo aConsoleIo) {
-    aConsoleIo.out(Configure::version());
+/*   int execute(Arguments someArguments, ConsoleIo aConsoleIo) {
+/*     aConsoleIo.out(Configure::version()); * /
 
     return CODE_SUCCESS;
-  }
+  } */
 }

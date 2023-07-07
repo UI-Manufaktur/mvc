@@ -1,4 +1,4 @@
-module source.uim.mvc.authenticates.basic;
+module uim.mvc.authenticates.basic;
 
 import uim.mvc;
 

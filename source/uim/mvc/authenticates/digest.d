@@ -48,5 +48,5 @@ import uim.mvc;
  *
  * @see https://book.cakephp.org/4/en/controllers/components/authentication.html
  */
-class DigestAuthenticate : BasicAuthenticate {
+class DDigestAuthenticate : DBasicAuthenticate {
 }

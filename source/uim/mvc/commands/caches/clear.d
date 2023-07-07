@@ -5,6 +5,9 @@
 **********************************************************************************************************/
 module uim.mvc.commands.caches.clear;
 
+import uim.mvc;
+
+@safe:
 // CacheClear command.
 class DCacheClearCommand : DCommand {
   static string defaultName() {
@@ -18,7 +21,7 @@ class DCacheClearCommand : DCommand {
     * @param uim.cake.consoles.ConsoleIo aConsoleIo The console io
     * @return int|null The exit code or null for success
     */
-  int execute(Json someArguments, ConsoleIo aConsoleIo) {
+  int execute(Json someArguments, DConsoleIo aConsoleIo) {
     auto myName = someArguments["engine"].get!string;
     /* TODO: 
 	try {

@@ -8,7 +8,7 @@ module uim.mvc.consoles.commands.command;
 import uim.mvc;
 
 @safe:
-class DCommand : DMVCObject, ICommand{
+class DConsoleCommand : DMVCObject, ICommand{
 	  // Default error code
   const int CODE_ERROR = 1;
 
@@ -19,3 +19,4 @@ class DCommand : DMVCObject, ICommand{
 		return 0;
 	}
 }
+auto ConsoleCommand() { return new DConsoleCommand; }

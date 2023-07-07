@@ -3,22 +3,22 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel, mailto:ons@sicherheitsschmiede.de                                                      
 **********************************************************************************************************/
-module uim.mvc.commands.routes;
+module uim.mvc.commands.routes.route;
 
 @safe:
 import uim.mvc;
 
 // Provides interactive CLI tools for routing.
-class DRoutesCommand : DCommand {
+class DRouteCommand : DCommand {
   /**
     * Display all routes in an application
     *
     * @param uim.cake.consoles.Arguments someArguments The command arguments.
     * aConsoleIo - The console io
     * @return int|null The exit code or null for success
-    */
-  int execute(Arguments someArguments, ConsoleIo aConsoleIo) {
-      auto myHeader = ["Route name", "URI template", "Plugin", "Prefix", "Controller", "Action", "Method(s)"];
+    * /
+  int execute(Arguments someArguments, DConsoleIo aConsoleIo) {
+      /* auto myHeader = ["Route name", "URI template", "Plugin", "Prefix", "Controller", "Action", "Method(s)"];
       if (someArguments.option("verbose")) {
           myHeader ~= "Defaults";
       }
@@ -97,7 +97,7 @@ class DRoutesCommand : DCommand {
           aConsoleIo.warning("The following possible route collisions were detected.");
           aConsoleIo.helper("table").output($duplicateRoutes);
           aConsoleIo.out();
-      }
+      } * /
 
       return CODE_SUCCESS;
   }
@@ -108,7 +108,7 @@ class DRoutesCommand : DCommand {
     * anParser - The option parser to update
     * @return uim.cake.consoles.ConsoleOptionParser
     */
-  ConsoleOptionParser buildOptionParser(ConsoleOptionParser anParser) {
+/*   ConsoleOptionParser buildOptionParser(ConsoleOptionParser anParser) {
       $parser
           .description("Get the list of routes connected in this application.")
           .addOption("sort", [
@@ -118,5 +118,5 @@ class DRoutesCommand : DCommand {
           ]);
 
       return $parser;
-  }
+  } */
 }

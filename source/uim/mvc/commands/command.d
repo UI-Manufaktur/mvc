@@ -8,7 +8,7 @@ module uim.mvc.commands.command;
 import uim.mvc;
 
 @safe:
-class DCommand { // extends SymfonyCommand
+class DCommand { 
     // Application instance
     // mixin(OProperty!("DApplication",  "application"));
 

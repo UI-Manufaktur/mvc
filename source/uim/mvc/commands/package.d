@@ -8,7 +8,11 @@ module uim.mvc.commands;
 public { // Main
 	import uim.mvc.commands.collection;
 	import uim.mvc.commands.command;
+	import uim.mvc.commands.completion;
 	import uim.mvc.commands.registry;
+	import uim.mvc.commands.routes;
+	import uim.mvc.commands.scanner;
+	import uim.mvc.commands.version_;
 }
 
 
