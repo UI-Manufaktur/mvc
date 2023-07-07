@@ -28,7 +28,7 @@ class DConsoleIo {
     protected DConsoleInput _in;
 
     // The helper registry.
-    protected DHelperRegistry _helpers;
+/*     protected DHelperRegistry _helpers; */
 
     // Whether files should be overwritten
     protected bool forceOverwrite = false;

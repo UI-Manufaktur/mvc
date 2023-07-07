@@ -13,7 +13,7 @@ import uim.mvc;
  * or to other permanent datastores. Ideal for implementing forms on top of
  * API services, or contact forms.
  */
-class DForm : DViewComponent {  // : IEventListener, IEventDispatcher, IValidatorAware
+class DForm : DViewComponent {  // : IEventListener, IEventDispatcher, IValidatorCollection
   mixin(ViewComponentThis!("Form"));
 
   // Name of default validation set.

@@ -1,8 +1,8 @@
 module uim.mvc.interfaces.mvc;
 
 import uim.mvc;
-@safe:
 
+@safe:
 interface IMVCObject {
   string name();
   void name(string aName);

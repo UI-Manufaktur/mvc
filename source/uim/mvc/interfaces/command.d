@@ -6,9 +6,8 @@
 module uim.mvc.interfaces.command;
 
 import uim.mvc;
+
 @safe:
-
-
 // Describe the interface between a command and the surrounding console libraries.
 interface ICommand { 
   /**
@@ -19,9 +18,8 @@ interface ICommand {
     * command can be calculated.
     *
     * aName - The name the command uses in the collection.
-    * returns this
     */
-  ICommand name(string aName);
+  void name(string aName);
 
   // Run the command.
   int run(STRINGAA arguments, DConsoleIo aConsoleIo = null);

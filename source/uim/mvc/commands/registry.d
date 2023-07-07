@@ -5,9 +5,9 @@
 **********************************************************************************************************/
 module uim.mvc.commands.registry;
 
-@safe:
 import uim.mvc;
 
+@safe:
 class DCommandRegistry : DRegistry!DCommand{
   this() {}
 

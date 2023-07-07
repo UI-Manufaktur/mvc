@@ -1,5 +1,8 @@
 module uim.mvc.interfaces.httpapplication;
 
+import uim.mvc;
+
+@safe:
 // An interface defining the methods that the http server depend on.
 interface IHttpApplication : IRequestHandler {
   /**

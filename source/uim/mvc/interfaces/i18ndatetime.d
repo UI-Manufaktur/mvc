@@ -29,7 +29,7 @@ interface I18nDateTime /* : IChronos, JsonSerializable */ {
      * @param string|null $locale The locale name in which the date should be displayed (e.g. pt-BR)
      * @return string Formatted date string
      */
-    string nice(DateTimeZone timezone = null, string locale = null);
+    /* string nice(DateTimeZone timezone = null, string locale = null); */
 
     /**
      * Returns a formatted string for this time object using the preferred format and
@@ -141,8 +141,8 @@ interface I18nDateTime /* : IChronos, JsonSerializable */ {
      * @return static|null
      * @throws \InvalidArgumentException If $format is a single int instead of array of constants
      */
-    void parseDateTime(string aTtime, string aFormat = null, DateTimeZone timezone = null);
-
+    /* void parseDateTime(string aTtime, string aFormat = null, DateTimeZone timezone = null);
+ */
     /**
      * Returns a new Time object after parsing the provided $date string based on
      * the passed or configured date time format. This method is locale dependent,

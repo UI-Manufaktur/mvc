@@ -8,12 +8,19 @@ module uim.mvc.consoles.commands.command;
 import uim.mvc;
 
 @safe:
-class DConsoleCommand : DMVCObject, ICommand{
+class DConsoleCommand : DMVCObject, ICommand {
 	  // Default error code
   const int CODE_ERROR = 1;
 
   // Default success code
   const int CODE_SUCCESS = 0;
+
+	override void name(string aName) {
+		super.name(aName);
+	}
+	override string name() {
+		return super.name();
+	}
 
   int run(STRINGAA arguments, DConsoleIo aConsoleIo = null) {
 		return 0;

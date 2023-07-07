@@ -1,18 +1,21 @@
 module uim.mvc.interfaces.validatoraware;
 
+import uim.mvc;
+@safe:
+
 // Provides methods for managing multiple validators.
-interface IValidatorAware {
+interface IValidatorCollection {
   /**
-    * Returns the validation rules tagged with $name.
+    * Returns the validation rules tagged with aName.
     *
-    * If a $name argument has not been provided, the default validator will be returned.
+    * If a aName argument has not been provided, the default validator will be returned.
     * You can configure your default validator name in a `DEFAULT_VALIDATOR`
     * class constant.
     *
     * @param string|null $name The name of the validation set to return.
     * @return uim.cake.validations.Validator
     */
-  Validator getValidator(string aName = null);
+  IValidator validator(string aName = null);
 
   /**
     * This method stores a custom validator under the given name.
@@ -21,7 +24,7 @@ interface IValidatorAware {
     * @param uim.cake.validations.Validator $validator Validator object to be set.
     * @return this
     */
-  IValidatorAware setValidator(string aName, Validator anVvalidator);
+  IValidatorCollection validator(string aName, IValidator aValidator);
 
   /**
     * Checks whether a validator has been set.

@@ -10,7 +10,7 @@ module uim.mvc.exceptions;
  *
  * @method int getCode() Gets the Exception code.
  */
-class DUIMException : RuntimeException {
+class DUIMException /* : RuntimeException */ {
     /**
      * Array of attributes that are passed in from the constructor, and
      * made available in the view when a development error is displayed.
