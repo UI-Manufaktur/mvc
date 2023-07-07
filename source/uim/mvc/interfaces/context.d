@@ -10,8 +10,8 @@ import uim.mvc;
 
 // Interface for FormHelper context implementations.
 interface IContext {
-    const string[] VALID_ATTRIBUTES = ["length", "precision", "comment", "null", "default"];
-
+    /* const string[] VALID_ATTRIBUTES = ["length", "precision", "comment", "null", "default"];
+ */
     /**
      * Get the fields used in the context as a primary key.
      */
@@ -41,7 +41,7 @@ interface IContext {
      * pathToField - A dot separated path to the field a value
      * @someOptions - Options. is needed for.
      */
-    Json val(string , DValueMap someOptions = null);
+    /* Json val(string , DValueMap someOptions = null); */
 
     /**
      * Check if a given field is pathToField"required".

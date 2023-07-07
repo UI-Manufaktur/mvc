@@ -5,6 +5,9 @@
 **********************************************************************************************************/
 module uim.mvc.commands.caches.clearall;
 
+import uim.mvc;
+@safe:
+
 // CacheClearall command.
 class DCacheClearallCommand : DCommand {
   //  Get the command name.

@@ -1,5 +1,8 @@
 module uim.mvc.interfaces.cacheengine;
 
+import uim.mvc;
+@safe:
+
 /**
  * Interface for cache engines that defines methods
  * outside of the PSR16 interface that are used by `Cache`.

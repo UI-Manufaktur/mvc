@@ -1,13 +1,15 @@
 module uim.mvc.interfaces.plugin;
 
+import uim.mvc;
+@safe:
 /**
  * Plugin Interface
  * @method void services(uim.cake.Core\IContainer $container) Register plugin services to the application"s container
  */
 interface IPlugin {
   // List of valid hooks.
-  const string[] VALID_HOOKS = ["bootstrap", "console", "middleware", "routes", "services"];
-
+  /* const string[] VALID_HOOKS = ["bootstrap", "console", "middleware", "routes", "services"];
+ */
   // Get the name of this plugin.
   string geame();
 
@@ -42,7 +44,7 @@ interface IPlugin {
     * @param uim.cake.consoles.CommandCollection $commands The command collection to update
     * @return uim.cake.consoles.CommandCollection
     */
-  DCommandCollection console(ICommandCollection aCommandCollection);
+  /* DCommandCollection console(ICommandCollection aCommandCollection); */
 
   /**
     * Add middleware for the plugin.
@@ -50,7 +52,7 @@ interface IPlugin {
     * @param uim.cake.http.MiddlewareQueue $middlewareQueue The middleware queue to update.
     * @return uim.cake.http.MiddlewareQueue
     */
-  MiddlewareQueue middleware(MiddlewareQueue anMiddlewareQueue);
+  /* MiddlewareQueue middleware(MiddlewareQueue anMiddlewareQueue); */
 
   /**
     * Add routes for the plugin.
@@ -60,7 +62,7 @@ interface IPlugin {
     *
     * @param uim.cake.routings.routesBuilder $routes The route builder to update.
     */
-  void routes(RouteBuilder anRoutes);
+  /* void routes(RouteBuilder anRoutes); */
 
   /**
     * Disables the named hook

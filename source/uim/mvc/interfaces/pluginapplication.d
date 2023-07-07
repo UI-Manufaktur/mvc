@@ -1,12 +1,15 @@
 module uim.mvc.interfaces.pluginapplication;
 
+import uim.mvc;
+@safe:
+
 /**
  * Interface for Applications that leverage plugins & events.
  *
  * Events can be bound to the application event manager during
  * the application"s bootstrap and plugin bootstrap.
  */ 
-interface IPluginApplication : IEventDispatcher{
+interface IPluginApplication /* : IEventDispatcher */{
     /**
      * Add a plugin to the loaded plugin set.
      *
@@ -18,8 +21,8 @@ interface IPluginApplication : IEventDispatcher{
      * @param Json[string][] aConfig The configuration data for the plugin if using a string for $name
      * @return this
      */
-    IPluginApplication addPlugin(strig aName, DConfigurationValue configSettings = null);
-
+    /* IPluginApplication addPlugin(string aName, DConfigurationValue configSettings = null);
+ */
     /**
      * Run bootstrap logic for loaded plugins.
      */
@@ -31,7 +34,7 @@ interface IPluginApplication : IEventDispatcher{
      * @param uim.cake.routings.routesBuilder $routes The route builder to use.
      * @return uim.cake.routings.routesBuilder
      */
-    RouteBuilder pluginRoutes(RouteBuilder someRoutes);
+    /* RouteBuilder pluginRoutes(RouteBuilder someRoutes); */
 
     /**
      * Run middleware hooks for plugins
@@ -39,7 +42,7 @@ interface IPluginApplication : IEventDispatcher{
      * @param uim.cake.http.MiddlewareQueue $middleware The MiddlewareQueue to use.
      * @return uim.cake.http.MiddlewareQueue
      */
-    MiddlewareQueue pluginMiddleware(MiddlewareQueue aMiddleware);
+    /* MiddlewareQueue pluginMiddleware(MiddlewareQueue aMiddleware); */
 
     /**
      * Run console hooks for plugins
@@ -47,5 +50,5 @@ interface IPluginApplication : IEventDispatcher{
      * @param uim.cake.consoles.CommandCollection $commands The CommandCollection to use.
      * @return uim.cake.consoles.CommandCollection
      */
-    DCommandCollection pluginConsole(CommandCollection someCommands);
+    /* ICommandCollection pluginConsole(ICommandCollection someCommands); */
 }

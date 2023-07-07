@@ -3,7 +3,7 @@ module uim.mvc.interfaces.i18ndatetime;
 /**
  * Interface for date formatting methods shared by both Time & Date.
  */
-interface I18nDateTime : IChronos, JsonSerializable {
+interface I18nDateTime /* : IChronos, JsonSerializable */ {
     /**
      * Gets the default locale.
      *
@@ -194,11 +194,11 @@ interface I18nDateTime : IChronos, JsonSerializable {
      *
      * @return uim.cake.Chronos\DifferenceIFormatter The formatter instance.
      */
-    DifferenceIFormatter getDiffFormatter();
+    /* DifferenceIFormatter getDiffFormatter(); */
 
     /**
      * Set the difference formatter instance.
      * aFormatter - The formatter instance when setting.
      */
-    void setDiffFormatter(DifferenceIFormatter aFormatter);
+    /* void setDiffFormatter(DifferenceIFormatter aFormatter); */
 }

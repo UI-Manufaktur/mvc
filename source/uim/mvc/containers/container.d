@@ -11,5 +11,5 @@ import uim.mvc;
  * Dependency Injection container
  * Based on the container out of League\Container
  */
-class DContainer : /* LeagueContainer, */ IContainer {
+class DContainer { // }: /* LeagueContainer, */ /* IContainer */ {
 }

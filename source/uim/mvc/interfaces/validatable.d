@@ -1,5 +1,8 @@
 module uim.mvc.interfaces.validatable;
 
+import uim.mvc;
+@safe:
+
 // Describes objects that can be validated by passing a Validator object.
 interface IValidatable {
   /**
@@ -8,5 +11,5 @@ interface IValidatable {
     *
     * aValidator - The validator to use when validating the entity.
     */
-  Json validate(Validator aValidator);
+  Json validate(DValidator aValidator);
 }

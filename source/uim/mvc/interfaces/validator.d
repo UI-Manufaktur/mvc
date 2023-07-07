@@ -8,5 +8,5 @@ module uim.mvc.interfaces.validator;
 import uim.mvc;
 @safe:
 
-interface isValidator {
+interface IValidator {
 }

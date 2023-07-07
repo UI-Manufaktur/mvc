@@ -12,13 +12,13 @@ import uim.mvc;
  *
  * @method int getCode() Gets the Exception code.
  */
-class DUIMException : RuntimeException {
+class DUIMException /* : RuntimeException */ {
     /**
      * Array of attributes that are passed in from the constructor, and
      * made available in the view when a development error is displayed.
      */
-    protected array _attributes = null;
-
+    /* protected array _attributes = null;
+ */
     // --- protected string _messageTemplate = "";
 
     // Array of headers to be passed to {@link uim.cake.Http\Response::withHeader()}
@@ -46,9 +46,9 @@ class DUIMException : RuntimeException {
     } */
 
     // Get the passed in attributes
-    array attributes() {
+    /* array attributes() {
       return _attributes;
-    }
+    } */
 
     /**
      * Get/set the response header to be used
