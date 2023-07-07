@@ -14,5 +14,5 @@ interface ICommandCollectionAware {
      * Set the command collection being used.
      * @param uim.cake.consoles.CommandCollection $commands The commands to use.
      */
-    void commandCollection(CommandCollection someCommands);
+    /* void commandCollection(CommandCollection someCommands); */
 }

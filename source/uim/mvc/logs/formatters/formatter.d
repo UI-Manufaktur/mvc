@@ -83,15 +83,15 @@ abstract class DFormatter {
     * @param mixed $default The return value when the key does not exist.
     * @return mixed Configuration data at the named key or null if the key does not exist.
     */
-    Json config(string aKey = null, IValue defaultValue = null) {
+/*     Json config(string aKey = null, IValue defaultValue = null) {
       if (!_configInitialized) {
           _config = _defaultConfig;
           _configInitialized = true;
       }
 
-    auto aValue = _configRead(aKey);
+        auto aValue = _configRead(aKey);
       return (auto aValue = _configRead(aKey) ? aValue : defaultValue);
-  }
+  } */
 
   /**
     * Returns the config for this specific key.
@@ -135,13 +135,13 @@ abstract class DFormatter {
     * @param Json[string][]|string aKey The key to set, or a complete array of configs.
     * @param mixed|null $value The value to set.
     */
-  DFormatter configShallow($key, $value = null) {
-      if (!_configInitialized) {
+  DFormatter configShallow(string aKey, IValue aValue = null) {
+/*       if (!_configInitialized) {
           _config = _defaultConfig;
           _configInitialized = true;
       }
 
-      _configWrite($key, $value, "shallow");
+      _configWrite($key, $value, "shallow"); */
 
       return this;
   }
@@ -157,22 +157,22 @@ abstract class DFormatter {
           return _config;
       }
 
-      if (strpos(aKey, ".") == false) {
-          return _config[aKey] ?? null;
+      if (aKey.indexOf(".") != -1) {
+        return _config.get(aKey, null);
       }
 
       auto result = _config;
-
+/* 
       foreach (myKeyPart; aKey.split(".")) {
           if (!is_array($return) || !isSet($return, myKeyPart)) {
               $return = null;
               break;
           }
 
-          $return = $return[myKeyPart];
-      }
+          result = $return[myKeyPart];
+      } */
 
-      return $return;
+      return result;
   }
 
   /**
@@ -185,7 +185,7 @@ abstract class DFormatter {
     * @return void
     * @throws uim.cake.Core\exceptions.UIMException if attempting to clobber existing config
     */
-  protected void _configWrite($key, $value, $merge = false) {
+  /* protected void _configWrite($key, $value, $merge = false) {
       if (is_string($key) && $value == null) {
           _configDelete($key);
 
@@ -231,7 +231,7 @@ abstract class DFormatter {
       }
 
       $update = $value;
-  }
+  } */
 
   /**
     * Deletes a single config key.
@@ -239,9 +239,9 @@ abstract class DFormatter {
     * @param string aKey Key to delete.
     * @return void
     * @throws uim.cake.Core\exceptions.UIMException if attempting to clobber existing config
-    */
+    * /
   protected void _configDelete(string aKey) {
-      if (strpos($key, ".") == false) {
+      /* if (strpos($key, ".") == false) {
           unset(_config[$key]);
 
           return;
@@ -272,12 +272,12 @@ abstract class DFormatter {
   /**
     * Default config for this class
     *
-    */
+    * /
   protected DConfigurationValue _defaultConfig;
 
   /**
     * @param Json[string][] myConfig Config options
-    */
+    * /
   this(Json aConfig = null) {
       this.setConfig(myConfig);
   }
@@ -292,6 +292,6 @@ abstract class DFormatter {
     * @param string myMessage Message string
     * @param array $context Mesage context
     * @return string Formatted message
-    */
-  abstract string format($level, string myMessage, array $context = null);
+    * /
+  abstract string format($level, string myMessage, array $context = null); */
 }

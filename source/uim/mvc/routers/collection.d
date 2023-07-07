@@ -18,24 +18,24 @@ class DRouterCollection {
     /**
     * The routes connected to this collection.
     *
-    * @var array<string, array<uim.cake.routings.routes\Route>>
+    * @var array<string, DRoute>>
     */
-  protected Route[string][] _routeTable = null;
+  protected DRoute[string][] _routeTable = null;
 
   // The hash map of named routes that are in this collection.
-  protected  Route[string] _named = null;
+  protected DRoute[string] _named = null;
 
   /**
     * A map of middleware names and the related objects.
     *
     * @var array
     */
-  protected MiddleWWare[string] _middleware = null;
+  /* protected MiddleWWare[string] _middleware = null; */
 
   /**
     * A map of middleware group names and the related middleware names.
     *
     * @var array
     */
-  protected  MiddleWWareGroup[string] _middlewareGroups = null;
+  /* protected  MiddleWWareGroup[string] _middlewareGroups = null; */
 }

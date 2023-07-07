@@ -11,7 +11,7 @@ interface IContainerApplication {
     *
     * @param uim.cake.Core\IContainer myContainer The container to add services to
     */
-  void services(IContainer aContainer);
+  /* void services(IContainer aContainer); */
 
   /**
     * Create a new container and register services.
@@ -21,5 +21,5 @@ interface IContainerApplication {
     *
     * returns A populated container
     */
-  IContainer createContainer();
+  /* IContainer createContainer(); */
 }

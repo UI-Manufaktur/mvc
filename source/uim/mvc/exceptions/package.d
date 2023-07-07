@@ -15,7 +15,7 @@ class DUIMException : RuntimeException {
      * Array of attributes that are passed in from the constructor, and
      * made available in the view when a development error is displayed.
      */
-    protected array _attributes = null;
+    /* protected array _attributes = null; */
 
     // --- protected string _messageTemplate = "";
 
@@ -24,7 +24,7 @@ class DUIMException : RuntimeException {
      *
      * @var array|null
      */
-    protected _responseHeaders;
+    /* protected _responseHeaders; */
 
     // --- protected int _defaultCode = 0;
 
@@ -39,18 +39,18 @@ class DUIMException : RuntimeException {
      * @param int|null $code The error code
      * @param \Throwable|null $previous the previous exception.
      */
-    this(myMessage = "", Nullable!int $code = null, ?Throwable $previous = null) {
+/*     this(myMessage = "", Nullable!int aCcode = null, ?Throwable $previous = null) {
       if (is_array(myMessage)) {
         _attributes = myMessage;
         myMessage = vsprintf(_messageTemplate, myMessage);
       }
-      super.this(myMessage, $code ?? _defaultCode, $previous);
+      super(myMessage, $code ?? _defaultCode, $previous);
     }
 
     // Get the passed in attributes
     array attributes() {
       return _attributes;
-    }
+    } */
 
     /**
      * Get/set the response header to be used
@@ -64,7 +64,7 @@ class DUIMException : RuntimeException {
      * @deprecated 4.2.0 Use `HttpException::setHeaders()` instead. Response headers
      *   should be set for HttpException only.
      */
-    function responseHeader($header = null, myValue = null): ?array {
+    /* function responseHeader($header = null, myValue = null): ?array {
       if ($header is null) {
           return _responseHeaders;
       }
@@ -79,5 +79,5 @@ class DUIMException : RuntimeException {
       }
 
       return _responseHeaders = [$header: myValue];
-    }
+    } */
 }

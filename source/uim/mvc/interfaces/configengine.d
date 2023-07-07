@@ -1,5 +1,8 @@
 module uim.mvc.interfaces.configengine;
 
+import uim.mvc;
+@safe:
+
 // An interface for creating objects compatible with Configure::load()
 interface IConfigEngine {
     /**

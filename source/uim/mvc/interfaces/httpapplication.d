@@ -15,5 +15,5 @@ interface IHttpApplication : IRequestHandler {
     * aMmiddlewareQueue The middleware queue to set in your App Class
     * returns MiddlewareQueue
     */
-  MiddlewareQueue middleware(MiddlewareQueue aMmiddlewareQueue);
+  /* MiddlewareQueue middleware(MiddlewareQueue aMmiddlewareQueue); */
 }

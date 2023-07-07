@@ -1,5 +1,8 @@
 module uim.mvc.interfaces.storage;
 
+import uim.mvc;
+@safe:
+
 // Describes the methods that any class representing an Auth data storage should comply with.
 interface IStorage {
   //Read user record.
