@@ -1,4 +1,4 @@
-module source.uim.mvc.consoles.inputargument;
+module uim.mvc.consoles.inputargument;
 
 import uim.mvc;
 

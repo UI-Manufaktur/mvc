@@ -1,3 +1,3 @@
-module source.uim.mvc.interfaces.eventdispatcher;
+module uim.mvc.interfaces.eventdispatcher;
 
 interface IEventDispatcher {}

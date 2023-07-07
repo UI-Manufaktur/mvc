@@ -1,4 +1,4 @@
-module source.uim.mvc.interfaces.httpapplication;
+module uim.mvc.interfaces.httpapplication;
 
 // An interface defining the methods that the http server depend on.
 interface IHttpApplication : IRequestHandler {

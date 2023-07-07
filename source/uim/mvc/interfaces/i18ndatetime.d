@@ -1,4 +1,4 @@
-module source.uim.mvc.interfaces.i18ndatetime;
+module uim.mvc.interfaces.i18ndatetime;
 
 /**
  * Interface for date formatting methods shared by both Time & Date.

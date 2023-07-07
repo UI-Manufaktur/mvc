@@ -14,8 +14,10 @@ public {
   import uim.mvc.interfaces.check;
   import uim.mvc.interfaces.checkmanager;
   import uim.mvc.interfaces.collection;
+  import uim.mvc.interfaces.collectionaware;
   import uim.mvc.interfaces.command;
   import uim.mvc.interfaces.commandfactory;
+  import uim.mvc.interfaces.configengine;
   import uim.mvc.interfaces.console;
   import uim.mvc.interfaces.consolemanager;
   import uim.mvc.interfaces.container;
@@ -32,6 +34,8 @@ public {
   import uim.mvc.interfaces.layoutmanager;
   import uim.mvc.interfaces.mvc;
   import uim.mvc.interfaces.pagecontroller;
+  import uim.mvc.interfaces.plugin;
+  import uim.mvc.interfaces.pluginapplication;
   import uim.mvc.interfaces.registerable;
   import uim.mvc.interfaces.request;
   import uim.mvc.interfaces.requesthandler;

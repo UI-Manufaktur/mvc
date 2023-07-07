@@ -1,2 +1,2 @@
-module source.uim.mvc.storages;
+module uim.mvc.storages;
 

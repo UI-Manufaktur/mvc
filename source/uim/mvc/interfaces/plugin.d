@@ -1,4 +1,4 @@
-module source.uim.mvc.interfaces.plugin;
+module uim.mvc.interfaces.plugin;
 
 /**
  * Plugin Interface

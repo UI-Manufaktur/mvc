@@ -1,2 +1,2 @@
-module source.uim.mvc.logs.formatters;
+module uim.mvc.logs.formatters;
 

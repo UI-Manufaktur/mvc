@@ -1,2 +1,2 @@
-module source.uim.mvc.logs.engines;
+module uim.mvc.logs.engines;
 
