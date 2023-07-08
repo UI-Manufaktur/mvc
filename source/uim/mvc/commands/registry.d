@@ -8,7 +8,7 @@ module uim.mvc.commands.registry;
 import uim.mvc;
 
 @safe:
-class DCommandRegistry : DRegistry!DCommand{
+class DCommandRegistry : DRegistry!DCommand {
   this() {}
 
   static DCommandRegistry registry; 

@@ -24,6 +24,8 @@ class DView : DMVCObject, IView, IViewComponentManager {
   mixin(TProperty!("DViewContainer", "viewContainer"));
   mixin ViewComponentManagerTemplate;
 
+  mixin EntityBaseTemplate;
+
   override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
 

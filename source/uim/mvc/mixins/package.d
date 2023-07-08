@@ -46,11 +46,11 @@ template MVCParameter(string name) {
 
 mixin template ImportUimBase() {
   public {
-		import  uim.core;
-		import  uim.oop;
-		import  uim.models;
-		import  uim.jsonbase;
-		import  uim.entitybase;
+		import uim.core;
+		import uim.oop;
+		import uim.models;
+		import uim.jsonbase;
+		import uim.entitybase;
 	}
 }
 

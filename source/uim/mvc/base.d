@@ -33,9 +33,23 @@ class DMVCObject : IMVCObject, IRegisterable {
   mixin(OProperty!("IApplication", "application"));
 
   // The name of a mvc object. Names are plural, named after the model they manipulate.
-  mixin(TProperty!("string", "name"));
+  mixin(OProperty!("string", "name"));
   mixin(OProperty!("string", "className"));
   mixin(OProperty!("string", "registerPath"));
+
+/*   string opIndex(string aValue) {
+    switch(aKey) {
+      case "name": return name(); break;
+      default: return null;
+    }
+  }
+
+  void opIndexAssign(string aValue, string aKey) {
+    switch(aKey) {
+      case "name": name(aValue); break;
+      default: return;
+    }
+  } */
 
   /**
     * Default config
@@ -58,11 +72,15 @@ class DMVCObject : IMVCObject, IRegisterable {
       _parameters[key] = newValue;
       return cast(O)this;
     }
+
+    string get(string aKey) { return this[aKey]; }
     string opIndex(string key) {
       switch(key) { 
         default: return this.parameter(key);
       }
     }
+
+    void set(string aKey, string aValue) { this[aKey] = aValue; }
     void opIndexAssign(string newValue, string key) {
       this.parameter(key, newValue);
     }

@@ -39,7 +39,7 @@ abstract class DFormatter {
     * @return this
     * @throws uim.cake.Core\exceptions.UIMException When trying to set a key that is invalid.
     */
-    DFormatter config(string aKey, IValue aValue = null, bool shouldMmerge = true) {
+/*     DFormatter config(string aKey, IValue aValue = null, bool shouldMmerge = true) {
       if (!_configInitialized) {
           _config = _defaultConfig;
           _configInitialized = true;
@@ -48,7 +48,7 @@ abstract class DFormatter {
       _configWrite(aKey, aValue, shouldMmerge);
 
       return this;
-  }
+    } */
 
   /**
     * Returns the config.
@@ -101,14 +101,14 @@ abstract class DFormatter {
     * aKey -  The key to get.
     * returns Configuration data at the named key
     */
-  Json configOrFail(string aKey) {
+/*   Json configOrFail(string aKey) {
       auto myConfig = this.getConfig(aKey);
-      if (myConfig == null) {
+      /* if (myConfig == null) {
           throw new InvalidArgumentException(sprintf("Expected configuration `%s` not found.", aKey));
-      }
+      } * /
 
       return myConfig;
-  }
+  } */
 
   /**
     * Merge provided config with existing config. Unlike `config()` which does
@@ -157,9 +157,9 @@ abstract class DFormatter {
           return _config;
       }
 
-      if (aKey.indexOf(".") != -1) {
+/*       if (aKey.indexOf(".") != -1) {
         return _config.get(aKey, null);
-      }
+      } */
 
       auto result = _config;
 /* 

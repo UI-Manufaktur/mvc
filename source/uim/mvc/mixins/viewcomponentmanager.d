@@ -50,8 +50,8 @@ mixin template ViewComponentManagerTemplate() {
   // #endregion addComponents
 
   void addComponent(string aName, IViewComponent aComponent) {
-    if (aComponent) {
-      aComponent.name = aName;
+    if (auto myComponent = cast(DViewComponent)aComponent) {
+      myComponent.name(aName);
     }
 
     addComponent(aComponent);

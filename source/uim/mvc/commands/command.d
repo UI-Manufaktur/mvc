@@ -8,7 +8,7 @@ module uim.mvc.commands.command;
 import uim.mvc;
 
 @safe:
-class DCommand { 
+class DCommand : IRegisterable { 
     // Application instance
     // mixin(OProperty!("DApplication",  "application"));
 
@@ -17,6 +17,9 @@ class DCommand {
 
     // The console command name.
     protected string _name;
+
+    // Register path
+    mixin(TProperty!("string", "registerPath"));
 
     // The console command description.
     protected string _description;

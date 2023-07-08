@@ -16,6 +16,8 @@ class DViewComponent : DMVCObject, IViewComponent, IViewComponentManager {
   mixin(TProperty!("IViewComponent[]", "components"));
   mixin ViewComponentManagerTemplate;
 
+  mixin EntityBaseTemplate;
+
   override void initialize(Json configSettings = Json(null)) {
     version(test_uim_mvc) { debugMethodCall(moduleName!DViewComponent~":DViewComponent("~this.name~")::initialize"); }
     super.initialize(configSettings);
