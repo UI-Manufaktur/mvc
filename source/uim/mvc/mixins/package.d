@@ -6,30 +6,32 @@
 module uim.mvc.mixins;
 
 public {
-	import  uim.mvc.mixins.action;
-	import  uim.mvc.mixins.base;
-	import  uim.mvc.mixins.checkmanager;
-	import  uim.mvc.mixins.command;
-	import  uim.mvc.mixins.console;
-	import  uim.mvc.mixins.controller;
-	import  uim.mvc.mixins.controllercomponent;
-	import  uim.mvc.mixins.controllercomponentmanager;
-	import  uim.mvc.mixins.controllermanager;
-	import  uim.mvc.mixins.entitybase;
-	import  uim.mvc.mixins.form;
-	import  uim.mvc.mixins.imports;
-	import  uim.mvc.mixins.layout;
-	import  uim.mvc.mixins.layoutmanager;
-	import  uim.mvc.mixins.model;
-	import  uim.mvc.mixins.page;
-	import  uim.mvc.mixins.router;
-	import  uim.mvc.mixins.session;
-	import  uim.mvc.mixins.sessionmanager;
-	import  uim.mvc.mixins.view;
-	import  uim.mvc.mixins.viewcomponent;
-	import  uim.mvc.mixins.viewcomponentmanager;
-	import  uim.mvc.mixins.viewmanager;
-	import  uim.mvc.mixins.widget;
+	import uim.mvc.mixins.action;
+	import uim.mvc.mixins.authentication;
+	import uim.mvc.mixins.base;
+	import uim.mvc.mixins.checkmanager;
+	import uim.mvc.mixins.command;
+	import uim.mvc.mixins.console;
+	import uim.mvc.mixins.controller;
+	import uim.mvc.mixins.controllercomponent;
+	import uim.mvc.mixins.controllercomponentmanager;
+	import uim.mvc.mixins.controllermanager;
+	import uim.mvc.mixins.entitybase;
+	import uim.mvc.mixins.form;
+	import uim.mvc.mixins.imports;
+	import uim.mvc.mixins.layout;
+	import uim.mvc.mixins.layoutmanager;
+	import uim.mvc.mixins.model;
+	import uim.mvc.mixins.page;
+	import uim.mvc.mixins.routemanager;
+	import uim.mvc.mixins.router;
+	import uim.mvc.mixins.session;
+	import uim.mvc.mixins.sessionmanager;
+	import uim.mvc.mixins.view;
+	import uim.mvc.mixins.viewcomponent;
+	import uim.mvc.mixins.viewcomponentmanager;
+	import uim.mvc.mixins.viewmanager;
+	import uim.mvc.mixins.widget;
 }
 
 template MVCParameter(string name) {

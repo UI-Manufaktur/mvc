@@ -9,31 +9,21 @@ import uim.mvc;
 @safe:
 
 interface IRouteManager {
-  void routes(IRoute[string] someRoutes);
-  void routes(IRoute[] someRoutes);
   IRoute[] routes();
-  string[] routeNames();
+  string[] routePaths();
 
-  IRoute route(string aName);
-  void route(string aName, IRoute aRoute);
+  IRoute route(string aPath);
+  IRoute route(string aPath, HTTPMethod aMethod);
 
-  void defaultRoute(IRoute aRoute);
-  IRoute defaultRoute();
+  bool existsRoute(string aPath);
+  bool existsRoute(string aPath, HTTPMethod aMethod);
 
-  void errorRoute(IRoute aRoute);
-  IRoute errorRoute();
-
-  bool existsRoute(string aName);
-
-  // Add route if not exitst
+  // Add route if not exists
   void addRoute(IRoute aRoute);
-  void addRoute(string aName, IRoute aRoute);
 
   // Update existing route
-  void updateRoute(IRoute aRoute);
-  void updateRoute(string aName, IRoute aRoute);
+  void updateRoute(string aPath, HTTPMethod aMethod, IRoute aRoute);
 
   // Remove existing route
-  void removeRoute(IRoute aRoute);
-  void removeRoute(string aName);
+  void removeRoute(string aPath, HTTPMethod aMethod);
 }

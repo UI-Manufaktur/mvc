@@ -11,6 +11,8 @@ import uim.mvc;
 interface IViewManager {
   IEntityBase entityBase();
 
+  DViewContainer viewContainer();
+
   void views(IView[string] someViews);
   void views(IView[] someViews...);
   void views(IView[] someViews);
