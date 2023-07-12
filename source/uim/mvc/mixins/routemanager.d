@@ -46,6 +46,15 @@ template RouteManagerTemplate() {
     return (route(aPath,aMethod) !is null);
   }
 
+  O addRoutes(this O)(IRoute[] someRoutes...) {    
+    this.addRoutes(someRoutes.dup);
+    return cast(O)this;
+  }
+  O addRoutes(this O)(IRoute[] someRoutes) {    
+    someRoutes.each!(route => this.addRoute(route));
+    return cast(O)this;
+  }
+
   void addRoute(IRoute aRoute) {    
     _routes ~= aRoute;
   }
