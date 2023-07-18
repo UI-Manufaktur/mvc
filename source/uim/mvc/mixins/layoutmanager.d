@@ -98,15 +98,19 @@ mixin template LayoutManagerTemplate() {
     layoutContainer.add(aName, aLayout);
   }
 
-  void updateLayout(string aName, ILayout aLayout) {
-    if (layoutContainer is null) return;
-
-    layoutContainer.update(aName, aLayout);
+  bool updateLayout(string aName, ILayout aLayout) {
+    if (layoutContainer) {
+      layoutContainer.update(aName, aLayout);
+      return true;
+    }
+    return false;
   }
 
-  void removeLayout(string aName) {
-    if (layoutContainer is null) return;
-
-    layoutContainer.remove(aName);
+  bool removeLayout(string aName) {
+    if (layoutContainer) {
+      layoutContainer.remove(aName);
+      return true;
+    }
+    return false;
   }
 }

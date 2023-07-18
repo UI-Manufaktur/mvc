@@ -22,7 +22,7 @@ class DNullSession : DSession {
   }
 
   override bool isValid(string[] factors, STRINGAA requestParameters) {
-    debug writeln(moduleName!DSession~":DNullSession::beforeResponse -> No internalSession => redirect /login");
+    // debugwriteln(moduleName!DSession~":DNullSession::beforeResponse -> No internalSession => redirect /login");
     requestParameters["redirect"] = "/login";
     return false;
   }

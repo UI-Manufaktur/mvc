@@ -14,7 +14,7 @@ class DEntityView : DView {
     debugMethodCall(moduleName!DEntityView~":DEntityView("~this.name~")::beforeH5");
     super.beforeH5(options);
 
-    debug writeln("In DEntityView -> "~(this.entity ? "has entity" : "no entity"));
+    // debugwriteln("In DEntityView -> "~(this.entity ? "has entity" : "no entity"));
     this
       .components()
         .filter!(comp => cast(DEntityViewComponent)comp)

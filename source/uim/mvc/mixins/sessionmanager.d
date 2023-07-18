@@ -67,14 +67,14 @@ mixin template SessionManagerTemplate() {
     if (aSession) addSession(aSession.httpSessionId, aSession);
   }
   void addSession(string httpSessionId, ISession aSession) {
-    if (sessionContainer && aSession) sessionContainer.add(httpSessionId, aSession);
+    if (sessionContainer) sessionContainer.add(httpSessionId, aSession);
   }
   // Update existing session
   void updateSession(ISession aSession) {
     if (aSession) updateSession(aSession.httpSessionId, aSession);
   }
   void updateSession(string httpSessionId, ISession aSession) {
-    if (sessionContainer && hasSession(httpSessionId)) sessionContainer.update(httpSessionId, aSession);
+    if (sessionContainer) sessionContainer.update(httpSessionId, aSession);
   }
 
   // Remove existing session
@@ -82,6 +82,6 @@ mixin template SessionManagerTemplate() {
     if (aSession) removeSession(aSession.httpSessionId);
   }
   void removeSession(string httpSessionId) {
-    if (sessionContainer && hasSession(httpSessionId)) sessionContainer.remove(httpSessionId);
+    if (sessionContainer) sessionContainer.remove(httpSessionId);
   }
 }

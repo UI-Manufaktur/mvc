@@ -85,7 +85,8 @@ mixin template ViewManagerTemplate() {
       return (aView ? hasView(aView.name) : false);
     }
     bool hasView(string aName) {
-      return (this.viewContainer() ? (!(this.viewContainer[aName] is null)) : false);
+      if (this.viewContainer() && this.viewContainer[aName]) { return true; }
+      return (manager ? manager.hasView(aName) : false);
     }
   // #endregion hasView
 
@@ -94,22 +95,31 @@ mixin template ViewManagerTemplate() {
     if (aView) addView(aView.name, aView);
   }
   void addView(string aName, IView aView) {
-    if (this.viewContainer() && aView && !hasView(aName)) this.viewContainer().add(aName, aView);
+    // debugwriteln("Adding view ", aName);
+    if (this.viewContainer() && aView) this.viewContainer().add(aName, aView);
   }
 
   // Update existing view
-  void updateView(IView aView) {
-     if (aView) updateView(aView.name, aView);
+  bool updateView(IView aView) {
+     return (aView ? updateView(aView.name, aView) : false);
   }
-  void updateView(string aName, IView aView) {
-    if (aView && hasView(aName)) this.viewContainer().update(aName, aView);
+  bool updateView(string aName, IView aView) {
+    if (aView && hasView(aName)) {
+      this.viewContainer().update(aName, aView);
+      return true;
+    }
+    return (manager ? manager.updateView(aName, aView) : false);
   }
 
   // Remove existing view
-  void removeView(IView aView) {
-    if (aView) removeView(aView.name);
+  bool removeView(IView aView) { 
+    return (aView ? removeView(aView.name) : false); 
   }
-  void removeView(string aName) {
-    if (this.viewContainer() && hasView(aName)) this.viewContainer().remove(aName);
+  bool removeView(string aName) {
+    if (this.viewContainer() && hasView(aName)) {
+      this.viewContainer().remove(aName);
+      return true;
+    }
+    return (manager ? manager.removeView(aName) : false);
   }
 }

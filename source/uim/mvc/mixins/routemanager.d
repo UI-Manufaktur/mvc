@@ -20,6 +20,9 @@ template RouteManagerTemplate() {
       .map!(r => r.path)
       .array;
   }
+  IRoute[] routesWithMethod(HTTPMethod aMethod) {
+    return routes.filter!(r => r.method == aMethod).array;
+  }
 
   IRoute route(string aPath) {
     foreach(myRoute; routes) {

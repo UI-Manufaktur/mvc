@@ -10,6 +10,17 @@ import uim.mvc;
 @safe:
 class DRoute : DMVCObject, IRoute {
   this() { super(); }
+
+  this(string aPath) {
+    this().path(aPath);
+  }
+  this(HTTPMethod aMethod) {
+    this().method(aMethod);
+  }
+  this(IController aController) {
+    this().controller(aController);
+  }
+
   this(string aPath, HTTPMethod aMethod, IController aController) {
     this().path(aPath).method(aMethod).controller(aController);
   }
@@ -47,6 +58,10 @@ class DRoute : DMVCObject, IRoute {
   unittest {
     auto route = new DRoute;
     assert(route.controllerName("testName").controllerName == "testName");  
+  }
+
+  bool isHandler(string aPath, HTTPMethod aMethod) {
+    return (aPath == this.path && aMethod == this.method);
   }
 }
 auto Route() { return new DRoute; }
