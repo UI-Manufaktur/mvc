@@ -19,7 +19,7 @@ class DRequestHasAccountNameCheck : DDatabaseHasAccountsCheck {
   }
 
   override bool execute(STRINGAA options = null) {
-    debug writeln(moduleName!RequestHasAccountNameCheck~":RequestHasAccountNameCheck::execute");
+    // debugwriteln(moduleName!RequestHasAccountNameCheck~":RequestHasAccountNameCheck::execute");
     if (!super.execute(options)) { return false; }
 
     if ("accountName" !in options) { // Account  missing
@@ -27,7 +27,7 @@ class DRequestHasAccountNameCheck : DDatabaseHasAccountsCheck {
       return false; 
     }
 
-    debug writeln("accountName = ", options["accountName"]);
+    // debugwriteln("accountName = ", options["accountName"]);
     return true;
   }
 }

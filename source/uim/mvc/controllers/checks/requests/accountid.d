@@ -19,7 +19,7 @@ class DRequestHasAccountIdCheck : DDatabaseHasAccountsCheck {
   }
 
   override bool execute(STRINGAA options = null) {
-    debug writeln(moduleName!RequestHasAccountIdCheck~"::execute");
+    // debugwriteln(moduleName!RequestHasAccountIdCheck~"::execute");
     if (!super.execute(options)) { return false; }
 
     if ("accountId" !in options) { // Account  missing
@@ -27,7 +27,7 @@ class DRequestHasAccountIdCheck : DDatabaseHasAccountsCheck {
       return false; 
     }
 
-    debug writeln("accountId = ", options["accountId"]);
+    // debugwriteln("accountId = ", options["accountId"]);
     return true;
   }
 }

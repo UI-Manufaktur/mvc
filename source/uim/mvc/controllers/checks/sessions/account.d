@@ -14,7 +14,7 @@ class DSessionHasAccountCheck : DSessionExistsCheck {
   }
 
   override bool execute(STRINGAA options = null) {    
-    debug writeln(moduleName!DSessionHasAccountCheck~":DSessionHasAccountCheck::execute");
+    // debugwriteln(moduleName!DSessionHasAccountCheck~":DSessionHasAccountCheck::execute");
     if (!super.execute(options)) { return false; } 
 
     auto session = manager.session(options);

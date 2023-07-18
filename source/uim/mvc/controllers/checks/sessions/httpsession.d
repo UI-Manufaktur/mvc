@@ -19,7 +19,7 @@ class DSessionHasHTTPSessionCheck : DSessionExistsCheck {
   }
   
   override bool execute(STRINGAA options = null) {
-    debug writeln(moduleName!DSessionHasHTTPSessionCheck~":DSessionHasHTTPSessionCheck::execute");
+    // debugwriteln(moduleName!DSessionHasHTTPSessionCheck~":DSessionHasHTTPSessionCheck::execute");
     if (!super.execute(options)) { return false; }
 
     auto session = manager.session(options).session;

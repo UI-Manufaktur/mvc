@@ -19,7 +19,7 @@ class DSessionHasLoginCheck : DSessionExistsCheck {
   }
   
   override bool execute(STRINGAA options = null) {
-    debug writeln(moduleName!DSessionHasLoginCheck~":DSessionHasLoginCheck::check");
+    // debugwriteln(moduleName!DSessionHasLoginCheck~":DSessionHasLoginCheck::check");
     if (!super.execute(options)) { return false; }
 
     auto login = manager.session(options).login;
@@ -28,7 +28,7 @@ class DSessionHasLoginCheck : DSessionExistsCheck {
       return false; 
     }
 
-    debug writeln(moduleName!DSessionHasLoginCheck~":DSessionHasLoginCheck::check -> session.login found -> ", login.id);
+    // debugwriteln(moduleName!DSessionHasLoginCheck~":DSessionHasLoginCheck::check -> session.login found -> ", login.id);
     return true;
   }
 }
