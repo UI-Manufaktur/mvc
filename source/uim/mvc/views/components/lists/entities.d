@@ -15,7 +15,7 @@ class DAPPEntitiesList : DAPPListViewComponent {
     super.beforeH5(options);
     if (hasError || "redirect" in options) { return; }
 
-    debug writeln ("%s Entities in DAPPEntitiesList".format(this.entities.length));
+    // debugwriteln ("%s Entities in DAPPEntitiesList".format(this.entities.length));
 
     auto listGroup = BS5ListGroup(["list-group-flush", "list-group-hoverable"]);
     if (auto myListItem = cast(DEntityListItem)itemTemplate) {

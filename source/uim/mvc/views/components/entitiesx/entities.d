@@ -18,7 +18,7 @@ class DEntitiesViewComponent : DViewComponent {
     super.beforeH5(options);
     if (hasError || "redirect" in options) { return; }
 
-    debug writeln(entities ? "has entities" : "no entities");
+    // debugwriteln(entities ? "has entities" : "no entities");
   }
 } 
 mixin(ViewComponentCalls!("EntitiesViewComponent")); // , false, true));

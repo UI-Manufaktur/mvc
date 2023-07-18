@@ -21,7 +21,7 @@ mixin(ViewComponentCalls!("MVCReadPageHeader", "DMVCReadPageHeaderViewComponent"
 /*
 
 override DH5Obj[] toH5(STRINGAA options) {
-    // debug writeln(StyledString("DViewPageHeader/toH5").setForeground(AnsiColor.green).setBackground(AnsiColor.lightBlue));
+    // // debugwriteln(StyledString("DViewPageHeader/toH5").setForeground(AnsiColor.green).setBackground(AnsiColor.lightBlue));
 
     auto id = entity ? entity.id.toString : UUID().toString;
     return

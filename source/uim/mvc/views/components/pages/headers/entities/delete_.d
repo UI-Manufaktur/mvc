@@ -30,7 +30,7 @@ override void initialize(DConfigurationValue configSettings = null) {
   }
   
   override DH5Obj[] toH5(STRINGAA options) {
-    // debug writeln("DAPPDeletePageHeader/toH5");
+    // // debugwriteln("DAPPDeletePageHeader/toH5");
 
     auto id = entity ? entity.id.toString : UUID().toString;
     return [
