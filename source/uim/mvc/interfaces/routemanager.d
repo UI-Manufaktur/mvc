@@ -11,6 +11,7 @@ import uim.mvc;
 interface IRouteManager {
   IRoute[] routes();
   string[] routePaths();
+  IRoute[] routesWithMethod(HTTPMethod aMethod);
 
   IRoute route(string aPath);
   IRoute route(string aPath, HTTPMethod aMethod);

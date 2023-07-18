@@ -44,7 +44,7 @@ interface ILayoutManager {
   void addLayout(ILayout aLayout);
   void addLayout(string aName, ILayout aLayout);
 
-  void updateLayout(string aName, ILayout aLayout);
+  bool updateLayout(string aName, ILayout aLayout);
 
-  void removeLayout(string aName);
+  bool removeLayout(string aName);
 }

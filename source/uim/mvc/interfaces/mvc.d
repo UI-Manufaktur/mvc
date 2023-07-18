@@ -5,6 +5,7 @@ import uim.mvc;
 @safe:
 interface IMVCObject {
   string name();
+  string registerPath();
 
   Json defaultConfig();
   Json config();

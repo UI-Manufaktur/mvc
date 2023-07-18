@@ -3,7 +3,7 @@ module uim.mvc.interfaces.controllermanager;
 import uim.mvc;
 @safe:
 
-interface IControllerManager : ISessionManager {
+interface IControllerManager : ISessionManager, IViewManager {
   IEntityBase entityBase();
 
   void controllerContainer(DControllerContainer aContainer);
@@ -26,8 +26,8 @@ interface IControllerManager : ISessionManager {
   void addController(IController aController); 
   void addController(string aName, IController aController);
 
-  void updateController(string aName, IController aController); 
-  void updateController(IController aController); 
+  bool updateController(string aName, IController aController); 
+  bool updateController(IController aController); 
 
-  void removeController(string aName); 
+  bool removeController(string aName); 
 }

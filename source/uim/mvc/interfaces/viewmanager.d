@@ -36,10 +36,10 @@ interface IViewManager {
   void addView(string aName, IView aView);
 
   // Update existing view
-  void updateView(IView aView);
-  void updateView(string aName, IView aView);
+  bool updateView(IView aView);
+  bool updateView(string aName, IView aView);
 
   // Remove existing view
-  void removeView(IView aView);
-  void removeView(string aName);
+  bool removeView(IView aView);
+  bool removeView(string aName);
 }

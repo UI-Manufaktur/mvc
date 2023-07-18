@@ -13,5 +13,8 @@ interface IRoute : IMVCObject {
 	
 	string path();
   HTTPMethod method();
+
+	bool isHandler(string aPath, vibe.http.common.HTTPMethod aMethod);
+
   IController controller();
 }
