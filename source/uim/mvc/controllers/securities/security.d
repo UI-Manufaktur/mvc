@@ -7,7 +7,7 @@ class DAPPSecurityController : DController {
   mixin(ControllerThis!("APPSecurityController"));
 
   override Json message(STRINGAA options) {
-    // debug writeln("In DAPPSecurityController");
+    // // debugwriteln("In DAPPSecurityController");
     auto json = super.message(options);
    
     string internalSessionId = options.get("internalSessionId", "");
@@ -24,14 +24,14 @@ class DAPPSecurityController : DController {
 
       if (page.securityOptions.required("session")) {
         auto jsSession = ValidatorSession(page, DEntityBase", "entityBase).message(json, reqParameters);
-        // debug writeln("-> with session: ", jsSession);
+        // // debugwriteln("-> with session: ", jsSession);
         if (jsSession != Json(null))
           internalSession.session = createEntities["session"](jsSession);
       }
 
       if (page.securityOptions.required("site")) {        
         auto jsSite = ValidatorSite(page, DEntityBase", "entityBase).message(json, reqParameters);
-        // debug writeln("-> with site: ", jsSite);
+        // // debugwriteln("-> with site: ", jsSite);
         if (jsSite != Json(null)) 
           internalSession.site = createEntities["site"](jsSite);
       }

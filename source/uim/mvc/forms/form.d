@@ -41,7 +41,9 @@ class DForm : DViewComponent {  // : IEventListener, IEventDispatcher, IValidato
   override void initialize(Json configSettings = Json(null)) {
     version(test_uim_mvc) { debugMethodCall(moduleName!DForm~"::DForm("~this.className~"):initialize"); }  
     super.initialize(configSettings);    
-    version(test_uim_mvc) { debug writeln("In ", __MODULE__, "/", __LINE__); }
+    version(test_uim_mvc) { 
+      // debugwriteln("In ", __MODULE__, "/", __LINE__); 
+    }
  
     this
       .id(name~"_"~to!string(uniform(0, 100_000)))

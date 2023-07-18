@@ -59,10 +59,10 @@ window.addEventListener('load', (event) => {
     }}
  */
   override bool beforeResponse(STRINGAA options = null) {
-    debug writeln(moduleName!DEntityDeleteController~":DEntityDeleteController::beforeResponse");
+    // debugwriteln(moduleName!DEntityDeleteController~":DEntityDeleteController::beforeResponse");
     super.beforeResponse(options);   
     if ("redirect" in options) {
-      // debug writeln("Redirect to "~options["redirect"]);
+      // // debugwriteln("Redirect to "~options["redirect"]);
       return false;
     }
 
@@ -139,9 +139,9 @@ class DAPPDeletePage(T:DEntity) : DAPPPage {
       }
 
     override DH5Obj[] toH5(STRINGAA requestParameters) { 
-      // debug writeln(StyledString("In "~_request.path~"-DAPPDeletePage:toJson...").setForeground(AnsiColor.green).setBackground(AnsiColor.white));
+      // // debugwriteln(StyledString("In "~_request.path~"-DAPPDeletePage:toJson...").setForeground(AnsiColor.green).setBackground(AnsiColor.white));
 
-      // debug writeln("Looking for entity in ->", siteName~"."~"myPool");
+      // // debugwriteln("Looking for entity in ->", siteName~"."~"myPool");
       auto json = this.app.DEntityBase", "entityBase.findOne("siteName", "myPool", urlToSelect(requestParameters));
       auto entity = new T(json);
 

@@ -32,7 +32,7 @@ class DUIMException /* : RuntimeException */ {
      * Constructor.
      *
      * Allows you to create exceptions that are treated as framework errors and disabled
-     * when debug mode is off.
+     * when // debugmode is off.
      *
      * @param array|string myMessage Either the string of the error message, or an array of attributes
      *   that are made available in the view, and sprintf()"d into Exception::_messageTemplate

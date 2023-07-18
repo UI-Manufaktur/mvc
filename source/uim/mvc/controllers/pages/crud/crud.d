@@ -12,7 +12,7 @@ class DEntityCrudPageController : DEntityPageController {
   mixin(ControllerThis!("EntityCrudPageController"));
 
   override bool beforeResponse(STRINGAA requestParameters) {
-    debug writeln(moduleName!DEntityCrudPageController~":DEntityCrudPageController::beforeResponse");
+    // debugwriteln(moduleName!DEntityCrudPageController~":DEntityCrudPageController::beforeResponse");
     if (!super.beforeResponse(requestParameters) || ("redirect" in requestParameters)) return false;
     
     auto myInternalSession = manager.session(requestParameters);

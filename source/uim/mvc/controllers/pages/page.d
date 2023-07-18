@@ -101,7 +101,7 @@ class DPageController : DController, IPageController, IViewManager {
     debugMethodCall(moduleName!DPageController~":DPageController("~this.name~")::pageContent");
     // auto result = form ? form.toH5(reqParameters) : null;
 
-    // debug writeln("return result pageContent(STRINGAA reqParameters)");
+    // // debugwriteln("return result pageContent(STRINGAA reqParameters)");
     // return result;
     return null; 
   }
@@ -128,7 +128,7 @@ class DPageController : DController, IPageController, IViewManager {
 
   /*   override DH5Obj[] toH5(STRINGAA reqParameters) { 
     auto loginId = reqParameters.get("loginId", "");
-    // debug writeln("...in login2:loginid = ", loginId);
+    // // debugwriteln("...in login2:loginid = ", loginId);
     auto body_ = H5Div(["page-wrapper"], 
       (showAppTitle ? "appTitle" : "")~
       pageBody.toString
@@ -153,7 +153,7 @@ class DPageController : DController, IPageController, IViewManager {
       );
 
       if (this.login == Json(null)) {
-        // debug writeln("login not found");
+        // // debugwriteln("login not found");
         _response.redirect("/login");
         return result;
       }
@@ -164,7 +164,7 @@ class DPageController : DController, IPageController, IViewManager {
     result["session"] = this.session; 
     if (this.sessionRequired) {
       if (!_request.session) { 
-        // debug writeln("No session available");
+        // // debugwriteln("No session available");
         _response.redirect("/login");  
         return result; } 
       
@@ -187,7 +187,7 @@ class DPageController : DController, IPageController, IViewManager {
       );
 
       if (this.session == Json(null)) {
-        // debug writeln("session not found");
+        // // debugwriteln("session not found");
         _response.redirect("/login");
         return result;
       }
@@ -224,7 +224,7 @@ class DPageController : DController, IPageController, IViewManager {
       );
 
       if (this.site == Json(null)) {
-        // debug writeln("site not found");
+        // // debugwriteln("site not found");
         _response.redirect("/login");
         return result;
       }
