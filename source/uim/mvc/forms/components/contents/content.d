@@ -15,7 +15,7 @@ class DFormContent : DFormComponent {
     version(test_uim_mvc) { debugMethodCall(moduleName!DFormContent~"::DFormContent("~this.className~"):initialize"); }
     super.initialize(configSettings);
 
-    debug writeln("In ", __MODULE__, "/", __LINE__);
+    // debugwriteln("In ", __MODULE__, "/", __LINE__);
   }
 }
 mixin(ViewComponentCalls!("FormContent", "DFormContent"));

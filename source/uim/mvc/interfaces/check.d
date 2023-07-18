@@ -9,5 +9,8 @@ import uim.mvc;
 @safe:
 
 interface ICheck { 
+/* 	string error();
+	string redirectUrl(); */
+
 	bool execute(STRINGAA options = null);    
 }

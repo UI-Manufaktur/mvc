@@ -15,7 +15,7 @@ class DFormFooter : DFormComponent {
     version(test_uim_mvc) { debugMethodCall(moduleName!DFormFooter~"::DFormFooter("~this.className~"):initialize"); }  
     super.initialize(configSettings);
 
-    debug writeln("In ", __MODULE__, "/", __LINE__);
+    // debugwriteln("In ", __MODULE__, "/", __LINE__);
   }
 }
 mixin(ViewComponentCalls!("FormFooter", "DFormFooter"));

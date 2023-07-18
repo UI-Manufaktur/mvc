@@ -14,7 +14,9 @@ class DFormHeader : DFormComponent {
   override void initialize(Json configSettings = Json(null)) {
     version(test_uim_mvc) { debugMethodCall(moduleName!DFormHeader~"::DFormHeader("~this.className~"):initialize"); }  
     super.initialize(configSettings);
-    version(test_uim_mvc) { debug writeln("In ", __MODULE__, "/", __LINE__); }
+    version(test_uim_mvc) { 
+      // debugwriteln("In ", __MODULE__, "/", __LINE__); 
+    }
 
     this
       .id("formheader-%s".format(uniform(1,1_000)))
@@ -57,11 +59,11 @@ class DFormHeader : DFormComponent {
 
   DH5Obj[] actionButtons(STRINGAA options = null) {
     debugMethodCall(moduleName!DFormHeader~":DFormHeader::actionButtons");
-    debug writeln ("Actions: ", this.actions);
+    // debugwriteln ("Actions: ", this.actions);
 
     DH5Obj[] results;
     foreach(actionGroup; actions) {
-      debug writeln ("Action Group: ", this.actions);
+      // debugwriteln ("Action Group: ", this.actions);
       results ~= BS5ButtonGroup(["ms-3"], actionGroup
         .map!(action => actionButton(action, options))
         .filter!(button => button) // no nulls

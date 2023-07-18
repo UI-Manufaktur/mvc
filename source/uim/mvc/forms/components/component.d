@@ -15,7 +15,7 @@ class DFormComponent : DViewComponent {
     version(test_uim_mvc) { debugMethodCall(moduleName!DFormComponent~"::DFormComponent("~this.className~"):initialize"); }
     super.initialize(configSettings);
 
-    debug writeln("In ", __MODULE__, "/", __LINE__);
+    // debugwriteln("In ", __MODULE__, "/", __LINE__);
   }
 
   mixin(OProperty!("CRUDModes", "crudMode"));

@@ -38,21 +38,21 @@ class DEntityFormContent : DFormContent {
     debugMethodCall(moduleName!DEntityFormContent~"::DEntityFormContent:formGroups");    
     DH5Obj[] results;
 
-    debug writeln(entity ? "Has entity: "~entity.name : "No entity");
+    // debugwriteln(entity ? "Has entity: "~entity.name : "No entity");
 
     if (auto myInputHandler = cast(DFormInputHandler)inputHandler) {
-      debug writeln("Found inputHandler:",inputHandler.name);
+      // debugwriteln("Found inputHandler:",inputHandler.name);
 
       myInputHandler
         /* .form(this.form) */
         .crudMode(this.crudMode)
         .entity(entity);
 
-      debug writeln("CrudMode:", this.crudMode);
-      debug writeln("Entity:", this.entity ? this.entity.name : "- missing -");
+      // debugwriteln("CrudMode:", this.crudMode);
+      // debugwriteln("Entity:", this.entity ? this.entity.name : "- missing -");
 
       foreach(field; this.fields) {     
-        debug writeln("formGroup:", field);
+        // debugwriteln("formGroup:", field);
 
         final switch(crudMode) {
           case CRUDModes.Create: results ~= myInputHandler.group(field, false, options); break;
@@ -72,13 +72,13 @@ class DEntityFormContent : DFormContent {
     auto col = BS5Col(["col-12"], 
       BS5InputHidden("sessionToken", ["name":"sessionToken"]).value(options.get("sessionToken", null)));
     
-    debug writeln(entity ? "Found entity : "~entity.name : "No entity");
+    // debugwriteln(entity ? "Found entity : "~entity.name : "No entity");
     if (entity) {
       col(BS5InputHidden("entity_id", ["name":"entity_id"]).value(entity.id.toString));
     }
 
     if (auto fGroups = formGroups(options)) {
-      debug writeln("Found formgroups");
+      // debugwriteln("Found formgroups");
       col(fGroups);
     }
 
