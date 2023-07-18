@@ -21,7 +21,7 @@ class DActionController : DController/* , IActionController */ {
   }
 
 	override bool beforeResponse(STRINGAA options = null) {
-    debug writeln(moduleName!DCreateActionController~":DCreateActionController::beforeResponse");
+    // debugwriteln(moduleName!DCreateActionController~":DCreateActionController::beforeResponse");
     if (!super.beforeResponse(options) || hasError || "redirect" in options) return false; 
 
 		if (!manager) {

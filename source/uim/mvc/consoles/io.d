@@ -465,8 +465,8 @@ class DConsoleIo {
      *
      * @param int|bool enable Use a boolean to enable/toggle all logging. Use
      *   one of the verbosity constants (self::VERBOSE, self::QUIET, self::NORMAL)
-     *   to control logging levels. VERBOSE enables debug logs, NORMAL does not include debug logs,
-     *   QUIET disables notice, info and debug logs.
+     *   to control logging levels. VERBOSE enables // debuglogs, NORMAL does not include // debuglogs,
+     *   QUIET disables notice, info and // debuglogs.
      * @return void
     * /
     public function setLoggers(enable): void

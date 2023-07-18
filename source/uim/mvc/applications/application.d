@@ -22,7 +22,7 @@ class DApplication : DMVCObject/* , IApplication */ {
   
 
   O register(this O)(URLRouter router) {
-    debug writeln("Link Path '%s'".format(rootPath~"*"));
+    // debugwriteln("Link Path '%s'".format(rootPath~"*"));
     router.any(rootPath~"*", &this.request);
     return cast(O)this; }
 
@@ -44,7 +44,7 @@ class DApplication : DMVCObject/* , IApplication */ {
       auto myPath = newRequest.path; // [rootPath.length..$];
       writeln("myPath = '%s'".format(myPath));
       if (auto myRoute = route(myPath, newRequest.method)) {
-        debug writeln("Found route");
+        // debugwriteln("Found route");
 
         myRoute.controller.request(newRequest, newResponse, options);
       }
@@ -62,7 +62,7 @@ import uim.mvc;
 @safe:
 class DAPPApplication {
   this() { 
-    debug writeln("this()");
+    // debugwriteln("this()");
     this
       .links(MVCLinkContainer) 
       .metas(MVCMetaContainer) 
@@ -71,7 +71,7 @@ class DAPPApplication {
   }
 
   this(DAPPLayout mylayout) {
-    debug writeln("this(myLayout)");
+    // debugwriteln("this(myLayout)");
     this().layout(mylayout); }
 
   mixin(OProperty!("UUID", "id"));

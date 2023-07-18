@@ -21,7 +21,7 @@ class DCreateActionController : DActionController {
   mixin(OProperty!("string", "pgPath"));
   
   override bool beforeResponse(STRINGAA options = null) {
-    debug writeln(moduleName!DCreateActionController~":DCreateActionController::beforeResponse");
+    // debugwriteln(moduleName!DCreateActionController~":DCreateActionController::beforeResponse");
     if (!super.beforeResponse(options) || hasError || "redirect" in options) return false; 
 
     auto mySession = manager.session(options);
@@ -39,13 +39,13 @@ class DCreateActionController : DActionController {
     if (manager.isNull) return false; 
 
     if (!manager) {
-      debug writeln("No manager");
+      // debugwriteln("No manager");
       return false;
     }
 
     auto myEntityBase = manager.entityBase;
     if (!myEntityBase) {
-      debug writeln("No manager");
+      // debugwriteln("No manager");
       return false;
     }
       

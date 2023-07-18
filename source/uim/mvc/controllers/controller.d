@@ -52,6 +52,7 @@ class DController : DMVCObject, IController, IControllerComponentManager, ISessi
     components(null);
     checks(null);
   }
+
   
   // #region Properties
     mixin(MVCParameter!("mimetype")); 
@@ -78,8 +79,8 @@ class DController : DMVCObject, IController, IControllerComponentManager, ISessi
     mixin(MVCParameter!("contentTypeParameters"));
     mixin(MVCParameter!("timeCreated"));
     mixin(MVCParameter!("persistent"));
-    mixin(MVCParameter!("redirectUrl"));
     mixin(MVCParameter!("viewName"));
+    mixin(MVCParameter!("redirectUrl"));
 
   // #endregion Properties
 
@@ -138,6 +139,7 @@ class DController : DMVCObject, IController, IControllerComponentManager, ISessi
   }
 
   auto requestParameters(string[string] defaultValues = null) {
+    debugMethodCall(moduleName!DController~":DController("~this.name~")::beforeResponse");
     string[string] result = defaultValues.dup; 
     this
       .httpMode((this.request.fullURL.toString.indexOf("https") == 0 ? "https" : "http"))
@@ -171,15 +173,18 @@ class DController : DMVCObject, IController, IControllerComponentManager, ISessi
     bool beforeResponse(string[string] options = null) { // Hook
       debugMethodCall(moduleName!DController~":DController("~this.name~")::beforeResponse");
 
+      debug writeln ("Execute Checks");
       foreach(myCheck; this.checks) {
-        myCheck.execute(options);
-        if ((cast(DControllerCheck)myCheck).hasError) {
-          this.error = (cast(DControllerCheck)myCheck).error;
-          this.redirectUrl = (cast(DControllerCheck)myCheck).redirectUrl;
-          return false; // Strict - An error requires an error reaction or handling
+        if (!myCheck.execute(options)) { // Has Error
+          if (auto checkObj = cast(DControllerCheck)myCheck) { 
+            this.error = checkObj.error;
+            this.redirectUrl = checkObj.redirectUrl;
+            return false; // Strict - An error requires an error reaction or handling
+          }
         }
       }
 
+      debug writeln ("Checks Successfully");
       return true;
     }    
 
@@ -207,12 +212,12 @@ class DController : DMVCObject, IController, IControllerComponentManager, ISessi
       beforeResponse(options); // Hook
 
       if (hasError) {
-        debug writeln("Found error -> ", this.error);
+        // debugwriteln("Found error -> ", this.error);
         options["redirect"] = "/error";
       }
 
       if (auto myRedirectUrl = options.get("redirect", null)) {
-        debug writeln("Found redirect to ", myRedirectUrl);
+        // debugwriteln("Found redirect to ", myRedirectUrl);
         options.remove("redirect");
         newResponse.redirect(myRedirectUrl);
       } 

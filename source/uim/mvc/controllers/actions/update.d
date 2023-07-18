@@ -21,7 +21,7 @@ class DUpdateActionController : DActionController {
   mixin(OProperty!("string", "pgPath"));
   
   override bool beforeResponse(STRINGAA options = null) {
-    debug writeln(moduleName!DUpdateActionController~":DUpdateActionController::beforeResponse");
+    // debugwriteln(moduleName!DUpdateActionController~":DUpdateActionController::beforeResponse");
     super.beforeResponse(options);   
     if (hasError || "redirect" in options) { return false; }
 

@@ -24,23 +24,23 @@ class DSystemActionController : DActionController {
     // this.tenant(ETBNullTenant).collection(ETBNullCollection); // Clear
 
     if (!manager) {
-      debug writeln("No manager");
+      // debugwriteln("No manager");
       return false;
     }
 
     auto myEntityBase = manager.entityBase;
     if (!myEntityBase) {
-      debug writeln("No manager");
+      // debugwriteln("No manager");
       return false;
     }
-    debug writeln("Found entityBase"); 
+    // debugwriteln("Found entityBase"); 
 
     auto myTenant = myEntityBase.tenant("systems");
     if (!myTenant) {
-      debug writeln("No tenant");
+      // debugwriteln("No tenant");
       return false;
     }
-    debug writeln("Found tenant"); 
+    // debugwriteln("Found tenant"); 
 
     // this.tenant(myTenant);
     this.logins(myTenant.collection("system_logins"));
