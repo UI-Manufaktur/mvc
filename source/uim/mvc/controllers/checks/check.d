@@ -23,18 +23,19 @@ class DControllerCheck : DControllerComponent, ICheck, ICheckManager {
   bool execute(STRINGAA options = null) {
     if (!manager) {
       this.error("manager_missing");
-      debug writeln("In ControllerCheck -> manager_missing");
+      // debugwriteln("In ControllerCheck -> manager_missing");
       return false; 
     }
 
     IControllerComponentManager myManager = this.manager;  
     foreach(myCheck; checks) {
-      (cast(DControllerCheck)myCheck).manager(myManager);
-      if (!myCheck.execute(options)) {
-        string myError = (cast(DControllerCheck)myCheck).error;
-        this.error(myError);
-        this.redirectUrl((cast(DControllerCheck)myCheck).redirectUrl);
-        return false;
+      if (auto checkObj = (cast(DControllerCheck)myCheck)) {
+        checkObj.manager(myManager);
+        if (!checkObj.execute(options)) {
+          this.error(checkObj.error);
+          this.redirectUrl(checkObj.redirectUrl);
+          return false;
+        }
       }
     }
    

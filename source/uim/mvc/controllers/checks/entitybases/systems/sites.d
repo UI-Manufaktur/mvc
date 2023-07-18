@@ -19,7 +19,7 @@ class DDatabaseHasSitesCheck : DDatabaseHasSystemsCheck {
   }
   
   override bool execute(STRINGAA options = null) {
-    debug writeln(moduleName!DDatabaseHasSitesCheck~":DDatabaseHasSitesCheck::check");
+    // debugwriteln(moduleName!DDatabaseHasSitesCheck~":DDatabaseHasSitesCheck::check");
     if (!super.execute(options)) { return false; }
 
     if (!manager) {

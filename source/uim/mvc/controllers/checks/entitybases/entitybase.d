@@ -19,7 +19,7 @@ class DDatabaseExistsCheck : DControllerCheck {
   }
 
   override bool execute(STRINGAA options = null) {
-    debug writeln(moduleName!DDatabaseExistsCheck~":DDatabaseExistsCheck::execute");
+    // debugwriteln(moduleName!DDatabaseExistsCheck~":DDatabaseExistsCheck::execute");
     if (!super.execute(options)) { return false; }
 
     auto myEntityBase = manager.entityBase;

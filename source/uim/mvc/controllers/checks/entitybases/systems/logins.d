@@ -19,7 +19,7 @@ class DDatabaseHasLoginsCheck : DDatabaseHasSystemsCheck {
   }
   
   override bool execute(STRINGAA options = null) {
-    debug writeln(moduleName!DDatabaseHasLoginsCheck~":DDatabaseHasLoginsCheck::check");
+    // debugwriteln(moduleName!DDatabaseHasLoginsCheck~":DDatabaseHasLoginsCheck::check");
     if (!super.execute(options)) { return false; }
 
     if (!manager) {
