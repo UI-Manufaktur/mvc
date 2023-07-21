@@ -124,7 +124,7 @@ version(test_uim_apps) { unittest {
 
 	mixin(OProperty!("DEntityBase", "DEntityBase", "entityBase"));
 
-/*   mixin(OProperty!("DAPPSecurityController", "securityController")); 
+/*   mixin(OProperty!("DSecurityController", "securityController")); 
   mixin(OProperty!("DAPPSecurityOptions", "securityOptions"));
   O securityOptions(this O)(bool[string] newOptions) { this.securityOptions(APPSecurityOptions(newOptions)); return cast(O)this; }  
 

@@ -28,7 +28,7 @@ class DEntityPageController : DPageController {
   mixin(OProperty!("string", "entityName"));
 
   override bool beforeResponse(STRINGAA options = null) {
-    debugMethodCall(moduleName!DPageController~":DPageController("~this.name~")::beforeResponse");
+    debugMethodCall(moduleName!DEntityPageController~":DEntityPageController("~this.name~")::beforeResponse");
     if (!super.beforeResponse(options) || hasError || "redirect" in options) { return false; }
     
     this.entityName = options.get("entityName", null);

@@ -139,7 +139,7 @@ class DController : DMVCObject, IController, IControllerComponentManager, ISessi
   }
 
   auto requestParameters(string[string] defaultValues = null) {
-    debugMethodCall(moduleName!DController~":DController("~this.name~")::beforeResponse");
+    debugMethodCall(moduleName!DController~":DController("~this.name~")::requestParameters");
     string[string] result = defaultValues.dup; 
     this
       .httpMode((this.request.fullURL.toString.indexOf("https") == 0 ? "https" : "http"))
@@ -209,6 +209,8 @@ class DController : DMVCObject, IController, IControllerComponentManager, ISessi
 
       this.request = newRequest; this.response = newResponse;
       options = requestParameters(options);
+
+      debug writeln("Start Before Response");
       beforeResponse(options); // Hook
 
       if (hasError) {
@@ -216,6 +218,7 @@ class DController : DMVCObject, IController, IControllerComponentManager, ISessi
         options["redirect"] = "/error";
       }
 
+      debug writeln("Has redirect?");
       if (auto myRedirectUrl = options.get("redirect", null)) {
         // debugwriteln("Found redirect to ", myRedirectUrl);
         options.remove("redirect");
@@ -223,8 +226,11 @@ class DController : DMVCObject, IController, IControllerComponentManager, ISessi
       } 
 
       auto result = stringResponse(options); // Hook, only if necessary
+
+      debug writeln("Start AfterResponse");
       afterResponse(options); // Hook
       
+      debug writeln("Back to vibe...");
       this.response.writeBody(result, this.mimetype); 
     }
   // #endregion Response

@@ -7,5 +7,5 @@ module uim.mvc.controllers.scripts;
 
 
 public { // Main
-	import  uim.mvc.controllers.scripts;
+	import  uim.mvc.controllers.scripts.script;
 }

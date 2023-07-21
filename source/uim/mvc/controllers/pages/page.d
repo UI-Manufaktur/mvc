@@ -244,7 +244,8 @@ class DPageController : DController, IPageController, IViewManager {
       debugMethodCall(moduleName!DPageController~":DPageController("~this.name~")::beforeResponse");
       super.beforeResponse(options);
 
-      auto mySession = manager.session(options);
+      debug writeln("Get Session");
+      // auto mySession = manager.session(options.get("httpSessionId", null));
       // ?? TODO if (internalSession) { this.site(session.site); }
       //     if (hasError || "redirect" in options) { return; }
 

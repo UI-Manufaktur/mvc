@@ -8,15 +8,15 @@ module uim.mvc.controllers.pages.error;
 import uim.mvc;
 
 @safe:
-class DAPPErrorPageController : DPageController {
-  mixin(ControllerThis!("APPErrorPageController"));
+class DErrorPageController : DPageController {
+  mixin(ControllerThis!("ErrorPageController"));
 }
-mixin(ControllerCalls!("APPErrorPageController"));
+mixin(ControllerCalls!("ErrorPageController"));
 
 version(test_uim_mvc) { unittest {
     writeln("--- Tests in ", __MODULE__, "/", __LINE__);
-		testPageController(new DAPPErrorPageController); 
+		testPageController(new DErrorPageController); 
 
     writeln("--- Tests in ", __MODULE__, "/", __LINE__);
-		testPageController(APPErrorPageController); 
+		testPageController(ErrorPageController); 
 }}

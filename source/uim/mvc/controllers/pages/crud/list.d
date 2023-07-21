@@ -11,7 +11,7 @@ module uim.mvc.controllers.pages.crud.list;
 import uim.mvc;
 
 @safe:
-class DAPPListPage : DAPPEntitiesPageController {
+class DAPPListPage : DEntitiesPageController {
   mixin(ControllerThis!("APPListPage"));
 
   override void initialize(Json configSettings = Json(null)) {

@@ -8,8 +8,8 @@ module uim.mvc.controllers.pages.sites;
 import uim.mvc;
 
 @safe:
-class DAPPSitesPage : DPageController {
-  mixin(ControllerThis!("APPSitesPage"));
+class DSitesPage : DPageController {
+  mixin(ControllerThis!("SitesPage"));
 
 override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
@@ -31,12 +31,12 @@ override void initialize(Json configSettings = Json(null)) {
       });`);
     }
   }
-mixin(ControllerCalls!("APPSitesPage"));
+mixin(ControllerCalls!("SitesPage"));
 
 version(test_uim_mvc) { unittest {
     writeln("--- Tests in ", __MODULE__, "/", __LINE__);
-		testPageController(new DAPPSitesPage); 
+		testPageController(new DSitesPage); 
 
     writeln("--- Tests in ", __MODULE__, "/", __LINE__);
-		testPageController(APPSitesPage); 
+		testPageController(SitesPage); 
 }}
