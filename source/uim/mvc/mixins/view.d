@@ -22,6 +22,7 @@ template ViewThis(string name) {
 
 string viewCalls(string shortName, string className = null) {
   auto clName = className.length > 0 ? className : "D"~shortName;
+  
   return
     mvcObjectCalls(shortName, className)~
     `

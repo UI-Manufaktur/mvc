@@ -6,8 +6,8 @@
 module uim.mvc.mixins.entitybase;
 
 import uim.mvc;
-@safe:
 
+@safe:
 mixin template EntityBaseTemplate() {
   protected IEntityBase _entityBase;
   void entityBase(IEntityBase anEntityBase) {

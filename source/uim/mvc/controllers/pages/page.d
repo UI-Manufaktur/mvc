@@ -14,6 +14,9 @@ class DPageController : DController, IPageController, IViewManager {
   mixin(TProperty!("DViewContainer", "viewContainer"));
   mixin ViewManagerTemplate;
 
+  mixin LayoutContainerTemplate;
+  mixin LayoutManagerTemplate;
+
   // Initialization (= hook method)
   override void initialize(Json configSettings = Json(null)) {
     version(test_uim_mvc) { 
@@ -49,20 +52,6 @@ class DPageController : DController, IPageController, IViewManager {
   mixin(OProperty!("DMVCMetaContainer", "metas"));
   mixin(OProperty!("DScriptContainer", "scripts"));
   mixin(OProperty!("DStyleContainer", "styles"));
-
-	// #region Layout
-    protected ILayout _layout;
-    @property O layout(this O)(ILayout newlayout) { 
-      _layout = newlayout; 
-      return cast(O)this; 
-    }
-
-    @property ILayout layout() { 
-      if (_layout) return _layout;
-
-      return _layout; 
-    }
-	// #endregion Layout
 
   mixin(OProperty!("DEntityCollection", "collection"));
   mixin(OProperty!("DEntity", "site"));
@@ -257,10 +246,11 @@ class DPageController : DController, IPageController, IViewManager {
       super.stringResponse(options);
       // if (hasError) { return null; }
 
-      string myRenderedView = view ? view.render(options) : "";
-      return this.layout 
-        ? this.layout.render(this, myRenderedView)  
-        : myRenderedView;  
+      string myViewRender = view ? view.render(options) : "";
+      auto myLayout = defaultLayout;
+      return myLayout
+        ? myLayout.render(this, myViewRender)  
+        : myViewRender;  
     }
   // #endregion Response
 }

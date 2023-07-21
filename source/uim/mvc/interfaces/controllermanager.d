@@ -3,7 +3,7 @@ module uim.mvc.interfaces.controllermanager;
 import uim.mvc;
 @safe:
 
-interface IControllerManager : ISessionManager, IViewManager {
+interface IControllerManager : ISessionManager, IViewManager, ILayoutManager {
   IEntityBase entityBase();
 
   void controllerContainer(DControllerContainer aContainer);

@@ -8,28 +8,32 @@ module uim.mvc.mixins.viewcomponent;
 import uim.mvc;
 @safe:
 
-string viewComponentThis(string name) {
-  return 
-    mvcObjectThis(name)~
-  `
-    this(IViewComponentManager aManager) { this().manager(aManager); }
-  `;
-}
+// #region ViewComponent This
+  string viewComponentThis(string name) {
+    return 
+      mvcObjectThis(name)~
+    `
+      this(IViewComponentManager aManager) { this().manager(aManager); }
+    `;
+  }
 
-template ViewComponentThis(string name) {
-  const char[] ViewComponentThis = viewComponentThis(name);
-}
+  template ViewComponentThis(string name) {
+    const char[] ViewComponentThis = viewComponentThis(name);
+  }
+// #endregion ViewComponent This
 
-string viewComponentCalls(string shortName, string className = null) {
-  auto clName = className.length > 0 ? className : "D"~shortName;
-  return
-    mvcObjectCalls(shortName, className)~
-    `auto `~shortName~`(IViewComponentManager aManager) { return new `~clName~`(aManager); }`;
-}
+// #region ViewComponent Calls
+  string viewComponentCalls(string shortName, string className = null) {
+    auto clName = className.length > 0 ? className : "D"~shortName;
+    return
+      mvcObjectCalls(shortName, className)~
+      `auto `~shortName~`(IViewComponentManager aManager) { return new `~clName~`(aManager); }`;
+  }
 
-template ViewComponentCalls(string shortName, string className = null) {
-  const char[] ViewComponentCalls = viewComponentCalls(shortName, className);
-}
+  template ViewComponentCalls(string shortName, string className = null) {
+    const char[] ViewComponentCalls = viewComponentCalls(shortName, className);
+  }
+// #endregion ViewComponent Calls
 
 template OViewComponent(string id) {
   const char[] OViewComponent = `

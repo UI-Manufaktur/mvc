@@ -66,7 +66,7 @@ mixin template LayoutManagerTemplate() {
     ILayout layout(string aName = null) {
       if (layoutContainer is null) return null;
 
-      return (aName ? layoutContainer[aName] : layoutContainer[_defaultLayoutName]);
+      return (aName ? layoutContainer[aName] : layoutContainer["default"]);
     }
 
     void layout(ILayout aLayout) {
@@ -78,29 +78,26 @@ mixin template LayoutManagerTemplate() {
   // #endregion layout
 
   // #region defaultLayout
-    protected string _defaultLayoutName = "default";
-    
-    void defaultLayoutName(string aName) {
-      _defaultLayoutName = aName;
-    }
-    string defaultLayoutName() {
-      return _defaultLayoutName;
-    }
-
     void defaultLayout(ILayout aLayout) {
-      defaultLayout(aLayout.name, aLayout);
-    }
-    void defaultLayout(string aName, ILayout aLayout) {
       if (layoutContainer is null) return;
 
-      _defaultLayoutName = aName;
-      layoutContainer.add(aName, aLayout);
+      layoutContainer["default"] = aLayout;
     }
 
     ILayout defaultLayout() {
-      return layout(_defaultLayoutName);
+      return (layoutContainer ? layoutContainer["default"] : null);
     }
   // #endregion defaultLayout
+
+  // #region errorLayout
+    void errorLayout(ILayout aLayout) {
+      layout("error", aLayout);
+    }
+
+    ILayout errorLayout() {
+      return layout("error");
+    }
+  // #endregion errorLayout
 
   void addLayouts(ILayout[] someLayouts...) {
     addLayouts(someLayouts.dup);

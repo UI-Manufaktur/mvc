@@ -27,12 +27,10 @@ interface ILayoutManager {
   bool hasLayout(string aName);
 
   void defaultLayout(ILayout aLayout);
-  void defaultLayout(string aName, ILayout aLayout);
-
-  void defaultLayoutName(string aName);
-  string defaultLayoutName();
-
   ILayout defaultLayout();
+
+  void errorLayout(ILayout aLayout);
+  ILayout errorLayout();
 
   ILayout layout(string aName = null);
 

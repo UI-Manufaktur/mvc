@@ -8,6 +8,30 @@ module uim.mvc.mixins.sessionmanager;
 import uim.mvc;
 @safe:
 
+// #region SessionManager This
+  string sessionManagerThis() {
+    return "
+  this() {}
+    ";
+  }
+
+  template SessionManagerThis() {
+    const char[] SessionManagerThis = sessionManagerThis();
+  }
+// #endregion SessionManager This
+
+// #region SessionManager Calls
+  string sessionManagerCalls() {
+    return "
+  auto SessionManager() { return new DSessionManager(); }
+    ";
+  }
+
+  template SessionManagerCalls() {
+    const char[] SessionManagerCalls = sessionManagerCalls();
+  }
+// #endregion SessionManager Calls
+
 mixin template SessionContainerTemplate() {
   // #region sessionContainer
   protected DSessionContainer _sessionContainer;  

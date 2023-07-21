@@ -8,6 +8,30 @@ module uim.mvc.mixins.viewcomponentmanager;
 import uim.mvc;
 @safe:
 
+// #region ViewComponentManager This
+  string viewComponentManagerThis() {
+    return "
+  this() {}
+    ";
+  }
+
+  template ViewComponentManagerThis() {
+    const char[] ViewComponentManagerThis = viewComponentManagerThis();
+  }
+// #endregion ViewComponentManager This
+
+// #region ViewComponentManager Calls
+  string viewComponentManagerCalls() {
+    return "
+  auto ViewComponentManager() { return new DViewComponentManager(); }
+    ";
+  }
+
+  template ViewComponentManagerCalls() {
+    const char[] ViewComponentManagerCalls = viewComponentManagerCalls();
+  }
+// #endregion ViewComponentManager Calls
+
 mixin template ViewComponentManagerTemplate() {
   // #region components
     protected IViewComponent[] _viewComponents;
