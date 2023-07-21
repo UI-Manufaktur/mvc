@@ -6,8 +6,8 @@
 module uim.mvc.mixins.layout;
 
 import uim.mvc;
-@safe:
 
+@safe:
 string LayoutThis(string name) {
   return
     mvcObjectThis(name);

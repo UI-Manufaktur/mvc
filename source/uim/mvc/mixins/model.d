@@ -8,26 +8,29 @@ module uim.mvc.mixins.model;
 import uim.mvc;
 @safe:
 
-string mvcModelThis(string name) {
-  return
-    mvcObjectThis(name);
+string mvcModelThis(string objName, string className = null) {
+  string clName = (className ? className : objName);
+    return
+    mvcObjectThis(clName);
 }
 
 template ModelThis(string name) {
   const char[] ModelThis = mvcModelThis(name);
 }
 
-string mvcModelCalls(string shortName, string className) {
+string mvcModelCalls(string shortName, string className = null) {
+  string clName = (className ? className : "D"~shortName);
+
   return `
     auto `~shortName~`() { return new `~className~`; }
-    auto `~shortName~`(IApplication myApplication) { return new `~className~`(myApplication); }
-    auto `~shortName~`(string myName) { return new `~className~`(myName); }
-    auto `~shortName~`(string[string] myParameters) { return new `~className~`(myParameters); }
+    auto `~shortName~`(IApplication anApplication) { return new `~className~`(anApplication); }
+    auto `~shortName~`(string aName) { return new `~className~`(aName); }
+    auto `~shortName~`(string[string] someParameters) { return new `~className~`(someParameters); }
 
-    auto `~shortName~`(string myName, string[string] myParameters) { return new `~className~`(myName, myParameters); }
+    auto `~shortName~`(string aName, string[string] someParameters) { return new `~className~`(aName, someParameters); }
 
-    auto `~shortName~`(IApplication myApplication, string myName) { return new `~className~`(myApplication, myName); }
-    auto `~shortName~`(IApplication myApplication, string[string] myParameters) { return new `~className~`(myApplication, myParameters); }
+    auto `~shortName~`(IApplication anApplication, string aName) { return new `~className~`(anApplication, aName); }
+    auto `~shortName~`(IApplication anApplication, string[string] someParameters) { return new `~className~`(anApplication, someParameters); }
   `;
 }
 

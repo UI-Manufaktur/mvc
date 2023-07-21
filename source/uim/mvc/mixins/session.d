@@ -8,3 +8,14 @@ module uim.mvc.mixins.session;
 import uim.mvc;
 @safe:
 
+string sessionThis() {
+	return "
+this() {}
+	";
+}
+
+string sessionCall() {
+	return "
+auto Session() { return new DSession(); }
+	";
+}

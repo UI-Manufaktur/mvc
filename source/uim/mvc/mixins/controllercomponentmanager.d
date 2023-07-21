@@ -8,6 +8,30 @@ module uim.mvc.mixins.controllercomponentmanager;
 import uim.mvc;
 @safe:
 
+// #region ControllerComponentManager This
+  string controllerComponentManagerThis() {
+    return "
+  this() {}
+    ";
+  }
+
+  template ControllerComponentManagerThis() {
+    const char[] ControllerComponentManagerThis = controllerComponentManagerThis();
+  }
+// #endregion ControllerComponentManager This
+
+// #region ControllerComponentManager Calls
+  string controllerComponentManagerCalls() {
+    return "
+  auto ControllerComponentManager() { return new DControllerComponentManager(); }
+    ";
+  }
+
+  template ControllerComponentManagerCalls() {
+    const char[] ControllerComponentManagerCalls = controllerComponentManagerCalls();
+  }
+// #endregion ControllerComponentManager Calls
+
 mixin template ControllerComponentManagerTemplate() {
   // #region components
     void components(IControllerComponent[] someComponents...) {

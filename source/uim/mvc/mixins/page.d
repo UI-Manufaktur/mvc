@@ -3,7 +3,7 @@ module uim.mvc.mixins.page;
 import uim.mvc;
 @safe:
 
-string appPageControllerThis(string controllerName, bool withEntity = false, bool withEntities = false) {
+string pageControllerThis(string controllerName, bool withEntity = false, bool withEntities = false) {
 	return `
 this() { super(); this.name("`~controllerName~`"); }
 this(IApplication myApplication) { this().app(myApplication); }
@@ -26,10 +26,10 @@ this(IApplication myApplication, DView myView, DEntity[] myEntities) { this(myAp
 }
 
 template PageControllerThis(string controllerName, bool withEntity = false, bool withEntities = false) {
-  const char[] PageControllerThis = appPageControllerThis(controllerName, withEntity, withEntities);
+  const char[] PageControllerThis = pageControllerThis(controllerName, withEntity, withEntities);
 }
 
-string appPageControllerCalls(string controllerName, bool withEntity = false, bool withEntities = false) {
+string pageControllerCalls(string controllerName, bool withEntity = false, bool withEntities = false) {
 	return `
 auto `~controllerName~`() { return new D`~controllerName~`; }
 auto `~controllerName~`(IApplication myApplication) { return new D`~controllerName~`(myApplication); }
@@ -52,13 +52,13 @@ auto `~controllerName~`(IApplication myApplication, DView myView, DEntity[] myEn
 }
 
 template PageControllerCalls(string controllerName, bool withEntity = false, bool withEntities = false) {
-  const char[] PageControllerCalls = appPageControllerCalls(controllerName, withEntity, withEntities); 
+  const char[] PageControllerCalls = pageControllerCalls(controllerName, withEntity, withEntities); 
 }
 
 auto appCreatePageController(string classesName, string rootController, string addInitialize = "", string addBeforeResponse = "") {
   return `
     class D`~classesName~`CreatePageController : D`~rootController~`PageController {
-      `~appPageControllerThis(classesName~`CreatePageController`, true)~`
+      `~pageControllerThis(classesName~`CreatePageController`, true)~`
 
   override void initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
@@ -71,7 +71,7 @@ auto appCreatePageController(string classesName, string rootController, string a
       `~addInitialize~`
       }
     }`~
-    appPageControllerCalls(classesName~`CreatePageController`, true);
+    pageControllerCalls(classesName~`CreatePageController`, true);
 }
 
 

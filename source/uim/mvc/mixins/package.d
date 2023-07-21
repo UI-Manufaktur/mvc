@@ -23,6 +23,7 @@ public {
 	import uim.mvc.mixins.layoutmanager;
 	import uim.mvc.mixins.model;
 	import uim.mvc.mixins.page;
+	import uim.mvc.mixins.route;
 	import uim.mvc.mixins.routemanager;
 	import uim.mvc.mixins.router;
 	import uim.mvc.mixins.session;

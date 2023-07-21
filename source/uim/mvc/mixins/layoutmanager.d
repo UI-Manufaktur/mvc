@@ -8,6 +8,30 @@ module uim.mvc.mixins.layoutmanager;
 import uim.mvc;
 @safe:
 
+// #region LayoutManager This
+  string layoutManagerThis() {
+    return "
+  this() {}
+    ";
+  }
+
+  template LayoutManagerThis() {
+    const char[] LayoutManagerThis = layoutManagerThis();
+  }
+// #endregion LayoutManager This
+
+// #region LayoutManager Calls
+  string layoutManagerCalls() {
+    return "
+  auto LayoutManager() { return new DLayoutManager(); }
+    ";
+  }
+
+  template LayoutManagerCalls() {
+    const char[] LayoutManagerCalls = layoutManagerCalls();
+  }
+// #endregion LayoutManager Calls
+
 mixin template LayoutContainerTemplate() {
   // #region layoutContainer
   protected DLayoutContainer _layoutContainer;  
