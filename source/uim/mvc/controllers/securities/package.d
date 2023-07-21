@@ -4,3 +4,7 @@
 	Authors: Ozan Nurettin Süel, mailto:ons@sicherheitsschmiede.de                                                      
 **********************************************************************************************************/
 module uim.mvc.controllers.securities;
+
+public {
+	import uim.mvc.controllers.securities.security;
+}

@@ -8,7 +8,7 @@ module uim.mvc.controllers.scripts.script;
 import uim.mvc;
 
 @safe:
-class DAPPScript : DController {
+class DScript : DController {
   this() { initialize; }
   /* this(IApplication myApp) { this().app(myApp); } */
 
@@ -16,9 +16,9 @@ class DAPPScript : DController {
 override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
 
-    this.name = "APPScript"; 
+    this.name = "Script"; 
     this.mimetype("text/css");
   }
 } 
-auto APPScript() { return new DAPPScript; }
-/* auto APPScript(IApplication myApp) { return new DAPPScript(myApp); } */
+auto Script() { return new DScript; }
+/* auto Script(IApplication myApp) { return new DScript(myApp); } */

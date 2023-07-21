@@ -3,11 +3,11 @@ module uim.mvc.controllers.securities.security;
 import uim.mvc;
 
 @safe:
-class DAPPSecurityController : DController {
-  mixin(ControllerThis!("APPSecurityController"));
+class DSecurityController : DController {
+  mixin(ControllerThis!("SecurityController"));
 
   override Json message(STRINGAA options) {
-    // // debugwriteln("In DAPPSecurityController");
+    // // debugwriteln("In DSecurityController");
     auto json = super.message(options);
    
     string internalSessionId = options.get("internalSessionId", "");
@@ -56,7 +56,7 @@ class DAPPSecurityController : DController {
   override Json message(Json json, STRINGAA options) {
     return super.message(json, options); }
 } 
-mixin(ControllerCalls!("APPSecurityController"));
+mixin(ControllerCalls!("SecurityController"));
 
 version(test_uim_apps) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);

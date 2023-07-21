@@ -12,9 +12,7 @@ import uim.mvc;
 interface IContext {
     /* const string[] VALID_ATTRIBUTES = ["length", "precision", "comment", "null", "default"];
  */
-    /**
-     * Get the fields used in the context as a primary key.
-     */
+    // Get the fields used in the context as a primary key.
     string[] primaryKeys();
 
     /**
@@ -49,7 +47,6 @@ interface IContext {
      * In this context class, this is simply defined by the "required" array.
      *
      * pathToField-  A dot separated path to check required-ness for.
-     * @return bool|null
      */
     bool isRequired(string pathToField);
 
@@ -63,8 +60,7 @@ interface IContext {
     /**
      * Get maximum length of a field from model validation.
      *
-     * @param string myField Field name.
-     * @return int|null
+     * string myField Field name.
      */
     int maxLength(string fieldName);
 

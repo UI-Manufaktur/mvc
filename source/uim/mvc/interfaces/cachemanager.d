@@ -6,8 +6,8 @@
 module uim.mvc.interfaces.cachemanager;
 
 import uim.mvc;
-@safe:
 
+@safe:
 interface ICacheManager {
 
 }

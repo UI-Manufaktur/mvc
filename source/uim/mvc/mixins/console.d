@@ -3,7 +3,7 @@ module uim.mvc.mixins.console;
 import uim.mvc;
 @safe:
 
-auto consoleThis(string name) {
+string consoleThis(string name) {
   return 
     mvcObjectThis(name)~
   `

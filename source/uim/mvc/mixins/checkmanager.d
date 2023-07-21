@@ -8,6 +8,31 @@ module uim.mvc.mixins.checkmanager;
 import uim.mvc;
 
 @safe:
+
+// #region CheckManager This
+  string checkManagerThis() {
+    return "
+  this() {}
+    ";
+  }
+
+  template CheckManagerThis() {
+    const char[] CheckManagerThis = checkManagerThis();
+  }
+// #endregion CheckManager This
+
+// #region CheckManager Calls
+  string checkManagerCalls() {
+    return "
+  auto CheckManager() { return new DCheckManager(); }
+    ";
+  }
+
+  template CheckManagerCalls() {
+    const char[] CheckManagerCalls = checkManagerCalls();
+  }
+// #endregion CheckManager Calls
+
 mixin template CheckManagerTemplate() {
   // #region checks
     protected ICheck[] _checks;

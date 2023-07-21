@@ -9,5 +9,4 @@ import uim.mvc;
 @safe:
 
 interface IConsoleManager {
-
 }
