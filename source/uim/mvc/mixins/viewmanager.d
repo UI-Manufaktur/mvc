@@ -8,7 +8,19 @@ module uim.mvc.mixins.viewmanager;
 import uim.mvc;
 @safe:
 
-mixin template ViewManagerContainerTemplate() {
+string viewManagerThis() {
+  return "
+this() {}
+  ";
+}
+
+string viewManagerCalls() {
+  return "
+auto ViewManager() { return new DViewManager(); }
+  ";
+}
+
+mixin template ViewContainerTemplate() {
   // #region viewContainer
   protected DViewContainer _viewContainer;  
   DViewContainer viewContainer() {
@@ -51,7 +63,8 @@ mixin template ViewManagerTemplate() {
     IView view(string aName = null) {
       if (viewContainer is null) return null;
 
-      return (aName ? this.viewContainer[aName] : this.viewContainer["default"]);
+      auto myView = this.viewContainer[aName];
+      return (myView ? myView : this.viewContainer["default"]);
     }
 
     void view(IView aView) {
@@ -67,7 +80,7 @@ mixin template ViewManagerTemplate() {
       addView("default", aView);
     }
     IView defaultView() {
-      return view("default");
+      return (viewContainer ? this.viewContainer["default"] : null);
     }
   // #endregion defaultView
 
@@ -83,6 +96,12 @@ mixin template ViewManagerTemplate() {
   // #region hasView
     bool hasView(IView aView) {
       return (aView ? hasView(aView.name) : false);
+    }
+    bool hasDefaultView() {
+      return (defaultView ? true : false);
+    }
+    bool hasErrorView() {
+      return (errorView ? true : false);
     }
     bool hasView(string aName) {
       if (this.viewContainer() && this.viewContainer[aName]) { return true; }

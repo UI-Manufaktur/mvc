@@ -11,7 +11,7 @@ import uim.mvc;
 class DPageController : DController, IPageController, IViewManager {
   mixin(ControllerThis!("PageController"));
 
-  mixin(TProperty!("DViewContainer", "viewContainer"));
+  mixin ViewContainerTemplate;
   mixin ViewManagerTemplate;
 
   mixin LayoutContainerTemplate;
@@ -36,9 +36,6 @@ class DPageController : DController, IPageController, IViewManager {
       .metas(MVCMetaContainer) 
       .scripts(ScriptContainer) 
       .styles(StyleContainer); 
-
-    this
-      .viewContainer(ViewContainer);
   }
 
   // inherited
@@ -247,7 +244,22 @@ class DPageController : DController, IPageController, IViewManager {
       // if (hasError) { return null; }
 
       string myViewRender = view ? view.render(options) : "";
+
       auto myLayout = defaultLayout;
+      if (myLayout) {
+        debug writeln("DPageController has layout");
+      }
+      else {
+        debug writeln("DPageController has no layout");
+        
+        if (layoutContainer) {
+          debug writeln("DPageController has layoutContainer");
+        }
+        else {
+          debug writeln("DPageController has no layoutContainer");
+        }
+      }
+
       return myLayout
         ? myLayout.render(this, myViewRender)  
         : myViewRender;  

@@ -169,13 +169,13 @@ override void initialize(DConfigurationValue configSettings = null) {
     return null; // no DEntityBase", "entityBase found
   } * /
 
-  protected DAPPLayout _layout;
-  O layout(this O)(DAPPLayout newLayout) { 
+  protected DLayout _layout;
+  O layout(this O)(DLayout newLayout) { 
       debugMethodCall(moduleName!DView~":DView("~this.name~")::layout"); 
       _layout = newLayout;
       return cast(O)this; 
   }
-  DAPPLayout layout() {
+  DLayout layout() {
       if (_layout) return _layout;
       if (this.controller) { return this.controller.layout; }
       return null;

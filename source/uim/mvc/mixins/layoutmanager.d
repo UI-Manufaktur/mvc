@@ -32,17 +32,19 @@ import uim.mvc;
   }
 // #endregion LayoutManager Calls
 
-mixin template LayoutContainerTemplate() {
-  // #region layoutContainer
-  protected DLayoutContainer _layoutContainer;  
-  DLayoutContainer layoutContainer() {
-    return (_layoutContainer ? _layoutContainer : (_manager ? manager.layoutContainer : null)); 
-  }  
-  void layoutContainer(DLayoutContainer aLayoutContainer) {    
-    _layoutContainer = aLayoutContainer;
-  }  
-  // #endregion layoutContainer
-}
+// #region LayoutContainerTemplate
+  mixin template LayoutContainerTemplate() {
+    protected DLayoutContainer _layoutContainer;  
+    DLayoutContainer layoutContainer() {
+      return (_layoutContainer 
+        ? _layoutContainer 
+        : (_manager ? manager.layoutContainer : null)); 
+    }  
+    void layoutContainer(DLayoutContainer aLayoutContainer) {    
+      _layoutContainer = aLayoutContainer;
+    }  
+  }
+// #endregion LayoutContainerTemplate
 
 mixin template LayoutManagerTemplate() {
   // #region layouts
@@ -76,6 +78,15 @@ mixin template LayoutManagerTemplate() {
       if (layoutContainer) layoutContainer[aName] = aLayout;
     }
   // #endregion layout
+
+  bool hasLayout(ILayout aLayout) {
+    return (aLayout ? hasLayout(aLayout.name) : false);
+  }
+  bool hasLayout(string aName) {
+    return (layoutContainer 
+    ? (layoutContainer[aName] ? true : false) 
+    : false);
+  }
 
   // #region defaultLayout
     void defaultLayout(ILayout aLayout) {

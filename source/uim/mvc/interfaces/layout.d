@@ -13,7 +13,6 @@ interface ILayout : IMVCObject {
   string title();
   string language();
 
-  ILayout layout();
   DMVCLinkContainer links();
   DMVCMetaContainer metas();
   DScriptContainer scripts();

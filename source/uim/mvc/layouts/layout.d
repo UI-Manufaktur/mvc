@@ -498,11 +498,11 @@ auto dropDownItems(string prefix, IPageController[][string] themes) {
 
 // #region render
 	void beforeRender(STRINGAA options = null) {
-		debugMethodCall(moduleName!DAPPLayout~":DAPPLayout("~this.name~")::beforeRender");
+		debugMethodCall(moduleName!DLayout~":DLayout("~this.name~")::beforeRender");
 	}
 
 	string render(DPageController controller, DView view, STRINGAA options = null) { 
-		debugMethodCall(moduleName!DAPPLayout~":DAPPLayout("~this.name~")::render(DPageController controller, DView view, STRINGAA options = null)");
+		debugMethodCall(moduleName!DLayout~":DLayout("~this.name~")::render(DPageController controller, DView view, STRINGAA options = null)");
     if (view) {
       // debugwriteln("view is -> ", view.name);
 		  return render(controller, view.toH5(options), options);
@@ -514,7 +514,7 @@ auto dropDownItems(string prefix, IPageController[][string] themes) {
 	}
 
 	string render(DPageController controller, DH5Obj[] h5Objs, STRINGAA options = null) { 
-		debugMethodCall(moduleName!DAPPLayout~":DAPPLayout("~this.name~")::render(DPageController controller, DH5Obj[] h5Objs, STRINGAA options = null)");
+		debugMethodCall(moduleName!DLayout~":DLayout("~this.name~")::render(DPageController controller, DH5Obj[] h5Objs, STRINGAA options = null)");
 		if (h5Objs) {
       return render(controller, h5Objs.map!(h5 => h5.toString).join, options);
     }
@@ -522,7 +522,7 @@ auto dropDownItems(string prefix, IPageController[][string] themes) {
 	}
 
 	string render(DPageController controller, string content, STRINGAA options = null) { 
-		debugMethodCall(moduleName!DAPPLayout~":DAPPLayout("~this.name~")::render(DPageController controller, string content, STRINGAA options = null)");
+		debugMethodCall(moduleName!DLayout~":DLayout("~this.name~")::render(DPageController controller, string content, STRINGAA options = null)");
 		beforeRender(options);
 
 		// 1. page parameters to options

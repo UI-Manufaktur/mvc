@@ -10,7 +10,6 @@ import uim.mvc;
 
 interface IApplication : IMVCObject {
   IEntityBase entityBase();
-  ILayout layout();
   DRoute[HTTPMethod][string] routes();
   string rootPath();
 

@@ -70,7 +70,7 @@ class DAPPApplication {
       .styles(StyleContainer); 
   }
 
-  this(DAPPLayout mylayout) {
+  this(DLayout mylayout) {
     // debugwriteln("this(myLayout)");
     this().layout(mylayout); }
 
@@ -79,7 +79,7 @@ class DAPPApplication {
   mixin(OProperty!("string", "rootPath"));
   mixin(OProperty!("size_t", "versionNumber"));
   mixin(OProperty!("DEntityBase", "DEntityBase", "entityBase"));
-  mixin(OProperty!("DAPPLayout", "layout"));
+  mixin(OProperty!("DLayout", "layout"));
   mixin(OProperty!("STRINGAA", "parameters"));
   mixin(OProperty!("Json", "config"));
 
@@ -108,7 +108,7 @@ class DAPPApplication {
   }
 }
 auto APPApplication() { return new DAPPApplication; }
-auto APPApplication(DAPPLayout myLayout) { return new DAPPApplication(myLayout); }
+auto APPApplication(DLayout myLayout) { return new DAPPApplication(myLayout); }
 
 version(test_uim_apps) { unittest {
 	assert(APPApplication);
