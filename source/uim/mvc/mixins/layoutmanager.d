@@ -48,14 +48,6 @@ import uim.mvc;
 
 mixin template LayoutManagerTemplate() {
   // #region layouts
-    void layouts(ILayout[string] someLayouts) {
-      someLayouts.byKeyValue.each!(kv => layout(kv.key, kv.value));
-    }
-
-    void layouts(ILayout[] someLayouts) {
-      someLayouts.each!(col => layout(col));
-    }
-
     ILayout[] layouts() { 
       return (layoutContainer ? layoutContainer.values : null); 
     }
@@ -64,20 +56,13 @@ mixin template LayoutManagerTemplate() {
     }
   // #endregion layouts
 
-  // #region layout
+  // #region get layout
     ILayout layout(string aName = null) {
       if (layoutContainer is null) return null;
 
       return (aName ? layoutContainer[aName] : layoutContainer["default"]);
     }
-
-    void layout(ILayout aLayout) {
-      if (aLayout) layout(aLayout.name, aLayout);
-    }
-    void layout(string aName, ILayout aLayout) {
-      if (layoutContainer) layoutContainer[aName] = aLayout;
-    }
-  // #endregion layout
+  // #endregion get layout
 
   bool hasLayout(ILayout aLayout) {
     return (aLayout ? hasLayout(aLayout.name) : false);
@@ -90,9 +75,7 @@ mixin template LayoutManagerTemplate() {
 
   // #region defaultLayout
     void defaultLayout(ILayout aLayout) {
-      if (layoutContainer is null) return;
-
-      layoutContainer["default"] = aLayout;
+      addLayout("default", aLayout);
     }
 
     ILayout defaultLayout() {
@@ -102,7 +85,7 @@ mixin template LayoutManagerTemplate() {
 
   // #region errorLayout
     void errorLayout(ILayout aLayout) {
-      layout("error", aLayout);
+      addLayout("error", aLayout);
     }
 
     ILayout errorLayout() {
@@ -110,39 +93,52 @@ mixin template LayoutManagerTemplate() {
     }
   // #endregion errorLayout
 
-  void addLayouts(ILayout[] someLayouts...) {
-    addLayouts(someLayouts.dup);
-  }
-  void addLayouts(ILayout[] someLayouts) {
-    someLayouts.each!(myLayout => addLayout(myLayout));
-  }
-
-  void addLayouts(ILayout[string] someLayouts) {
-    someLayouts.byKeyValue.each!(kv => addLayout(kv.key, kv.value));
-  }
-
-  void addLayout(ILayout aLayout) {    
-    addLayout(aLayout.name, aLayout);
-  }
-  void addLayout(string aName, ILayout aLayout) {
-    if (layoutContainer is null) return;
-
-    layoutContainer.add(aName, aLayout);
-  }
-
-  bool updateLayout(string aName, ILayout aLayout) {
-    if (layoutContainer) {
-      layoutContainer.update(aName, aLayout);
-      return true;
+  // #region set/add layout
+    void addLayouts(ILayout[string] someLayouts) {
+      someLayouts.byKeyValue.each!(kv => addLayout(kv.key, kv.value));
     }
-    return false;
-  }
-
-  bool removeLayout(string aName) {
-    if (layoutContainer) {
-      layoutContainer.remove(aName);
-      return true;
+    void addLayouts(ILayout[] someLayouts...) {
+      addLayouts(someLayouts.dup);
     }
-    return false;
+    void addLayouts(ILayout[] someLayouts) {
+      someLayouts.each!(myLayout => addLayout(myLayout));
+    }
+    bool addLayout(ILayout aLayout) {    
+      return (aLayout ? addLayout(aLayout.name, aLayout) : false);
+    }
+    bool addLayout(string aName, ILayout aLayout) {
+      aLayout.manager(this);
+      if (layoutContainer) {
+        layoutContainer.add(aName, aLayout);
+        return true;
+      }
+      return false;
   }
+  // #endregion set/add layout
+
+  // #region update layout
+    bool updateLayout(ILayout aLayout) {
+      return (aLayout ? updateLayout(aLayout.name, aLayout) : false);
+    }
+    bool updateLayout(string aName, ILayout aLayout) {
+      if (layoutContainer) {
+        layoutContainer.update(aName, aLayout);
+        return true;
+      }
+      return false;
+    }
+  // #endregion update layout
+
+  // #region remove layout
+    bool removeLayout(ILayout aLayout) {
+      return (aLayout ? removeLayout(aLayout.name) : false);
+    }
+    bool removeLayout(string aName) {
+      if (layoutContainer) {
+        layoutContainer.remove(aName);
+        return true;
+      }
+      return false;
+    }
+  // #endregion remove layout
 }

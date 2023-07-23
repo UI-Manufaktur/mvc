@@ -9,6 +9,9 @@ import uim.mvc;
 @safe:
 
 interface ILayout : IMVCObject {
+  ILayoutManager manager();
+  void manager(ILayoutManager aManager);
+
   string layoutStyle();
   string title();
   string language();

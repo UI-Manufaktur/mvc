@@ -8,7 +8,7 @@ module uim.mvc.controllers.pages.page;
 import uim.mvc;
 
 @safe:
-class DPageController : DController, IPageController, IViewManager {
+class DPageController : DController, IPageController, IViewManager, ILayoutManager {
   mixin(ControllerThis!("PageController"));
 
   mixin ViewContainerTemplate;

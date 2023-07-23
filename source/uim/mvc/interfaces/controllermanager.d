@@ -9,18 +9,16 @@ interface IControllerManager : ISessionManager, IViewManager, ILayoutManager {
   void controllerContainer(DControllerContainer aContainer);
   DControllerContainer controllerContainer();
 
-  void controllers(IController[string] someControllers);
-  void controllers(IController[] someControllers...);
-  void controllers(IController[] someControllers);
+  void addControllers(IController[string] someControllers);
+  void addControllers(IController[] someControllers...);
+  void addControllers(IController[] someControllers);
   
   IController[] controllers();
   string[] controllerNames();
 
-  // set & get controller
   IController controller(string aName);
-  void controller(IController aController);
-  void controller(string aName, IController aController);
 
+  bool hasController(IController aController); 
   bool hasController(string aName); 
 
   void addController(IController aController); 
@@ -29,5 +27,6 @@ interface IControllerManager : ISessionManager, IViewManager, ILayoutManager {
   bool updateController(string aName, IController aController); 
   bool updateController(IController aController); 
 
+  bool removeController(IController aController); 
   bool removeController(string aName); 
 }

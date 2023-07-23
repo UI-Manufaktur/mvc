@@ -10,6 +10,7 @@ import uim.mvc;
 
 interface IController : IMVCObject, ICheckManager, IControllerComponentManager {
   IControllerManager manager();
+  void manager(IControllerManager aManager);
 
   string rootPath(); 
 

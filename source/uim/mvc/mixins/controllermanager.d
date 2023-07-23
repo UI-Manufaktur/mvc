@@ -47,16 +47,14 @@ mixin template ControllerContainerTemplate() {
 
 mixin template ControllerManagerTemplate() {
   // #region controllers
-    void controllers(IController[string] someControllers) {
-      someControllers.byKeyValue.each!(kv => controller(kv.key, kv.value));
+    void addControllers(IController[string] someControllers) {
+      someControllers.byKeyValue.each!(kv => addController(kv.key, kv.value));
     }
-
-    void controllers(IController[] someControllers...) {
-      this.controllers(someControllers.dup);
+    void addControllers(IController[] someControllers...) {
+      this.addControllers(someControllers.dup);
     }
-
-    void controllers(IController[] someControllers) {
-      someControllers.each!(col => controller(col));
+    void addControllers(IController[] someControllers) {
+      someControllers.each!(col => addController(col));
     }
 
     IController[] controllers() { 
@@ -73,8 +71,10 @@ mixin template ControllerManagerTemplate() {
 
   // #region controller
     IController controller(string aName = null) {
-      if (auto myController = (controllerContainer ? 
-        (aName ? controllerContainer[aName] : null) 
+      if (auto myController = (controllerContainer 
+        ? (aName 
+          ? controllerContainer[aName] 
+          : null) 
         : null)) {
           return myController;          
         }
@@ -82,13 +82,6 @@ mixin template ControllerManagerTemplate() {
 
       return null;
     }   
-
-    void controller(IController aController) {
-      if (aController) controller(aController.name, aController);
-    }
-    void controller(string aName, IController aController) {
-      if (controllerContainer) controllerContainer[aName] = aController;
-    }
   // #endregion controller
   
   // #region hasController
@@ -96,18 +89,22 @@ mixin template ControllerManagerTemplate() {
       return (aController ? hasController(aController.name) : false);
     }
     bool hasController(string aName) {
-      if (controllerContainer && !(controllerContainer[aName] is null)) { return true; }
-      return (manager ? this.manager.hasController(aName) : false);
+      return (controller(aName) ? true : false);
     }
   // #endregion hasController
 
 
-  // #region Add controller if not exists
+  // #region Add controller 
     void addController(IController aController) {
       if (aController) addController(aController.name, aController);
     }
     void addController(string aName, IController aController) {
-      if (controllerContainer) controllerContainer.add(aName, aController);
+      if (controllerContainer) {
+        if (auto myController = cast(DController)aController) {
+          myController.manager = this;
+        }
+        controllerContainer.add(aName, aController);
+      }
     }
   // #endregion Add controller if not exists
 

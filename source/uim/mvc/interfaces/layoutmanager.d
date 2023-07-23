@@ -12,15 +12,11 @@ interface ILayoutManager {
   void layoutContainer(DLayoutContainer aContainer);
   DLayoutContainer layoutContainer();
 
-  void layouts(ILayout[string] someLayouts);
-  void layouts(ILayout[] someLayouts);
   ILayout[] layouts();
   string[] layoutNames();
 
-  // set & get layout
-  ILayout layout(string aName);
-  void layout(ILayout aLayout);
-  void layout(string aName, ILayout aLayout);
+  // get layout
+  ILayout layout(string aName = null);
 
   // Check existing layout
   bool hasLayout(ILayout aLayout);
@@ -32,17 +28,16 @@ interface ILayoutManager {
   void errorLayout(ILayout aLayout);
   ILayout errorLayout();
 
-  ILayout layout(string aName = null);
-
+  void addLayouts(ILayout[string] someLayouts);
   void addLayouts(ILayout[] someLayouts...);
   void addLayouts(ILayout[] someLayouts);
 
-  void addLayouts(ILayout[string] someLayouts);
+  bool addLayout(ILayout aLayout);
+  bool addLayout(string aName, ILayout aLayout);
 
-  void addLayout(ILayout aLayout);
-  void addLayout(string aName, ILayout aLayout);
-
+  bool updateLayout(ILayout aLayout);
   bool updateLayout(string aName, ILayout aLayout);
 
+  bool removeLayout(ILayout aLayout);
   bool removeLayout(string aName);
 }

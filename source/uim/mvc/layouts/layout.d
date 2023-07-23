@@ -91,6 +91,7 @@ class DLayout : DMVCObject, ILayout {
   mixin(MVCParameter!("title"));
   mixin(MVCParameter!("language"));
 
+  mixin(TProperty!("ILayoutManager", "manager"));
   mixin(OProperty!("DMVCNavigationViewComponent", "navigation"));
   mixin(OProperty!("DMVCPageFooterViewComponent", "footer"));
   mixin(OProperty!("STRINGAA", "headAttributes"));

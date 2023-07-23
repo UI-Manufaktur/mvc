@@ -16,8 +16,8 @@ interface IRouteManager {
   IRoute route(string aPath);
   IRoute route(string aPath, HTTPMethod aMethod);
 
-  bool existsRoute(string aPath);
-  bool existsRoute(string aPath, HTTPMethod aMethod);
+  bool hasRoute(string aPath);
+  bool hasRoute(string aPath, HTTPMethod aMethod);
 
   // Add route if not exists
   void addRoute(IRoute aRoute);
