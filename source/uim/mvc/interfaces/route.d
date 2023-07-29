@@ -10,6 +10,7 @@ import uim.mvc;
 
 interface IRoute : IMVCObject {
 	IRouteManager manager();
+	void manager(IRouteManager aManager);
 	
 	string path();
   HTTPMethod method();

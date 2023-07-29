@@ -4,6 +4,9 @@ import uim.mvc;
 @safe:
 
 interface ISession {
+  ISessionManager manager();
+  void manager(ISessionManager aManager);
+  
   string httpSessionId();
 
   // IPageController page();

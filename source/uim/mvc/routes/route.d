@@ -30,7 +30,7 @@ class DRoute : DMVCObject, IRoute {
   }
 
   mixin(OProperty!("string", "path"));
-  mixin(OProperty!("IRouteManager", "manager"));
+  mixin(TProperty!("IRouteManager", "manager"));
   
   ///
   unittest {
@@ -45,7 +45,18 @@ class DRoute : DMVCObject, IRoute {
     assert(route.method(HTTPMethod.GET).method == HTTPMethod.GET);  
   }
 
-  mixin(OProperty!("IController", "controller"));
+  protected IController _controller;
+  IController controller() {
+    return _controller;
+  }
+  O controller(this O)(IController aController) {
+/*     if (auto myController = cast(DController)aController) {
+      myController.manager(cast(IControllerManager)manager);
+    }
+ */    _controller = aController;
+    return cast(O)this;
+  }
+
   ///
   unittest {
     IController controller = new DController("test");

@@ -51,7 +51,7 @@ mixin template ControllerManagerTemplate() {
       someControllers.byKeyValue.each!(kv => addController(kv.key, kv.value));
     }
     void addControllers(IController[] someControllers...) {
-      this.addControllers(someControllers.dup);
+      addControllers(someControllers.dup);
     }
     void addControllers(IController[] someControllers) {
       someControllers.each!(col => addController(col));
@@ -99,10 +99,8 @@ mixin template ControllerManagerTemplate() {
       if (aController) addController(aController.name, aController);
     }
     void addController(string aName, IController aController) {
+      if (aController) aController.manager(this);
       if (controllerContainer) {
-        if (auto myController = cast(DController)aController) {
-          myController.manager = this;
-        }
         controllerContainer.add(aName, aController);
       }
     }

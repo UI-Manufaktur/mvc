@@ -34,17 +34,17 @@ mixin template ViewContainerTemplate() {
 
 mixin template ViewManagerTemplate() {
   // #region views
-    void views(IView[string] someViews) {
+    void addViews(IView[string] someViews) {
       foreach(myName, myView; someViews) {
         addView(myName, myView);
       }
     }
 
-    void views(IView[] someViews...) {
-      views(someViews.dup);
+    void addViews(IView[] someViews...) {
+      addViews(someViews.dup);
     }
 
-    void views(IView[] someViews) {
+    void addViews(IView[] someViews) {
       foreach(myView; someViews) {
         addView(myView);
       }
@@ -65,13 +65,6 @@ mixin template ViewManagerTemplate() {
 
       auto myView = this.viewContainer[aName];
       return (myView ? myView : this.viewContainer["default"]);
-    }
-
-    void view(IView aView) {
-      if (aView) view(aView.name, aView);
-    }
-    void view(string aName, IView aView) {
-      if (this.viewContainer()) this.viewContainer[aName] = aView;
     }
   // #endregion viewView
 
@@ -114,8 +107,10 @@ mixin template ViewManagerTemplate() {
     if (aView) addView(aView.name, aView);
   }
   void addView(string aName, IView aView) {
-    // debugwriteln("Adding view ", aName);
-    if (this.viewContainer() && aView) this.viewContainer().add(aName, aView);
+    if (aView) aView.manager(this);
+    if (viewContainer) {
+      viewContainer.add(aName, aView);
+    }
   }
 
   // Update existing view

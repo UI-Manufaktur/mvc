@@ -107,7 +107,7 @@ mixin template LayoutManagerTemplate() {
       return (aLayout ? addLayout(aLayout.name, aLayout) : false);
     }
     bool addLayout(string aName, ILayout aLayout) {
-      aLayout.manager(this);
+      if (aLayout) aLayout.manager(this);
       if (layoutContainer) {
         layoutContainer.add(aName, aLayout);
         return true;

@@ -15,7 +15,8 @@ class DSession : DEntity, ISession {
     this().httpSessionId(httpSession.id);
   }
 
-  mixin(OProperty!("ISessionManager", "manager"));
+  mixin(TProperty!("ISessionManager", "manager"));
+
   mixin(OProperty!("string", "httpSessionId"));
   mixin(OProperty!("IPageController", "page"));
   mixin(OProperty!("DEntity", "login"));

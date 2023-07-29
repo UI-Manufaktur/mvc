@@ -251,7 +251,7 @@ static this() {
   uimViewRegistry = ViewRegistry;
 } */
 
-auto editorSummary = `const editorSummary = KothingEditor.create("entity_summary", {
+/* auto editorSummary = `const editorSummary = KothingEditor.create("entity_summary", {
   display: "block",
   width: "100%",
   height: "auto",
@@ -314,7 +314,7 @@ auto editorText = `const editorText = KothingEditor.create("entity_text", {
   ],
   charCounter: true,
 });`;
-
+ */
 enum ViewModes { HTML, JS, XML }
 
 

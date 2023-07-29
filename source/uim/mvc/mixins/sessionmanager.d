@@ -47,18 +47,6 @@ mixin template SessionContainerTemplate() {
 
 mixin template SessionManagerTemplate() {
   // #region sessions
-    void sessions(ISession[string] someSessions) {
-      foreach(myName, mySession; someSessions) {
-        session(myName, mySession);
-      }
-    }
-
-    void sessions(ISession[] someSessions) {
-      foreach(mySession; someSessions) {
-        session(mySession);
-      }
-    }
-
     ISession[] sessions() { 
       return (sessionContainer ? sessionContainer.values : null); 
     }
@@ -73,12 +61,6 @@ mixin template SessionManagerTemplate() {
   ISession session(string httpSessionId) {
     return (sessionContainer ? sessionContainer[httpSessionId] : null);
   }
-  void session(ISession aSession) {
-    if (aSession) session(aSession.httpSessionId, aSession);
-  }
-  void session(string httpSessionId, ISession aSession) {
-    if (sessionContainer) sessionContainer[httpSessionId] = aSession;
-  }
 
   bool hasSession(ISession aSession) {
     return hasSession(aSession.httpSessionId);
@@ -87,25 +69,50 @@ mixin template SessionManagerTemplate() {
     return (sessionContainer ? (sessionContainer[httpSessionId] ? true : false) : false);
   }
 
+    void addSessions(ISession[string] someSessions) {
+      foreach(myName, mySession; someSessions) {
+        addSession(myName, mySession);
+      }
+    }
+
+    void addSessions(ISession[] someSessions...) {
+      addSessions(someSessions.dup);
+    }
+
+    void addSessions(ISession[] someSessions) {
+      someSessions.each!(mySession => addSession(mySession));
+    }
+
   void addSession(ISession aSession) {
     if (aSession) addSession(aSession.httpSessionId, aSession);
   }
   void addSession(string httpSessionId, ISession aSession) {
-    if (sessionContainer) sessionContainer.add(httpSessionId, aSession);
+    if (aSession) aSession.manager(this);
+    if (sessionContainer) {
+      sessionContainer.add(httpSessionId, aSession);
+    }
   }
   // Update existing session
-  void updateSession(ISession aSession) {
-    if (aSession) updateSession(aSession.httpSessionId, aSession);
+  bool updateSession(ISession aSession) {
+    return (aSession ? updateSession(aSession.httpSessionId, aSession) :false);
   }
-  void updateSession(string httpSessionId, ISession aSession) {
-    if (sessionContainer) sessionContainer.update(httpSessionId, aSession);
+  bool updateSession(string httpSessionId, ISession aSession) {
+    if (sessionContainer) {
+      sessionContainer.update(httpSessionId, aSession);
+      return true;
+    }
+    return false;
   }
 
   // Remove existing session
-  void removeSession(ISession aSession) {
-    if (aSession) removeSession(aSession.httpSessionId);
+  bool removeSession(ISession aSession) {
+    return (aSession ? removeSession(aSession.httpSessionId) : false);
   }
-  void removeSession(string httpSessionId) {
-    if (sessionContainer) sessionContainer.remove(httpSessionId);
+  bool removeSession(string httpSessionId) {
+    if (sessionContainer) {
+      sessionContainer.remove(httpSessionId);
+      return true;
+    }
+    return false;
   }
 }

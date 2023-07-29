@@ -5,6 +5,7 @@ import uim.mvc;
 
 interface IView : IMVCObject {
   IViewManager manager();
+  void manager(IViewManager aManager);
 
   bool isNull();
 

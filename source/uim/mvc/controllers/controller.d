@@ -11,7 +11,7 @@ import uim.mvc;
 class DController : DMVCObject, IController, IControllerComponentManager, ISessionManager  {
   mixin(ControllerThis!("Controller"));
 
-  mixin(OProperty!("IControllerManager", "manager"));
+  mixin(TProperty!("IControllerManager", "manager"));
 
   mixin SessionContainerTemplate;
   mixin SessionManagerTemplate; 

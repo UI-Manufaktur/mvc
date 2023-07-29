@@ -42,24 +42,25 @@ template RouteManagerTemplate() {
     return null;
   }
 
-  bool existsRoute(string aPath) {
+  bool hasRoute(string aPath) {
     return (route(aPath) !is null);
   }
-  bool existsRoute(string aPath, HTTPMethod aMethod) {
+  bool hasRoute(string aPath, HTTPMethod aMethod) {
     return (route(aPath,aMethod) !is null);
   }
 
-  O addRoutes(this O)(IRoute[] someRoutes...) {    
+  void addRoutes(IRoute[] someRoutes...) {    
     this.addRoutes(someRoutes.dup);
-    return cast(O)this;
   }
-  O addRoutes(this O)(IRoute[] someRoutes) {    
-    someRoutes.each!(route => this.addRoute(route));
-    return cast(O)this;
+  void addRoutes(IRoute[] someRoutes) {    
+    someRoutes.each!(myRoute => addRoute(myRoute));
   }
 
-  void addRoute(IRoute aRoute) {    
-    _routes ~= aRoute;
+  void addRoute(IRoute aRoute) {   
+    if (aRoute) {
+      aRoute.manager(this);    
+      _routes ~= aRoute;
+    }
   }
 
   // Update existing route
