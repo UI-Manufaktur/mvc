@@ -32,8 +32,12 @@ class DControllerComponent : DMVCObject, IControllerComponent, IControllerCompon
     super.initialize(configSettings);
   }
 
+  HTTPServerRequest request() {
+    return (manager ? manager.request : null);
+  }
 
   mixin(OProperty!("string", "redirectUrl"));
+  mixin(OProperty!("DException", "exception"));
 
   // A component lookup table used to lazy load component objects.
   mixin(OProperty!("Json", "componentMap"));

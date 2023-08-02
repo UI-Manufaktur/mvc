@@ -14,7 +14,8 @@ class DUpdateActionController : DActionController {
   override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings); 
     this.name = "UpdateActionController";
-    this.checks([SessionExistsCheck, DatabaseExistsCheck, SessionHasHTTPSessionCheck, SessionHasSiteCheck]); 
+    this
+      .addChecks(SessionExistsCheck, DatabaseExistsCheck, SessionHasHTTPSessionCheck, SessionHasSiteCheck); 
   }
 
   mixin(OProperty!("string", "pool"));
@@ -25,13 +26,13 @@ class DUpdateActionController : DActionController {
     super.beforeResponse(options);   
     if (hasError || "redirect" in options) { return false; }
 
-    auto session = manager.session(options);
-    auto site = session.site;
-
     if (!manager) {
       this.error("manager_missing");
       return false; 
     }
+
+    auto session = manager.session(options);
+    auto site = session.site;
 
     auto myEntityBase = manager.entityBase;
     if (!myEntityBase) {

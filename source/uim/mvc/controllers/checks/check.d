@@ -19,22 +19,30 @@ class DControllerCheck : DControllerComponent, ICheck, ICheckManager {
   }
 
   mixin CheckManagerTemplate;
+  mixin(OProperty!("DException", "exception"));
 
   bool execute(STRINGAA options = null) {
+    debug writeln(moduleName!DControllerCheck~":ControllerCheck::execute");
     if (!manager) {
-      this.error("manager_missing");
-      // debugwriteln("In ControllerCheck -> manager_missing");
+      this.exception(CheckManagerMissingException(["DControllerCheck"]));
       return false; 
     }
 
     IControllerComponentManager myManager = this.manager;  
     foreach(myCheck; checks) {
       if (auto checkObj = (cast(DControllerCheck)myCheck)) {
-        checkObj.manager(myManager);
         if (!checkObj.execute(options)) {
-          this.error(checkObj.error);
-          this.redirectUrl(checkObj.redirectUrl);
-          return false;
+          if (auto myException = checkObj.exception) {
+            this.exception(myException);            
+            if (auto myRedirectUrl = checkObj.redirectUrl) {
+              this.redirect(myRedirectUrl);
+            }
+            return false;
+          }
+          if (auto myRedirectUrl = checkObj.redirectUrl) {
+            this.redirect(myRedirectUrl);
+            return false;
+          }
         }
       }
     }

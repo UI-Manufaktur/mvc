@@ -8,7 +8,7 @@ module uim.mvc.controllers.checks.sessions.httpsession;
 import uim.mvc;
 
 @safe:
-class DSessionHasHTTPSessionCheck : DSessionExistsCheck {
+class DSessionHasHTTPSessionCheck : DControllerCheck {
   mixin(ControllerComponentThis!("SessionHasHTTPSessionCheck"));
 
   override void initialize(Json configSettings = Json(null)) {
@@ -19,12 +19,30 @@ class DSessionHasHTTPSessionCheck : DSessionExistsCheck {
   }
   
   override bool execute(STRINGAA options = null) {
-    // debugwriteln(moduleName!DSessionHasHTTPSessionCheck~":DSessionHasHTTPSessionCheck::execute");
+    debug writeln(moduleName!DSessionHasHTTPSessionCheck~":DSessionHasHTTPSessionCheck::execute");
     if (!super.execute(options)) { return false; }
 
-    auto session = manager.session(options).session;
-    if (!session) { // session missing 
-      this.error("internalsession_session_missing");
+    if (!manager) { 
+      debug writeln("manager missing");
+      this.error("manager_missing");
+      return false; 
+    }
+
+    if (!manager.request) { 
+      debug writeln("request missing");
+      this.error("request_missing");
+      return false; 
+    }
+
+    if (!manager.request.session) { // session missing 
+      debug writeln("session missing");
+      this.error("session_missing");
+      return false; 
+    }
+
+    if (!manager.hasSession(manager.request.session.id)) { // sessionId unknown 
+      debug writeln("sessionId missing");
+      this.error("sessionId_unknown");
       return false; 
     }
 

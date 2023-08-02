@@ -10,6 +10,9 @@ import uim.mvc;
 
 // Auth Security exception - used when SecurityComponent detects any issue with the current request
 class DAuthSecurityException : DSecurityException {
+	mixin(ExceptionThis!("AuthSecurityException"));
 	// Security Exception type
 	protected string _type = "auth";
 }
+mixin(ExceptionCalls!("AuthSecurityException"));
+

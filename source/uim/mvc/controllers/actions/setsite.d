@@ -15,11 +15,11 @@ class DSelectSiteActionController : DActionController {
     super.initialize(configSettings); 
     
     this.name = "SelectSiteActionController";
-    this.checks([
+    this.addChecks(
       SessionHasHTTPSessionCheck, // InternalSession Checks
       DatabaseHasSessionsCheck, DatabaseHasSitesCheck, // Database checks 
       RequestHasSiteIdCheck // Request Checks
-    ]); 
+    ); 
   }
   
   override bool beforeResponse(STRINGAA options = null) {

@@ -19,7 +19,6 @@ class DController : DMVCObject, IController, IControllerComponentManager, ISessi
   mixin(TProperty!("IControllerComponent[]", "components"));
   mixin ControllerComponentManagerTemplate;
 
-  mixin(TProperty!("ICheck[]", "checks"));  
   mixin CheckManagerTemplate;
 
   // Set to true to automatically render the view after action logic.
@@ -50,7 +49,7 @@ class DController : DMVCObject, IController, IControllerComponentManager, ISessi
       .name("Controller"); 
 
     components(null);
-    checks(null);
+    _checks = null;
   }
 
   
@@ -213,16 +212,16 @@ class DController : DMVCObject, IController, IControllerComponentManager, ISessi
       debug writeln("Start Before Response");
       beforeResponse(options); // Hook
 
+      string myRedirectUrl; 
       if (hasError) {
-        // debugwriteln("Found error -> ", this.error);
-        options["redirect"] = "/error";
+        debug writeln("Found error -> ", this.error);
+        myRedirectUrl = "/error";
       }
 
-      debug writeln("Has redirect?");
-      if (auto myRedirectUrl = options.get("redirect", null)) {
-        // debugwriteln("Found redirect to ", myRedirectUrl);
+      debug writeln("Has redirect?", options.get("redirect", redirectUrl) ? "Yes" : "No");
+      if (options.get("redirect", redirectUrl)) {
+        debug writeln("Found redirect to ", myRedirectUrl);
         options.remove("redirect");
-        newResponse.redirect(myRedirectUrl);
       } 
 
       auto result = stringResponse(options); // Hook, only if necessary
