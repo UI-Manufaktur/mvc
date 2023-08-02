@@ -69,19 +69,19 @@ mixin template SessionManagerTemplate() {
     return (sessionContainer ? (sessionContainer[httpSessionId] ? true : false) : false);
   }
 
-    void addSessions(ISession[string] someSessions) {
-      foreach(myName, mySession; someSessions) {
-        addSession(myName, mySession);
-      }
+  void addSessions(ISession[string] someSessions) {
+    foreach(myName, mySession; someSessions) {
+      addSession(myName, mySession);
     }
+  }
 
-    void addSessions(ISession[] someSessions...) {
-      addSessions(someSessions.dup);
-    }
+  void addSessions(ISession[] someSessions...) {
+    addSessions(someSessions.dup);
+  }
 
-    void addSessions(ISession[] someSessions) {
-      someSessions.each!(mySession => addSession(mySession));
-    }
+  void addSessions(ISession[] someSessions) {
+    someSessions.each!(mySession => addSession(mySession));
+  }
 
   void addSession(ISession aSession) {
     if (aSession) addSession(aSession.httpSessionId, aSession);

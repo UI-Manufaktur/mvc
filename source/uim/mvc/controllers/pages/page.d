@@ -62,8 +62,6 @@ class DPageController : DController, IPageController, IViewManager, ILayoutManag
   mixin(OProperty!("IView", "view"));
   mixin(OProperty!("IView", "errorView"));
 
-
-  // Required checks for the page flow
   mixin(OProperty!("string[]", "sessionData"));
 
   mixin(MVCParameter!("canonical")); 
@@ -244,21 +242,7 @@ class DPageController : DController, IPageController, IViewManager, ILayoutManag
       // if (hasError) { return null; }
 
       string myViewRender = view ? view.render(options) : "";
-
       auto myLayout = defaultLayout;
-      if (myLayout) {
-        debug writeln("DPageController has layout");
-      }
-      else {
-        debug writeln("DPageController has no layout");
-        
-        if (layoutContainer) {
-          debug writeln("DPageController has layoutContainer");
-        }
-        else {
-          debug writeln("DPageController has no layoutContainer");
-        }
-      }
 
       return myLayout
         ? myLayout.render(this, myViewRender)  

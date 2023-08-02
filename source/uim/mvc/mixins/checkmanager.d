@@ -40,26 +40,24 @@ mixin template CheckManagerTemplate() {
     ICheck[] checks() {
       return _checks;
     }
-
-    void checks(ICheck[] someChecks...) {
-      this.checks(someChecks.dup);
-    }
-
-    void checks(ICheck[] someChecks) {
-      _checks = someChecks;
-    }
   // #endregion checks
 
 
   void addChecks(ICheck[] someChecks...) {
-    _checks ~= someChecks;
+    this.addChecks(someChecks.dup);
   }
 
   void addChecks(ICheck[] someChecks) {
-    _checks ~= someChecks;
+    someChecks.each!(check => this.addCheck(check));
   }
 
   void addCheck(ICheck aCheck) {
-    _checks ~= aCheck;
+    /* debug writeln("void addCheck(ICheck aCheck)"); */
+    if (aCheck) {
+      if (auto myCheck = cast(DControllerCheck)aCheck) {
+        myCheck.manager(this);
+      }
+      _checks ~= aCheck;
+    }
   }
 }

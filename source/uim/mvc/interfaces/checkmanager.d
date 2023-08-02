@@ -10,8 +10,6 @@ import uim.mvc;
 
 interface ICheckManager { 
 	ICheck[] checks();
-  void checks(ICheck[] someChecks...);
-  void checks(ICheck[] someChecks);
   
 	void addChecks(ICheck[] someChecks...);
 	void addChecks(ICheck[] someChecks);

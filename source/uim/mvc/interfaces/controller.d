@@ -12,6 +12,7 @@ interface IController : IMVCObject, ICheckManager, IControllerComponentManager {
   IControllerManager manager();
   void manager(IControllerManager aManager);
 
+  HTTPServerRequest request();
   string rootPath(); 
 
   string mimetype();

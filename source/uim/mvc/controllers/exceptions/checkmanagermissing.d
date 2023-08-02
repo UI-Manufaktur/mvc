@@ -3,20 +3,21 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel, mailto:ons@sicherheitsschmiede.de                                                      
 **********************************************************************************************************/
-module uim.mvc.controllers.exceptions.missingcomponent;
+module uim.mvc.controllers.exceptions.checkmanagermissing;
 
 import uim.mvc;
 @safe:
 
-// Used when a component cannot be found.
-class DMissingComponentException : DException {
-	mixin(ExceptionThis!("MissingComponentException"));
+// Auth Security exception - used when SecurityComponent detects any issue with the current request
+class DCheckManagerMissingException : DException {
+	mixin(ExceptionThis!("CheckManagerMissingException"));
 
-	override void initialize(Json configSettings = Json(null)) {
+	void initialize(Json configSettings = Json(null)) {
 		super.initialize(configSettings);
-  	
-		this
-			.messageTemplate("Component class %s could not be found.");
-	}
+
+    this
+      .message("Manager for Check is missing");
+  }
 }
-mixin(ExceptionThis!("MissingComponentException"));
+mixin(ExceptionCalls!("CheckManagerMissingException"));
+

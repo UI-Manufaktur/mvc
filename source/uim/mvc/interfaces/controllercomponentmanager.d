@@ -10,6 +10,7 @@ import uim.mvc;
 
 interface IControllerComponentManager : ISessionManager {
   IEntityBase entityBase();
+  HTTPServerRequest request();
 
   IControllerComponent[] components();
   void components(IControllerComponent[] someComponents);
