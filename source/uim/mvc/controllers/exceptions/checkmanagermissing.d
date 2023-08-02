@@ -12,7 +12,7 @@ import uim.mvc;
 class DCheckManagerMissingException : DException {
 	mixin(ExceptionThis!("CheckManagerMissingException"));
 
-	void initialize(Json configSettings = Json(null)) {
+	override void initialize(Json configSettings = Json(null)) {
 		super.initialize(configSettings);
 
     this

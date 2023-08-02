@@ -9,7 +9,9 @@ import uim.mvc;
 @safe:
 
 // Security exception - used when SecurityComponent detects any issue with the current request
-class DSecurityException : DUIMException { // BadRequestException {
+class DSecurityException : DException { // BadRequestException {
+  mixin(ExceptionThis!("SecurityException"));
+
   // Security Exception type
   protected string _type = "secure";
 
@@ -26,3 +28,4 @@ class DSecurityException : DUIMException { // BadRequestException {
     this.message = aMessage;
   }
 }
+mixin(ExceptionCalls!("SecurityException"));

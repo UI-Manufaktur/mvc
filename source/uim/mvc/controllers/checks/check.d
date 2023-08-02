@@ -19,7 +19,10 @@ class DControllerCheck : DControllerComponent, ICheck, ICheckManager {
   }
 
   mixin CheckManagerTemplate;
-  mixin(OProperty!("DException", "exception"));
+
+  // For ICheck required
+  override string redirectUrl() { return super.redirectUrl; }
+  override DException exception() { return super.exception; }
 
   bool execute(STRINGAA options = null) {
     debug writeln(moduleName!DControllerCheck~":ControllerCheck::execute");

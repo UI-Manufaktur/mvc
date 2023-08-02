@@ -12,11 +12,13 @@ import uim.mvc;
  * Missing Action exception - used when a controller action
  * cannot be found, or when the controller"s isAction() method returns false.
  */
-class DMissingActionException : DUIMException {
+class DMissingActionException : DException {
+  mixin(ExceptionThis!("MissingActionException"));
+
 	override void initialize(Json configSettings = Json(null)) {
 		super.initialize(configSettings);
 		this
 			.messageTemplate("Action %s::%s() could not be found, or is not accessible.");
 	}
 }
-auto MissingActionException() { return new DMissingActionException; }
+mixin(ExceptionCalls!("MissingActionException"));

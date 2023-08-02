@@ -19,4 +19,4 @@ class DMissingComponentException : DException {
 			.messageTemplate("Component class %s could not be found.");
 	}
 }
-mixin(ExceptionThis!("MissingComponentException"));
+mixin(ExceptionCalls!("MissingComponentException"));
