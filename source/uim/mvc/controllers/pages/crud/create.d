@@ -35,7 +35,7 @@ override void initialize(Json configSettings = Json(null)) {
   } */
 
   override bool beforeResponse(STRINGAA requestParameters) {
-    // debugwriteln(moduleName!DEntityCreateController~":DEntityCreateController::beforeResponse");
+    debug writeln(moduleName!DEntityCreateController~":DEntityCreateController::beforeResponse");
     if (!super.beforeResponse(requestParameters) || "redirect" in requestParameters) return false;
     
     auto mySession = manager.session(requestParameters);

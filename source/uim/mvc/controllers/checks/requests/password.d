@@ -19,7 +19,7 @@ class DRequestHasPasswordCheck : DControllerCheck {
   }
 
   override bool execute(STRINGAA options = null) {
-    // debugwriteln(moduleName!DRequestHasPasswordCheck~":DRequestHasPasswordCheck::execute");
+    debug writeln(moduleName!DRequestHasPasswordCheck~":DRequestHasPasswordCheck::execute");
     super.execute(options);
 
     if ("loginPW" !in options) { // loginPW  missing
@@ -28,7 +28,7 @@ class DRequestHasPasswordCheck : DControllerCheck {
       return false; 
     }
 
-    // debugwriteln("loginPW = ", options["loginPW"]);
+    debug writeln("loginPW = ", options["loginPW"]);
     return true;
   }
 }

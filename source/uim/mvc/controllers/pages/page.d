@@ -85,7 +85,7 @@ class DPageController : DController, IPageController, IViewManager, ILayoutManag
     debugMethodCall(moduleName!DPageController~":DPageController("~this.name~")::pageContent");
     // auto result = form ? form.toH5(reqParameters) : null;
 
-    // // debugwriteln("return result pageContent(STRINGAA reqParameters)");
+    // debug writeln("return result pageContent(STRINGAA reqParameters)");
     // return result;
     return null; 
   }
@@ -112,7 +112,7 @@ class DPageController : DController, IPageController, IViewManager, ILayoutManag
 
   /*   override DH5Obj[] toH5(STRINGAA reqParameters) { 
     auto loginId = reqParameters.get("loginId", "");
-    // // debugwriteln("...in login2:loginid = ", loginId);
+    // debug writeln("...in login2:loginid = ", loginId);
     auto body_ = H5Div(["page-wrapper"], 
       (showAppTitle ? "appTitle" : "")~
       pageBody.toString
@@ -137,7 +137,7 @@ class DPageController : DController, IPageController, IViewManager, ILayoutManag
       );
 
       if (this.login == Json(null)) {
-        // // debugwriteln("login not found");
+        // debug writeln("login not found");
         _response.redirect("/login");
         return result;
       }
@@ -148,7 +148,7 @@ class DPageController : DController, IPageController, IViewManager, ILayoutManag
     result["session"] = this.session; 
     if (this.sessionRequired) {
       if (!_request.session) { 
-        // // debugwriteln("No session available");
+        // debug writeln("No session available");
         _response.redirect("/login");  
         return result; } 
       
@@ -171,7 +171,7 @@ class DPageController : DController, IPageController, IViewManager, ILayoutManag
       );
 
       if (this.session == Json(null)) {
-        // // debugwriteln("session not found");
+        // debug writeln("session not found");
         _response.redirect("/login");
         return result;
       }
@@ -208,7 +208,7 @@ class DPageController : DController, IPageController, IViewManager, ILayoutManag
       );
 
       if (this.site == Json(null)) {
-        // // debugwriteln("site not found");
+        // debug writeln("site not found");
         _response.redirect("/login");
         return result;
       }

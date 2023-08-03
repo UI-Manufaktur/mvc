@@ -45,11 +45,11 @@ import uim.mvc;
 
     if (this.loginRequired) {
       auto sessionId = requestParameters.get("sessionId", "");
-      // // debugwriteln("SessionId = ", sessionId);
+      // debug writeln("SessionId = ", sessionId);
 
       auto sessionToken = this.app.DEntityBase", "entityBase.findOne("central", "sessions", ["id":sessionId]);
       if (sessionToken == Json(null)) {
-        // // debugwriteln("SessionId not found in central.sessions -> ");
+        // debug writeln("SessionId not found in central.sessions -> ");
         _response.redirect("/login"); return ""; }
     } 
     auto rootPath = parameters.get("rootPath", "/");

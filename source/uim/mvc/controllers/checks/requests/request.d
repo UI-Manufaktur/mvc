@@ -19,7 +19,7 @@ class DRequestExistsCheck : DControllerCheck {
   }
   
   override bool execute(STRINGAA options = null) {
-    // debugwriteln(moduleName!DRequestExistsCheck~":DRequestExistsCheck::check");
+    debug writeln(moduleName!DRequestExistsCheck~":DRequestExistsCheck::check");
     if (!super.execute(options)) { return false; }
 
     if (auto myController = cast(DController)this.manager) { // 1 Level
