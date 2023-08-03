@@ -19,5 +19,10 @@ interface ISession {
   DEntity entity();
   bool isNull();
 
+  string httpSessionId();
+  string accountName();
+  string host();
+  string loginId();
+
   string debugInfo();
 }

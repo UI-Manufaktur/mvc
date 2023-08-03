@@ -14,7 +14,7 @@ class DDeleteActionController : DActionController {
   override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings); 
     this.name = "DeleteActionController";
-    this.addChecks(SessionExistsCheck, DatabaseExistsCheck, HasHTTPSessionCheck, SessionHasSiteCheck); 
+    this.addChecks(HasSessionCheck, DatabaseExistsCheck, HasHTTPSessionCheck, SessionHasSiteCheck); 
   }
 
   mixin(OProperty!("string", "pool"));

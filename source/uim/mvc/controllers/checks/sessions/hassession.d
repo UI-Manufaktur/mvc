@@ -13,19 +13,19 @@ module uim.mvc.controllers.checks.sessions.hassession;
 import uim.mvc;
 
 @safe:
-class DSessionExistsCheck : DControllerCheck {
-  mixin(ControllerComponentThis!("SessionExistsCheck"));
+class DHasSessionCheck : DControllerCheck {
+  mixin(ControllerComponentThis!("HasSessionCheck"));
 
   override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
 
     this
       .redirectUrl("/login")
-      .checks(HasHTTPSessionCheck);
+      .addChecks(HasHTTPSessionCheck);
   }
 
   override bool execute(STRINGAA options = null) {    
-    debug writeln(moduleName!DSessionExistsCheck~":DSessionExistsCheck::check");
+    debug writeln(moduleName!DHasSessionCheck~":DHasSessionCheck::check");
     if (!super.execute(options)) { return false; }
 
     if (!manager) { 
@@ -34,17 +34,19 @@ class DSessionExistsCheck : DControllerCheck {
       return false; 
     }
 
-    if (!manager.hasSession(manager.request.session.id) || !manager.hasSession(options)) { // sessionId unknown 
+    if (!manager.hasSession(manager.request.session.id) || !manager.hasSession(options.get("httpSessionId", null))) { // sessionId unknown 
       debug writeln("sessionId missing");
       this.exception(SessionMissingException([className]));
       return false; 
     }  
+
+    return true;
   }
 }
-mixin(ControllerComponentCalls!("SessionExistsCheck"));
+mixin(ControllerComponentCalls!("HasSessionCheck"));
 
 ///
 unittest {
-  auto check = new DSessionExistsCheck;
-  assert(check.name == "SessionExistsCheck");
+  auto check = new DHasSessionCheck;
+  assert(check.name == "HasSessionCheck");
 }

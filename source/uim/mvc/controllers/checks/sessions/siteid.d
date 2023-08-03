@@ -8,7 +8,7 @@ module uim.mvc.controllers.checks.sessions.siteid;
 import uim.mvc;
 
 @safe:
-class DSessionHasSiteIdCheck : DSessionHasHTTPSessionCheck {
+class DSessionHasSiteIdCheck : DHasHTTPSessionCheck {
   mixin(ControllerComponentThis!("SessionHasSiteIdCheck"));
 
   override void initialize(Json configSettings = Json(null)) {

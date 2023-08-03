@@ -8,7 +8,7 @@ module uim.mvc.controllers.checks.sessions.login;
 import uim.mvc;
 
 @safe:
-class DSessionHasLoginCheck : DSessionExistsCheck {
+class DSessionHasLoginCheck : DHasSessionCheck {
   mixin(ControllerComponentThis!("SessionHasLoginCheck"));
 
   override void initialize(Json configSettings = Json(null)) {
@@ -16,7 +16,7 @@ class DSessionHasLoginCheck : DSessionExistsCheck {
 
     this
       .redirectUrl("/login")
-      .checks(SessionExistsCheck);
+      .addChecks(HasSessionCheck);
   }
   
   override bool execute(STRINGAA options = null) {
@@ -35,7 +35,7 @@ class DSessionHasLoginCheck : DSessionExistsCheck {
       return false; 
     }
  */
-    debug writeln(moduleName!DSessionHasLoginCheck~":DSessionHasLoginCheck::check -> session.login found -> ", login.id);
+    // debug writeln(moduleName!DSessionHasLoginCheck~":DSessionHasLoginCheck::check -> session.login found -> ", login.id);
     return true;
   }
 }

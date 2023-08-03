@@ -3,8 +3,8 @@ module uim.mvc.controllers.checks.sessions.account;
 import uim.mvc;
 
 @safe:
-class DSessionHasAccountCheck : DSessionExistsCheck {
-  mixin(ControllerComponentThis!("SessionHasAccountCheck"));
+class DHasAccountCheck : DHasSessionCheck {
+  mixin(ControllerComponentThis!("HasAccountCheck"));
 
   override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
@@ -14,7 +14,7 @@ class DSessionHasAccountCheck : DSessionExistsCheck {
   }
 
   override bool execute(STRINGAA options = null) {    
-    debug writeln(moduleName!DSessionHasAccountCheck~":DSessionHasAccountCheck::execute");
+    debug writeln(moduleName!DHasAccountCheck~":DHasAccountCheck::execute");
     if (!super.execute(options)) { return false; } 
 
     auto session = manager.session(options);
@@ -26,4 +26,4 @@ class DSessionHasAccountCheck : DSessionExistsCheck {
     return true;
   }
 }
-mixin(ControllerComponentCalls!("SessionHasAccountCheck"));
+mixin(ControllerComponentCalls!("HasAccountCheck"));

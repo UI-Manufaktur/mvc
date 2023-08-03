@@ -17,7 +17,7 @@ class DEntityCreateController : DEntityCrudPageController {
 override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
 
-    addChecks(SessionExistsCheck, SessionHasHTTPSessionCheck, SessionHasSiteCheck);
+    addChecks(HasSessionCheck, HasHTTPSessionCheck, SessionHasSiteCheck);
     addView(EntityCreateView);
     scripts
       .addLinks(
