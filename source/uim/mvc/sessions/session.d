@@ -37,39 +37,39 @@ class DSession : DEntity, ISession {
 
   bool isValid(string[] checks, STRINGAA requestParameters = null) {
     foreach (check; checks) {
-      // debugwriteln(moduleName!DSession~":DSession::beforeResponse - Check "~check);
+      debug writeln(moduleName!DSession~":DSession::beforeResponse - Check "~check);
       switch (check) {
         case "login": if (!login) {
-          // debugwriteln(moduleName!DSession~":DSession::beforeResponse -> No login => redirect /login");
+          debug writeln(moduleName!DSession~":DSession::beforeResponse -> No login => redirect /login");
           requestParameters["redirect"] = "/login";
           return false; } 
           login.lastAccessedOn(toTimestamp(now)).save; break;
         case "session": if (!session) {
-          // debugwriteln(moduleName!DSession~":DSession::beforeResponse -> No session => redirect /login");
+          debug writeln(moduleName!DSession~":DSession::beforeResponse -> No session => redirect /login");
           requestParameters["redirect"] = "/login";
           return false; } 
           session.lastAccessedOn(toTimestamp(now)).save; break;
         case "site": if (!site) {
-          // debugwriteln(moduleName!DSession~":DSession::beforeResponse -> No site => redirect /");
+          debug writeln(moduleName!DSession~":DSession::beforeResponse -> No site => redirect /");
           requestParameters["redirect"] = "/";
           return false; }
           site.lastAccessedOn(toTimestamp(now)).save; break;
         case "account": if (!account) {
-          // debugwriteln(moduleName!DSession~":DSession::beforeResponse -> No account => redirect /login");
+          debug writeln(moduleName!DSession~":DSession::beforeResponse -> No account => redirect /login");
           requestParameters["redirect"] = "/login";
           return false; } break;
         case "password": if (!password) {
-          // debugwriteln(moduleName!DSession~":DSession::beforeResponse -> No password => redirect /login");
+          debug writeln(moduleName!DSession~":DSession::beforeResponse -> No password => redirect /login");
           requestParameters["redirect"] = "/login";
           return false; } 
           password.lastAccessedOn(toTimestamp(now)).save; break;
         case "user": if (!user) {
-          // debugwriteln(moduleName!DSession~":DSession::beforeResponse -> No user => redirect /login");
+          debug writeln(moduleName!DSession~":DSession::beforeResponse -> No user => redirect /login");
           requestParameters["redirect"] = "/login";
           return false; } 
           user.lastAccessedOn(toTimestamp(now)).save; break;
         case "entitybase": if (!page && page.entityBase) {
-          // debugwriteln(moduleName!DSession~":DSession::beforeResponse -> No site => redirect /error");
+          debug writeln(moduleName!DSession~":DSession::beforeResponse -> No site => redirect /error");
           requestParameters["redirect"] = "/error?message=entityBase";
           return false; } break;
         default: break;

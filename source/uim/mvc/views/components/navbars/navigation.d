@@ -15,11 +15,11 @@ class DMVCNavigationViewComponent : DViewComponent {
     debugMethodCall(moduleName!DMVCNavigationViewComponent~"::DMVCNavigationViewComponent("~this.className~"):initialize");   
     super.initialize(configSettings);
 
-    // debugwriteln("Add First Nav");
+    debug writeln("Add First Nav");
     this
       .firstNavbar(MVCFirstNavbar);
 
-    // debugwriteln("Add Second Nav");
+    debug writeln("Add Second Nav");
     this
       .secondNavbar(SecondNavbar);
   }
@@ -32,21 +32,21 @@ class DMVCNavigationViewComponent : DViewComponent {
     super.toH5(options);
     if (hasError) { return null; }
 
-    // debugwriteln(moduleName!DMVCNavigationViewComponent~":DMVCNavigationViewComponent::toH5");
+    debug writeln(moduleName!DMVCNavigationViewComponent~":DMVCNavigationViewComponent::toH5");
     auto rootPath = options.get("rootPath", "/");
-    // debugwriteln(moduleName!DMVCNavigationViewComponent~":DMVCNavigationViewComponent::toH5 -> internalSessionId = ", options.get("internalSessionId", ""));
+    debug writeln(moduleName!DMVCNavigationViewComponent~":DMVCNavigationViewComponent::toH5 -> internalSessionId = ", options.get("internalSessionId", ""));
 
     auto firstNavbarH5 = this.firstNavbar   ? this.firstNavbar.toH5(options) 
                                             : null;
-    // debugwriteln(firstNavbar ? "Has firstNavbar" : "Missing firstNavbar");
-    // debugwriteln("firstNavbar -> ", firstNavbarH5);
+    debug writeln(firstNavbar ? "Has firstNavbar" : "Missing firstNavbar");
+    debug writeln("firstNavbar -> ", firstNavbarH5);
     auto secNavbar = cast(DSecondNavbar)this.secondNavbar;
-    // debugwriteln(secondNavbar ? "Has secondNavbar" : "Missing secondNavbar");
+    debug writeln(secondNavbar ? "Has secondNavbar" : "Missing secondNavbar");
     auto secondNavbarH5 = secNavbar ? secNavbar.brand(["link":rootPath, "title":options.get("appTitle", "")]).toH5(options) 
                                           : null;
-    // debugwriteln("secondNavbar -> ", secNavbar);
+    debug writeln("secondNavbar -> ", secNavbar);
 
-    // debugwriteln("return navigation...");
+    debug writeln("return navigation...");
 
     if (fixedTop) return [H5Div(["sticky-top"], firstNavbarH5~secondNavbarH5)].toH5;
     return firstNavbarH5~secondNavbarH5;

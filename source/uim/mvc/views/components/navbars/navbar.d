@@ -193,11 +193,11 @@ class DSecondNavbar : DViewComponent {
     auto selNavitem = options.get("selNavitem", "");
     
     /* if (isLogin) {
-      // // debugwriteln("has sessionId -> ", requestParameters.get("sessionId", ""));
+      // debug writeln("has sessionId -> ", requestParameters.get("sessionId", ""));
 
       foreach(slot; this.leftSlotsWithLogin) {
         if (!slot) { continue; }
-         //// debugwriteln(slot);
+         //debug writeln(slot);
         const active = (selNavitem.length > 0) && (slot.id == selNavitem);
         slot.active(active);
         navLeftSlots ~= slot.toH5(options).toString;
@@ -205,7 +205,7 @@ class DSecondNavbar : DViewComponent {
 
       foreach(slot; this.rightSlotsWithLogin) {
         if (!slot) { continue; }
-         //// debugwriteln(slot);
+         //debug writeln(slot);
         const active = (selNavitem.length > 0) && (slot.id == selNavitem);
         slot.active(active);
         navRightSlots ~= slot.toH5(options).toString;
@@ -214,7 +214,7 @@ class DSecondNavbar : DViewComponent {
     else { // no login
       foreach(slot; this.leftSlots) {
         if (!slot) { continue; }
-         //// debugwriteln(slot);
+         //debug writeln(slot);
         const active = (selNavitem.length > 0) && (slot.id == selNavitem);
         slot.active(active);
         navLeftSlots ~= slot.toH5(options).toString;
@@ -222,13 +222,13 @@ class DSecondNavbar : DViewComponent {
 
       foreach(slot; this.rightSlots) {
         if (!slot) { continue; }
-         //// debugwriteln(slot);
+         //debug writeln(slot);
         const active = (selNavitem.length > 0) && (slot.id == selNavitem);
         slot.active(active);
         navRightSlots ~= slot.toH5(options).toString;
       }
     } */
-    // // debugwriteln("return content...");
+    // debug writeln("return content...");
     
     return [
       H5Div(["navbar-expand-md"], 

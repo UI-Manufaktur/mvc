@@ -200,7 +200,7 @@ override void initialize(DConfigurationValue configSettings = null) {
     debugMethodCall(moduleName!DView~":DView("~this.name~")::beforeH5");
     super.beforeH5(options);
 
-    // debugwriteln("In DView -> %s components".format(this.components.length));
+    debug writeln("In DView -> %s components".format(this.components.length));
     this.components.all.each!(comp => comp.rootPath(this.rootPath));
   }
 
@@ -268,10 +268,10 @@ override void initialize(DConfigurationValue configSettings = null) {
       auto h5content = toH5(options).map!(h5 => h5.toString).join;
 
       if (this.layout) {
-          // debugwriteln("View has layout -> ", this.layout.name);
+          debug writeln("View has layout -> ", this.layout.name);
       }
       else {
-          // debugwriteln("View has no layout");
+          debug writeln("View has no layout");
       }
       string renderedLayout  = this.layout ? this.layout.render(this.controller, h5content, options) 
                                       : h5content;

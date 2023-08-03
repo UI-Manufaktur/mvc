@@ -13,7 +13,7 @@ class DEntitiesView : DView {
     debugMethodCall(moduleName!DEntitiesView~":DEntitiesView("~this.name~")::beforeH5");
     super.beforeH5(options);
 
-    // debugwriteln("In DEntitiesView -> %s entities".format(this.entities.length));
+    debug writeln("In DEntitiesView -> %s entities".format(this.entities.length));
     this
       .components()
         .filter!(comp => cast(DEntitiesViewComponent)comp)
