@@ -32,9 +32,9 @@ static this() {
     override DH5Obj toH5(STRINGAA options = null) {
       super.toH5(requestParameters);
 
-      // // debugwriteln(StyledString("In server.index...").setForeground(AnsiColor.black).setBackground(AnsiColor.white));
-      // debugwriteln("server.index -> requestParameters = ", requestParameters);
-      // debugwriteln("server.index -> pageTitle = ", requestParameters.get("pageTitle", ""));
+      // debug writeln(StyledString("In server.index...").setForeground(AnsiColor.black).setBackground(AnsiColor.white));
+      debug writeln("server.index -> requestParameters = ", requestParameters);
+      debug writeln("server.index -> pageTitle = ", requestParameters.get("pageTitle", ""));
 
       DEntity session;
       DEntity site;

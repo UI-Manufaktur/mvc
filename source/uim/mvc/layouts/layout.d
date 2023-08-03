@@ -15,7 +15,7 @@ class DLayout : DMVCObject, ILayout {
     initialize(); }
 
   override void initialize(Json configSettings = Json(null)) {
-    // debugwriteln("Initialize 'Layout'"); 
+    // debug writeln("Initialize 'Layout'"); 
     super.initialize(configSettings);
  
     // Default settings
@@ -31,7 +31,7 @@ class DLayout : DMVCObject, ILayout {
       .scripts(ScriptContainer)
       .styles(StyleContainer); 
 
-    // debugwriteln("Select Style"); 
+    // debug writeln("Select Style"); 
     if (layoutStyle == "tabler") {
       auto myLayout = 
       this.styles.addLinks(
@@ -59,14 +59,14 @@ class DLayout : DMVCObject, ILayout {
       //["rel":"icon", "type":"image/ico", "href":"/img/favicon.ico"],
       );
 
-    // debugwriteln("Add styles"); 
+    // debug writeln("Add styles"); 
     this.styles.addLinks(
       "/lib/kothing/last/kothing-editor.min.css",
       "/lib/katex/last/katex.min.css",
       "/css/apps/application.css",
       "/css/apps/cms/main.css");
 
-    // debugwriteln("Add scripts"); 
+    // debug writeln("Add scripts"); 
     this.scripts.addLinks(
       "/lib/kothing/last/kothing-editor.min.js",
       "/lib/katex/last/katex.min.js",
@@ -75,12 +75,12 @@ class DLayout : DMVCObject, ILayout {
 /*     _bodyAttributes["style"] = "background-color: #ffffff;";
     _bodyClasses = ["d-flex", "flex-column", "h-100"]; */
 
-    // debugwriteln("Add navigation"); 
+    // debug writeln("Add navigation"); 
     this
       .navigation(
         MVCNavigation.fixedTop(true));
 
-    // debugwriteln("Add footer"); 
+    // debug writeln("Add footer"); 
     this    
       .footer(
         MVCPageFooter);
@@ -120,15 +120,11 @@ class DLayout : DMVCObject, ILayout {
     myScripts = null;
 
     if (application) {
-      // debugwriteln("Found app");
-
       if (application.metas) myMetas     ~= application.metas.toH5;
 			if (application.links) myLinks     ~= application.links.toH5;
 			if (application.styles) myStyles   ~= application.styles.toH5;
 			if (application.scripts) myScripts ~= application.scripts.toH5;
-		} else { 
-      // debugwriteln("No app :-("); 
-    }
+		} 
 
     if (this.metas)   myMetas   ~= this.metas.toH5;
     if (this.links)   myLinks   ~= this.links.toH5;
@@ -139,11 +135,11 @@ class DLayout : DMVCObject, ILayout {
 	string render(IPageController controller, DView view, STRINGAA options = null) { 
 		debugMethodCall(moduleName!DLayout~":DLayout("~this.name~")::render(IPageController controller, DView view, STRINGAA options = null)");
     if (view) {
-      // debugwriteln("view is -> ", view.name);
+      // debug writeln("view is -> ", view.name);
 		  return render(controller, view.toH5(options), options);
     } 
     else {
-      // debugwriteln("view is missing ");
+      // debug writeln("view is missing ");
       return render(controller, "", options);
     }
 	}
@@ -161,18 +157,18 @@ class DLayout : DMVCObject, ILayout {
 		debugMethodCall(moduleName!DLayout~":DLayout("~this.name~")::render(IPageController controller, string content, STRINGAA options = null)");
 		beforeRender(options);
 
-    // debugwriteln("myMetas = ", myMetas);
-    // debugwriteln("myLinks = ", myLinks);
-    // debugwriteln("myStyles = ", myStyles);
-    // debugwriteln("myScripts = ", myScripts);
+    // debug writeln("myMetas = ", myMetas);
+    // debug writeln("myLinks = ", myLinks);
+    // debug writeln("myStyles = ", myStyles);
+    // debug writeln("myScripts = ", myScripts);
 
 		// 1. page parameters to options
     if (controller) {
-      // debugwriteln("controller is -> ", controller.name);
+      // debug writeln("controller is -> ", controller.name);
       options = options.merge(controller.parameters, false);
     }
     else { 
-      // debugwriteln("No controller"); 
+      // debug writeln("No controller"); 
     }
 
 		// 2. layout parameters to options
@@ -185,14 +181,14 @@ class DLayout : DMVCObject, ILayout {
     }
 
 		if (auto pageController = cast(IPageController)controller) {
-      // debugwriteln("Found pageController");
+      // debug writeln("Found pageController");
 
       if (pageController.metas) myMetas ~= pageController.metas.toH5;
 			if (pageController.metas) myLinks ~= pageController.links.toH5;
 			if (pageController.metas) myStyles ~= pageController.styles.toH5;
 			if (pageController.metas) myScripts ~= pageController.scripts.toH5;
 		} else { 
-      // debugwriteln("No pageController :-("); 
+      // debug writeln("No pageController :-("); 
     }
 
 		// creating HTML page
@@ -245,17 +241,17 @@ version(test_uim_mvc) { unittest {
     super.render(page, view, options);
 
     auto head = ("navigation" in options ? options.get("navigation", "") : navigation.render(options));
-    // // debugwriteln("Head -> ", head);
+    // // debug writeln("Head -> ", head);
 
         /* (this.layout ?  
           this.layout.toString(page.toH5(requestParameters), requestParameters).toString : 
           page.page.toH5(requestParameters).toString)) * /
-    // // debugwriteln("pageBody -> ", pageBody);
+    // // debug writeln("pageBody -> ", pageBody);
 
     auto foot = "footer" in options ? options.get("footer", "") : footer.render(options);
-    // // debugwriteln("foot -> ", foot);
+    // // debug writeln("foot -> ", foot);
 
-    // // debugwriteln("return layout");
+    // // debug writeln("return layout");
     auto pg = cast(DMVCPage)page;
     auto pHeader = pg ? pg.pageHeader : null;
 
@@ -505,11 +501,11 @@ auto dropDownItems(string prefix, IPageController[][string] themes) {
 	string render(DPageController controller, DView view, STRINGAA options = null) { 
 		debugMethodCall(moduleName!DLayout~":DLayout("~this.name~")::render(DPageController controller, DView view, STRINGAA options = null)");
     if (view) {
-      // debugwriteln("view is -> ", view.name);
+      // debug writeln("view is -> ", view.name);
 		  return render(controller, view.toH5(options), options);
     } 
     else {
-      // debugwriteln("view is missing ");
+      // debug writeln("view is missing ");
       return render(controller, "", options);
     }
 	}
@@ -528,10 +524,10 @@ auto dropDownItems(string prefix, IPageController[][string] themes) {
 
 		// 1. page parameters to options
     if (controller) {
-      // debugwriteln("controller is -> ", controller.name);
+      // debug writeln("controller is -> ", controller.name);
 		  foreach(k,v; controller.parameters) options[k] = v; 
     }
-    else { // debugwriteln("No controller"); }
+    else { // debug writeln("No controller"); }
 
 		// 2. layout parameters to options
 		foreach(k,v; parameters) if (k !in options) options[k] = v;
@@ -547,13 +543,13 @@ auto dropDownItems(string prefix, IPageController[][string] themes) {
 		DH5Obj[] actualScripts;
 
 		if (app) {
-      // debugwriteln("Found app");
+      // debug writeln("Found app");
 
       actualMetas ~= app.metas.toH5;
 			actualLinks ~= app.links.toH5;
 			actualStyles ~= app.styles.toH5;
 			actualScripts ~= app.scripts.toH5;
-		} else { // debugwriteln("No app :-("); }
+		} else { // debug writeln("No app :-("); }
 
     actualMetas ~= this.metas.toH5;
     actualLinks ~= this.links.toH5;
@@ -561,13 +557,13 @@ auto dropDownItems(string prefix, IPageController[][string] themes) {
     actualScripts ~= this.scripts.toH5;
 
 		if (auto pageController = cast(DPageController)controller) {
-      // debugwriteln("Found pageController");
+      // debug writeln("Found pageController");
 
       actualMetas ~= pageController.metas.toH5;
 			actualLinks ~= pageController.links.toH5;
 			actualStyles ~= pageController.styles.toH5;
 			actualScripts ~= pageController.scripts.toH5;
-		} else { // debugwriteln("No pageController :-("); }
+		} else { // debug writeln("No pageController :-("); }
 
 		// creating HTML page
 		auto _html = H5Html
@@ -618,17 +614,17 @@ version(test_uim_apps) { unittest {
     super.render(page, view, options);
 
     auto head = ("navigation" in options ? options.get("navigation", "") : navigation.render(options));
-    // // debugwriteln("Head -> ", head);
+    // // debug writeln("Head -> ", head);
 
         /* (this.layout ?  
           this.layout.toString(page.toH5(reqParameters), reqParameters).toString : 
           page.page.toH5(reqParameters).toString)) * /
-    // // debugwriteln("pageBody -> ", pageBody);
+    // // debug writeln("pageBody -> ", pageBody);
 
     auto foot = "footer" in options ? options.get("footer", "") : footer.render(options);
-    // // debugwriteln("foot -> ", foot);
+    // // debug writeln("foot -> ", foot);
 
-    // // debugwriteln("return layout");
+    // // debug writeln("return layout");
     auto pg = cast(DAPPPage)page;
     auto pHeader = pg ? pg.pageHeader : null;
 

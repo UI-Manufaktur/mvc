@@ -47,8 +47,8 @@ DH5AppLayout {
     }
 
     override string toString(DPageController page, STRINGAA reqParameters) {
-      // // debugwriteln("in app.grundschutz.layout");
-      // debugwriteln(page.scripts.map!(a => a.toString));
+      // debug writeln("in app.grundschutz.layout");
+      debug writeln(page.scripts.map!(a => a.toString));
 
       if (auto app = page.app) {
         reqParameters["rootPath"] = app.rootPath;      

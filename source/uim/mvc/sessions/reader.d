@@ -17,39 +17,39 @@ class DSessionReader {
   mixin(OProperty!("DSession", "session"));
 
   DSession read(HTTPServerRequest serverRequest, STRINGAA requestParameters) {
-    // debugwriteln(moduleName!DSessionReader~":DSessionReader::read");
+    debug writeln(moduleName!DSessionReader~":DSessionReader::read");
     
     // serverRequest exists?
-    if (!serverRequest) { // debugwriteln(moduleName!DSessionReader~":DSessionReader::read - missing request"); }
+    if (!serverRequest) { debug writeln(moduleName!DSessionReader~":DSessionReader::read - missing request"); }
 
     // serverRequest has session
     string requestSessionId;
     DSession mySession;
     if (!serverRequest.session) { // no session
-      // debugwriteln(moduleName!DSessionReader~":DSessionReader::read - missing request session"); }
+      debug writeln(moduleName!DSessionReader~":DSessionReader::read - missing request session"); }
     else { // has sesion
-      // debugwriteln(moduleName!DSessionReader~":DSessionReader::read - httpSessionId exists");
+      debug writeln(moduleName!DSessionReader~":DSessionReader::read - httpSessionId exists");
       
       // read session Id
       requestSessionId = serverRequest.session.id;
       mySession = sessions.get(requestSessionId, null); // Existing Session?
     }
 
-    if (!mySession) // debugwriteln(moduleName!DSessionReader~":DSessionReader::read - missing session");
+    if (!mySession) debug writeln(moduleName!DSessionReader~":DSessionReader::read - missing session");
     
-    // debugwriteln(moduleName!DSessionReader~":DSessionReader::read - XXXX");
+    debug writeln(moduleName!DSessionReader~":DSessionReader::read - XXXX");
 
     if (requestSessionId.length > 0) 
-      // debugwriteln(moduleName!DSessionReader~":DSessionReader::read - x1x");
+      debug writeln(moduleName!DSessionReader~":DSessionReader::read - x1x");
     if (session is null || session.isNull)  
-      // debugwriteln(moduleName!DSessionReader~":DSessionReader::read - x2x");
+      debug writeln(moduleName!DSessionReader~":DSessionReader::read - x2x");
 
     if (requestSessionId.length > 0 && mySession is null) { // httpSession exitsts New Session
-      // debugwriteln(moduleName!DSessionReader~":DSessionReader::read - httpSessionId exists session is missing");
-      // debugwriteln(moduleName!DSessionReader~":DSessionReader::read - Creating new session based on httpSession ", requestSessionId);
+      debug writeln(moduleName!DSessionReader~":DSessionReader::read - httpSessionId exists session is missing");
+      debug writeln(moduleName!DSessionReader~":DSessionReader::read - Creating new session based on httpSession ", requestSessionId);
       // mySession = Session(serverRequest.session);
 
-      // debugwriteln(moduleName!DSessionReader~":DSessionReader::read - Reading session entities");      
+      debug writeln(moduleName!DSessionReader~":DSessionReader::read - Reading session entities");      
       if (page && page.DEntityBase", "entityBase) {
       foreach (name; page.sessionData) {
           switch(name) {
@@ -84,9 +84,9 @@ class DSessionReader {
       }
     }
 
-    // // debugwriteln("----------------------------------------------------------------------------------------------"); 
+    // debug writeln("----------------------------------------------------------------------------------------------"); 
     if (mySession) {
-      // debugwriteln("LoginId = %s\tSessionId = %s\tSiteId = %s".format(
+      debug writeln("LoginId = %s\tSessionId = %s\tSiteId = %s".format(
         mySession.login ? mySession.login.id.toString : "", 
         mySession.session ? mySession.session.id.toString : "", 
         mySession.site ? mySession.site.id.toString : "")
@@ -97,9 +97,9 @@ class DSessionReader {
       sessions[requestSessionId] = mySession; // Return to session store
     }
     else {
-      // // debugwriteln("No session");
+      // debug writeln("No session");
     } 
-    // // debugwriteln("----------------------------------------------------------------------------------------------"); 
+    // debug writeln("----------------------------------------------------------------------------------------------"); 
 
     return session;
   }
@@ -114,32 +114,32 @@ auto SessionReader(IPageController page) { return new DSessionReader(page); }
   mixin(OProperty!("DSRVSession", "servSession"));
 
   DSRVSession read(HTTPServerRequest req, STRINGAA reqParameters) {
-    // debugwriteln(moduleName!DSRVSessionReader~":DSRVSessionReader::read");
+    debug writeln(moduleName!DSRVSessionReader~":DSRVSessionReader::read");
     DSRVSession srvSession;
     string reqSessionId;
-    if (!req) // debugwriteln(moduleName!DSRVSessionReader~":DSRVSessionReader::read - missing request");
-    if (!req.session) { // debugwriteln(moduleName!DSRVSessionReader~":DSRVSessionReader::read - mising request session"); }
+    if (!req) debug writeln(moduleName!DSRVSessionReader~":DSRVSessionReader::read - missing request");
+    if (!req.session) { debug writeln(moduleName!DSRVSessionReader~":DSRVSessionReader::read - mising request session"); }
     else {
-      // debugwriteln(moduleName!DSRVSessionReader~":DSRVSessionReader::read - httpSessionId exists");
+      debug writeln(moduleName!DSRVSessionReader~":DSRVSessionReader::read - httpSessionId exists");
       reqSessionId = req.session.id;
       srvSession = srvSessions.get(reqSessionId, null); // Existing Session?
     }
 
-    if (!srvSession) // debugwriteln(moduleName!DSRVSessionReader~":DSRVSessionReader::read - missing srvSession");
+    if (!srvSession) debug writeln(moduleName!DSRVSessionReader~":DSRVSessionReader::read - missing srvSession");
     
-    // debugwriteln(moduleName!DSRVSessionReader~":DSRVSessionReader::read - XXXX");
+    debug writeln(moduleName!DSRVSessionReader~":DSRVSessionReader::read - XXXX");
 
     if (reqSessionId.length > 0) 
-      // debugwriteln(moduleName!DSRVSessionReader~":DSRVSessionReader::read - x1x");
+      debug writeln(moduleName!DSRVSessionReader~":DSRVSessionReader::read - x1x");
     if (srvSession is null)  
-      // debugwriteln(moduleName!DSRVSessionReader~":DSRVSessionReader::read - x2x");
+      debug writeln(moduleName!DSRVSessionReader~":DSRVSessionReader::read - x2x");
 
     if (reqSessionId.length > 0 && srvSession is null) { // httpSession exitsts New Session
-      // debugwriteln(moduleName!DSRVSessionReader~":DSRVSessionReader::read - httpSessionId exists srvSession is missing");
-      // debugwriteln(moduleName!DSRVSessionReader~":DSRVSessionReader::read - Creating new srvSession based on httpSession ", reqSessionId);
+      debug writeln(moduleName!DSRVSessionReader~":DSRVSessionReader::read - httpSessionId exists srvSession is missing");
+      debug writeln(moduleName!DSRVSessionReader~":DSRVSessionReader::read - Creating new srvSession based on httpSession ", reqSessionId);
       srvSession = SRVSession(req.session);
 
-      // debugwriteln(moduleName!DSRVSessionReader~":DSRVSessionReader::read - Reading session entities");      
+      debug writeln(moduleName!DSRVSessionReader~":DSRVSessionReader::read - Reading session entities");      
       if (api && api.DEntityBase", "entityBase) {
         foreach (required; api.requiredChecks) {
           switch(required) {
@@ -164,9 +164,9 @@ auto SessionReader(IPageController page) { return new DSessionReader(page); }
       }
     }
 
-    // debugwriteln("----------------------------------------------------------------------------------------------"); 
+    debug writeln("----------------------------------------------------------------------------------------------"); 
     if (srvSession) {
-      // debugwriteln("LoginId = %s\tSessionId = %s\tSiteId = %s".format(
+      debug writeln("LoginId = %s\tSessionId = %s\tSiteId = %s".format(
       srvSession.login ? srvSession.login.id.toString : "", 
       srvSession.session ? srvSession.session.id.toString : "", 
       srvSession.site ? srvSession.site.id.toString : ""));
@@ -176,9 +176,9 @@ auto SessionReader(IPageController page) { return new DSessionReader(page); }
       srvSessions[reqSessionId] = srvSession;
     }
     else {
-      // debugwriteln("No srvSession");
+      debug writeln("No srvSession");
     } 
-    // debugwriteln("----------------------------------------------------------------------------------------------"); 
+    debug writeln("----------------------------------------------------------------------------------------------"); 
 
     return srvSession;
   }
