@@ -8,7 +8,6 @@ module uim.mvc.controllers.exceptions.checkmanagermissing;
 import uim.mvc;
 @safe:
 
-// Auth Security exception - used when SecurityComponent detects any issue with the current request
 class DCheckManagerMissingException : DException {
 	mixin(ExceptionThis!("CheckManagerMissingException"));
 

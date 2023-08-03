@@ -37,7 +37,7 @@ class DControllerComponent : DMVCObject, IControllerComponent, IControllerCompon
   }
 
   mixin(OProperty!("string", "redirectUrl"));
-  mixin(OProperty!("DException", "exception"));
+  mixin(OProperty!("IException", "exception"));
 
   // A component lookup table used to lazy load component objects.
   mixin(OProperty!("Json", "componentMap"));

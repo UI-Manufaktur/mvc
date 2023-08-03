@@ -19,7 +19,7 @@ class DSessionHasSiteCheck : DSessionExistsCheck {
   }
   
   override bool execute(STRINGAA options = null) {
-    // debugwriteln(moduleName!DSessionHasSiteCheck~":DSessionHasSiteCheck::check");
+    debug writeln(moduleName!DSessionHasSiteCheck~":DSessionHasSiteCheck::check");
     if (!super.execute(options)) { return false; }
 
     auto mySession = manager.session(options);
@@ -29,7 +29,7 @@ class DSessionHasSiteCheck : DSessionExistsCheck {
       return false; 
     }
 
-    // debugwriteln(moduleName!DSessionHasSiteCheck~":DSessionHasSiteCheck::check -> session.site found -> ", site.id);
+    debug writeln(moduleName!DSessionHasSiteCheck~":DSessionHasSiteCheck::check -> session.site found -> ", site.id);
     return true;
   }
 }

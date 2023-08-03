@@ -24,25 +24,25 @@ class DSessionHasHTTPSessionCheck : DControllerCheck {
 
     if (!manager) { 
       debug writeln("manager missing");
-      this.error("manager_missing");
+      this.exception(CheckManagerMissingException([className]));
       return false; 
     }
 
     if (!manager.request) { 
       debug writeln("request missing");
-      this.error("request_missing");
+      this.exception(RequestMissingException([className]));
       return false; 
     }
 
     if (!manager.request.session) { // session missing 
       debug writeln("session missing");
-      this.error("session_missing");
+      this.exception(SessionMissingException([className]));
       return false; 
     }
 
     if (!manager.hasSession(manager.request.session.id)) { // sessionId unknown 
       debug writeln("sessionId missing");
-      this.error("sessionId_unknown");
+      this.exception(SessionMissingException([className]));
       return false; 
     }
 

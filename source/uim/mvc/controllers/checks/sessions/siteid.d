@@ -19,7 +19,7 @@ class DSessionHasSiteIdCheck : DSessionHasHTTPSessionCheck {
   }
   
   override bool execute(STRINGAA options = null) {
-    // debugwriteln(moduleName!DSessionHasSiteIdCheck~":DSessionHasSiteIdCheck::execute");
+    debug writeln(moduleName!DSessionHasSiteIdCheck~":DSessionHasSiteIdCheck::execute");
     if (!super.execute(options)) { return false; }
 
     auto session = manager.session(options).session;

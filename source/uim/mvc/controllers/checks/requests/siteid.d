@@ -20,7 +20,7 @@ class DRequestHasSiteIdCheck : DDatabaseHasAccountsCheck {
   }
 
   override bool execute(STRINGAA options = null) {
-    // debugwriteln(moduleName!DRequestHasSiteIdCheck~":DRequestHasSiteIdCheck::execute");
+    debug writeln(moduleName!DRequestHasSiteIdCheck~":DRequestHasSiteIdCheck::execute");
     if (!super.execute(options)) { return false; }
 
     if ("siteId" !in options) { // siteId  missing
@@ -29,7 +29,7 @@ class DRequestHasSiteIdCheck : DDatabaseHasAccountsCheck {
       return false; 
     }
 
-    // debugwriteln("SiteId = ", options["siteId"]);
+    debug writeln("SiteId = ", options["siteId"]);
     return true;
   }
 }

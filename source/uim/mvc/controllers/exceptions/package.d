@@ -7,8 +7,12 @@ module uim.mvc.controllers.exceptions;
 
 public {
 	import  uim.mvc.controllers.exceptions.authsecurity;
+	import  uim.mvc.controllers.exceptions.checkmanagermissing;
 	import  uim.mvc.controllers.exceptions.invalidparameter;
 	import  uim.mvc.controllers.exceptions.missingaction;
 	import  uim.mvc.controllers.exceptions.missingcomponent;
+	import  uim.mvc.controllers.exceptions.requestmissing;
 	import  uim.mvc.controllers.exceptions.security;
+	import  uim.mvc.controllers.exceptions.sessionmissing;
+	import  uim.mvc.controllers.exceptions.sessionunknown;
 }

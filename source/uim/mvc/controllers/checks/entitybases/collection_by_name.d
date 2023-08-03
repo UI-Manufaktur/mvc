@@ -22,7 +22,7 @@ class DDatabaseHasCollectionCheck : DDatabaseExistsCheck {
   mixin(OProperty!("string", "collectionName"));
   
   override bool execute(STRINGAA options = null) {
-    // debugwriteln(moduleName!DDatabaseHasCollectionCheck~":DDatabaseHasCollectionCheck::check");
+    debug writeln(moduleName!DDatabaseHasCollectionCheck~":DDatabaseHasCollectionCheck::check");
     if (!super.execute(options)) { return false; }
 
     auto myEntityBase = manager.entityBase;
