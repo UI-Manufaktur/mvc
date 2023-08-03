@@ -3,13 +3,13 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel, mailto:ons@sicherheitsschmiede.de                                                      
 **********************************************************************************************************/
-module uim.mvc.controllers.checks.sessions.httpsession;
+module uim.mvc.controllers.checks.sessions.hashttpsession;
 
 import uim.mvc;
 
 @safe:
-class DSessionHasHTTPSessionCheck : DControllerCheck {
-  mixin(ControllerComponentThis!("SessionHasHTTPSessionCheck"));
+class DHasHTTPSessionCheck : DControllerCheck {
+  mixin(ControllerComponentThis!("HasHTTPSessionCheck"));
 
   override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
@@ -19,12 +19,12 @@ class DSessionHasHTTPSessionCheck : DControllerCheck {
   }
   
   override bool execute(STRINGAA options = null) {
-    debug writeln(moduleName!DSessionHasHTTPSessionCheck~":DSessionHasHTTPSessionCheck::execute");
+    debug writeln(moduleName!DHasHTTPSessionCheck~":DHasHTTPSessionCheck::execute");
     if (!super.execute(options)) { return false; }
 
     if (!manager) { 
       debug writeln("manager missing");
-      this.exception(CheckManagerMissingException([className]));
+      this.exception(ManagerMissingException([className]));
       return false; 
     }
 
@@ -40,13 +40,8 @@ class DSessionHasHTTPSessionCheck : DControllerCheck {
       return false; 
     }
 
-    if (!manager.hasSession(manager.request.session.id)) { // sessionId unknown 
-      debug writeln("sessionId missing");
-      this.exception(SessionMissingException([className]));
-      return false; 
-    }
-
+    options["httpSessionId"] = manager.request.session.id;
     return true;
   }
 }
-mixin(ControllerComponentCalls!("SessionHasHTTPSessionCheck"));
+mixin(ControllerComponentCalls!("HasHTTPSessionCheck"));

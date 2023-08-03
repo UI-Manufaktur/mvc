@@ -16,7 +16,7 @@ class DSelectSiteActionController : DActionController {
     
     this.name = "SelectSiteActionController";
     this.addChecks(
-      SessionHasHTTPSessionCheck, // InternalSession Checks
+      HasHTTPSessionCheck, // InternalSession Checks
       DatabaseHasSessionsCheck, DatabaseHasSitesCheck, // Database checks 
       RequestHasSiteIdCheck // Request Checks
     ); 

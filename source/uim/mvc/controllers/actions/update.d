@@ -15,7 +15,7 @@ class DUpdateActionController : DActionController {
     super.initialize(configSettings); 
     this.name = "UpdateActionController";
     this
-      .addChecks(SessionExistsCheck, DatabaseExistsCheck, SessionHasHTTPSessionCheck, SessionHasSiteCheck); 
+      .addChecks(SessionExistsCheck, DatabaseExistsCheck, HasHTTPSessionCheck, SessionHasSiteCheck); 
   }
 
   mixin(OProperty!("string", "pool"));

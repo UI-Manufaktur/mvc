@@ -27,7 +27,7 @@ class DControllerCheck : DControllerComponent, ICheck, ICheckManager {
   bool execute(STRINGAA options = null) {
     debug writeln(moduleName!DControllerCheck~":ControllerCheck::execute");
     if (!manager) {
-      this.exception(CheckManagerMissingException(["DControllerCheck"]));
+      this.exception(ManagerMissingException(["DControllerCheck"]));
       return false; 
     }
 

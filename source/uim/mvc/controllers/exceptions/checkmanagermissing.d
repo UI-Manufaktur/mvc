@@ -8,8 +8,8 @@ module uim.mvc.controllers.exceptions.checkmanagermissing;
 import uim.mvc;
 @safe:
 
-class DCheckManagerMissingException : DException {
-	mixin(ExceptionThis!("CheckManagerMissingException"));
+class DManagerMissingException : DException {
+	mixin(ExceptionThis!("ManagerMissingException"));
 
 	override void initialize(Json configSettings = Json(null)) {
 		super.initialize(configSettings);
@@ -18,5 +18,5 @@ class DCheckManagerMissingException : DException {
       .message("Manager for Check is missing");
   }
 }
-mixin(ExceptionCalls!("CheckManagerMissingException"));
+mixin(ExceptionCalls!("ManagerMissingException"));
 

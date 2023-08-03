@@ -15,19 +15,26 @@ class DSessionHasLoginCheck : DSessionExistsCheck {
     super.initialize(configSettings);
 
     this
-    .redirectUrl("/login");
+      .redirectUrl("/login")
+      .checks(SessionExistsCheck);
   }
   
   override bool execute(STRINGAA options = null) {
     debug writeln(moduleName!DSessionHasLoginCheck~":DSessionHasLoginCheck::check");
     if (!super.execute(options)) { return false; }
 
-    auto login = manager.session(options).login;
+    if (!manager) { 
+      debug writeln("manager missing");
+      this.exception(ManagerMissingException([className]));
+      return false; 
+    }
+
+/*     auto login = manager.session(options);
     if (!login) { // login missing 
       this.error("internalsession_login_missing");
       return false; 
     }
-
+ */
     debug writeln(moduleName!DSessionHasLoginCheck~":DSessionHasLoginCheck::check -> session.login found -> ", login.id);
     return true;
   }
