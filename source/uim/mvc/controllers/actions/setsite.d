@@ -23,26 +23,26 @@ class DSelectSiteActionController : DActionController {
   }
   
   override bool beforeResponse(STRINGAA options = null) {
-    // debugwriteln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request");
+    debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request");
     if (!super.beforeResponse(options) || "redirect" in options) return false;
         
-    // debugwriteln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request - Working with InternalSession");
+    debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request - Working with InternalSession");
     DSession mySession = cast(DSession)manager.session(options); // DSession[string]
     
-    // debugwriteln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request - Working with session.session");
+    debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request - Working with session.session");
     // HttpSession myHttpSession = mySession.session; 
-    // debugwriteln(mySession ? "Found session" : "Missing session");
+    debug writeln(mySession ? "Found session" : "Missing session");
     
     auto myEntityBase = manager.entityBase;
     if (!myEntityBase) {
-      // debugwriteln("No manager");
+      debug writeln("No manager");
       return false;
     }
     
     auto myTenant = myEntityBase.tenant("systems");
 
     DEntity mySite = myTenant.collection("system_sites").findOne(["id":options.get("siteId", null)]);
-    // debugwriteln(mySite ? "Found site" : "Missing site");
+    debug writeln(mySite ? "Found site" : "Missing site");
 
     if (mySession && mySite) {
       mySession
@@ -51,9 +51,9 @@ class DSelectSiteActionController : DActionController {
         .save();
     }
 
-    // debugwriteln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request - Redirect to /");
+    debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request - Redirect to /");
     options["redirect"] = "/";
-    // debugwriteln(session.debugInfo);
+    debug writeln(session.debugInfo);
 
     return true;
 	}

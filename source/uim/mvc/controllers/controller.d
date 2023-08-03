@@ -172,14 +172,24 @@ class DController : DMVCObject, IController, IControllerComponentManager, ISessi
     bool beforeResponse(string[string] options = null) { // Hook
       debugMethodCall(moduleName!DController~":DController("~this.name~")::beforeResponse");
 
+      this.error = null;
+      this.redirectUrl = null;
+
       debug writeln ("Execute Checks");
       foreach(myCheck; this.checks) {
         if (!myCheck.execute(options)) { // Has Error
           if (auto checkObj = cast(DControllerCheck)myCheck) { 
-            this.error = checkObj.error;
-            this.redirectUrl = checkObj.redirectUrl;
-            return false; // Strict - An error requires an error reaction or handling
+            if (auto myError = checkObj.error) {
+              this.response.redirect("/error");
+            }
+            if (checkObj.redirectUrl || "redirect" in options) {
+              /* this.exception = checkObj.exception; */
+              auto myRedirectUrl = (checkObj.redirectUrl ? checkObj.redirectUrl : options.get("redirect", null));
+              options.remove("redirect");
+              this.response.redirect(myRedirectUrl);
+            }
           }
+          return false; // Strict - An error requires an error reaction or handling
         }
       }
 
@@ -211,18 +221,6 @@ class DController : DMVCObject, IController, IControllerComponentManager, ISessi
 
       debug writeln("Start Before Response");
       beforeResponse(options); // Hook
-
-      string myRedirectUrl; 
-      if (hasError) {
-        debug writeln("Found error -> ", this.error);
-        myRedirectUrl = "/error";
-      }
-
-      debug writeln("Has redirect?", options.get("redirect", redirectUrl) ? "Yes" : "No");
-      if (options.get("redirect", redirectUrl)) {
-        debug writeln("Found redirect to ", myRedirectUrl);
-        options.remove("redirect");
-      } 
 
       auto result = stringResponse(options); // Hook, only if necessary
 

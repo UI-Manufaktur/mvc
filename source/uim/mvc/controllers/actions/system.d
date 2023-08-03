@@ -19,28 +19,28 @@ class DSystemActionController : DActionController {
 
   override bool beforeResponse(STRINGAA options = null) {
     debugMethodCall(moduleName!DSystemActionController~":DSystemActionController("~this.name~")::beforeResponse");
-    if (!super.beforeResponse(options) || hasError || "redirect" in options) { return false; }    
+    if (!super.beforeResponse(options)) { return false; }    
     
     // this.tenant(ETBNullTenant).collection(ETBNullCollection); // Clear
 
     if (!manager) {
-      // debugwriteln("No manager");
+      debug writeln("No manager");
       return false;
     }
 
     auto myEntityBase = manager.entityBase;
     if (!myEntityBase) {
-      // debugwriteln("No manager");
+      debug writeln("No manager");
       return false;
     }
-    // debugwriteln("Found entityBase"); 
+    debug writeln("Found entityBase"); 
 
     auto myTenant = myEntityBase.tenant("systems");
     if (!myTenant) {
-      // debugwriteln("No tenant");
+      debug writeln("No tenant");
       return false;
     }
-    // debugwriteln("Found tenant"); 
+    debug writeln("Found tenant"); 
 
     // this.tenant(myTenant);
     this.logins(myTenant.collection("system_logins"));

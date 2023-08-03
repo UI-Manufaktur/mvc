@@ -21,8 +21,8 @@ class DDeleteActionController : DActionController {
   mixin(OProperty!("string", "pgPath"));
   
   override bool beforeResponse(STRINGAA options = null) {
-    // debugwriteln(moduleName!DDeleteActionController~":DDeleteActionController::beforeResponse");
-    if (!super.beforeResponse(options) || hasError || "redirect" in options) { return false; }
+    debug writeln(moduleName!DDeleteActionController~":DDeleteActionController::beforeResponse");
+    if (!super.beforeResponse(options)) { return false; }
 
     auto session = manager.session(options);
     auto site = session.site;

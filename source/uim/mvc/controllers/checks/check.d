@@ -21,8 +21,8 @@ class DControllerCheck : DControllerComponent, ICheck, ICheckManager {
   mixin CheckManagerTemplate;
 
   // For ICheck required
-  override string redirectUrl() { return super.redirectUrl; }
-  override DException exception() { return super.exception; }
+/*   override string redirectUrl() { return super.redirectUrl; }
+  override IException exception() { return super.exception; } */
 
   bool execute(STRINGAA options = null) {
     debug writeln(moduleName!DControllerCheck~":ControllerCheck::execute");
@@ -36,14 +36,14 @@ class DControllerCheck : DControllerComponent, ICheck, ICheckManager {
       if (auto checkObj = (cast(DControllerCheck)myCheck)) {
         if (!checkObj.execute(options)) {
           if (auto myException = checkObj.exception) {
-            this.exception(myException);            
+            _exception = myException;            
             if (auto myRedirectUrl = checkObj.redirectUrl) {
-              this.redirect(myRedirectUrl);
+              this.redirectUrl(myRedirectUrl);
             }
             return false;
           }
           if (auto myRedirectUrl = checkObj.redirectUrl) {
-            this.redirect(myRedirectUrl);
+            this.redirectUrl(myRedirectUrl);
             return false;
           }
         }

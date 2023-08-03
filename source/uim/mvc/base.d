@@ -90,7 +90,7 @@ class DMVCObject : IMVCObject, IRegisterable {
     string _error;
     string error() { return _error; }
     O error(this O)(string newError) {
-      // debugwriteln("New Error:", newError);
+      debug writeln("New Error:", newError);
       _error = newError;
       return cast(O)this;
     }
@@ -205,7 +205,7 @@ class DAPPObject {
     string _error;
     string error() { return _error; }
     O error(this O)(string newError) {
-      // debugwriteln("New Error:", newError);
+      debug writeln("New Error:", newError);
       _error = newError;
       return cast(O)this;
     }
