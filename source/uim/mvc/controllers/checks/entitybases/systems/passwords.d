@@ -19,7 +19,7 @@ class DDatabaseHasPasswordsCheck : DDatabaseHasSystemsCheck {
   }
   
   override bool execute(STRINGAA options = null) {
-    // debugwriteln(moduleName!DDatabaseHasPasswordsCheck~":DDatabaseHasPasswordsCheck::check");
+    debug writeln(moduleName!DDatabaseHasPasswordsCheck~":DDatabaseHasPasswordsCheck::check");
     if (!super.execute(options)) { return false; }
 
     if (!manager) {

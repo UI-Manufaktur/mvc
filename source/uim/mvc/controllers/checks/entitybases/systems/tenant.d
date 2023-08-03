@@ -19,7 +19,7 @@ class DDatabaseHasSystemsCheck : DDatabaseExistsCheck {
   }
   
   override bool execute(STRINGAA options = null) {
-    // debugwriteln(moduleName!DDatabaseHasSystemsCheck~":DDatabaseHasSystemsCheck::execute");
+    debug writeln(moduleName!DDatabaseHasSystemsCheck~":DDatabaseHasSystemsCheck::execute");
     if (!super.execute(options)) { return false; }
 
     if (!manager) {

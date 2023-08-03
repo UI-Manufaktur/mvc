@@ -19,7 +19,7 @@ class DDatabaseHasAccountsCheck : DDatabaseHasSystemsCheck {
   }
   
   override bool execute(STRINGAA options = null) {
-    // debugwriteln(moduleName!DDatabaseHasAccountsCheck~":DDatabaseHasAccountsCheck::check");
+    debug writeln(moduleName!DDatabaseHasAccountsCheck~":DDatabaseHasAccountsCheck::check");
     if (!super.execute(options)) { return false; }
 
     if (!manager) {

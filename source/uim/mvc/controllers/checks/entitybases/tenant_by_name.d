@@ -21,7 +21,7 @@ class DDatabaseHasTenantCheck : DDatabaseExistsCheck {
   mixin(OProperty!("string", "tenantName"));
   
   override bool execute(STRINGAA options = null) {
-    // debugwriteln(moduleName!DDatabaseHasTenantCheck~":DDatabaseHasTenantCheck::check");
+    debug writeln(moduleName!DDatabaseHasTenantCheck~":DDatabaseHasTenantCheck::check");
     if (!super.execute(options)) { return false; }
 
     auto myEntityBase = manager.entityBase;

@@ -19,7 +19,7 @@ class DDatabaseHasSessionsCheck : DDatabaseHasSystemsCheck {
   }
   
   override bool execute(STRINGAA options = null) {
-    // debugwriteln(moduleName!DDatabaseHasSessionsCheck~":DDatabaseHasSessionsCheck::execute");
+    debug writeln(moduleName!DDatabaseHasSessionsCheck~":DDatabaseHasSessionsCheck::execute");
     if (!super.execute(options)) { return false; }
 
     if (!manager) {
