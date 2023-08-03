@@ -36,10 +36,10 @@ class DEntityReadController : DEntityCrudPageController {
   } */
 
   override bool beforeResponse(STRINGAA options = null) {
-    // debugwriteln(moduleName!DEntityReadController~":DEntityReadController::beforeResponse");
+    debug writeln(moduleName!DEntityReadController~":DEntityReadController::beforeResponse");
     super.beforeResponse(options);   
     if ("redirect" in options) {
-      // // debugwriteln("Redirect to "~options["redirect"]);
+      // debug writeln("Redirect to "~options["redirect"]);
       return false;
     }
 
@@ -63,7 +63,7 @@ class DEntityReadController : DEntityCrudPageController {
     }
 
     auto selector = options.toEntitySelect;
-    // debugwriteln(moduleName!DEntityReadController~":DEntityReadController::beforeResponse - Selecting entity with ", selector);
+    debug writeln(moduleName!DEntityReadController~":DEntityReadController::beforeResponse - Selecting entity with ", selector);
     this.entity(myEntityBase[session.site, collectionName].findOne(options.toEntitySelect));
     if (!entity) {
       // TODO Errorhandling required

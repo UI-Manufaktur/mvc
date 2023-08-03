@@ -42,7 +42,7 @@ class DForm : DViewComponent {  // : IEventListener, IEventDispatcher, IValidato
     version(test_uim_mvc) { debugMethodCall(moduleName!DForm~"::DForm("~this.className~"):initialize"); }  
     super.initialize(configSettings);    
     version(test_uim_mvc) { 
-      // debugwriteln("In ", __MODULE__, "/", __LINE__); 
+      debug writeln("In ", __MODULE__, "/", __LINE__); 
     }
  
     this

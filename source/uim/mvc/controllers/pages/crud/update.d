@@ -36,7 +36,7 @@ override void initialize(Json configSettings = Json(null)) {
   } */
 
   override bool beforeResponse(STRINGAA options = null) {
-    // debugwriteln(moduleName!DEntityUpdateController~":DEntityUpdateController::beforeResponse");
+    debug writeln(moduleName!DEntityUpdateController~":DEntityUpdateController::beforeResponse");
     if (!super.beforeResponse(options) || "redirect" in options) return false;
 
     auto session = manager.session(options);
@@ -93,7 +93,7 @@ mixin(ControllerCalls!("EntityUpdateController"));
     }
 
 /*    override DH5Obj[] toH5(STRINGAA requestParameters) { 
-      // // debugwriteln(StyledString("In "~_request.path~"-DAPPUpdatePage:toJson...").setForeground(AnsiColor.green).setBackground(AnsiColor.white));
+      // debug writeln(StyledString("In "~_request.path~"-DAPPUpdatePage:toJson...").setForeground(AnsiColor.green).setBackground(AnsiColor.white));
 
       auto json = this.app.DEntityBase", "entityBase.findOne("siteName", "myPool", urlToSelect(requestParameters));
       auto entity = OOPEntity;
