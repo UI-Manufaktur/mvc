@@ -45,12 +45,12 @@ class DFormInputHandler : DFormComponent {
       if (formInput) formInput.form(this.form);
     } */
 
-    // debugwriteln(entity ? ("Found entity: %s".format(entity.name)) : "entity missing");
+    debug writeln(entity ? ("Found entity: %s".format(entity.name)) : "entity missing");
     if (entity) {
-      // debugwriteln("Found entity:", entity.name);
+      debug writeln("Found entity:", entity.name);
       
       if (auto myInput = this.formInputs.get(field.toLower, null)) { // field name not case sensitive !
-        // debugwriteln("Found formGroup for field:", field);
+        debug writeln("Found formGroup for field:", field);
         myInput.crudMode(this.crudMode)/* .form(form) */;
         if (auto myFormInput = cast(DFormInput)myInput) {
           return myFormInput.entity(entity).toH5(options);

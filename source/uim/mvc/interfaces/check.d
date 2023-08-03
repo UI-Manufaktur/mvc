@@ -9,8 +9,8 @@ import uim.mvc;
 @safe:
 
 interface ICheck { 
-	DException exception();
-	string redirectUrl();
+/* 	IException exception();
+	string redirectUrl(); */
 
 	// Execute check - If something goes wrong -> returns false, else true
 	bool execute(STRINGAA options = null);    

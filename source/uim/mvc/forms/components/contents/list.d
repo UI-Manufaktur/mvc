@@ -22,7 +22,7 @@ class DListFormContent : DMVCEntitiesViewComponent {
     debugMethodCall(moduleName!DEntitiesFormContent~"DEntitiesFormContent::toH5");
     super.toH5(options);
     if (hasError || "redirect" in options) { return null; }
-    // debugwriteln("Found entities for table = ", entities.length);
+    debug writeln("Found entities for table = ", entities.length);
 
     DH5Obj[] listItems = this.entities.map!(entity => entity ? templateListItem.entity(entity).toH5 : null).join; 
       

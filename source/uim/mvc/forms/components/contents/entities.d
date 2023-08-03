@@ -14,7 +14,7 @@ class DEntitiesFormContent : DFormContent {
   override void initialize(Json configSettings = Json(null)) {
     debugMethodCall(moduleName!DEntitiesFormContent~"::DEntitiesFormContent("~this.name~"):initialize");   
     super.initialize(configSettings);
-    // debugwriteln("In ", __MODULE__, "/", __LINE__);
+    debug writeln("In ", __MODULE__, "/", __LINE__);
 
     this // Defaults
       .tableHeader(MVCEntitiesTableHeader)
@@ -30,18 +30,18 @@ class DEntitiesFormContent : DFormContent {
     super.beforeH5(options);
     if (hasError || "redirect" in options) { return; }
 
-    // debugwriteln("in DEntitiesEntitiesForm "~(this.entities ? "Has %s entities".format(this.entities.length) : "No entities"));
+    debug writeln("in DEntitiesEntitiesForm "~(this.entities ? "Has %s entities".format(this.entities.length) : "No entities"));
 
-    // debugwriteln("Before RootPath = ", this.rootPath);
+    debug writeln("Before RootPath = ", this.rootPath);
     /* if (owner) { // ???
       this.crudMode(form.crudMode); 
       this.readonly(form.readonly); 
       this.rootPath(form.rootPath); 
     } */
 
-/*     // debugwriteln(entities ? "Has entities" : "No entities");
+/*     debug writeln(entities ? "Has entities" : "No entities");
     if (auto entitiesForm = cast(IMVCWithEntities)this.form) {
-      // debugwriteln("Found entitiesForm");
+      debug writeln("Found entitiesForm");
       this.entities(entitiesForm.entities);
     } */
   }
@@ -50,7 +50,7 @@ class DEntitiesFormContent : DFormContent {
     debugMethodCall(moduleName!DEntitiesFormContent~"DEntitiesFormContent("~this.name~")::toH5");
     super.toH5(options);
 
-    // debugwriteln("RootPath = ", this.rootPath);
+    debug writeln("RootPath = ", this.rootPath);
 
     auto row(DEntity entity) {
       if (!entity) return null;
@@ -78,7 +78,7 @@ class DEntitiesFormContent : DFormContent {
           ))].toH5;
     }
 
-    // debugwriteln("Found entities for table = ", entities.length);
+    debug writeln("Found entities for table = ", entities.length);
     DH5Obj[] rows = entities
       .sort!("a.name < b.name")
       .map!(a => a ? row(a) : null).join; 
