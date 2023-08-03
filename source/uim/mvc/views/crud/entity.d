@@ -62,9 +62,9 @@ override void initialize(Json configSettings = Json(null)) {
     super.beforeH5(options);
     if (hasError || "redirect" in options) { return; }
 
-    // debugwriteln(this.entity ? "Has entity "~this.entity.name : "Entity missing");
+    debug writeln(this.entity ? "Has entity "~this.entity.name : "Entity missing");
     if (auto myForm = cast(DEntityForm)this.form) {
-      // debugwriteln("Found DForm");
+      debug writeln("Found DForm");
       myForm.entity(this.entity);
 
       if (auto myFormContent = cast(DEntityFormContent)myForm.content) {

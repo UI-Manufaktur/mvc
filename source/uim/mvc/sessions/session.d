@@ -18,6 +18,9 @@ class DSession : DEntity, ISession {
   mixin(TProperty!("ISessionManager", "manager"));
 
   mixin(OProperty!("string", "httpSessionId"));
+  mixin(OProperty!("string", "accountName"));
+  mixin(OProperty!("string", "host"));
+  mixin(OProperty!("string", "loginId"));
   mixin(OProperty!("IPageController", "page"));
   mixin(OProperty!("DEntity", "login"));
   mixin(OProperty!("DEntity", "session")); // ?? Required
@@ -27,6 +30,8 @@ class DSession : DEntity, ISession {
   mixin(OProperty!("DEntity", "password")); // ! Ugly
   mixin(OProperty!("DEntity", "entity"));
   mixin(OProperty!("bool", "isNull"));
+  mixin(OProperty!("bool", "logonMode"));
+  /* mixin(OProperty!("long", "lastAccessedOn")); */
 
   override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
@@ -139,8 +144,10 @@ class DSession : DEntity, ISession {
       "\n LastAccessOn:\t%s".format(lastAccessedOn)~
       "\n Session:\t"~(session ? "id(siteId):%s(%s)".format(session.id, session["siteId"]) : "null")~ 
       "\n Login:\t"~(login ? "id:%s".format(login.id) : "null")~ 
+      "\n LoginId:\t"~(loginId ? loginId : "null")~ 
       "\n Site:\t"~(site ? "id/name:%s/%s".format(site.id, site.name) : "null")~ 
       "\n Account:\t"~(account ? "id/name:%s/%s".format(account.id, account.name) : "null")~ 
+      "\n AccountName:\t"~(accountName ? accountName : "null")~ 
       "\n Password:\t"~(password ? "id:%s".format(password.id) : "null")~
       "\n User:\t"~(user ? "id:%s".format(user.id) : "null");
   }

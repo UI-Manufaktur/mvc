@@ -30,7 +30,7 @@ class DSystemActionController : DActionController {
 
     auto myEntityBase = manager.entityBase;
     if (!myEntityBase) {
-      debug writeln("No manager");
+      debug writeln("No entityBase");
       return false;
     }
     debug writeln("Found entityBase"); 

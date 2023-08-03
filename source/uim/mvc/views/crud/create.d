@@ -14,7 +14,7 @@ class DEntityCreateView : DEntityCRUDView {
 override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
 
-    // debugwriteln("In ", __MODULE__, "/", __LINE__); 
+    debug writeln("In ", __MODULE__, "/", __LINE__); 
 
     if (auto pgHeader = cast(DPageHeaderViewComponent)this.header) {
       pgHeader.actions([["refresh", "list"]]); }

@@ -21,8 +21,8 @@ class DActionController : DController/* , IActionController */ {
   }
 
 	override bool beforeResponse(STRINGAA options = null) {
-    debug writeln(moduleName!DCreateActionController~":DCreateActionController::beforeResponse");
-    if (!super.beforeResponse(options)) return false; 
+    debug writeln(moduleName!DActionController~":DActionController::beforeResponse");
+    if (!super.beforeResponse(options)) { return false; } 
 
 		return true;
 	}

@@ -200,8 +200,14 @@ class DController : DMVCObject, IController, IControllerComponentManager, ISessi
     void afterResponse(string[string] options = null) { // Hook
       debugMethodCall(moduleName!DController~":DController::afterResponse");
 
-      this.error = "";
-      this.redirectUrl = "";
+      if (this.error) {
+        this.response.redirect("/error");
+      }
+
+      if (auto myRedirectUrl = (redirectUrl ? redirectUrl : options.get("redirect", null))) {
+        options.remove("redirect");
+        this.response.redirect(myRedirectUrl);
+      }
     }
 
     string stringResponse(string[string] options = null) { // Hook
