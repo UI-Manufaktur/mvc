@@ -20,6 +20,12 @@ template RouteManagerTemplate() {
       .map!(r => r.path)
       .array;
   }
+  size_t countRoutes() {
+    return 
+      _routes.length;
+  }
+
+
   IRoute[] routesWithMethod(HTTPMethod aMethod) {
     return routes.filter!(r => r.method == aMethod).array;
   }

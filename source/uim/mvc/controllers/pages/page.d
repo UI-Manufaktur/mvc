@@ -92,7 +92,7 @@ class DPageController : DController, IPageController, IViewManager, ILayoutManag
 
   void jsCode(STRINGAA options = null) {
     debugMethodCall(moduleName!DPageController~":DPageController::jsCode");
-    string internalSessionId = _request && _request.session ? _request.session.id : options.get("internalSessionId", "");
+    string internalSessionId = this.request && this.request.session ? this.request.session.id : options.get("internalSessionId", "");
     auto mySession = manager.session(options);
 
     if (mySession && viewMode == ViewModes.JS) 
@@ -226,26 +226,25 @@ class DPageController : DController, IPageController, IViewManager, ILayoutManag
   // #region Response
     override bool beforeResponse(STRINGAA options = null) {
       debugMethodCall(moduleName!DPageController~":DPageController("~this.name~")::beforeResponse");
-      super.beforeResponse(options);
-
-      debug writeln("Get Session");
-      // auto mySession = manager.session(options.get("httpSessionId", null));
-      // ?? TODO if (internalSession) { this.site(session.site); }
-      //     if (hasError || "redirect" in options) { return; }
+      if (!super.beforeResponse(options)) { return false; }
 
       return true;
     }    
 
-    override string stringResponse(string[string] options = null) {
+    override string stringResponse(string[string] someOptions = null) {
       debugMethodCall(moduleName!DPageController~":DPageController("~name~")::stringResponse");
-      super.stringResponse(options);
+      super.stringResponse(someOptions);
       // if (hasError) { return null; }
 
-      string myViewRender = view ? view.render(options) : "";
+      string myViewRender = view ? view.render(someOptions) : "";
       auto myLayout = defaultLayout;
 
+      if (auto mySession = getSession(this, this.request, someOptions)) {
+        someOptions["logonMode"] = (mySession && mySession.logonMode ? "Authorized" : null); 
+      }
+
       return myLayout
-        ? myLayout.render(this, myViewRender)  
+        ? myLayout.render(this, myViewRender, someOptions)  
         : myViewRender;  
     }
   // #endregion Response

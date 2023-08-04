@@ -40,6 +40,10 @@ mixin template CheckManagerTemplate() {
     ICheck[] checks() {
       return _checks;
     }
+    size_t countRoutes() {
+      return 
+        _routes.length;
+    }
   // #endregion checks
 
 

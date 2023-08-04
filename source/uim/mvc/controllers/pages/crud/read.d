@@ -43,13 +43,13 @@ class DEntityReadController : DEntityCrudPageController {
       return false;
     }
 
-    auto mySession = manager.session(options);
+    auto mySession = session(options);
     if (mySession.isNull) { 
       options["redirect"] = "/";
       return false; 
     }
 
-    if (!session.isValid(["session", "site"], options)) return false; 
+ /*    if (!mySession.isValid(["session", "site"], options)) return false;  */
 
     if (!manager) {
       this.error("manager_missing");
@@ -64,7 +64,7 @@ class DEntityReadController : DEntityCrudPageController {
 
     auto selector = options.toEntitySelect;
     debug writeln(moduleName!DEntityReadController~":DEntityReadController::beforeResponse - Selecting entity with ", selector);
-    this.entity(myEntityBase[session.site, collectionName].findOne(options.toEntitySelect));
+    this.entity(myEntityBase[mySession.site, collectionName].findOne(options.toEntitySelect));
     if (!entity) {
       // TODO Errorhandling required
       return false;

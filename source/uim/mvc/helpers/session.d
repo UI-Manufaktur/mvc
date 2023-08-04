@@ -8,6 +8,17 @@ module uim.mvc.helpers.session;
 import uim.mvc;
 @safe:
 
+string httpSessionId(HTTPServerRequest aRequest, STRINGAA someOptions = null) {
+  if (aRequest && aRequest.session) {
+    return aRequest.session.id;
+  }
+  return someOptions.get("httpSessionId", null);
+}
+
+ISession getSession(ISessionManager aManager, HTTPServerRequest aRequest, STRINGAA someOptions = null) {
+  return (aManager ? aManager.session(httpSessionId(aRequest, someOptions)) : null);
+}
+
 /* DSession sessionManager.session(STRINGAA options = null) {
   return internalSessions
     .get(

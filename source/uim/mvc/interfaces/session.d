@@ -23,6 +23,8 @@ interface ISession {
   string accountName();
   string host();
   string loginId();
+  bool logonMode();
+  void logonMode(bool aMode);
 
   string debugInfo();
 }

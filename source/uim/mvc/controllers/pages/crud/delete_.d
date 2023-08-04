@@ -87,7 +87,7 @@ window.addEventListener('load', (event) => {
       return false; 
     }
 
-    this.entity(myEntityBase[session.site, collectionName].findOne(options.toEntitySelect));
+    this.entity(myEntityBase[mySession.site, collectionName].findOne(options.toEntitySelect));
     if (!entity) {
       // TODO Errorhandling
       return false;

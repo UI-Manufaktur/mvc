@@ -115,9 +115,6 @@ class DController : DMVCObject, IController, IControllerComponentManager, ISessi
     HTTPServerResponse response() { return _response; }
     void response(HTTPServerResponse newResponse) { _response = newResponse; }
   // #endregion HTTPServerResponse response
-
-  // https://vibed.org/api/vibe.http.session/
-  mixin(OProperty!("DSession", "session"));
   
   bool hasRedirect() {
     return (this.redirectUrl.length > 0);

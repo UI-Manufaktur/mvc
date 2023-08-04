@@ -50,10 +50,10 @@ class DSelectSiteActionController : DActionController {
         .site(mySite)
         .save();
     }
+    if (mySession) debug writeln(mySession.debugInfo);
 
     debug writeln(moduleName!DSelectSiteActionController~":DSelectSiteActionController::request - Redirect to /");
     options["redirect"] = "/";
-    debug writeln(session.debugInfo);
 
     return true;
 	}

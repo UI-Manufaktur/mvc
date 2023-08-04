@@ -36,8 +36,13 @@ mixin template ControllerContainerTemplate() {
   // #region controllerContainer
     protected DControllerContainer _controllerContainer;  
     DControllerContainer controllerContainer() {
-      if (_controllerContainer) return _controllerContainer;
-      return (manager ? this.manager.controllerContainer : null); 
+      if (_controllerContainer) {
+        return _controllerContainer;
+      }
+      if (auto myManager = cast(IControllerManager)this.manager) {
+        return myManager.controllerContainer;
+      }
+      return null; 
     }  
     void controllerContainer(DControllerContainer aControllerContainer) {    
       _controllerContainer = aControllerContainer;
@@ -66,6 +71,10 @@ mixin template ControllerManagerTemplate() {
       return
         (controllerContainer ? controllerContainer.keys : null)~ 
         (manager ? manager.controllerNames : null);
+    }
+    size_t countControllers() {
+      return 
+        (controllerContainer ? controllerContainer.length : 0);
     }
   // #endregion controllers
 
