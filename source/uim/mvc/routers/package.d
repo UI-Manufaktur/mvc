@@ -6,7 +6,7 @@
 module uim.mvc.routers;
 
 public {
-	import  uim.mvc.routers.collection;
+	import  uim.mvc.routers.entityCollection;
 	import  uim.mvc.routers.router;
 	import  uim.mvc.routers.sites;
 }

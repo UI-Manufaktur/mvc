@@ -13,8 +13,8 @@ public {
   import uim.mvc.interfaces.cachemanager;
   import uim.mvc.interfaces.check;
   import uim.mvc.interfaces.checkmanager;
-  import uim.mvc.interfaces.collection;
-  import uim.mvc.interfaces.collectionaware;
+  import uim.mvc.interfaces.entityCollection;
+  import uim.mvc.interfaces.entityCollectionaware;
   import uim.mvc.interfaces.command;
   import uim.mvc.interfaces.commandfactory;
   import uim.mvc.interfaces.configengine;

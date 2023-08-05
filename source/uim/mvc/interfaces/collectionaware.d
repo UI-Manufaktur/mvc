@@ -1,4 +1,4 @@
-module uim.mvc.interfaces.collectionaware;
+module uim.mvc.interfaces.entityCollectionaware;
 
 // An interface for shells that take a CommandCollection during initialization.
 interface ICommandCollectionAware {

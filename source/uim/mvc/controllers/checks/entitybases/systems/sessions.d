@@ -39,7 +39,7 @@ class DDatabaseHasSessionsCheck : DDatabaseHasSystemsCheck {
       return false;
     }
 
-    auto myCollection = myTenant.collection("system_sessions");
+    auto myCollection = myTenant.entityCollection("system_sessions");
     if (myCollection is null) { // collection sessions missing 
       this.error("collection_sessions_missing");
       return false; 

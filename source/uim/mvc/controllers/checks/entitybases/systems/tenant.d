@@ -33,7 +33,7 @@ class DDatabaseHasSystemsCheck : DDatabaseExistsCheck {
       return false; 
     }
 
-    if (!myEntityBase.hasTenant("systems")) {  
+    if (!myEntityBase.hasEntityTenant("systems")) {  
       this.error("tenant_systems_missing");
       return false; }
 

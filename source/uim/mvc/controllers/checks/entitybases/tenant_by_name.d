@@ -30,7 +30,7 @@ class DDatabaseHasTenantCheck : DDatabaseExistsCheck {
       return false; 
     }
 
-    if (!myEntityBase.hasTenant(tenantName)) {  
+    if (!myEntityBase.hasEntityTenant(tenantName)) {  
       this.error("collection_("~tenantName~")_missing");
       return false; }
 

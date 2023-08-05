@@ -64,7 +64,7 @@ template ImportUimMvc() {
 		import  uim.mvc.applications; 
 		import  uim.mvc.authentications;
 		import  uim.mvc.caches;
-		import  uim.mvc.collections;
+		import  uim.mvc.entityCollections;
 		import  uim.mvc.commands;
 		import  uim.mvc.consoles; 
 		import  uim.mvc.containers;

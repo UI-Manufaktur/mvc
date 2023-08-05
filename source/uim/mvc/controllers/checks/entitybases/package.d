@@ -17,6 +17,6 @@ public {
 
 // Modules
 public {
-	import  uim.mvc.controllers.checks.entitybases.collection_by_name;
+	import  uim.mvc.controllers.checks.entitybases.entityCollection_by_name;
 	import  uim.mvc.controllers.checks.entitybases.entityTenant_by_name;
 }
