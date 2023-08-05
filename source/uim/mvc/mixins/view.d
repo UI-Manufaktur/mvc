@@ -99,8 +99,8 @@ void testView(DView view) {
 
 /* template ViewProperty(string dataType, string name) {
   const char[] ViewProperty = `
-  `~dataType~` `~name~`() { return cast(`~dataType~`)this.component("`~name~`"); }
-  O `~name~`(this O)(`~dataType~` newComponent) { this.component("`~name~`", newComponent); return cast(O)this; }
+  `~dataType~` `~name~`() { return cast(`~dataType~`)this.viewComponent("`~name~`"); }
+  O `~name~`(this O)(`~dataType~` newComponent) { this.viewComponent("`~name~`", newComponent); return cast(O)this; }
   `;
 } * /
 

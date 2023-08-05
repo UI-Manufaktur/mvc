@@ -17,20 +17,20 @@ class DSession : DEntity, ISession {
 
   mixin(TProperty!("ISessionManager", "manager"));
 
-  mixin(OProperty!("string", "httpSessionId"));
+  mixin(OProperty!("DEntity", "account"));
   mixin(OProperty!("string", "accountName"));
   mixin(OProperty!("string", "host"));
-  mixin(OProperty!("string", "loginId"));
-  mixin(OProperty!("IPageController", "page"));
+  mixin(OProperty!("string", "httpSessionId"));
+  mixin(OProperty!("bool", "isNull"));
   mixin(OProperty!("DEntity", "login"));
+  mixin(OProperty!("string", "loginId"));
+  mixin(TProperty!("bool", "logonMode"));
+  mixin(OProperty!("IPageController", "page"));
+  mixin(OProperty!("DEntity", "password")); // ! Ugly
   mixin(OProperty!("DEntity", "session")); // ?? Required
   mixin(OProperty!("DEntity", "site"));
-  mixin(OProperty!("DEntity", "account"));
   mixin(OProperty!("DEntity", "user"));
-  mixin(OProperty!("DEntity", "password")); // ! Ugly
   mixin(OProperty!("DEntity", "entity"));
-  mixin(OProperty!("bool", "isNull"));
-  mixin(OProperty!("bool", "logonMode"));
   /* mixin(OProperty!("long", "lastAccessedOn")); */
 
   override void initialize(Json configSettings = Json(null)) {

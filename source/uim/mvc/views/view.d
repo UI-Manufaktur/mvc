@@ -186,12 +186,12 @@ override void initialize(DConfigurationValue configSettings = null) {
   }
 
   O addComponent(this O)(DViewComponent newComponent) {
-    if (newComponent) this.components.set(newComponent.id, newComponent);
+    if (newComponent) this.viewComponents.set(newComponent.id, newComponent);
     return cast(O)this;
   }
 
   O addComponent(this O)(string anId, DViewComponent newComponent) {
-    if (newComponent) this.components.set(anId, newComponent);
+    if (newComponent) this.viewComponents.set(anId, newComponent);
     return cast(O)this;
   }
 
@@ -200,8 +200,8 @@ override void initialize(DConfigurationValue configSettings = null) {
     debugMethodCall(moduleName!DView~":DView("~this.name~")::beforeH5");
     super.beforeH5(options);
 
-    debug writeln("In DView -> %s components".format(this.components.length));
-    this.components.all.each!(comp => comp.rootPath(this.rootPath));
+    debug writeln("In DView -> %s components".format(this.viewComponents.length));
+    this.viewComponents.all.each!(comp => comp.rootPath(this.rootPath));
   }
 
   DH5Obj[] toH5(STRINGAA options = null) {
@@ -209,9 +209,9 @@ override void initialize(DConfigurationValue configSettings = null) {
     beforeH5(options);
 
     auto container = BS5Container.fluid();
-    if (this.(cast(DViewComponent)this.component("messages"))) {
+    if (this.(cast(DViewComponent)this.viewComponent("messages"))) {
       container
-        .row("messages", ["section"], (cast(DViewComponent)this.component("messages")).toH5(options));
+        .row("messages", ["section"], (cast(DViewComponent)this.viewComponent("messages")).toH5(options));
     }
 
     return [

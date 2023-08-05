@@ -49,12 +49,12 @@ class DCreateActionController : DActionController {
       return false;
     }
       
-    auto myTenant = myEntityBase.tenant(mySite.name);
+    auto myTenant = myEntityBase.entityTenant(mySite.name);
     if (myTenant is null) {
       return false;
     }
 
-    auto myCollection = myTenant.collection(pool);
+    auto myCollection = myTenant.entityCollection(pool);
     if (myCollection is null) {
       return false;
     }

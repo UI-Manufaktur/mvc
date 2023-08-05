@@ -57,6 +57,10 @@ mixin template ViewManagerTemplate() {
     string[] viewNames() {
       return (this.viewContainer() ? viewContainer.keys : null);
     }
+    size_t countViews() {
+      return 
+        (viewContainer ? viewContainer.length : 0);
+    }
   // #endregion views
 
   // #region view

@@ -15,9 +15,9 @@ class DEntitiesView : DView {
 
     debug writeln("In DEntitiesView -> %s entities".format(this.entities.length));
     this
-      .components()
-        .filter!(comp => cast(DEntitiesViewComponent)comp)
-        .each!(comp => (cast(DEntitiesViewComponent)comp).entities(this.entities));
+      .viewComponents()
+        .filter!(comp => cast(DEntityViewComponent)comp)
+        .each!(comp => (cast(DEntityViewComponent)comp).entities(this.entities));
   }
 }
 mixin(ViewCalls!("EntitiesView"));

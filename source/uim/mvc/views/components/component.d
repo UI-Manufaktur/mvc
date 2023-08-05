@@ -28,7 +28,7 @@ class DViewComponent : DMVCObject, IViewComponent, IViewComponentManager {
       .dynamic(true)
       .notNull(true);
 
-    components(null);
+    viewComponents(null);
   }
 
   mixin(OProperty!("string", "id"));

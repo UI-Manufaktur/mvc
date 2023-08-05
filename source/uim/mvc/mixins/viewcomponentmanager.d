@@ -36,52 +36,42 @@ mixin template ViewComponentManagerTemplate() {
   // #region components
     protected IViewComponent[] _viewComponents;
 
-    IViewComponent[] components() {
+    void viewComponents(IViewComponent[] someViewComponents) {
+      _viewComponents = someViewComponents;
+    }
+    IViewComponent[] viewComponents() {
       return _viewComponents;
     }
-
-    void components(IViewComponent[] someComponents...) {
-      this.components(someComponents.dup);
-    }
-
-    void components(IViewComponent[] someComponents) {
-      _viewComponents = someComponents;
+    size_t countViewComponents() {
+      return _viewComponents.length;
     }
   // #endregion components
 
   // #region components
-    IViewComponent component(string name) {
-      foreach(myComponent; components) if (myComponent.name() == name) return myComponent;
+    IViewComponent viewComponent(string name) {
+      foreach(myComponent; viewComponents) if (myComponent.name() == name) return myComponent;
       return null; 
-    }
-
-    void component(string name, IViewComponent aComponent) {
-      foreach(ref myComponent; components) {
-        if (myComponent.name == name) myComponent = aComponent;
-        return;
-      }
-      addComponent(name, aComponent);
     }
   // #endregion components
 
   // #region addComponents
-    void addComponents(IViewComponent[] someComponents...) {
-      this.addComponents(someComponents.dup);
+    void addViewComponents(IViewComponent[] someComponents...) {
+      this.addViewComponents(someComponents.dup);
     }
-    void addComponents(IViewComponent[] someComponents) {
-      components(components~someComponents);
+    void addViewComponents(IViewComponent[] someComponents) {
+      viewComponents(viewComponents~someComponents);
     }
   // #endregion addComponents
 
-  void addComponent(string aName, IViewComponent aComponent) {
+  void addViewComponent(string aName, IViewComponent aComponent) {
     if (auto myComponent = cast(DViewComponent)aComponent) {
       myComponent.name(aName);
     }
 
-    addComponent(aComponent);
+    addViewComponent(aComponent);
   }
 
-  void addComponent(IViewComponent aComponent) {
-    components(components~aComponent);
+  void addViewComponent(IViewComponent aComponent) {
+    viewComponents(viewComponents~aComponent);
   }
 }
