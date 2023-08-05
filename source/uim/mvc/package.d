@@ -30,7 +30,7 @@ public {
   import uim.mvc.applications; 
   import uim.mvc.authenticates;
   import uim.mvc.authentications;
-  import uim.mvc.collections;
+  import uim.mvc.entityCollections;
   import uim.mvc.commands;
   import uim.mvc.consoles; 
   import uim.mvc.containers;

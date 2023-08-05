@@ -6,7 +6,7 @@
 module uim.mvc.commands;
 
 public { // Main
-	import uim.mvc.commands.collection;
+	import uim.mvc.commands.entityCollection;
 	import uim.mvc.commands.command;
 	import uim.mvc.commands.completion;
 	import uim.mvc.commands.registry;

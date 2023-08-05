@@ -3,7 +3,7 @@
 	License: Subject to the terms of the Apache 2.0 license, as written in the included LICENSE.txt file.  
 	Authors: Ozan Nurettin Süel, mailto:ons@sicherheitsschmiede.de                                                      
 **********************************************************************************************************/
-module uim.mvc.collections.interface_;
+module uim.mvc.entityCollections.interface_;
 
 /**
  * Describes the methods a Collection should implement. A collection is an immutable

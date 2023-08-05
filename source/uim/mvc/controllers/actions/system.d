@@ -21,7 +21,7 @@ class DSystemActionController : DActionController {
     debugMethodCall(moduleName!DSystemActionController~":DSystemActionController("~this.name~")::beforeResponse");
     if (!super.beforeResponse(options)) { return false; }    
     
-    // this.entityTenant(ETBNullTenant).collection(ETBNullCollection); // Clear
+    // this.entityTenant(ETBNullTenant).entityCollection(ETBNullCollection); // Clear
 
     if (!manager) {
       debug writeln("No manager");
@@ -43,11 +43,11 @@ class DSystemActionController : DActionController {
     debug writeln("Found tenant"); 
 
     // this.entityTenant(myTenant);
-    this.logins(myTenant.collection("system_logins"));
-    this.sessions(myTenant.collection("system_sessions"));
-    this.accounts(myTenant.collection("system_accounts"));
-    this.sites(myTenant.collection("system_sites"));
-    this.passwords(myTenant.collection("system_passwords"));
+    this.logins(myTenant.entityCollection("system_logins"));
+    this.sessions(myTenant.entityCollection("system_sessions"));
+    this.accounts(myTenant.entityCollection("system_accounts"));
+    this.sites(myTenant.entityCollection("system_sites"));
+    this.passwords(myTenant.entityCollection("system_passwords"));
 
     return true;  
   }  
