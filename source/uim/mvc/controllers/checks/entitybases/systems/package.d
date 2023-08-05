@@ -10,7 +10,7 @@ import uim.mvc;
 
 // Main
 public {
-	import  uim.mvc.controllers.checks.entitybases.systems.tenant;
+	import  uim.mvc.controllers.checks.entitybases.systems.entityTenant;
 }
 
 // Module

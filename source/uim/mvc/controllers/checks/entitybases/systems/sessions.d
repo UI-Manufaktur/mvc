@@ -33,7 +33,7 @@ class DDatabaseHasSessionsCheck : DDatabaseHasSystemsCheck {
       return false; 
     }
 
-    auto myTenant = myEntityBase.tenant("systems");
+    auto myTenant = myEntityBase.entityTenant("systems");
     if (myTenant is null) {
       this.error("tenant systems missing"); 
       return false;

@@ -39,7 +39,7 @@ class DSelectSiteActionController : DActionController {
       return false;
     }
     
-    auto myTenant = myEntityBase.tenant("systems");
+    auto myTenant = myEntityBase.entityTenant("systems");
 
     DEntity mySite = myTenant.collection("system_sites").findOne(["id":options.get("siteId", null)]);
     debug writeln(mySite ? "Found site" : "Missing site");

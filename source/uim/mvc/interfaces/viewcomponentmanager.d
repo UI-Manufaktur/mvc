@@ -6,11 +6,9 @@ import uim.mvc;
 interface IViewComponentManager {
   IEntityBase entityBase();
 
-  IViewComponent[] components();
-  void components(IViewComponent[] someComponents...);
-  void components(IViewComponent[] someComponents);
+  IViewComponent[] viewComponents();
 
-  void addComponents(IViewComponent[] someComponents...);
-  void addComponents(IViewComponent[] someComponents);
-  void addComponent(IViewComponent aComponent);
+  void addViewComponents(IViewComponent[] someComponents...);
+  void addViewComponents(IViewComponent[] someComponents);
+  void addViewComponent(IViewComponent aComponent);
 }
