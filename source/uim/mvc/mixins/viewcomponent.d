@@ -40,7 +40,7 @@ template OViewComponent(string id) {
     DViewComponent `~id~`() { return cast(DViewComponent)this.viewComponent("`~id~`"); }
     O `~id~`(this O)(DViewComponent newComponent) { 
       _beforeSet`~id.capitalize~`;
-      this.viewComponent("`~id~`", newComponent);
+      this.addViewComponent("`~id~`", newComponent);
       _afterSet`~id.capitalize~`; 
       return cast(O)this; }
     void _beforeSet`~id.capitalize~`() {}
@@ -53,7 +53,7 @@ template OViewComponent(string id, string name) {
     DViewComponent `~name~`() { return cast(DViewComponent)this.viewComponent("`~id~`"); }
     O `~name~`(this O)(DViewComponent newComponent) { 
       _beforeSet`~name.capitalize~`;
-      this.viewComponent("`~id~`", newComponent); 
+      this.addViewComponent("`~id~`", newComponent); 
       _afterSet`~name.capitalize~`; 
       return cast(O)this; }
     void _beforeSet`~name.capitalize~`() {}
@@ -66,7 +66,7 @@ template OViewComponent(string id, string name, string type) {
     `~type~` `~name~`() { return cast(`~type~`)this.viewComponent("`~id~`"); }
     O `~name~`(this O)(`~type~` newComponent) { 
       beforeSet`~name.capitalize~`;
-      this.viewComponents("`~id~`", newComponent); 
+      this.addViewComponents("`~id~`", newComponent); 
       afterSet`~name.capitalize~`; 
       return cast(O)this; }
     void beforeSet`~name.capitalize~`() {}

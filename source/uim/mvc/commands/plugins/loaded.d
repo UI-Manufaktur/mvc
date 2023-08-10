@@ -11,8 +11,8 @@ import uim.mvc;
 class DPluginLoadedCommand {
   this() { initialize; }
 
-    void initialize() {
-    // 
+  override void initialize(Json configSettings = Json(null)) {
+    super.initialize(configSettings); 
   }
 }
 auto PluginLoadedCommand() { return new DPluginLoadedCommand; }

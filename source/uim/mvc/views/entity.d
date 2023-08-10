@@ -16,7 +16,7 @@ class DEntityView : DView {
 
     debug writeln("In DEntityView -> "~(this.entity ? "has entity" : "no entity"));
     this
-      .components()
+      .viewComponents()
         .filter!(comp => cast(DEntityViewComponent)comp)
         .each!(comp => (cast(DEntityViewComponent)comp).entity(this.entity));
   }

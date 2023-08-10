@@ -11,8 +11,8 @@ import uim.mvc;
 class DPluginAssetsCopyCommand {
   this() { initialize; }
 
-  void initialize() {
-    // 
+  override void initialize(Json configSettings = Json(null)) {
+    super.initialize(configSettings); 
   }
 }
 auto PluginAssetsCopyCommand() { return new DPluginAssetsCopyCommand; }
