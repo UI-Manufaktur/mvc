@@ -11,8 +11,8 @@ import uim.mvc;
 class DI18nCommand {
   this() { initialize; }
 
-    void initialize() {
-    // 
+  override void initialize(Json configSettings = Json(null)) {
+    super.initialize(configSettings); 
   }
 }
 auto I18nCommand() { return new DI18nCommand; }

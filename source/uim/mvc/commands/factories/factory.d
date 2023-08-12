@@ -11,7 +11,8 @@ import uim.mvc;
 class DCommandFactory /* : ICommandFactory */ {
   this() { initialize; }
 
-  void initialize() {       
+  override void initialize(Json configSettings = Json(null)) {
+    super.initialize(configSettings); 
   }
   
   /* ICommand create(string name) {

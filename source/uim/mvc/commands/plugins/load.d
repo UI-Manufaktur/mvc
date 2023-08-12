@@ -11,8 +11,8 @@ import uim.mvc;
 class DPluginAssetsRemoveCommand {
   this() { initialize; }
 
-    void initialize() {
-    // 
+  override void initialize(Json configSettings = Json(null)) {
+    super.initialize(configSettings); 
   }
 }
 auto PluginAssetsRemoveCommand() { return new DPluginAssetsRemoveCommand; }

@@ -173,7 +173,9 @@ class DAPPObject {
     initialize();
   }
 
-  void initialize() {}
+  override void initialize(Json configSettings = Json(null)) {
+    super.initialize(configSettings); 
+  }
   
   mixin(APPParameter!("id")); 
   mixin(APPParameter!("name")); 

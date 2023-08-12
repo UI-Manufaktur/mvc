@@ -11,8 +11,8 @@ import uim.mvc;
 class DCollection {
   this() { initialize; }
 
-  void initialize() {
-    // 
+  override void initialize(Json configSettings = Json(null)) {
+    super.initialize(configSettings); 
   }
 }
 auto Collection() { return new DCollection; }
