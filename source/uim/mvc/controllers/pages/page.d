@@ -136,7 +136,7 @@ class DPageController : DController, IPageController, IViewManager, ILayoutManag
         }
       );
 
-      if (this.login == Json(null)) {
+      if (this.login.isEmpty) {
         // debug writeln("login not found");
         _response.redirect("/login");
         return result;
@@ -170,7 +170,7 @@ class DPageController : DController, IPageController, IViewManager, ILayoutManag
         }
       );
 
-      if (this.session == Json(null)) {
+      if (this.session.isEmpty) {
         // debug writeln("session not found");
         _response.redirect("/login");
         return result;
@@ -207,7 +207,7 @@ class DPageController : DController, IPageController, IViewManager, ILayoutManag
         }
       );
 
-      if (this.site == Json(null)) {
+      if (this.site.isEmpty) {
         // debug writeln("site not found");
         _response.redirect("/login");
         return result;

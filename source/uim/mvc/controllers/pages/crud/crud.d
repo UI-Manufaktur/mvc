@@ -13,7 +13,7 @@ class DEntityCrudPageController : DEntityPageController {
 
   override bool beforeResponse(STRINGAA requestParameters) {
     debug writeln(moduleName!DEntityCrudPageController~":DEntityCrudPageController::beforeResponse");
-    if (!super.beforeResponse(requestParameters) || ("redirect" in requestParameters)) return false;
+    if (!super.beforeResponse(requestParameters) || ("redirect" in requestParameters)) { return false; }
     
     auto myInternalSession = manager.session(requestParameters);
 
