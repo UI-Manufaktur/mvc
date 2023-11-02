@@ -6,4 +6,9 @@
 module uim.mvc.commands.scanner;
 
 import uim.mvc;
+
 @safe:
+
+class DCommandScanner {
+
+}

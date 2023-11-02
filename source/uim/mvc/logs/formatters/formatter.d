@@ -3,7 +3,7 @@ module uim.mvc.logs.formatters.formatter;
 import uim.mvc;
 @safe:
 
-abstract class DFormatter {
+abstract class DLogFormatter {
   // Runtime config
   protected Json _config = null;
 
@@ -39,7 +39,7 @@ abstract class DFormatter {
     * @return this
     * @throws uim.cake.Core\exceptions.UIMException When trying to set a key that is invalid.
     */
-/*     DFormatter config(string aKey, IValue aValue = null, bool shouldMmerge = true) {
+/*     DLoFormatter config(string aKey, IValue aValue = null, bool shouldMmerge = true) {
       if (!_configInitialized) {
           _config = _defaultConfig;
           _configInitialized = true;
@@ -79,18 +79,18 @@ abstract class DFormatter {
     * this.getConfig("some-key", "default-value");
     * ```
     *
-    * @param string|null $key The key to get or null for the whole config.
-    * @param mixed $default The return value when the key does not exist.
-    * @return mixed Configuration data at the named key or null if the key does not exist.
+    * aKey - The key to get or null for the whole config.
+    * defaultValue - The return value when the key does not exist.
+    * returns Configuration data at the named key or null if the key does not exist.
     */
-/*     Json config(string aKey = null, IValue defaultValue = null) {
+/*     Json config(string aKey = null, Json defaultValue = Json(null)) {
       if (!_configInitialized) {
           _config = _defaultConfig;
           _configInitialized = true;
       }
 
         auto aValue = _configRead(aKey);
-      return (auto aValue = _configRead(aKey) ? aValue : defaultValue);
+      return (aValue.isNull ? defaultValue : aValue);
   } */
 
   /**
@@ -103,9 +103,9 @@ abstract class DFormatter {
     */
 /*   Json configOrFail(string aKey) {
       auto myConfig = this.getConfig(aKey);
-      /* if (myConfig == null) {
+      if (myConfig.isNull) {
           throw new InvalidArgumentException(sprintf("Expected configuration `%s` not found.", aKey));
-      } * /
+      }
 
       return myConfig;
   } */
@@ -135,7 +135,7 @@ abstract class DFormatter {
     * @param Json[string][]|string aKey The key to set, or a complete array of configs.
     * @param mixed|null $value The value to set.
     */
-  DFormatter configShallow(string aKey, IValue aValue = null) {
+  DLogFormatter configShallow(string aKey, Json aValue = null) {
 /*       if (!_configInitialized) {
           _config = _defaultConfig;
           _configInitialized = true;
@@ -149,8 +149,7 @@ abstract class DFormatter {
   /**
     * Reads a config key.
     *
-    * @param string|null $key Key to read.
-    * @return mixed
+    * aKey - Key to read.
     */
   protected Json _configRead(string aKey) {
       if (aKey == null) {

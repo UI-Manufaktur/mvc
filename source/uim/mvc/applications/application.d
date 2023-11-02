@@ -125,8 +125,8 @@ version(test_uim_apps) { unittest {
 	mixin(OProperty!("DEntityBase", "DEntityBase", "entityBase"));
 
 /*   mixin(OProperty!("DSecurityController", "securityController")); 
-  mixin(OProperty!("DAPPSecurityOptions", "securityOptions"));
-  O securityOptions(this O)(bool[string] newOptions) { this.securityOptions(APPSecurityOptions(newOptions)); return cast(O)this; }  
+  mixin(OProperty!("DSecurityOptions(", "securityOptions"));
+  O securityOptions(this O)(bool[string] newOptions) { this.securityOptions(SecurityOptions((newOptions)); return cast(O)this; }  
 
   override void afterInsertObj(DController appObject) {
     super.afterInsertObj(appObject);
