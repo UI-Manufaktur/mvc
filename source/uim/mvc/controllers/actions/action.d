@@ -22,7 +22,9 @@ class DActionController : DController/* , IActionController */ {
 
 	override bool beforeResponse(STRINGAA options = null) {
     debug writeln(moduleName!DActionController~":DActionController::beforeResponse");
-    if (!super.beforeResponse(options)) { return false; } 
+    if (!super.beforeResponse(options)) { 
+      return false; 
+    } 
 
 		return true;
 	}

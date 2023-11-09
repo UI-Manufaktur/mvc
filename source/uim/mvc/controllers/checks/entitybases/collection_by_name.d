@@ -23,7 +23,9 @@ class DDatabaseHasCollectionCheck : DDatabaseExistsCheck {
   
   override bool execute(STRINGAA options = null) {
     debug writeln(moduleName!DDatabaseHasCollectionCheck~":DDatabaseHasCollectionCheck::check");
-    if (!super.execute(options)) { return false; }
+    if (!super.execute(options)) { 
+      return false; 
+    }
 
     auto myEntityBase = manager.entityBase;
     if (!myEntityBase) {

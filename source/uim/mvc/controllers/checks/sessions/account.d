@@ -15,7 +15,9 @@ class DHasAccountCheck : DHasSessionCheck {
 
   override bool execute(STRINGAA options = null) {    
     debug writeln(moduleName!DHasAccountCheck~":DHasAccountCheck::execute");
-    if (!super.execute(options)) { return false; } 
+    if (!super.execute(options)) { 
+      return false; 
+    } 
 
     auto session = manager.session(options);
     if (!session.account) { // account missing 

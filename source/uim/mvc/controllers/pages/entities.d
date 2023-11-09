@@ -31,7 +31,9 @@ class DEntitiesPageController : DPageController {
 
   override bool beforeResponse(STRINGAA options = null) {
     debugMethodCall(moduleName!DPageController~":DPageController("~this.name~")::beforeResponse");
-    if (!super.beforeResponse(options)) { return false; }
+    if (!super.beforeResponse(options)) { 
+      return false; 
+    }
     
     this.entityName = options.get("entityName", null);
     this.sortBy = options.get("sortBy", null);

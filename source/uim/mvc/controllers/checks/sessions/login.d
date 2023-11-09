@@ -21,7 +21,9 @@ class DSessionHasLoginCheck : DHasSessionCheck {
   
   override bool execute(STRINGAA options = null) {
     debug writeln(moduleName!DSessionHasLoginCheck~":DSessionHasLoginCheck::check");
-    if (!super.execute(options)) { return false; }
+    if (!super.execute(options)) { 
+      return false; 
+    }
 
     if (!manager) { 
       debug writeln("manager missing");

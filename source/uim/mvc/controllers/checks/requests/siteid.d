@@ -21,7 +21,9 @@ class DRequestHasSiteIdCheck : DDatabaseHasAccountsCheck {
 
   override bool execute(STRINGAA options = null) {
     debug writeln(moduleName!DRequestHasSiteIdCheck~":DRequestHasSiteIdCheck::execute");
-    if (!super.execute(options)) { return false; }
+    if (!super.execute(options)) { 
+      return false; 
+    }
 
     if ("siteId" !in options) { // siteId  missing
       this.

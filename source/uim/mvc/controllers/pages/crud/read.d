@@ -49,7 +49,9 @@ class DEntityReadController : DEntityCrudPageController {
       return false; 
     }
 
- /*    if (!mySession.isValid(["session", "site"], options)) { return false; }  */
+ /*    if (!mySession.isValid(["session", "site"], options)) { 
+      return false; 
+    }  */
 
     if (!manager) {
       this.error("manager_missing");

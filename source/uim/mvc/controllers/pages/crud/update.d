@@ -37,7 +37,9 @@ override void initialize(Json configSettings = Json(null)) {
 
   override bool beforeResponse(STRINGAA options = null) {
     debug writeln(moduleName!DEntityUpdateController~":DEntityUpdateController::beforeResponse");
-    if (!super.beforeResponse(options) || "redirect" in options) { return false; }
+    if (!super.beforeResponse(options) || "redirect" in options) { 
+      return false; 
+    }
 
     auto session = manager.session(options);
 

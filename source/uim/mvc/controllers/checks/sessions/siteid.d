@@ -20,7 +20,9 @@ class DSessionHasSiteIdCheck : DHasHTTPSessionCheck {
   
   override bool execute(STRINGAA options = null) {
     debug writeln(moduleName!DSessionHasSiteIdCheck~":DSessionHasSiteIdCheck::execute");
-    if (!super.execute(options)) { return false; }
+    if (!super.execute(options)) { 
+      return false; 
+    }
 
     auto session = manager.session(options).session;
     if (!session["siteId"]) { // site id in session missing 

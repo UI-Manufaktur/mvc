@@ -232,7 +232,9 @@ auto hasAnyKey(Json parameters, string[] keys...) {
   return hasAnyKey(parameters, keys);
 }
 auto hasAnyKey(Json parameters, string[] keys) {
-  if (parameters ==  Json(null)) { return false; }
+  if (parameters ==  Json(null)) { 
+      return false; 
+    }
   foreach(key; keys) if (key in parameters) { return true; }
   return false;
 }
@@ -241,8 +243,12 @@ auto hasAllKey(Json parameters, string[] keys...) {
   return hasAllKey(parameters, keys);
 }
 auto hasAllKey(Json parameters, string[] keys) {
-  if (parameters.isEmpty) { return false; }
-  foreach(key; keys) if (key !in parameters) { return false; }
+  if (parameters.isEmpty) { 
+      return false; 
+    }
+  foreach(key; keys) if (key !in parameters) { 
+      return false; 
+    }
   return true;
 }
 

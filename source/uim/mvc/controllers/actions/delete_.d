@@ -22,7 +22,9 @@ class DDeleteActionController : DActionController {
   
   override bool beforeResponse(STRINGAA options = null) {
     debug writeln(moduleName!DDeleteActionController~":DDeleteActionController::beforeResponse");
-    if (!super.beforeResponse(options)) { return false; }
+    if (!super.beforeResponse(options)) { 
+      return false; 
+    }
 
     auto session = manager.session(options);
     auto site = session.site;

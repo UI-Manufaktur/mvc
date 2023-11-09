@@ -29,7 +29,9 @@ class DEntityPageController : DPageController {
 
   override bool beforeResponse(STRINGAA options = null) {
     debugMethodCall(moduleName!DEntityPageController~":DEntityPageController("~this.name~")::beforeResponse");
-    if (!super.beforeResponse(options)) { return false; }
+    if (!super.beforeResponse(options)) { 
+      return false; 
+    }
     
     this.entityName = options.get("entityName", null);
 

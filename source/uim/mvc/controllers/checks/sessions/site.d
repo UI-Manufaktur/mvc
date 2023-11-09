@@ -20,7 +20,9 @@ class DSessionHasSiteCheck : DHasSessionCheck {
   
   override bool execute(STRINGAA options = null) {
     debug writeln(moduleName!DSessionHasSiteCheck~":DSessionHasSiteCheck::check");
-    if (!super.execute(options)) { return false; }
+    if (!super.execute(options)) { 
+      return false; 
+    }
 
     auto mySession = manager.session(options);
     auto site = mySession.site;

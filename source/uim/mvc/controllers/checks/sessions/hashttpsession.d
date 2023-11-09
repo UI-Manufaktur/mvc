@@ -20,7 +20,9 @@ class DHasHTTPSessionCheck : DControllerCheck {
   
   override bool execute(STRINGAA options = null) {
     debug writeln(moduleName!DHasHTTPSessionCheck~":DHasHTTPSessionCheck::execute");
-    if (!super.execute(options)) { return false; }
+    if (!super.execute(options)) { 
+      return false; 
+    }
 
     if (!manager) { 
       debug writeln("manager missing");

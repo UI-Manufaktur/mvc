@@ -20,7 +20,9 @@ class DRequestHasAccountNameCheck : DDatabaseHasAccountsCheck {
 
   override bool execute(STRINGAA options = null) {
     debug writeln(moduleName!RequestHasAccountNameCheck~":RequestHasAccountNameCheck::execute");
-    if (!super.execute(options)) { return false; }
+    if (!super.execute(options)) { 
+      return false; 
+    }
 
     if ("accountName" !in options) { // Account  missing
       this.error("request_accountname_missing");

@@ -22,7 +22,9 @@ class DCreateActionController : DActionController {
   
   override bool beforeResponse(STRINGAA options = null) {
     debug writeln(moduleName!DCreateActionController~":DCreateActionController::beforeResponse");
-    if (!super.beforeResponse(options)) { return false; } 
+    if (!super.beforeResponse(options)) { 
+      return false; 
+    } 
 
     auto mySession = manager.session(options);
     if (mySession.isNull) {
@@ -36,7 +38,9 @@ class DCreateActionController : DActionController {
       return false; // TODO: Redirect to login 
     }
 
-    if (manager.isNull) { return false; } 
+    if (manager.isNull) { 
+      return false; 
+    } 
 
     if (!manager) {
       debug writeln("No manager");

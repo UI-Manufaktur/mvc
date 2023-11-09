@@ -24,7 +24,9 @@ class DUpdateActionController : DActionController {
   override bool beforeResponse(STRINGAA options = null) {
     debug writeln(moduleName!DUpdateActionController~":DUpdateActionController::beforeResponse");
     super.beforeResponse(options);   
-    if (hasError || "redirect" in options) { return false; }
+    if (hasError || "redirect" in options) { 
+      return false; 
+    }
 
     if (!manager) {
       this.error("manager_missing");

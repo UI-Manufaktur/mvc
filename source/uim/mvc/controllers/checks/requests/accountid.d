@@ -20,7 +20,9 @@ class DRequestHasAccountIdCheck : DDatabaseHasAccountsCheck {
 
   override bool execute(STRINGAA options = null) {
     debug writeln(moduleName!RequestHasAccountIdCheck~"::execute");
-    if (!super.execute(options)) { return false; }
+    if (!super.execute(options)) { 
+      return false; 
+    }
 
     if ("accountId" !in options) { // Account  missing
       this.error("request_accountid_missing");

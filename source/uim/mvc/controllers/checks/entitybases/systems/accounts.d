@@ -20,7 +20,9 @@ class DDatabaseHasAccountsCheck : DDatabaseHasSystemsCheck {
   
   override bool execute(STRINGAA options = null) {
     debug writeln(moduleName!DDatabaseHasAccountsCheck~":DDatabaseHasAccountsCheck::check");
-    if (!super.execute(options)) { return false; }
+    if (!super.execute(options)) { 
+      return false; 
+    }
 
     if (!manager) {
       this.error("manager_missing");

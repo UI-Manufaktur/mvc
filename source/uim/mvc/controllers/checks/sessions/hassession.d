@@ -26,7 +26,9 @@ class DHasSessionCheck : DControllerCheck {
 
   override bool execute(STRINGAA options = null) {    
     debug writeln(moduleName!DHasSessionCheck~":DHasSessionCheck::check");
-    if (!super.execute(options)) { return false; }
+    if (!super.execute(options)) { 
+      return false; 
+    }
 
     if (!manager) { 
       debug writeln("manager missing");

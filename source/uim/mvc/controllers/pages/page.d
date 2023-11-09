@@ -226,7 +226,9 @@ class DPageController : DController, IPageController, IViewManager, ILayoutManag
   // #region Response
     override bool beforeResponse(STRINGAA options = null) {
       debugMethodCall(moduleName!DPageController~":DPageController("~this.name~")::beforeResponse");
-      if (!super.beforeResponse(options)) { return false; }
+      if (!super.beforeResponse(options)) { 
+      return false; 
+    }
 
       return true;
     }    

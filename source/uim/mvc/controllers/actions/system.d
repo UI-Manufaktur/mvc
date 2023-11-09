@@ -19,7 +19,9 @@ class DSystemActionController : DActionController {
 
   override bool beforeResponse(STRINGAA options = null) {
     debugMethodCall(moduleName!DSystemActionController~":DSystemActionController("~this.name~")::beforeResponse");
-    if (!super.beforeResponse(options)) { return false; }    
+    if (!super.beforeResponse(options)) { 
+      return false; 
+    }    
     
     // this.entityTenant(ETBNullTenant).entityCollection(ETBNullCollection); // Clear
 
