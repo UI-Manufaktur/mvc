@@ -228,16 +228,6 @@ auto getValue(string[string] parameters, string[] keys, string defaultValue = ""
   return defaultValue;
 }
 
-auto hasAnyKey(Json parameters, string[] keys...) {
-  return hasAnyKey(parameters, keys);
-}
-auto hasAnyKey(Json parameters, string[] keys) {
-  if (parameters ==  Json(null)) { 
-      return false; 
-    }
-  foreach(key; keys) if (key in parameters) { return true; }
-  return false;
-}
 
 auto hasAllKey(Json parameters, string[] keys...) {
   return hasAllKey(parameters, keys);

@@ -42,6 +42,7 @@ mixin template ControllerContainerTemplate() {
       if (auto myManager = cast(IControllerManager)this.manager) {
         return myManager.controllerContainer;
       }
+      
       return null; 
     }  
     void controllerContainer(DControllerContainer aControllerContainer) {    
