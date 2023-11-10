@@ -5,8 +5,8 @@
 **********************************************************************************************************/
 module uim.mvc.commands.routes.route;
 
-@safe:
 import uim.mvc;
+@safe:
 
 // Provides interactive CLI tools for routing.
 class DRouteCommand : DCommand {
@@ -15,7 +15,7 @@ class DRouteCommand : DCommand {
     *
     * @param uim.cake.consoles.Arguments someArguments The command arguments.
     * aConsoleIo - The console io
-    * @return int|null The exit code or null for success
+    * returns The exit code or 0 for success
     * /
   int execute(Arguments someArguments, DConsoleIo aConsoleIo) {
       /* auto myHeader = ["Route name", "URI template", "Plugin", "Prefix", "Controller", "Action", "Method(s)"];
@@ -106,7 +106,6 @@ class DRouteCommand : DCommand {
     * Get the option parser.
     *
     * anParser - The option parser to update
-    * @return uim.cake.consoles.ConsoleOptionParser
     */
 /*   ConsoleOptionParser buildOptionParser(ConsoleOptionParser anParser) {
       $parser
