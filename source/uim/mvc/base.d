@@ -112,14 +112,13 @@ class DMVCObject : IMVCObject, IRegisterable {
   }
 
   O fromJson(this O)(Json values) {
-    if (values != Json(null)) {
+    if (values.isNull) { return cast(O)this; }
     
-      foreach (keyvalue; values.byKeyValue) {
-        this.parameter(
-          keyvalue.key,
-          keyvalue.value.get!string
-        );
-      }
+    foreach (keyvalue; values.byKeyValue) {
+      this.parameter(
+        keyvalue.key,
+        keyvalue.value.get!string
+      );
     }
       
     return cast(O)this;

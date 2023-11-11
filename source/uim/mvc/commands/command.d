@@ -36,7 +36,7 @@ class DCommand : IRegisterable {
         // commands just to make things a little easier on the developer. This is
         // so they don't have to all be manually specified in the constructors.
 /*         if (isset($this->signature)) {
-            $this->configureUsingFluentDefinition();
+            this.configureUsingFluentDefinition();
         } else {
             parent::__construct($this->name);
         }
@@ -44,14 +44,14 @@ class DCommand : IRegisterable {
         // Once we have constructed the command, we'll set the description and other
         // related properties of the command. If a signature wasn't used to build
         // the command we'll set the arguments and the options on this command.
-/*         $this->description((string) $this->description);
+/*         this.description((string) this.description);
 
-        $this->setHelp((string) $this->help);
+        this.setHelp((string) this.help);
 
-        $this->setHidden($this->isHidden());
+        this.setHidden($this->isHidden());
 
         if (! isset($this->signature)) {
-            $this->specifyParameters();
+            this.specifyParameters();
         } */
     }
 
@@ -64,18 +64,18 @@ class DCommand : IRegisterable {
         // After parsing the signature we will spin through the arguments and options
         // and set them on this command. These will already be changed into proper
         // instances of these "InputArgument" and "InputOption" Symfony classes.
-        $this->getDefinition()->addArguments($arguments);
-        $this->getDefinition()->addOptions($options);
+        this.getDefinition()->addArguments($arguments);
+        this.getDefinition()->addOptions($options);
  */    }
 
     // Run the console command.
     /* int run(IAPPInput input_, IAPPOutput output_) {
-         $this->output = $this->laravel->make(
+         this.output = this.laravel->make(
             OutputStyle::class, ['input' => $input, 'output' => $output]
         );
 
         return parent::run(
-            $this->input = $input, $this->output
+            this.input = $input, this.output
         ); 
         return 0;
      }*/
@@ -84,7 +84,7 @@ class DCommand : IRegisterable {
     /* int execute(IAPPInput input_, IAPPOutput output_) {
          $method = method_exists($this, 'handle') ? 'handle' : '__invoke';
 
-        return (int) $this->laravel->call([$this, $method]);
+        return (int) this.laravel->call([$this, $method]);
     return 0; 
       }*/
 
@@ -97,10 +97,10 @@ class DCommand : IRegisterable {
     /* protected function resolveCommand($command)
     {
         if (! class_exists($command)) {
-            return $this->getApplication()->find($command);
+            return this.getApplication()->find($command);
         }
 
-        $command = $this->laravel->make($command);
+        $command = this.laravel->make($command);
 
         if ($command instanceof SymfonyCommand) {
             $command->setApplication($this->getApplication());

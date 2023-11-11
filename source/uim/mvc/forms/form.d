@@ -27,7 +27,7 @@ class DForm : DViewComponent {  // : IEventListener, IEventDispatcher, IValidato
 
   /*   this(DEventManager newEventManager = null) {
         if (newEventManager) this.eventManager(newEventManager);
-        // $this->getEventManager()->on($this);
+        // this.getEventManager()->on($this);
 
          if (method_exists($this, "_buildValidator")) {
             deprecationWarning(
@@ -132,7 +132,7 @@ class DForm : DViewComponent {  // : IEventListener, IEventDispatcher, IValidato
         * schema or load a pre-defined one.
         */ // Has Schema?
         /*    if ($this->_schema === null) {
-                _schema = $this->_buildSchema(new $this->_schemaClass());
+                _schema = this._buildSchema(new this._schemaClass());
             }
     */
             return _schema;
@@ -148,7 +148,7 @@ class DForm : DViewComponent {  // : IEventListener, IEventDispatcher, IValidato
         DFormSchema schema(DFormSchema schema = null) {
         /*         deprecationWarning("Form::schema() is deprecated. Use setSchema() and getSchema() instead.");
             if ($schema !== null) {
-                $this->setSchema($schema);
+                this.setSchema($schema);
             }*/
             return getSchema();
         }
@@ -179,7 +179,7 @@ class DForm : DViewComponent {  // : IEventListener, IEventDispatcher, IValidato
      */
 /*     public function validate(array $data, ?string $validator = null): bool
     {
-        $this->_errors = $this->getValidator($validator ?: static::DEFAULT_VALIDATOR)
+        this._errors = this.getValidator($validator ?: static::DEFAULT_VALIDATOR)
             ->validate($data);
 
         return count($this->_errors) === 0;
@@ -195,7 +195,7 @@ class DForm : DViewComponent {  // : IEventListener, IEventDispatcher, IValidato
      */
 /*     public function getErrors(): array
     {
-        return $this->_errors;
+        return this._errors;
     } */
 
     /**
@@ -214,7 +214,7 @@ class DForm : DViewComponent {  // : IEventListener, IEventDispatcher, IValidato
      */
 /*     public function setErrors(array $errors)
     {
-        $this->_errors = $errors;
+        this._errors = $errors;
 
         return $this;
     } */
@@ -239,17 +239,17 @@ class DForm : DViewComponent {  // : IEventListener, IEventDispatcher, IValidato
      */
     /* public function execute(array $data, array $options = []): bool
     {
-        $this->_data = $data;
+        this._data = $data;
 
         $options += ["validate" => true];
 
         if ($options["validate"] === false) {
-            return $this->_execute($data);
+            return this._execute($data);
         }
 
         $validator = $options["validate"] === true ? static::DEFAULT_VALIDATOR : $options["validate"];
 
-        return $this->validate($data, $validator) ? $this->_execute($data) : false;
+        return this.validate($data, $validator) ? this._execute($data) : false;
     } */
 
     /**
@@ -290,8 +290,8 @@ class DForm : DViewComponent {  // : IEventListener, IEventDispatcher, IValidato
             $write = [$name => $value];
         }
 
-        foreach ($write as $key => $val) {
-            $this->_data = Hash::insert($this->_data, $key, $val);
+        write.byKeyValue.each!kv => 
+        this._data = Hash::insert($this->_data, kv.key, kv.values);
         } 
         return cast(O)this;
     }*/ 
@@ -304,9 +304,9 @@ class DForm : DViewComponent {  // : IEventListener, IEventDispatcher, IValidato
     /* public function __debugInfo(): array
     {
         $special = [
-            "_schema" => $this->getSchema()->__debugInfo(),
-            "_errors" => $this->getErrors(),
-            "_validator" => $this->getValidator()->__debugInfo(),
+            "_schema" => this.getSchema()->__debugInfo(),
+            "_errors" => this.getErrors(),
+            "_validator" => this.getValidator()->__debugInfo(),
         ];
 
         return $special + get_object_vars($this);

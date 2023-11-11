@@ -8,8 +8,10 @@ module uim.mvc.applications.application;
 import uim.mvc;
 
 @safe:
-class DApplication : DMVCObject/* , IApplication */ { 
-  this() { super(); }
+class DApplication : DMVCObject /* , IApplication */ {
+  this() {
+    super();
+  }
 
   override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
@@ -19,12 +21,11 @@ class DApplication : DMVCObject/* , IApplication */ {
       .registerPath(className.toLower);
   }
 
-  
-
   O register(this O)(URLRouter router) {
-    debug writeln("Link Path '%s'".format(rootPath~"*"));
-    router.any(rootPath~"*", &this.request);
-    return cast(O)this; }
+    debug writeln("Link Path '%s'".format(rootPath ~ "*"));
+    router.any(rootPath ~ "*", &this.request);
+    return cast(O) this;
+  }
 
   /* void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse) {
     request(newRequest, newResponse, null); }
@@ -51,7 +52,10 @@ class DApplication : DMVCObject/* , IApplication */ {
     }
   } */
 }
-auto Application() { return new DApplication; }
+
+auto Application() {
+  return new DApplication;
+}
 
 /*
 
