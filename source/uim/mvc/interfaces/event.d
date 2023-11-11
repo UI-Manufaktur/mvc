@@ -1,6 +1,7 @@
 module uim.mvc.interfaces.event;
 
 import uim.mvc;
+
 @safe:
 
 interface IEvent : IMVCObject {
@@ -22,6 +23,7 @@ interface IEvent : IMVCObject {
 
     // Accesses the event data/payload. If the key does not exist a null value is returned.
     STRINGAA data(string key);
+    
     // Accesses the event data/payload. If the keys do not exist a null value is returned. If keys = null all data will be returned
     STRINGAA data(string[] keys = null);
 

@@ -11,8 +11,11 @@ import uim.mvc;
 class DJsonView : DView {
   mixin(ViewThis!("JsonView"));
 }
+
 mixin(ViewCalls!("JsonView", "DJsonView"));
 
-version(test_uim_mvc) { unittest {
-  assert(JsonView);
-}}
+version (test_uim_mvc) {
+  unittest {
+    assert(JsonView);
+  }
+}

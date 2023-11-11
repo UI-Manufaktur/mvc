@@ -8,19 +8,26 @@ module uim.mvc.commands.factories.factory;
 import uim.mvc;
 
 @safe:
-class DCommandFactory /* : ICommandFactory */ {
-  this() { initialize; }
+class DCommandFactory : ICommandFactory {
+  this() {
+    initialize;
+  }
 
   override void initialize(Json configSettings = Json(null)) {
-    super.initialize(configSettings); 
+    super.initialize(configSettings);
   }
-  
-  /* ICommand create(string name) {
-      return null;
-  } */
-}
-auto CommandFactory() { return new DCommandFactory; }
 
-version(test_uim_mvc) { unittest {
-  assert(CommandFactory);
-}}
+  ICommand create(string aCommandName) {
+    return null;
+  }
+}
+
+auto CommandFactory() {
+  return new DCommandFactory;
+}
+
+version (test_uim_mvc) {
+  unittest {
+    assert(CommandFactory);
+  }
+}

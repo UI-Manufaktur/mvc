@@ -1,6 +1,7 @@
 module uim.mvc.logs.formatters.formatter;
 
 import uim.mvc;
+
 @safe:
 
 abstract class DLogFormatter {
@@ -39,7 +40,7 @@ abstract class DLogFormatter {
     * @return this
     * @throws uim.cake.Core\exceptions.UIMException When trying to set a key that is invalid.
     */
-/*     DLoFormatter config(string aKey, IValue aValue = null, bool shouldMmerge = true) {
+  /*     DLoFormatter config(string aKey, IValue aValue = null, bool shouldMmerge = true) {
       if (!_configInitialized) {
           _config = _defaultConfig;
           _configInitialized = true;
@@ -83,7 +84,7 @@ abstract class DLogFormatter {
     * defaultValue - The return value when the key does not exist.
     * returns Configuration data at the named key or null if the key does not exist.
     */
-/*     Json config(string aKey = null, Json defaultValue = Json(null)) {
+  /*     Json config(string aKey = null, Json defaultValue = Json(null)) {
       if (!_configInitialized) {
           _config = _defaultConfig;
           _configInitialized = true;
@@ -101,7 +102,7 @@ abstract class DLogFormatter {
     * aKey -  The key to get.
     * returns Configuration data at the named key
     */
-/*   Json configOrFail(string aKey) {
+  /*   Json configOrFail(string aKey) {
       auto myConfig = this.getConfig(aKey);
       if (myConfig.isNull) {
           throw new InvalidArgumentException(sprintf("Expected configuration `%s` not found.", aKey));
@@ -136,14 +137,14 @@ abstract class DLogFormatter {
     * @param mixed|null $value The value to set.
     */
   DLogFormatter configShallow(string aKey, Json aValue = null) {
-/*       if (!_configInitialized) {
+    /*       if (!_configInitialized) {
           _config = _defaultConfig;
           _configInitialized = true;
       }
 
       _configWrite($key, $value, "shallow"); */
 
-      return this;
+    return this;
   }
 
   /**
@@ -152,16 +153,16 @@ abstract class DLogFormatter {
     * aKey - Key to read.
     */
   protected Json _configRead(string aKey) {
-      if (aKey == null) {
-          return _config;
-      }
+    if (aKey == null) {
+      return _config;
+    }
 
-/*       if (aKey.indexOf(".") != -1) {
+    /*       if (aKey.indexOf(".") != -1) {
         return _config.get(aKey, null);
       } */
 
-      auto result = _config;
-/* 
+    auto result = _config;
+    /* 
       foreach (myKeyPart; aKey.split(".")) {
           if (!is_array($return) || !isSet($return, myKeyPart)) {
               $return = null;
@@ -171,7 +172,7 @@ abstract class DLogFormatter {
           result = $return[myKeyPart];
       } */
 
-      return result;
+    return result;
   }
 
   /**

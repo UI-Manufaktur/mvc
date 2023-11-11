@@ -6,6 +6,7 @@
 module uim.mvc.commands.routes.route;
 
 import uim.mvc;
+
 @safe:
 
 // Provides interactive CLI tools for routing.
@@ -107,7 +108,7 @@ class DRouteCommand : DCommand {
     *
     * anParser - The option parser to update
     */
-/*   ConsoleOptionParser buildOptionParser(ConsoleOptionParser anParser) {
+  /*   ConsoleOptionParser buildOptionParser(ConsoleOptionParser anParser) {
       $parser
           .description("Get the list of routes connected in this application.")
           .addOption("sort", [

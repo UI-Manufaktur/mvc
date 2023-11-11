@@ -18,11 +18,14 @@ class DNullView : DView {
     return null;
   }
 }
+
 mixin(ViewCalls!("NullView"));
 
-version(test_uim_mvc) { unittest {
+version (test_uim_mvc) {
+  unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
 
     assert(NullView.name == "NullView");
     assert(NullView.name("newView").name == "newView");
-}}
+  }
+}
