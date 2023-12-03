@@ -5,5 +5,5 @@ import uim.mvc;
 
 interface IRequestHandler {
   void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse);
-  void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse, string[string] options);
+  void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse, STRINGAA options);
 }

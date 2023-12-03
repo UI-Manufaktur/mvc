@@ -22,12 +22,12 @@ string LayoutCalls(string shortName, string className) {
     auto `~shortName~`() { return new `~className~`; }
     auto `~shortName~`(IApplication myApplication) { return new `~className~`(myApplication); }
     auto `~shortName~`(string myName) { return new `~className~`(myName); }
-    auto `~shortName~`(string[string] myParameters) { return new `~className~`(myParameters); }
+    auto `~shortName~`(STRINGAA myParameters) { return new `~className~`(myParameters); }
 
-    auto `~shortName~`(string myName, string[string] myParameters) { return new `~className~`(myName, myParameters); }
+    auto `~shortName~`(string myName, STRINGAA myParameters) { return new `~className~`(myName, myParameters); }
 
     auto `~shortName~`(IApplication myApplication, string myName) { return new `~className~`(myApplication, myName); }
-    auto `~shortName~`(IApplication myApplication, string[string] myParameters) { return new `~className~`(myApplication, myParameters); }
+    auto `~shortName~`(IApplication myApplication, STRINGAA myParameters) { return new `~className~`(myApplication, myParameters); }
   `;
 }
 

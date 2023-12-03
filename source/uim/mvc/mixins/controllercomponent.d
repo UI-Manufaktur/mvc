@@ -14,8 +14,8 @@ string controllerComponentThis(string name) {
   `
     this(IControllerComponentManager aManager) { this().manager(aManager); }
     this(IControllerComponentManager aManager, string aName) { this(aManager).name(aName); }
-    this(IControllerComponentManager aManager, string[string] someParameters) { this(aManager).parameters(someParameters); }
-    this(IControllerComponentManager aManager, string aName, string[string] someParameters) { this(aManager, aName).parameters(someParameters); }
+    this(IControllerComponentManager aManager, STRINGAA someParameters) { this(aManager).parameters(someParameters); }
+    this(IControllerComponentManager aManager, string aName, STRINGAA someParameters) { this(aManager, aName).parameters(someParameters); }
   `;
 }
 
@@ -29,12 +29,12 @@ string mvcControllerComponentCalls(string shortName, string className = null) {
     auto `~shortName~`() { return new `~clName~`; }
     auto `~shortName~`(IControllerComponentManager aManager) { return new `~clName~`(aManager); }
     auto `~shortName~`(string aName) { return new `~clName~`(aName); }
-    auto `~shortName~`(string[string] someParameters) { return new `~clName~`(someParameters); }
+    auto `~shortName~`(STRINGAA someParameters) { return new `~clName~`(someParameters); }
 
-    auto `~shortName~`(string aName, string[string] someParameters) { return new `~clName~`(aName, someParameters); }
+    auto `~shortName~`(string aName, STRINGAA someParameters) { return new `~clName~`(aName, someParameters); }
 
     auto `~shortName~`(IControllerComponentManager aManager, string aName) { return new `~clName~`(aManager, aName); }
-    auto `~shortName~`(IControllerComponentManager aManager, string[string] someParameters) { return new `~clName~`(aManager, someParameters); }
+    auto `~shortName~`(IControllerComponentManager aManager, STRINGAA someParameters) { return new `~clName~`(aManager, someParameters); }
   `;
 }
 

@@ -10,7 +10,7 @@ interface ISessionManager {
   ISession[] sessions();
   string[] sessionIds();
 
-  ISession session(string[string] options);
+  ISession session(STRINGAA options);
   ISession session(string httpSessionId);
 
   bool hasSession(ISession aSession);

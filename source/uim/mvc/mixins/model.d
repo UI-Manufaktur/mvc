@@ -25,12 +25,12 @@ string mvcModelCalls(string shortName, string className = null) {
     auto `~shortName~`() { return new `~className~`; }
     auto `~shortName~`(IApplication anApplication) { return new `~className~`(anApplication); }
     auto `~shortName~`(string aName) { return new `~className~`(aName); }
-    auto `~shortName~`(string[string] someParameters) { return new `~className~`(someParameters); }
+    auto `~shortName~`(STRINGAA someParameters) { return new `~className~`(someParameters); }
 
-    auto `~shortName~`(string aName, string[string] someParameters) { return new `~className~`(aName, someParameters); }
+    auto `~shortName~`(string aName, STRINGAA someParameters) { return new `~className~`(aName, someParameters); }
 
     auto `~shortName~`(IApplication anApplication, string aName) { return new `~className~`(anApplication, aName); }
-    auto `~shortName~`(IApplication anApplication, string[string] someParameters) { return new `~className~`(anApplication, someParameters); }
+    auto `~shortName~`(IApplication anApplication, STRINGAA someParameters) { return new `~className~`(anApplication, someParameters); }
   `;
 }
 

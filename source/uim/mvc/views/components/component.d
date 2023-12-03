@@ -51,7 +51,7 @@ class DViewComponent : DMVCObject, IViewComponent, IViewComponentManager {
   mixin(MVCParameter!("debugPrefix")); 
 
   mixin(OProperty!("string[]", "classes"));
-  mixin(OProperty!("string[string]", "attributes"));
+  mixin(OProperty!("STRINGAA", "attributes"));
 
   void beforeH5(STRINGAA options = null) {
     version(test_uim_mvc) { debugMethodCall(moduleName!DViewComponent~":DViewComponent("~this.name~")::beforeH5"); }

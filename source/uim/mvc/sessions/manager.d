@@ -25,10 +25,10 @@ class DSessionManager : ISessionManager {
 			_sessions[aSession.httpSessionId] = aSession;
 		}
 
-		ISession session(string httpSessionId, string[string] options = null) {
+		ISession session(string httpSessionId, STRINGAA options = null) {
 			return _sessions.get(httpSessionId, null);
 		}
-		ISession session(string[string] options) {
+		ISession session(STRINGAA options) {
 			return _sessions.get(
 				options.get("sessionId", null), null);
 		}

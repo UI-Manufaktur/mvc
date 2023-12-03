@@ -120,12 +120,12 @@ class DController : DMVCObject, IController, IControllerComponentManager, ISessi
     return (this.redirectUrl.length > 0);
   }
   
-  Json message(string[string] options) {
+  Json message(STRINGAA options) {
     auto json = message(Json.emptyObject, options);
     return json;
   }
 
-  Json message(Json json, string[string] options) {    
+  Json message(Json json, STRINGAA options) {    
     if ("errors" !in json) json["errors"] = Json.emptyArray;
     if ("warnings" !in json) json["warnings"] = Json.emptyArray;
     if ("infos" !in json) json["infos"] = Json.emptyArray;
@@ -134,9 +134,9 @@ class DController : DMVCObject, IController, IControllerComponentManager, ISessi
     return json;
   }
 
-  auto requestParameters(string[string] defaultValues = null) {
+  auto requestParameters(STRINGAA defaultValues = null) {
     debugMethodCall(moduleName!DController~":DController("~this.name~")::requestParameters");
-    string[string] result = defaultValues.dup; 
+    STRINGAA result = defaultValues.dup; 
     this
       .httpMode((this.request.fullURL.toString.indexOf("https") == 0 ? "https" : "http"))
       .stringRequest(this.request.toString)
@@ -166,7 +166,7 @@ class DController : DMVCObject, IController, IControllerComponentManager, ISessi
   }
 
   // #region Response
-    bool beforeResponse(string[string] options = null) { // Hook
+    bool beforeResponse(STRINGAA options = null) { // Hook
       debugMethodCall(moduleName!DController~":DController("~this.name~")::beforeResponse");
 
       this.error = null;
@@ -194,7 +194,7 @@ class DController : DMVCObject, IController, IControllerComponentManager, ISessi
       return true;
     }    
 
-    void afterResponse(string[string] options = null) { // Hook
+    void afterResponse(STRINGAA options = null) { // Hook
       debugMethodCall(moduleName!DController~":DController::afterResponse");
 
       if (this.error) {
@@ -207,7 +207,7 @@ class DController : DMVCObject, IController, IControllerComponentManager, ISessi
       }
     }
 
-    string stringResponse(string[string] options = null) { // Hook
+    string stringResponse(STRINGAA options = null) { // Hook
       debugMethodCall(moduleName!DController~":DController::stringResponse");
       return "";
     }

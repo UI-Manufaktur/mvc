@@ -15,13 +15,13 @@ string mvcObjectThis(string name) {
     this(IApplication myApplication, Json configSettings = Json(null)) { this(configSettings).application(myApplication); }
 
     this(string myName, Json configSettings = Json(null)) { this(configSettings).name(myName); }
-    this(string[string] myParameters, Json configSettings = Json(null)) { this(configSettings).parameters(myParameters); }
+    this(STRINGAA myParameters, Json configSettings = Json(null)) { this(configSettings).parameters(myParameters); }
 
     this(IApplication myApplication, string myName, Json configSettings = Json(null)) { this(myApplication, configSettings).name(myName); }
-    this(IApplication myApplication, string[string] myParameters, Json configSettings = Json(null)) { this(myApplication, configSettings).parameters(myParameters); }
+    this(IApplication myApplication, STRINGAA myParameters, Json configSettings = Json(null)) { this(myApplication, configSettings).parameters(myParameters); }
 
-    this(string myName, string[string] myParameters, Json configSettings = Json(null)) { this(name, configSettings).parameters(myParameters); }
-    this(IApplication myApplication, string myName, string[string] myParameters, Json configSettings = Json(null)) { this(myApplication, name, configSettings).parameters(myParameters); }
+    this(string myName, STRINGAA myParameters, Json configSettings = Json(null)) { this(name, configSettings).parameters(myParameters); }
+    this(IApplication myApplication, string myName, STRINGAA myParameters, Json configSettings = Json(null)) { this(myApplication, name, configSettings).parameters(myParameters); }
 
     override DMVCObject create() {
       return `~name~`;
@@ -39,12 +39,12 @@ string mvcObjectCalls(string shortName, string className = null) {
     auto `~shortName~`() { return new `~clName~`; }
     auto `~shortName~`(IApplication myApplication) { return new `~clName~`(myApplication); }
     auto `~shortName~`(string myName) { return new `~clName~`(myName); }
-    auto `~shortName~`(string[string] myParameters) { return new `~clName~`(myParameters); }
+    auto `~shortName~`(STRINGAA myParameters) { return new `~clName~`(myParameters); }
 
-    auto `~shortName~`(string myName, string[string] myParameters) { return new `~clName~`(myName, myParameters); }
+    auto `~shortName~`(string myName, STRINGAA myParameters) { return new `~clName~`(myName, myParameters); }
 
     auto `~shortName~`(IApplication myApplication, string myName) { return new `~clName~`(myApplication, myName); }
-    auto `~shortName~`(IApplication myApplication, string[string] myParameters) { return new `~clName~`(myApplication, myParameters); }
+    auto `~shortName~`(IApplication myApplication, STRINGAA myParameters) { return new `~clName~`(myApplication, myParameters); }
   `;
 }
 

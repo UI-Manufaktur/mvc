@@ -55,7 +55,7 @@ mixin template SessionManagerTemplate() {
     }
   // #endregion sessions
 
-  ISession session(string[string] options) {
+  ISession session(STRINGAA options) {
     return session(options.get("httpSessionId", null));
   }  
   ISession session(string httpSessionId) {

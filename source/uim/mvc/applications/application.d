@@ -29,7 +29,7 @@ class DApplication : DMVCObject/* , IApplication */ {
   /* void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse) {
     request(newRequest, newResponse, null); }
 
-  void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse, string[string] options) {
+  void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse, STRINGAA options) {
 		debugMethodCall(moduleName!Application~":Application("~this.name~")::request(req, res, requestParameters)");
 
     writeln("rootPath = '%s'".format(this.rootPath));

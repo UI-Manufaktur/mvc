@@ -61,7 +61,7 @@ DEntity[][size_t] entitiesPool;
 size_t appErrorPrefix = 100000; 
 string[size_t] appErrorCodes; 
 
-Json toEntitySelect(string[string] data) {
+Json toEntitySelect(STRINGAA data) {
   string eid = data.get("entity_id", data.get("id", ""));
   if (eid.empty) return Json(null);
 
@@ -71,7 +71,7 @@ Json toEntitySelect(string[string] data) {
   return result;
 }
 
-auto urlToSelect(string[string] data) {
+auto urlToSelect(STRINGAA data) {
     writeln("DATA -> ", data);
     Json result = Json.emptyObject;
 
@@ -106,7 +106,7 @@ string entityToUrl(DEntity entity) {
     return "id=%s&name=%s&number=%s".format(entity.id, entity.name, entity.versionNumber);
 }
 
-string identityToUrl(string[string] data) {
+string identityToUrl(STRINGAA data) {
     string[] result; 
     if ("id" in data) result ~= "id=%s".format(data["id"]);
 /*     if ("name" in data) result ~= "name=%s".format(data["name"]);
@@ -115,7 +115,7 @@ string identityToUrl(string[string] data) {
 }
 
 auto readTranslations(string file) {
-  string[string] results;
+  STRINGAA results;
 
   if (file.exists) {
     import std.datetime;
@@ -212,18 +212,18 @@ auto readOrCreateSession(HTTPServerRequest req, HTTPServerResponse res) {
 }
 
 // internal switch
-void pageRedirect(HTTPServerResponse response, string[string] parameters, string path, bool useResponse = false) {
+void pageRedirect(HTTPServerResponse response, STRINGAA parameters, string path, bool useResponse = false) {
   if (useResponse) response.redirect(path);
   else parameters["redirect"] = path;
 }
 
 // Helper function to add Scriptcode in parameters["script"]
-string[string] addToPageScript(string[string] parameters, string script) {
+STRINGAA addToPageScript(STRINGAA parameters, string script) {
   parameters["script"] = parameters.get("script", "")~script;
   return parameters;
 }
 
-auto getValue(string[string] parameters, string[] keys, string defaultValue = "") {
+auto getValue(STRINGAA parameters, string[] keys, string defaultValue = "") {
   foreach(key; keys) if (key in parameters) return parameters[key];
   return defaultValue;
 }

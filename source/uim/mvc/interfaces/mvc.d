@@ -13,7 +13,7 @@ interface IMVCObject {
   void set(string aKey, string aValue);
   string get(string aKey);
 
-  string[string] parameters(); 
+  STRINGAA parameters(); 
   Json toJson();
 
   string debugInfo();

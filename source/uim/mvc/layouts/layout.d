@@ -301,7 +301,7 @@ version(test_uim_mvc) { unittest {
       return BS5NavbarNav(this.navSlots);
     }
 
-    override string toString(IPageController page, string[string] requestParameters) {
+    override string toString(IPageController page, STRINGAA requestParameters) {
       foreach(k,v; parameters) if (k !in requestParameters) requestParameters[k] = v;
       foreach(k,v; page.parameters) if (k !in requestParameters) requestParameters[k] = v;
       if (auto app = page.app) {
@@ -321,7 +321,7 @@ version(test_uim_mvc) { unittest {
     }
 }
 
-auto navigation(string[string] requestParameters) {
+auto navigation(STRINGAA requestParameters) {
   auto rootPath = requestParameters.get("rootPath", "/");
 
   return 
@@ -423,7 +423,7 @@ string footer(STRINGAA requestParameters) {
       H5P(["m-0 text-center text-white"], "Copyright &copy; 2017 - 2021 UI Manufaktur UG"))).toString;
 }
 
-auto newNavbar(string[string] Parameters) {
+auto newNavbar(STRINGAA Parameters) {
 // `<nav class="`~parameters.get("navClasses", "navbar navbar-expand-lg bg-info fixed-top")~`>
 
     return 
@@ -674,7 +674,7 @@ version(test_uim_apps) { unittest {
       return BS5NavbarNav(this.navSlots);
     }
 
-    override string toString(DPageController page, string[string] reqParameters) {
+    override string toString(DPageController page, STRINGAA reqParameters) {
       foreach(k,v; parameters) if (k !in reqParameters) reqParameters[k] = v;
       foreach(k,v; page.parameters) if (k !in reqParameters) reqParameters[k] = v;
       if (auto app = page.app) {
@@ -694,7 +694,7 @@ version(test_uim_apps) { unittest {
     }
 }
 
-auto navigation(string[string] reqParameters) {
+auto navigation(STRINGAA reqParameters) {
   auto rootPath = reqParameters.get("rootPath", "/");
 
   return 
@@ -796,7 +796,7 @@ string footer(STRINGAA reqParameters) {
       H5P(["m-0 text-center text-white"], "Copyright &copy; 2017 - 2021 UI Manufaktur UG"))).toString;
 }
 
-auto newNavbar(string[string] Parameters) {
+auto newNavbar(STRINGAA Parameters) {
 // `<nav class="`~parameters.get("navClasses", "navbar navbar-expand-lg bg-info fixed-top")~`>
 
     return 

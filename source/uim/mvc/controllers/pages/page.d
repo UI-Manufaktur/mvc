@@ -233,7 +233,7 @@ class DPageController : DController, IPageController, IViewManager, ILayoutManag
       return true;
     }    
 
-    override string stringResponse(string[string] someOptions = null) {
+    override string stringResponse(STRINGAA someOptions = null) {
       debugMethodCall(moduleName!DPageController~":DPageController("~name~")::stringResponse");
       super.stringResponse(someOptions);
       // if (hasError) { return null; }

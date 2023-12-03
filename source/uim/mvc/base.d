@@ -14,11 +14,11 @@ class DMVCObject : IMVCObject, IRegisterable {
   this(Json configSettings) { this().initialize(configSettings); }
   this(IApplication newApplication, Json configSettings = Json(null)) { this(configSettings).application(newApplication); }
   this(string newName, Json configSettings = Json(null)) { this(configSettings).name(newName); }
-  this(string[string] newParameters, Json configSettings = Json(null)) { this(configSettings).parameters(newParameters); }
+  this(STRINGAA newParameters, Json configSettings = Json(null)) { this(configSettings).parameters(newParameters); }
   this(IApplication newApplication, string newName, Json configSettings = Json(null)) { this(newApplication).name(newName); }
-  this(IApplication newApplication, string[string] newParameters, Json configSettings = Json(null)) { this(newApplication,configSettings).parameters(newParameters); }
-  this(string newName, string[string] newParameters, Json configSettings = Json(null)) { this(newName, configSettings).parameters(newParameters); }
-  this(IApplication newApplication, string newName, string[string] newParameters, Json configSettings = Json(null)) { this(newApplication, newName, configSettings).parameters(newParameters); }
+  this(IApplication newApplication, STRINGAA newParameters, Json configSettings = Json(null)) { this(newApplication,configSettings).parameters(newParameters); }
+  this(string newName, STRINGAA newParameters, Json configSettings = Json(null)) { this(newName, configSettings).parameters(newParameters); }
+  this(IApplication newApplication, string newName, STRINGAA newParameters, Json configSettings = Json(null)) { this(newApplication, newName, configSettings).parameters(newParameters); }
 
   void initialize(Json configSettings = Json(null)) {
     // Code for object initialization
@@ -61,7 +61,7 @@ class DMVCObject : IMVCObject, IRegisterable {
   mixin(OProperty!("Json", "config"));
 
   // #region Parameters
-    mixin(OProperty!("string[string]", "parameters")); 
+    mixin(OProperty!("STRINGAA", "parameters")); 
     bool hasParameter(string key) {
       return key in _parameters ? true : false;
     }

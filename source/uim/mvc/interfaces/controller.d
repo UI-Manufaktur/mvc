@@ -38,5 +38,5 @@ interface IController : IMVCObject, ICheckManager, IControllerComponentManager {
   string persistent();
   string redirectUrl(); // Url in case of an redirect
 
-  void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse, string[string] options = null);
+  void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse, STRINGAA options = null);
 }

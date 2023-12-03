@@ -19,10 +19,10 @@ import uim.mvc;
       .isNull(true);
   }
 
-	override ISession session(string httpSessionId, string[string] options = null) {
+	override ISession session(string httpSessionId, STRINGAA options = null) {
 		return null; // NullSession;
 	}
-	override ISession session(string[string] options) {
+	override ISession session(STRINGAA options) {
 		return null; // NullSession;
 	}
 }

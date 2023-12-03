@@ -63,7 +63,7 @@ class DForm : DViewComponent {  // : IEventListener, IEventDispatcher, IValidato
     protected string[] _errors; */
 
   // #region Properties
-    mixin(OProperty!("string[string]", "defaults"));
+    mixin(OProperty!("STRINGAA", "defaults"));
     mixin(OProperty!("string[]", "fields"));
     // mixin(OProperty!("DMVCPanes", "panes"));
     mixin(MVCParameter!("action"));

@@ -64,7 +64,7 @@ class DSecondNavbar : DViewComponent {
   this() { super(); }
 
   mixin(OProperty!("DNavbarSlotViewComponent[]", "slots"));
-  mixin(OProperty!("string[string]", "brand"));
+  mixin(OProperty!("STRINGAA", "brand"));
 
   override DH5Obj[] toH5(STRINGAA options = null) {
     auto container = BS5Container.fluid;
@@ -174,8 +174,8 @@ class DSecondNavbar : DViewComponent {
   mixin(OProperty!("DNavbarSlotViewComponent[]", "rightSlots"));
   mixin(OProperty!("DNavbarSlotViewComponent[]", "leftSlotsWithLogin"));
   mixin(OProperty!("DNavbarSlotViewComponent[]", "rightSlotsWithLogin"));
-  mixin(OProperty!("string[string]", "brand"));
-  mixin(OProperty!("string[string]", "brandWithLogin"));
+  mixin(OProperty!("STRINGAA", "brand"));
+  mixin(OProperty!("STRINGAA", "brandWithLogin"));
 
   override DH5Obj[] toH5(STRINGAA options = null) { // hook
     super.toH5(options);
