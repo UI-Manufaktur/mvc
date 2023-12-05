@@ -7,3 +7,6 @@ module uim.mvc.security;
 
 import uim.mvc;
 
+public {
+	import uim.mvc.security.options;
+}

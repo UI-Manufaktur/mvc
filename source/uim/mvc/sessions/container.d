@@ -10,4 +10,7 @@ import uim.mvc;
 @safe:
 class DSessionContainer : DNamedContainer!ISession {
 }
-auto SessionContainer() { return new DSessionContainer(); }
+
+auto SessionContainer() {
+	return new DSessionContainer();
+}

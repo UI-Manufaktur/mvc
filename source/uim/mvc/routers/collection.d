@@ -15,12 +15,8 @@ import uim.mvc;
  * and parsing/generating URLs with the routes it contains.
  */
 class DRouterCollection {
-    /**
-    * The routes connected to this collection.
-    *
-    * @var array<string, DRoute>>
-    */
-  protected DRoute[string][] _routeTable = null;
+  // The routes connected to this collection.
+  protected DRoute[string][] _routesTable = null;
 
   // The hash map of named routes that are in this collection.
   protected DRoute[string] _named = null;

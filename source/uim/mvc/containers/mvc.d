@@ -82,11 +82,12 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
 
     // Determine if the given abstract type has been bound.
     bool bound(string abstract_) {
-/*         return isset($this.bindings[$abstract]) ||
+        /*         return isset($this.bindings[$abstract]) ||
                isset($this.instances[$abstract]) ||
                $this.isAlias($abstract);
- */    
-    return false; }
+ */
+        return false;
+    }
 
     bool has(string id) {
         // return _bound($id);
@@ -95,47 +96,52 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
 
     // Determine if the given abstract type has been resolved.
     bool resolved(string abstract_) {
-/*         if ($this.isAlias($abstract)) {
+        /*         if ($this.isAlias($abstract)) {
             $abstract = $this.getAlias($abstract);
         }
 
         return isset($this.resolved[$abstract]) ||
                isset($this.instances[$abstract]);
- */    return false; }
+ */
+        return false;
+    }
 
     // Determine if a given type is shared.
     bool isShared(string abstract_) {
-/*         return isset($this.instances[$abstract]) ||
+        /*         return isset($this.instances[$abstract]) ||
                (isset($this.bindings[$abstract]['shared']) &&
                $this.bindings[$abstract]['shared'] === true);
- */   return false; }
+ */
+        return false;
+    }
 
     // Determine if a given string is an alias.
     bool isAlias(string name) {
-      //  return isset($this.aliases[$name]);
-      return false; }
+        //  return isset($this.aliases[$name]);
+        return false;
+    }
 
     // Register a binding with the container.
-/*      *
+    /*      *
      * @param  string  $abstract
      * @param  \Closure|string|null  $concrete
      * @param  bool  $shared
      * @throws \TypeError
- */    
-      O bind(this O)(string abstract_, string concrete = null, bool shared_ = false) {
-/*         $this.dropStaleInstances($abstract);
+ */
+    O bind(this O)(string abstract_, string concrete = null, bool shared_ = false) {
+        /*         $this.dropStaleInstances($abstract);
  */
         // If no concrete type was given, we will simply set the concrete type to the
         // abstract type. After that, the concrete type to be registered as shared
         // without being forced to state their classes in both of the parameters.
-/*         if (is_null($concrete)) {
+        /*         if (is_null($concrete)) {
             $concrete = $abstract;
         }
  */
         // If the factory is not a Closure, it means it is just a class name which is
         // bound into this container to the abstract type and we will just wrap it
         // up inside its own Closure to give us more convenience when extending.
-/*         if (! $concrete instanceof Closure) {
+        /*         if (! $concrete instanceof Closure) {
             if (! is_string($concrete)) {
                 throw new TypeError(self::class.'::bind(): Argument #2 ($concrete) must be of type Closure|string|null');
             }
@@ -148,11 +154,11 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
         // If the abstract type was already resolved in this container we'll fire the
         // rebound listener so that any objects which have already gotten resolved
         // can have their copy of the object updated via the listener callbacks.
-/*         if ($this.resolved($abstract)) {
+        /*         if ($this.resolved($abstract)) {
             $this.rebound($abstract);
         }
- */ 
-    return cast(O)this;   
+ */
+        return cast(O) this;
     }
 
     /**
@@ -282,19 +288,21 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
     /* Register a scoped binding in the container.
      * @param  \Closure|string|null  $concrete */
     O scoped(this O)(string abstract_, string concrete = null) {
-/*         $this.scopedInstances[] = $abstract;
+        /*         $this.scopedInstances[] = $abstract;
         $this.singleton(string abstract_, $concrete); */
-      return cast(O)this; }
+        return cast(O) this;
+    }
 
     /* Register a scoped binding if it hasn't already been registered.
      * @param  \Closure|string|null  $concrete */
     O scopedIf(this O)(string abstract_, string concrete = null) {
-/*         if (! $this.bound($abstract)) {
+        /*         if (! $this.bound($abstract)) {
             $this.scopedInstances[] = $abstract;
 
             $this.singleton(string abstract_, $concrete);
-        } */      
-      return cast(O)this; }
+        } */
+        return cast(O) this;
+    }
 
     /* "Extend" an abstract type in the container.
      * @param  string  $abstract
@@ -302,7 +310,7 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
      * @throws \InvalidArgumentException
      */
     O extend(this O)(string abstract_, /* Closure */ string closure) {
-/*         $abstract = $this.getAlias($abstract);
+        /*         $abstract = $this.getAlias($abstract);
 
         if (isset($this.instances[$abstract])) {
             $this.instances[$abstract] = $closure($this.instances[$abstract], $this);
@@ -314,15 +322,16 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
             if ($this.resolved($abstract)) {
                 $this.rebound($abstract);
             }
-        } */      
-      return cast(O)this; }
+        } */
+        return cast(O) this;
+    }
 
     /* Register an existing instance as shared in the container.
      * @param  string  $abstract
      * @param  mixed  $instance
      * @return mixed
      */
-/*     public function instance(string abstract_, $instance) {
+    /*     public function instance(string abstract_, $instance) {
         $this.removeAbstractAlias($abstract);
 
         $isBound = $this.bound($abstract);
@@ -348,7 +357,7 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
      * @return void
      */
     O removeAbstractAlias(this O)(string searched) {
-/*         if (! isset($this.aliases[$searched])) return cast(O)this;
+        /*         if (! isset($this.aliases[$searched])) return cast(O)this;
 
         foreach ($this.abstractAliases as $abstract => $aliases) {
             foreach ($aliases as $index => $alias) {
@@ -357,7 +366,7 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
                 }
             }
         } */
-      return cast(O)this;
+        return cast(O) this;
     }
 
     /**
@@ -366,25 +375,27 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
      * @param  array|mixed  ...$tags
      */
     O tag(this O)(string[] abstracts, string[] tags) {
-/*         $tags = is_array($tags) ? $tags : array_slice(func_get_args(), 1);
+        /*         $tags = is_array($tags) ? $tags : array_slice(func_get_args(), 1);
 
         foreach (myTag; tags) {
-            if (! isset($this.tags[$tag])) {
-                $this.tags[$tag] = [];
+            if (! isset($this.tags[myTag])) {
+                $this.tags[myTag] = [];
             }
 
             foreach (abstract, (array) $abstracts) {
-                $this.tags[$tag][] = $abstract;
+                $this.tags[myTag][] = $abstract;
             }
         }
- */   return cast(o)this; }
+ */
+        return cast(o) this;
+    }
 
     /**
      * Resolve all of the bindings for a given tag.
      * @param  string  $tag
      * @return iterable
      */
-/*     public function tagged($tag)
+    /*     public function tagged($tag)
     {
         if (! isset($this.tags[$tag])) {
             return [];
@@ -402,8 +413,6 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
      *
      * @param  string  $abstract
      * @param  string  $alias
-     * @return void
-     *
      * @throws \LogicException
      */
     /* public function alias(string abstract_, $alias)
@@ -422,13 +431,13 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
      * @param  \Closure  $callback
      * @return mixed
      */
-/*     public function rebinding(string abstract_, Closure $callback)
+    /*     public function rebinding(string abstract_, Closure $callback)
     {
         $this.reboundCallbacks[$abstract = $this.getAlias($abstract)][] = $callback;
 
-        if ($this.bound($abstract)) {
-            return $this.make($abstract);
-        }
+        return $this.bound($abstract) 
+            ? return $this.make($abstract)
+            : null;
     }
  */
     /**
@@ -439,7 +448,7 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
      * @param  string  $method
      * @return mixed
      */
-/*     public function refresh(string abstract_, $target, $method)
+    /*     public function refresh(string abstract_, $target, $method)
     {
         return $this.rebinding(string abstract_, function ($MVC, $instance) use ($target, $method) {
             $target.{$method}($instance);
@@ -452,20 +461,20 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
      * @return void
      */
     O rebound(this O)(string abstract_) {
-/*         $instance = $this.make($abstract);
+        /*         $instance = $this.make($abstract);
 
-        foreach ($this.getReboundCallbacks($abstract) as $callback) {
-            call_user_func($callback, $this, $instance);
+        $this.getReboundCallbacks($abstract).each!(myCallback = > call_user_func(myCallback, $this, $instance));
         } */
-      return cast(O)this;
+        return cast(O) this;
     }
 
     /* Get the rebound callbacks for a given type.
      * @param  string  $abstract
      * @return array */
-/*     protected function getReboundCallbacks($abstract)
-    {
-        return $this.reboundCallbacks[$abstract] ?? [];
+    /*     protected getReboundCallbacks(anAbstract) {
+        return this.reboundCallbacks[anAbstract] 
+          ? this.reboundCallbacks[anAbstract]
+          : null;
     }
  */
     /**
@@ -475,7 +484,7 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
      * @param  array  $parameters
      * @return \Closure
      */
-/*     public function wrap(Closure $callback, array $parameters = [])
+    /*     public function wrap(Closure $callback, array $parameters = [])
     {
         return function () use ($callback, $parameters) {
             return $this.call($callback, $parameters);
@@ -492,7 +501,7 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
      *
      * @throws \InvalidArgumentException
      */
-/*     public function call($callback, array $parameters = [], $defaultMethod = null)
+    /*     public function call($callback, array $parameters = [], $defaultMethod = null)
     {
         return BoundMethod::call($this, $callback, $parameters, $defaultMethod);
     }
@@ -503,7 +512,7 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
      * @param  string  $abstract
      * @return \Closure
      */
-/*     public function factory($abstract)
+    /*     public function factory($abstract)
     {
         return function () use ($abstract) {
             return $this.make($abstract);
@@ -519,7 +528,7 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
      *
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
-/*     public function makeWith(string abstract_, array $parameters = [])
+    /*     public function makeWith(string abstract_, array $parameters = [])
     {
         return $this.make(string abstract_, $parameters);
     }
@@ -533,7 +542,7 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
      *
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
-/*     public function make(string abstract_, array $parameters = [])
+    /*     public function make(string abstract_, array $parameters = [])
     {
         return $this.resolve(string abstract_, $parameters);
     }
@@ -541,7 +550,7 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
     /**
      * @return mixed
      */
-/*     public function get($id)
+    /*     public function get($id)
     {
         try {
             return $this.resolve($id);
@@ -565,7 +574,7 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
      * @throws \Illuminate\Contracts\Container\CircularDependencyException
      */
-/*     protected function resolve(string abstract_, $parameters = [], $raiseEvents = true)
+    /*     protected function resolve(string abstract_, $parameters = [], $raiseEvents = true)
     {
         $abstract = $this.getAlias($abstract);
 
@@ -602,10 +611,10 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
             $object = $this.make($concrete);
         }
  */
-        // If we defined any extenders for this type, we'll need to spin through them
-        // and MVCly them to the object being built. This allows for the extension
-        // of services, such as changing configuration or decorating the object.
-/*         foreach ($this.getExtenders($abstract) as $extender) {
+    // If we defined any extenders for this type, we'll need to spin through them
+    // and MVCly them to the object being built. This allows for the extension
+    // of services, such as changing configuration or decorating the object.
+    /*         foreach ($this.getExtenders($abstract) as $extender) {
             $object = $extender($object, $this);
         }
 
@@ -620,10 +629,10 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
             $this.fireResolvingCallbacks(string abstract_, $object);
         }
  */
-        // Before returning, we will also set the resolved flag to "true" and pop off
-        // the parameter overrides for this build. After those two things are done
-        // we will be ready to return back the fully constructed class instance.
-/*         $this.resolved[$abstract] = true;
+    // Before returning, we will also set the resolved flag to "true" and pop off
+    // the parameter overrides for this build. After those two things are done
+    // we will be ready to return back the fully constructed class instance.
+    /*         $this.resolved[$abstract] = true;
 
         array_pop($this.with);
 
@@ -635,7 +644,7 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
      * @param  string|callable  $abstract
      * @return mixed
      */
- /*    protected function getConcrete($abstract)
+    /*    protected function getConcrete($abstract)
     {
         // If we don't have a registered resolver or concrete for the type, we'll just
         // assume each type is a concrete name and will attempt to resolve it as is
@@ -652,7 +661,7 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
      * @param  string|callable  $abstract
      * @return \Closure|string|array|null
      */
-/*     protected function getContextualConcrete($abstract)
+    /*     protected function getContextualConcrete($abstract)
     {
         if (! is_null($binding = $this.findInContextualBindings($abstract))) {
             return $binding;
@@ -678,7 +687,7 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
      * @param  string|callable  $abstract
      * @return \Closure|string|null
      */
-/*     protected function findInContextualBindings($abstract)
+    /*     protected function findInContextualBindings($abstract)
     {
         return $this.contextual[end($this.buildStack)][$abstract] ?? null;
     }
@@ -690,7 +699,8 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
      */
     bool isBuildable(string concrete, string abstract_) {
         // return $concrete === $abstract || $concrete instanceof Closure;
-        return false; }
+        return false;
+    }
 
     /**
      * Instantiate a concrete instance of the given type.
@@ -701,7 +711,7 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
      * @throws \Illuminate\Contracts\Container\CircularDependencyException
      */
- /*    public function build($concrete)
+    /*    public function build($concrete)
     {
         // If the concrete type is actually a Closure, we will just execute it and
         // hand back the results of the functions, which allows functions to be
@@ -716,10 +726,10 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
             throw new BindingResolutionException("Target class [$concrete] does not exist.", 0, $e);
         } */
 
-        // If the type is not instantiable, the developer is attempting to resolve
-        // an abstract type such as an Interface or Abstract Class and there is
-        // no binding registered for the abstractions so we need to bail out.
- /*        if (! $reflector.isInstantiable()) {
+    // If the type is not instantiable, the developer is attempting to resolve
+    // an abstract type such as an Interface or Abstract Class and there is
+    // no binding registered for the abstractions so we need to bail out.
+    /*        if (! $reflector.isInstantiable()) {
             return $this.notInstantiable($concrete);
         }
 
@@ -731,10 +741,10 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
 
         $constructor = $reflector.getConstructor(); */
 
-        // If there are no constructors, that means there are no dependencies then
-        // we can just resolve the instances of the objects right away, without
-        // resolving any other types or dependencies out of these containers.
-        /* if (is_null($constructor)) {
+    // If there are no constructors, that means there are no dependencies then
+    // we can just resolve the instances of the objects right away, without
+    // resolving any other types or dependencies out of these containers.
+    /* if (is_null($constructor)) {
             array_pop($this.buildStack);
 
             return new $concrete;
@@ -768,14 +778,14 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
      */
     /* protected function resolveDependencies(array $dependencies)
     {
-        $results = [];
+        auto results = [];
 
         foreach ($dependencies as $dependency) {
             // If the dependency has an override for this particular build we will use
             // that instead as the value. Otherwise, we will continue with this run
             // of resolutions and let reflection attempt to determine the result.
             if ($this.hasParameterOverride($dependency)) {
-                $results[] = $this.getParameterOverride($dependency);
+                results = $this.getParameterOverride($dependency);
 
                 continue;
             }
@@ -787,11 +797,9 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
                             ? $this.resolvePrimitive($dependency)
                             : $this.resolveClass($dependency);
 
-            if ($dependency.isVariadic()) {
-                $results = array_merge($results, $result);
-            } else {
-                $results[] = $result;
-            }
+            result = $dependency.isVariadic()
+              ? array_merge($results, $result)
+              : $result;
         }
 
         return $results;
@@ -803,7 +811,7 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
      * @param  \ReflectionParameter  $dependency
      * @return bool
      */
-/*     protected function hasParameterOverride($dependency)
+    /*     protected function hasParameterOverride($dependency)
     {
         return array_key_exists(
             $dependency.name, $this.getLastParameterOverride()
@@ -816,7 +824,7 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
      * @param  \ReflectionParameter  $dependency
      * @return mixed
      */
-/*     protected function getParameterOverride($dependency)
+    /*     protected function getParameterOverride($dependency)
     {
         return $this.getLastParameterOverride()[$dependency.name];
     } */
@@ -826,7 +834,7 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
      *
      * @return array
      */
-/*     protected function getLastParameterOverride()
+    /*     protected function getLastParameterOverride()
     {
         return count($this.with) ? end($this.with) : [];
     } */
@@ -839,7 +847,7 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
      *
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
-/*     protected function resolvePrimitive(ReflectionParameter $parameter)
+    /*     protected function resolvePrimitive(ReflectionParameter $parameter)
     {
         if (! is_null($concrete = $this.getContextualConcrete('$'.$parameter.getName()))) {
             return $concrete instanceof Closure ? $concrete($this) : $concrete;
@@ -918,7 +926,7 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     O notInstantiable(this O)(string concrete) {
-/*         if (! empty($this.buildStack)) {
+        /*         if (! empty($this.buildStack)) {
             $previous = implode(', ', $this.buildStack);
 
             $message = "Target [$concrete] is not instantiable while building [$previous].";
@@ -927,7 +935,7 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
         }
 
         throw new BindingResolutionException($message); */
-        return cast(O)this;
+        return cast(O) this;
     }
 
     /**
@@ -938,7 +946,7 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
      *
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
-/*     O unresolvablePrimitive(this O)(ReflectionParameter $parameter) {
+    /*     O unresolvablePrimitive(this O)(ReflectionParameter $parameter) {
          $message = "Unresolvable dependency resolving [$parameter] in class {$parameter.getDeclaringClass().getName()}";
 
         throw new BindingResolutionException($message); 
@@ -952,7 +960,7 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
      * @param  \Closure|null  $callback
      * @return void
      */
-   /*  public function beforeResolving(string abstract_, Closure $callback = null)
+    /*  public function beforeResolving(string abstract_, Closure $callback = null)
     {
         if (is_string($abstract)) {
             $abstract = $this.getAlias($abstract);
@@ -1031,7 +1039,7 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
      * @param  array  $callbacks
      * @return void
      */
-/*     O fireBeforeCallbackArray(string abstract_, $parameters, array $callbacks)
+    /*     O fireBeforeCallbackArray(string abstract_, $parameters, array $callbacks)
     {
         foreach ($callbacks as $callback) {
             $callback(string abstract_, $parameters, $this);
@@ -1063,7 +1071,7 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
      * @param  mixed  $object
      * @return void
      */
-   /*  protected function fireAfterResolvingCallbacks(string abstract_, $object)
+    /*  protected function fireAfterResolvingCallbacks(string abstract_, $object)
     {
         $this.fireCallbackArray($object, $this.globalAfterResolvingCallbacks);
 
@@ -1160,30 +1168,34 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
      */
     O dropStaleInstances(this O)(string abstract_) {
         // unset($this.instances[$abstract], $this.aliases[$abstract]);
-      return cast(O)this; }
+        return cast(O) this;
+    }
 
     /**
      * Remove a resolved instance from the instance cache.
      */
     O forgetInstance(this O)(string abstract_) {
         // unset($this.instances[$abstract]);
-      return cast(O)this; }
+        return cast(O) this;
+    }
 
     /**
      * Clear all of the instances from the container.
      */
     O forgetInstances(this O)() {
         _instances = null;
-      return cast(O)this; }
+        return cast(O) this;
+    }
 
     /**
      * Clear all of the scoped instances from the container.
      */
     O forgetScopedInstances(this O)() {
-/*         foreach ($this.scopedInstances as $scoped) {
+        /*         foreach ($this.scopedInstances as $scoped) {
             unset($this.instances[$scoped]);
-        } */    
-      return cast(O)this; }
+        } */
+        return cast(O) this;
+    }
 
     /**
      * Flush the container of all bindings and resolved instances.
@@ -1195,14 +1207,15 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
         _instances = null;
         _abstractAliases = null;
         _scopedInstances = null;
-      return cast(O)this; }
+        return cast(O) this;
+    }
 
     /**
      * Get the globally available instance of the container.
      *
      * @return static
      */
-/*     public static function getInstance()
+    /*     public static function getInstance()
     {
         if (is_null(static::$instance)) {
             static::$instance = new static;
@@ -1217,7 +1230,7 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
      * @param  \Illuminate\Contracts\Container\Container|null  $container
      * @return \Illuminate\Contracts\Container\Container|static
      */
-/*     public static function setInstance(ContainerContract $container = null)
+    /*     public static function setInstance(ContainerContract $container = null)
     {
         return static::$instance = $container;
     }
@@ -1228,7 +1241,7 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
      * @param  string  $key
      * @return bool
      */
-/*     public function offsetExists($key)
+    /*     public function offsetExists($key)
     {
         return $this.bound($key);
     }
@@ -1239,7 +1252,7 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
      * @param  string  $key
      * @return mixed
      */
-/*     public function offsetGet($key)
+    /*     public function offsetGet($key)
     {
         return $this.make($key);
     }
@@ -1251,7 +1264,7 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
      * @param  mixed  $value
      * @return void
      */
-/*     public function offsetSet($key, $value)
+    /*     public function offsetSet($key, $value)
     {
         $this.bind($key, $value instanceof Closure ? $value : function () use ($value) {
             return $value;
@@ -1264,7 +1277,7 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
      * @param  string  $key
      * @return void
      */
-/*     public function offsetUnset($key)
+    /*     public function offsetUnset($key)
     {
         unset($this.bindings[$key], $this.instances[$key], $this.resolved[$key]);
     }
@@ -1275,7 +1288,7 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
      * @param  string  $key
      * @return mixed
      */
-/*     public function __get($key)
+    /*     public function __get($key)
     {
         return $this[$key];
     }
@@ -1285,7 +1298,7 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
      * @param  mixed  $value
      * @return void
      */
-/*     O __set(this O)(string key, string value) {
+    /*     O __set(this O)(string key, string value) {
 //        $this[$key] = $value;
     return cast(O)this;
     }
