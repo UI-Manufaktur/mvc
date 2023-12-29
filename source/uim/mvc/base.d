@@ -12,15 +12,15 @@ class DMVCObject : IMVCObject, IRegisterable {
   // Constructors for the main properties
   this() { initialize; }
   this(Json configSettings) { this().initialize(configSettings); }
-  this(IApplication newApplication, Json configSettings = Json(null)) { this(configSettings).application(newApplication); }
-  this(string newName, Json configSettings = Json(null)) { this(configSettings).name(newName); }
-  this(STRINGAA newParameters, Json configSettings = Json(null)) { this(configSettings).parameters(newParameters); }
-  this(IApplication newApplication, string newName, Json configSettings = Json(null)) { this(newApplication).name(newName); }
-  this(IApplication newApplication, STRINGAA newParameters, Json configSettings = Json(null)) { this(newApplication,configSettings).parameters(newParameters); }
-  this(string newName, STRINGAA newParameters, Json configSettings = Json(null)) { this(newName, configSettings).parameters(newParameters); }
-  this(IApplication newApplication, string newName, STRINGAA newParameters, Json configSettings = Json(null)) { this(newApplication, newName, configSettings).parameters(newParameters); }
+  this(IApplication newApplication, Json[string] configSettings = null) { this(configSettings).application(newApplication); }
+  this(string newName, Json[string] configSettings = null) { this(configSettings).name(newName); }
+  this(STRINGAA newParameters, Json[string] configSettings = null) { this(configSettings).parameters(newParameters); }
+  this(IApplication newApplication, string newName, Json[string] configSettings = null) { this(newApplication).name(newName); }
+  this(IApplication newApplication, STRINGAA newParameters, Json[string] configSettings = null) { this(newApplication,configSettings).parameters(newParameters); }
+  this(string newName, STRINGAA newParameters, Json[string] configSettings = null) { this(newName, configSettings).parameters(newParameters); }
+  this(IApplication newApplication, string newName, STRINGAA newParameters, Json[string] configSettings = null) { this(newApplication, newName, configSettings).parameters(newParameters); }
 
-  void initialize(Json configSettings = Json(null)) {
+  void initialize(Json[string] configSettings = null) {
     // Code for object initialization
     this
       .name("MVCObject");
@@ -172,7 +172,7 @@ class DAPPObject {
     initialize();
   }
 
-  override void initialize(Json configSettings = Json(null)) {
+  override void initialize(Json[string] configSettings = null) {
     super.initialize(configSettings); 
   }
   

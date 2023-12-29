@@ -11,7 +11,7 @@ import uim.mvc;
 class DPluginAssetsSymlinkCommand {
   this() { initialize; }
 
-  override void initialize(Json configSettings = Json(null)) {
+  override void initialize(Json[string] configSettings = null) {
     super.initialize(configSettings); 
   }
 }

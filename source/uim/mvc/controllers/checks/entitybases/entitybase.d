@@ -11,7 +11,7 @@ import uim.mvc;
 class DDatabaseExistsCheck : DControllerCheck {
   mixin(ControllerComponentThis!("DatabaseExistsCheck"));
 
-  override void initialize(Json configSettings = Json(null)) {
+  override void initialize(Json[string] configSettings = null) {
     super.initialize(configSettings);
 
     this

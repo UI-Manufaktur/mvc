@@ -13,7 +13,7 @@ class DCommandFactory : ICommandFactory {
     initialize;
   }
 
-  override void initialize(Json configSettings = Json(null)) {
+  override void initialize(Json[string] configSettings = null) {
     super.initialize(configSettings);
   }
 

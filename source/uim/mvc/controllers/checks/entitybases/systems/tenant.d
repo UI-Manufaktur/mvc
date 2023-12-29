@@ -11,7 +11,7 @@ import uim.mvc;
 class DDatabaseHasSystemsCheck : DDatabaseExistsCheck {
   mixin(ControllerComponentThis!("DatabaseHasSystemsCheck"));
 
-  override void initialize(Json configSettings = Json(null)) {
+  override void initialize(Json[string] configSettings = null) {
     super.initialize(configSettings);
 
     this
