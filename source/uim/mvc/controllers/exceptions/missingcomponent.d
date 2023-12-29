@@ -12,7 +12,7 @@ import uim.mvc;
 class DMissingComponentException : DException {
 	mixin(ExceptionThis!("MissingComponentException"));
 
-	override void initialize(Json[string] configSettings = null) {
+	override void initialize(Json configSettings = Json(null)) {
 		super.initialize(configSettings);
   	
 		this

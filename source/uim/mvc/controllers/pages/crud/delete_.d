@@ -14,7 +14,7 @@ import uim.mvc;
 class DEntityDeleteController : DEntityCrudPageController {
   mixin(ControllerThis!("EntityDeleteController"));
 
-  override void initialize(Json[string] configSettings = null) {
+  override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
 
     this

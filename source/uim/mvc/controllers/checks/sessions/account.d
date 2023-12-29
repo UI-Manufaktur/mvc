@@ -6,7 +6,7 @@ import uim.mvc;
 class DHasAccountCheck : DHasSessionCheck {
   mixin(ControllerComponentThis!("HasAccountCheck"));
 
-  override void initialize(Json[string] configSettings = null) {
+  override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
 
     this

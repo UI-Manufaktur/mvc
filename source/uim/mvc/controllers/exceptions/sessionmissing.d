@@ -11,7 +11,7 @@ import uim.mvc;
 class DSessionMissingException : DException {
 	mixin(ExceptionThis!("SessionMissingException"));
 
-	override void initialize(Json[string] configSettings = null) {
+	override void initialize(Json configSettings = Json(null)) {
 		super.initialize(configSettings);
 
     this

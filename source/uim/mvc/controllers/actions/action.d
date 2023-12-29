@@ -16,7 +16,7 @@ import uim.mvc;
 class DActionController : DController/* , IActionController */ {
   mixin(ControllerThis!("ActionController"));
 
-  override void initialize(Json[string] configSettings = null) {
+  override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings); 
   }
 

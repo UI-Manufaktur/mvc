@@ -14,7 +14,7 @@ import uim.mvc;
 class DEntityCreateController : DEntityCrudPageController {
   mixin(ControllerThis!("EntityCreateController"));
 
-override void initialize(Json[string] configSettings = null) {
+override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings);
 
     addChecks(HasSessionCheck, HasHTTPSessionCheck, SessionHasSiteCheck);

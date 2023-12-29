@@ -11,7 +11,7 @@ import uim.mvc;
 class DSelectSiteActionController : DActionController {
   mixin(ControllerThis!("SelectSiteActionController"));
 
-  override void initialize(Json[string] configSettings = null) {
+  override void initialize(Json configSettings = Json(null)) {
     super.initialize(configSettings); 
     
     this.name = "SelectSiteActionController";
