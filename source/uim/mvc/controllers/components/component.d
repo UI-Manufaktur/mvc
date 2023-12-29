@@ -28,7 +28,7 @@ class DControllerComponent : DMVCObject, IControllerComponent, IControllerCompon
   mixin SessionContainerTemplate;
   mixin SessionManagerTemplate; 
 
-  override void initialize(Json configSettings = Json(null)) {
+  override void initialize(Json[string] configSettings = null) {
     super.initialize(configSettings);
   }
 

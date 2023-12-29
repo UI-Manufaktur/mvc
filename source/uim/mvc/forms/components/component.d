@@ -11,7 +11,7 @@ import uim.mvc;
 class DFormComponent : DViewComponent {
   mixin(ViewComponentThis!("FormComponent"));
 
-  override void initialize(Json configSettings = Json(null)) {
+  override void initialize(Json[string] configSettings = null) {
     version(test_uim_mvc) { debugMethodCall(moduleName!DFormComponent~"::DFormComponent("~this.className~"):initialize"); }
     super.initialize(configSettings);
 

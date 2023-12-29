@@ -14,7 +14,7 @@ import uim.mvc;
 class DEntityUpdateController : DEntityCrudPageController {
   mixin(ControllerThis!("EntityUpdateController"));
   
-override void initialize(Json configSettings = Json(null)) {
+override void initialize(Json[string] configSettings = null) {
     super.initialize(configSettings);
   
     this
