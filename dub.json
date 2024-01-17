@@ -35,14 +35,12 @@
 	],
 	"dependencies": {
 		"colored": "~>0.0.29",
-		"vibe-d": "~>0.9.6"
+		"vibe-d": "~>0.9.6",
+		"uim": "~>24.1.1"
 	},
 	"targetType": "library",
 	"importPaths": [
-		"../uim-core",
-		"../uim-oop",
 		"../uim-models",
-		"../uim-css",
 		"../uim-html",
 		"../uim-bootstrap",
 		"../uim-jsonbase",
@@ -54,10 +52,7 @@
 		"./"
 	],
 	"sourcePaths": [
-		"../uim-core",
-		"../uim-oop",
 		"../uim-models",
-		"../uim-css",
 		"../uim-html",
 		"../uim-bootstrap",
 		"../uim-jsonbase",
