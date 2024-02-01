@@ -34,8 +34,8 @@
 		}
 	],
 	"dependencies": {
-		"colored": "~>0.0.29",
-		"vibe-d": "~>0.9.6",
+		"colored": "~>0.0.31",
+		"vibe-d": "~>0.9.7",
 		"uim": "~>24.1.1"
 	},
 	"targetType": "library",
