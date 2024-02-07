@@ -18,7 +18,7 @@ interface IPluginApplication /* : IEventDispatcher */{
      * all plugin hooks enabled.
      *
      * @param uim.cake.Core\IPlugin|string aName The plugin name or plugin object.
-     * @param Json[string][] aConfig The configuration data for the plugin if using a string for $name
+     * @param IData[string][] aConfig The configuration data for the plugin if using a string for $name
      * @return this
      */
     /* IPluginApplication addPlugin(string aName, DConfigurationValue configSettings = null);

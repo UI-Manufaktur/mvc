@@ -34,7 +34,7 @@ abstract class DLogFormatter {
     * this.setConfig(["one": "value", "another": "value"]);
     * ```
     *
-    * @param Json[string][]|string aKey The key to set, or a complete array of configs.
+    * @param IData[string][]|string aKey The key to set, or a complete array of configs.
     * @param mixed|null $value The value to set.
     * @param bool $merge Whether to recursively merge or overwrite existing config, defaults to true.
     * @return this
@@ -133,7 +133,7 @@ abstract class DLogFormatter {
     * this.configShallow(["one": "value", "another": "value"]);
     * ```
     *
-    * @param Json[string][]|string aKey The key to set, or a complete array of configs.
+    * @param IData[string][]|string aKey The key to set, or a complete array of configs.
     * @param mixed|null $value The value to set.
     */
   DLogFormatter configShallow(string aKey, Json aValue = null) {
@@ -178,7 +178,7 @@ abstract class DLogFormatter {
   /**
     * Writes a config key.
     *
-    * @param Json[string][]|string aKey Key to write to.
+    * @param IData[string][]|string aKey Key to write to.
     * @param mixed $value Value to write.
     * @param string|bool $merge True to merge recursively, "shallow" for simple merge,
     *   false to overwrite, defaults to false.
@@ -276,7 +276,7 @@ abstract class DLogFormatter {
   protected DConfigurationValue _defaultConfig;
 
   /**
-    * @param Json[string][] myConfig Config options
+    * @param IData[string][] myConfig Config options
     * /
   this(Json aConfig = null) {
       this.setConfig(myConfig);
