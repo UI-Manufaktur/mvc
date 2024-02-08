@@ -29,7 +29,7 @@ interface IContext {
      * Get the current value for a given field.
      *
      * Classes implementing this method can optionally have a second argument
-     * `myOptions`. Valid key for `myOptions` array are:
+     * `options`. Valid key for `options` array are:
      *
      *   - `default`: Default value to return if no value found in data or
      *     context record.
