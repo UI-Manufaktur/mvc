@@ -76,7 +76,7 @@ version(test_uim_mvc) { unittest {
 Returns an array that can be used to describe the internal state of this object.
 
 __get() public
-Magic method for lazy loading $components.
+Magic method for lazy loading components.
 
 _configDelete() protected
 Deletes a single config key.

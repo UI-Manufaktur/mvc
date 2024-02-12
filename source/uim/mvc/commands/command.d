@@ -35,10 +35,10 @@ class DCommand : IRegisterable {
         // We will go ahead and set the name, description, and parameters on console
         // commands just to make things a little easier on the developer. This is
         // so they don't have to all be manually specified in the constructors.
-/*         if (isset($this->signature)) {
+/*         if (isset(this->signature)) {
             this.configureUsingFluentDefinition();
         } else {
-            parent::__construct($this->name);
+            parent::__construct(this->name);
         }
  */
         // Once we have constructed the command, we'll set the description and other
@@ -48,69 +48,69 @@ class DCommand : IRegisterable {
 
         this.setHelp((string) this.help);
 
-        this.setHidden($this->isHidden());
+        this.setHidden(this->isHidden());
 
-        if (! isset($this->signature)) {
+        if (! isset(this->signature)) {
             this.specifyParameters();
         } */
     }
 
     // Configure the console command using a fluent definition.
     protected void configureUsingFluentDefinition() {
-/*         [$name, $arguments, $options] = Parser::parse($this->signature);
+/*         [name, arguments, options] = Parser::parse(this->signature);
 
-        parent::__construct($this->name = $name);
+        parent::__construct(this->name = name);
 
         // After parsing the signature we will spin through the arguments and options
         // and set them on this command. These will already be changed into proper
         // instances of these "InputArgument" and "InputOption" Symfony classes.
-        this.getDefinition()->addArguments($arguments);
-        this.getDefinition()->addOptions($options);
+        this.getDefinition()->addArguments(arguments);
+        this.getDefinition()->addOptions(options);
  */    }
 
     // Run the console command.
     /* int run(IAPPInput input_, IAPPOutput output_) {
          this.output = this.laravel->make(
-            OutputStyle::class, ['input' => $input, 'output' => $output]
+            OutputStyle::class, ['input' => input, 'output' => output]
         );
 
         return parent::run(
-            this.input = $input, this.output
+            this.input = input, this.output
         ); 
         return 0;
      }*/
 
     // Execute the console command.
     /* int execute(IAPPInput input_, IAPPOutput output_) {
-         $method = method_exists($this, 'handle') ? 'handle' : '__invoke';
+         method = method_exists(this, 'handle') ? 'handle' : '__invoke';
 
-        return (int) this.laravel->call([$this, $method]);
+        return (int) this.laravel->call([this, method]);
     return 0; 
       }*/
 
     /**
      * Resolve the console command instance for the given command.
      *
-     * @param  \Symfony\Component\Console\Command\Command|string  $command
+     * @param  \Symfony\Component\Console\Command\Command|string  command
      * @return \Symfony\Component\Console\Command\Command
      */
-    /* protected function resolveCommand($command)
+    /* protected function resolveCommand(command)
     {
-        if (! class_exists($command)) {
-            return this.getApplication()->find($command);
+        if (! class_exists(command)) {
+            return this.getApplication()->find(command);
         }
 
-        $command = this.laravel->make($command);
+        command = this.laravel->make(command);
 
-        if ($command instanceof SymfonyCommand) {
-            $command->setApplication($this->getApplication());
+        if (command instanceof SymfonyCommand) {
+            command->setApplication(this->getApplication());
         }
 
-        if ($command instanceof self) {
-            $command->setLaravel($this->getLaravel());
+        if (command instanceof self) {
+            command->setLaravel(this->getLaravel());
         }
 
-        return $command;
+        return command;
     } */
 
     bool isHidden() {

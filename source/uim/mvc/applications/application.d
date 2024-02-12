@@ -42,7 +42,7 @@ class DApplication : DMVCObject /* , IApplication */ {
 
     writeln(routesPaths);
     if (newRequest.path.length >= rootPath.length) {
-      auto myPath = newRequest.path; // [rootPath.length..$];
+      auto myPath = newRequest.path; // [rootPath.length..];
       writeln("myPath = '%s'".format(myPath));
       if (auto myRoute = route(myPath, newRequest.method)) {
         debug writeln("Found route");

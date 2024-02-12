@@ -20,13 +20,13 @@ class DCommandFactory : ICommandFactory {
 /*         if (_container && _container.has(className)) {
           command = _container.get(className);
       } else {
-          command = new $className();
+          command = new className();
       } */
 
       if (!cast(ICommand)myCommand) { // } && !cast(DAPPShell)command) {
-/*             $valid = implode('` or `', [Shell::class, CommandInterface::class]);
-          $message = sprintf('Class `%s` must be an instance of `%s`.', $className, $valid);
-          throw new InvalidArgumentException($message);
+/*             valid = implode('` or `', [Shell::class, CommandInterface::class]);
+          message = sprintf('Class `%s` must be an instance of `%s`.', className, valid);
+          throw new InvalidArgumentException(message);
 */        }
 
       return myCommand;

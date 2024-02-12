@@ -25,67 +25,67 @@ class DRouteCommand : DCommand {
       }
 
       auto myAvailableRoutes = Router::routes();
-      $output = $duplicateRoutesCounter = null;
+      output = duplicateRoutesCounter = null;
 
       foreach (myRoute; myAvailableRoutes) {
-        $methods = isSet(myRoute.defaults, "_method") ? (array)myRoute.defaults["_method"] : [""];
+        methods = isSet(myRoute.defaults, "_method") ? (array)myRoute.defaults["_method"] : [""];
 
-        $item = [
+        item = [
           myRoute.options.get("_name", myRoute.name()),
           myRoute.template,
           myRoute.defaults["plugin"] ?? "",
           myRoute.defaults["prefix"] ?? "",
           myRoute.defaults["controller"] ?? "",
           myRoute.defaults["action"] ?? "",
-          ($methods.join(", ")),
+          (methods.join(", ")),
         ];
 
         if (someArguments.getOption("verbose")) {
             ksort(myRoute.defaults);
-            $item ~= json_encode(myRoute.defaults);
+            item ~= json_encode(myRoute.defaults);
         }
 
-        $output ~= $item;
+        output ~= item;
 
-        foreach (myMethod; $methods) {
-            if (!isSet($duplicateRoutesCounter[myRoute.template], $method)) {
-                $duplicateRoutesCounter[myRoute.template][myMethod] = 0;
+        foreach (myMethod; methods) {
+            if (!isSet(duplicateRoutesCounter[myRoute.template], method)) {
+                duplicateRoutesCounter[myRoute.template][myMethod] = 0;
             }
 
-            $duplicateRoutesCounter[myRoute.template][myMethod]++;
+            duplicateRoutesCounter[myRoute.template][myMethod]++;
         }
       }
 
       if (someArguments.getOption("sort")) {
-        usort($output, function ($a, $b) {
-            return strcasecmp($a[0], $b[0]);
+        usort(output, function (a, b) {
+            return strcasecmp(a[0], b[0]);
         });
       }
 
-      array_unshift($output, $header);
+      array_unshift(output, header);
 
-      aConsoleIo.helper("table").output($output);
+      aConsoleIo.helper("table").output(output);
       aConsoleIo.out();
 
-      $duplicateRoutes = null;
+      duplicateRoutes = null;
 
-      foreach (myRoute; $availableRoutes) {
-        $methods = isSet(myRoute.defaults, "_method") ? (array)myRoute.defaults["_method"] : [""];
+      foreach (myRoute; availableRoutes) {
+        methods = isSet(myRoute.defaults, "_method") ? (array)myRoute.defaults["_method"] : [""];
 
-        foreach ($method; $methods) {
+        foreach (method; methods) {
             if (
-                $duplicateRoutesCounter[myRoute.template][$method] > 1 ||
-                ($method == "" && count($duplicateRoutesCounter[myRoute.template]) > 1) ||
-                ($method != "" && isSet($duplicateRoutesCounter[myRoute.template], ""))
+                duplicateRoutesCounter[myRoute.template][method] > 1 ||
+                (method == "" && count(duplicateRoutesCounter[myRoute.template]) > 1) ||
+                (method != "" && isSet(duplicateRoutesCounter[myRoute.template], ""))
             ) {
-            $duplicateRoutes ~= [
+            duplicateRoutes ~= [
                 myRoute.options.get("_name", myRoute.name()),
                 myRoute.template,
                 myRoute.defaults["plugin"] ?? "",
                 myRoute.defaults["prefix"] ?? "",
                 myRoute.defaults["controller"] ?? "",
                 myRoute.defaults["action"] ?? "",
-                ($methods.join(", ")),
+                (methods.join(", ")),
                 ];
 
                 break;
@@ -93,10 +93,10 @@ class DRouteCommand : DCommand {
           }
       }
 
-      if ($duplicateRoutes) {
-          array_unshift($duplicateRoutes, $header);
+      if (duplicateRoutes) {
+          array_unshift(duplicateRoutes, header);
           aConsoleIo.warning("The following possible route collisions were detected.");
-          aConsoleIo.helper("table").output($duplicateRoutes);
+          aConsoleIo.helper("table").output(duplicateRoutes);
           aConsoleIo.out();
       } * /
 
@@ -109,7 +109,7 @@ class DRouteCommand : DCommand {
     * anParser - The option parser to update
     */
   /*   ConsoleOptionParser buildOptionParser(ConsoleOptionParser anParser) {
-      $parser
+      parser
           .description("Get the list of routes connected in this application.")
           .addOption("sort", [
               "help": "Sorts alphabetically by route name A-Z",
@@ -117,6 +117,6 @@ class DRouteCommand : DCommand {
               "boolean": true,
           ]);
 
-      return $parser;
+      return parser;
   } */
 }

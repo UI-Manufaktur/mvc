@@ -82,7 +82,7 @@ auto urlToSelect(STRINGAA data) {
 /*     if ((eid.length > 0) && (ename.length >0)) {
       auto id = Json.emptyObject; id["id"] = eid;
       auto name = Json.emptyObject; name["name"] = ename;
-      result["$or"] = [id, name];
+      result["or"] = [id, name];
     } 
     else {
       if (eid.length > 0) result["id"] = eid;
@@ -127,7 +127,7 @@ auto readTranslations(string file) {
       foreach(line; text.lineSplitter.array) {
         auto pos = line.indexOf("=");
         if (pos > 0) {
-          results[line[0..pos]] = line[pos+1..$];
+          results[line[0..pos]] = line[pos+1..];
         }
       }
 /*       sw.stop();

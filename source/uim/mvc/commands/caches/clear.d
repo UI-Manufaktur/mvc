@@ -27,19 +27,19 @@ class DCacheClearCommand : DCommand {
 	try {
       aConsoleIo.out("Clearing {myName}");
 
-      $engine = Cache::pool(myName);
+      engine = Cache::pool(myName);
       Cache::clear(myName);
-      if ($engine instanceof ApcuEngine) {
+      if (engine instanceof ApcuEngine) {
           aConsoleIo.warning("ApcuEngine detected: Cleared {myName} CLI cache successfully " ~
               "but {myName} web cache must be cleared separately.");
-      } elseif ($engine instanceof WincacheEngine) {
+      } elseif (engine instanceof WincacheEngine) {
           aConsoleIo.warning("WincacheEngine detected: Cleared {myName} CLI cache successfully " ~
               "but {myName} web cache must be cleared separately.");
       } else {
           aConsoleIo.out("<success>Cleared {myName} cache</success>");
       }
-    } catch (InvalidArgumentException $e) {
-        aConsoleIo.error($e.getMessage());
+    } catch (InvalidArgumentException e) {
+        aConsoleIo.error(e.getMessage());
         this.abort();
     } */ 
 
