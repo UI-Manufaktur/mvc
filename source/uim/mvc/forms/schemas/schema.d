@@ -17,44 +17,44 @@ class DFormSchema {
 
     /**
      * Add multiple fields to the schema.
-     * @param array<string, array<string, mixed>|string> $fields The fields to add.
-     * @return $this
+     * @param array<string, array<string, mixed>|string> fields The fields to add.
+     * @return this
      */
-/*     public function addFields(array $fields) {
-        foreach ($fields as $name => $attrs) {
-            $this.addField($name, $attrs);
+/*     public function addFields(array fields) {
+        foreach (fields as name => attrs) {
+            this.addField(name, attrs);
         }
 
-        return $this;
+        return this;
     } */
 
     /**
      * Adds a field to the schema.
-     * @param string $name The field name.
-     * @param array<string, mixed>|string $attrs The attributes for the field, or the type
+     * @param string name The field name.
+     * @param array<string, mixed>|string attrs The attributes for the field, or the type
      *   as a string.
-     * @return $this
+     * @return this
      */
-    /* public function addField(string $name, $attrs) {
-        if (is_string($attrs)) {
-            $attrs = ["type": $attrs];
+    /* public function addField(string name, attrs) {
+        if (is_string(attrs)) {
+            attrs = ["type": attrs];
         }
-        $attrs = array_intersect_key($attrs, _fieldDefaults);
-        _fields[$name] = $attrs + _fieldDefaults;
+        attrs = array_intersect_key(attrs, _fieldDefaults);
+        _fields[name] = attrs + _fieldDefaults;
 
-        return $this;
+        return this;
     } */
 
     /**
      * Removes a field to the schema.
      *
-     * @param string $name The field to remove.
-     * @return $this
+     * @param string name The field to remove.
+     * @return this
      */
-    /* public function removeField(string $name) {
-        unset(_fields[$name]);
+    /* public function removeField(string name) {
+        unset(_fields[name]);
 
-        return $this;
+        return this;
     } */
 
     /**
@@ -70,28 +70,28 @@ class DFormSchema {
     /**
      * Get the attributes for a given field.
      *
-     * @param string $name The field name.
+     * @param string name The field name.
      * @return array<string, mixed>|null The attributes for a field, or null.
      */
-    /* public function field(string $name): ?array
+    /* public function field(string name): ?array
     {
-        return _fields[$name] ?? null;
+        return _fields[name] ?? null;
     } */
 
     /**
      * Get the type of the named field.
      *
-     * @param string $name The name of the field.
+     * @param string name The name of the field.
      * @return string|null Either the field type or null if the
      *   field does not exist.
      */
-    /* string fieldType(string $name) {
-        $field = $this.field($name);
-        if (!$field) {
+    /* string fieldType(string name) {
+        field = this.field(name);
+        if (!field) {
             return null;
         }
 
-        return $field["type"];
+        return field["type"];
     } */
 
     /**

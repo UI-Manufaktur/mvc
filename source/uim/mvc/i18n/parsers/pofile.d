@@ -46,18 +46,18 @@ class PoFileParser {
      *
      * Items with an empty id are ignored.
      *
-     * @param string $resource The file name to parse
+     * @param string resource The file name to parse
      */
     auto parse(string resourceFileName) {
       auto file = File(resourceFileName); // Open for reading
 
-      /* $defaults = [
+      /* defaults = [
           "ids": [],
           "translated": null,
       ];
 
-      $messages = null;
-      $item = $defaults; */
+      messages = null;
+      item = defaults; */
 
       string[][string] translations;
 
@@ -101,25 +101,25 @@ class PoFileParser {
           
 
                 // We start a new msg so save previous
-                _addMessage($messages, $item);
+                _addMessage(messages, item);
                 /** @psalm-suppress InvalidArrayOffset * /
-                $item["ids"]["singular"] = substr(myLine, 7, -1);
-                $stage = ["ids", "singular"];
+                item["ids"]["singular"] = substr(myLine, 7, -1);
+                stage = ["ids", "singular"];
             } elseif (substr(myLine, 0, 8) == "msgstr \"") {
-                $item["translated"] = substr(myLine, 8, -1);
-                $stage = ["translated"];
+                item["translated"] = substr(myLine, 8, -1);
+                stage = ["translated"];
             } elseif (substr(myLine, 0, 9) == "msgctxt \"") {
-                $item["context"] = substr(myLine, 9, -1);
-                $stage = ["context"];
+                item["context"] = substr(myLine, 9, -1);
+                stage = ["context"];
             } elseif (myLine[0] == """) {
-                switch (count($stage)) {
+                switch (count(stage)) {
                     case 2:
                         /**
                          * @psalm-suppress PossiblyUndefinedArrayOffset
                          * @psalm-suppress InvalidArrayOffset
                          * @psalm-suppress PossiblyNullArrayAccess
                          * /
-                        $item[$stage[0]][$stage[1]] ~= substr(myLine, 1, -1);
+                        item[stage[0]][stage[1]] ~= substr(myLine, 1, -1);
                         break;
 
                     case 1:
@@ -128,76 +128,76 @@ class PoFileParser {
                          * @psalm-suppress PossiblyInvalidOperand
                          * @psalm-suppress PossiblyNullOperand
                          * /
-                        $item[$stage[0]] ~= substr(myLine, 1, -1);
+                        item[stage[0]] ~= substr(myLine, 1, -1);
                         break;
                 }
             } elseif (substr(myLine, 0, 14) == "msgid_plural "") {
                 /** @psalm-suppress InvalidArrayOffset * /
-                $item["ids"]["plural"] = substr(myLine, 14, -1);
-                $stage = ["ids", "plural"];
+                item["ids"]["plural"] = substr(myLine, 14, -1);
+                stage = ["ids", "plural"];
             } elseif (substr(myLine, 0, 7) == "msgstr[") {
-                /** @var int $size * /
-                $size = strpos(myLine, "]");
-                $row = (int)substr(myLine, 7, 1);
-                $item["translated"][$row] = substr(myLine, $size + 3, -1);
-                $stage = ["translated", $row];
+                /** @var int size * /
+                size = strpos(myLine, "]");
+                row = (int)substr(myLine, 7, 1);
+                item["translated"][row] = substr(myLine, size + 3, -1);
+                stage = ["translated", row];
             }
         }
         // save last item
-        _addMessage($messages, $item);
-        fclose($stream);
+        _addMessage(messages, item);
+        fclose(stream);
 
-        return $messages;
+        return messages;
     }
 
     /**
      * Saves a translation item to the messages.
      *
-     * @param array $messages The messages array being collected from the file
-     * @param array $item The current item being inspected
+     * @param array messages The messages array being collected from the file
+     * @param array item The current item being inspected
      * /
-    protected void _addMessage(array &$messages, array $item) {
-        if (empty($item["ids"]["singular"]) && empty($item["ids"]["plural"])) {
+    protected void _addMessage(array &messages, array item) {
+        if (empty(item["ids"]["singular"]) && empty(item["ids"]["plural"])) {
             return;
         }
 
-        $singular = stripcslashes($item["ids"]["singular"]);
-        $context = $item["context"] ?? null;
-        $translation = $item["translated"];
+        singular = stripcslashes(item["ids"]["singular"]);
+        context = item["context"] ?? null;
+        translation = item["translated"];
 
-        if (is_array($translation)) {
-            $translation = $translation[0];
+        if (is_array(translation)) {
+            translation = translation[0];
         }
 
-        $translation = stripcslashes((string)$translation);
+        translation = stripcslashes((string)translation);
 
-        if ($context != null && !isSet($messages[$singular]["_context"], $context)) {
-            $messages[$singular]["_context"][$context] = $translation;
-        } elseif (!isSet($messages[$singular]["_context"], "")) {
-            $messages[$singular]["_context"][""] = $translation;
+        if (context != null && !isSet(messages[singular]["_context"], context)) {
+            messages[singular]["_context"][context] = translation;
+        } elseif (!isSet(messages[singular]["_context"], "")) {
+            messages[singular]["_context"][""] = translation;
         }
 
-        if (isSet($item["ids"], "plural")) {
-            $plurals = $item["translated"];
+        if (isSet(item["ids"], "plural")) {
+            plurals = item["translated"];
             // PO are by definition indexed so sort by index.
-            ksort($plurals);
+            ksort(plurals);
 
             // Make sure every index is filled.
-            end($plurals);
-            $count = (int)key($plurals);
+            end(plurals);
+            count = (int)key(plurals);
 
             // Fill missing spots with an empty string.
-            $empties = array_fill(0, $count + 1, "");
-            $plurals += $empties;
-            ksort($plurals);
+            empties = array_fill(0, count + 1, "");
+            plurals += empties;
+            ksort(plurals);
 
-            $plurals = array_map("stripcslashes", $plurals);
-            $key = stripcslashes($item["ids"]["plural"]);
+            plurals = array_map("stripcslashes", plurals);
+            key = stripcslashes(item["ids"]["plural"]);
 
-            if ($context != null) {
-                $messages[Translator::PLURAL_PREFIX~$key]["_context"][$context] = $plurals;
+            if (context != null) {
+                messages[Translator::PLURAL_PREFIX~key]["_context"][context] = plurals;
             } else {
-                $messages[Translator::PLURAL_PREFIX~$key]["_context"][""] = $plurals;
+                messages[Translator::PLURAL_PREFIX~key]["_context"][""] = plurals;
             }
         }
  */ }   

@@ -12,7 +12,7 @@ import uim.mvc;
 interface ICommandCollectionAware {
     /**
      * Set the command collection being used.
-     * @param uim.cake.consoles.CommandCollection $commands The commands to use.
+     * @param uim.cake.consoles.CommandCollection commands The commands to use.
      */
     /* void commandCollection(CommandCollection someCommands); */
 }

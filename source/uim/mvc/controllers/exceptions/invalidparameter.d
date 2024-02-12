@@ -22,17 +22,17 @@ class DInvalidParameterException : DException {
   /**
     * Switches message template based on `template` key in message array.
     *
-    * @param string|array $message Either the string of the error message, or an array of attributes
+    * @param string|array message Either the string of the error message, or an array of attributes
     *   that are made available in the view, and sprintf()"d into Exception::_messageTemplate
     * errorCode - The error code
-    * @param \Throwable|null $previous the previous exception.
+    * @param \Throwable|null previous the previous exception.
     */
-/*   this($message = "", int errorCode = 0, ?Throwable $previous = null) {
-      if (is_array($message)) {
-        _messageTemplate = _templates[$message["template"]] ?? "";
-        unset($message["template"]);
+/*   this(message = "", int errorCode = 0, ?Throwable previous = null) {
+      if (is_array(message)) {
+        _messageTemplate = _templates[message["template"]] ?? "";
+        unset(message["template"]);
       }
-      super($message, errorCode, $previous);
+      super(message, errorCode, previous);
   } */
 }
 mixin(ExceptionCalls!("InvalidParameterException"));

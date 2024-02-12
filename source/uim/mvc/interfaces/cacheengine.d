@@ -15,7 +15,7 @@ interface ICacheEngine {
     * Write data for key into a cache engine if it doesn"t exist already.
     *
     * dataId - Identifier for the data.
-    * @param mixed $value Data to be cached - anything except a resource.
+    * @param mixed value Data to be cached - anything except a resource.
     * @return bool True if the data was successfully cached, false on failure.
     *   Or if the key existed already.
     */
@@ -46,7 +46,7 @@ interface ICacheEngine {
     * delete the keys or just augment a group generation value
     * to achieve the same result.
     *
-    * @param string $group name of the group to be cleared
+    * @param string group name of the group to be cleared
     * @return bool
     */
   bool clearGroup(string aGroup);

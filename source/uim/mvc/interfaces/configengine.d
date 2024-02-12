@@ -18,10 +18,10 @@ interface IConfigEngine {
     Json read(string aKey);
 
     /**
-     * Dumps the configure data into the storage key/file of the given `$key`.
+     * Dumps the configure data into the storage key/file of the given `key`.
      *
      * @param string aKey The identifier to write to.
-     * @param array $data The data to dump.
+     * @param array data The data to dump.
      * @return bool True on success or false on failure.
      */
     bool dump(string aKey, Json someData);

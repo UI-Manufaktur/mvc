@@ -58,7 +58,7 @@ class DEntitiesFormContent : DFormContent {
       return [
         H5Tr
         .td(
-          BS5FormCheckInput("${entity.id}", ["m-0 align-middle"], ["type":"checkbox", "aria-label":"Select item"]))// , "checked": entity.selected? `checked`:``)+`>
+          BS5FormCheckInput("{entity.id}", ["m-0 align-middle"], ["type":"checkbox", "aria-label":"Select item"]))// , "checked": entity.selected? `checked`:``)+`>
         .td(["w-1"], germanDate(to!long(entity["createdOn"])))
         .td(["w-1"], germanDate(to!long(entity["modifiedOn"])))
         .td(["w-1"], H5A(["href": rootPath~"/view?id="~entity["id"]], entity["name"]))
