@@ -40,8 +40,8 @@ auto app() {
   result ~= 
     jsFunc("redirectPost", ["target", "url", "data"],
       jsLet("formData", "''")~
-      jsForIn("field", "data", "formData += `"~UIMTextInput.name("${field}").value("${data[field]}").toString~"`;")~
-      "target.innerHTML=`<form id=\"postForm\" action=\"${url}\" method=\"post\">${formData}</form>`;"~
+      jsForIn("field", "data", "formData += `"~UIMTextInput.name("{field}").value("{data[field]}").toString~"`;")~
+      "target.innerHTML=`<form id=\"postForm\" action=\"{url}\" method=\"post\">{formData}</form>`;"~
       jsElementById(["postForm"])~
       "postForm.submit();");
 
@@ -85,8 +85,8 @@ auto app() {
         H5Div(["d-flex"], 
           H5Div(tablerIcon("check", ["alert-icon"])),
           H5Div(
-            H5H4(["alert-title me-2"], "${title}"),
-            H5Div(["text-muted"], "${description}"))),
+            H5H4(["alert-title me-2"], "{title}"),
+            H5Div(["text-muted"], "{description}"))),
         H5A(["btn-close"], ["data-bs-dismiss":"alert", "aria-label":"close"])))   
   )~
 
@@ -97,8 +97,8 @@ auto app() {
         H5Div(["d-flex"], 
           H5Div(tablerIcon("alert-triangle", ["alert-icon"])),
           H5Div(
-            H5H4(["alert-title me-2"], "${title}"),
-            H5Div(["text-muted"], "${description}"))),
+            H5H4(["alert-title me-2"], "{title}"),
+            H5Div(["text-muted"], "{description}"))),
         H5A(["btn-close"], ["data-bs-dismiss":"alert", "aria-label":"close"])))   
   )~
 
@@ -109,8 +109,8 @@ auto app() {
         H5Div(["d-flex"], 
           H5Div(tablerIcon("alert-circle", ["alert-icon"])),
           H5Div(
-            H5H4(["alert-title me-2"], "${title}"),
-            H5Div(["text-muted"], "${description}"))),
+            H5H4(["alert-title me-2"], "{title}"),
+            H5Div(["text-muted"], "{description}"))),
         H5A(["btn-close"], ["data-bs-dismiss":"alert", "aria-label":"close"])))   
   )~
       errorChecking();

@@ -12,7 +12,7 @@ interface IValidatorCollection {
     * You can configure your default validator name in a `DEFAULT_VALIDATOR`
     * class constant.
     *
-    * @param string|null $name The name of the validation set to return.
+    * @param string|null name The name of the validation set to return.
     * @return uim.cake.validations.Validator
     */
   IValidator validator(string aName = null);
@@ -21,7 +21,7 @@ interface IValidatorCollection {
     * This method stores a custom validator under the given name.
     *
     * @param string aName The name of a validator to be set.
-    * @param uim.cake.validations.Validator $validator Validator object to be set.
+    * @param uim.cake.validations.Validator validator Validator object to be set.
     * @return this
     */
   IValidatorCollection validator(string aName, IValidator aValidator);

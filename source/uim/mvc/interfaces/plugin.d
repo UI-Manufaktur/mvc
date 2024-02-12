@@ -4,7 +4,7 @@ import uim.mvc;
 @safe:
 /**
  * Plugin Interface
- * @method void services(uim.cake.Core\IContainer $container) Register plugin services to the application"s container
+ * @method void services(uim.cake.Core\IContainer container) Register plugin services to the application"s container
  */
 interface IPlugin {
   // List of valid hooks.
@@ -34,14 +34,14 @@ interface IPlugin {
     * The host application is provided as an argument. This allows you to load additional
     * plugin dependencies, or attach events.
     *
-    * @param uim.cake.Core\IPluginApplication $app The host application
+    * @param uim.cake.Core\IPluginApplication app The host application
     */
   void bootstrap(IPluginApplication anApp);
 
   /**
     * Add console commands for the plugin.
     *
-    * @param uim.cake.consoles.CommandCollection $commands The command collection to update
+    * @param uim.cake.consoles.CommandCollection commands The command collection to update
     * @return uim.cake.consoles.CommandCollection
     */
   /* DCommandCollection console(ICommandCollection aCommandCollection); */
@@ -49,7 +49,7 @@ interface IPlugin {
   /**
     * Add middleware for the plugin.
     *
-    * @param uim.cake.http.MiddlewareQueue $middlewareQueue The middleware queue to update.
+    * @param uim.cake.http.MiddlewareQueue middlewareQueue The middleware queue to update.
     * @return uim.cake.http.MiddlewareQueue
     */
   /* MiddlewareQueue middleware(MiddlewareQueue anMiddlewareQueue); */
@@ -60,7 +60,7 @@ interface IPlugin {
     * The default implementation of this method will include the `config/routes.php` in the plugin if it exists. You
     * can override this method to replace that behavior.
     *
-    * @param uim.cake.routings.routesBuilder $routes The route builder to update.
+    * @param uim.cake.routings.routesBuilder routes The route builder to update.
     */
   /* void routes(RouteBuilder anRoutes); */
 

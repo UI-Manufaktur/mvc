@@ -34,7 +34,7 @@ auto listEntities() {
       // No pagination
       jsLet("startEntry", "1")~
       jsLet("endEntry", "entities.length")~
-      "availableEntites.innerHTML=`Anzeige <span>${startEntry+1}</span> bis <span>${endEntry}</span> von <span>${entities.length}</span> Einträgen`;"~
+      "availableEntites.innerHTML=`Anzeige <span>{startEntry+1}</span> bis <span>{endEntry}</span> von <span>{entities.length}</span> Einträgen`;"~
       "return entities;")~
     // Use pagination
     jsLet("results", "entities")~
@@ -44,7 +44,7 @@ auto listEntities() {
       `prevEntities.classList.add("disabled");`,
       `prevEntities.classList.remove("disabled");`
     )~  
-    "pageDisplay.innerText=`Seite ${pageNo+1}`;"~
+    "pageDisplay.innerText=`Seite {pageNo+1}`;"~
     jsIfElse("pageNo===pageNumbers+1", 
       `nextEntities.classList.add("disabled");`,
       `nextEntities.classList.remove("disabled");`
@@ -52,7 +52,7 @@ auto listEntities() {
     jsLet("startEntry", "pageNo*size")~
     jsLet("endEntry", "(pageNo+1)*size")~
     jsIf("endEntry>entities.length", "endEntry=entities.length;")~
-    "availableEntites.innerHTML=`Anzeige <span>${startEntry+1}</span> bis <span>${endEntry}</span> von <span>${entities.length}</span> Einträgen`;"~
+    "availableEntites.innerHTML=`Anzeige <span>{startEntry+1}</span> bis <span>{endEntry}</span> von <span>{entities.length}</span> Einträgen`;"~
     "return entities.slice(startEntry, endEntry);"
   )~
   // Filter entity 
@@ -290,8 +290,8 @@ auto listing() {
           BS5Row(["align-items-center"])
           .col(["col-auto"], BS5Badge("listItemBadge", [""]))
           .col(["text-truncate"], 
-            H5A(["text-body d-block"], ["href":"${path}/view?entity_id=${entity.id}"], "${entity.display}"),
-            H5Small(["d-block text-muted text-truncate mt-n1"], "${entity.name}"))
+            H5A(["text-body d-block"], ["href":"{path}/view?entity_id={entity.id}"], "{entity.display}"),
+            H5Small(["d-block text-muted text-truncate mt-n1"], "{entity.name}"))
           .col(["col-auto"], 
             H5A("listItemFavorite", ["list-group-item-actions"], ["href":"#"], tablerIcon("star")))
         ).toString~"`;");

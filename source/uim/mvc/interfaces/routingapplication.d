@@ -15,7 +15,7 @@ interface IRoutingApplication {
      *
      * Use the provided RouteBuilder to define an application"s routing.
      *
-     * routesBuilder $routes A route builder to add routes into.
+     * routesBuilder routes A route builder to add routes into.
      */
     void routes(DRouteBuilder routeBuilder);
 }

@@ -19,13 +19,13 @@ abstract class DLogFormatter {
     * Setting a specific value:
     *
     * ```
-    * this.setConfig("key", $value);
+    * this.setConfig("key", value);
     * ```
     *
     * Setting a nested value:
     *
     * ```
-    * this.setConfig("some.nested.key", $value);
+    * this.setConfig("some.nested.key", value);
     * ```
     *
     * Updating multiple config settings at the same time:
@@ -35,8 +35,8 @@ abstract class DLogFormatter {
     * ```
     *
     * @param IData[string][]|string aKey The key to set, or a complete array of configs.
-    * @param mixed|null $value The value to set.
-    * @param bool $merge Whether to recursively merge or overwrite existing config, defaults to true.
+    * @param mixed|null value The value to set.
+    * @param bool merge Whether to recursively merge or overwrite existing config, defaults to true.
     * @return this
     * @throws uim.cake.Core\exceptions.UIMException When trying to set a key that is invalid.
     */
@@ -118,13 +118,13 @@ abstract class DLogFormatter {
     * Setting a specific value:
     *
     * ```
-    * this.configShallow("key", $value);
+    * this.configShallow("key", value);
     * ```
     *
     * Setting a nested value:
     *
     * ```
-    * this.configShallow("some.nested.key", $value);
+    * this.configShallow("some.nested.key", value);
     * ```
     *
     * Updating multiple config settings at the same time:
@@ -134,7 +134,7 @@ abstract class DLogFormatter {
     * ```
     *
     * @param IData[string][]|string aKey The key to set, or a complete array of configs.
-    * @param mixed|null $value The value to set.
+    * @param mixed|null value The value to set.
     */
   DLogFormatter configShallow(string aKey, Json aValue = null) {
     /*       if (!_configInitialized) {
@@ -142,7 +142,7 @@ abstract class DLogFormatter {
           _configInitialized = true;
       }
 
-      _configWrite($key, $value, "shallow"); */
+      _configWrite(key, value, "shallow"); */
 
     return this;
   }
@@ -164,12 +164,12 @@ abstract class DLogFormatter {
     auto result = _config;
     /* 
       foreach (myKeyPart; aKey.split(".")) {
-          if (!is_array($return) || !isSet($return, myKeyPart)) {
-              $return = null;
+          if (!is_array(return) || !isSet(return, myKeyPart)) {
+              return = null;
               break;
           }
 
-          result = $return[myKeyPart];
+          result = return[myKeyPart];
       } */
 
     return result;
@@ -179,58 +179,58 @@ abstract class DLogFormatter {
     * Writes a config key.
     *
     * @param IData[string][]|string aKey Key to write to.
-    * @param mixed $value Value to write.
-    * @param string|bool $merge True to merge recursively, "shallow" for simple merge,
+    * @param mixed value Value to write.
+    * @param string|bool merge True to merge recursively, "shallow" for simple merge,
     *   false to overwrite, defaults to false.
     * @return void
     * @throws uim.cake.Core\exceptions.UIMException if attempting to clobber existing config
     */
-  /* protected void _configWrite($key, $value, $merge = false) {
-      if (is_string($key) && $value == null) {
-          _configDelete($key);
+  /* protected void _configWrite(key, value, merge = false) {
+      if (is_string(key) && value == null) {
+          _configDelete(key);
 
           return;
       }
 
-      if ($merge) {
-          $update = is_array($key) ? $key : [$key: $value];
-          if ($merge == "shallow") {
-              _config = array_merge(_config, Hash::expand($update));
+      if (merge) {
+          update = is_array(key) ? key : [key: value];
+          if (merge == "shallow") {
+              _config = array_merge(_config, Hash::expand(update));
           } else {
-              _config = Hash::merge(_config, Hash::expand($update));
+              _config = Hash::merge(_config, Hash::expand(update));
           }
 
           return;
       }
 
-      if (is_array($key)) {
-          foreach ($key as $k: $val) {
-              _configWrite($k, $val);
+      if (is_array(key)) {
+          foreach (key as k: val) {
+              _configWrite(k, val);
           }
 
           return;
       }
 
-      if (strpos($key, ".") == false) {
-          _config[$key] = $value;
+      if (strpos(key, ".") == false) {
+          _config[key] = value;
 
           return;
       }
 
-      $update = &_config;
-      $stack = $key.split(".");
+      update = &_config;
+      stack = key.split(".");
 
-      foreach ($stack as $k) {
-          if (!is_array($update)) {
-              throw new UIMException(sprintf("Cannot set %s value", $key));
+      foreach (stack as k) {
+          if (!is_array(update)) {
+              throw new UIMException(sprintf("Cannot set %s value", key));
           }
 
-          $update[$k] = $update[$k] ?? [];
+          update[k] = update[k] ?? [];
 
-          $update = &$update[$k];
+          update = &update[k];
       }
 
-      $update = $value;
+      update = value;
   } */
 
   /**
@@ -241,31 +241,31 @@ abstract class DLogFormatter {
     * @throws uim.cake.Core\exceptions.UIMException if attempting to clobber existing config
     * /
   protected void _configDelete(string aKey) {
-      /* if (strpos($key, ".") == false) {
-          unset(_config[$key]);
+      /* if (strpos(key, ".") == false) {
+          unset(_config[key]);
 
           return;
       }
 
-      $update = &_config;
-      $stack = $key.split(".");
-      $length = count($stack);
+      update = &_config;
+      stack = key.split(".");
+      length = count(stack);
 
-      foreach ($i: $k; $stack) {
-        if (!is_array($update)) {
-            throw new UIMException(sprintf("Cannot unset %s value", $key));
+      foreach (i: k; stack) {
+        if (!is_array(update)) {
+            throw new UIMException(sprintf("Cannot unset %s value", key));
         }
 
-        if (!isSet($update, $k)) {
+        if (!isSet(update, k)) {
             break;
         }
 
-        if ($i == $length - 1) {
-            unset($update[$k]);
+        if (i == length - 1) {
+            unset(update[k]);
             break;
         }
 
-        $update = &$update[$k];
+        update = &update[k];
       }
   }
 
@@ -288,10 +288,10 @@ abstract class DLogFormatter {
   /**
     * Formats message.
     *
-    * @param mixed $level Logging level
+    * @param mixed level Logging level
     * @param string myMessage Message string
-    * @param array $context Mesage context
+    * @param array context Mesage context
     * @return string Formatted message
     * /
-  abstract string format($level, string myMessage, array $context = null); */
+  abstract string format(level, string myMessage, array context = null); */
 }

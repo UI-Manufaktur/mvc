@@ -16,13 +16,13 @@ auto entity() {
   result ~= 
     jsFunc("entityTableRow", ["entity", "path", "mainCol", "cols", "actions"], 
       jsLet("tableRow", "''")~
-      "tableRow+=`<td><input id=\"${entity.id}\" class=\"form-check-input m-0 align-middle\" type=\"checkbox\" aria-label=\"Select item\" `+(entity.selected? `checked`:``)+`></td>`;"~
-      "tableRow+=`<td class=\"w-1\">${timestampToLocalDate(entity.createdOn)}</td>`;"~
-      "tableRow+=`<td class=\"w-1\">${timestampToLocalDate(entity.modifiedOn)}</td>`;"~
+      "tableRow+=`<td><input id=\"{entity.id}\" class=\"form-check-input m-0 align-middle\" type=\"checkbox\" aria-label=\"Select item\" `+(entity.selected? `checked`:``)+`></td>`;"~
+      "tableRow+=`<td class=\"w-1\">{timestampToLocalDate(entity.createdOn)}</td>`;"~
+      "tableRow+=`<td class=\"w-1\">{timestampToLocalDate(entity.modifiedOn)}</td>`;"~
       jsFor("let i=0", "i<cols.length", "i++", 
         jsIfElse("cols[i]===mainCol", 
-          "tableRow+=`<td><a href=\"${path}/view?entity_id=${entity.id}\">${entity[cols[i]]}</a></td>`;", 
-          "tableRow+=`<td class=\"w-1\">${entity[cols[i]]}</td>`;"))~
+          "tableRow+=`<td><a href=\"{path}/view?entity_id={entity.id}\">{entity[cols[i]]}</a></td>`;", 
+          "tableRow+=`<td class=\"w-1\">{entity[cols[i]]}</td>`;"))~
       "return '<tr>'+tableRow+'</tr>';");
 
   return result;
@@ -31,18 +31,18 @@ auto entity() {
 Old version
 jsFunc("entityTableRow", ["entity", "path", "mainCol", "cols", "actions"], 
   jsLet("tableRow", "''")~
-  "tableRow+=`<td><input id=\"${entity.id}\" class=\"form-check-input m-0 align-middle\" type=\"checkbox\" aria-label=\"Select item\" `+(entity.selected? `checked`:``)+`></td>`;"~
+  "tableRow+=`<td><input id=\"{entity.id}\" class=\"form-check-input m-0 align-middle\" type=\"checkbox\" aria-label=\"Select item\" `+(entity.selected? `checked`:``)+`></td>`;"~
   jsFor("let i=0", "i<cols.length", "i++", 
-    jsIfElse("cols[i]===mainCol", "tableRow+=`<td>${entity[cols[i]]}</td>`;", "tableRow+=`<td class=\"w-1\">${entity[cols[i]]}</td>`;"))~
+    jsIfElse("cols[i]===mainCol", "tableRow+=`<td>{entity[cols[i]]}</td>`;", "tableRow+=`<td class=\"w-1\">{entity[cols[i]]}</td>`;"))~
   jsIf("actions.length>0", 
     "tableRow+=`<td class=\"text-end\"><span class=\"dropdown\">
       <button class=\"btn btn-sm dropdown-toggle align-text-top\" data-bs-boundary=\"viewport\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">Aktionen</button>
       <div class=\"dropdown-menu dropdown-menu-end\" style=\"\">"~
-        BS5DropdownLink(["href":"${path}/view?entity_id=${entity.id}"], "Anzeigen").toString~
-        BS5DropdownLink(["href":"${path}/edit?entity_id=${entity.id}"], "Bearbeiten").toString~
-        BS5DropdownLink(["disabled"], ["href":"${path}/lock?entity_id=${entity.id}"], "Sperren").toString~
-        BS5DropdownLink(["disabled"], ["href":"${path}/version?entity_id=${entity.id}"], "Versionieren").toString~
-        BS5DropdownLink(["href":"${path}/delete?entity_id=${entity.id}"], "Löschen").toString~
+        BS5DropdownLink(["href":"{path}/view?entity_id={entity.id}"], "Anzeigen").toString~
+        BS5DropdownLink(["href":"{path}/edit?entity_id={entity.id}"], "Bearbeiten").toString~
+        BS5DropdownLink(["disabled"], ["href":"{path}/lock?entity_id={entity.id}"], "Sperren").toString~
+        BS5DropdownLink(["disabled"], ["href":"{path}/version?entity_id={entity.id}"], "Versionieren").toString~
+        BS5DropdownLink(["href":"{path}/delete?entity_id={entity.id}"], "Löschen").toString~
         BS5DropdownDivider.toString~
         BS5DropdownLink(["disabled"], ["href":"#"], "Drucken").toString~
         BS5DropdownLink(["disabled"], ["href":"#"], "Exportieren").toString~

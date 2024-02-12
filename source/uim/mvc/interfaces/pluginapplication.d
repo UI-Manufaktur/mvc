@@ -18,7 +18,7 @@ interface IPluginApplication /* : IEventDispatcher */{
      * all plugin hooks enabled.
      *
      * @param uim.cake.Core\IPlugin|string aName The plugin name or plugin object.
-     * @param IData[string][] aConfig The configuration data for the plugin if using a string for $name
+     * @param IData[string][] aConfig The configuration data for the plugin if using a string for name
      * @return this
      */
     /* IPluginApplication addPlugin(string aName, DConfigurationValue configSettings = null);
@@ -31,7 +31,7 @@ interface IPluginApplication /* : IEventDispatcher */{
     /**
      * Run routes hooks for loaded plugins
      *
-     * @param uim.cake.routings.routesBuilder $routes The route builder to use.
+     * @param uim.cake.routings.routesBuilder routes The route builder to use.
      * @return uim.cake.routings.routesBuilder
      */
     /* RouteBuilder pluginRoutes(RouteBuilder someRoutes); */
@@ -39,7 +39,7 @@ interface IPluginApplication /* : IEventDispatcher */{
     /**
      * Run middleware hooks for plugins
      *
-     * @param uim.cake.http.MiddlewareQueue $middleware The MiddlewareQueue to use.
+     * @param uim.cake.http.MiddlewareQueue middleware The MiddlewareQueue to use.
      * @return uim.cake.http.MiddlewareQueue
      */
     /* MiddlewareQueue pluginMiddleware(MiddlewareQueue aMiddleware); */
@@ -47,7 +47,7 @@ interface IPluginApplication /* : IEventDispatcher */{
     /**
      * Run console hooks for plugins
      *
-     * @param uim.cake.consoles.CommandCollection $commands The CommandCollection to use.
+     * @param uim.cake.consoles.CommandCollection commands The CommandCollection to use.
      * @return uim.cake.consoles.CommandCollection
      */
     /* ICommandCollection pluginConsole(ICommandCollection someCommands); */
