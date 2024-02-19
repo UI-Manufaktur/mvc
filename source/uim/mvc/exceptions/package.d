@@ -52,32 +52,4 @@ class DUIMException /* : RuntimeException */ {
       return _attributes;
     } */
 
-    /**
-     * Get/set the response header to be used
-     *
-     * See also {@link uim.cake.Http\Response::withHeader()}
-     *
-     * @param array|string|null header A single header string or an associative
-     *   array of "header name":"header value"
-     * @param string|null myValue The header value.
-     * @return array|null
-     * @deprecated 4.2.0 Use `HttpException::setHeaders()` instead. Response headers
-     *   should be set for HttpException only.
-     */
-    /* function responseHeader(header = null, myValue = null): ?array {
-      if (header is null) {
-          return _responseHeaders;
-      }
-
-      deprecationWarning(
-          "Setting HTTP response headers from Exception directly is deprecated~ " ~
-          "If your exceptions extend Exception, they must now extend HttpException~ " ~
-          "You should only set HTTP headers on HttpException instances via the `setHeaders()` method."
-      );
-      if (is_array(header)) {
-          return _responseHeaders = header;
-      }
-
-      return _responseHeaders = [header: myValue];
-    } */
-}
+    
