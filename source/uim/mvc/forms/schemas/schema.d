@@ -64,7 +64,7 @@ class DFormSchema {
      */
     /* public function fields(): array
     {
-        return array_keys(_fields);
+        return _fields.keys;
     } */
 
     /**
