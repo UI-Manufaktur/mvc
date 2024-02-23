@@ -162,7 +162,7 @@ class PoFileParser {
         }
 
         singular = stripcslashes(item["ids"]["singular"]);
-        context = item["context"] ?? null;
+        context = item.get("context", null);
         translation = item["translated"];
 
         if (is_array(translation)) {

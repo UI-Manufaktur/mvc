@@ -82,7 +82,7 @@ class DRouteCommand : DCommand {
                 myRoute.options.get("_name", myRoute.name()),
                 myRoute.template,
                 myRoute.defaults["plugin"] ?? "",
-                myRoute.defaults["prefix"] ?? "",
+                myRoute.defaults.get("prefix", ""),
                 myRoute.defaults["controller"] ?? "",
                 myRoute.defaults["action"] ?? "",
                 (methods.join(", ")),
