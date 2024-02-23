@@ -477,10 +477,10 @@ class DConsoleIo {
             return;
         }
         outLevels = ['notice', 'info'];
-        if (enable === static::VERBOSE || enable === true) {
+        if (enable === VERBOSE || enable === true) {
             outLevels[] = 'debug';
         }
-        if (enable !== static::QUIET) {
+        if (enable !== QUIET) {
             stdout = new ConsoleLog([
                 'types' => outLevels,
                 'stream' => this->_out,

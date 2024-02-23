@@ -31,7 +31,7 @@ class DForm : DViewComponent {  // : IEventListener, IEventDispatcher, IValidato
 
          if (method_exists(this, "_buildValidator")) {
             deprecationWarning(
-                static::class . " implements `_buildValidator` which is no longer used. " .
+                class . " implements `_buildValidator` which is no longer used. " .
                 "You should implement `buildValidator(Validator validator, string name): void` " .
                 "or `validationDefault(Validator validator): Validator` instead."
             );
@@ -179,7 +179,7 @@ class DForm : DViewComponent {  // : IEventListener, IEventDispatcher, IValidato
      */
 /*     public function validate(array data, ?string validator = null): bool
     {
-        this._errors = this.getValidator(validator ?: static::DEFAULT_VALIDATOR)
+        this._errors = this.getValidator(validator ?: DEFAULT_VALIDATOR)
             ->validate(data);
 
         return count(this->_errors) === 0;
@@ -247,7 +247,7 @@ class DForm : DViewComponent {  // : IEventListener, IEventDispatcher, IValidato
             return this._execute(data);
         }
 
-        validator = options["validate"] === true ? static::DEFAULT_VALIDATOR : options["validate"];
+        validator = options["validate"] === true ? DEFAULT_VALIDATOR : options["validate"];
 
         return this.validate(data, validator) ? this._execute(data) : false;
     } */

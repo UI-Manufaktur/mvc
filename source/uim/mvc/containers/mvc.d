@@ -1217,11 +1217,11 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
      */
     /*     public static function getInstance()
     {
-        if (is_null(static::instance)) {
-            static::instance = new static;
+        if (is_null(instance)) {
+            instance = new static;
         }
 
-        return static::instance;
+        return instance;
     }
  */
     /**
@@ -1232,7 +1232,7 @@ class DMVCContainer { // implements ArrayAccess, ContainerContract
      */
     /*     public static function setInstance(ContainerContract container = null)
     {
-        return static::instance = container;
+        return instance = container;
     }
  */
     /**
