@@ -17,7 +17,7 @@ class DFormInputHandler : DFormComponent {
     return cast(O)this;
   }
 
-  override void initialize(Json configSettings = Json(null)) {
+  override bool initialize(IData[string] configSettings = null) {
     version(test_uim_mvc) { debugMethodCall(moduleName!DFormInputHandler~"::DFormInputHandler("~this.className~"):initialize"); }
     super.initialize(configSettings);
 

@@ -11,7 +11,7 @@ import uim.mvc;
 class DDescriptionFormInput : DTextAreaFormInput {
   mixin(ViewComponentThis!("DescriptionFormInput"));
 
-  override void initialize(Json configSettings = Json(null)) {
+  override bool initialize(IData[string] configSettings = null) {
     version(test_uim_mvc) { debugMethodCall(moduleName!DDescriptionFormInput~"::DDescriptionFormInput("~this.className~"):initialize"); }
     super.initialize(configSettings);
      

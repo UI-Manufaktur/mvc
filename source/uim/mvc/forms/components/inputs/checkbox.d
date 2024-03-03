@@ -11,7 +11,7 @@ import uim.mvc;
 class DMVCCheckboxFormInput : DFormInput {
   mixin(ViewComponentThis!("MVCCheckboxFormInput"));
 
-  override void initialize(Json configSettings = Json(null)) {
+  override bool initialize(IData[string] configSettings = null) {
     version(test_uim_mvc) { debugMethodCall(moduleName!DMVCCheckboxFormInput~"::DMVCCheckboxFormInput("~this.className~"):initialize"); }
     super.initialize(configSettings);
 

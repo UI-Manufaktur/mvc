@@ -11,7 +11,7 @@ import uim.mvc;
 class DDisplayFormInput : DTextFormInput {
   mixin(ViewComponentThis!("DisplayFormInput"));
 
-  override void initialize(Json configSettings = Json(null)) {
+  override bool initialize(IData[string] configSettings = null) {
     super.initialize(configSettings);
 
     this
