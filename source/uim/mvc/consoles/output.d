@@ -23,7 +23,7 @@ class DOutputConsole : DConsole {
   // text colors used in colored output.
   protected static int[string] _foregroundColors;
     
-  override void initialize(Json configSettings = Json(null)) {
+  override bool initialize(IData[string] configSettings = null) {
     super.initialize(configSettings);
 
     _foregroundColors = [
