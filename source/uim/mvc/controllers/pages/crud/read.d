@@ -14,7 +14,7 @@ import uim.mvc;
 class DEntityReadController : DEntityCrudPageController {
   mixin(ControllerThis!("EntityReadController"));
 
-  override void initialize(Json configSettings = Json(null)) {
+  override bool initialize(IData[string] configSettings = null) {
     super.initialize(configSettings);
     
     this

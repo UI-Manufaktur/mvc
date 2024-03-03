@@ -38,7 +38,7 @@ class DForm : DViewComponent {  // : IEventListener, IEventDispatcher, IValidato
         }
      }*/ 
 
-  override void initialize(Json configSettings = Json(null)) {
+  override bool initialize(IData[string] configSettings = null) {
     version(test_uim_mvc) { debugMethodCall(moduleName!DForm~"::DForm("~this.className~"):initialize"); }  
     super.initialize(configSettings);    
     version(test_uim_mvc) { 
@@ -237,7 +237,7 @@ class DForm : DViewComponent {  // : IEventListener, IEventDispatcher, IValidato
      * @return bool False on validation failure, otherwise returns the
      *   result of the `_execute()` method.
      */
-    /* public function execute(array data, array options = []): bool
+    /* public function execute(array data, IData[string] options = null): bool
     {
         this._data = data;
 

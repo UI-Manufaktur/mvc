@@ -8,7 +8,7 @@ class DStyle : DController {
   /* this(DApplication myApp) { this().app(myApp); } */
 
   // Initialization (= hook method)
-override void initialize(Json configSettings = null) {
+override bool initialize(IData[string] configSettings = nullSettings = null) {
     super.initialize(configSettings);
     super.initialize;
 

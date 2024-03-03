@@ -18,7 +18,7 @@ class DPageController : DController, IPageController, IViewManager, ILayoutManag
   mixin LayoutManagerTemplate;
 
   // Initialization (= hook method)
-  override void initialize(Json configSettings = Json(null)) {
+  override bool initialize(IData[string] configSettings = null) {
     version(test_uim_mvc) { 
       debugMethodCall(moduleName!DPageController~"::DPageController("~this.className~"):initialize");   
     }

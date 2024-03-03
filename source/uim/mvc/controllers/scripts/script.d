@@ -13,7 +13,7 @@ class DScript : DController {
   /* this(IApplication myApp) { this().app(myApp); } */
 
   // Initialization (= hook method)
-override void initialize(Json configSettings = Json(null)) {
+override bool initialize(IData[string] configSettings = null) {
     super.initialize(configSettings);
 
     this.name = "Script"; 
