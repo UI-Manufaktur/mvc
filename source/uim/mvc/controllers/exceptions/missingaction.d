@@ -15,7 +15,7 @@ import uim.mvc;
 class DMissingActionException : DException {
   mixin(ExceptionThis!("MissingActionException"));
 
-	override void initialize(Json configSettings = Json(null)) {
+	override bool initialize(IData[string] configSettings = null) {
 		super.initialize(configSettings);
 		this
 			.messageTemplate("Action %s::%s() could not be found, or is not accessible.");
