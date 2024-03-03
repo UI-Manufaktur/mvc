@@ -11,7 +11,7 @@ import uim.mvc;
 class DPageViewComponent : DViewComponent {
   mixin(ViewComponentThis!("PageViewComponent"));
   
-  override void initialize(Json configSettings = Json(null)) {
+  override bool initialize(IData[string] configSettings = null) {
     this
       .header(PageHeader)
       .body_(MVCPageBody)

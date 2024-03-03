@@ -15,7 +15,7 @@ class DEntitiesListView : DEntitiesView {
   mixin(OProperty!("bool", "readonly"));
   mixin(OViewComponent!("form", "form"));
   
-override void initialize(Json configSettings = Json(null)) {
+override bool initialize(IData[string] configSettings = null) {
     super.initialize(configSettings);
     debugMethodCall(moduleName!DEntitiesListView~"::DEntitiesListView("~this.className~"):initialize");    
 

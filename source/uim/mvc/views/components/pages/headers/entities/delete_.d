@@ -11,7 +11,7 @@ import uim.mvc;
 class DMVCDeletePageHeaderViewComponent : DPageHeaderViewComponent {
   mixin(ViewComponentThis!("MVCDeletePageHeaderViewComponent"));
   
-  override void initialize(Json configSettings = Json(null)) {
+  override bool initialize(IData[string] configSettings = null) {
     super.initialize(configSettings);
 
     this
@@ -23,7 +23,7 @@ mixin(ViewComponentCalls!("MVCDeletePageHeader", "DMVCDeletePageHeaderViewCompon
 
 /*
 
-override void initialize(DConfigurationValue configSettings = null) {
+override bool initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
     super.initialize;
     this.actions([["list", "create"]]); 

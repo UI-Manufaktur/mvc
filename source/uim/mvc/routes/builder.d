@@ -10,7 +10,7 @@ import uim.mvc;
 @safe:
 class DRouteBuilder : DMVCObject, IRouteBuilder {
 
-  override void initialize(Json configSettings = Json(null)) {
+  override bool initialize(IData[string] configSettings = null) {
     super.initialize(configSettings);
 
     // Default HTTP request method: controller action map.

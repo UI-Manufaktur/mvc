@@ -11,7 +11,7 @@ import uim.mvc;
 class DAPPGeneralPaneViewComponent : DEntityTabpane {
   mixin(ViewComponentThis!("APPGeneralPaneViewComponent"));
 
-override void initialize(Json configSettings = Json(null)) {
+override bool initialize(IData[string] configSettings = null) {
     super.initialize(configSettings);
   }
 }

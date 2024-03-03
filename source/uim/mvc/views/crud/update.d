@@ -11,7 +11,7 @@ import uim.mvc;
 class DEntityUpdateView : DEntityCRUDView {
   mixin(ViewThis!("EntityUpdateView"));
 
-override void initialize(Json configSettings = Json(null)) {
+override bool initialize(IData[string] configSettings = null) {
     super.initialize(configSettings);
 
     if (auto pgHeader = cast(DPageHeaderViewComponent)this.header) {

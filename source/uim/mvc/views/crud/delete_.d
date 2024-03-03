@@ -11,7 +11,7 @@ import uim.mvc;
 class DEntityDeleteView : DEntityCRUDView {
   mixin(ViewThis!("EntityDeleteView"));
   
-override void initialize(Json configSettings = Json(null)) {
+override bool initialize(IData[string] configSettings = null) {
     super.initialize(configSettings);
 
     this.crudMode(CRUDModes.Delete);
