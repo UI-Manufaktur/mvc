@@ -10,7 +10,7 @@ import uim.mvc;
 class D`~viewName~` : DEntity`~action~`View {
   `~viewThis(viewName, true)~`
 
-override void initialize(DConfigurationValue configSettings = null) {
+override bool initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
     debugMethodCall(moduleName!D`~viewName~`~"::D`~viewName~`("~this.className~"):initialize");   
     super.initialize;

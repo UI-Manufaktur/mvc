@@ -11,17 +11,17 @@ import uim.mvc;
 string mvcObjectThis(string name) {
   return `
     this() { super("`~name~`"); this.className("`~name~`"); }
-    this(Json configSettings) { super("`~name~`", configSettings); }
-    this(IApplication myApplication, Json configSettings = Json(null)) { this(configSettings).application(myApplication); }
+    this(IData[string] configSettings = nullSettings) { super("`~name~`", configSettings); }
+    this(IApplication myApplication, IData[string] configSettings = null) { this(configSettings).application(myApplication); }
 
-    this(string myName, Json configSettings = Json(null)) { this(configSettings).name(myName); }
-    this(STRINGAA myParameters, Json configSettings = Json(null)) { this(configSettings).parameters(myParameters); }
+    this(string myName, IData[string] configSettings = null) { this(configSettings).name(myName); }
+    this(STRINGAA myParameters, IData[string] configSettings = null) { this(configSettings).parameters(myParameters); }
 
-    this(IApplication myApplication, string myName, Json configSettings = Json(null)) { this(myApplication, configSettings).name(myName); }
-    this(IApplication myApplication, STRINGAA myParameters, Json configSettings = Json(null)) { this(myApplication, configSettings).parameters(myParameters); }
+    this(IApplication myApplication, string myName, IData[string] configSettings = null) { this(myApplication, configSettings).name(myName); }
+    this(IApplication myApplication, STRINGAA myParameters, IData[string] configSettings = null) { this(myApplication, configSettings).parameters(myParameters); }
 
-    this(string myName, STRINGAA myParameters, Json configSettings = Json(null)) { this(name, configSettings).parameters(myParameters); }
-    this(IApplication myApplication, string myName, STRINGAA myParameters, Json configSettings = Json(null)) { this(myApplication, name, configSettings).parameters(myParameters); }
+    this(string myName, STRINGAA myParameters, IData[string] configSettings = null) { this(name, configSettings).parameters(myParameters); }
+    this(IApplication myApplication, string myName, STRINGAA myParameters, IData[string] configSettings = null) { this(myApplication, name, configSettings).parameters(myParameters); }
 
     override DMVCObject create() {
       return `~name~`;

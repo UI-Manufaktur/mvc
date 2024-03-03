@@ -13,7 +13,7 @@ class DEntityForm : DForm {
 
   // mixin(OProperty!("DEntity", "entity"));
 
-  override void initialize(Json configSettings = Json(null)) {
+  override bool initialize(IData[string] configSettings = null) {
     super.initialize(configSettings);
   }
 }

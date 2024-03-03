@@ -84,7 +84,7 @@ abstract class DLogFormatter {
     * defaultValue - The return value when the key does not exist.
     * returns Configuration data at the named key or null if the key does not exist.
     */
-  /*     Json config(string aKey = null, Json defaultValue = Json(null)) {
+  /*     IData[string] configSettings = null(string aKey = null, Json defaultValue = Json(null)) {
       if (!_configInitialized) {
           _config = _defaultConfig;
           _configInitialized = true;
@@ -102,7 +102,7 @@ abstract class DLogFormatter {
     * aKey -  The key to get.
     * returns Configuration data at the named key
     */
-  /*   Json configOrFail(string aKey) {
+  /*   IData[string] configSettings = nullOrFail(string aKey) {
       auto myConfig = this.getConfig(aKey);
       if (myConfig.isNull) {
           throw new InvalidArgumentException(sprintf("Expected configuration `%s` not found.", aKey));
@@ -282,7 +282,7 @@ abstract class DLogFormatter {
       this.setConfig(myConfig);
   }
 
-  void initialize(DConfigurationValue configSettings = null) {
+  bool initialize(DConfigurationValue configSettings = null) {
       _defaultConfig = Json.emptyObject;
   }
   /**

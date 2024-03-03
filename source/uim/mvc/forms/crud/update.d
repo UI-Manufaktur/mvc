@@ -11,7 +11,7 @@ import uim.mvc;
 class DMVCUpdateForm : DEntityForm {
   mixin(ViewComponentThis!("MVCUpdateForm"));
 
-  override void initialize(Json configSettings = Json(null)) {
+  override bool initialize(IData[string] configSettings = null) {
     super.initialize(configSettings);
 
     this

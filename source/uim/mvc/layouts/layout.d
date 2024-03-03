@@ -14,7 +14,7 @@ class DLayout : DMVCObject, ILayout {
   this() {
     initialize(); }
 
-  override void initialize(Json configSettings = Json(null)) {
+  override bool initialize(IData[string] configSettings = null) {
     // debug writeln("Initialize 'Layout'"); 
     super.initialize(configSettings);
  

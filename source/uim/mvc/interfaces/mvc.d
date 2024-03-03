@@ -8,7 +8,7 @@ interface IMVCObject {
   string registerPath();
 
   Json defaultConfig();
-  Json config();
+  IData[string] configSettings = null();
 
   void set(string aKey, string aValue);
   string get(string aKey);
