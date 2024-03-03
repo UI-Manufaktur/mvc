@@ -26,7 +26,7 @@ class DView : DMVCObject, IView, IViewComponentManager {
 
   mixin EntityBaseTemplate;
 
-  override void initialize(Json configSettings = Json(null)) {
+  override bool initialize(IData[string] configSettings = null) {
     super.initialize(configSettings);
 
     this
@@ -125,7 +125,7 @@ class DView : DView, IEventDispatcher {
   mixin(ViewThis!("View"));
 
   // Initialization (= hook method)
-override void initialize(DConfigurationValue configSettings = null) {
+override bool initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
     debugMethodCall(moduleName!DView~"::DView("~this.className~"):initialize");   
     super.initialize;

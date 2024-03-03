@@ -18,7 +18,7 @@ class DViewComponent : DMVCObject, IViewComponent, IViewComponentManager {
 
   mixin EntityBaseTemplate;
 
-  override void initialize(Json configSettings = Json(null)) {
+  override bool initialize(IData[string] configSettings = null) {
     version(test_uim_mvc) { debugMethodCall(moduleName!DViewComponent~":DViewComponent("~this.name~")::initialize"); }
     super.initialize(configSettings);
 
@@ -109,7 +109,7 @@ class DViewComponent : DAPPBaseView {
   mixin(ViewComponentThis!"ViewComponent");
   
   
-override void initialize(DConfigurationValue configSettings = null) {
+override bool initialize(DConfigurationValue configSettings = null) {
     super.initialize(configSettings);
     super.initialize; 
 

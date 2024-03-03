@@ -12,7 +12,7 @@ import uim.mvc;
 /* class DNullSessionManager : DSessionManager {
 	this() { super(); this.initialize; }
 
-	override void initialize(Json configSettings = Json(null)) {
+	override bool initialize(IData[string] configSettings = null) {
     super.initialize(configSettings);
 
     this

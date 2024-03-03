@@ -34,7 +34,7 @@ class DSessionManager : ISessionManager {
 		}
 	// #endregion Sessions
 
-	void initialize(Json configSettings = Json(null)) {
+	bool initialize(IData[string] configSettings = null) {
 
     this
       .isNull(true);
