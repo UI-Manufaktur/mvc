@@ -11,7 +11,7 @@ import uim.mvc;
 class DDeleteActionController : DActionController {
   mixin(ControllerThis!("DeleteActionController"));
 
-  override void initialize(Json configSettings = Json(null)) {
+  override bool initialize(IData[string] configSettings = null) {
     super.initialize(configSettings); 
     this.name = "DeleteActionController";
     this.addChecks(HasSessionCheck, DatabaseExistsCheck, HasHTTPSessionCheck, SessionHasSiteCheck); 

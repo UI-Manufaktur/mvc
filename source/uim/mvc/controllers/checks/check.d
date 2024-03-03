@@ -11,7 +11,7 @@ import uim.mvc;
 class DControllerCheck : DControllerComponent, ICheck, ICheckManager {
   mixin(ControllerComponentThis!("ControllerCheck"));
 
-  override void initialize(Json configSettings = Json(null)) {
+  override bool initialize(IData[string] configSettings = null) {
     super.initialize(configSettings);
 
     this
